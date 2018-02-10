@@ -125,7 +125,7 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 * Connect your Android device and run the project in Android Studio.
 
 ## Developing ofxOfelia
-You can help developing ofxOfelia on GitHub: https://github.com/cuinjune/ofelia<br />
+You can help developing ofxOfelia on GitHub: https://github.com/cuinjune/ofxOfelia<br />
 Create an account, clone or fork the repo, then request a push/merge.<br />
 If you find any bugs or suggestions please log them to GitHub as well.
 
