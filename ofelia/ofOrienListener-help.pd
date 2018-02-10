@@ -1,0 +1,55 @@
+#N canvas 321 23 604 520 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofOrienListener 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X text 73 349 (none);
+#X msg 23 88 destroy \, create;
+#X floatatom 385 182 5 0 0 0 - - -, f 5;
+#X text 95 383 float;
+#X text 11 23 listen to the updated orientation of the current window
+;
+#X text 211 383 - the updated orientation of the current window.;
+#X msg 63 210 orien \$1;
+#X floatatom 63 184 5 0 0 0 - - -, f 5;
+#X obj 63 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 90 134 try changing the orientation of the window.;
+#X obj 411 282 symbol;
+#X symbolatom 411 304 10 0 0 0 - - -, f 10;
+#X obj 385 201 sel 0 1 2 3;
+#X msg 329 240 DEFAULT;
+#X msg 390 240 RIGHT;
+#X msg 439 240 INVERT;
+#X msg 494 240 LEFT;
+#X obj 481 5 ofOrienListener;
+#X text 130 89 recreate the current window if it is created by other
+[ofWindow] object so you can change its settings here.;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X obj 385 160 ofOrienListener;
+#X obj 63 156 ofExpr (ofGetOrien + 1) % 4;
+#X connect 8 0 26 0;
+#X connect 9 0 19 0;
+#X connect 13 0 26 0;
+#X connect 14 0 13 0;
+#X connect 15 0 28 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X connect 19 2 22 0;
+#X connect 19 3 23 0;
+#X connect 20 0 17 0;
+#X connect 21 0 17 0;
+#X connect 22 0 17 0;
+#X connect 23 0 17 0;
+#X connect 27 0 9 0;
+#X connect 28 0 14 0;

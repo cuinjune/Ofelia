@@ -1,0 +1,65 @@
+#N canvas 641 23 658 762 10;
+#X obj 27 374 ofHead;
+#X obj 27 396 t b b;
+#X obj 27 138 ofMouseListener;
+#X obj 70 160 list split 1;
+#X msg 65 311 fill \$1 \$2 \$3;
+#X obj 27 489 ofCountUntil 59;
+#X obj 27 631 ofTranslate;
+#X obj 44 582 ofPrepend set;
+#X obj 27 467 ofSetColor 255 153;
+#X obj 78 653 / 2;
+#X obj 27 102 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 65 289 list prepend -30 -30;
+#X obj 27 676 ofCircle;
+#X obj 27 511 t b b f f;
+#X text 152 338 store vector of 2d points.;
+#X msg 27 240 insert -30 -30 0 59;
+#X text 23 19 move the mouse across the window to change the position
+of the circles. the positions of the mouse are recorded into an array
+and played back every frame. between each frame \, the newest value
+are added to the end of each array and the oldest value is deleted.
+;
+#X text 157 311 assign "\$1 \$2"(mousepos) to the index range "\$3~\$3"(which).
+;
+#X text 155 240 insert "-30 \, -30"(invisible pos) to the index range
+"0~59".;
+#X text 307 703 This example was originally written in Processing.
+https://processing.org/examples/storinginput.html;
+#X obj 65 267 ofRcv @which;
+#X obj 104 182 ofSnd @mousepos;
+#X obj 182 267 ofRcv @mousepos;
+#X obj 54 440 ofSnd @which;
+#X obj 220 511 ofRcv @which;
+#X obj 44 560 ofGetVec2f @vecpos;
+#X obj 61 533 ofExpr ($i2 + 1 + $i1) % 60;
+#X obj 27 338 ofLoadVec2f @vecpos;
+#X obj 27 218 ofWindowLoadBang;
+#X obj 54 418 ofExpr ofGetFrameNum % 60;
+#X obj 27 609 ofSepMatrix;
+#X text 102 609 separate render chains in matrix.;
+#X connect 0 0 1 0;
+#X connect 1 0 8 0;
+#X connect 1 1 29 0;
+#X connect 2 1 3 0;
+#X connect 3 1 21 0;
+#X connect 4 0 27 0;
+#X connect 5 0 13 0;
+#X connect 6 0 12 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 12 1;
+#X connect 11 0 4 0;
+#X connect 13 0 30 0;
+#X connect 13 1 25 0;
+#X connect 13 2 26 0;
+#X connect 13 3 9 0;
+#X connect 15 0 27 0;
+#X connect 20 0 11 0;
+#X connect 22 0 11 1;
+#X connect 24 0 26 1;
+#X connect 25 0 7 0;
+#X connect 26 0 25 0;
+#X connect 28 0 15 0;
+#X connect 29 0 23 0;
+#X connect 30 0 6 0;

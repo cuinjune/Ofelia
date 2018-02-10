@@ -1,0 +1,53 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetPos 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 265 139 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#N canvas 321 115 478 358 more_examples 0;
+#X obj 190 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 290 267 5 0 0 0 - - -, f 5;
+#X obj 50 243 unpack f f;
+#X floatatom 50 267 5 0 0 0 - - -, f 5;
+#X floatatom 107 267 5 0 0 0 - - -, f 5;
+#X floatatom 347 267 5 0 0 0 - - -, f 5;
+#X obj 50 219 ofGetPos;
+#X text 34 31 you can also get the value using the global variable
+names "ofGetPosX" and "ofGetPosY".;
+#X obj 290 219 ofExpr \; ofGetPosX \; ofGetPosY \;;
+#X connect 0 0 6 0;
+#X connect 0 0 8 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 6 0 2 0;
+#X connect 8 0 1 0;
+#X connect 8 1 5 0;
+#X restore 480 46 pd more_examples;
+#X text 95 383 list <f \, f>;
+#X obj 265 203 unpack f f;
+#X floatatom 265 235 5 0 0 0 - - -, f 5;
+#X floatatom 322 235 5 0 0 0 - - -, f 5;
+#X text 11 23 get the position of the current window;
+#X text 211 383 - the position of the current window.;
+#X obj 523 5 ofGetPos;
+#X obj 265 170 ofGetPos;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 349 - gets the position of the current window.;
+#X connect 7 0 18 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 18 0 12 0;

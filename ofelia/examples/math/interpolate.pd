@@ -1,0 +1,39 @@
+#N canvas 641 23 684 665 10;
+#X obj 31 327 ofHead;
+#X obj 31 247 ofMouseListener;
+#X obj 31 550 ofTranslate;
+#X obj 31 349 t b b;
+#X obj 31 120 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 74 269 ofDefine \; @mouseX = $i2 \; @mouseY = $i3 \;;
+#X obj 31 156 ofWindowLoadBang;
+#X obj 58 480 ofExpr \; @x = $i1 \; @y = $i2 \; $o1 = @x \; $o2 = @y
+\;;
+#X obj 31 572 ofCircle 33;
+#X obj 58 458 ofLerp;
+#X obj 31 178 ofDefine \; @lerpAmt = 0.05 \; @x \; @y \;;
+#X obj 58 371 ofExpr \; $o1 = @lerpAmt \; $o2 = @x \; $o3 = @mouseX
+\; $o4 = @lerpAmt \; $o5 = @y \; $o6 = @mouseY \;, f 16;
+#X obj 113 458 ofLerp;
+#X text 332 602 This example was originally written in Processing.
+https://processing.org/examples/interpolate.html;
+#X text 29 27 move the mouse across the screen and the circle will
+follow. between drawing each frame of the animation \, the circle moves
+part of the distance(0.05) from its current position towards the cursor
+using the [ofLerp] object. this is the same as the easing under input
+only with [ofLerp] instead.;
+#X connect 0 0 3 0;
+#X connect 1 1 5 0;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 3 1 11 0;
+#X connect 6 0 10 0;
+#X connect 7 0 2 1;
+#X connect 7 1 2 2;
+#X connect 9 0 7 0;
+#X connect 11 0 9 0;
+#X connect 11 1 9 1;
+#X connect 11 2 9 2;
+#X connect 11 3 12 0;
+#X connect 11 4 12 1;
+#X connect 11 5 12 2;
+#X connect 12 0 7 1;

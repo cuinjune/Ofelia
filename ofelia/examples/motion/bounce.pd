@@ -1,0 +1,29 @@
+#N canvas 641 23 682 527 10;
+#X obj 31 416 ofTranslate;
+#X obj 31 438 ofCircle;
+#X obj 31 269 ofHead;
+#X text 327 463 This example was originally written in Processing.
+https://processing.org/examples/bounce.html;
+#X text 29 27 when the shape hits the edge of the window \, it reverses
+its direction.;
+#X obj 31 98 ofSetCircleRes 100;
+#X obj 31 156 ofDefine \; @rad = 60 \; @xspeed = 2.8 \; @yspeed = 2.2
+\; @xdir = 1 \; @ydir = 1 \; @xpos = ofGetWidth/2 \; @ypos = ofGetHeight/2
+\;;
+#X obj 31 291 t b b;
+#X obj 58 313 ofExpr \; @xpos = @xpos + (@xspeed * @xdir) \; @ypos
+= @ypos + (@yspeed * @ydir) \; @xdir = if (@xpos > ofGetWidth - @rad
+|| @xpos < @rad \, -@xdir \, @xdir) \; @ydir = if (@ypos > ofGetHeight
+- @rad || @ypos < @rad \, -@ydir \, @ydir) \; $o1 = @xpos \; $o2 =
+@ypos \; $o3 = @rad \;, f 72;
+#X obj 31 134 ofWindowLoadBang;
+#X obj 31 76 ofWindow 640 400 LEFT TOP 1 102;
+#X connect 0 0 1 0;
+#X connect 2 0 7 0;
+#X connect 7 0 0 0;
+#X connect 7 1 8 0;
+#X connect 8 0 0 1;
+#X connect 8 1 0 2;
+#X connect 8 2 1 1;
+#X connect 9 0 6 0;
+#X connect 10 0 5 0;

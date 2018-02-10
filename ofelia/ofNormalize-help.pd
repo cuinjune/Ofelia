@@ -1,0 +1,63 @@
+#N canvas 321 23 599 587 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofNormalize 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 425 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 433 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 530 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 461 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X floatatom 265 237 5 0 0 0 - - -, f 5;
+#X text 95 433 float;
+#X floatatom 265 155 5 0 0 0 - - -, f 5;
+#X text 95 349 float;
+#X floatatom 314 185 5 0 0 0 - - -, f 5;
+#X floatatom 364 185 5 0 0 0 - - -, f 5;
+#X text 404 184 set the range.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 395 float;
+#X text 211 372 - the lower bound of the range.;
+#X text 211 395 - the upper bound of the range.;
+#X text 72 504 2) float;
+#N canvas 321 119 832 295 more_examples 0;
+#X floatatom 63 215 5 0 0 0 - - -, f 5;
+#X floatatom 293 53 5 0 0 0 - - -, f 5;
+#X floatatom 293 215 5 0 0 0 - - -, f 5;
+#X floatatom 523 215 5 0 0 0 - - -, f 5;
+#X text 139 188 range (0~1);
+#X text 336 52 a value to be normalized.;
+#X text 394 188 range (0~100);
+#X text 649 187 range (100~300);
+#X obj 63 188 ofNormalize;
+#X obj 293 188 ofNormalize 100;
+#X obj 523 188 ofNormalize 100 300;
+#X connect 1 0 8 0;
+#X connect 1 0 9 0;
+#X connect 1 0 10 0;
+#X connect 8 0 0 0;
+#X connect 9 0 2 0;
+#X connect 10 0 3 0;
+#X restore 480 46 pd more_examples;
+#X text 11 23 map the input value to be within 0 and 1;
+#X text 308 154 a value to be normalized.;
+#X text 211 349 - a value to be normalized.;
+#X text 211 433 - float between 0 and 1;
+#X text 72 484 1) float;
+#X obj 505 5 ofNormalize;
+#X obj 265 210 ofNormalize 0 127;
+#X text 211 484 - the lower bound of the range. (default: 0);
+#X text 211 504 - the upper bound of the range. (default: 1);
+#X connect 9 0 28 0;
+#X connect 11 0 28 1;
+#X connect 12 0 28 2;
+#X connect 28 0 7 0;

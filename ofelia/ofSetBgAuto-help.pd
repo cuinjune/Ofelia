@@ -1,0 +1,62 @@
+#N canvas 321 23 602 644 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetBgAuto 3 12 0 18 -204280
+-1 0;
+#X obj 0 431 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 490 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 439 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 498 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 585 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 526 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 439 render bang;
+#X text 211 439 - the incoming render bang.;
+#X obj 75 462 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X obj 286 176 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 95 498 render bang;
+#X text 211 498 - the outgoing render bang.;
+#X obj 238 117 loadbang;
+#X obj 238 138 ofGetLastRenderOrder;
+#X obj 205 159 ofHead;
+#X obj 23 408 ofWindow 320 240 LEFT TOP;
+#X text 95 462 float/symbol;
+#X text 72 549 1) float/symbol;
+#X text 308 175 0: OFF \, 1: ON.;
+#X obj 505 5 ofSetBgAuto;
+#X text 11 23 enable/disable the auto background clearing function
+;
+#X text 21 43 [ofSetBgAuto] sets the background clearing function to
+be auto(default) or not. if non-auto \, then background clearing will
+not occur per frame(at the start of draw) but rather \, whenever [ofClear]
+is called.;
+#X text 211 462 - enables/disables the auto background clearing function.
+;
+#X text 211 549 - enables/disables the auto background clearing function.
+(default: ON);
+#X obj 205 218 ofTranslate 160 120;
+#X obj 205 328 ofCircle 10;
+#X obj 205 306 ofTranslate 100 0;
+#X obj 205 284 ofRotateZ;
+#X obj 205 240 t b b, f 9;
+#X obj 256 262 ofExpr ofGetFrameNum * 0.5;
+#X obj 205 196 ofSetBgAuto ON;
+#X text 23 358 note: changing the fullscreen mode will clear the background
+once even when the background clearing function is disabled. you can
+use [ofCreateFbo] and [ofDrawFbo] instead.;
+#X connect 10 0 31 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 1;
+#X connect 15 0 31 0;
+#X connect 25 0 29 0;
+#X connect 27 0 26 0;
+#X connect 28 0 27 0;
+#X connect 29 0 28 0;
+#X connect 29 1 30 0;
+#X connect 30 0 28 1;
+#X connect 31 0 25 0;

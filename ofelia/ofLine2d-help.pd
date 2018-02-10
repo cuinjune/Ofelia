@@ -1,0 +1,52 @@
+#N canvas 321 23 597 586 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofLine2d 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 423 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 431 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 529 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 459 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 263 108 loadbang;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 349 render bang;
+#X text 211 349 - the incoming render bang.;
+#X text 211 431 - the outgoing render bang.;
+#X text 95 431 render bang;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 11 23 draw a 2d line;
+#X msg 285 221 -50 -50;
+#X msg 341 221 50 50;
+#X text 95 372 list <f \, f>;
+#X text 95 395 list <f \, f>;
+#X text 72 482 1) list <f \, f>;
+#X text 72 503 2) list <f \, f>;
+#X text 383 221 change point1 \, point2.;
+#X obj 523 5 ofLine2d;
+#X obj 263 129 ofGetLastRenderOrder;
+#X obj 230 150 ofHead;
+#X obj 230 172 ofClear 63;
+#X obj 230 194 ofTranslate 160 120;
+#X obj 230 243 ofLine2d -50 0 50 0;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 372 - sets the point1. (x1 \, y1);
+#X text 211 395 - sets the point2. (x2 \, y2);
+#X text 211 482 - sets the initial point1. (x1 \, y1) (default: -50
+\, 0);
+#X text 211 503 - sets the initial point2. (x2 \, y2) (default: 50
+\, 0);
+#X connect 7 0 23 0;
+#X connect 15 0 27 1;
+#X connect 16 0 27 2;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;

@@ -1,0 +1,64 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetOrienLock 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 255 109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#X floatatom 255 152 5 0 0 0 - - -, f 5;
+#X text 95 383 float;
+#N canvas 321 115 576 360 more_examples 0;
+#X floatatom 47 241 5 0 0 0 - - -, f 5;
+#X obj 187 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 187 241 5 0 0 0 - - -, f 5;
+#X floatatom 379 241 5 0 0 0 - - -, f 5;
+#X text 54 31 you can also get the value using the global variable
+name "ofGetOrienLock".;
+#X obj 47 219 ofGetOrienLock;
+#X obj 187 219 ofValue ofGetOrienLock;
+#X obj 379 219 ofExpr ofGetOrienLock;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X restore 480 46 pd more_examples;
+#X text 11 23 get the orientation lock state of the current window
+;
+#X text 191 383 - the orientation lock state of the the current window.
+;
+#X obj 255 171 sel 0 1 2;
+#X msg 229 220 FREE;
+#X msg 275 220 SOFT;
+#X msg 318 220 HARD;
+#X obj 275 262 symbol;
+#X symbolatom 275 284 10 0 0 0 - - -, f 10;
+#X obj 487 5 ofGetOrienLock;
+#X obj 255 130 ofGetOrienLock;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 191 349 - gets the orientation lock state of the current window.
+;
+#X connect 7 0 22 0;
+#X connect 10 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 15 2 18 0;
+#X connect 16 0 19 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 22 0 10 0;

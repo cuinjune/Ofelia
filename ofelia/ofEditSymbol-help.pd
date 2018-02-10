@@ -1,0 +1,91 @@
+#N canvas 321 23 601 851 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofEditSymbol 3 12 0 18 -204280
+-1 0;
+#X obj 0 501 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 720 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 509 cnv 17 3 200 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 728 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 805 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 756 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 529 name <s>;
+#X text 72 779 1) symbol;
+#N canvas 322 115 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X floatatom 26 97 5 0 0 0 - - -, f 5;
+#X text 64 97 the number of elements stored in the array.;
+#X obj 26 407 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 44 407 outputs bang when editing is done.;
+#X obj 26 457 print;
+#X text 95 728 bang;
+#X text 241 728 - outputs bang when editing is done.;
+#X text 241 529 - sets the variable name followed by the index.;
+#X text 241 779 - sets the variable name followed by the index.;
+#X text 11 23 edit the stored symbol;
+#X obj 499 5 ofEditSymbol;
+#X text 195 382 edit the specified array element.;
+#X msg 26 134 assign spider;
+#X text 119 134 assign "spider" to the array element.;
+#X msg 26 164 append man;
+#X text 101 164 append "man" to the array element.;
+#X msg 26 194 prepend black;
+#X text 120 195 prepend "black" to the array element.;
+#X text 108 224 insert "--" to the array element at index "5".;
+#X msg 26 254 replace -- _;
+#X text 113 254 replace "--" with "_" from the array element.;
+#X msg 26 284 remove _;
+#X text 89 284 remove "_" from the array element.;
+#X msg 26 314 erase 0 4;
+#X text 96 314 remove characters at the index range "0~4" from the
+array element.;
+#X msg 26 344 clear;
+#X text 72 344 clear the contents of the array element.;
+#X text 95 549 assign <s>;
+#X text 241 549 - assigns the symbol to the array element.;
+#X text 95 569 append <s>;
+#X text 241 569 - appends the symbol to the array element.;
+#X text 95 589 prepend <s>;
+#X text 241 589 - prepends the symbol to the array element.;
+#X text 95 609 insert <s \, f>;
+#X text 241 609 - inserts the symbol at the specified index.;
+#X text 95 629 replace <s \, s>;
+#X text 241 629 - replaces the symbol with another symbol.;
+#X text 95 669 erase <f \, f>;
+#X text 241 669 - removes characters at the given index range.;
+#X text 95 689 clear;
+#X text 241 689 - clears the contents of the array element.;
+#X text 95 649 remove <s>;
+#X text 241 649 - removes the symbol from the array element.;
+#X msg 26 224 insert -- 5;
+#X obj 26 70 ofLoadSymbol @mySymbols dog cat pig cow duck;
+#X obj 26 382 ofEditSymbol @mySymbols[1];
+#X obj 26 430 ofGetSymbols @mySymbols;
+#X text 95 509 float;
+#X text 241 509 - sets the index of the array element.;
+#X connect 12 0 56 0;
+#X connect 22 0 55 0;
+#X connect 24 0 55 0;
+#X connect 26 0 55 0;
+#X connect 29 0 55 0;
+#X connect 31 0 55 0;
+#X connect 33 0 55 0;
+#X connect 35 0 55 0;
+#X connect 53 0 55 0;
+#X connect 54 0 10 0;
+#X connect 55 0 12 0;
+#X connect 56 0 14 0;

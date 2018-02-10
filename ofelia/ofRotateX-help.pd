@@ -1,0 +1,50 @@
+#N canvas 321 23 596 536 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofRotateX 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 484 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 349 render bang;
+#X text 211 349 - the incoming render bang.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 408 render bang;
+#X text 211 408 - the outgoing render bang.;
+#X text 95 372 float;
+#X obj 268 100 loadbang;
+#X text 517 5 or;
+#X floatatom 304 233 5 0 0 0 - - -, f 5;
+#X text 72 459 1) float;
+#X text 11 23 rotate around the x-axis of the coordinate system;
+#X text 211 372 - degrees to rotate around the x-axis.;
+#X obj 456 5 ofRotateX;
+#X obj 535 5 ofRotX;
+#X text 21 43 [ofRotateX] produces a rotation of angle "degrees" around
+the x-axis of the coordinate system.;
+#X obj 268 121 ofGetLastRenderOrder;
+#X obj 235 142 ofHead;
+#X obj 235 163 ofClear 63;
+#X obj 235 184 ofTranslate 160 120;
+#X obj 235 206 ofSetRectMode CENTER;
+#X obj 235 254 ofRotateX 30;
+#X obj 235 275 ofSquare 100;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 459 - degrees to rotate around the x-axis. (default: 0)
+;
+#X connect 13 0 22 0;
+#X connect 15 0 27 1;
+#X connect 22 0 23 1;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;

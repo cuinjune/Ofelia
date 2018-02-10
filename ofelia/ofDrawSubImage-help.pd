@@ -1,0 +1,129 @@
+#N canvas 321 23 601 851 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofDrawSubImage 3 12 0 18 -204280
+-1 0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 598 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 606 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 803 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 634 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 657 1) symbol;
+#X obj 23 359 ofWindow 320 240 LEFT TOP;
+#X text 95 389 render bang;
+#X text 95 606 render bang;
+#X text 211 389 - the incoming render bang.;
+#X text 211 606 - the outgoing render bang.;
+#X obj 75 455 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 455 float;
+#X obj 75 478 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 478 float;
+#X text 72 677 2) float;
+#X text 72 697 3) float;
+#X text 95 429 name <s>;
+#N canvas 322 114 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X obj 56 174 loadbang;
+#X obj 56 195 ofGetLastRenderOrder;
+#X obj 23 216 ofHead;
+#X obj 23 237 ofClear 63;
+#X text 233 119 the number of elements stored in the array.;
+#X floatatom 194 119 5 0 0 0 - - -, f 5;
+#X obj 23 139 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 42 139 outputs bang when loading is done.;
+#X floatatom 69 269 5 0 0 0 - - -, f 5;
+#X floatatom 116 269 5 0 0 0 - - -, f 5;
+#X obj 487 5 ofDrawSubImage;
+#X text 11 23 draw a subsection of the image;
+#X floatatom 162 268 5 0 0 0 - - -, f 5;
+#X floatatom 209 268 5 0 0 0 - - -, f 5;
+#X floatatom 255 268 5 0 0 0 - - -, f 5;
+#X floatatom 302 268 5 0 0 0 - - -, f 5;
+#X text 19 315 note: if one of the dimensions is set to non-zero value
+\, it will use the specified dimensions and be scaled accordingly.
+;
+#X text 318 294 draw the stored image.;
+#X obj 75 501 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 501 float;
+#X obj 75 524 cnv 17 3 17 empty empty 4 5 9 0 16 -228856 -162280 0
+;
+#X text 95 524 float;
+#X obj 75 547 cnv 17 3 17 empty empty 5 5 9 0 16 -228856 -162280 0
+;
+#X text 95 547 float;
+#X obj 75 570 cnv 17 3 17 empty empty 6 5 9 0 16 -228856 -162280 0
+;
+#X text 95 570 float;
+#X text 72 717 4) float;
+#X text 72 737 5) float;
+#X text 72 757 6) float;
+#X text 72 777 7) float;
+#N canvas 322 114 489 238 texture_wrapping 0;
+#X obj 87 78 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X obj 140 78 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 160 78 0: REPEAT;
+#X text 160 93 1: MIRRORED_REPEAT;
+#X text 160 108 2: CLAMP_TO_EDGE;
+#X text 32 29 set how the texture wraps around the edges of the vertices
+horizontally and vertically.;
+#X obj 35 132 ofPack texWrap 2 2;
+#X obj 35 179 ofEditImage @myImages[0];
+#X connect 0 0 6 1;
+#X connect 1 0 6 2;
+#X connect 6 0 7 0;
+#X restore 301 359 pd texture_wrapping;
+#X text 211 455 - sets the width.;
+#X text 211 478 - sets the height.;
+#X text 211 501 - sets x position to draw cropped image at.;
+#X text 211 524 - sets y position to draw cropped image at.;
+#X text 211 547 - sets the width of subsection to draw.;
+#X text 211 570 - sets the height of subsection to draw.;
+#X text 211 677 - sets the width. (default: 0);
+#X text 211 697 - sets the height. (default: 0);
+#X text 211 717 - sets x position to draw cropped image at. (default:
+0);
+#X text 211 737 - sets y position to draw cropped image at.(default:
+0);
+#X text 211 757 - sets the width of subsection to draw. (default: 0)
+;
+#X text 211 777 - sets the height of subsection to draw. (default:
+0);
+#X text 211 429 - sets the variable name followed by the index.;
+#X text 211 657 - sets the variable name followed by the index.;
+#X obj 23 293 ofDrawSubImage @myImages[0] 320 240 0 0 800 600;
+#X text 95 409 float;
+#X text 211 409 - sets the index of the array element.;
+#X obj 23 65 ofLoadImage \; @myImages \; examples/data/background.jpg
+\; examples/data/texture.jpg \;;
+#X connect 21 0 22 0;
+#X connect 22 0 23 1;
+#X connect 23 0 24 0;
+#X connect 24 0 66 0;
+#X connect 29 0 66 1;
+#X connect 30 0 66 2;
+#X connect 33 0 66 3;
+#X connect 34 0 66 4;
+#X connect 35 0 66 5;
+#X connect 36 0 66 6;
+#X connect 69 0 27 0;
+#X connect 69 1 26 0;

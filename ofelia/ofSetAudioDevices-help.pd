@@ -1,0 +1,66 @@
+#N canvas 321 23 596 653 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetAudioDevices 3 12 0 18 -204280
+-1 0;
+#X obj 0 401 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 520 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 409 cnv 17 3 100 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 602 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 553 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 576 (none);
+#X text 95 409 bang;
+#X text 11 23 set input/output audio device \, sample rate and block
+size;
+#X msg 195 253 print;
+#X obj 90 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 90 117 input \$1 1;
+#X msg 189 117 output \$1 2;
+#X msg 195 223 blockSize 128;
+#X obj 195 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 306 193 set sample rate.;
+#X text 287 223 set block size.;
+#X text 218 283 apply the current setting.;
+#X text 240 252 print the current setting.;
+#X msg 195 163 input 0 1 \, output 0 2;
+#X text 95 429 input <f/s \, f>;
+#X text 269 117 <device name \, number of channels>;
+#X text 194 146 or you can use float to set 'n'th available device.
+;
+#X text 335 163 <device id \, number of channels>;
+#X text 95 449 output <f/s \, f>;
+#X text 95 469 sampleRate <f>;
+#X msg 195 193 sampleRate 48000;
+#X text 231 469 - sets the sample rate.;
+#X text 95 489 blockSize <f>;
+#X text 231 489 - sets the block size.;
+#X text 95 528 (none);
+#X msg 195 314 sampleRate 44100 \, blockSize 64 \, bang;
+#X text 198 335 change multiple settings at once.;
+#X text 112 71 set first avaiable input/output device.;
+#X obj 469 5 ofSetAudioDevices;
+#X obj 90 96 ofGetAudioDevices;
+#X obj 90 357 ofSetAudioDevices;
+#X text 231 409 - applies the current setting.;
+#X text 231 429 - sets input <device id/name \, number of channels>
+;
+#X text 231 449 - sets output <device id/name \, number of channels>
+;
+#X text 207 358 note: changing the settings may not work properly on
+some platforms.;
+#X connect 9 0 36 0;
+#X connect 10 0 35 0;
+#X connect 11 0 36 0;
+#X connect 12 0 36 0;
+#X connect 13 0 36 0;
+#X connect 14 0 36 0;
+#X connect 19 0 36 0;
+#X connect 26 0 36 0;
+#X connect 31 0 36 0;
+#X connect 35 0 11 0;
+#X connect 35 1 12 0;

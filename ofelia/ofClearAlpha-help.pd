@@ -1,0 +1,61 @@
+#N canvas 321 23 600 645 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofClearAlpha 3 12 0 18 -204280
+-1 0;
+#X obj 0 471 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 507 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 479 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 515 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 592 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 543 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 479 render bang;
+#X text 211 479 - the incoming render bang.;
+#X text 95 515 render bang;
+#X text 211 515 - the outgoing render bang.;
+#X obj 304 379 spigot;
+#X obj 337 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 72 566 (none);
+#X text 357 354 clear the alpha channel.;
+#X text 11 23 clear the alpha channel of current renderer;
+#X obj 56 104 loadbang;
+#X obj 499 5 ofClearAlpha;
+#X text 21 43 when you draw transparent items into an fbo \, they can
+be blended with the background when drawing the fbo. [ofClearAlpha]
+can be used to make them opaque again.;
+#X obj 56 125 ofGetLastRenderOrder;
+#X obj 23 146 ofHead;
+#X obj 23 168 ofClear 63;
+#X obj 23 212 ofSeparator 3;
+#X obj 23 292 ofTranslate 110 70;
+#X obj 164 292 ofTranslate 110 70;
+#X obj 164 319 ofSetColor blue;
+#X obj 164 347 ofCircle 50;
+#X obj 304 292 ofSetColor red 100;
+#X obj 304 319 ofSquare 100;
+#X obj 304 409 ofClearAlpha;
+#X obj 23 448 ofWindow 320 240 LEFT TOP;
+#X obj 23 409 ofDrawFbo @myFbo;
+#X obj 304 265 ofCreateFbo @myFbo 100 100 RGBA 63;
+#X obj 23 190 ofSetDepthTest OFF;
+#X connect 11 0 29 0;
+#X connect 12 0 11 1;
+#X connect 16 0 19 0;
+#X connect 19 0 20 1;
+#X connect 20 0 21 0;
+#X connect 21 0 33 0;
+#X connect 22 0 23 0;
+#X connect 22 1 24 0;
+#X connect 22 2 32 0;
+#X connect 23 0 31 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 27 0 28 0;
+#X connect 28 0 11 0;
+#X connect 32 0 27 0;
+#X connect 33 0 22 0;

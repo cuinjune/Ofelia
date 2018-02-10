@@ -1,0 +1,71 @@
+#N canvas 641 23 684 619 10;
+#X obj 31 91 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 31 128 ofHead;
+#X text 331 556 This example is based on the openFrameworks example
+"polygonExample";
+#X obj 31 150 ofSetColor 0xFF9933;
+#X obj 31 172 t b b;
+#X obj 31 330 ofBeginShape;
+#X obj 31 352 ofVertex2d;
+#X obj 63 303 pack f f;
+#X obj 154 303 pack f f;
+#X obj 246 303 pack f f;
+#X obj 338 303 pack f f;
+#X obj 31 374 ofBezierVertex2d;
+#X obj 31 396 ofEndShape;
+#X obj 63 464 ofPrepend set;
+#X obj 154 464 ofPrepend set;
+#X obj 246 464 ofPrepend set;
+#X obj 338 464 ofPrepend set;
+#X obj 31 528 ofCircle 4;
+#X obj 31 418 ofSetColor 255 100;
+#X text 29 27 with [ofBezierVertex2d] we can draw a curve from the
+current vertex through the the next three vertices we pass in. (two
+control points and the final bezier point);
+#X obj 63 194 ofExpr \; $o1 = 245 \; $o2 = 200 \; $o3 = 295 + 50 *
+cos(ofGetElapsedTime/1000) \; $o4 = 200 + 100 * sin((ofGetElapsedTime/1000)
+/ 3.5) \; $o5 = 345 + 30 * cos((ofGetElapsedTime/1000) * 2) \; $o6
+= 200 + 100 * sin(ofGetElapsedTime/1000) \; $o7 = 395 \; $o8 = 200
+\;, f 54;
+#X obj 31 491 ofTranslate;
+#X obj 124 491 ofTranslate;
+#X obj 217 491 ofTranslate;
+#X obj 310 491 ofTranslate;
+#X obj 31 440 ofSepMatrix 4, f 47;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 20 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 7 0 6 1;
+#X connect 7 0 13 0;
+#X connect 8 0 11 1;
+#X connect 8 0 14 0;
+#X connect 9 0 11 2;
+#X connect 9 0 15 0;
+#X connect 10 0 11 3;
+#X connect 10 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 18 0;
+#X connect 13 0 21 0;
+#X connect 14 0 22 0;
+#X connect 15 0 23 0;
+#X connect 16 0 24 0;
+#X connect 18 0 25 0;
+#X connect 20 0 7 0;
+#X connect 20 1 7 1;
+#X connect 20 2 8 0;
+#X connect 20 3 8 1;
+#X connect 20 4 9 0;
+#X connect 20 5 9 1;
+#X connect 20 6 10 0;
+#X connect 20 7 10 1;
+#X connect 21 0 17 0;
+#X connect 22 0 17 0;
+#X connect 23 0 17 0;
+#X connect 24 0 17 0;
+#X connect 25 0 21 0;
+#X connect 25 1 22 0;
+#X connect 25 2 23 0;
+#X connect 25 3 24 0;

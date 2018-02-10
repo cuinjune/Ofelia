@@ -1,0 +1,35 @@
+#N canvas 641 23 693 543 10;
+#X obj 31 71 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 31 107 ofHead;
+#X obj 31 129 ofTranslate 320 200;
+#X obj 31 151 ofSetColor 0xff2220;
+#X obj 31 173 ofSetPolyMode ODD;
+#X obj 31 195 ofBeginShape;
+#X obj 31 217 t b b;
+#X obj 58 304 ofCountUntil;
+#X obj 115 346 ofExpr \; _anglef = $i1 * @angleStep \; $o1 = @radius
+* cos(_anglef) \; $o2 = @radius * sin(_anglef) \; @radius = @radius
++ @radiusAdder \;;
+#X obj 58 325 t b f, f 10;
+#X obj 58 433 ofVertex2d;
+#X obj 115 411 pack f f, f 33;
+#X obj 31 459 ofEndShape ON;
+#X obj 58 239 ofDefine \; @angleStep = (pi()*2) / (100 + sin(ofGetElapsedTime/5000)
+* 60) \; @radiusAdder = 0.5 \; @radius = 0 \; $o1 = 200 \;, f 65;
+#X text 29 27 use sin cos and time to make some spirally shape.;
+#X text 331 482 This example is based on the openFrameworks example
+"polygonExample";
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 8 1 11 1;
+#X connect 9 0 10 0;
+#X connect 9 1 8 0;
+#X connect 11 0 10 1;
+#X connect 13 0 7 0;

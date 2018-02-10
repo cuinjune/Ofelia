@@ -1,0 +1,427 @@
+#N canvas 321 23 603 851 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofWindow 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 740 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 380 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 748 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 925 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 776 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 23 208 ofWindow 320 240 LEFT TOP;
+#X text 95 349 render bang;
+#X text 251 348 - the incoming render bang.;
+#X text 95 748 render bang;
+#X text 251 748 - the outgoing render bang.;
+#X text 72 819 2) float;
+#X text 72 799 1) float;
+#X obj 523 5 ofWindow;
+#X text 11 23 handle the output window;
+#X text 21 43 [ofWindow] allows you to create/destroy and interact
+with the output window. although each [ofWindow] object can have its
+own settings for the window respectively \, only one instance of the
+window can exist at a time. therefore \, the existing window's settings
+can only be changed by the object that created it.;
+#X msg 23 138 destroy \, create;
+#X text 132 139 recreate the current window if it is created by other
+[ofWindow] object so you can change its settings here.;
+#X text 166 238 [ofWindow] object's outlet outputs render bang every
+frame before [ofHead] objects. it can be useful to set the state globally
+so it can be applied to all [ofHead] based rendering chains at once.
+;
+#N canvas 321 23 637 851 ofWindow_parameters 0;
+#X obj 38 803 outlet;
+#X floatatom 89 245 5 0 255 0 - - -, f 5;
+#X floatatom 140 245 5 0 255 0 - - -, f 5;
+#X floatatom 191 245 5 0 255 0 - - -, f 5;
+#X msg 38 36 print;
+#X text 87 36 print the current settings.;
+#X msg 38 66 create;
+#X text 89 66 create a window if it doesn't exist yet.;
+#X msg 38 96 destroy;
+#X text 95 96 destroy the existing window.;
+#X msg 38 126 reset;
+#X text 83 126 restore the settings to object creation.;
+#X text 131 155 set the dimensions of the window.;
+#X msg 38 156 dimen 300 200;
+#N canvas 322 253 655 480 pos_parameters 0;
+#X obj 43 403 outlet;
+#X msg 378 109 LEFT;
+#X msg 388 138 CENTER;
+#X msg 398 168 RIGHT;
+#X msg 434 109 TOP;
+#X msg 444 138 MIDDLE;
+#X msg 454 168 BOTTOM;
+#X obj 323 218 ofPack pos LEFT TOP;
+#X obj 378 195 symbol;
+#X obj 434 195 symbol;
+#X obj 43 218 ofPack pos 0 0;
+#X floatatom 83 198 5 0 0 0 - - -, f 5;
+#X floatatom 124 198 5 0 0 0 - - -, f 5;
+#X text 30 58 set the x \, y position of the window.;
+#X text 310 58 or align the window according to the screen.;
+#X connect 1 0 8 0;
+#X connect 2 0 8 0;
+#X connect 3 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 0;
+#X connect 7 0 0 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 2;
+#X connect 10 0 0 0;
+#X connect 11 0 10 1;
+#X connect 12 0 10 2;
+#X restore 38 186 pd pos_parameters;
+#X text 152 186 set/align the position of the window.;
+#X text 106 216 set the scale of the window.;
+#X msg 38 216 scale 1.5;
+#N canvas 321 283 479 413 more_about_scale 0;
+#X text 23 28 you can set the 'scale' property to scale up or down
+the window while maintaining the ratio between width and height. so
+even if you change the scale value \, it will not affect the dimensions
+and coordinate system used in the application.;
+#X text 23 118 if the window enters a fullscreen mode \, the scale
+value will be maximized to fit in screen. and it will restore the original
+value after exiting the fullscreen mode.;
+#X text 23 238 you can set the scale value in the following ways.;
+#X text 23 268 1) send 'scale' message followed by the float value
+to an active [ofWindow] object. (e.g. 'scale 0.5');
+#X text 23 178 when running the application as standalone on mobile
+devices \, it will always run in fullscreen mode so setting the scale
+value will have no effect on the application.;
+#X text 23 348 3) use the hotkey Cmd/Ctrl + '-' or Cmd/Ctrl + '+' to
+decrease or increase the scale value by 0.1.;
+#X text 23 308 2) resize the window using your mouse. (currently works
+on macOS only);
+#X restore 280 216 pd more_about_scale;
+#X obj 38 266 ofPack bgColor 200 200 200;
+#X text 206 266 set the background color.;
+#N canvas 323 330 488 245 more_about_bgColor 0;
+#X text 28 91 (e.g. 'bgColor red' or 'bgColor 255 165 0');
+#X obj 30 185 ofSetBgColor;
+#X text 127 185 <- see the help file for more info.;
+#X text 28 31 you can set the background color in the following ways.
+;
+#X text 28 61 1) send 'bgColor' message followed by the color value
+(symbol/list) to an active [ofWindow] object.;
+#X text 28 121 2) create [ofSetBgColor] object and connect it with
+an active [ofWindow] object's outlet. this case \, the first method
+will have no effect as the background color will be refreshed by the
+[ofSetBgColor] object every frame.;
+#X restore 362 266 pd more_about_bgColor;
+#X floatatom 149 295 5 0 255 0 - - -, f 5;
+#X obj 38 316 ofPack frameRate 60;
+#X obj 119 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 38 366 ofPack VSync 1;
+#X text 135 366 enable/disable the vertical sync.;
+#X obj 143 395 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 159 416 enable/disable the depth test.;
+#N canvas 321 249 636 480 orien_parameters 0;
+#X obj 33 413 outlet;
+#X obj 430 205 symbol;
+#X obj 33 228 ofPack orien 0;
+#X obj 313 228 ofPack orien DEFAULT;
+#X text 310 58 or use symbol to set the orientation.;
+#X text 30 58 use float to set the orientation.;
+#X msg 430 89 DEFAULT;
+#X msg 440 118 RIGHT;
+#X msg 450 148 INVERT;
+#X msg 460 178 LEFT;
+#X obj 114 162 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X text 137 162 0: DEFAULT;
+#X text 137 177 1: RIGHT;
+#X text 137 192 2: INVERT;
+#X text 137 208 3: LEFT;
+#X connect 1 0 3 1;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 1;
+#X restore 38 446 pd orien_parameters;
+#X text 165 446 set the orientation of the window.;
+#X text 189 477 set the orientation lock mode.;
+#N canvas 321 251 727 480 orienLock_parameters 0;
+#X obj 33 413 outlet;
+#X obj 504 195 symbol;
+#X obj 138 167 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj 33 218 ofPack orienLock 0;
+#X msg 504 108 FREE;
+#X msg 514 138 SOFT;
+#X msg 524 168 HARD;
+#X obj 363 218 ofPack orienLock DEFAULT;
+#X text 30 68 use float to set the orientation lock mode.;
+#X text 360 68 or use symbol to set the orientation lock mode.;
+#X text 158 167 0: FREE;
+#X text 158 182 1: SOFT;
+#X text 158 197 2: HARD;
+#X connect 1 0 7 1;
+#X connect 2 0 3 1;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 0 0;
+#X restore 38 476 pd orienLock_parameters;
+#X obj 119 505 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 38 526 ofPack accel 0;
+#X text 134 526 enable/disable the use of accelerometer.;
+#X floatatom 173 555 5 0 255 0 - - -, f 5;
+#X obj 38 576 ofPack accelSmoothing 0;
+#X obj 149 655 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 38 676 ofPack fullscreen 0;
+#X text 165 676 enter/exit the fullscreen mode.;
+#X obj 131 705 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 147 726 enable/disable the use of hotkeys.;
+#X text 143 756 set the title of the window.;
+#X msg 38 756 title My Window;
+#N canvas 322 331 488 329 more_about_accel 0;
+#X text 133 185 <- see the help file for more info.;
+#X text 28 31 the accelerometer only works on mobile devices. you need
+to send 'accel ON' message to an active [ofWindow] object to enable
+the use of accelerometer. when accelerometer is enabled \, the accelerometer
+data will be polled every frame and sent to [ofAccelListener] object.
+;
+#X obj 30 185 ofAccelListener;
+#X obj 30 210 unpack f f f;
+#X floatatom 30 232 5 0 0 0 - - -, f 5;
+#X floatatom 64 252 5 0 0 0 - - -, f 5;
+#X floatatom 99 272 5 0 0 0 - - -, f 5;
+#X text 28 111 you can simulate the accelerometer change on desktop
+platforms by holding down the hotkey Cmd/Ctrl + 'a' and move the mouse
+pointer around the window (make sure to enable the use of acceleromter
+first);
+#X text 71 231 x coordinate. (-1 ~ 1);
+#X text 105 251 y coordinate. (-1 ~ 1);
+#X text 139 271 z coordinate. (-1 ~ 1);
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 3 2 6 0;
+#X restore 380 526 pd more_about_accel;
+#N canvas 321 331 488 478 more_about_orien 0;
+#X text 136 195 <- see the help file for more info.;
+#X obj 30 195 ofOrienListener;
+#X floatatom 30 219 5 0 0 0 - - -, f 5;
+#X obj 30 402 symbol;
+#X symbolatom 30 424 10 0 0 0 - - -, f 10;
+#X obj 30 242 sel 0 1 2 3;
+#X msg 30 280 DEFAULT;
+#X msg 45 310 RIGHT;
+#X msg 61 340 INVERT;
+#X msg 77 370 LEFT;
+#X text 28 31 the orientation settings are mainly designed to be used
+on mobile devices. on mobile devices \, the orientation changes depending
+on the tilt of the device. you can lock/unlock the orientation change
+by setting the orientation lock mode. and you can force setting the
+orientation by sending the 'orien' messaage followed by the orientation
+value to an active [ofWindow] object.;
+#X text 28 141 you can simulate the orientation change on desktop platforms
+by using the hotkey Cmd/Ctrl + 4 arrow keys.;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 5 2 8 0;
+#X connect 5 3 9 0;
+#X connect 6 0 3 0;
+#X connect 7 0 3 0;
+#X connect 8 0 3 0;
+#X connect 9 0 3 0;
+#X restore 375 446 pd more_about_orien;
+#N canvas 321 331 494 252 more_about_orienLock 0;
+#X text 30 33 there are 3 types of orientation lock mode. setting it
+to 'FREE' makes the device use all 4 orientations which means the dimensions
+can be swapped depending on the orientation change.;
+#X text 30 103 setting it to 'SOFT' makes the device use 'DEFAULT'
+and 'INVERT' orientation only which means the dimensions will not be
+swapped.;
+#X text 30 163 setting it to 'HARD' will make the device use 'DEFAULT'
+orientation only which means it will not be affected by the orientation
+change at all.;
+#X restore 375 476 pd more_about_orienLock;
+#N canvas 320 432 494 252 more_about_VSync 0;
+#X text 30 33 vertical sync synchronizes the redraw of the screen to
+the vertical refresh of your screen. The monitor or projector redraws
+the screen at usually 60 frames per second. If you don't enable the
+vertical sync \, your application runs as fast as possible and the
+screen can be drawing half of one frame and half of the previous \,
+getting an effect called screen tearing. to avoid it \, you synchronize
+the draw of your app with the refresh of the screen. it is enabled
+by default.;
+#X restore 339 366 pd more_about_VSync;
+#N canvas 321 331 488 399 more_about_hotkeys 0;
+#X text 28 251 - Cmd/Ctrl + 'f': enter/exit the fullscreen mode.;
+#X text 28 271 - Cmd/Ctrl + 'p': print the current settings.;
+#X text 28 291 - Cmd/Ctrl + 'r': restore the settings to object creation.
+;
+#X text 28 211 - Cmd/Ctrl + 'a' + mouse: simulate the accelerometer
+change.;
+#X text 28 311 - Cmd/Ctrl + 't' + mouse: simulate multitouch.;
+#X text 28 331 - Cmd/Ctrl + 4 arrow keys: simulate the orientation
+change.;
+#X text 28 101 here are the list of hotkeys used for the window.;
+#X text 28 31 hotkeys are used to quickly interact with the active
+window or to simulate mobile device specific events. hotkeys will not
+work when running the application as standalone. you can create your
+own hotkeys with [ofKeyListener] if needed.;
+#X text 28 171 - Cmd/Ctrl + '-': decrease the scale value by 0.1.;
+#X text 28 191 - Cmd/Ctrl + '+': increase the scale value by 0.1.;
+#X text 28 117 (make sure to use them while the window is focused)
+;
+#X text 28 134 (use Command key on MacOS \, Control key on other platforms)
+;
+#X text 28 231 - Cmd/Ctrl + 'c': show/hide the cursor.;
+#X restore 357 726 pd more_about_hotkeys;
+#X obj 38 726 ofPack hotkeys 1;
+#X obj 38 416 ofPack depthTest 0;
+#X text 187 576 set the smoothing amount for accelerometer. (range:
+0~1);
+#X text 163 316 set the frame rate to a given target. (range: 20~300)
+;
+#X obj 125 605 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 38 626 ofPack cursor 0;
+#X text 142 626 show/hide the mouse cursor.;
+#X connect 1 0 19 1;
+#X connect 2 0 19 2;
+#X connect 3 0 19 3;
+#X connect 4 0 0 0;
+#X connect 6 0 0 0;
+#X connect 8 0 0 0;
+#X connect 13 0 0 0;
+#X connect 14 0 0 0;
+#X connect 17 0 0 0;
+#X connect 19 0 0 0;
+#X connect 22 0 23 1;
+#X connect 23 0 0 0;
+#X connect 24 0 25 1;
+#X connect 25 0 0 0;
+#X connect 27 0 51 1;
+#X connect 29 0 0 0;
+#X connect 32 0 0 0;
+#X connect 33 0 34 1;
+#X connect 34 0 0 0;
+#X connect 36 0 37 1;
+#X connect 37 0 0 0;
+#X connect 38 0 39 1;
+#X connect 39 0 0 0;
+#X connect 41 0 50 1;
+#X connect 44 0 0 0;
+#X connect 50 0 0 0;
+#X connect 51 0 0 0;
+#X connect 54 0 55 1;
+#X connect 55 0 0 0;
+#X restore 58 177 pd ofWindow_parameters;
+#X text 95 368 create;
+#X text 95 388 destroy;
+#X text 95 408 reset;
+#X text 95 428 dimen <f \, f>;
+#X text 95 448 pos <f/s \, f/s>;
+#X text 95 468 scale <f>;
+#X text 95 488 bgColor <s/l>;
+#X text 95 508 frameRate <f>;
+#X text 95 568 orien <f/s>;
+#X text 95 588 orienLock <f/s>;
+#X text 95 628 accelSmoothing <f>;
+#X text 95 708 title <a>;
+#X text 72 839 3) float/symbol;
+#X text 72 859 4) float/symbol;
+#X text 72 879 5) float;
+#X text 72 899 6) symbol/list;
+#X text 95 528 VSync <f/s>;
+#X text 95 548 depthTest <f/s>;
+#X text 95 608 accel <f/s>;
+#X text 95 668 fullscreen <f/s>;
+#X text 95 688 hotkeys <f/s>;
+#X text 251 368 - creates a window if it doesn't exist yet.;
+#X text 251 388 - destroys the existing window.;
+#X text 251 408 - restores the settings to object creation.;
+#X text 251 428 - sets the dimensions of the window.;
+#X text 251 448 - sets/aligns the position of the window.;
+#X text 251 468 - sets the scale of the window.;
+#X text 251 488 - sets the background color.;
+#X text 251 508 - sets the frame rate to a given target.;
+#X text 251 528 - enables/disables the vertical sync.;
+#X text 251 548 - enables/disables the depth test.;
+#X text 251 568 - sets the orientation of the window.;
+#X text 251 588 - sets the orientation lock mode.;
+#X text 251 608 - enables/disables the use of accelerometer.;
+#X text 251 628 - sets the smoothing amount for accelerometer.;
+#X text 251 668 - enters/exits the fullscreen mode.;
+#X text 251 688 - enables/disables the use of hotkeys.;
+#X text 251 708 - sets the title of the window.;
+#X text 251 799 - sets the width of the window. (default: 320);
+#X text 251 819 - sets the height of the window. (default: 240);
+#X text 251 839 - sets/aligns the x position of the window. (default:
+0);
+#X text 251 859 - sets/aligns the y position of the window. (default:
+0);
+#X text 251 879 - sets the scale of the window. (default: 1);
+#X text 251 899 - sets the background color. (default: 200);
+#X text 95 648 cursor <f/s>;
+#X obj 23 240 ofSetDepthTest OFF;
+#X obj 23 262 ofSetRectMode CORNER;
+#X obj 23 284 ofSetCircleRes 50;
+#X obj 23 306 ofSetLineWidth 1;
+#X text 251 648 - shows/hides the mouse cursor.;
+#X text 166 298 note: the outlet only works if the object is owner
+of the existing window. (if the object created the current window)
+;
+#N canvas 321 172 649 693 common_traits 0;
+#X text 41 40 there are some common traits that are applied to all
+objects in ofelia.;
+#X text 41 130 2) camal case: each consecutive word in an object's
+name starts with an upper-case letter. (e.g. "ofGetScreenWidth");
+#X text 41 90 1) object naming: object names start with "of". (e.g.
+"ofDrawImage");
+#X obj 47 254 ofRectangle 90 70;
+#X msg 47 211 set 100 80;
+#X text 41 170 3) set: sending a "set" message followed by arguments
+to an object updates values of the creation arguments.;
+#X msg 47 351 print;
+#X obj 157 394 ofGetWidth;
+#X msg 157 351 print;
+#X text 41 290 4) print: sending a "print" message to an object prints
+the stored property values to the pd console. (it only works for objects
+that store any value);
+#X obj 47 394 ofMaterial;
+#X obj 47 488 ofLoadMesh2d \$0-myMesh2d vertex -50 50 vertex 0 -50
+vertex 50 50 color 255 0 0 255 color 0 255 0 255 color 0 0 255 255
+;
+#X text 41 430 5) semicolon: if you use a semicolon as a first creation
+argument \, all semicolon arguments will be removed internally. it
+is used to make the object more readable.;
+#X text 171 576 this one is more readable than the first one although
+they are internally identical.;
+#X text 205 351 "print" doesn't work for objects that store no value.
+;
+#X obj 47 538 ofLoadMesh2d \; @myMesh2d \; vertex -50 50 \; vertex
+0 -50 \; vertex 50 50 \; color 255 0 0 255 \; color 0 255 0 255 \;
+color 0 0 255 255 \;;
+#X connect 4 0 3 0;
+#X connect 6 0 10 0;
+#X connect 8 0 7 0;
+#X restore 480 46 pd common_traits;
+#X connect 7 0 66 0;
+#X connect 17 0 7 0;
+#X connect 20 0 7 0;
+#X connect 66 0 67 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;

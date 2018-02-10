@@ -1,0 +1,47 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetLastFrameTime 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 265 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#X floatatom 265 212 10 0 0 0 - - -, f 10;
+#X text 95 383 float;
+#N canvas 322 115 641 338 more_examples 0;
+#X floatatom 40 241 10 0 0 0 - - -, f 10;
+#X obj 200 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 200 241 10 0 0 0 - - -, f 10;
+#X floatatom 420 241 10 0 0 0 - - -, f 10;
+#X text 54 31 you can also get the value using the global variable
+name "ofGetLastFrameTime".;
+#X obj 40 219 ofGetLastFrameTime;
+#X obj 200 219 ofValue ofGetLastFrameTime;
+#X obj 420 219 ofExpr ofGetLastFrameTime;
+#X connect 1 0 5 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X restore 480 46 pd more_examples;
+#X obj 463 5 ofGetLastFrameTime;
+#X obj 265 180 ofGetLastFrameTime;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 11 23 get the last frame time in milliseconds;
+#X text 211 349 - gets the last frame time in milliseconds.;
+#X text 211 383 - the last frame time of in milliseconds.;
+#X connect 7 0 14 0;
+#X connect 14 0 10 0;

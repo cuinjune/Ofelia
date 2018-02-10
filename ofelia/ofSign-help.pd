@@ -1,0 +1,28 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSign 3 12 0 18 -204280 -1 0
+;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X floatatom 275 207 10 0 0 0 - - -, f 10;
+#X floatatom 275 155 5 0 0 0 - - -, f 5;
+#X text 95 349 float;
+#X text 11 23 get the sign of a value;
+#X text 161 383 - -1 if n is negative \, 1 if n is positive \, and
+0 is n == 0;
+#X text 161 349 - an incoming value.;
+#X text 95 383 float;
+#X obj 275 180 ofSign;
+#X obj 535 5 ofSign;
+#X connect 9 0 15 0;
+#X connect 15 0 8 0;

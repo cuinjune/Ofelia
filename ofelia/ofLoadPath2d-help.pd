@@ -1,0 +1,334 @@
+#N canvas 321 23 601 800 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofLoadPath2d 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 640 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 280 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 648 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 745 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 676 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 648 float;
+#X text 95 349 name <s>;
+#X text 95 369 load <l>;
+#X text 95 409 append <l>;
+#X text 95 429 prepend <l>;
+#X text 95 489 erase <f \, f>;
+#X text 95 509 clear;
+#X text 72 699 1) symbol;
+#X text 72 719 2) list;
+#N canvas 321 134 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X floatatom 23 238 5 0 0 0 - - -, f 5;
+#X text 241 648 - the number of elements stored in the array.;
+#X text 64 238 the number of elements stored in the array.;
+#N canvas 322 23 601 851 related_getter_objects 0;
+#X obj 30 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 30 248 0 0;
+#X msg 65 248 0 49;
+#X msg 107 248 0 50;
+#X floatatom 30 295 5 0 0 0 - - -, f 5;
+#X obj 30 319 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 365 print;
+#X obj 30 392 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 438 print;
+#X obj 30 465 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 511 print;
+#X obj 30 538 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 78 5 0 0 0 - - -, f 5;
+#X text 145 248 check if a 2d point is within a closed path.;
+#X text 76 294 0: not inside \, 1: inside.;
+#X text 72 78 0: not exists \, 1: exists.;
+#X text 53 31 check if the path2d variable name exists or not.;
+#X obj 30 56 ofDoesPath2dNameExist @myPath2d;
+#X obj 30 273 ofIsPointInsidePath2d @myPath2d;
+#X obj 30 343 ofGetPath2dCommand @myPath2d[1];
+#X obj 30 416 ofGetPath2dCommands @myPath2d;
+#X obj 30 489 ofGetPath2dTessellation @myPath2d;
+#X obj 30 562 ofGetPath2dBoundingBox @myPath2d;
+#X text 53 318 get a path2d command at the index "1". (starting from
+"0");
+#X text 53 391 get all path2d commands as a list.;
+#X obj 30 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 148 print;
+#X obj 30 126 ofGetPath2dPoint @myPath2d[1];
+#X text 53 101 get a path2d point at the index "1". (starting from
+"0");
+#X obj 30 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 221 print;
+#X text 53 174 get all path2d points as a list.;
+#X obj 30 199 ofGetPath2dPoints @myPath2d;
+#X obj 30 611 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 635 ofGetPath2dCentroid @myPath2d;
+#X text 53 610 get the center position of the path2d area.;
+#X obj 30 684 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 53 683 get the precise area of the path2d.;
+#X obj 30 708 ofGetPath2dArea @myPath2d;
+#X obj 30 730 print;
+#X obj 30 657 print;
+#X obj 30 584 print;
+#X obj 30 757 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 803 print;
+#X text 53 756 get the size of the perimeter of the path2d.;
+#X obj 30 781 ofGetPath2dPerimeter @myPath2d;
+#X text 53 537 get the dimensions of the path2d bounding box.;
+#X text 53 464 get the tessellation data to convert path2d to mesh2d.
+;
+#X connect 0 0 17 0;
+#X connect 1 0 18 0;
+#X connect 2 0 18 0;
+#X connect 3 0 18 0;
+#X connect 5 0 19 0;
+#X connect 7 0 20 0;
+#X connect 9 0 21 0;
+#X connect 11 0 22 0;
+#X connect 17 0 12 0;
+#X connect 18 0 4 0;
+#X connect 19 0 6 0;
+#X connect 20 0 8 0;
+#X connect 21 0 10 0;
+#X connect 22 0 41 0;
+#X connect 25 0 27 0;
+#X connect 27 0 26 0;
+#X connect 29 0 32 0;
+#X connect 32 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 40 0;
+#X connect 36 0 38 0;
+#X connect 38 0 39 0;
+#X connect 42 0 45 0;
+#X connect 45 0 43 0;
+#X restore 23 288 pd related_getter_objects;
+#X obj 499 5 ofLoadPath2d;
+#X text 95 529 rectMode <f/s>;
+#X text 95 549 polyMode <f/s>;
+#X text 95 569 circleRes <f>;
+#X text 95 589 curveRes <f>;
+#X text 95 609 simplify <f>;
+#X text 95 449 insert <l \, f \, f>;
+#X text 95 469 fill <l \, f \, f>;
+#X obj 23 319 ofWindow 320 240 LEFT TOP;
+#N canvas 321 134 895 738 path2d_example 0;
+#X msg 36 33 print;
+#X obj 36 685 outlet;
+#X msg 36 70 load moveTo 0 0 lineTo 100 0 lineTo 100 100 lineTo 0 100
+close;
+#X text 85 33 print the current settings and stored array elements.
+;
+#X msg 36 167 add circle 50;
+#X text 128 167 add an element "circle 50" to the end of the array.
+;
+#X msg 36 204 erase 2 2;
+#X obj 36 479 ofPack circleRes 50;
+#X floatatom 147 459 5 0 0 0 - - -, f 5;
+#X text 186 458 change the circle resolution.;
+#X floatatom 135 569 5 0 0 0 - - -, f 5;
+#X obj 36 589 ofPack simplify 0;
+#X text 175 568 simplify the path \, removing unnecessary points.;
+#X obj 36 424 ofPack polyMode 0;
+#X obj 135 344 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 36 626 clear;
+#X text 81 626 remove all elements from the array.;
+#X msg 36 241 fill heart 100 100 5 5;
+#X floatatom 141 514 5 0 0 0 - - -, f 5;
+#X obj 36 534 ofPack curveRes 50;
+#X text 180 513 change the curve resolution.;
+#X obj 36 297 ofPack rectMode 0;
+#X obj 135 277 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 393 70 (re)initialize an array with "moveTo 0 0" \, "lineTo
+100 0" \, "lineTo 100 100" \, "lineTo 0 100" \, "close".;
+#X text 105 204 remove the index range "2~2".;
+#X text 184 241 assign "heart 100 100" to the index range "5~5".;
+#X text 155 277 0: CORNER \, 1: CENTER.;
+#X text 152 298 note: rectMode only applies to prebuilt rectangular
+shapes such as square \, rectangle \, rectRounded.;
+#X text 154 344 0: ODD: fill odd numbers \, default setting.;
+#X text 154 359 1: NONZERO: fill non-zero numbers.;
+#X text 154 374 2: POSITIVE: fill positive numbers.;
+#X text 154 389 3: NEGATIVE: fill negative numbers.;
+#X text 154 404 4: ABS_GEQ_TWO: fill absolute values greater than or
+equal to 2;
+#X msg 36 120 load moveTo 0 0 lineTo 100 0 100 100 0 100 close;
+#X text 342 120 this is identical to the one above as you can skip
+writing the repeating command names.;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 4 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 1;
+#X connect 10 0 11 1;
+#X connect 11 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 13 1;
+#X connect 15 0 1 0;
+#X connect 17 0 1 0;
+#X connect 18 0 19 1;
+#X connect 19 0 1 0;
+#X connect 21 0 1 0;
+#X connect 22 0 21 1;
+#X connect 33 0 1 0;
+#X restore 23 103 pd path2d_example;
+#N canvas 321 136 1016 599 list_of_path2d_commands 0;
+#X text 37 94 moveTo;
+#X text 37 34 <command name>;
+#X text 207 34 <arguments>;
+#X text 577 34 <description>;
+#X text 37 114 lineTo;
+#X text 37 134 arc;
+#X text 37 154 curveTo;
+#X text 37 174 bezierTo;
+#X text 37 194 quadBezierTo;
+#X text 37 214 close;
+#X text 37 234 circle;
+#X text 37 254 ellipse;
+#X text 37 274 sector;
+#X text 37 294 triangle;
+#X text 577 314 draw an equilateral triangle.;
+#X text 577 334 draw an isosceles triangle.;
+#X text 37 354 quad;
+#X text 577 354 draw a 2d quadrilateral.;
+#X text 37 374 square;
+#X text 577 374 draw a square.;
+#X text 577 394 draw a rectangle.;
+#X text 37 434 rectRounded4;
+#X text 37 414 rectRounded;
+#X text 577 414 draw a rounded rectangle with a given corner radius.
+;
+#X text 37 454 cross;
+#X text 577 454 draw a cross.;
+#X text 37 474 heart;
+#X text 577 474 draw a heart.;
+#X text 37 494 moon;
+#X text 577 494 draw a moon.;
+#X text 37 514 regPolygon;
+#X text 577 514 draw a regular polygon.;
+#X text 37 534 star;
+#X text 577 534 draw a star.;
+#X text 37 394 rectangle (rect);
+#X text 37 314 eqTriangle (eqTri);
+#X text 37 334 isoTriangle (isoTri);
+#X text 577 434 draw a rounded rectangle with given 4 corner radiuses.
+;
+#X text 207 94 x \, y.;
+#X text 207 114 x \, y.;
+#X text 207 134 radiusX \, radiusY \, angleBegin \, angleEnd.;
+#X text 207 154 x \, y.;
+#X text 207 174 cx1 \, cy1 \, cx2 \, cy2 \, x \, y.;
+#X text 207 194 cx1 \, cy1 \, cx2 \, cy2 \, x \, y.;
+#X text 207 214 none.;
+#X text 207 234 radius.;
+#X text 207 254 width \, height.;
+#X text 207 274 radiusX \, radiusY \, angleBegin \, angleEnd.;
+#X text 207 294 x1 \, y1 \, x2 \, y2 \, x3 \, y3.;
+#X text 207 314 size.;
+#X text 207 334 width \, height.;
+#X text 207 354 x1 \, y1 \, x2 \, y2 \, x3 \, y3 \, x4 \, y4.;
+#X text 207 374 size.;
+#X text 207 394 width \, height.;
+#X text 207 414 width \, height \, radius.;
+#X text 207 434 width \, height \, radius1 \, radius2 \, radius3 \,
+radius4.;
+#X text 207 454 size \, thickness.;
+#X text 207 474 width \, height.;
+#X text 207 494 width \, height \, phase.;
+#X text 207 514 radius \, numSides.;
+#X text 207 534 radius1 \, radius2 \, numPoints.;
+#X text 207 74 x \, y.;
+#X text 37 54 newSubPath;
+#X text 207 54 none.;
+#X text 37 74 vertex;
+#X text 577 294 draw a 2d triangle.;
+#X text 577 274 draw a sector.;
+#X text 577 254 draw an ellipse.;
+#X text 577 234 draw a circle.;
+#X text 577 214 close the current subpath and creates a new subpath.
+;
+#X text 577 194 draw quadratic bezier line with the 2 control points.
+;
+#X text 577 174 draw cubic bezier line with the 2 control points.;
+#X text 577 154 draw a curve to x \, y from the current position.;
+#X text 577 134 draw an arc at the current position.;
+#X text 577 114 draw a line to x \, y from the current position.;
+#X text 578 94 move the position to x \, y.;
+#X text 577 74 add a point at the end of the path.(identical to lineTo)
+;
+#X text 578 54 create a new subpath.;
+#X restore 161 103 pd list_of_path2d_commands;
+#X text 95 389 add <l>;
+#X text 21 43 [ofLoadPath2d] stores an array of path commands consisting
+of 2d points that can be drawn to the screen \, or used by its related
+"getter" objects.;
+#X text 241 349 - sets the unique variable name for the array.;
+#X text 241 369 - (re)initializes an array with one or more elements.
+;
+#X text 241 389 - adds a single element to the end of the array.;
+#X text 241 409 - appends one or more elements to the array.;
+#X text 241 429 - prepends one or more elements to the array.;
+#X text 241 449 - inserts an element at the specified position.;
+#X text 241 469 - assigns value to all the elements in the range.;
+#X text 241 489 - removes a range of elements from the array.;
+#X text 241 509 - removes all elements from the array.;
+#X text 241 529 - sets the align mode for rectangular objects.;
+#X text 241 549 - sets the poly winding mode.;
+#X text 241 569 - sets the resolution for circular objects.;
+#X text 241 589 - sets the resolution for curved objects.;
+#X text 241 609 - simplifies the path \, removing unnecessary points.
+;
+#X text 241 699 - sets the unique variable name for the array.;
+#X text 241 719 - initializes an array with one or more elements.;
+#N canvas 322 134 638 258 related_drawer_objects 0;
+#X obj 30 119 ofTranslate 160 120;
+#X obj 63 34 loadbang;
+#X obj 63 55 ofGetLastRenderOrder;
+#X obj 30 76 ofHead;
+#X obj 30 97 ofClear 63;
+#X obj 30 173 ofSetFillMode FILLED;
+#X obj 147 151 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 172 150 note: it is internally drawn as mesh when filled \,
+and drawn as polyline when unfilled.;
+#X obj 30 194 ofDrawPath2d @myPath2d;
+#X text 176 194 draw the stored path2d.;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X restore 23 268 pd related_drawer_objects;
+#X floatatom 110 217 5 0 0 0 - - -, f 5;
+#X text 151 217 the number of 2d points.;
+#X text 11 23 store an array of path2d commands;
+#X obj 23 130 ofLoadPath2d \; @myPath2d \; circle 50 \; moveTo 25 0
+\; lineTo -13 22 \; lineTo -13 -22 \; close \;;
+#X connect 30 0 54 0;
+#X connect 54 0 17 0;
+#X connect 54 1 51 0;

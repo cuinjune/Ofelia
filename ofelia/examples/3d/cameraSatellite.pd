@@ -1,0 +1,93 @@
+#N canvas 641 23 799 851 10;
+#X obj 31 81 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 31 759 ofTranslate;
+#X obj 31 825 ofBindImageTex @earth;
+#X obj 31 869 ofSetDepthTest OFF;
+#X obj 31 803 ofRotateY;
+#X obj 31 781 ofRotateZ 23.4;
+#X obj 31 847 ofSphere 100;
+#X msg 63 715 specular 0 \, diffuse 255 \, ambient 0 \, emissive 0
+\, shininess 0;
+#X msg 63 671 specular 0 \, diffuse 255 \, ambient 0;
+#X obj 31 737 ofMaterial;
+#X obj 31 329 ofHead 50 OFF;
+#X obj 31 307 1;
+#X obj 31 285 ofEditImage @earth;
+#X obj 31 693 ofDirectionalLight -130 0 1 0;
+#X msg 31 263 generateMipmap \, minMagFilter LINEAR_MIPMAP_LINEAR LINEAR
+;
+#X obj 31 627 ofCamera;
+#X obj 31 373 t b b;
+#X obj 58 591 ofPrepend lookAt;
+#X obj 58 570 pack f f 0;
+#X obj 63 649 ofWindowLoadBang;
+#X obj 31 139 ofMouseListener;
+#X obj 31 161 bang;
+#X obj 31 183 ofCount 0 1 1;
+#X obj 31 117 ofWindowLoadBang;
+#X obj 184 591 ofPrepend debug;
+#X obj 31 351 ofSetDepthTest ON;
+#X obj 58 395 ofExpr \; _dist = 200 \; _deg = ofGetElapsedTime * 0.02
+% 360 \; _rad = _deg * pi() / 180 \; _cx = ofGetWidth / 2 \; _cy =
+ofGetHeight / 2 \; _bx = _cx - _dist \; $o1 = _cx \; $o2 = _cy \; $o3
+= (_bx - _cx) * cos(_rad) + _cx \; $o4 = _cy \; $o5 = (_bx - _cx) *
+sin(_rad) \; $o6 = _cx \; $o7 = _cy \; $o8 = ofGetElapsedTime / 200
+\;, f 38;
+#X obj 184 570 ofRcv @cameraDebug;
+#X obj 31 205 ofSnd @cameraDebug;
+#X text 384 264 generate mipmap for the current texture and set texture
+minification/magnification scaling filters.;
+#X text 68 161 detect mouse press to enable/disable the camera debug
+mode.;
+#X text 217 693 a light that comes evenly from a given direction.;
+#X text 102 738 set the material of the object.;
+#X text 170 825 bind the image's texture.;
+#X text 116 847 draw a sphere.;
+#X text 152 203 when the debug mode is enabled \, the camera will be
+visible as a 3d shape in a normal view.;
+#X text 129 781 axial tilt.;
+#X text 90 627 set the x \, y \, z position of the camera through its
+inlets.;
+#X text 110 759 move the object to center.;
+#X text 98 803 earth's rotation.;
+#X obj 31 241 ofLoadImage @earth ../data/earth.jpg;
+#X text 258 241 load an image for the earth texture.;
+#X text 29 26 the camera looks at the center while orbiting around
+the earth. click on the screen to toggle between camera view and normal
+view.;
+#X connect 1 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 3 0;
+#X connect 7 0 9 0;
+#X connect 8 0 13 0;
+#X connect 9 0 1 0;
+#X connect 10 0 25 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
+#X connect 16 1 26 0;
+#X connect 17 0 15 0;
+#X connect 18 0 17 0;
+#X connect 19 0 8 0;
+#X connect 19 0 7 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 28 0;
+#X connect 23 0 21 0;
+#X connect 24 0 15 0;
+#X connect 25 0 16 0;
+#X connect 26 0 18 0;
+#X connect 26 1 18 1;
+#X connect 26 2 15 1;
+#X connect 26 3 15 2;
+#X connect 26 4 15 3;
+#X connect 26 5 1 1;
+#X connect 26 6 1 2;
+#X connect 26 7 4 1;
+#X connect 27 0 24 0;
+#X connect 40 0 14 0;

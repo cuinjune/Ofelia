@@ -1,0 +1,377 @@
+#N canvas 321 23 599 595 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofExpr/ofDefine 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 442 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 450 cnv 17 3 17 empty empty n 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 538 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 478 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 450 float;
+#X text 95 349 bang;
+#X text 95 369 float;
+#N canvas 321 184 558 681 about_variable 0;
+#X obj 47 279 ofSend @foo;
+#X floatatom 47 253 5 0 0 0 - - -, f 5;
+#X obj 246 253 ofReceive @foo;
+#X floatatom 246 282 5 0 0 0 - - -, f 5;
+#X floatatom 138 253 5 0 0 0 - - -, f 5;
+#X floatatom 358 282 5 0 0 0 - - -, f 5;
+#X obj 138 279 send v\$0_foo;
+#X obj 358 253 receive v\$0_foo;
+#X text 39 192 the first prefix is the "@" symbol which is used to
+make the variable name local within the same patch. the prefix "@"
+is internally replaced with "v\$0_".;
+#X text 39 322 the second prefix is the "#" symbol which is used to
+make the variable name local within the same canvas. the prefix "#"
+is internally replaced with "v(unique-canvas-name)_".;
+#X floatatom 350 471 5 0 0 0 - - -, f 5;
+#X floatatom 188 383 5 0 0 0 - - -, f 5;
+#X obj 188 470 send;
+#X obj 350 448 ofReceive #foo;
+#X obj 215 426 ofGetCanvasName;
+#X msg 215 448 symbol v\$1_foo;
+#X obj 188 402 t f b;
+#X obj 350 402 ofValue #foo;
+#X obj 350 383 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 350 424 5 0 0 0 - - -, f 5;
+#X text 39 132 for these reasons \, in ofelia we provide special prefix
+symbols to easily localize variable names. (note: this only applies
+to ofelia objects and not the original pd object);
+#X text 39 512 you can use these prefixes in all ofelia objects that
+use variable names.;
+#X obj 47 552 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 177 552 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 177 609 5 0 0 0 - - -, f 5;
+#X obj 320 574 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 320 616 print;
+#X obj 47 574 ofDefine \; @hello = 3 \; #world = 7 \;;
+#X obj 177 574 ofExpr \; @hello + #world \;;
+#X obj 320 552 ofLoadFloat @myList 1 2 3 4;
+#X obj 320 594 ofGetFloats @myList;
+#X text 39 32 in pd \, \$0 is commonly used in variable names for localization
+purpose. (e.g. \$0-name) however \, using \$0 for variable names can
+sometimes be inconvenient to write and hard to read especially when
+used in expressions using [expr]. further more \, you cannot use \$0
+based variable names in a message box.;
+#X floatatom 47 383 5 0 0 0 - - -, f 5;
+#X obj 47 402 t f b, f 6;
+#X msg 80 448 symbol #foo;
+#X obj 47 470 ofSend;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 4 0 6 0;
+#X connect 7 0 5 0;
+#X connect 11 0 16 0;
+#X connect 13 0 10 0;
+#X connect 14 0 15 0;
+#X connect 15 0 12 1;
+#X connect 16 0 12 0;
+#X connect 16 1 14 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 22 0 27 0;
+#X connect 23 0 28 0;
+#X connect 25 0 30 0;
+#X connect 28 0 24 0;
+#X connect 30 0 26 0;
+#X connect 32 0 33 0;
+#X connect 33 0 35 0;
+#X connect 33 1 34 0;
+#X connect 34 0 35 1;
+#X restore 474 46 pd about_variable;
+#X text 11 23 expression evaluation object;
+#X text 21 43 [ofExpr] is used for evalution of control data math expressions.
+it works in a similar way as the existing [expr] object but with a
+few differences.;
+#X text 211 349 - evaluates the expression.;
+#X text 211 369 - sets the inlet variable \, evaluates the expression.
+;
+#X text 95 389 list;
+#X text 211 389 - sets the inlet variables \, evaluates the expression.
+;
+#X obj 75 414 cnv 17 3 17 empty empty n 5 9 0 16 -228856 -162280 0
+;
+#X text 95 414 float;
+#X text 72 500 1) list;
+#X text 211 500 - sets the equation \, expression(ofExpr) or defines
+a variable(ofDefine).;
+#X text 211 414 - sets the inlet variables if used in the object.;
+#X text 211 450 - the result of outlet varables if used in the object.
+;
+#N canvas 322 185 646 674 inlet/outlet_variables 0;
+#X floatatom 47 125 5 0 0 0 - - -, f 5;
+#X floatatom 47 166 5 0 0 0 - - -, f 5;
+#X obj 47 144 ofExpr $o1 = $i1 * 2;
+#X floatatom 47 195 5 0 0 0 - - -, f 5;
+#X floatatom 47 236 5 0 0 0 - - -, f 5;
+#X obj 47 214 ofExpr $i1 * 2;
+#X floatatom 47 265 5 0 0 0 - - -, f 5;
+#X floatatom 47 327 5 0 0 0 - - -, f 5;
+#X text 180 144 equation format. (outlet1 = inlet1 * 2);
+#X text 146 214 expression format. (identical to the one above);
+#X obj 47 284 ofExpr \; $i1 * 2 \; $i1 + 2 \;;
+#X floatatom 92 327 5 0 0 0 - - -, f 5;
+#X text 31 63 - "$i" followed by a number indicates the inlet variable.
+;
+#X text 31 80 - "$o" followed by a number indicates the outlet variable.
+;
+#X floatatom 47 365 5 0 0 0 - - -, f 5;
+#X floatatom 47 427 5 0 0 0 - - -, f 5;
+#X floatatom 47 516 5 0 0 0 - - -, f 5;
+#X msg 47 461 1 2 3;
+#X obj 47 484 ofExpr \; $o1 = $i1 + $i2 + $i3 \;;
+#X text 193 484 you can use list to set multiple inlet variables at
+once.;
+#X text 120 384 you can assign a new value to the inlet variable.;
+#X obj 47 384 ofExpr \; $i1 = 123 \; $o1 = $i1 \;;
+#X floatatom 47 606 5 0 0 0 - - -, f 5;
+#X obj 47 553 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 47 574 ofExpr \; $o1 = $i2 + $i3 \;;
+#X floatatom 93 553 5 0 0 0 - - -, f 5;
+#X floatatom 140 553 5 0 0 0 - - -, f 5;
+#X text 155 574 you can set inlet variables through right(cold) inlets
+and send bang left(hot) inlet to evaluate the expression.;
+#X text 146 234 (it is internally converted to the equation format)
+;
+#X text 31 23 [ofExpr] allows you to use the following variables for
+setting/getting the inlet/outlet variables.;
+#X text 110 279 using the semicolons allows you to write multiple equations
+or expressions. unlike [expr] \, [ofExpr] evaluates expressions from
+top to bottom order and outputs the value from right to left order.
+;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 10 0;
+#X connect 10 0 7 0;
+#X connect 10 1 11 0;
+#X connect 14 0 21 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 21 0 15 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 2;
+#X restore 216 166 pd inlet/outlet_variables;
+#N canvas 320 187 725 472 private_variables 0;
+#X floatatom 47 187 5 0 0 0 - - -, f 5;
+#X text 31 63 - "_" followed by a name indicates the private variable.
+;
+#X text 181 144 the private variable "_diff" can only be used within
+the scope of the object and cannot be shared with other objects.;
+#X floatatom 47 363 5 0 0 0 - - -, f 5;
+#X floatatom 212 363 5 0 0 0 - - -, f 5;
+#X obj 47 144 ofExpr \; _diff = $i1 - $i2 \; $o1 = _diff * _diff \;
+;
+#X msg 47 122 5 2;
+#X obj 47 254 ofExpr \; _centerX = ofGetWidth / 2 \; _centerY = ofGetHeight
+/ 2 \; _offsetX = _centerX * $i1 \; _offsetY = _centerY * $i2 \; _newX
+= _centerX + _offsetX \; _newY = _centerY + _offsetY \; $o1 = _newX
+\; $o2 = _newY \;;
+#X msg 47 232 0.25 0.5;
+#X text 31 23 [ofExpr] allows you to use the private variables which
+is defined and used only within the scope of the object.;
+#X text 228 254 you can use as many private variables as you like.
+it can be used to make the equations more readable and sometimes more
+efficient.;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X connect 7 1 4 0;
+#X connect 8 0 7 0;
+#X restore 216 186 pd private_variables;
+#N canvas 321 186 695 688 public_variables 0;
+#X text 31 73 - "@" followed by a name indicates the patch local variable.
+;
+#X text 31 90 - "#" followed by a name indicates the canvas local variable
+;
+#X text 31 23 [ofExpr] allows you to use the public variables which
+is defined outside of the object and can be shared across multiple
+objects.;
+#X text 45 149 you can define public variables using [ofDefine] or
+[ofValue] object.;
+#X obj 133 186 ofValue @myVar;
+#X obj 47 186 ofDefine \; @myVar \; #myVar \; myVar \;;
+#X obj 133 205 ofValue #myVar;
+#X obj 133 225 ofValue myVar;
+#X obj 47 305 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 47 326 ofDefine \; @myVar = 5 \; #myVar = 20 \; myVar = @myVar
+* 2 \;;
+#X obj 47 405 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 47 480 5 0 0 0 - - -, f 5;
+#X obj 47 426 ofExpr \; $o1 = @myVar \; $o2 = #myVar \; $o3 = myVar
+\;;
+#X floatatom 84 480 5 0 0 0 - - -, f 5;
+#X floatatom 122 480 5 0 0 0 - - -, f 5;
+#X text 230 186 this variable can be shared within the scope of the
+patch.;
+#X text 230 206 this variable can be shared within the scope of the
+canvas.;
+#X text 224 226 this variable can be shared across multiple patches.
+;
+#X text 174 325 you can set the value of defined variables by writing
+as the equation format and by sending bang to its first inlet.;
+#X text 139 425 and you can use the defined variables in [ofExpr] objects.
+;
+#X obj 47 525 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 47 546 ofExpr \; $o1 = @fooVar;
+#X floatatom 47 578 5 0 0 0 - - -, f 5;
+#X text 140 545 note: you cannot use the public variable which is not
+defined. it will print the error message.;
+#X text 47 246 note: unlike [ofExpr] \, [ofDefine] interprets the non-equation
+as a variable to define. in this case \, the variable will be initialized
+to zero.;
+#X text 45 628 note: [ofExpr] currently does not support using array
+variables. you can use [expr] for this purpose.;
+#X text 31 107 - names starting with letters indicate the global variable.
+;
+#X connect 8 0 9 0;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 1 13 0;
+#X connect 12 2 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X restore 216 206 pd public_variables;
+#N canvas 321 187 632 683 functions 0;
+#X obj 31 32 ofExpr abs($i1);
+#X obj 31 52 ofExpr acos($i1);
+#X obj 31 72 ofExpr asin($i1);
+#X obj 31 92 ofExpr atan($i1);
+#X obj 31 112 ofExpr atan2($i1 \, $i2);
+#X obj 31 132 ofExpr ceil($i1);
+#X obj 31 152 ofExpr cos($i1);
+#X obj 31 172 ofExpr cosh($i1);
+#X obj 31 192 ofExpr e();
+#X obj 31 212 ofExpr exp($i1);
+#X obj 31 232 ofExpr fac($i1);
+#X obj 31 252 ofExpr floor($i1);
+#X obj 31 272 ofExpr fmod($i1 \, $i2);
+#X obj 31 292 ofExpr if($i1 \, $i2 \, $i3);
+#X obj 31 312 ofExpr int($i1);
+#X obj 31 332 ofExpr ln($i1);
+#X obj 31 352 ofExpr log($i1);
+#X obj 31 372 ofExpr log10($i1);
+#X obj 31 392 ofExpr max($i1 \, $i2);
+#X obj 31 412 ofExpr min($i1 \, $i2);
+#X obj 31 432 ofExpr ncr($i1 \, $i2);
+#X obj 31 452 ofExpr npr($i1 \, $i2);
+#X obj 31 472 ofExpr pi();
+#X obj 31 492 ofExpr pow($i1 \, $i2);
+#X obj 31 512 ofExpr random($i1 \, $i2);
+#X obj 31 532 ofExpr rint($i1);
+#X obj 31 552 ofExpr sin($i1);
+#X obj 31 572 ofExpr sinh($i1);
+#X obj 31 592 ofExpr sqrt($i1);
+#X obj 31 612 ofExpr tan($i1);
+#X obj 31 632 ofExpr tanh($i1);
+#X text 176 113 returns the arctangent of the quotient of its arguments.
+;
+#X text 139 92 returns the arctangent (in radians) of a number.;
+#X text 139 72 returns the arcsine (in radians) of a number.;
+#X text 139 52 returns the arccosine (in radians) of a number.;
+#X text 133 32 returns the absolute value of a number.;
+#X text 143 132 returns the smallest int greater than or equal to a
+number.;
+#X text 136 152 returns the cosine of a number.;
+#X text 143 172 returns the hyperbolic cosine of a number.;
+#X text 102 192 returns a constant that is the base of the natural
+logarithm;
+#X text 132 232 returns the factorial of a number.;
+#X text 132 212 returns the value of e() to the power of a number.
+;
+#X text 146 252 returns the largest int less than or equal to a number.
+;
+#X text 168 272 returns the remainder of the division of $i1 by $i2.
+;
+#X text 187 292 returns $i2 if $i1 is true \, else returns $i3.;
+#X text 134 312 returns a number converted to an integer.;
+#X text 127 332 returns the natural logarithm of a number.;
+#X text 134 352 returns the natural logarithm of a number.;
+#X text 145 372 returns the base 10 logarithm of a number.;
+#X text 163 392 returns the number with the highest value.;
+#X text 163 412 returns the number with the lowest value.;
+#X text 163 432 returns the number of different \, unordered combinations.
+;
+#X text 163 452 returns the number of possibilities for choosing objects.
+;
+#X text 108 472 returns the pi constant.;
+#X text 162 492 returns the value of $i1 to the power of $i2.;
+#X text 182 512 returns a random number between $i1 and $i2.;
+#X text 139 532 returns a number rounded to a nearby integer.;
+#X text 134 552 returns the sine of a number.;
+#X text 141 572 returns the hyperbolic sine of a number.;
+#X text 141 592 returns the square root of a number.;
+#X text 134 612 returns the tangent of a number.;
+#X text 141 632 returns the hyperbolic tangent of a number.;
+#X restore 216 246 pd functions;
+#N canvas 321 185 599 623 operators 0;
+#X floatatom 43 42 5 0 0 0 - - -, f 5;
+#X floatatom 43 127 5 0 0 0 - - -, f 5;
+#X floatatom 78 127 5 0 0 0 - - -, f 5;
+#X text 164 64 add/subtract/multiply/divide.;
+#X obj 43 62 ofExpr \; $o1 = $i1 + 2 \; $o2 = $i1 - 2 \; $o3 = $i1
+* 2 \; $o4 = $i1 / 2 \;, f 18;
+#X floatatom 113 127 5 0 0 0 - - -, f 5;
+#X floatatom 148 127 5 0 0 0 - - -, f 5;
+#X floatatom 43 180 5 0 0 0 - - -, f 5;
+#X floatatom 43 221 5 0 0 0 - - -, f 5;
+#X floatatom 43 270 5 0 0 0 - - -, f 5;
+#X floatatom 43 311 5 0 0 0 - - -, f 5;
+#X text 147 289 modulus operator.;
+#X obj 43 199 ofExpr $i1 ^ 2;
+#X text 141 199 power operator.;
+#X floatatom 43 360 5 0 0 0 - - -, f 5;
+#X floatatom 43 433 5 0 0 0 - - -, f 5;
+#X text 153 379 comparison operators.;
+#X obj 43 379 ofExpr \; $o1 = $i1 < 20 \; $o2 = $i1 == 20 \; $o3 =
+$i1 > 20 \;;
+#X floatatom 89 433 5 0 0 0 - - -, f 5;
+#X floatatom 136 433 5 0 0 0 - - -, f 5;
+#X floatatom 43 490 5 0 0 0 - - -, f 5;
+#X floatatom 43 552 5 0 0 0 - - -, f 5;
+#X floatatom 172 552 5 0 0 0 - - -, f 5;
+#X text 187 509 logical operators.;
+#X obj 43 509 ofExpr \; $i1 >= 0 && $i1 <= 20 \; $i1 < 0 || $i1 > 20
+\;;
+#X obj 43 289 ofExpr $i1 % 20;
+#X connect 0 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 1 2 0;
+#X connect 4 2 5 0;
+#X connect 4 3 6 0;
+#X connect 7 0 12 0;
+#X connect 9 0 25 0;
+#X connect 12 0 8 0;
+#X connect 14 0 17 0;
+#X connect 17 0 15 0;
+#X connect 17 1 18 0;
+#X connect 17 2 19 0;
+#X connect 20 0 24 0;
+#X connect 24 0 21 0;
+#X connect 24 1 22 0;
+#X connect 25 0 10 0;
+#X restore 216 226 pd operators;
+#X text 21 93 [ofDefine] works almost like [ofExpr] except that it
+defines the variables on object creation and undefines the variables
+when removed. (just like how [value] works);
+#X text 218 298 [ofExpr] and [ofDefine] makes use of Lewis Van Winkle's
+tinyexpr which is free open source software \, licensed under the zlib
+License.;

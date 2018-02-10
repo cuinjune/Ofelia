@@ -1,0 +1,62 @@
+#N canvas 321 23 601 564 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetCanvasName 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 420 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 428 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 505 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 456 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 89 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 95 349 bang;
+#X floatatom 119 149 5 0 0 0 - - -, f 5;
+#X text 95 369 float;
+#X text 72 479 1) float;
+#X text 95 389 level <f>;
+#X obj 127 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 127 212 ofGetMaxFloat;
+#X text 211 389 - sets 'n'th level.;
+#X text 211 479 - the 'n'th level. (default: 0);
+#X text 11 23 get the unique name of the canvas;
+#X text 21 43 [ofGetCanvasName] is used to get the unique name of the
+current or the parent canvas.;
+#X obj 481 5 ofGetCanvasName;
+#X text 211 428 - the unique name of the canvas in a specified level.
+;
+#X obj 89 254 ofGetCanvasName;
+#X symbolatom 89 281 12 0 0 0 - - -, f 12;
+#X text 111 119 get the unique name of the canvas.;
+#X text 95 428 symbol;
+#X text 211 349 - gets the unique name of the canvas.;
+#X text 211 369 - gets the unique name of the canvas in 'n'th level.
+;
+#X text 161 149 get the unique name of the canvas in 'n'th level. (if
+there is any higher level);
+#X text 153 189 get the unique name of the root canvas.;
+#N canvas 486 248 450 300 myCanvas 0;
+#X obj 180 95 inlet;
+#X obj 180 127 ofGetCanvasName;
+#X obj 180 159 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 271 254 pd myCanvas;
+#X obj 271 228 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X symbolatom 271 281 12 0 0 0 - - -, f 12;
+#X floatatom 306 228 5 0 0 0 - - -, f 5;
+#X connect 7 0 21 0;
+#X connect 9 0 21 0;
+#X connect 13 0 14 0;
+#X connect 14 0 21 0;
+#X connect 21 0 22 0;
+#X connect 29 0 31 0;
+#X connect 30 0 29 0;
+#X connect 32 0 29 0;

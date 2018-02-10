@@ -1,0 +1,168 @@
+#N canvas 321 23 601 695 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofCreateFbo 3 12 0 18 -204280
+-1 0;
+#X obj 0 351 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 470 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 359 cnv 17 3 100 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 478 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 635 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 506 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 529 1) symbol;
+#N canvas 321 146 597 436 related_getter_objects 0;
+#X obj 30 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 83 5 0 0 0 - - -, f 5;
+#X obj 30 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 263 unpack f f;
+#X floatatom 30 285 5 0 0 0 - - -, f 5;
+#X floatatom 87 285 5 0 0 0 - - -, f 5;
+#X text 53 211 get the dimensions of the fbo.;
+#X obj 30 322 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 373 5 0 0 0 - - -, f 5;
+#X text 72 83 0: not exists \, 1: exists.;
+#X text 130 284 width \, height.;
+#X text 53 31 check if the fbo variable name exists or not.;
+#X obj 30 56 ofDoesFboNameExist @myFbo;
+#X obj 30 236 ofGetFboDimen @myFbo;
+#X obj 30 346 ofGetFboType @myFbo;
+#X text 72 373 1: RGB \, 2: RGBA.;
+#X text 53 321 get the type of the fbo.;
+#X obj 30 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 173 5 0 0 0 - - -, f 5;
+#X text 72 173 0: not allocated \, 1: allocated.;
+#X obj 30 146 ofIsFboAllocated @myFbo;
+#X text 53 121 check if the fbo is allocated or not.;
+#X connect 0 0 12 0;
+#X connect 2 0 13 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 7 0 14 0;
+#X connect 12 0 1 0;
+#X connect 13 0 3 0;
+#X connect 14 0 8 0;
+#X connect 17 0 20 0;
+#X connect 20 0 18 0;
+#X restore 23 298 pd related_getter_objects;
+#X obj 23 329 ofWindow 320 240 LEFT TOP;
+#X text 95 379 name <s>;
+#X text 95 359 render bang;
+#X text 95 478 render bang;
+#X obj 23 180 ofTranslate 40 40;
+#X obj 23 224 ofStar 30 12 5;
+#X obj 23 202 ofSetColor yellow;
+#X obj 23 116 ofHead;
+#N canvas 322 146 506 404 related_drawer_objects 0;
+#X obj 63 34 loadbang;
+#X obj 63 55 ofGetLastRenderOrder;
+#X obj 30 76 ofHead;
+#X obj 30 97 ofClear 63;
+#X obj 30 272 ofSetDepthTest ON;
+#X obj 30 317 ofSetDepthTest OFF;
+#X obj 30 143 ofTranslate 160 120;
+#X obj 30 295 ofBox 80 80 80;
+#X obj 30 165 t b b;
+#X text 156 249 bind the stored fbo's texture.;
+#X text 138 120 draw the stored fbo.;
+#X obj 57 189 ofGetFrameNum;
+#X obj 30 119 ofDrawFbo @myFbo;
+#X obj 30 249 ofBindFboTex @myFbo;
+#X obj 30 225 ofRotateXYZ;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 12 0;
+#X connect 4 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 5 0;
+#X connect 8 0 14 0;
+#X connect 8 1 11 0;
+#X connect 11 0 14 1;
+#X connect 11 0 14 2;
+#X connect 11 0 14 3;
+#X connect 12 0 6 0;
+#X connect 13 0 4 0;
+#X connect 14 0 13 0;
+#X restore 23 278 pd related_drawer_objects;
+#X text 11 23 create framebuffer object;
+#X obj 505 5 ofCreateFbo;
+#X text 72 549 2) float;
+#X text 72 569 3) float;
+#X text 72 609 5) symbol/list;
+#X text 251 609 - sets the initial color of the fbo. (default: 255
+\, 255);
+#X text 72 589 4) float/symbol;
+#X obj 23 158 ofCreateFbo @myFbo 80 80 RGB orange;
+#X text 21 43 [ofCreateFbo] allows you to create framebuffer object
+that can write drawings to it \, used as an image \, bound as a texture
+\, drawn directly to the screen \, or used by its related "getter"
+objects.;
+#N canvas 321 145 600 445 related_editor_objects 0;
+#X obj 48 68 ofCreateImage @myImage 80 80 RGB;
+#X obj 48 132 ofEditImage @myImage;
+#X msg 48 105 clone @myFbo;
+#X obj 123 176 ofGetLastRenderOrder;
+#X obj 48 198 ofHead 50 OFF;
+#X obj 48 154 t b b;
+#X obj 48 176 1;
+#X obj 48 220 ofTranslate 0 160;
+#X obj 48 242 ofDrawImage @myImage 80 80;
+#X text 253 68 create an empty image.;
+#X text 46 36 the fbo can be copied and used as an image.;
+#X obj 48 299 ofGetImageDimen @myImage;
+#X obj 48 279 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 48 321 print;
+#X text 132 105 copy the specified fbo to image.;
+#X text 47 346 note: when you copy the fbo to image \, the copied image
+can have larger pixels than the fbo's specified dimensions. this is
+because [ofCreateFbo] internally uses msaa(multi sample anti aliasing)
+for the better quality when it is allocated. the number of samples
+can be different depending on the hardware.;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 1;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 5 1 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X restore 23 258 pd related_editor_objects;
+#X msg 88 116 allocate 80 80 RGBA \, color orange 200;
+#X text 95 399 allocate <f \, f \, f/s>;
+#X text 95 419 color <s/l>;
+#X text 95 439 clear;
+#X text 251 419 - colors the fbo with the specified color.;
+#X text 138 180 write drawings to the fbo through the outlet.;
+#X text 251 359 - writes drawings to the fbo.;
+#X text 251 439 - clears the allocated fbo.;
+#X text 251 478 - the drawings to be written to the fbo.;
+#X text 251 549 - sets the width of the fbo.;
+#X text 251 569 - sets the height of the fbo.;
+#X text 251 589 - sets the type of the fbo. (RGB or RGBA);
+#X text 251 399 - allocates the fbo. (width \, height \, type);
+#X text 251 529 - sets the unique variable name for the fbo.;
+#X msg 88 136 clear;
+#X text 251 379 - sets the unique variable name for the fbo.;
+#X text 206 257 a known bug: when used in android device \, fbo may
+be cleared when an app goes to the background and then come back to
+the foreground. it is not a problem if you write drawings to the fbo
+every frame like shown in this example. otherwise \, you need to rewrite
+drawings to the fbo when the app comes back to the foreground. you
+can do this with [ofFocusListener].;
+#X connect 13 0 15 0;
+#X connect 15 0 14 0;
+#X connect 16 0 25 0;
+#X connect 25 0 13 0;
+#X connect 28 0 25 0;
+#X connect 42 0 25 0;

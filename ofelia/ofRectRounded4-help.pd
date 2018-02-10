@@ -1,0 +1,86 @@
+#N canvas 321 23 598 761 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofRectRounded4 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 513 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 521 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 703 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 549 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 572 1) float;
+#X obj 106 84 loadbang;
+#X floatatom 106 234 5 0 0 0 - - -, f 5;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X text 95 349 render bang;
+#X text 211 349 - the incoming render bang.;
+#X text 211 521 - the outgoing render bang.;
+#X text 95 521 render bang;
+#X floatatom 148 234 5 0 0 0 - - -, f 5;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 395 float;
+#X text 211 372 - sets the width.;
+#X text 211 395 - sets the height.;
+#X text 72 593 2) float;
+#X floatatom 190 234 5 0 0 0 - - -, f 5;
+#X obj 75 418 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 418 float;
+#X text 72 614 3) float;
+#X floatatom 232 234 5 0 0 0 - - -, f 5;
+#X floatatom 274 234 5 0 0 0 - - -, f 5;
+#X floatatom 316 234 5 0 0 0 - - -, f 5;
+#X text 211 418 - sets the radius1.;
+#X obj 75 441 cnv 17 3 17 empty empty 4 5 9 0 16 -228856 -162280 0
+;
+#X text 95 441 float;
+#X obj 75 464 cnv 17 3 17 empty empty 5 5 9 0 16 -228856 -162280 0
+;
+#X text 95 464 float;
+#X obj 75 487 cnv 17 3 17 empty empty 6 5 9 0 16 -228856 -162280 0
+;
+#X text 95 487 float;
+#X text 211 441 - sets the radius2.;
+#X text 211 464 - sets the radius3.;
+#X text 211 487 - sets the radius4.;
+#X text 11 23 draw a rounded rectangle with a given 4 corner radiuses
+;
+#X text 72 635 4) float;
+#X text 72 656 5) float;
+#X text 72 677 6) float;
+#X text 289 255 change width \, height \, rad1 \, rad2 \, rad3 \, rad4.
+;
+#X obj 487 5 ofRectRounded4;
+#X obj 106 105 ofGetLastRenderOrder;
+#X obj 73 126 ofHead;
+#X obj 73 147 ofClear 63;
+#X obj 73 175 ofTranslate 160 120;
+#X obj 73 203 ofSetRectMode CENTER;
+#X obj 73 254 ofRectRounded4 100 100 15 15 15 15;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 572 - sets the initial width. (default: 100);
+#X text 211 593 - sets the initial height. (default: 100);
+#X text 211 614 - sets the initial radius1. (default: 15);
+#X text 211 635 - sets the initial radius2. (default: 15);
+#X text 211 656 - sets the initial radius3. (default: 15);
+#X text 211 677 - sets the initial radius4. (default: 15);
+#X connect 8 0 45 0;
+#X connect 9 0 50 1;
+#X connect 16 0 50 2;
+#X connect 22 0 50 3;
+#X connect 26 0 50 4;
+#X connect 27 0 50 5;
+#X connect 28 0 50 6;
+#X connect 45 0 46 1;
+#X connect 46 0 47 0;
+#X connect 47 0 48 0;
+#X connect 48 0 49 0;
+#X connect 49 0 50 0;

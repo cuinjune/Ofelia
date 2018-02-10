@@ -1,0 +1,53 @@
+#N canvas 641 23 659 400 10;
+#X obj 27 131 ofHead;
+#X obj 354 175 t b b;
+#X obj 27 73 ofWindow 640 400 LEFT TOP;
+#X obj 354 256 ofTranslate;
+#X obj 354 278 ofRotateZ;
+#X obj 354 300 ofRegPolygon 82 3;
+#X obj 27 95 ofSetBgColor 102;
+#X obj 190 175 t b b;
+#X obj 190 256 ofTranslate;
+#X obj 190 278 ofRotateZ;
+#X obj 27 175 t b b;
+#X obj 27 256 ofTranslate;
+#X obj 27 278 ofRotateZ;
+#X obj 190 300 ofRegPolygon 80 20;
+#X obj 27 300 ofRegPolygon 70 7;
+#X text 25 23 [ofRegPolygon] object is capable of drawing any regular
+polygon.;
+#X text 301 342 This example was originally written in Processing.
+https://processing.org/examples/regularpolygon.html;
+#X obj 54 197 ofExpr \; ofGetWidth * 0.8 \; ofGetHeight * 0.5 \; ofGetFrameNum
+* -1 \;;
+#X obj 217 197 ofExpr \; ofGetWidth * 0.5 \; ofGetHeight * 0.5 \; ofGetFrameNum
+* 2 \;;
+#X obj 381 197 ofExpr \; ofGetWidth * 0.2 \; ofGetHeight * 0.5 \; ofGetFrameNum
+/ 2 \;;
+#X obj 27 153 ofSepMatrix 3, f 55;
+#X connect 0 0 20 0;
+#X connect 1 0 3 0;
+#X connect 1 1 19 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 7 0 8 0;
+#X connect 7 1 18 0;
+#X connect 8 0 9 0;
+#X connect 9 0 13 0;
+#X connect 10 0 11 0;
+#X connect 10 1 17 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 17 0 11 1;
+#X connect 17 1 11 2;
+#X connect 17 2 12 1;
+#X connect 18 0 8 1;
+#X connect 18 1 8 2;
+#X connect 18 2 9 1;
+#X connect 19 0 3 1;
+#X connect 19 1 3 2;
+#X connect 19 2 4 1;
+#X connect 20 0 10 0;
+#X connect 20 1 7 0;
+#X connect 20 2 1 0;

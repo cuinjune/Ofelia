@@ -1,0 +1,238 @@
+#N canvas 321 23 601 851 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofEditImage 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 780 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 420 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 788 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 865 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 816 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 369 name <s>;
+#X text 72 839 1) symbol;
+#N canvas 322 121 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X obj 23 319 ofWindow 320 240 LEFT TOP;
+#X text 95 788 bang;
+#X obj 23 250 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 41 250 outputs bang when editing is done.;
+#X text 301 788 - outputs bang when editing is done.;
+#X text 11 23 edit the stored image;
+#X obj 505 5 ofEditImage;
+#X text 21 43 [ofEditImage] allows you to edit the properties of the
+loaded image.;
+#X text 233 139 the number of elements stored in the array.;
+#X floatatom 194 139 5 0 0 0 - - -, f 5;
+#X obj 23 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 42 159 outputs bang when loading is done.;
+#N canvas 321 120 601 512 ofEditImage_parameters 0;
+#X obj 81 380 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 101 380 switch the image to edit.;
+#N canvas 321 119 684 567 image_texture 0;
+#X obj 36 481 outlet;
+#X msg 36 63 generateMipmap;
+#X text 136 63 generate mipmap for the current texture.;
+#X text 219 113 set texture minification/magnification scaling filters.
+;
+#X msg 36 113 minMagFilter NEAREST NEAREST;
+#X text 75 146 minification scaling filter options.;
+#X text 75 216 magnification scaling filter options.;
+#X text 75 316 horizontal wrap mode options.;
+#X text 75 356 vertical wrap mode options.;
+#X msg 36 263 texWrap REPEAT REPEAT;
+#X text 184 414 set another image to use as an alpha mask.;
+#X text 178 263 set how the texture wraps around the edges of the vertices
+horizontally and vertically. by default \, textures are clamped to
+their edges with CLAMP_TO_EDGE.;
+#X text 75 163 0: NEAREST \, 1: LINEAR \, 2:NEAREST_MIPMAP_NEAREST
+\, 3:LINEAR_MIPMAP_NEAREST \, 4:NEAREST_MIPMAP_LINEAR \, 5:LINEAR_MIPMAP_LINEAR.
+;
+#X text 75 233 0: NEAREST \, 1: LINEAR.;
+#X text 75 333 0: REPEAT \, 1: MIRRORED_REPEAT \, 2:CLAMP_TO_EDGE.
+;
+#X text 75 373 0: REPEAT \, 1: MIRRORED_REPEAT \, 2:CLAMP_TO_EDGE.
+;
+#X msg 36 414 alphaMask @myImages[1];
+#X connect 1 0 0 0;
+#X connect 4 0 0 0;
+#X connect 9 0 0 0;
+#X connect 16 0 0 0;
+#X restore 61 192 pd image_texture;
+#N canvas 321 118 696 383 image_clone 0;
+#X obj 36 291 outlet;
+#X text 36 197 clone the specified image.;
+#X obj 366 93 ofTranslate 40 40;
+#X obj 366 137 ofStar 30 12 5;
+#X obj 366 115 ofSetColor yellow;
+#X obj 366 48 ofHead;
+#X text 366 197 clone the specified fbo.;
+#X obj 366 291 ofEditImage @myImages[1];
+#X obj 366 71 ofCreateFbo @myFbo 80 80 RGB orange;
+#X msg 366 216 clone @myFbo;
+#X msg 36 216 clone @myImages[1];
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 5 0 8 0;
+#X connect 8 0 2 0;
+#X connect 9 0 7 0;
+#X connect 10 0 0 0;
+#X restore 61 286 pd image_clone;
+#N canvas 322 119 597 287 image_resize 0;
+#X obj 36 201 outlet;
+#X msg 36 63 resize 600 450;
+#X msg 36 113 crop 100 100 400 300;
+#X text 136 63 resize the image to a new size. (w \, h);
+#X text 172 113 crop the image. (x \, y \, w \, h);
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X restore 61 145 pd image_resize;
+#X obj 61 430 outlet;
+#N canvas 321 119 597 287 image_screenshot 0;
+#X obj 36 201 outlet;
+#X msg 36 63 grabScreen 0 0 320 240;
+#X text 182 63 take a screenshot. (x \, y \, w \, h);
+#X connect 1 0 0 0;
+#X restore 61 333 pd image_screenshot;
+#N canvas 321 121 597 287 image_coloring 0;
+#X obj 36 201 outlet;
+#X msg 36 63 color skyBlue;
+#X msg 36 113 colorAt 100 300 red;
+#X text 166 113 color a pixel at the specified x \, y position.;
+#X text 130 63 color the whole image.;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X restore 61 51 pd image_coloring;
+#N canvas 321 119 659 427 image_processing 0;
+#X msg 36 62 grayscale;
+#X text 106 80 note: it will not affect the allocated image type.;
+#X msg 36 112 invert;
+#X text 88 112 invert the colors of the image.;
+#X msg 36 152 brightness 30;
+#X msg 36 192 contrast 30;
+#X msg 36 232 gamma 2;
+#X obj 36 341 outlet;
+#X msg 36 273 mirror ON OFF;
+#X text 130 273 flip the pixels of the image vertically and/or horizontally.
+;
+#X text 106 62 convert the image to grayscale. (0.299r + 0.587g + 0.114b)
+;
+#X text 130 152 change the brightness of the image. (range: -255~255)
+;
+#X text 117 192 change the contrast of the image. (range: -255~255)
+;
+#X text 93 232 change the gamma of the image. (range: 0~);
+#X connect 0 0 7 0;
+#X connect 2 0 7 0;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 8 0 7 0;
+#X restore 61 98 pd image_processing;
+#N canvas 321 119 600 280 image_type 0;
+#X obj 36 221 outlet;
+#X obj 111 64 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X obj 36 137 ofPack type 0;
+#X floatatom 111 116 5 0 0 0 - - -, f 5;
+#X text 133 79 1: RGB;
+#X text 133 94 2: RGBA;
+#X text 111 41 set the type of the image.;
+#X text 133 63 0: GRAY;
+#X text 130 140 it sets the number of channels used to represent a
+color per pixel. GRAY will use 1 channel \, RGB will use 3 channels
+and RGBA will use 4 channels.;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X restore 61 239 pd image_type;
+#X connect 0 0 5 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X restore 23 203 pd ofEditImage_parameters;
+#X text 95 389 colorAt <f \, f \, s/l>;
+#X text 95 429 colorArea <f \, f \, s/l>;
+#X text 95 449 color <s/l>;
+#X text 301 449 - color.;
+#X text 95 469 grayscale;
+#X text 95 489 invert;
+#X text 95 509 brightness <f>;
+#X text 95 529 contrast <f>;
+#X text 95 549 gamma <f>;
+#X text 95 569 type <f/s>;
+#X text 95 589 resize <f \, f>;
+#X text 95 609 crop <f \, f \, f \, f>;
+#X text 95 629 mirror <f/s \, f/s>;
+#X text 95 649 generateMipmap;
+#X text 95 669 minMagFilter <f/s \, f/s>;
+#X text 95 689 texWrap <f/s \, f/s>;
+#X text 95 729 alphaMask <s>;
+#X text 95 409 colorLine <f \, f \, f \, f \, s/l>;
+#X text 301 409 - x1 \, y1 \, x2 \, y2 \, color.;
+#X text 301 389 - x \, y \, color.;
+#X text 301 429 - x \, y \, color. (flood fill);
+#X text 301 469 - converts the image to grayscale.;
+#X text 301 489 - inverts the colors of the image.;
+#X text 301 509 - sets the brightness. (range: -255~255);
+#X text 301 529 - sets the contrast. (range: -255~255);
+#X text 301 549 - sets the gamma. (range: 0~);
+#X text 301 589 - resizes the image to a new size. (w \, h);
+#X text 301 609 - crops the image. (x \, y \, w \, h);
+#X text 301 629 - flips the pixels vertically/horizontally.;
+#X text 301 649 - generates mipmap for the current texture.;
+#X text 301 669 - sets texture min/mag scaling filters.;
+#X text 301 689 - sets how the texture wraps around the edge.;
+#X text 301 729 - sets another image to use as an alpha mask.;
+#X text 95 749 grabScreen <f \, f \, f \, f>;
+#X text 301 749 - takes a screenshot. (x \, y \, w \, h);
+#X text 301 369 - sets the variable name followed by the index.;
+#X text 301 839 - sets the variable name followed by the index.;
+#N canvas 320 122 603 314 related_drawer_objects 0;
+#X obj 83 64 loadbang;
+#X obj 83 85 ofGetLastRenderOrder;
+#X obj 50 106 ofHead;
+#X obj 50 127 ofClear 63;
+#X obj 70 164 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 90 164 switch the image.;
+#X text 255 199 draw the stored image.;
+#X obj 50 199 ofDrawImage @myImages[0] 320 240;
+#X connect 0 0 1 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 7 0;
+#X restore 23 298 pd related_drawer_objects;
+#X obj 23 225 ofEditImage @myImages[0];
+#X text 95 349 float;
+#X text 301 349 - sets the index of the array element.;
+#X text 301 569 - sets the type of the image.;
+#X text 95 709 clone <s>;
+#X text 301 709 - clones the specified image or fbo.;
+#X obj 23 85 ofLoadImage \; @myImages \; examples/data/background.jpg
+\; examples/data/texture.jpg \;;
+#X connect 22 0 61 0;
+#X connect 61 0 12 0;
+#X connect 67 0 20 0;
+#X connect 67 1 19 0;

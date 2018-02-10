@@ -1,0 +1,77 @@
+#N canvas 321 23 602 722 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofRotate 3 12 0 18 -204280 -1
+0;
+#X obj 0 391 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 519 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 399 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 527 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 665 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 555 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 399 render bang;
+#X text 211 399 - the incoming render bang.;
+#X obj 75 445 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 527 render bang;
+#X text 211 527 - the outgoing render bang.;
+#X text 95 445 float;
+#X obj 75 468 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 468 float;
+#X obj 75 491 cnv 17 3 17 empty empty 4 5 9 0 16 -228856 -162280 0
+;
+#X text 95 491 float;
+#X obj 238 102 loadbang;
+#X text 523 5 or;
+#X floatatom 261 267 5 0 0 0 - - -, f 5;
+#X floatatom 301 267 5 0 0 0 - - -, f 5;
+#X floatatom 341 267 5 0 0 0 - - -, f 5;
+#X text 72 578 1) float;
+#X text 72 598 2) float;
+#X floatatom 381 267 5 0 0 0 - - -, f 5;
+#X text 358 237 set degrees \, x y z at once.;
+#X obj 75 422 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 422 float;
+#X text 211 445 - x coordinate of a vector.;
+#X text 211 468 - y coordinate of a vector.;
+#X text 211 491 - z coordinate of a vector.;
+#X text 211 422 - degrees to rotate around the vector.;
+#X msg 261 237 set 90 1 0.5 1;
+#X obj 238 123 ofGetLastRenderOrder;
+#X obj 205 144 ofHead;
+#X obj 205 165 ofClear 63;
+#X obj 205 186 ofTranslate 160 120;
+#X obj 205 208 ofSetRectMode CENTER;
+#X obj 205 339 ofSquare 100;
+#X obj 23 368 ofWindow 320 240 LEFT TOP;
+#X text 211 598 - x coordinate of a vector. (default: 0);
+#X text 211 618 - y coordinate of a vector. (default: 0);
+#X text 211 639 - z coordinate of a vector. (default: 0);
+#X text 211 578 - degrees to rotate around the vector. (default: 0)
+;
+#X text 72 618 3) float;
+#X text 72 639 4) float;
+#X text 11 23 produce a rotation of angle around the vector;
+#X text 21 43 [ofRotate] produces a rotation of angle "degrees" around
+the x \, y and z coordinates of a vector \, respectively.;
+#X obj 468 5 ofRotate;
+#X obj 541 5 ofRot;
+#X obj 205 318 ofRotate 45 0 0 1;
+#X connect 17 0 33 0;
+#X connect 19 0 50 1;
+#X connect 20 0 50 2;
+#X connect 21 0 50 3;
+#X connect 24 0 50 4;
+#X connect 32 0 50 0;
+#X connect 33 0 34 1;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 0;
+#X connect 37 0 50 0;
+#X connect 50 0 38 0;

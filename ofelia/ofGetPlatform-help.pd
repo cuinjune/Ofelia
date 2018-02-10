@@ -1,0 +1,63 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetPlatform 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 158 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 158 137 sel 0 1 2 3 4 5 6 7 8 9;
+#X floatatom 158 115 5 0 0 0 - - -, f 5;
+#X text 95 349 bang;
+#X text 95 383 float;
+#X text 211 383 - the OS platform being used in number.;
+#X text 72 434 (none);
+#X obj 225 277 symbol;
+#X symbolatom 225 304 15 0 0 0 - - -, f 15;
+#X text 11 23 get the OS platform being used;
+#X obj 493 5 ofGetPlatform;
+#X obj 158 90 ofGetPlatform;
+#X text 211 349 - gets the OS platform being used.;
+#X msg 50 205 MinGW;
+#X msg 4 205 MacOS;
+#X msg 96 205 WinVS;
+#X msg 142 205 iOS;
+#X msg 174 205 Android;
+#X msg 234 205 Linux;
+#X msg 280 205 Linux64;
+#X msg 340 205 LinuxARMv6l;
+#X msg 427 205 LinuxARMv7l;
+#X msg 514 205 Emscripten;
+#X connect 7 0 18 0;
+#X connect 8 0 21 0;
+#X connect 8 1 20 0;
+#X connect 8 2 22 0;
+#X connect 8 3 23 0;
+#X connect 8 4 24 0;
+#X connect 8 5 25 0;
+#X connect 8 6 26 0;
+#X connect 8 7 27 0;
+#X connect 8 8 28 0;
+#X connect 8 9 29 0;
+#X connect 9 0 8 0;
+#X connect 14 0 15 0;
+#X connect 18 0 9 0;
+#X connect 20 0 14 0;
+#X connect 21 0 14 0;
+#X connect 22 0 14 0;
+#X connect 23 0 14 0;
+#X connect 24 0 14 0;
+#X connect 25 0 14 0;
+#X connect 26 0 14 0;
+#X connect 27 0 14 0;
+#X connect 28 0 14 0;
+#X connect 29 0 14 0;

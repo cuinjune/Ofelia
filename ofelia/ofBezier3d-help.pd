@@ -1,0 +1,85 @@
+#N canvas 321 23 601 732 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofBezier3d 3 12 0 18 -204280 -1
+0;
+#X obj 0 401 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 529 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 409 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 537 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 677 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 565 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 139 106 loadbang;
+#X obj 75 432 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 409 render bang;
+#X text 211 409 - the incoming render bang.;
+#X text 211 537 - the outgoing render bang.;
+#X text 95 537 render bang;
+#X obj 75 455 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X obj 229 222 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 199 267 5 0 0 0 - - -, f 5;
+#X text 236 267 set curve resolution.;
+#X text 442 310 change p0 \, p1 \, p2 \, p3.;
+#X obj 75 478 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 501 cnv 17 3 17 empty empty 4 5 9 0 16 -228856 -162280 0
+;
+#X text 11 23 draw a 3d bezier curve;
+#X msg 174 310 0 50 0;
+#X msg 229 310 -100 -50 0;
+#X msg 312 310 100 -50 0;
+#X msg 389 310 0 50 0;
+#X text 95 432 list <f \, f \, f>;
+#X text 95 455 list <f \, f \, f>;
+#X text 95 478 list <f \, f \, f>;
+#X text 95 501 list <f \, f \, f>;
+#X text 72 588 1) list <f \, f \, f>;
+#X text 72 609 2) list <f \, f \, f>;
+#X text 72 630 3) list <f \, f \, f>;
+#X text 72 651 4) list <f \, f \, f>;
+#X obj 511 5 ofBezier3d;
+#X text 21 43 [ofBezier3d] draws a 3d bezier curve from point0 (x0
+\, y0 \, z0) to point3 (x3 \, y3 \, z3). the curve is shaped by the
+two control points point1 (x1 \, y1 \, z1) and point2 (x2 \, y2 \,
+z2).;
+#X obj 139 127 ofGetLastRenderOrder;
+#X obj 106 148 ofHead;
+#X obj 106 169 ofClear 63;
+#X obj 106 197 ofTranslate 160 120;
+#X obj 106 241 ofSetFillMode OUTLINE;
+#X obj 106 287 ofSetCurveRes 50;
+#X obj 106 334 ofBezier3d -50 50 0 -50 -50 0 50 -50 0 50 50 0;
+#X obj 23 378 ofWindow 320 240 LEFT TOP;
+#X text 252 221 0: OUTLINE \, 1: FILLED.;
+#X text 211 432 - sets the point0. (x0 \, y0 \, z0);
+#X text 211 455 - sets the point1. (x1 \, y1 \, z1);
+#X text 211 478 - sets the point2. (x2 \, y2 \, z2);
+#X text 211 501 - sets the point3. (x3 \, y3 \, z3);
+#X text 211 588 - sets the point0. (x0 \, y0 \, z0) (default: -50 \,
+50 \, 0);
+#X text 211 609 - sets the point1. (x1 \, y1 \, z1) (default: -50 \,
+-50 \, 0);
+#X text 211 630 - sets the point2. (x2 \, y2 \, z2) (default: 50 \,
+-50 \, 0);
+#X text 211 651 - sets the point3. (x3 \, y3 \, z3) (default: 50 \,
+50 \, 0);
+#X connect 7 0 35 0;
+#X connect 14 0 39 1;
+#X connect 15 0 40 1;
+#X connect 21 0 41 1;
+#X connect 22 0 41 2;
+#X connect 23 0 41 3;
+#X connect 24 0 41 4;
+#X connect 35 0 36 1;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;

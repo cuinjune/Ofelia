@@ -1,0 +1,35 @@
+#N canvas 321 23 601 524 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSeedRandom 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 377 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 466 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 417 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 349 bang;
+#X text 72 440 (none);
+#X obj 499 5 ofSeedRandom;
+#X text 144 141 seed the random number generator with an acceptably
+random value \, generated from clock time and the PID.;
+#X obj 121 238 ofSeedRandom;
+#X obj 121 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 192 188 33;
+#X msg 157 188 22;
+#X text 230 189 seeds the random number generator with a unique value.
+if the user would like to repeat the same random sequence \, a known
+random seed can be used to initialize the random number generator during
+app setup. this can be useful for debugging and testing.;
+#X text 11 23 seed the random number generator with a unique value
+;
+#X text 191 349 - seed the random number generator with a unique value.
+;
+#X text 72 392 (none);
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 13 0 10 0;

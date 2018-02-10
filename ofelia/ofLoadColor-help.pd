@@ -1,0 +1,176 @@
+#N canvas 321 23 601 828 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofLoadColor 3 12 0 18 -204280
+-1 0;
+#X obj 0 471 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 670 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 479 cnv 17 3 180 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 678 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 775 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 706 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 678 float;
+#X text 95 479 name <s>;
+#X text 95 499 load <l>;
+#X text 95 539 append <l>;
+#X text 95 559 prepend <l>;
+#X text 95 619 erase <f \, f>;
+#X text 95 639 clear;
+#X text 72 729 1) symbol;
+#X text 72 749 2) list;
+#N canvas 321 123 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X msg 26 93 print;
+#X text 72 333 remove all elements from the array.;
+#X msg 26 333 clear;
+#X floatatom 26 397 5 0 0 0 - - -, f 5;
+#X text 281 678 - the number of elements stored in the array.;
+#X text 70 397 the number of elements stored in the array.;
+#X msg 26 303 erase 3 4;
+#X text 95 519 add <f \, f \, f \, f>;
+#X text 95 579 insert <f \, f \, f \, f \, f \, f>;
+#X text 95 599 fill <f \, f \, f \, f \, f \, f>;
+#X text 75 93 print the name and stored array elements.;
+#X text 281 479 - sets the unique variable name for the array.;
+#X text 281 499 - (re)initializes an array with one or more elements.
+;
+#X text 281 519 - adds a single element to the end of the array.;
+#X text 281 539 - appends one or more elements to the array.;
+#X text 281 559 - prepends one or more elements to the array.;
+#X text 281 579 - inserts an element at the specified position.;
+#X text 281 599 - assigns value to all the elements in the range.;
+#X text 281 619 - removes a range of elements from the array.;
+#X text 281 639 - removes all elements from the array.;
+#X text 281 729 - sets the unique variable name for the array.;
+#X text 281 749 - initializes an array with one or more elements.;
+#X text 95 303 remove the index range "3~4".;
+#N canvas 322 119 661 609 related_editor_objects 0;
+#X text 187 491 edit the specified array element.;
+#X msg 30 314 normalize;
+#X obj 30 491 ofEditColor @myColors[1];
+#X msg 30 64 assign turquoise;
+#X msg 30 34 assign 0 153 37 255;
+#X text 160 34 assign "0 153 37 255" to the array element.;
+#X text 143 64 you can assign using the color name.;
+#X msg 30 94 assign 0x3293ef;
+#X msg 30 274 lerp 255 255 255 255 0.5;
+#X text 191 275 linearly interpolate the array element towards "255
+255 255 255" with the control amount of "0.5".;
+#X text 99 314 normalize the array element to a length of 255;
+#X msg 30 244 invert;
+#X text 81 244 invert the array element. (subtract from 255);
+#X text 88 344 set the current hue.;
+#X text 111 374 set the hue angle between 0 and 360;
+#X msg 30 374 hueAngle 90;
+#X msg 30 404 brightness 128;
+#X text 129 404 set the current brightness.;
+#X msg 30 434 saturation 128;
+#X text 129 434 set the current saturation.;
+#X msg 30 344 hue 128;
+#X obj 30 555 print;
+#X obj 30 533 ofGetColor @myColors[1];
+#X obj 30 513 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 513 outputs bang when editing is done.;
+#X msg 30 124 add 10;
+#X msg 30 154 sub 10;
+#X msg 30 214 div 2;
+#X text 82 124 add "10" to the array element.;
+#X text 82 154 subtract "10" from the array element.;
+#X text 83 185 multiply the array element by "2".;
+#X text 76 214 divide the array element by "2".;
+#X msg 30 184 mult 2;
+#X text 137 94 you can also use the hex color code.;
+#X connect 1 0 2 0;
+#X connect 2 0 23 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 11 0 2 0;
+#X connect 15 0 2 0;
+#X connect 16 0 2 0;
+#X connect 18 0 2 0;
+#X connect 20 0 2 0;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+#X connect 25 0 2 0;
+#X connect 26 0 2 0;
+#X connect 27 0 2 0;
+#X connect 32 0 2 0;
+#X restore 26 428 pd related_editor_objects;
+#N canvas 321 122 566 368 related_getter_objects 0;
+#X obj 40 132 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 40 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 40 293 print;
+#X obj 40 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 40 93 5 0 0 0 - - -, f 5;
+#X floatatom 40 205 5 0 0 0 - - -, f 5;
+#X floatatom 82 205 5 0 0 0 - - -, f 5;
+#X text 81 93 0: not exists \, 1: exists.;
+#X obj 40 183 unpack f f f f;
+#X floatatom 124 205 5 0 0 0 - - -, f 5;
+#X floatatom 166 205 5 0 0 0 - - -, f 5;
+#X obj 40 66 ofDoesColorNameExist @myColors;
+#X text 63 41 check if the color variable name exists or not.;
+#X obj 40 156 ofGetColor @myColors[1];
+#X text 63 131 get a color element at the index "1". (starting from
+"0");
+#X text 63 241 get all color elements as a list.;
+#X obj 40 266 ofGetColors @myColors;
+#X connect 0 0 13 0;
+#X connect 1 0 16 0;
+#X connect 3 0 11 0;
+#X connect 8 0 5 0;
+#X connect 8 1 6 0;
+#X connect 8 2 9 0;
+#X connect 8 3 10 0;
+#X connect 11 0 4 0;
+#X connect 13 0 8 0;
+#X connect 16 0 2 0;
+#X restore 26 448 pd related_getter_objects;
+#X text 11 23 store an array of colors;
+#X text 21 43 [ofLoadColor] stores an array of colors that can be edited
+or used by its related "getter" objects.;
+#X obj 505 5 ofLoadColor;
+#X msg 26 123 load 255 0 0 255 0 255 0 255;
+#X text 207 123 (re)initialize an array with "255 0 0 255" \, "0 255
+0 255".;
+#X msg 26 153 add 0 0 255 255;
+#X text 132 152 add an element "0 0 255 255" to the end of the array.
+;
+#X msg 26 183 append 0 255 255 255;
+#X text 162 182 append "0 255 255 255" to the array.;
+#X msg 26 213 prepend 255 255 0 255;
+#X text 168 213 prepend "255 255 0 255" to the array.;
+#X msg 26 243 insert 0 0 0 0 2 2;
+#X text 150 243 insert "0 0 0 0" to the index range "2~2".;
+#X msg 26 273 fill 60 60 60 255 4 4;
+#X text 167 273 assign "60 60 60 255" to the index range "4~4".;
+#X obj 26 370 ofLoadColor @myColors 255 165 0 255 63 223 207 255;
+#X connect 17 0 57 0;
+#X connect 19 0 57 0;
+#X connect 23 0 57 0;
+#X connect 45 0 57 0;
+#X connect 47 0 57 0;
+#X connect 49 0 57 0;
+#X connect 51 0 57 0;
+#X connect 53 0 57 0;
+#X connect 55 0 57 0;
+#X connect 57 0 20 0;

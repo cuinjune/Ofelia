@@ -1,0 +1,49 @@
+#N canvas 321 23 599 553 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofPushMatrix 3 12 0 18 -204280
+-1 0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 417 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 425 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 502 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 453 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 476 (none);
+#X text 11 23 push the current matrix;
+#X obj 188 102 loadbang;
+#X text 95 389 render bang;
+#X text 211 389 - the incoming render bang.;
+#X text 211 425 - the outgoing render bang.;
+#X text 95 425 render bang;
+#X obj 499 5 ofPushMatrix;
+#X text 21 43 [ofPushMatrix] saves the current matrix transformations
+(ofTranslate \, ofRotate \, ofScale) and [ofPopMatrix] restores the
+prior matrix.;
+#X obj 188 123 ofGetLastRenderOrder;
+#X obj 155 144 ofHead;
+#X obj 155 165 ofClear 63;
+#X obj 155 186 ofTranslate 150 70;
+#X obj 165 207 ofPushMatrix;
+#X obj 165 250 ofSquare 50;
+#X obj 165 271 ofPopMatrix;
+#X obj 155 292 ofTranslate 0 70;
+#X obj 155 313 ofSquare 50;
+#X obj 23 358 ofWindow 320 240 LEFT TOP;
+#X obj 165 229 ofRotateZ 45;
+#X text 234 313 this square doesn't get affected by the above [ofRotateZ]
+between [ofPushMatrix] and [ofPopMatrix].;
+#X connect 9 0 16 0;
+#X connect 16 0 17 1;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 26 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 26 0 21 0;

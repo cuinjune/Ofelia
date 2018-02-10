@@ -1,0 +1,45 @@
+#N canvas 321 23 598 562 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetDollarArgs 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 420 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 428 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 505 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 456 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 95 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 95 349 bang;
+#X floatatom 125 178 5 0 0 0 - - -, f 5;
+#X text 95 369 float;
+#X text 72 479 1) float;
+#X text 95 389 level <f>;
+#X text 117 148 get the arguments of the patch.;
+#X obj 95 255 print;
+#X text 144 256 it will output bang if no arguments found in the patch.
+;
+#X text 95 428 list;
+#X text 211 428 - the arguments of the patch in a specified level.
+;
+#X obj 481 5 ofGetDollarArgs;
+#X text 21 43 [ofGetDollarArgs] is used to get the arguments of the
+current or the parent patch. for example \, if you use [ofGetDollarArgs]
+in an abstraction \, you can get the abstraction's arguments as a list.
+;
+#X obj 95 233 ofGetDollarArgs;
+#X text 211 349 - gets the arguments of the patch.;
+#X text 211 369 - gets the arguments of the patch in 'n'th level.;
+#X text 211 389 - sets 'n'th level.;
+#X text 167 178 get the arguments of the patch in 'n'th level. (if
+there is any higher level);
+#X text 211 479 - the 'n'th level. (default: 0);
+#X text 11 23 get the arguments of the patch;
+#X connect 7 0 20 0;
+#X connect 9 0 20 0;
+#X connect 20 0 14 0;

@@ -1,0 +1,36 @@
+#N canvas 321 23 595 535 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetMidiDevices 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 483 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 434 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 457 (none);
+#X obj 225 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 225 231 print inputDevices;
+#X obj 318 201 print outputDevices;
+#X text 95 349 bang;
+#X text 95 383 list;
+#X obj 75 406 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 406 list;
+#X text 181 349 - gets a list of all available input/output midi devices.
+;
+#X text 181 383 - the list of input midi devices.;
+#X text 181 406 - the list of output midi devices.;
+#X obj 475 5 ofGetMidiDevices;
+#X obj 225 170 ofGetMidiDevices;
+#X text 11 23 get a list of all available input/output midi devices
+;
+#X connect 8 0 19 0;
+#X connect 19 0 9 0;
+#X connect 19 1 10 0;

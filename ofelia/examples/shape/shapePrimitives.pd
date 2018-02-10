@@ -1,0 +1,40 @@
+#N canvas 641 23 725 585 10;
+#X obj 27 121 ofHead;
+#X obj 432 165 ofSetColor 204;
+#X obj 432 187 ofTriangle2d 18 18 18 400 81 400;
+#X obj 351 214 ofSetColor 102;
+#X obj 351 236 ofTranslate 81 81;
+#X obj 351 258 ofSquare 63;
+#X obj 270 285 ofSetColor 204;
+#X obj 270 307 ofQuad2d 189 18 216 18 216 400 144 400;
+#X obj 189 334 ofSetColor 255;
+#X obj 189 356 ofTranslate 252 144;
+#X obj 189 378 ofCircle 36;
+#X obj 108 405 ofSetColor 204;
+#X obj 108 427 ofTriangle2d 288 18 351 400 288 400;
+#X obj 27 454 ofSetColor 255;
+#X obj 27 498 ofArc 140 140 180 360;
+#X obj 27 476 ofTranslate 479 340;
+#X text 358 525 This example was originally written in Processing.
+https://processing.org/examples/shapeprimitives.html;
+#X text 25 23 there are many shape primitive objects including [ofTriangle2d]
+\, [ofSquare] \, [ofQuad2d] \, [ofCircle] and [ofArc]. see the help
+files to learn more about the objects.;
+#X obj 27 85 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 27 143 ofSepMatrix 6, f 68;
+#X connect 0 0 19 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 13 0 15 0;
+#X connect 15 0 14 0;
+#X connect 19 0 13 0;
+#X connect 19 1 11 0;
+#X connect 19 2 8 0;
+#X connect 19 3 6 0;
+#X connect 19 4 3 0;
+#X connect 19 5 1 0;

@@ -1,0 +1,80 @@
+#N canvas 321 23 598 587 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofRandom 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 423 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 431 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 528 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 459 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X floatatom 245 237 10 0 0 0 - - -, f 10;
+#X text 95 431 float;
+#X floatatom 285 185 5 0 0 0 - - -, f 5;
+#X floatatom 326 185 5 0 0 0 - - -, f 5;
+#X text 365 184 set the range.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 395 float;
+#X text 211 372 - the lower bound of the range.;
+#X text 211 395 - the upper bound of the range.;
+#X text 72 502 2) float;
+#N canvas 321 118 828 424 more_examples 0;
+#X floatatom 81 355 10 0 0 0 - - -, f 10;
+#X floatatom 361 355 10 0 0 0 - - -, f 10;
+#X floatatom 591 355 10 0 0 0 - - -, f 10;
+#X text 139 328 range (0~1);
+#X obj 361 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 438 328 range (0~10);
+#X text 683 327 range (-1~1);
+#X text 385 197 get a random number within the range.;
+#X text 84 51 seed the random number generator with an acceptably random
+value \, generated from clock time and the PID.;
+#X obj 81 328 ofRandom;
+#X obj 361 328 ofRandom 10;
+#X obj 591 328 ofRandom -1 1;
+#X obj 61 148 ofSeedRandom;
+#X obj 61 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 132 98 33;
+#X msg 97 98 22;
+#X text 170 99 seeds the random number generator with a unique value.
+if the user would like to repeat the same random sequence \, a known
+random seed can be used to initialize the random number generator during
+app setup. this can be useful for debugging and testing.;
+#X connect 4 0 9 0;
+#X connect 4 0 10 0;
+#X connect 4 0 11 0;
+#X connect 9 0 0 0;
+#X connect 10 0 1 0;
+#X connect 11 0 2 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 15 0 12 0;
+#X restore 480 46 pd more_examples;
+#X text 72 482 1) float;
+#X obj 245 138 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 268 137 get a random number within the range.;
+#X text 95 349 bang;
+#X text 212 431 - the random floating point number within the range.
+;
+#X obj 523 5 ofRandom;
+#X obj 245 210 ofRandom 10 20;
+#X text 11 23 get a random number within a given range;
+#X text 211 482 - the lower bound of the range. (default: 0);
+#X text 211 502 - the upper bound of the range. (default: 1);
+#X text 211 349 - gets a random number within the range.;
+#X connect 9 0 26 1;
+#X connect 10 0 26 2;
+#X connect 21 0 26 0;
+#X connect 26 0 7 0;

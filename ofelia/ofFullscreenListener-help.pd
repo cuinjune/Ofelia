@@ -1,0 +1,34 @@
+#N canvas 321 23 604 516 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofFullscreenListener 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X text 72 349 (none);
+#X msg 23 88 destroy \, create;
+#X floatatom 266 202 5 0 0 0 - - -, f 5;
+#X text 95 383 float;
+#X text 11 23 listen to the fullscreen mode of the current window;
+#X text 211 383 - the fullscreen mode of the current window.;
+#X text 86 144 enable/disable the fullscreen mode.;
+#X msg 63 170 fullscreen \$1;
+#X obj 63 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 451 5 ofFullscreenListener;
+#X text 131 89 recreate the current window if it is created by other
+[ofWindow] object so you can change its settings here.;
+#X obj 266 170 ofFullscreenListener;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 310 201 0: window mode \, 1: fullscreen mode.;
+#X connect 8 0 19 0;
+#X connect 14 0 19 0;
+#X connect 15 0 14 0;
+#X connect 18 0 9 0;

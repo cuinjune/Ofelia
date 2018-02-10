@@ -1,0 +1,110 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/values-v11_values-v11.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/values-v11/styles.xml",
+                    "from": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "177",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "309"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "187"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/values-v14_values-v14.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/values-v14/styles.xml",
+                    "from": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "220",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "366"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "201"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/values/values.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "46",
+                        "endOffsets": "147"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "107",
+                        "endColumns": "46",
+                        "endOffsets": "149"
+                    }
+                },
+                {
+                    "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/values/strings.xml",
+                    "from": {
+                        "startLines": "3,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "56,108,161",
+                        "endColumns": "51,52,50",
+                        "endOffsets": "103,156,207"
+                    },
+                    "to": {
+                        "startLines": "2,4,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,154,207",
+                        "endColumns": "51,52,50",
+                        "endOffsets": "102,202,253"
+                    }
+                },
+                {
+                    "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/values/styles.xml",
+                    "from": {
+                        "startLines": "6,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "186,510",
+                        "endLines": "12,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "472,665"
+                    },
+                    "to": {
+                        "startLines": "6,13",
+                        "startColumns": "4,4",
+                        "startOffsets": "258,549",
+                        "endLines": "12,15",
+                        "endColumns": "12,12",
+                        "endOffsets": "544,704"
+                    }
+                }
+            ]
+        }
+    ]
+}

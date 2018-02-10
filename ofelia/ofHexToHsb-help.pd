@@ -1,0 +1,35 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofHexToHsb 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X obj 511 5 ofHexToHsb;
+#X obj 211 166 ofHexToHsb;
+#X obj 211 193 unpack f f f;
+#X floatatom 211 225 5 0 0 0 - - -, f 5;
+#X floatatom 251 225 5 0 0 0 - - -, f 5;
+#X floatatom 292 225 5 0 0 0 - - -, f 5;
+#X text 95 383 list <f \, f \, f>;
+#X text 95 349 symbol;
+#X text 333 225 the converted hsb color value.;
+#X text 211 383 - the converted hsb color value.;
+#X text 11 23 convert hex color values to hsb color values;
+#X text 211 349 - the incoming hex color value to convert.;
+#X text 316 139 the hex color value to convert.;
+#X msg 211 139 symbol 0xffa500;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 10 2 13 0;
+#X connect 21 0 9 0;

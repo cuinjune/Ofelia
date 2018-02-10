@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{6b8e3dd1-ee71-4c33-9c62-1f0bae26bd4e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofeliaAnimate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaAudio.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaBase.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaCamera.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaColor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaDevices.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaDirectory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaDirectoryHandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaEasyCam.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaExpr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaFbo.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaFile.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaFileHandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaFloat.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaFont.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaGetters.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaHead.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaImage.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaImageLoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaImageSaver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaLights.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaListeners.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaMaterial.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaMath.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaMatrix.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaMesh.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaOrien.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaPatch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaPath.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaPolyline.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaSeparators.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaSetters.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaSetup.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaShapes.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaString.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaStyle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaSymbol.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaURL.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaURLSaver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec2f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec3f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec4f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaViewport.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaWindow.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tinyexpr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ofeliaAnimate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaAudio.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaBase.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaCamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaColor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaDevices.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaDirectory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaDirectoryHandler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaEasyCam.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaExpr.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaFbo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaFile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaFileHandler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaFloat.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaFont.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaGetters.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaHead.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaImage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaImageLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaImageSaver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaLights.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaListeners.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaMaterial.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaMath.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaMatrix.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaMesh.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaOrien.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaPatch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaPath.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaPolyline.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaSeparators.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaSetters.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaSetup.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaShapes.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaString.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaStyle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaSymbol.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaURL.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaURLSaver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec2f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec3f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec4f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaViewport.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyexpr.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

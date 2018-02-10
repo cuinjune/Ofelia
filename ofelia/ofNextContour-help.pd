@@ -1,0 +1,58 @@
+#N canvas 321 23 599 622 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofNextContour 3 12 0 18 -204280
+-1 0;
+#X obj 0 411 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 470 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 419 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 478 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 567 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 506 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 419 render bang;
+#X text 211 419 - the incoming render bang.;
+#X obj 75 442 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 478 render bang;
+#X text 211 478 - the outgoing render bang.;
+#X obj 23 388 ofWindow 320 240 LEFT TOP;
+#X text 95 442 float/symbol;
+#X text 72 529 1) float/symbol;
+#X obj 248 103 loadbang;
+#X obj 248 124 ofGetLastRenderOrder;
+#X obj 215 145 ofHead;
+#X obj 215 167 ofClear 63;
+#X obj 215 188 ofBeginShape;
+#X text 211 529 - sets if you want to automatically close the shape.
+(default: OFF);
+#X obj 215 360 ofEndShape ON;
+#X obj 225 210 ofVertex2d 120 70;
+#X obj 225 232 ofVertex2d 200 120;
+#X obj 225 253 ofVertex2d 120 170;
+#X obj 225 295 ofVertex2d 130 90;
+#X obj 225 317 ofVertex2d 180 120;
+#X obj 225 338 ofVertex2d 130 150;
+#X obj 225 273 ofNextContour ON;
+#X text 211 442 - sets if you want to automatically close the shape.
+;
+#X obj 493 5 ofNextContour;
+#X text 11 23 draw multiple contours within one shape;
+#X text 21 43 [ofNextContour] allows you to draw multiple contours
+within one shape. call this between [ofBeginShape] and [ofEndShape]
+to create a new contour for your shape.;
+#X connect 15 0 16 0;
+#X connect 16 0 17 1;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 28 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 21 0;
+#X connect 28 0 25 0;

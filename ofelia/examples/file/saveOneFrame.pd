@@ -1,0 +1,56 @@
+#N canvas 640 23 579 692 10;
+#X obj 27 521 ofHead;
+#X obj 27 169 ofMouseListener;
+#X obj 27 587 ofLine2d;
+#X obj 70 350 ofExpr \; _mouseX = $i2 \; _mouseY = $i3 \; $o1 = 0 \;
+$o2 = 0 \; $o3 = _mouseX \; $o4 = ofGetHeight \; $o5 = ofGetWidth \;
+$o6 = 0 \; $o7 = 0 \; $o8 = _mouseY \;, f 54;
+#X obj 70 481 pack f f;
+#X obj 161 481 pack f f;
+#X obj 253 481 pack f f;
+#X obj 345 481 pack f f;
+#X obj 27 609 ofLine2d;
+#X obj 27 565 ofSetColor black;
+#X text 231 633 This example was originally written in Processing.
+https://processing.org/examples/saveoneframe.html;
+#X obj 27 191 bang;
+#X obj 27 213 ofGetDimen;
+#X msg 27 235 grabScreen 0 0 \$1 \$2;
+#X obj 27 257 ofEditImage @screenshot;
+#X obj 27 279 savepanel;
+#X msg 27 301 save \$1.png;
+#X text 176 323 save the image to a disk in png format.;
+#X obj 27 323 ofSaveImage @screenshot;
+#X text 261 133 allocate space for a screenshot.;
+#X text 163 235 take a screenshot. (x \, y \, w \, h);
+#X obj 27 133 ofCreateImage @screenshot 300 300 RGB;
+#X text 25 23 [ofEditImage] object allows you to grab the current screen
+by receiving "grabScreen" message. [ofSaveImage] object allows you
+to save the image to a disk. click on the screen to save the current
+screen.;
+#X obj 27 97 ofWindow 300 300 LEFT TOP 1 204;
+#X obj 27 543 ofSetLineWidth 1.5;
+#X connect 0 0 24 0;
+#X connect 1 0 11 0;
+#X connect 1 1 3 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 3 2 5 0;
+#X connect 3 3 5 1;
+#X connect 3 4 6 0;
+#X connect 3 5 6 1;
+#X connect 3 6 7 0;
+#X connect 3 7 7 1;
+#X connect 4 0 2 1;
+#X connect 5 0 2 2;
+#X connect 6 0 8 1;
+#X connect 7 0 8 2;
+#X connect 9 0 2 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 24 0 9 0;

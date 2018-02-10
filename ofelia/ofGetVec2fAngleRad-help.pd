@@ -1,0 +1,46 @@
+#N canvas 321 23 601 562 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetVec2fAngleRad 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 420 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 428 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 505 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 456 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 479 1) symbol;
+#N canvas 322 115 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X text 95 389 name <s>;
+#X floatatom 26 255 8 0 0 0 - - -, f 8;
+#X msg 26 192 5 20;
+#X text 95 369 list <f \, f>;
+#X text 242 369 - the incoming vec2f to calculate the angle.;
+#X text 241 389 - sets the variable name followed by the index.;
+#X text 241 479 - sets the variable name followed by the index.;
+#X text 95 428 float;
+#X text 70 192 calculate and return the angle in radians between the
+array element and "5 20".;
+#X text 241 428 - the angle in radians between two vec2fs.;
+#X obj 463 5 ofGetVec2fAngleRad;
+#X obj 26 80 ofLoadVec2f @myVec2fs 17 33 9 21;
+#X obj 26 228 ofGetVec2fAngleRad @myVec2fs[1];
+#X text 95 349 float;
+#X text 241 349 - sets the index of the array element.;
+#X text 11 23 get the angle in radians between two vec2fs;
+#X connect 11 0 21 0;
+#X connect 21 0 10 0;

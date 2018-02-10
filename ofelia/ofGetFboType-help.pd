@@ -1,0 +1,37 @@
+#N canvas 321 23 601 544 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetFboType 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 40 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 485 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 459 1) symbol;
+#X text 95 349 bang;
+#X text 95 369 name <s>;
+#X obj 499 5 ofGetFboType;
+#X text 95 408 float;
+#X obj 30 202 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 253 5 0 0 0 - - -, f 5;
+#X obj 23 319 ofWindow 320 240 LEFT TOP;
+#X text 241 369 - sets the variable name.;
+#X text 241 459 - sets the variable name.;
+#X obj 30 226 ofGetFboType @myFbo;
+#X obj 26 110 ofCreateFbo @myFbo 80 80 RGB orange;
+#X text 72 253 1: RGB \, 2: RGBA.;
+#X text 11 23 get the type of the fbo;
+#X text 241 349 - gets the type of the fbo.;
+#X text 53 201 get the type of the fbo.;
+#X text 241 408 - the type of the fbo. (1: RGB \, 2: RGBA);
+#X msg 26 82 allocate 120 100 RGBA;
+#X connect 12 0 17 0;
+#X connect 17 0 13 0;
+#X connect 24 0 18 0;

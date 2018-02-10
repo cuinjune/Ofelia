@@ -1,0 +1,66 @@
+#N canvas 321 23 605 523 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofScrollListener 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X text 72 349 (none);
+#X obj 249 195 unpack f f;
+#X floatatom 249 232 7 0 0 0 - - -, f 7;
+#X floatatom 306 232 7 0 0 0 - - -, f 7;
+#X text 95 383 list <f \, f>;
+#N canvas 321 133 505 472 more_examples 0;
+#X obj 99 88 loadbang;
+#X obj 66 213 t b b;
+#X obj 260 116 list append 4;
+#X floatatom 260 191 8 0 0 0 - - -, f 8;
+#X floatatom 323 191 8 0 0 0 - - -, f 8;
+#X text 28 24 this example shows moving the heart using the mouse scroll
+events.;
+#X obj 99 116 ofGetLastRenderOrder;
+#X obj 260 88 ofScrollListener;
+#X obj 66 148 ofHead;
+#X obj 66 178 ofClear 63;
+#X obj 66 295 ofTranslate;
+#X obj 66 347 ofTranslate;
+#X obj 66 379 ofSetColor red;
+#X obj 66 411 ofHeart 30 30;
+#X obj 93 242 ofExpr \; ofGetWidth * 0.5 \; ofGetHeight * 0.5 \;;
+#X obj 260 143 ofExpr \; -$i1 * $i3 \; -$i2 * $i3 \;;
+#X connect 0 0 6 0;
+#X connect 1 0 10 0;
+#X connect 1 1 14 0;
+#X connect 2 0 15 0;
+#X connect 3 0 11 1;
+#X connect 4 0 11 2;
+#X connect 6 0 8 1;
+#X connect 7 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 10 1;
+#X connect 14 1 10 2;
+#X connect 15 0 3 0;
+#X connect 15 1 4 0;
+#X restore 480 46 pd more_examples;
+#X text 11 23 listen to the mouse scroll events;
+#X obj 475 5 ofScrollListener;
+#X text 21 43 [ofScrollListener] is used to detect the mouse scroll
+events while the window is focused. it will not work on mobile devices.
+;
+#X obj 249 158 ofScrollListener;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 383 - mouse scrolled. (x amount \, y amount);
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 16 0 8 0;

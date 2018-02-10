@@ -1,0 +1,60 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetRetina 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 235 151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#X floatatom 235 211 5 0 0 0 - - -, f 5;
+#X text 95 383 float;
+#N canvas 322 115 550 446 more_examples 0;
+#X floatatom 40 241 5 0 0 0 - - -, f 5;
+#X obj 180 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 180 241 5 0 0 0 - - -, f 5;
+#X floatatom 370 241 5 0 0 0 - - -, f 5;
+#X floatatom 117 390 5 0 0 0 - - -, f 5;
+#X floatatom 306 390 5 0 0 0 - - -, f 5;
+#X obj 117 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 54 31 you can also get the value using the global variable
+name "ofGetRetina".;
+#X obj 40 219 ofGetRetina;
+#X text 141 319 get the actual screen dimensions in pixels.;
+#X obj 180 219 ofValue ofGetRetina;
+#X obj 370 219 ofExpr ofGetRetina;
+#X obj 117 342 ofExpr \; ofGetScreenWidth * ofGetRetina \; ofGetScreenHeight
+* ofGetRetina \;;
+#X connect 1 0 8 0;
+#X connect 1 0 10 0;
+#X connect 1 0 11 0;
+#X connect 6 0 12 0;
+#X connect 8 0 0 0;
+#X connect 10 0 2 0;
+#X connect 11 0 3 0;
+#X connect 12 0 4 0;
+#X connect 12 1 5 0;
+#X restore 480 46 pd more_examples;
+#X text 11 23 get the retina scale of the current device's screen;
+#X text 191 383 - the retina scale of the the current device's screen.
+;
+#X text 273 210 outputs 1 if the device is non-retina.;
+#X obj 505 5 ofGetRetina;
+#X obj 235 179 ofGetRetina;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 191 349 - gets the retina scale of the current device's screen.
+;
+#X connect 7 0 17 0;
+#X connect 17 0 10 0;

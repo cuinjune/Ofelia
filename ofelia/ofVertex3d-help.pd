@@ -1,0 +1,60 @@
+#N canvas 321 23 596 620 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofVertex3d 3 12 0 18 -204280 -1
+0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 440 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 448 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 565 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 476 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 389 render bang;
+#X text 211 389 - the incoming render bang.;
+#X obj 75 412 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 448 render bang;
+#X text 211 448 - the outgoing render bang.;
+#X text 72 499 1) float;
+#X obj 23 358 ofWindow 320 240 LEFT TOP;
+#X obj 511 5 ofVertex3d;
+#X obj 248 93 loadbang;
+#X obj 248 114 ofGetLastRenderOrder;
+#X obj 215 135 ofHead;
+#X obj 215 157 ofClear 63;
+#X obj 215 200 ofBeginShape;
+#X obj 215 330 ofEndShape;
+#X obj 215 178 ofSetPolyMode NONZERO;
+#X obj 225 222 ofVertex3d 250 145 0;
+#X obj 225 244 ofVertex3d 65 145 0;
+#X obj 225 265 ofVertex3d 215 30 0;
+#X obj 225 286 ofVertex3d 155 210 0;
+#X obj 225 308 ofVertex3d 100 35 0;
+#X text 211 412 - sets the x \, y \, z coordinate of the point.;
+#X text 95 412 list <f \, f \, f>;
+#X text 211 499 - sets the x coordinate of the point. (default: 0)
+;
+#X text 72 519 2) float;
+#X text 72 539 3) float;
+#X text 211 519 - sets the y coordinate of the point. (default: 0)
+;
+#X text 211 539 - sets the z coordinate of the point. (default: 0)
+;
+#X text 11 23 specify a single 3d point of a shape;
+#X text 21 43 [ofVertex3d] is used to specify a single 3d point of
+a shape. to be called between [ofBeginShape] and [ofEndShape].;
+#X connect 15 0 16 0;
+#X connect 16 0 17 1;
+#X connect 17 0 18 0;
+#X connect 18 0 21 0;
+#X connect 19 0 22 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 20 0;

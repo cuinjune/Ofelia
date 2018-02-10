@@ -1,0 +1,70 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetFirstRenderOrder 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 257 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#X floatatom 257 208 5 0 0 0 - - -, f 5;
+#X text 95 383 float;
+#N canvas 321 114 535 410 more_examples 0;
+#X floatatom 90 84 5 0 0 0 - - -, f 5;
+#X floatatom 240 84 5 0 0 0 - - -, f 5;
+#X floatatom 405 84 5 0 0 0 - - -, f 5;
+#X floatatom 67 318 5 0 0 0 - - -, f 5;
+#X obj 174 233 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 277 318 5 0 0 0 - - -, f 5;
+#X obj 39 108 ofHead 20;
+#X obj 39 130 ofTranslate 85 45;
+#X obj 39 152 ofSetColor lime;
+#X obj 39 176 ofSquare 100;
+#X obj 189 108 ofHead 50;
+#X obj 189 130 ofTranslate 185 145;
+#X obj 189 152 ofSetColor red;
+#X obj 189 176 ofCircle 50;
+#X obj 354 108 ofHead 80;
+#X obj 354 130 ofTranslate 135 155;
+#X obj 354 152 ofSetColor blue;
+#X obj 354 176 ofEqTriangle 100;
+#X obj 67 286 ofGetFirstRenderOrder;
+#X obj 277 286 ofGetLastRenderOrder;
+#X text 200 232 get the first and last rendering order.;
+#X text 124 49 try changing the rendering order.;
+#X connect 0 0 6 1;
+#X connect 1 0 10 1;
+#X connect 2 0 14 1;
+#X connect 4 0 18 0;
+#X connect 4 0 19 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 18 0 3 0;
+#X connect 19 0 5 0;
+#X restore 480 46 pd more_examples;
+#X text 11 23 get the first rendering order;
+#X text 211 383 - the first rendering order.;
+#X obj 445 5 ofGetFirstRenderOrder;
+#X obj 257 176 ofGetFirstRenderOrder;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 349 - gets the first rendering order.;
+#X connect 7 0 16 0;
+#X connect 16 0 10 0;

@@ -1,0 +1,627 @@
+#N canvas 321 23 601 849 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofLoadMesh2d 3 12 0 18 -204280
+-1 0;
+#X obj 0 361 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 600 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 369 cnv 17 3 220 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 608 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 797 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 728 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 608 float;
+#X text 95 369 name <s>;
+#X text 95 389 load <l>;
+#X text 95 429 append <l>;
+#X text 95 449 prepend <l>;
+#X text 72 751 1) symbol;
+#X text 72 771 2) list;
+#N canvas 322 132 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#N canvas 321 87 601 787 related_getter_objects 0;
+#X obj 10 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 87 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 10 63 5 0 0 0 - - -, f 5;
+#X obj 10 138 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 291 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 342 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 393 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 444 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 495 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 750 print;
+#X obj 10 546 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 597 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 648 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 52 63 0: not exists \, 1: exists.;
+#X text 33 11 check if the mesh2d variable name exists or not.;
+#X obj 10 36 ofDoesMesh2dNameExist @myMesh2d;
+#X obj 10 111 ofGetMesh2dVertex @myMesh2d[1];
+#X obj 10 162 ofGetMesh2dIndex @myMesh2d[1];
+#X obj 10 213 ofGetMesh2dNormal @myMesh2d[1];
+#X obj 10 264 ofGetMesh2dTexCoord @myMesh2d[1];
+#X obj 10 315 ofGetMesh2dColor @myMesh2d[1];
+#X obj 10 366 ofGetMesh2dVertices @myMesh2d;
+#X obj 10 417 ofGetMesh2dIndices @myMesh2d;
+#X obj 10 468 ofGetMesh2dNormals @myMesh2d;
+#X obj 10 519 ofGetMesh2dTexCoords @myMesh2d;
+#X obj 10 570 ofGetMesh2dColors @myMesh2d;
+#X obj 10 621 ofGetMesh2dCommands @myMesh2d;
+#X obj 10 672 ofGetMesh2dBoundingBox @myMesh2d;
+#X text 33 86 get the mesh2d vertex at the index "1". (starting from
+"0");
+#X text 33 137 get the mesh2d index at the index "1". (starting from
+"0");
+#X text 33 188 get the mesh2d normal at the index "1". (starting from
+"0");
+#X text 33 239 get the mesh2d texCoord at the index "1" (starting from
+"0");
+#X text 33 290 get the mesh2d color at the index "1". (starting from
+"0");
+#X text 33 341 get all mesh2d vertices as a list.;
+#X text 33 392 get all mesh2d indices as a list.;
+#X text 33 443 get all mesh2d normals as a list.;
+#X text 33 494 get all mesh2d texCoords as a list.;
+#X text 33 545 get all mesh2d colors as a list.;
+#X text 33 596 get all mesh2d commands as a list.;
+#X obj 10 699 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 10 723 ofGetMesh2dCentroid @myMesh2d;
+#X text 33 698 get the centroid of all the vetices in the mesh2d.;
+#X text 33 647 get the dimensions of the mesh2d bounding box.;
+#X connect 0 0 17 0;
+#X connect 1 0 18 0;
+#X connect 3 0 19 0;
+#X connect 4 0 20 0;
+#X connect 5 0 21 0;
+#X connect 6 0 22 0;
+#X connect 7 0 23 0;
+#X connect 8 0 24 0;
+#X connect 9 0 25 0;
+#X connect 10 0 26 0;
+#X connect 12 0 27 0;
+#X connect 13 0 28 0;
+#X connect 14 0 29 0;
+#X connect 17 0 2 0;
+#X connect 18 0 11 0;
+#X connect 19 0 11 0;
+#X connect 20 0 11 0;
+#X connect 21 0 11 0;
+#X connect 22 0 11 0;
+#X connect 23 0 11 0;
+#X connect 24 0 11 0;
+#X connect 25 0 11 0;
+#X connect 26 0 11 0;
+#X connect 27 0 11 0;
+#X connect 28 0 11 0;
+#X connect 29 0 11 0;
+#X connect 41 0 42 0;
+#X connect 42 0 11 0;
+#X restore 160 160 pd related_getter_objects;
+#X text 95 469 insert <l \, f \, f>;
+#X text 95 489 fill <l \, f \, f>;
+#X obj 23 339 ofWindow 320 240 LEFT TOP;
+#X obj 499 5 ofLoadMesh2d;
+#N canvas 322 133 897 583 mesh2d_example 0;
+#X msg 36 43 print;
+#X obj 36 505 outlet;
+#X text 85 43 print the current settings and stored array elements.
+;
+#X obj 135 301 vradio 15 1 0 7 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X msg 36 448 clear;
+#X msg 36 80 load vertex -50 -50 vertex 50 -50 vertex 50 50 vertex
+-50 50 index 0 index 1 index 3 index 1 index 2 index 3;
+#X msg 36 177 append color 255 0 255 255 color 255 0 0 255 color 0
+255 0 255 color 0 0 255 255;
+#X obj 36 411 ofPack primMode 0;
+#X text 414 80 (re)initialize vertex and index arrays.;
+#X text 400 178 append colors used for the vertex.;
+#X msg 36 227 erase color 0;
+#X text 80 448 clear all arrays.;
+#X msg 36 264 clear color;
+#X text 118 264 clear the color array.;
+#X text 130 227 remove the first element in the color array.;
+#X text 151 411 set the primitive mode.;
+#X text 154 301 0: TRIANGLES;
+#X text 154 316 1: TRIANGLE_STRIP;
+#X text 154 331 2: TRIANGLE_FAN;
+#X text 154 346 3: LINES;
+#X text 154 361 4: LINE_STRIP;
+#X text 154 376 5: LINE_LOOP;
+#X text 154 391 6: POINTS;
+#X msg 36 130 load vertex -50 -50 50 -50 50 50 -50 50 index 0 1 3 1
+2 3;
+#X text 397 130 this is identical to the one above as you can skip
+writing the repeating command names.;
+#X connect 0 0 1 0;
+#X connect 3 0 7 1;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 10 0 1 0;
+#X connect 12 0 1 0;
+#X connect 23 0 1 0;
+#X restore 23 93 pd mesh2d_example;
+#N canvas 321 132 1105 604 list_of_mesh2d_commands 0;
+#X text 37 34 <command name>;
+#X text 207 34 <arguments>;
+#X text 657 34 <description>;
+#X text 37 154 circle;
+#X text 37 174 ellipse;
+#X text 37 194 sector;
+#X text 37 254 square;
+#X text 37 314 rectRounded4;
+#X text 37 294 rectRounded;
+#X text 37 334 cross;
+#X text 37 354 heart;
+#X text 37 374 moon;
+#X text 37 394 regPolygon;
+#X text 37 414 star;
+#X text 37 274 rectangle (rect);
+#X text 37 214 eqTriangle (eqTri);
+#X text 37 234 isoTriangle (isoTri);
+#X text 37 54 vertex;
+#X text 37 74 index;
+#X text 37 94 normal;
+#X text 37 114 texCoord;
+#X text 657 114 a 2d coordinate that represents the texture coordinate.
+;
+#X text 37 134 color;
+#X text 657 94 a 2d normal that defines how a surface responds to lighting.
+;
+#X text 658 54 a 2d vertex to be used in mesh.;
+#X text 657 134 a color used for the vertex in the same position.;
+#X text 657 154 load a circle mesh.;
+#X text 657 174 load an ellipse mesh.;
+#X text 657 194 load a sector mesh.;
+#X text 657 214 load an equilateral triangle mesh.;
+#X text 657 234 load an isosceles triangle mesh.;
+#X text 657 254 load a square mesh.;
+#X text 657 274 load a rectangle mesh.;
+#X text 657 294 load a rounded rectangle mesh with a given corner radius.
+;
+#X text 657 314 load a rounded rectangle mesh with given 4 corner radiuses.
+;
+#X text 657 334 load a cross mesh.;
+#X text 657 354 load a heart mesh.;
+#X text 657 374 load a moon mesh.;
+#X text 657 394 load a regular polygon mesh.;
+#X text 657 414 load a star mesh.;
+#X text 37 434 box;
+#X text 657 434 load a box mesh.;
+#X text 37 454 cone;
+#X text 37 474 cylinder;
+#X text 657 454 load a cone mesh.;
+#X text 657 474 load a cylinder mesh.;
+#X text 37 494 icosphere;
+#X text 657 494 load a icosphere mesh.;
+#X text 37 514 plane;
+#X text 657 514 load a plane mesh.;
+#X text 37 534 sphere;
+#X text 657 534 load a sphere mesh.;
+#X text 657 74 an index represents an order of connection for vertices.
+;
+#X text 207 54 x \, y.;
+#X text 207 74 index.;
+#X text 207 94 x \, y.;
+#X text 207 114 x \, y.;
+#X text 207 134 r \, g \, b \, a.;
+#X text 207 154 radius \, circleRes.;
+#X text 207 174 width \, height \, circleRes.;
+#X text 207 194 radiusX \, radiusY \, angleBegin \, angleEnd \, circleRes.
+;
+#X text 207 214 size.;
+#X text 207 234 width \, height.;
+#X text 207 254 size.;
+#X text 207 274 width \, height.;
+#X text 207 294 width \, height \, radius \, circleRes.;
+#X text 207 334 size \, thickness.;
+#X text 207 314 width \, height \, radius1 \, radius2 \, radius3 \,
+radius4 \, circleRes;
+#X text 207 354 width \, height \, curveRes.;
+#X text 207 374 width \, height \, phase \, circleRes.;
+#X text 207 394 radius \, numSides.;
+#X text 207 414 radius1 \, radius2 \, numPoints.;
+#X text 207 434 width \, height \, depth \, resX \, resY \, resZ.;
+#X text 207 454 radius \, height \, radiusSegments \, heightSegments
+\, capSegments.;
+#X text 207 474 radius \, height \, radiusSegments \, heightSegments
+\, capSegments.;
+#X text 207 494 radius \, iterations.;
+#X text 207 514 width \, height \, columns \, rows.;
+#X text 207 534 radius \, res.;
+#X restore 161 93 pd list_of_mesh2d_commands;
+#X text 95 569 primMode <f/s>;
+#X obj 75 631 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 631 float;
+#X obj 75 654 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 654 float;
+#X obj 75 677 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 677 float;
+#X obj 75 700 cnv 17 3 17 empty empty 4 5 9 0 16 -228856 -162280 0
+;
+#X text 95 700 float;
+#X text 241 608 - the number of stored vertices.;
+#X text 241 631 - the number of stored indices.;
+#X text 241 654 - the number of stored normals.;
+#X text 241 677 - the number of stored texture coordinates.;
+#X text 241 700 - the number of stored colors.;
+#X text 95 509 erase <s \, f \, f>;
+#X text 95 529 clear <s>;
+#X text 95 549 clear;
+#X text 95 409 add <l>;
+#X floatatom 23 226 5 0 0 0 - - -, f 5;
+#X floatatom 49 246 5 0 0 0 - - -, f 5;
+#X floatatom 75 266 5 0 0 0 - - -, f 5;
+#X floatatom 101 286 5 0 0 0 - - -, f 5;
+#X floatatom 128 306 5 0 0 0 - - -, f 5;
+#X text 63 225 the number of stored vertices.;
+#X text 90 245 the number of stored indices.;
+#X text 115 265 the number of stored normals.;
+#X text 141 285 the number of stored texture coordinates.;
+#X text 168 305 the number of stored colors.;
+#X text 241 369 - sets the unique variable name for the array.;
+#X text 241 389 - (re)initializes an array with one or more elements.
+;
+#X text 241 409 - adds a single element to the end of the array.;
+#X text 241 429 - appends one or more elements to the array.;
+#X text 241 449 - prepends one or more elements to the array.;
+#X text 241 469 - inserts an element at the specified position.;
+#X text 241 489 - assigns value to all the elements in the range.;
+#X text 241 509 - removes a range of elements from the specified array.
+;
+#X text 241 529 - removes all elements from the specified array.;
+#X text 241 549 - removes all elements from all arrays.;
+#X text 241 569 - sets the primitive mode.;
+#X text 241 751 - sets the unique variable name for the array.;
+#X text 241 771 - initializes an array with one or more elements.;
+#N canvas 321 132 628 261 related_drawer_objects 0;
+#X obj 30 120 ofTranslate 160 120;
+#X obj 63 34 loadbang;
+#X obj 63 55 ofGetLastRenderOrder;
+#X obj 30 76 ofHead;
+#X obj 30 98 ofClear 63;
+#X obj 30 174 ofSetFillMode FILLED;
+#X obj 147 152 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 172 151 note: the mesh will be drawn as a wireframe when it's
+not filled.;
+#X obj 30 196 ofDrawMesh2d @myMesh2d;
+#X text 176 197 draw the stored mesh2d.;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X restore 160 140 pd related_drawer_objects;
+#X obj 23 120 ofLoadMesh2d \; @myMesh2d \; vertex -50 50 \; vertex
+0 -50 \; vertex 50 50 \; color 255 0 0 255 \; color 0 255 0 255 \;
+color 0 0 255 255 \;;
+#N canvas 322 133 602 224 related_editor_objects 0;
+#N canvas 322 132 601 701 ofEditMesh2dVertex_example 0;
+#X text 229 570 edit the specified array element.;
+#X msg 30 34 assign 3 4;
+#X text 106 34 assign "3 4" to the array element.;
+#X msg 30 64 add 2 3;
+#X text 87 64 add "2 3" to the array element.;
+#X msg 30 94 sub 1 2;
+#X text 87 94 subtract "1 2" from the array element.;
+#X msg 30 124 mult 3 2;
+#X text 93 124 multiply the array element by "3 2".;
+#X msg 30 154 div 4 5;
+#X text 86 154 divide the array element by "4 5".;
+#X msg 30 184 lerp 5 4 0.5;
+#X text 118 185 linearly interpolate the array element towards "5 4"
+with the control amount of "0.5".;
+#X msg 30 254 map 0 0 2 0 0 2;
+#X msg 30 224 limit 3;
+#X msg 30 314 middle 8 6;
+#X text 107 314 set the array element to the midpoint between itself
+and "8 6".;
+#X msg 30 354 normalize;
+#X msg 30 384 perpendicular;
+#X msg 30 424 rotate 90 5 4;
+#X msg 30 464 rotateRad 1.5 5 4;
+#X msg 30 504 scale 10;
+#X text 88 224 restrict the length(magnitude) of this vector to "3".
+;
+#X text 101 354 normalize the array element to a length of 1;
+#X text 128 385 set the array element to its own normalized perpendicular
+(by rotating 90 degrees and normalizing);
+#X text 128 424 rotate the array element by "90" angle degrees around
+the pivot "5 4".;
+#X text 151 464 rotate the array element by "1.5" angle radians around
+the pivot "5 4".;
+#X text 137 254 map the array element from its default coordinate system
+origin (0 \, 0) \, x direction (1 \, 0) \, y direction (0 \, 1) to
+a new coordinate system defined with origin at "0 0" \, X direction
+"2 0" \, and Y direction "0 2".;
+#X obj 30 635 print;
+#X obj 30 593 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 593 outputs bang when editing is done.;
+#X obj 30 571 ofEditMesh2dVertex @myMesh2d[1];
+#X obj 30 613 ofGetMesh2dVertex @myMesh2d[1];
+#X text 96 504 scale the array element up or down so that it has the
+requested length "10".;
+#X connect 1 0 31 0;
+#X connect 3 0 31 0;
+#X connect 5 0 31 0;
+#X connect 7 0 31 0;
+#X connect 9 0 31 0;
+#X connect 11 0 31 0;
+#X connect 13 0 31 0;
+#X connect 14 0 31 0;
+#X connect 15 0 31 0;
+#X connect 17 0 31 0;
+#X connect 18 0 31 0;
+#X connect 19 0 31 0;
+#X connect 20 0 31 0;
+#X connect 21 0 31 0;
+#X connect 29 0 32 0;
+#X connect 31 0 29 0;
+#X connect 32 0 28 0;
+#X restore 37 38 pd ofEditMesh2dVertex_example;
+#N canvas 323 132 602 391 ofEditMesh2dIndex_example 0;
+#X msg 30 34 assign 3;
+#X text 93 34 assign "3" to the array element.;
+#X msg 30 64 add 2;
+#X msg 30 124 mult 2;
+#X text 81 124 multiply the array element by "2".;
+#X text 76 64 add "2" to the array element.;
+#X msg 30 154 div 2;
+#X text 76 154 divide the array element by "2".;
+#X msg 30 94 sub 2;
+#X text 74 94 subtract "2" from the array element.;
+#X msg 30 184 lerp 5 0.5;
+#X msg 30 214 middle 8;
+#X text 105 185 linearly interpolate the array element towards "5"
+with the control amount of "0.5".;
+#X text 95 214 set the array element to the midpoint between itself
+and "8".;
+#X text 223 262 edit the specified array element.;
+#X obj 30 326 print;
+#X obj 30 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 284 outputs bang when editing is done.;
+#X obj 30 262 ofEditMesh2dIndex @myMesh2d[1];
+#X obj 30 304 ofGetMesh2dIndex @myMesh2d[1];
+#X connect 0 0 18 0;
+#X connect 2 0 18 0;
+#X connect 3 0 18 0;
+#X connect 6 0 18 0;
+#X connect 8 0 18 0;
+#X connect 10 0 18 0;
+#X connect 11 0 18 0;
+#X connect 16 0 19 0;
+#X connect 18 0 16 0;
+#X connect 19 0 15 0;
+#X restore 37 58 pd ofEditMesh2dIndex_example;
+#N canvas 322 131 601 701 ofEditMesh2dNormal_example 0;
+#X text 230 571 edit the specified array element.;
+#X msg 30 34 assign 3 4;
+#X text 107 34 assign "3 4" to the array element.;
+#X msg 30 64 add 2 3;
+#X text 87 64 add "2 3" to the array element.;
+#X msg 30 94 sub 1 2;
+#X text 88 94 subtract "1 2" from the array element.;
+#X msg 30 124 mult 3 2;
+#X text 94 124 multiply the array element by "3 2".;
+#X msg 30 154 div 4 5;
+#X text 88 154 divide the array element by "4 5".;
+#X msg 30 184 lerp 5 4 0.5;
+#X text 121 185 linearly interpolate the array element towards "5 4"
+with the control amount of "0.5".;
+#X msg 30 254 map 0 0 2 0 0 2;
+#X msg 30 224 limit 3;
+#X msg 30 314 middle 8 6;
+#X text 109 314 set the array element to the midpoint between itself
+and "8 6".;
+#X msg 30 354 normalize;
+#X msg 30 384 perpendicular;
+#X msg 30 424 rotate 90 5 4;
+#X msg 30 464 rotateRad 1.5 5 4;
+#X msg 30 504 scale 10;
+#X text 89 224 restrict the length(magnitude) of this vector to "3".
+;
+#X text 103 354 normalize the array element to a length of 1;
+#X text 128 385 set the array element to its own normalized perpendicular
+(by rotating 90 degrees and normalizing);
+#X text 127 425 rotate the array element by "90" angle degrees around
+the pivot "5 4".;
+#X text 151 465 rotate the array element by "1.5" angle radians around
+the pivot "5 4".;
+#X text 136 254 map the array element from its default coordinate system
+origin (0 \, 0) \, x direction (1 \, 0) \, y direction (0 \, 1) to
+a new coordinate system defined with origin at "0 0" \, X direction
+"2 0" \, and Y direction "0 2".;
+#X obj 30 635 print;
+#X obj 30 593 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 593 outputs bang when editing is done.;
+#X obj 30 571 ofEditMesh2dNormal @myMesh2d[1];
+#X obj 30 613 ofGetMesh2dNormal @myMesh2d[1];
+#X text 97 504 scale the array element up or down so that it has the
+requested length "10".;
+#X connect 1 0 31 0;
+#X connect 3 0 31 0;
+#X connect 5 0 31 0;
+#X connect 7 0 31 0;
+#X connect 9 0 31 0;
+#X connect 11 0 31 0;
+#X connect 13 0 31 0;
+#X connect 14 0 31 0;
+#X connect 15 0 31 0;
+#X connect 17 0 31 0;
+#X connect 18 0 31 0;
+#X connect 19 0 31 0;
+#X connect 20 0 31 0;
+#X connect 21 0 31 0;
+#X connect 29 0 32 0;
+#X connect 31 0 29 0;
+#X connect 32 0 28 0;
+#X restore 37 78 pd ofEditMesh2dNormal_example;
+#N canvas 321 133 601 701 ofEditMesh2dTexCoord_example 0;
+#X text 240 571 edit the specified array element.;
+#X msg 30 34 assign 3 4;
+#X text 106 34 assign "3 4" to the array element.;
+#X msg 30 64 add 2 3;
+#X text 87 63 add "2 3" to the array element.;
+#X msg 30 94 sub 1 2;
+#X text 87 94 subtract "1 2" from the array element.;
+#X msg 30 124 mult 3 2;
+#X text 94 124 multiply the array element by "3 2".;
+#X msg 30 154 div 4 5;
+#X text 89 154 divide the array element by "4 5".;
+#X msg 30 184 lerp 5 4 0.5;
+#X text 120 185 linearly interpolate the array element towards "5 4"
+with the control amount of "0.5".;
+#X msg 30 254 map 0 0 2 0 0 2;
+#X msg 30 224 limit 3;
+#X msg 30 314 middle 8 6;
+#X text 108 314 set the array element to the midpoint between itself
+and "8 6".;
+#X msg 30 354 normalize;
+#X msg 30 384 perpendicular;
+#X msg 30 424 rotate 90 5 4;
+#X msg 30 464 rotateRad 1.5 5 4;
+#X msg 30 504 scale 10;
+#X text 88 224 restrict the length(magnitude) of this vector to "3".
+;
+#X text 100 354 normalize the array element to a length of 1;
+#X text 125 384 set the array element to its own normalized perpendicular
+(by rotating 90 degrees and normalizing);
+#X text 126 425 rotate the array element by "90" angle degrees around
+the pivot "5 4".;
+#X text 151 465 rotate the array element by "1.5" angle radians around
+the pivot "5 4".;
+#X text 138 255 map the array element from its default coordinate system
+origin (0 \, 0) \, x direction (1 \, 0) \, y direction (0 \, 1) to
+a new coordinate system defined with origin at "0 0" \, X direction
+"2 0" \, and Y direction "0 2".;
+#X obj 30 635 print;
+#X obj 30 593 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 593 outputs bang when editing is done.;
+#X obj 30 571 ofEditMesh2dTexCoord @myMesh2d[1];
+#X obj 30 613 ofGetMesh2dTexCoord @myMesh2d[1];
+#X text 96 504 scale the array element up or down so that it has the
+requested length "10".;
+#X connect 1 0 31 0;
+#X connect 3 0 31 0;
+#X connect 5 0 31 0;
+#X connect 7 0 31 0;
+#X connect 9 0 31 0;
+#X connect 11 0 31 0;
+#X connect 13 0 31 0;
+#X connect 14 0 31 0;
+#X connect 15 0 31 0;
+#X connect 17 0 31 0;
+#X connect 18 0 31 0;
+#X connect 19 0 31 0;
+#X connect 20 0 31 0;
+#X connect 21 0 31 0;
+#X connect 29 0 32 0;
+#X connect 31 0 29 0;
+#X connect 32 0 28 0;
+#X restore 37 98 pd ofEditMesh2dTexCoord_example;
+#N canvas 321 131 661 609 ofEditMesh2dColor_example 0;
+#X text 224 491 edit the specified array element.;
+#X msg 30 314 normalize;
+#X msg 30 64 assign turquoise;
+#X msg 30 34 assign 0 153 37 255;
+#X text 161 33 assign "0 153 37 255" to the array element.;
+#X text 144 64 you can assign using the color name.;
+#X msg 30 94 assign 0x3293ef;
+#X msg 30 274 lerp 255 255 255 255 0.5;
+#X text 192 275 linearly interpolate the array element towards "255
+255 255 255" with the control amount of "0.5".;
+#X text 99 314 normalize the array element to a length of 255;
+#X msg 30 244 invert;
+#X text 82 244 invert the array element. (subtract from 255);
+#X text 87 344 set the current hue.;
+#X text 112 374 set the hue angle between 0 and 360;
+#X msg 30 374 hueAngle 90;
+#X msg 30 404 brightness 128;
+#X text 130 404 set the current brightness.;
+#X msg 30 434 saturation 128;
+#X text 130 434 set the current saturation.;
+#X msg 30 344 hue 128;
+#X obj 30 555 print;
+#X obj 30 513 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 48 513 outputs bang when editing is done.;
+#X msg 30 124 add 10;
+#X msg 30 154 sub 10;
+#X msg 30 214 div 2;
+#X text 82 124 add "10" to the array element.;
+#X text 80 154 subtract "10" from the array element.;
+#X text 81 184 multiply the array element by "2".;
+#X text 74 214 divide the array element by "2".;
+#X msg 30 184 mult 2;
+#X text 136 94 you can also use the hex color code.;
+#X obj 30 491 ofEditMesh2dColor @myMesh2d[1];
+#X obj 30 533 ofGetMesh2dColor @myMesh2d[1];
+#X connect 1 0 32 0;
+#X connect 2 0 32 0;
+#X connect 3 0 32 0;
+#X connect 6 0 32 0;
+#X connect 7 0 32 0;
+#X connect 10 0 32 0;
+#X connect 14 0 32 0;
+#X connect 15 0 32 0;
+#X connect 17 0 32 0;
+#X connect 19 0 32 0;
+#X connect 21 0 33 0;
+#X connect 23 0 32 0;
+#X connect 24 0 32 0;
+#X connect 25 0 32 0;
+#X connect 30 0 32 0;
+#X connect 32 0 21 0;
+#X connect 33 0 20 0;
+#X restore 37 118 pd ofEditMesh2dColor_example;
+#X restore 160 120 pd related_editor_objects;
+#X text 11 23 store a set of arrays for a 2d mesh;
+#X text 21 43 [ofLoadMesh2d] stores a set of arrays for a 2d mesh that
+can be edited \, drawn to the screen \, or used by its related "getter"
+objects.;
+#X connect 20 0 64 0;
+#X connect 64 0 40 0;
+#X connect 64 1 41 0;
+#X connect 64 2 42 0;
+#X connect 64 3 43 0;
+#X connect 64 4 44 0;

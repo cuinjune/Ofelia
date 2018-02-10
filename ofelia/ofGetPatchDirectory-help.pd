@@ -1,0 +1,51 @@
+#N canvas 321 23 598 541 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetPatchDirectory 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 420 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 428 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 505 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 456 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 135 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 475 5 or;
+#X text 11 23 get the directory of the patch;
+#X symbolatom 135 281 50 0 0 0 - - -, f 50;
+#X floatatom 165 159 5 0 0 0 - - -, f 5;
+#X text 157 129 get the directory of the patch.;
+#X text 211 349 - get the directory of the patch.;
+#X text 95 369 float;
+#X text 211 369 - get the directory of the patch in 'n'th level.;
+#X text 211 389 - set 'n'th level.;
+#X text 95 428 symbol;
+#X text 211 428 - the directory of the patch in a specified level.
+;
+#X text 72 479 1) float;
+#X text 95 389 level <f>;
+#X obj 177 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 203 200 get the directory of the root patch.;
+#X obj 177 223 ofGetMaxFloat;
+#X obj 354 5 ofGetPatchDirectory;
+#X obj 493 5 ofGetPatchDir;
+#X text 21 43 [ofGetPatchDirectory] is used to get the directory of
+the current or the parent patch. for example \, if you use the object
+in an abstraction \, you can get the directory of the parent patch.
+;
+#X obj 135 254 ofGetPatchDirectory;
+#X text 211 479 - the 'n'th level. (default: 0);
+#X text 207 159 get the directory of the patch in 'n'th level. (if
+there is any higher level);
+#X connect 7 0 28 0;
+#X connect 12 0 28 0;
+#X connect 22 0 24 0;
+#X connect 24 0 28 0;
+#X connect 28 0 11 0;

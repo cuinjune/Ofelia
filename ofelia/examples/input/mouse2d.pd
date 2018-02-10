@@ -1,0 +1,38 @@
+#N canvas 641 23 678 525 10;
+#X obj 31 184 ofHead;
+#X obj 31 104 ofMouseListener;
+#X obj 31 206 ofSetRectMode CENTER;
+#X obj 31 228 ofSetColor 255 204;
+#X obj 106 418 ofTranslate;
+#X obj 31 68 ofWindow 640 400 LEFT TOP 1 51;
+#X text 29 27 moving the mouse changes the position and size of each
+box.;
+#X text 331 465 This example was originally written in Processing.
+https://processing.org/examples/mouse2d.html;
+#X obj 74 126 ofDefine \; @mouseX = $i2 \; @mouseY = $i3 \;;
+#X obj 31 250 t b b;
+#X obj 59 272 ofExpr \; $o1 = @mouseX \; $o2 = ofGetHeight / 2 \; $o3
+= @mouseY / 2 + 10 \; _inverseX = ofGetWidth - @mouseX \; _inverseY
+= ofGetHeight - @mouseY \; $o4 = _inverseX \; $o5 = $o2 \; $o6 = _inverseY
+/ 2 + 10 \;;
+#X obj 31 418 ofTranslate;
+#X obj 106 440 ofSquare;
+#X obj 31 440 ofSquare;
+#X obj 31 396 ofSepMatrix 2;
+#X text 122 396 separate render chains in matrix.;
+#X connect 0 0 2 0;
+#X connect 1 1 8 0;
+#X connect 2 0 3 0;
+#X connect 3 0 9 0;
+#X connect 4 0 12 0;
+#X connect 9 0 14 0;
+#X connect 9 1 10 0;
+#X connect 10 0 11 1;
+#X connect 10 1 11 2;
+#X connect 10 2 13 1;
+#X connect 10 3 4 1;
+#X connect 10 4 4 2;
+#X connect 10 5 12 1;
+#X connect 11 0 13 0;
+#X connect 14 0 11 0;
+#X connect 14 1 4 0;

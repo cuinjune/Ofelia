@@ -1,0 +1,61 @@
+#N canvas 321 23 599 497 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetBgColor 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 265 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 bang;
+#X text 72 434 (none);
+#N canvas 323 115 478 358 more_examples 0;
+#X obj 180 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 40 280 5 0 0 0 - - -, f 5;
+#X floatatom 74 280 5 0 0 0 - - -, f 5;
+#X obj 40 250 unpack f f f;
+#X floatatom 109 280 5 0 0 0 - - -, f 5;
+#X floatatom 250 280 5 0 0 0 - - -, f 5;
+#X floatatom 290 280 5 0 0 0 - - -, f 5;
+#X floatatom 331 280 5 0 0 0 - - -, f 5;
+#X obj 40 219 ofGetBgColor;
+#X text 34 31 you can also get the value using the global variable
+names "ofGetBgColorR" \, "ofGetBgColorG" and "ofGetBgColorB".;
+#X obj 250 219 ofExpr \; ofGetBgColorR \; ofGetBgColorG \; ofGetBgColorB
+\;;
+#X connect 0 0 8 0;
+#X connect 0 0 10 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 3 2 4 0;
+#X connect 8 0 3 0;
+#X connect 10 0 5 0;
+#X connect 10 1 6 0;
+#X connect 10 2 7 0;
+#X restore 480 46 pd more_examples;
+#X floatatom 265 225 5 0 0 0 - - -, f 5;
+#X floatatom 299 225 5 0 0 0 - - -, f 5;
+#X text 11 23 get the background color of the current window;
+#X obj 265 193 unpack f f f;
+#X floatatom 334 225 5 0 0 0 - - -, f 5;
+#X text 211 383 - the background color of the current window.;
+#X text 95 383 list <f \, f \, f>;
+#X obj 499 5 ofGetBgColor;
+#X obj 265 160 ofGetBgColor;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 211 349 - gets the background color of the current window.
+;
+#X connect 7 0 19 0;
+#X connect 14 0 11 0;
+#X connect 14 1 12 0;
+#X connect 14 2 15 0;
+#X connect 19 0 14 0;

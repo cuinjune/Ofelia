@@ -1,0 +1,49 @@
+#N canvas 321 23 597 565 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGate 3 12 0 18 -204280 -1 0
+;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty n 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 505 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X floatatom 123 267 5 0 0 0 - - -, f 5;
+#X text 72 459 1) float;
+#X text 72 479 2) float;
+#X floatatom 200 178 5 0 0 0 - - -, f 5;
+#X obj 143 131 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X floatatom 143 154 5 0 0 0 - - -, f 5;
+#X text 95 372 list;
+#X text 95 408 list;
+#X text 95 349 float;
+#X text 11 23 route a message to an outlet;
+#X floatatom 171 267 5 0 0 0 - - -, f 5;
+#X floatatom 219 267 5 0 0 0 - - -, f 5;
+#X obj 535 5 ofGate;
+#X obj 143 230 ofGate 3 1;
+#X text 21 43 [ofGate] routes a message from the second inlet to one
+of 'n' specified outlets or none of them.;
+#X text 171 372 - message to send through a specified outlet.;
+#X text 171 349 - sets outlet number. (0 is none);
+#X text 171 408 - 'n' outlets for routing any received message.;
+#X text 171 459 - sets the 'n' number of outlets. (from 1 to 64 \,
+default 1);
+#X text 171 479 - sets initially opened outlet. (default 0 - none)
+;
+#X text 209 130 select which outlet to route a message. (0 means all
+closed);
+#X connect 11 0 21 1;
+#X connect 12 0 13 0;
+#X connect 13 0 21 0;
+#X connect 21 0 8 0;
+#X connect 21 1 18 0;
+#X connect 21 2 19 0;

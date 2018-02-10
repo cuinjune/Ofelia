@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Win32Example</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;
+..\..\..\addons\ofxPd\src;
+..\..\..\addons\ofxPd\libs\libpd\include;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxPd\libs\libpd\lib\Win32\libpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <Manifest />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;
+..\..\..\addons\ofxPd\src;
+..\..\..\addons\ofxPd\libs\libpd\include;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;
+..\..\..\addons\ofxPd\src;
+..\..\..\addons\ofxPd\libs\libpd\include;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxPd\libs\libpd\lib\Win32\libpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <Manifest />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMidi\src\desktop;..\..\..\addons\ofxMidi\src\ios;..\..\..\addons\ofxMidi\libs\pgmidi;..\..\..\addons\ofxMidi\libs\rtmidi;
+..\..\..\addons\ofxPd\src;
+..\..\..\addons\ofxPd\libs\libpd\include;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd;
+..\..\..\addons\ofxPd\libs\libpd\include\libpd\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxPd\src\ofxPd.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\ofeliaAnimate.cpp" />
+    <ClCompile Include="src\ofeliaAudio.c" />
+    <ClCompile Include="src\ofeliaBase.cpp" />
+    <ClCompile Include="src\ofeliaCamera.cpp" />
+    <ClCompile Include="src\ofeliaColor.cpp" />
+    <ClCompile Include="src\ofeliaDevices.cpp" />
+    <ClCompile Include="src\ofeliaDirectory.cpp" />
+    <ClCompile Include="src\ofeliaDirectoryHandler.cpp" />
+    <ClCompile Include="src\ofeliaEasyCam.cpp" />
+    <ClCompile Include="src\ofeliaExpr.cpp" />
+    <ClCompile Include="src\ofeliaFbo.cpp" />
+    <ClCompile Include="src\ofeliaFile.cpp" />
+    <ClCompile Include="src\ofeliaFileHandler.cpp" />
+    <ClCompile Include="src\ofeliaFloat.cpp" />
+    <ClCompile Include="src\ofeliaFont.cpp" />
+    <ClCompile Include="src\ofeliaGetters.cpp" />
+    <ClCompile Include="src\ofeliaHead.cpp" />
+    <ClCompile Include="src\ofeliaImage.cpp" />
+    <ClCompile Include="src\ofeliaImageLoader.cpp" />
+    <ClCompile Include="src\ofeliaImageSaver.cpp" />
+    <ClCompile Include="src\ofeliaLights.cpp" />
+    <ClCompile Include="src\ofeliaListeners.cpp" />
+    <ClCompile Include="src\ofeliaMaterial.cpp" />
+    <ClCompile Include="src\ofeliaMath.cpp" />
+    <ClCompile Include="src\ofeliaMatrix.cpp" />
+    <ClCompile Include="src\ofeliaMesh.cpp" />
+    <ClCompile Include="src\ofeliaOrien.cpp" />
+    <ClCompile Include="src\ofeliaPatch.cpp" />
+    <ClCompile Include="src\ofeliaPath.cpp" />
+    <ClCompile Include="src\ofeliaPolyline.cpp" />
+    <ClCompile Include="src\ofeliaSeparators.cpp" />
+    <ClCompile Include="src\ofeliaSetters.cpp" />
+    <ClCompile Include="src\ofeliaSetup.cpp" />
+    <ClCompile Include="src\ofeliaShapes.cpp" />
+    <ClCompile Include="src\ofeliaString.cpp" />
+    <ClCompile Include="src\ofeliaStyle.cpp" />
+    <ClCompile Include="src\ofeliaSymbol.cpp" />
+    <ClCompile Include="src\ofeliaURL.cpp" />
+    <ClCompile Include="src\ofeliaURLSaver.cpp" />
+    <ClCompile Include="src\ofeliaUtils.cpp" />
+    <ClCompile Include="src\ofeliaVec2f.cpp" />
+    <ClCompile Include="src\ofeliaVec3f.cpp" />
+    <ClCompile Include="src\ofeliaVec4f.cpp" />
+    <ClCompile Include="src\ofeliaViewport.cpp" />
+    <ClCompile Include="src\ofeliaWindow.cpp" />
+    <ClCompile Include="src\tinyexpr.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\pgmidi\iOSVersionDetection.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\pgmidi\PGArc.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\pgmidi\PGMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\pgmidi\PGMidiAllSources.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\pgmidi\PGMidiFind.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\rtmidi\RtMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\desktop\ofxRtMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ios\ofxPGMidiContext.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ios\ofxPGMidiDelegate.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ios\ofxPGMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ios\ofxPGMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ios\ofxPGMidiSourceDelegate.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\m_pd.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdBase.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdMidiReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\PdTypes.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_print_util.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_queued.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\z_libpd.h" />
+    <ClInclude Include="..\..\..\addons\ofxPd\src\ofxPd.h" />
+    <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\ofeliaAnimate.h" />
+    <ClInclude Include="src\ofeliaAudio.h" />
+    <ClInclude Include="src\ofeliaBase.h" />
+    <ClInclude Include="src\ofeliaCamera.h" />
+    <ClInclude Include="src\ofeliaColor.h" />
+    <ClInclude Include="src\ofeliaDevices.h" />
+    <ClInclude Include="src\ofeliaDirectory.h" />
+    <ClInclude Include="src\ofeliaDirectoryHandler.h" />
+    <ClInclude Include="src\ofeliaEasyCam.h" />
+    <ClInclude Include="src\ofeliaExpr.h" />
+    <ClInclude Include="src\ofeliaFbo.h" />
+    <ClInclude Include="src\ofeliaFile.h" />
+    <ClInclude Include="src\ofeliaFileHandler.h" />
+    <ClInclude Include="src\ofeliaFloat.h" />
+    <ClInclude Include="src\ofeliaFont.h" />
+    <ClInclude Include="src\ofeliaGetters.h" />
+    <ClInclude Include="src\ofeliaHead.h" />
+    <ClInclude Include="src\ofeliaImage.h" />
+    <ClInclude Include="src\ofeliaImageLoader.h" />
+    <ClInclude Include="src\ofeliaImageSaver.h" />
+    <ClInclude Include="src\ofeliaLights.h" />
+    <ClInclude Include="src\ofeliaListeners.h" />
+    <ClInclude Include="src\ofeliaMaterial.h" />
+    <ClInclude Include="src\ofeliaMath.h" />
+    <ClInclude Include="src\ofeliaMatrix.h" />
+    <ClInclude Include="src\ofeliaMesh.h" />
+    <ClInclude Include="src\ofeliaOrien.h" />
+    <ClInclude Include="src\ofeliaPatch.h" />
+    <ClInclude Include="src\ofeliaPath.h" />
+    <ClInclude Include="src\ofeliaPolyline.h" />
+    <ClInclude Include="src\ofeliaSeparators.h" />
+    <ClInclude Include="src\ofeliaSetters.h" />
+    <ClInclude Include="src\ofeliaSetup.h" />
+    <ClInclude Include="src\ofeliaShapes.h" />
+    <ClInclude Include="src\ofeliaString.h" />
+    <ClInclude Include="src\ofeliaStyle.h" />
+    <ClInclude Include="src\ofeliaSymbol.h" />
+    <ClInclude Include="src\ofeliaURL.h" />
+    <ClInclude Include="src\ofeliaURLSaver.h" />
+    <ClInclude Include="src\ofeliaUtils.h" />
+    <ClInclude Include="src\ofeliaVec2f.h" />
+    <ClInclude Include="src\ofeliaVec3f.h" />
+    <ClInclude Include="src\ofeliaVec4f.h" />
+    <ClInclude Include="src\ofeliaViewport.h" />
+    <ClInclude Include="src\ofeliaWindow.h" />
+    <ClInclude Include="src\tinyexpr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

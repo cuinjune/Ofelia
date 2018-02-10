@@ -1,0 +1,117 @@
+#N canvas 321 23 598 663 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofCountUntil 3 12 0 18 -204280
+-1 0;
+#X obj 0 371 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 499 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 379 cnv 17 3 40 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 507 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 604 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 535 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 379 bang;
+#X obj 75 425 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#N canvas 321 124 743 424 more_examples 0;
+#X obj 36 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 36 54 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 413 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 413 54 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 413 115 print;
+#X text 435 53 count up from 0 to 4 at once.;
+#X text 435 173 count down from 3 to -2 at once.;
+#X obj 36 235 print;
+#X obj 129 208 sel 8;
+#X text 57 173 count up from 0 to 8 at once.;
+#X obj 36 115 print;
+#X obj 413 235 print;
+#X obj 36 88 ofCountUntil;
+#X obj 36 208 ofCountUntil;
+#X obj 413 88 ofCountUntil 4;
+#X obj 413 208 ofCountUntil 3 -2;
+#X obj 36 355 print;
+#X obj 36 328 ofCountUntil;
+#X msg 36 298 5;
+#X text 65 297 count up from 0 to 4 at once.;
+#X obj 413 355 print;
+#X obj 413 328 ofCountUntil;
+#X msg 413 298 -4;
+#X text 443 297 count down from 3 to 0 at once.;
+#X text 58 53 count up from 0 to maxFloat. (DO NOT CLICK);
+#X text 58 69 if you click \, kill Pd or reboot the computer.;
+#X connect 0 0 13 0;
+#X connect 1 0 12 0;
+#X connect 2 0 15 0;
+#X connect 3 0 14 0;
+#X connect 8 0 13 3;
+#X connect 12 0 10 0;
+#X connect 13 0 7 0;
+#X connect 13 0 8 0;
+#X connect 14 0 4 0;
+#X connect 15 0 11 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 21 0 20 0;
+#X connect 22 0 21 0;
+#X restore 480 46 pd more_examples;
+#X text 95 425 float;
+#X text 211 425 - sets the min/max value in a range.;
+#X obj 75 448 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 448 float;
+#X text 211 448 - sets the min/max value in a range.;
+#X obj 75 471 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 507 float;
+#X text 211 507 - the current value of the counter.;
+#X text 72 558 1) float;
+#X text 72 578 2) float;
+#X text 95 471 bang;
+#X text 211 471 - stops counting.;
+#X text 211 379 - counts over a range at once.;
+#X obj 499 5 ofCountUntil;
+#X text 21 43 [ofCountUntil] counts up or down by '1' in a given range
+at once.;
+#X text 211 558 - the min/max value in a range. (default: 0);
+#X text 211 578 - the min/max value in a range. (default: maxFloat)
+;
+#X obj 161 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 194 188 5 0 0 0 - - -, f 5;
+#X floatatom 227 212 5 0 0 0 - - -, f 5;
+#X text 231 187 set min/max value in a range.;
+#X text 264 211 set min/max value in a range.;
+#X obj 161 295 print;
+#X obj 213 317 sel 8;
+#X obj 213 295 spigot;
+#X obj 246 274 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 184 97 count up/down the range at once.;
+#X text 259 294 stop counting when output value is 8;
+#X obj 161 241 ofCountUntil 3 10;
+#X msg 185 125 12;
+#X msg 198 156 -6;
+#X text 216 125 count the number of times forwards. (from zero);
+#X text 228 156 count the number of times backwards. (to zero);
+#X text 95 399 float;
+#X text 211 399 - counts the number of times forwards or backwards.
+;
+#X text 11 23 count over a range at once;
+#X connect 27 0 38 0;
+#X connect 28 0 38 1;
+#X connect 29 0 38 2;
+#X connect 33 0 38 3;
+#X connect 34 0 33 0;
+#X connect 35 0 34 1;
+#X connect 38 0 32 0;
+#X connect 38 0 34 0;
+#X connect 39 0 38 0;
+#X connect 40 0 38 0;

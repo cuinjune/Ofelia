@@ -1,0 +1,44 @@
+#N canvas 321 23 601 536 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetVec4fs 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 40 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 485 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 459 1) symbol;
+#N canvas 322 115 507 253 about_vector 0;
+#X text 26 23 in ofelia \, a vector data structure is commonly used
+for handling various data types such as float \, symbol and list. vectors
+are much like arrays that can dynamically be changed in size.;
+#X text 26 163 each "loader" object should have a unique variable name
+so its data can be properly accessed by "getter" objects that use the
+name.;
+#X text 26 93 in general \, objects that use vector are divided into
+two types \, "loader" objects that can store an array of data and "getter"
+objects that can read the stored data from "loader" objects.;
+#X restore 486 46 pd about_vector;
+#X obj 26 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 95 349 bang;
+#X obj 26 223 print;
+#X text 95 408 list;
+#X obj 505 5 ofGetVec4fs;
+#X text 95 369 name <s>;
+#X text 241 369 - sets the variable name.;
+#X text 241 459 - sets the variable name.;
+#X text 11 23 get all vec4f elements as a list;
+#X text 49 171 get all vec4f elements as a list.;
+#X text 241 349 - gets all vec4f elements as a list.;
+#X text 241 408 - all vec4f elements as a list.;
+#X obj 26 80 ofLoadVec4f @myVec4fs 7 8 9 10 11 12 13 14;
+#X obj 26 196 ofGetVec4fs @myVec4fs;
+#X connect 9 0 22 0;
+#X connect 22 0 11 0;

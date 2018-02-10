@@ -1,0 +1,60 @@
+#N canvas 321 23 597 622 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetBlendMode 3 12 0 18 -204280
+-1 0;
+#X obj 0 401 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 469 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 409 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 477 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 565 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 505 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 409 render bang;
+#X text 191 409 - the incoming render bang.;
+#X obj 75 432 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 477 render bang;
+#X text 191 477 - the outgoing render bang.;
+#X obj 248 65 loadbang;
+#X text 95 432 float/symbol;
+#X text 72 528 1) float/symbol;
+#X text 11 23 set the blend mode for drawing;
+#X obj 296 124 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 318 122 0: OFF;
+#X text 318 138 1: ALPHA;
+#X text 318 153 2: ADD;
+#X text 318 168 3: SUBTRACT;
+#X text 318 183 4: MULTIPLY;
+#X text 318 198 5: SCREEN;
+#X obj 487 5 ofSetBlendMode;
+#X obj 248 86 ofGetLastRenderOrder;
+#X obj 215 107 ofHead;
+#X obj 215 128 ofClear 63;
+#X obj 215 219 ofSetBlendMode;
+#X obj 215 249 ofTranslate 85 45;
+#X obj 215 270 ofSetColor red 200;
+#X obj 215 291 ofSquare 100;
+#X obj 215 312 ofTranslate 50 50;
+#X obj 215 333 ofSetColor green 200;
+#X obj 215 354 ofSquare 100;
+#X obj 23 378 ofWindow 320 240 LEFT TOP;
+#X text 192 432 - 0: OFF \, 1: ALPHA \, 2: ADD \, 3: SUBTRACT \, 4:
+MULTIPLY \, 5: SCREEN.;
+#X text 191 528 - 0: OFF \, 1: ALPHA \, 2: ADD \, 3: SUBTRACT \, 4:
+MULTIPLY \, 5: SCREEN. (default: ALPHA);
+#X connect 12 0 24 0;
+#X connect 16 0 27 1;
+#X connect 24 0 25 1;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;

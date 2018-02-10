@@ -1,0 +1,41 @@
+#N canvas 641 23 672 628 10;
+#X obj 31 297 ofHead;
+#X obj 31 217 ofMouseListener;
+#X obj 31 552 ofTranslate;
+#X obj 31 79 ofWindow 640 400 LEFT TOP 1 51;
+#X text 135 136 variables used.;
+#X obj 31 115 ofWindowLoadBang;
+#X obj 31 319 t b b;
+#X obj 31 486 ofSetColor 76;
+#X obj 31 508 ofRectangle;
+#X obj 31 530 ofSetColor white;
+#X obj 31 574 ofCircle 33;
+#X obj 58 340 ofExpr \; $o1 = @edge \; _e = @edge * 2 \; $o2 = ofGetWidth
+- _e \; $o3 = ofGetHeight - _e \; @x = (@mouseX - @x) * @easing + @x
+\; @y = (@mouseY - @y) * @easing + @y \; $o4 = @x \; $o5 = @y \;;
+#X obj 31 137 ofDefine \; @easing = 0.05 \; @edge = 100 \; @x \; @y
+\;;
+#X obj 74 239 ofDefine \; @mouseX = $i2 - @edge \; @mouseY = $i3 -
+@edge \;;
+#X obj 31 464 ofViewport;
+#X text 103 464 setup the drawing viewport.;
+#X text 29 26 move the mouse across the screen to move the circle.
+the circle will be clipped to the viewport's region.;
+#X connect 0 0 6 0;
+#X connect 1 1 13 0;
+#X connect 2 0 10 0;
+#X connect 5 0 12 0;
+#X connect 6 0 14 0;
+#X connect 6 1 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 2 0;
+#X connect 11 0 14 1;
+#X connect 11 0 14 2;
+#X connect 11 1 8 1;
+#X connect 11 1 14 3;
+#X connect 11 2 8 2;
+#X connect 11 2 14 4;
+#X connect 11 3 2 1;
+#X connect 11 4 2 2;
+#X connect 14 0 7 0;

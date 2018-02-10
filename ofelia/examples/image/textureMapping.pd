@@ -1,0 +1,54 @@
+#N canvas 640 23 593 619 10;
+#X text 225 110 create a window with the scale set to 0.5;
+#X text 176 147 load 2 images from the specified paths.;
+#X obj 26 491 ofHead;
+#X obj 26 513 ofTranslate 400 300;
+#X obj 26 535 ofBindImageTex @images[0];
+#X obj 27 110 ofWindow 800 600 LEFT TOP 0.5 0;
+#X obj 27 215 ofMouseListener;
+#X obj 27 259 bang;
+#X obj 27 303 sel 0 1 2 3 4;
+#X obj 27 432 ofPrepend load;
+#X msg 42 345 heart 400 400 50;
+#X msg 87 405 regPolygon 200 5;
+#X msg 57 365 cross 400 100;
+#X msg 72 385 moon 400 400 100 50;
+#X obj 27 281 ofCount 0 4;
+#X obj 146 215 ofWindowLoadBang;
+#X obj 27 237 route 1 3, f 16;
+#X obj 73 259 bang;
+#X msg 27 325 star 200 80 5;
+#X text 25 23 you can use various built-in meshes using [ofLoadMesh2d]
+object. these meshes contain texture coordinates that are used to map
+the image's texture to a shape. left click on the screen to change
+the shape \, right click to change the image.;
+#X text 147 454 load a mesh.;
+#X obj 27 454 ofLoadMesh2d @mesh;
+#X obj 26 557 ofDrawMesh2d @mesh;
+#X text 189 535 bind the image's texture.;
+#X text 146 558 draw the mesh.;
+#X obj 73 491 ofCount 0 1 1;
+#X obj 27 146 ofLoadImage \; @images \; ../data/background.jpg \; ../data/texture.jpg
+\;;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 22 0;
+#X connect 6 0 16 0;
+#X connect 7 0 14 0;
+#X connect 8 0 18 0;
+#X connect 8 1 10 0;
+#X connect 8 2 12 0;
+#X connect 8 3 13 0;
+#X connect 8 4 11 0;
+#X connect 9 0 21 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 8 0;
+#X connect 15 0 14 0;
+#X connect 16 0 7 0;
+#X connect 16 1 17 0;
+#X connect 17 0 25 0;
+#X connect 18 0 9 0;
+#X connect 25 0 4 0;

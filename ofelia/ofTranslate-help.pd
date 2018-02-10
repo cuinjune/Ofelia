@@ -1,0 +1,70 @@
+#N canvas 321 23 597 660 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofTranslate 3 12 0 18 -204280
+-1 0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 486 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 494 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 610 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 522 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 389 render bang;
+#X text 211 389 - the incoming render bang.;
+#X obj 75 412 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 494 render bang;
+#X text 211 494 - the outgoing render bang.;
+#X text 95 412 float;
+#X obj 75 435 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 435 float;
+#X obj 75 458 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 458 float;
+#X obj 188 105 loadbang;
+#X text 511 5 or;
+#X floatatom 221 218 5 0 0 0 - - -, f 5;
+#X floatatom 263 218 5 0 0 0 - - -, f 5;
+#X floatatom 305 218 5 0 0 0 - - -, f 5;
+#X text 334 168 set x y z at once.;
+#X text 295 251 is identical to;
+#X text 72 545 1) float;
+#X text 72 565 2) float;
+#X text 11 23 move along the coordinate system;
+#X text 211 412 - pixels to move along the x-axis.;
+#X text 211 435 - pixels to move along the y-axis.;
+#X text 211 458 - pixels to move along the z-axis.;
+#X msg 242 168 set 120 100 0;
+#X text 347 217 change x \, y \, z.;
+#X text 21 43 [ofTranslate] produces a translation along the x \, y
+and z axis of the coordinate system. the call of [ofTranslate] modifies
+graphics positions.;
+#X obj 438 5 ofTranslate;
+#X obj 529 5 ofTrans;
+#X obj 188 126 ofGetLastRenderOrder;
+#X obj 155 147 ofHead;
+#X obj 155 168 ofClear 63;
+#X obj 155 251 ofTranslate 160 120 0;
+#X obj 402 251 ofTranslate 160 120;
+#X obj 155 287 ofSetColor red;
+#X obj 155 323 ofCircle 50;
+#X obj 23 358 ofWindow 320 240 LEFT TOP;
+#X text 211 545 - pixels to move along the x-axis. (default: 0);
+#X text 211 565 - pixels to move along the y-axis. (default: 0);
+#X text 211 585 - pixels to move along the z-axis. (default: 0);
+#X text 72 585 3) float;
+#X connect 17 0 35 0;
+#X connect 19 0 38 1;
+#X connect 20 0 38 2;
+#X connect 21 0 38 3;
+#X connect 30 0 38 0;
+#X connect 35 0 36 1;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X connect 38 0 40 0;
+#X connect 40 0 41 0;

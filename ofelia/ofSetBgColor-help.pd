@@ -1,0 +1,69 @@
+#N canvas 321 23 597 679 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetBgColor 3 12 0 18 -204280
+-1 0;
+#X obj 0 431 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 536 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 439 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 544 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 621 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 572 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 439 render bang;
+#X text 211 439 - the incoming render bang.;
+#X obj 75 462 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 544 render bang;
+#X text 211 544 - the outgoing render bang.;
+#X text 95 462 float;
+#X obj 75 485 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 485 float;
+#X obj 75 508 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 508 float;
+#X text 72 595 1) symbol/list;
+#X msg 22 88 destroy \, create;
+#X floatatom 61 357 5 0 255 0 - - -, f 5;
+#X floatatom 100 357 5 0 255 0 - - -, f 5;
+#X floatatom 139 357 5 0 255 0 - - -, f 5;
+#X text 188 355 change r \, g \, b.;
+#X obj 499 5 ofSetBgColor;
+#X text 21 43 [ofSetBgColor] sets the background color of the current
+window.;
+#X text 131 89 recreate the current window if it is created by other
+[ofWindow] object so you can change its settings here.;
+#X obj 76 132 ofHead;
+#X obj 76 153 ofSetBgColor red;
+#X obj 22 278 ofWindow 320 240 LEFT TOP;
+#X obj 22 379 ofSetBgColor skyBlue;
+#X msg 55 243 bgColor red;
+#X text 134 244 this will have no effect when [ofSetBgColor] is being
+used.;
+#X text 188 277 a common usage is to connect it with an active [ofWindow]
+object's outlet which outputs render bang every frame before [ofHead]
+objects. unlike [ofHead] \, [ofWindow] doesn't separate style settings
+internally so it works without the above problem.;
+#X text 211 462 - sets r.;
+#X text 211 485 - sets g.;
+#X text 211 508 - sets b.;
+#X text 211 595 - colorName(symbol) or RGB(list). (default: 200);
+#X text 11 23 set the background color;
+#X text 189 128 this doesn't have any effect on the background color
+since [ofHead] internally uses ofPushStyle/ofPopStyle which separates
+style settings (ofSetColor \, ofSetBgColor \, ofSetRectMode \, ofSetTextMode
+\, ofSetFillMode \, ofSetPolyMode \, ofSetBlendMode \, ofSetLineWidth
+\, ofSetLineSmoothing \, ofSetCircleRes \, ofSetCurveRes) from other
+rendering chains. so it will always restore the original background
+color as soon as the rendering gets done.;
+#X connect 18 0 28 0;
+#X connect 19 0 29 1;
+#X connect 20 0 29 2;
+#X connect 21 0 29 3;
+#X connect 26 0 27 0;
+#X connect 28 0 29 0;
+#X connect 30 0 28 0;

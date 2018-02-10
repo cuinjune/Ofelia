@@ -1,0 +1,44 @@
+#N canvas 641 23 666 779 10;
+#X obj 27 125 ofMouseListener;
+#X obj 27 301 ofDefine \; @beginX = 20 \; @beginY = 10 \; @endX = 570
+\; @endY = 320 \; @distX = @endX - @beginX \; @distY = @endY - @beginY
+\; @exponent = 4 \; @x = 0 \; @y = 0 \; @step = 0.01 \; @pct = 0 \;
+;
+#X obj 27 458 ofHead;
+#X obj 27 89 ofSetBgAuto OFF;
+#X obj 27 603 ofSetColor 0 2;
+#X obj 27 647 ofSetColor 255;
+#X obj 27 669 ofTranslate;
+#X obj 27 691 ofCircle 10;
+#X obj 27 280 ofWindowLoadBang;
+#X obj 27 146 route 1;
+#X obj 27 167 ofExpr \; @pct = 0 \; @beginX = @x \; @beginY = @y \;
+@endX = $i1 \; @endY = $i2 \; @distX = @endX - @beginX \; @distY =
+@endY - @beginY \;;
+#X obj 54 500 ofExpr \; @pct = @pct + @step \; @x = if (@pct < 1 \,
+@beginX + (@pct * @distX) \, @x) \; @y = if (@pct < 1 \, @beginY +
+(pow(@pct \, @exponent) * @distY) \, @y) \; $o1 = ofGetWidth \; $o2
+= ofGetHeight \; $o3 = @x \; $o4 = @y \;, f 67;
+#X obj 27 625 ofRectangle;
+#X obj 27 67 ofWindow 640 400 LEFT TOP 1 51;
+#X text 23 19 in this example \, the circles moves along the curve
+y = x^4. click the mouse to have it move to a new position.;
+#X text 307 719 This example was originally written in Processing.
+https://processing.org/examples/movingoncurves.html;
+#X text 128 89 disable the auto background clearing function.;
+#X obj 27 479 t b b;
+#X connect 0 0 9 0;
+#X connect 2 0 17 0;
+#X connect 4 0 12 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 1;
+#X connect 11 1 12 2;
+#X connect 11 2 6 1;
+#X connect 11 3 6 2;
+#X connect 12 0 5 0;
+#X connect 13 0 3 0;
+#X connect 17 0 4 0;
+#X connect 17 1 11 0;

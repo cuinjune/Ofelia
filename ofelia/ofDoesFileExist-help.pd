@@ -1,0 +1,38 @@
+#N canvas 321 23 598 518 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofDoesFileExist 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 377 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 385 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 462 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 413 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 436 (none);
+#X floatatom 155 279 5 0 0 0 - - -, f 5;
+#X text 197 279 0: not exists \, 1: exists.;
+#X obj 155 129 ofGetPatchDirectory;
+#X symbolatom 155 182 60 0 0 0 - - -, f 60;
+#X obj 155 104 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 349 symbol;
+#X text 95 385 float;
+#X text 211 385 - 0: not exists \, 1: exists.;
+#X text 11 23 check the existence of a file;
+#X text 176 104 check if the file exists or not.;
+#X msg 187 214 symbol myDirectory/myFile;
+#X text 211 349 - an absolute path of file to check.;
+#X obj 481 5 ofDoesFileExist;
+#X obj 155 151 makefilename %s/ofDoesFileExist-help.pd;
+#X obj 155 252 ofDoesFileExist;
+#X connect 10 0 21 0;
+#X connect 11 0 22 0;
+#X connect 12 0 10 0;
+#X connect 18 0 22 0;
+#X connect 21 0 11 0;
+#X connect 22 0 8 0;

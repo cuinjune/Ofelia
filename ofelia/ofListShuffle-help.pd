@@ -1,0 +1,81 @@
+#N canvas 321 23 596 518 10;
+#X obj 0 0 cnv 15 580 40 empty empty ofListShuffle 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 377 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 385 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 462 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 413 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 349 list;
+#X text 95 385 list;
+#X text 211 349 - the incoming source list.;
+#X text 211 385 - outputs the processed list.;
+#X obj 220 233 print;
+#X text 355 158 the incoming source list.;
+#N canvas 321 134 563 447 about_list-processing_objects 0;
+#X text 41 35 in ofelia \, list-processing objects whose name starts
+with "ofList" (e.g. "ofListFill") accepts the source list from its
+first inlet. and objects whose name ends with "List" (e.g. "ofFillList")
+can set the source list via creation arguments or by its last inlet.
+the former type is more intuitive when you have many different lists
+to process \, while the later is more intuitive when you have a single
+list to process differently many times.;
+#X obj 46 258 print;
+#X obj 46 231 ofListFill foo 2 3;
+#X obj 46 388 print;
+#X msg 134 301 2 3;
+#X text 171 302 fill the list with "foo" from index 2 to 3;
+#X msg 46 301 symbol foo;
+#X text 230 202 fill the list with "foo" from index 2 to 3;
+#X msg 195 201 2 3;
+#X msg 107 201 symbol foo;
+#X msg 46 171 0 1 2 3 4 5;
+#X obj 46 361 ofFillList 0 1 2 3 4 5;
+#X msg 197 331 0 1 2 3 4 5;
+#X text 137 172 the incoming source list.;
+#X text 287 331 set the source list.;
+#X connect 2 0 1 0;
+#X connect 4 0 11 1;
+#X connect 6 0 11 0;
+#X connect 8 0 2 2;
+#X connect 9 0 2 1;
+#X connect 10 0 2 0;
+#X connect 11 0 3 0;
+#X connect 12 0 11 2;
+#X restore 384 45 pd about_list-processing_objects;
+#X text 72 436 (none);
+#X msg 220 158 list 0 1 2 3 4 5 6 7;
+#X obj 493 5 ofListShuffle;
+#X text 11 23 randomly change the order of a list;
+#X obj 220 206 ofListShuffle;
+#N canvas 321 134 654 424 more_examples 0;
+#X obj 61 148 ofSeedRandom;
+#X obj 61 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 132 98 33;
+#X msg 97 98 22;
+#X text 84 51 seed the list shuffler with an acceptably random value
+\, generated from clock time and the PID.;
+#X text 170 99 seeds the list shuffler with a unique value. if the
+user would like to repeat the same random sequence \, a known random
+seed can be used to initialize the list shuffler during app setup.
+this can be useful for debugging and testing.;
+#X obj 250 293 print;
+#X text 364 219 the incoming source list.;
+#X obj 250 266 ofListShuffle;
+#X msg 250 218 list 0 1 2 3 4;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X restore 480 66 pd more_examples;
+#X connect 15 0 18 0;
+#X connect 18 0 11 0;
