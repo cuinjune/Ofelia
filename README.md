@@ -1,5 +1,5 @@
 # ofelia
-![alt text](screenshot.png)
+![alt text](doc/screenshot.png)
 
 ## Description
 
@@ -28,7 +28,7 @@ The external library is currently available to be used under macOS, Linux(64bit)
 
 # ofxOfelia
 
-![alt text](crossplatform.png)
+![alt text](doc/crossplatform.png)
 
 ## Description
 
@@ -45,7 +45,7 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 ## Setup guide
 
 * Make sure you have openFrameworks setup on your desktop.
-* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/archive/0.1.0.tar.gz), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
+* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/archive/1.0.0.tar.gz), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
 Place them within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
 * Download [pd-0.48-1 source archive](http://msp.ucsd.edu/Software/pd-0.48-1.src.tar.gz) and find `src` folder inside the extracted directory and copy it into `OF/addons/ofxOfelia/libs/pd`.
 * (macOS and Linux) Open the Terminal and run the following to update openFrameworks.
