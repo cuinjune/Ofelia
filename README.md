@@ -93,6 +93,8 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 
 ## Creating your own standalone project
 
+**Note: Currently, there is an issue when compiling with xCode on macOS 10.13+. It will be fixed soon**
+
 #### macOS
 * Copy the folder `OF/addons/ofxOfelia/macOSExample` and paste it into `OF/apps/myApps`.
 * Rename the project in Xcode and rename the project folder to your liking.
