@@ -44,6 +44,8 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 
 ## Setup guide
 
+**Note: Currently, there is an issue when compiling with xCode on macOS 10.13+. It will be fixed soon**
+
 * Make sure you have openFrameworks setup on your desktop.
 * Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.2), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
 Place them within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
@@ -92,8 +94,6 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 * Connect your Android device and run the project.
 
 ## Creating your own standalone project
-
-**Note: Currently, there is an issue when compiling with xCode on macOS 10.13+. It will be fixed soon**
 
 #### macOS
 * Copy the folder `OF/addons/ofxOfelia/macOSExample` and paste it into `OF/apps/myApps`.
