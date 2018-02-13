@@ -53,8 +53,6 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
   sudo ./updateOF.sh</pre>
 * (Windows) Execute the following batch file to update openFrameworks.
   <pre>OF/addons/ofxOfelia/scripts/Win/updateOF.bat</pre>
-  
-**Note: It may not properly compile on macOS Sierra. I will fix the issue and update it ASAP.**
 
 ## Building the external
 
