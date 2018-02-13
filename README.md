@@ -44,6 +44,8 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 
 ## Setup guide
 
+**Note: Currently, there is an issue when compiling on macOS 10.13+. It will be fixed within a few hours**
+
 * Make sure you have openFrameworks setup on your desktop.
 * Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.1), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
 Place them within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
