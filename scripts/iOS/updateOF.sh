@@ -5,6 +5,7 @@ ofPath=`cd "../../../.."; pwd`
 
 # paths to be updated
 paths=(
+"${ofPath}/addons/ofxPd/addon_config.mk"
 "${ofPath}/addons/ofxiOS/src/app/ofAppiOSWindow.h"
 "${ofPath}/addons/ofxiOS/src/app/ofAppiOSWindow.mm"
 "${ofPath}/addons/ofxiOS/src/core/ofxiOSAppDelegate.mm"

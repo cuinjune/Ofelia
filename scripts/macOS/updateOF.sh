@@ -5,6 +5,7 @@ ofPath=`cd "../../../.."; pwd`
 
 # paths to be updated
 paths=(
+"${ofPath}/addons/ofxPd/addon_config.mk"
 "${ofPath}/libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig"
 "${ofPath}/libs/openFrameworks/graphics/ofTrueTypeFont.cpp"
 )
