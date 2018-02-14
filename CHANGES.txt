@@ -1,7 +1,18 @@
-1.0.1: 12 Feb 2018
+v1.0.3: 15 Feb 2018
+
+* added s_file.c to iOS updateOF.sh
+* added C/C++ flags to macOS and iOS Xcode projects
+* now should build fine with macOS SDK 10.13+
+* updated main.pd file in example projects.
+
+v1.0.2: 13 Feb 2018
+
+* added addon_config.mk to macOS and iOS updateOF.sh
+
+v1.0.1: 12 Feb 2018
 
 * added a script for a release
 
-1.0.0: 11 Feb 2018
+v1.0.0: 11 Feb 2018
 
 * first release
