@@ -1373,6 +1373,11 @@
 					"-DLIBPD_USE_STD_MUTEX",
 					"-DHAVE_LIBDL",
 				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+					"-DHAVE_UNISTD_H=1",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1441,6 +1446,11 @@
 					"-DLIBPD_EXTRA",
 					"-DLIBPD_USE_STD_MUTEX",
 					"-DHAVE_LIBDL",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+					"-DHAVE_UNISTD_H=1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

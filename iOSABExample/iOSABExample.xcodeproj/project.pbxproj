@@ -1422,6 +1422,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/src/Audiobus",
 				);
+				OTHER_CFLAGS = (
+					"-DHAVE_UNISTD_H",
+					"-DUSEAPI_DUMMY",
+					"-DPD",
+					"-DLIBPD_EXTRA",
+					"-DLIBPD_USE_STD_MUTEX",
+					"-fcommon",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DHAVE_UNISTD_H=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = iOSABExample;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1445,6 +1457,18 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/src/Audiobus",
+				);
+				OTHER_CFLAGS = (
+					"-DHAVE_UNISTD_H",
+					"-DUSEAPI_DUMMY",
+					"-DPD",
+					"-DLIBPD_EXTRA",
+					"-DLIBPD_USE_STD_MUTEX",
+					"-fcommon",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DHAVE_UNISTD_H=1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = iOSABExample;
 				PRODUCT_NAME = "${TARGET_NAME}";
