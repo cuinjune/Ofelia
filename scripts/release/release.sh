@@ -11,6 +11,8 @@ cp -rp "../../macOSExample" "${macOSPath}"
 cp -rp "../../macOSExternal" "${macOSPath}"
 cp -rp "../../libs" "${macOSPath}"
 cp -rp "../../LICENSE.txt" "${macOSPath}"
+cp -rp "../../CHANGES.txt" "${macOSPath}"
+cp -rp "../../README.md" "${macOSPath}"
 
 # create directory and copy Linux related sources into it
 LinuxPath="ofxOfelia_Linux"
@@ -23,6 +25,7 @@ cp -rp "../../Linux64External" "${LinuxPath}"
 cp -rp "../../libs" "${LinuxPath}"
 cp -rp "../../LICENSE.txt" "${LinuxPath}"
 cp -rp "../../CHANGES.txt" "${LinuxPath}"
+cp -rp "../../README.md" "${LinuxPath}"
 
 # create directory and copy Windows related sources into it
 WinPath="ofxOfelia_Win"
@@ -35,6 +38,7 @@ cp -rp "../../Win32External" "${WinPath}"
 cp -rp "../../libs" "${WinPath}"
 cp -rp "../../LICENSE.txt" "${WinPath}"
 cp -rp "../../CHANGES.txt" "${WinPath}"
+cp -rp "../../README.md" "${WinPath}"
 
 # create directory and copy iOS related sources into it
 iOSPath="ofxOfelia_iOS"
@@ -46,6 +50,7 @@ cp -rp "../../iOSExample" "${iOSPath}"
 cp -rp "../../iOSABExample" "${iOSPath}"
 cp -rp "../../LICENSE.txt" "${iOSPath}"
 cp -rp "../../CHANGES.txt" "${iOSPath}"
+cp -rp "../../README.md" "${iOSPath}"
 
 # create directory and copy Android related sources into it
 AndroidPath="ofxOfelia_Android"
@@ -56,6 +61,7 @@ cp -rp "../../scripts/Android" "${AndroidPath}/scripts"
 cp -rp "../../AndroidExample" "${AndroidPath}"
 cp -rp "../../LICENSE.txt" "${AndroidPath}"
 cp -rp "../../CHANGES.txt" "${AndroidPath}"
+cp -rp "../../README.md" "${AndroidPath}"
 
 # delete all .DS_Store files
 find . -name '.DS_Store' -type f -delete
