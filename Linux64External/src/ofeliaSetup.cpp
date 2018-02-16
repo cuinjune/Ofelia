@@ -57,6 +57,7 @@
 #include "ofeliaCamera.h"
 #include "ofeliaViewport.h"
 #include "ofeliaOverwrites.h"
+#include "ofeliaVersion.h"
 
 void *ofelia_new() {
     
@@ -105,5 +106,6 @@ void ofelia_setup()
     ofeliaEasyCam_setup();
     ofeliaCamera_setup();
     ofeliaViewport_setup();
+    ofeliaPrintVersion();
 }
 

@@ -12,8 +12,6 @@ https://processing.org/examples/loadfile1.html;
 #X text 160 162 get the directory of the patch.;
 #X text 29 26 load a text file that contains 2d positions to draw lines
 on the screen. (this example requires an internet connection);
-#X text 98 206 save a file from the specified url to the patch directory.
-;
 #X obj 31 353 ofHead;
 #X obj 31 272 ofPrepend vertex;
 #X obj 31 316 ofLoadPolyline2d @lines;
@@ -24,13 +22,15 @@ on the screen. (this example requires an internet connection);
 #X msg 31 184 save https://processing.org/examples/positions.txt \$1/../data/positions.txt
 , f 75;
 #X msg 31 228 read ../data/positions.txt \, rewind \, bang;
+#X text 98 206 save a file from the specified url to data directory.
+;
 #X connect 0 0 2 0;
-#X connect 1 0 20 0;
-#X connect 2 0 19 0;
-#X connect 3 0 13 0;
-#X connect 4 0 14 0;
-#X connect 5 0 18 0;
-#X connect 12 0 15 0;
-#X connect 13 0 4 0;
-#X connect 19 0 1 0;
-#X connect 20 0 3 0;
+#X connect 1 0 19 0;
+#X connect 2 0 18 0;
+#X connect 3 0 12 0;
+#X connect 4 0 13 0;
+#X connect 5 0 17 0;
+#X connect 11 0 14 0;
+#X connect 12 0 4 0;
+#X connect 18 0 1 0;
+#X connect 19 0 3 0;
