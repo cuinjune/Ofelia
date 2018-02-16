@@ -15,7 +15,7 @@ The external library is currently available to be used under macOS, Linux(64bit)
 * Select the proper version of ofelia for your system to download and install.
 * Go to `Pd` -> `Preferences` -> `Startup`, click `New` and add `ofelia`
 * Restart Pd.
-* (Linux only) Open the Terminal and run the following command to install dependencies.
+* (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
 
@@ -45,7 +45,7 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 ## Setup guide
 
 * Make sure you have openFrameworks setup on your desktop.
-* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.3), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
+* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.4), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
 Place them within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
 * (macOS / Linux / Windows) Download [pd-0.48-1 source archive](http://msp.ucsd.edu/Software/pd-0.48-1.src.tar.gz) and find `src` folder inside the extracted directory and copy it into `OF/addons/ofxOfelia/libs/pd`.
 * (macOS / Linux / iOS / Android) Open the Terminal and run the following to update openFrameworks.
@@ -63,8 +63,9 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 #### Linux
 * Open the Terminal and run the following command to build the project. 
   <pre>cd OF/addons/ofxOfelia/Linux64External
-  make</pre>
-* Copy the binaries from `OF/addons/ofxOfelia/Linux64External/bin` into the externals directory.
+  make
+  sudo ./set_rpath.sh</pre>
+* Copy the binary and the `libs` folder from `OF/addons/ofxOfelia/Linux64External/bin` into the externals directory.
 
 #### Windows
 * Open `OF/addons/ofxOfelia/Win32External/ofelia.vcxproj` with Visual Studio and build the solution.
