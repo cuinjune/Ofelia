@@ -237,6 +237,7 @@
     <ClInclude Include="src\ofeliaVec2f.h" />
     <ClInclude Include="src\ofeliaVec3f.h" />
     <ClInclude Include="src\ofeliaVec4f.h" />
+    <ClInclude Include="src\ofeliaVersion.h" />
     <ClInclude Include="src\ofeliaViewport.h" />
     <ClInclude Include="src\ofeliaWindow.h" />
     <ClInclude Include="src\tinyexpr.h" />
@@ -285,6 +286,7 @@
     <ClCompile Include="src\ofeliaVec2f.cpp" />
     <ClCompile Include="src\ofeliaVec3f.cpp" />
     <ClCompile Include="src\ofeliaVec4f.cpp" />
+    <ClCompile Include="src\ofeliaVersion.cpp" />
     <ClCompile Include="src\ofeliaViewport.cpp" />
     <ClCompile Include="src\ofeliaWindow.cpp" />
     <ClCompile Include="src\tinyexpr.c" />

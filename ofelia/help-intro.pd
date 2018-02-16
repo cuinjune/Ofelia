@@ -1,4 +1,5 @@
-#N canvas 518 52 665 802 10;
+#N canvas 518 23 665 799 10;
+#X declare -lib ofelia;
 #X text 24 520 -------------------------- TYPES --------------------------
 ;
 #X text 24 680 --------------------------- MATH ---------------------------
@@ -1057,3 +1058,4 @@ size;
 #X text 24 60 -------------------------- WINDOW --------------------------
 ;
 #X text 23 22 a categorized list of built-in objects in ofelia.;
+#X obj 512 20 declare -lib ofelia;
