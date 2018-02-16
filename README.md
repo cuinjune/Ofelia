@@ -15,7 +15,7 @@ The external library is currently available to be used under macOS, Linux(64bit)
 * Select the proper version of ofelia for your system to download and install.
 * Go to `Pd` -> `Preferences` -> `Startup`, click `New` and add `ofelia`
 * Restart Pd.
-* (Linux only) Open the Terminal and run the following command to install dependencies.
+* (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
 
@@ -63,8 +63,9 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 #### Linux
 * Open the Terminal and run the following command to build the project. 
   <pre>cd OF/addons/ofxOfelia/Linux64External
-  make</pre>
-* Copy the binaries from `OF/addons/ofxOfelia/Linux64External/bin` into the externals directory.
+  make
+  sudo ./set_rpath.sh</pre>
+* Copy the binary and the `libs` folder from `OF/addons/ofxOfelia/Linux64External/bin` into the externals directory.
 
 #### Windows
 * Open `OF/addons/ofxOfelia/Win32External/ofelia.vcxproj` with Visual Studio and build the solution.
