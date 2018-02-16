@@ -44,12 +44,10 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 
 ## Setup guide
 
-**Note: Currently, there is an issue when compiling with Xcode on macOS 10.13+. It will be fixed soon.**
-
 * Make sure you have openFrameworks setup on your desktop.
-* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.2), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
+* Download [ofxOfelia](https://github.com/cuinjune/ofxOfelia/releases/tag/v1.0.3), [ofxPd](https://github.com/danomatika/ofxPd/archive/1.6.1.tar.gz), [ofxMidi](https://github.com/danomatika/ofxMidi/archive/1.0.6.tar.gz) and rename the extracted folders to `ofxOfelia`, `ofxPd` and `ofxMidi`.<br />
 Place them within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
-* Download [pd-0.48-1 source archive](http://msp.ucsd.edu/Software/pd-0.48-1.src.tar.gz) and find `src` folder inside the extracted directory and copy it into `OF/addons/ofxOfelia/libs/pd`.
+* (macOS / Linux / Windows) Download [pd-0.48-1 source archive](http://msp.ucsd.edu/Software/pd-0.48-1.src.tar.gz) and find `src` folder inside the extracted directory and copy it into `OF/addons/ofxOfelia/libs/pd`.
 * (macOS / Linux / iOS / Android) Open the Terminal and run the following to update openFrameworks.
   <pre>cd OF/addons/ofxOfelia/scripts/(targetOS)
   sudo ./updateOF.sh</pre>
