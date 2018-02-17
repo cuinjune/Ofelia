@@ -3,10 +3,10 @@
 
 ## Description
 
-**ofelia** is a [Pure Data](https://puredata.info/) external library written with [openFrameworks](http://openframeworks.cc/about/) for creating cross-platform multimedia applications.<br />
+**ofelia** is a [Pure Data](https://puredata.info/) external library written with [openFrameworks](http://openframeworks.cc/) for creating cross-platform multimedia applications.<br />
 ofelia allows one to use various features of [openFrameworks core](http://openframeworks.cc/documentation/) in a real-time graphical programming environment, Pure Data.
 
-The external library is currently available to be used under macOS, Linux(64bit) and Windows.
+The external library is currently available to be used under macOS, Linux(64bit) and Windows. It will also be available on Raspberry Pi soon.
 
 ## Installation
 
