@@ -24,19 +24,15 @@
 void ofeliaPrintVersion()
 {
     stringstream ss;
-    ss << "------------------------------------------------------------" << '\n';
+    ss << "-------------------------------------------------------------------" << '\n';
     ss << "ofelia" << ' ';
     ss << 'v';
     ss << OFELIA_MAJOR_VERSION << '.';
     ss << OFELIA_MINOR_VERSION << '.';
     ss << OFELIA_BUGFIX_VERSION << ':';
-    ss << " compiled on ";
-    ss << ofGetDay() << ' ';
-    const char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    ss << months[ofGetMonth()-1] << ' ';
-    ss << ofGetYear() << '\n';
+    ss << " compiled on " << OFELIA_COMPILED_DATE << '\n';
     ss << "(c) 2018 Zack Lee <cuinjune@gmail.com>" << '\n';
-    ss << "------------------------------------------------------------";
+    ss << "-------------------------------------------------------------------";
     post(ss.str().c_str());
 }
 

@@ -29,6 +29,7 @@
 #define OFELIA_MAJOR_VERSION 1
 #define OFELIA_MINOR_VERSION 0
 #define OFELIA_BUGFIX_VERSION 4
+#define OFELIA_COMPILED_DATE "20 Feb 2018"
 
 extern "C" {
     
