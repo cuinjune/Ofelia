@@ -1,7 +1,7 @@
 v1.0.4: 17 Feb 2018
 
 * print a message to pd console when library is loaded
-* added ofelia/lib folder for Linux external
+* added ofelia/libs folder for Linux external
 * added [declare -lib ofelia] in help-intro.pd
 * fixed a comment in example/file/loadfile.pd
 * added ofelia-meta.pd
