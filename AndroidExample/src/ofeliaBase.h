@@ -53,7 +53,7 @@
 #define OFELIA_DEFAULT_RENDER_ORDER 50.0f
 
 /* lock/unlock pd when accessing varibles from draw thread */
-#if defined(OFELIA_TARGET_EXTERNAL) && !defined(TARGET_WIN32)
+#if defined(TARGET_OSX) && defined(OFELIA_TARGET_EXTERNAL)
 #define OFELIA_LOCK_PD() sys_lock()
 #define OFELIA_UNLOCK_PD() sys_unlock()
 #else

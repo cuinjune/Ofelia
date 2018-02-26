@@ -1189,8 +1189,6 @@ void ofeliaWindow::createWindow()
 void ofeliaWindow::destroyWindow()
 {
     window->setWindowShouldClose();
-    window = NULL;
-    GLFWwin = NULL;
     
     if (bFirstLoop)
         pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindow::firstLoopSym);
@@ -1978,7 +1976,6 @@ void ofeliaWindow::pollEventsMethod(void *nul)
 {
     ofGetMainLoop()->loopOnce();
     ofGetMainLoop()->pollEvents();
-    clock_delay(pollEventsClock, 1000.0 / static_cast<double>(ofGetTargetFrameRate()));
     
     if (bFirstLoop) {
 
@@ -2019,6 +2016,7 @@ void ofeliaWindow::pollEventsMethod(void *nul)
             bWindowShouldResize = false;
         }
     }
+    clock_delay(pollEventsClock, 1000.0 / static_cast<double>(ofGetTargetFrameRate()));
 }
 
 void ofeliaWindow::windowCreatedMethod(void *nul)
