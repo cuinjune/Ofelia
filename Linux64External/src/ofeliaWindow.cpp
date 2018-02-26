@@ -25,7 +25,6 @@
 #include "ofeliaStyle.h"
 #include "ofeliaListeners.h"
 #include "ofeliaGetters.h"
-#include "ofeliaOverwrites.h"
 
 /* object static variables */
 const char *t_ofeliaWindow::objName = "ofWindow";
@@ -44,7 +43,6 @@ bool t_ofeliaWindow::bRenderGate;
 /* public static variables */
 ofAppBaseWindow *ofeliaWindow::window;
 GLFWwindow *ofeliaWindow::GLFWwin;
-drawThread ofeliaWindow::thread;
 bool ofeliaWindow::bFirstUpdate;
 bool ofeliaWindow::bFirstDraw;
 bool ofeliaWindow::bWindowExists;
@@ -350,11 +348,8 @@ void ofeliaWindow::_reset()
     setDeviceOrientation(WINDOW_ORIENTATION_DEFAULT);
     initVariables();
     
-    if (bWindowOwner) {
-        
+    if (bWindowOwner)
         setWindowProperties();
-        threadedLoopOnce();
-    }
 }
 
 void ofeliaWindow::_dimen(const t_symbol *s, const int argc, const t_atom *argv)
@@ -1181,21 +1176,11 @@ void ofeliaWindow::createWindow()
     bMultiTouchSimEnabled = false;
     bMultiTouchSimScheduled = false;
     bWindowExists = true;
-    bUsingWindow = true;
     bFullscreenScheduled = false;
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::firstLoopSym);
     pollEventsClock = clock_new(this, reinterpret_cast<t_method>(pollEventsMethod));
     windowCreatedClock = clock_new(this, reinterpret_cast<t_method>(windowCreatedMethod));
     accelSimulationClock = clock_new(this, reinterpret_cast<t_method>(accelSimulationMethod));
-    
-    /* start rendering thread */
-    thread.bFirstLoopFinished = false;
-    thread.startThread();
-    
-    /* wait until the first loop gets finished */
-    while (thread.isThreadRunning() &&
-           !thread.bFirstLoopFinished)
-        ofSleepMillis(1);
     
     /* start events polling */
     clock_delay(pollEventsClock, 0.0);
@@ -1203,11 +1188,7 @@ void ofeliaWindow::createWindow()
 
 void ofeliaWindow::destroyWindow()
 {
-    bUsingWindow = false; /* this is to break the while loop if object gets removed */
     window->setWindowShouldClose();
-    threadedLoopOnce();
-    window = NULL;
-    GLFWwin = NULL;
     
     if (bFirstLoop)
         pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindow::firstLoopSym);
@@ -1424,7 +1405,6 @@ void ofeliaWindow::setFullscreenMode(const bool fMode)
         sendFullscreenToPd(false);
         resizeWindow();
         bFullscreenMode = false;
-        threadedLoopOnce();
     }
 }
 
@@ -1446,7 +1426,6 @@ void ofeliaWindow::swapWindowDimensions()
         initWindowWidth = windowWidth;
         initWindowHeight = windowHeight;
         resizeWindow();
-        threadedLoopOnce();
     }
     else
         swap(initWindowWidth, initWindowHeight);
@@ -1512,20 +1491,6 @@ void ofeliaWindow::windowUpdate(ofEventArgs &e)
     if (!bWindowExists || bFirstLoop)
         return;
     
-    if (bThreadShouldWait) {
-        
-        bThreadShouldWait = false;
-        
-        /* wait until the object gets cleared */
-        while (!bObjectCleared && bUsingWindow) {
-            
-            if (bThreadShouldWait)
-                bThreadShouldWait = false;
-            ofSleepMillis(1);
-        }
-        if (bPatchClosing)
-            return;
-    }
     /* set default styles */
     ofGetCurrentRenderer()->setColor(255, 255, 255, 255);
     ofGetCurrentRenderer()->setRectMode(OF_RECTMODE_CORNER);
@@ -1591,11 +1556,6 @@ void ofeliaWindow::windowDraw(ofEventArgs &e)
     if (!bWindowExists || bFirstLoop || bFirstUpdate)
         return;
     
-    if (bPatchClosing) {
-        
-        bPatchClosing = false;
-        return;
-    }
     if (bFullscreenMode) {
         
         ofGetCurrentRenderer()->pushView();
@@ -1936,7 +1896,6 @@ void ofeliaWindow::windowResized(ofResizeEventArgs& e)
         }
         sendScaleToPd(windowScale);
         sendFullscreenToPd(bFullscreenMode);
-        threadedLoopOnce();
     }
     else if (!bWindowShouldResize && !bWindowResizeLocked) {
         
@@ -1976,7 +1935,6 @@ void ofeliaWindow::windowResized(ofResizeEventArgs& e)
 #endif
         resizeWindow();
         bFullscreenMode = false;
-        threadedLoopOnce();
     }
 }
 
@@ -1986,13 +1944,10 @@ void ofeliaWindow::windowDestroyed(ofEventArgs& e)
     initWindowPosY = windowPosY;
     windowPosX = windowPosY = 0;
     initAccelForce = accelForce;
-    OFELIA_UNLOCK_PD();
-    thread.waitForThread();
     removeWindowListeners();
     t_ofeliaWindow::bRenderGate = false;
     bWindowExists = false;
     bWindowOwner = false;
-    bUsingWindow = false;
     myOrien.lastDeviceWidth = 0;
     myOrien.lastDeviceHeight = 0;
     myOrien.bWindowOwner = false;
@@ -2019,8 +1974,8 @@ void ofeliaWindow::resizeWindow()
 
 void ofeliaWindow::pollEventsMethod(void *nul)
 {
+    ofGetMainLoop()->loopOnce();
     ofGetMainLoop()->pollEvents();
-    clock_delay(pollEventsClock, 1.0);
     
     if (bFirstLoop) {
 
@@ -2057,11 +2012,11 @@ void ofeliaWindow::pollEventsMethod(void *nul)
             
             resizeWindow();
             sendScaleToPd(windowScale);
-            threadedLoopOnce();
             windowResizeCount = 0;
             bWindowShouldResize = false;
         }
     }
+    clock_delay(pollEventsClock, 1000.0 / static_cast<double>(ofGetTargetFrameRate()));
 }
 
 void ofeliaWindow::windowCreatedMethod(void *nul)
@@ -2073,12 +2028,6 @@ void ofeliaWindow::windowCreatedMethod(void *nul)
 void ofeliaWindow::accelSimulationMethod(void *nul)
 {
     sendAccelToPd(accelForce.x, accelForce.y, accelForce.z);
-}
-
-void ofeliaWindow::threadedLoopOnce()
-{
-    OFELIA_UNLOCK_PD();
-    thread.loopOnce();
 }
 
 void ofeliaWindow::sendTouchToPd(const int touchState, const int touchID, const float posX, const float posY)
