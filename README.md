@@ -50,7 +50,6 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Create something cool and [share](https://patchstorage.com/) it with other people.
 
 ## Upcoming features
-* Fractal flame generator
 * GLSL shader loader
 * Video player
 * Video grabber
