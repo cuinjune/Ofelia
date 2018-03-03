@@ -118,7 +118,7 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 
 #### Android
 * Open Android Studio, select `Open an existing Android Studio project` and open `OF/addons/ofxOfelia/AndroidExample`.
-* Go to `Build` -> `Generate Signed APK` and create a key store based on `AndroidExample/keystore.properties`.
+* Go to `Build` -> `Generate Signed APK` to [generate a key and keystore](https://developer.android.com/studio/publish/app-signing.html) based on `AndroidExample/keystore.properties`.
 * Connect your Android device and run the project.
 
 ## Creating your own standalone project
