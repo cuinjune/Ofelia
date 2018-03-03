@@ -1,4 +1,5 @@
 #N canvas 641 23 663 697 10;
+#X declare -lib ofelia;
 #X obj 28 169 ofHead;
 #X text 25 23 draws letters to the screen. this requires loading a
 font \, setting the font \, and then drawing the letters.;
@@ -67,6 +68,7 @@ _let == $i2 || _let == $i3 || _let == $i4 || _let == $i5 \, 1 \, 0)
 #X obj 281 565 list tosymbol;
 #X text 315 133 load a font.;
 #X obj 28 133 ofLoadFont @font ../data/DejaVuSansMono.ttf 24;
+#X obj 512 29 declare -lib ofelia;
 #X connect 0 0 17 0;
 #X connect 3 0 10 0;
 #X connect 4 0 22 0;

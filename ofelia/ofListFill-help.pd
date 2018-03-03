@@ -1,4 +1,5 @@
 #N canvas 321 23 596 564 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofListFill 3 12 0 18 -204280 -1
 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -55,7 +56,7 @@ list to process differently many times.;
 #X connect 10 0 2 0;
 #X connect 11 0 3 0;
 #X connect 12 0 11 2;
-#X restore 384 45 pd about_list-processing_objects;
+#X restore 384 65 pd about_list-processing_objects;
 #X text 11 23 fill a list with element;
 #X floatatom 232 145 5 0 0 0 - - -, f 5;
 #X text 95 372 float/symbol;
@@ -72,6 +73,7 @@ list to process differently many times.;
 #X text 221 482 - sets the element \, fill position or range.;
 #X msg 308 231 2 3;
 #X obj 180 259 ofListFill foo 3 5;
+#X obj 462 46 declare -lib ofelia;
 #X connect 15 0 32 0;
 #X connect 19 0 32 1;
 #X connect 21 0 32 2;

@@ -55,7 +55,6 @@ extern "C" {
         unsigned int objID;
         bool shouldAlloc;
         bool shouldColor;
-        t_clock *jobDoneOutClock;
         t_outlet *jobDone_out;
         
     } t_ofeliaCreateImage;
@@ -99,8 +98,6 @@ extern "C" {
         unsigned int objID;
         unsigned int imgID;
         bool shouldOutlet;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *vecSizeOutClock;
         t_canvas *canvas;
         t_outlet *jobDone_out, *vecSize_out;
 
@@ -171,8 +168,6 @@ extern "C" {
         vector<t_ofeliaEditImageCmdData> cmdVec;
         EditImageErrorType errorType;
         t_string errorName;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *jobDoneOutClock;
         
     } t_ofeliaEditImage;
     

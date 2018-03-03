@@ -1,4 +1,5 @@
 #N canvas 641 23 674 618 10;
+#X declare -lib ofelia;
 #X obj 31 285 ofHead;
 #X obj 31 206 ofMouseListener;
 #X obj 31 80 ofWindow 640 400 LEFT TOP 1 51;
@@ -22,6 +23,7 @@ around with trails which slowly fade over time.;
 (@mouseY - @y) * @easing + @y \; $o1 = @x \; $o2 = @y \;;
 #X obj 31 137 ofDefine \; @easing = 0.05 \; @x \; @y \;;
 #X obj 31 116 ofWindowLoadBang;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 10 0;
 #X connect 1 1 3 0;
 #X connect 4 0 5 0;

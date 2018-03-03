@@ -1,4 +1,5 @@
 #N canvas 321 23 601 629 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofStar 3 12 0 18 -204280 -1 0
 ;
 #X obj 182 103 loadbang;
@@ -49,6 +50,7 @@
 #X text 211 502 - sets the initial radius1. (default: 50);
 #X text 211 523 - sets the initial radius2. (default: 25);
 #X text 211 544 - sets the initial number of points. (default: 5);
+#X obj 462 46 declare -lib ofelia;
 #X connect 1 0 30 0;
 #X connect 2 0 34 1;
 #X connect 3 0 34 2;

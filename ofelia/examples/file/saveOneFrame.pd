@@ -1,4 +1,5 @@
 #N canvas 640 23 579 692 10;
+#X declare -lib ofelia;
 #X obj 27 521 ofHead;
 #X obj 27 169 ofMouseListener;
 #X obj 27 587 ofLine2d;
@@ -30,6 +31,7 @@ to save the image to a disk. click on the screen to save the current
 screen.;
 #X obj 27 97 ofWindow 300 300 LEFT TOP 1 204;
 #X obj 27 543 ofSetLineWidth 1.5;
+#X obj 432 29 declare -lib ofelia;
 #X connect 0 0 24 0;
 #X connect 1 0 11 0;
 #X connect 1 1 3 0;

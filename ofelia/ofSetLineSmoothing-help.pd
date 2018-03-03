@@ -1,4 +1,5 @@
 #N canvas 321 23 598 592 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofSetLineSmoothing 3 12 0 18 -204280
 -1 0;
 #X obj 0 391 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -42,6 +43,7 @@
 #X text 211 509 - enables/disables the smoothing for lines. (default:
 OFF);
 #X text 213 337 note: see also [ofSetAntiAliasing] object.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 12 0 13 0;
 #X connect 13 0 14 1;
 #X connect 14 0 15 0;

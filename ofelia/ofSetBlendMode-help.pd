@@ -1,4 +1,5 @@
 #N canvas 321 23 597 622 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofSetBlendMode 3 12 0 18 -204280
 -1 0;
 #X obj 0 401 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -47,6 +48,7 @@
 MULTIPLY \, 5: SCREEN.;
 #X text 191 528 - 0: OFF \, 1: ALPHA \, 2: ADD \, 3: SUBTRACT \, 4:
 MULTIPLY \, 5: SCREEN. (default: ALPHA);
+#X obj 462 46 declare -lib ofelia;
 #X connect 12 0 24 0;
 #X connect 16 0 27 1;
 #X connect 24 0 25 1;

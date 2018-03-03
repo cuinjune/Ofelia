@@ -1,4 +1,5 @@
-#N canvas 321 23 599 497 10;
+#N canvas 321 23 599 516 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofGetFrameRate 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -36,7 +37,7 @@ name "ofGetFrameRate".;
 #X connect 4 0 0 0;
 #X connect 6 0 2 0;
 #X connect 7 0 3 0;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X text 11 23 get the actual frame rate of the current window;
 #X text 211 383 - the actual frame rate of the the current window.
 ;
@@ -45,5 +46,6 @@ name "ofGetFrameRate".;
 #X obj 23 318 ofWindow 320 240 LEFT TOP;
 #X text 211 349 - gets the actual frame rate of the current window.
 ;
+#X obj 462 46 declare -lib ofelia;
 #X connect 7 0 16 0;
 #X connect 16 0 10 0;

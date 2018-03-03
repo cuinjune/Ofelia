@@ -1,4 +1,5 @@
 #N canvas 641 23 731 729 10;
+#X declare -lib ofelia;
 #X obj 23 238 ofHead;
 #X obj 23 461 ofTranslate;
 #X obj 23 157 ofMouseListener;
@@ -42,6 +43,7 @@ when the focus or fullscreen mode gets changed.;
 #X text 21 19 move the cursor over the window to draw circles which
 responds to the speed of the mouse.;
 #X text 139 98 disable the auto background clearing function.;
+#X obj 572 29 declare -lib ofelia;
 #X connect 0 0 5 0;
 #X connect 1 0 17 0;
 #X connect 2 1 3 0;

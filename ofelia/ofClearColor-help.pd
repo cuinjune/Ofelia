@@ -1,4 +1,5 @@
-#N canvas 321 23 598 655 10;
+#N canvas 321 23 598 659 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofClearColor 3 12 0 18 -204280
 -1 0;
 #X obj 0 391 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -53,6 +54,7 @@ and replaces it with a new color.;
 #X text 191 491 - sets a.;
 #X text 191 578 - colorName(symbol) or RGBA(list). (default: white
 \, 255);
+#X obj 462 46 declare -lib ofelia;
 #X connect 21 0 32 0;
 #X connect 22 0 21 1;
 #X connect 24 0 27 0;

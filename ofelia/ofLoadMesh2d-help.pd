@@ -1,4 +1,5 @@
 #N canvas 321 23 601 849 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofLoadMesh2d 3 12 0 18 -204280
 -1 0;
 #X obj 0 361 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -30,7 +31,7 @@ name.;
 #X text 26 93 in general \, objects that use vector are divided into
 two types \, "loader" objects that can store an array of data and "getter"
 objects that can read the stored data from "loader" objects.;
-#X restore 486 46 pd about_vector;
+#X restore 486 66 pd about_vector;
 #N canvas 321 87 601 787 related_getter_objects 0;
 #X obj 10 12 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -619,6 +620,7 @@ requested length "10".;
 #X text 21 43 [ofLoadMesh2d] stores a set of arrays for a 2d mesh that
 can be edited \, drawn to the screen \, or used by its related "getter"
 objects.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 20 0 64 0;
 #X connect 64 0 40 0;
 #X connect 64 1 41 0;

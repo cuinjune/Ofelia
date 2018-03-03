@@ -1,4 +1,5 @@
 #N canvas 640 23 593 619 10;
+#X declare -lib ofelia;
 #X text 225 110 create a window with the scale set to 0.5;
 #X text 176 147 load 2 images from the specified paths.;
 #X obj 26 491 ofHead;
@@ -30,6 +31,7 @@ the shape \, right click to change the image.;
 #X obj 73 491 ofCount 0 1 1;
 #X obj 27 146 ofLoadImage \; @images \; ../data/background.jpg \; ../data/texture.jpg
 \;;
+#X obj 442 29 declare -lib ofelia;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 22 0;

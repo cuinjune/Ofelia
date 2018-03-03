@@ -667,8 +667,6 @@ void *ofeliaLoadMesh2d_new(t_symbol *s, int argc, t_atom *argv)
     x->objID = meshData.objID = t_ofeliaLoadMesh2d::counter++;
     t_ofeliaLoadMesh2d::meshData.push_back(meshData);
     t_ofeliaLoadMesh2d::meshes.push_back(make_unique<ofVboMesh>());
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadMesh2d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -688,9 +686,7 @@ void *ofeliaLoadMesh2d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -1606,14 +1602,10 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -1633,17 +1625,13 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
         x->numNormals = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals());
         x->numTexCoords = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords());
         x->numColors = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadMesh2d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadMesh2d_exit(t_ofeliaLoadMesh2d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadMesh2d::bInited)
         t_ofeliaLoadMesh2d::bInited = false;
     x->bInitGate = true;
@@ -1686,9 +1674,7 @@ void ofeliaLoadMesh2d_load(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_atom 
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1701,9 +1687,7 @@ void ofeliaLoadMesh2d_add(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_atom *
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = MESH_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1719,9 +1703,7 @@ void ofeliaLoadMesh2d_append(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_ato
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1738,9 +1720,7 @@ void ofeliaLoadMesh2d_prepend(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_at
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1756,9 +1736,7 @@ void ofeliaLoadMesh2d_insert(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_ato
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1774,9 +1752,7 @@ void ofeliaLoadMesh2d_fill(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_atom 
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = MESH_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1794,9 +1770,7 @@ void ofeliaLoadMesh2d_erase(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_atom
                 if (getCmdRangeFromArgs(argc-1, argv+1, cmd)) {
                     
                     cmd.state = MESH_LOAD_CMD_ERASE;
-                    x->cmdMutex->lock();
                     x->cmdVec.push_back(cmd);
-                    x->cmdMutex->unlock();
                 }
             }
         }
@@ -1850,9 +1824,7 @@ void ofeliaLoadMesh2d_clear(t_ofeliaLoadMesh2d *x, t_symbol *s, int argc, t_atom
         cmd.fromIndex = 0.0f;
         cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = MESH_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1915,7 +1887,6 @@ void ofeliaLoadMesh2d_print(t_ofeliaLoadMesh2d *x)
 
 void ofeliaLoadMesh2d_free(t_ofeliaLoadMesh2d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByMesh2dObjID(x->objID);
     t_ofeliaLoadMesh2d::meshData.erase(t_ofeliaLoadMesh2d::meshData.begin() + pos);
     t_ofeliaLoadMesh2d::meshes.erase(t_ofeliaLoadMesh2d::meshes.begin() + pos);
@@ -2445,8 +2416,6 @@ void *ofeliaLoadMesh3d_new(t_symbol *s, int argc, t_atom *argv)
     x->objID = meshData.objID = t_ofeliaLoadMesh3d::counter++;
     t_ofeliaLoadMesh3d::meshData.push_back(meshData);
     t_ofeliaLoadMesh3d::meshes.push_back(make_unique<ofVboMesh>());
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadMesh3d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -2466,9 +2435,7 @@ void *ofeliaLoadMesh3d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -3388,14 +3355,10 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -3415,17 +3378,13 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
         x->numNormals = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals());
         x->numTexCoords = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords());
         x->numColors = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadMesh3d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadMesh3d_exit(t_ofeliaLoadMesh3d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadMesh3d::bInited)
         t_ofeliaLoadMesh3d::bInited = false;
     x->bInitGate = true;
@@ -3468,9 +3427,7 @@ void ofeliaLoadMesh3d_load(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_atom 
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -3483,9 +3440,7 @@ void ofeliaLoadMesh3d_add(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_atom *
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = MESH_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -3501,9 +3456,7 @@ void ofeliaLoadMesh3d_append(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_ato
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -3520,9 +3473,7 @@ void ofeliaLoadMesh3d_prepend(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_at
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -3538,9 +3489,7 @@ void ofeliaLoadMesh3d_insert(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_ato
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = MESH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -3556,9 +3505,7 @@ void ofeliaLoadMesh3d_fill(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_atom 
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = MESH_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -3576,9 +3523,7 @@ void ofeliaLoadMesh3d_erase(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_atom
                 if (getCmdRangeFromArgs(argc-1, argv+1, cmd)) {
                     
                     cmd.state = MESH_LOAD_CMD_ERASE;
-                    x->cmdMutex->lock();
                     x->cmdVec.push_back(cmd);
-                    x->cmdMutex->unlock();
                 }
             }
         }
@@ -3632,9 +3577,7 @@ void ofeliaLoadMesh3d_clear(t_ofeliaLoadMesh3d *x, t_symbol *s, int argc, t_atom
         cmd.fromIndex = 0.0f;
         cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = MESH_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -3697,7 +3640,6 @@ void ofeliaLoadMesh3d_print(t_ofeliaLoadMesh3d *x)
 
 void ofeliaLoadMesh3d_free(t_ofeliaLoadMesh3d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByMesh3dObjID(x->objID);
     t_ofeliaLoadMesh3d::meshData.erase(t_ofeliaLoadMesh3d::meshData.begin() + pos);
     t_ofeliaLoadMesh3d::meshes.erase(t_ofeliaLoadMesh3d::meshes.begin() + pos);

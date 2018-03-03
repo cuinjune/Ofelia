@@ -1,4 +1,5 @@
-#N canvas 321 23 604 519 10;
+#N canvas 321 23 604 516 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofAccelListener 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -55,7 +56,7 @@ events.;
 #X connect 13 1 4 0;
 #X connect 14 0 9 1;
 #X connect 14 1 9 2;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X msg 59 203 accelSmoothing 0.8;
 #X msg 23 88 destroy \, create;
 #X text 132 89 recreate the current window if it is created by other
@@ -73,6 +74,7 @@ events on mobile devices. it will not work on desktop computers.;
 #X text 354 244 y coordinate. (-1 ~ 1);
 #X text 387 264 z coordinate. (-1 ~ 1);
 #X text 211 383 - x coordinate \, y coordinate \, z coordinate.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 9 0 10 0;
 #X connect 9 1 11 0;
 #X connect 9 2 12 0;

@@ -1022,8 +1022,10 @@ size;
 #N canvas 519 75 650 138 window 0;
 #X text 24 30 ------------------------- WINDOW -------------------------
 ;
-#X obj 26 59 ofWindow;
-#X text 224 59 - handle the output window;
+#X obj 26 79 ofWindow;
+#X text 224 79 - handle the output window;
+#X obj 26 59 ofelia;
+#X text 224 59 - initialize the ofelia external library;
 #X restore 26 89 pd window;
 #N canvas 519 75 650 137 material 0;
 #X obj 26 59 ofMaterial;

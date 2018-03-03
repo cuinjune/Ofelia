@@ -1,4 +1,5 @@
 #N canvas 641 23 684 665 10;
+#X declare -lib ofelia;
 #X obj 31 327 ofHead;
 #X obj 31 247 ofMouseListener;
 #X obj 31 550 ofTranslate;
@@ -21,6 +22,7 @@ follow. between drawing each frame of the animation \, the circle moves
 part of the distance(0.05) from its current position towards the cursor
 using the [ofLerp] object. this is the same as the easing under input
 only with [ofLerp] instead.;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 3 0;
 #X connect 1 1 5 0;
 #X connect 2 0 8 0;

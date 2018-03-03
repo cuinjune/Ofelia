@@ -1,4 +1,5 @@
 #N canvas 321 23 601 587 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofRotationAxes 3 12 0 18 -204280
 -1 0;
 #X obj 262 79 loadbang;
@@ -47,6 +48,7 @@
 #X text 211 482 - sets the initial radius. (default: 50);
 #X text 211 502 - sets the initial strip width. (default: 2);
 #X obj 229 226 ofRotateXYZ 50 50 50;
+#X obj 462 46 declare -lib ofelia;
 #X connect 1 0 30 0;
 #X connect 16 0 34 1;
 #X connect 17 0 34 2;

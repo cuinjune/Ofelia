@@ -56,7 +56,6 @@
 #include "ofeliaEasyCam.h"
 #include "ofeliaCamera.h"
 #include "ofeliaViewport.h"
-#include "ofeliaVersion.h"
 
 void *ofelia_new() {
     
@@ -104,6 +103,16 @@ void ofelia_setup()
     ofeliaEasyCam_setup();
     ofeliaCamera_setup();
     ofeliaViewport_setup();
-	ofeliaPrintVersion();
+    stringstream ss;
+    ss << "-------------------------------------------------------------------" << '\n';
+    ss << "ofelia" << ' ';
+    ss << 'v';
+    ss << OFELIA_MAJOR_VERSION << '.';
+    ss << OFELIA_MINOR_VERSION << '.';
+    ss << OFELIA_BUGFIX_VERSION << ':';
+    ss << " compiled on " << __DATE__ << '\n';
+    ss << "(c) 2018 Zack Lee <cuinjune@gmail.com>" << '\n';
+    ss << "-------------------------------------------------------------------";
+    post(ss.str().c_str());
 }
 

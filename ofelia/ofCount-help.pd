@@ -1,4 +1,5 @@
 #N canvas 321 23 598 651 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofCount 3 12 0 18 -204280 -1 0
 ;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -59,7 +60,7 @@
 #X connect 19 0 7 0;
 #X connect 20 0 5 0;
 #X connect 21 0 11 0;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X text 95 395 float;
 #X text 201 395 - sets the min/max value in a range.;
 #X obj 75 418 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
@@ -101,6 +102,7 @@
 #X text 201 369 - sets \, outputs the current value and counts up/down.
 ;
 #X text 11 23 count over a range;
+#X obj 462 46 declare -lib ofelia;
 #X connect 28 0 35 0;
 #X connect 30 0 35 1;
 #X connect 31 0 35 2;

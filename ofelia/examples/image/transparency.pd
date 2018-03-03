@@ -1,4 +1,5 @@
 #N canvas 640 23 678 565 10;
+#X declare -lib ofelia;
 #X obj 27 87 ofWindow 800 600 LEFT TOP 0.5;
 #X text 214 87 create a window with the scale set to 0.5;
 #X text 273 260 load an image from the specified path.;
@@ -26,6 +27,7 @@ the alpha value of the image.;
 #X obj 27 144 ofDefine \; @easing = 0.05 \; @offset \;;
 #X obj 27 280 1;
 #X text 54 280 enable rendering.;
+#X obj 530 29 declare -lib ofelia;
 #X connect 3 0 7 0;
 #X connect 3 1 13 0;
 #X connect 4 0 15 0;

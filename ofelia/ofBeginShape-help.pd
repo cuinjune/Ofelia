@@ -1,4 +1,5 @@
-#N canvas 321 23 599 555 10;
+#N canvas 321 23 599 558 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofBeginShape 3 12 0 18 -204280
 -1 0;
 #X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -35,6 +36,7 @@ points and lastly a call to [ofEndShape].;
 #X obj 225 265 ofVertex2d 215 30;
 #X obj 225 286 ofVertex2d 155 210;
 #X obj 225 308 ofVertex2d 100 35;
+#X obj 462 46 declare -lib ofelia;
 #X connect 8 0 13 0;
 #X connect 13 0 14 1;
 #X connect 14 0 15 0;

@@ -1,4 +1,5 @@
-#N canvas 321 23 598 716 10;
+#N canvas 321 23 598 719 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofSetColor 3 12 0 18 -204280 -1
 0;
 #X obj 0 451 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -105,7 +106,8 @@ saddleBrown \, salmon \, sandyBrown \, seaGreen \, seaShell \, sienna
 [ofSetColor] object.;
 #X obj 69 539 ofSetColor orange;
 #X connect 0 0 4 0;
-#X restore 492 46 pd color_names;
+#X restore 492 66 pd color_names;
+#X obj 462 46 declare -lib ofelia;
 #X connect 20 0 36 0;
 #X connect 21 0 46 1;
 #X connect 22 0 46 2;

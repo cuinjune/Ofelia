@@ -1,4 +1,5 @@
 #N canvas 321 23 601 596 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofPushStyle 3 12 0 18 -204280
 -1 0;
 #X obj 0 421 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -39,6 +40,7 @@ style settings.;
 #X obj 135 348 ofSquare 50;
 #X text 214 349 this square doesn't get affected by the above [ofSetColor]
 and [ofSetFillMode] between [ofPushStyle] and [ofPopStyle].;
+#X obj 462 46 declare -lib ofelia;
 #X connect 16 0 17 0;
 #X connect 17 0 18 1;
 #X connect 18 0 19 0;

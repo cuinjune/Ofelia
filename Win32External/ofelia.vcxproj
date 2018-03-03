@@ -194,55 +194,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofeliaAnimate.h" />
-    <ClInclude Include="src\ofeliaAudio.h" />
-    <ClInclude Include="src\ofeliaBase.h" />
-    <ClInclude Include="src\ofeliaCamera.h" />
-    <ClInclude Include="src\ofeliaColor.h" />
-    <ClInclude Include="src\ofeliaDevices.h" />
-    <ClInclude Include="src\ofeliaDirectory.h" />
-    <ClInclude Include="src\ofeliaDirectoryHandler.h" />
-    <ClInclude Include="src\ofeliaEasyCam.h" />
-    <ClInclude Include="src\ofeliaExpr.h" />
-    <ClInclude Include="src\ofeliaFbo.h" />
-    <ClInclude Include="src\ofeliaFile.h" />
-    <ClInclude Include="src\ofeliaFileHandler.h" />
-    <ClInclude Include="src\ofeliaFloat.h" />
-    <ClInclude Include="src\ofeliaFont.h" />
-    <ClInclude Include="src\ofeliaGetters.h" />
-    <ClInclude Include="src\ofeliaHead.h" />
-    <ClInclude Include="src\ofeliaImage.h" />
-    <ClInclude Include="src\ofeliaImageLoader.h" />
-    <ClInclude Include="src\ofeliaImageSaver.h" />
-    <ClInclude Include="src\ofeliaLights.h" />
-    <ClInclude Include="src\ofeliaListeners.h" />
-    <ClInclude Include="src\ofeliaMaterial.h" />
-    <ClInclude Include="src\ofeliaMath.h" />
-    <ClInclude Include="src\ofeliaMatrix.h" />
-    <ClInclude Include="src\ofeliaMesh.h" />
-    <ClInclude Include="src\ofeliaOrien.h" />
-    <ClInclude Include="src\ofeliaPatch.h" />
-    <ClInclude Include="src\ofeliaPath.h" />
-    <ClInclude Include="src\ofeliaPolyline.h" />
-    <ClInclude Include="src\ofeliaSeparators.h" />
-    <ClInclude Include="src\ofeliaSetters.h" />
-    <ClInclude Include="src\ofeliaSetup.h" />
-    <ClInclude Include="src\ofeliaShapes.h" />
-    <ClInclude Include="src\ofeliaString.h" />
-    <ClInclude Include="src\ofeliaStyle.h" />
-    <ClInclude Include="src\ofeliaSymbol.h" />
-    <ClInclude Include="src\ofeliaURL.h" />
-    <ClInclude Include="src\ofeliaURLSaver.h" />
-    <ClInclude Include="src\ofeliaUtils.h" />
-    <ClInclude Include="src\ofeliaVec2f.h" />
-    <ClInclude Include="src\ofeliaVec3f.h" />
-    <ClInclude Include="src\ofeliaVec4f.h" />
-    <ClInclude Include="src\ofeliaVersion.h" />
-    <ClInclude Include="src\ofeliaViewport.h" />
-    <ClInclude Include="src\ofeliaWindow.h" />
-    <ClInclude Include="src\tinyexpr.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\ofeliaAnimate.cpp" />
     <ClCompile Include="src\ofeliaAudio.c" />
     <ClCompile Include="src\ofeliaBase.cpp" />
@@ -286,10 +237,57 @@
     <ClCompile Include="src\ofeliaVec2f.cpp" />
     <ClCompile Include="src\ofeliaVec3f.cpp" />
     <ClCompile Include="src\ofeliaVec4f.cpp" />
-    <ClCompile Include="src\ofeliaVersion.cpp" />
     <ClCompile Include="src\ofeliaViewport.cpp" />
     <ClCompile Include="src\ofeliaWindow.cpp" />
     <ClCompile Include="src\tinyexpr.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofeliaAnimate.h" />
+    <ClInclude Include="src\ofeliaAudio.h" />
+    <ClInclude Include="src\ofeliaBase.h" />
+    <ClInclude Include="src\ofeliaCamera.h" />
+    <ClInclude Include="src\ofeliaColor.h" />
+    <ClInclude Include="src\ofeliaDevices.h" />
+    <ClInclude Include="src\ofeliaDirectory.h" />
+    <ClInclude Include="src\ofeliaDirectoryHandler.h" />
+    <ClInclude Include="src\ofeliaEasyCam.h" />
+    <ClInclude Include="src\ofeliaExpr.h" />
+    <ClInclude Include="src\ofeliaFbo.h" />
+    <ClInclude Include="src\ofeliaFile.h" />
+    <ClInclude Include="src\ofeliaFileHandler.h" />
+    <ClInclude Include="src\ofeliaFloat.h" />
+    <ClInclude Include="src\ofeliaFont.h" />
+    <ClInclude Include="src\ofeliaGetters.h" />
+    <ClInclude Include="src\ofeliaHead.h" />
+    <ClInclude Include="src\ofeliaImage.h" />
+    <ClInclude Include="src\ofeliaImageLoader.h" />
+    <ClInclude Include="src\ofeliaImageSaver.h" />
+    <ClInclude Include="src\ofeliaLights.h" />
+    <ClInclude Include="src\ofeliaListeners.h" />
+    <ClInclude Include="src\ofeliaMaterial.h" />
+    <ClInclude Include="src\ofeliaMath.h" />
+    <ClInclude Include="src\ofeliaMatrix.h" />
+    <ClInclude Include="src\ofeliaMesh.h" />
+    <ClInclude Include="src\ofeliaOrien.h" />
+    <ClInclude Include="src\ofeliaPatch.h" />
+    <ClInclude Include="src\ofeliaPath.h" />
+    <ClInclude Include="src\ofeliaPolyline.h" />
+    <ClInclude Include="src\ofeliaSeparators.h" />
+    <ClInclude Include="src\ofeliaSetters.h" />
+    <ClInclude Include="src\ofeliaSetup.h" />
+    <ClInclude Include="src\ofeliaShapes.h" />
+    <ClInclude Include="src\ofeliaString.h" />
+    <ClInclude Include="src\ofeliaStyle.h" />
+    <ClInclude Include="src\ofeliaSymbol.h" />
+    <ClInclude Include="src\ofeliaURL.h" />
+    <ClInclude Include="src\ofeliaURLSaver.h" />
+    <ClInclude Include="src\ofeliaUtils.h" />
+    <ClInclude Include="src\ofeliaVec2f.h" />
+    <ClInclude Include="src\ofeliaVec3f.h" />
+    <ClInclude Include="src\ofeliaVec4f.h" />
+    <ClInclude Include="src\ofeliaViewport.h" />
+    <ClInclude Include="src\ofeliaWindow.h" />
+    <ClInclude Include="src\tinyexpr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>

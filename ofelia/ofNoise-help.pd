@@ -1,4 +1,5 @@
 #N canvas 321 23 600 564 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofNoise 3 12 0 18 -204280 -1 0
 ;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -58,7 +59,7 @@
 #X connect 11 0 2 0;
 #X connect 12 0 7 0;
 #X connect 13 0 11 0;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X obj 529 5 ofNoise;
 #X obj 252 167 ofPack 0 0;
 #X obj 205 270 ofNoise;
@@ -75,6 +76,7 @@ the resulting value will always be between 0 and 1;
 #X text 231 389 - calculates a three dimensional simplex noise.;
 #X text 231 409 - calculates a four dimensional simplex noise.;
 #X text 231 448 - the calculated simplex noise value.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 9 0 23 0;
 #X connect 10 0 22 0;
 #X connect 11 0 22 1;

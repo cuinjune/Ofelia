@@ -30,7 +30,6 @@ unsigned int t_ofeliaLoadFont::counter;
 vector<t_ofeliaLoadFontData> t_ofeliaLoadFont::fontData;
 vector<vector<shared_ptr<ofTrueTypeFont>>> t_ofeliaLoadFont::fonts;
 bool t_ofeliaLoadFont::bInited;
-ofMutex t_ofeliaLoadFont::gMutex;
 const char *t_ofeliaEditFont::objName = "ofEditFont";
 const char *t_ofeliaBindFontTex::objName = "ofBindFontTex";
 const char *t_ofeliaDrawText::objName = "ofDrawText";
@@ -229,8 +228,6 @@ void *ofeliaLoadFont_new(t_symbol *s, int argc, t_atom *argv)
     x->fontLoaded = make_unique<vector<char>>();
     x->fontIDs = make_unique<vector<unsigned int>>();
     x->tempFontIDs = make_unique<vector<unsigned int>>();
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadFont_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -247,9 +244,7 @@ void *ofeliaLoadFont_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = FONT_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -351,14 +346,10 @@ void ofeliaLoadFont_update(t_ofeliaLoadFont *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
     }
     if (x->failPathsShouldClear) {
         
@@ -400,17 +391,13 @@ void ofeliaLoadFont_update(t_ofeliaLoadFont *x)
                                                 return c != 0;
                                             });
         x->vecSizes.push_back(numLoadedFonts);
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadFont_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadFont_exit(t_ofeliaLoadFont *x)
 {
-    clock_unset(x->vecSizeOutClock);
-
     if (t_ofeliaLoadFont::bInited)
         t_ofeliaLoadFont::bInited = false;
     fill(x->fontLoaded->begin(), x->fontLoaded->end(), 0); /* mark unloaded */
@@ -461,9 +448,7 @@ void ofeliaLoadFont_load(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *arg
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = FONT_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -476,9 +461,7 @@ void ofeliaLoadFont_add(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *argv
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = FONT_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -494,9 +477,7 @@ void ofeliaLoadFont_append(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *a
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = FONT_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -513,9 +494,7 @@ void ofeliaLoadFont_prepend(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = FONT_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -529,9 +508,7 @@ void ofeliaLoadFont_insert(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *a
         if (getCmdRangeFromArgs(argc-2, argv+2, cmd)) {
             
             cmd.state = FONT_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -545,9 +522,7 @@ void ofeliaLoadFont_fill(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *arg
         if (getCmdRangeFromArgs(argc-2, argv+2, cmd)) {
             
             cmd.state = FONT_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -559,9 +534,7 @@ void ofeliaLoadFont_erase(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *ar
     if (getCmdRangeFromArgs(argc, argv, cmd)) {
         
         cmd.state = FONT_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -571,9 +544,7 @@ void ofeliaLoadFont_clear(t_ofeliaLoadFont *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = FONT_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadFont_set(t_ofeliaLoadFont *x, t_symbol *s, int argc, t_atom *argv)
@@ -611,7 +582,6 @@ void ofeliaLoadFont_print(t_ofeliaLoadFont *x)
 
 void ofeliaLoadFont_free(t_ofeliaLoadFont *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByFontObjID(x->objID);
     t_ofeliaLoadFont::fontData.erase(t_ofeliaLoadFont::fontData.begin() + pos);
     t_ofeliaLoadFont::fonts.erase(t_ofeliaLoadFont::fonts.begin() + pos);
@@ -686,8 +656,6 @@ void *ofeliaEditFont_new(t_symbol *s)
     getVarNameLocalized(x->varName);
     getVarNameIndexed(x->varName);
     x->bInitGate = false;
-    x->cmdMutex = make_unique<ofMutex>();
-    x->jobDoneOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaEditFont_jobDoneOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     outlet_new(&x->x_obj, &s_bang);
     return (x);
@@ -800,17 +768,11 @@ void ofeliaEditFont_update(t_ofeliaEditFont *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
-        OFELIA_LOCK_PD();
-        clock_delay(x->jobDoneOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaEditFont_jobDoneOut(x);
     }
 }
 
@@ -844,9 +806,7 @@ void ofeliaEditFont_letterSpacing(t_ofeliaEditFont *x, t_floatarg f)
     t_ofeliaEditFontCmdData cmd;
     cmd.arg = f;
     cmd.state = FONT_EDIT_CMD_LETTERSPACING;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditFont_lineHeight(t_ofeliaEditFont *x, t_floatarg f)
@@ -854,9 +814,7 @@ void ofeliaEditFont_lineHeight(t_ofeliaEditFont *x, t_floatarg f)
     t_ofeliaEditFontCmdData cmd;
     cmd.arg = f;
     cmd.state = FONT_EDIT_CMD_LINEHEIGHT;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditFont_spaceSize(t_ofeliaEditFont *x, t_floatarg f)
@@ -869,9 +827,7 @@ void ofeliaEditFont_spaceSize(t_ofeliaEditFont *x, t_floatarg f)
     t_ofeliaEditFontCmdData cmd;
     cmd.arg = f;
     cmd.state = FONT_EDIT_CMD_SPACESIZE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditFont_clone(t_ofeliaEditFont *x, t_symbol *s)
@@ -881,9 +837,7 @@ void ofeliaEditFont_clone(t_ofeliaEditFont *x, t_symbol *s)
     getVarNameLocalized(cmd.varName);
     getVarNameIndexed(cmd.varName);
     cmd.state = FONT_EDIT_CMD_CLONE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditFont_set(t_ofeliaEditFont *x, t_symbol *s)
@@ -908,7 +862,6 @@ void ofeliaEditFont_print(t_ofeliaEditFont *x)
 
 void ofeliaEditFont_free(t_ofeliaEditFont *x)
 {
-    clock_free(x->jobDoneOutClock);
     pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
 }
 
@@ -1223,17 +1176,14 @@ void ofeliaDrawText_bang(t_ofeliaDrawText *x)
                         
                         if (t_ofeliaLoadFont::fonts[pos][index]->isLoaded()) {
                             
-                            t_ofeliaLoadFont::gMutex.lock();
                             getTextLinePosition(t_ofeliaLoadFont::fonts[pos][index],
                                                 x->textMode, x->elem.textLines);
-                            t_ofeliaLoadFont::gMutex.unlock();
                             x->shouldUpdateTextLines = false;
                         }
                     }
                     ofGetCurrentRenderer()->pushMatrix();
                     const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                     ofGetCurrentRenderer()->scale(scaleAmt, scaleAmt, 1.0f);
-                    t_ofeliaLoadFont::gMutex.lock();
                     
                     for (size_t i=0; i<x->elem.textLines.size(); ++i) {
                         
@@ -1241,7 +1191,6 @@ void ofeliaDrawText_bang(t_ofeliaDrawText *x)
                                                                         x->elem.textLines[i].posX,
                                                                         x->elem.textLines[i].posY);
                     }
-                    t_ofeliaLoadFont::gMutex.unlock();
                     ofGetCurrentRenderer()->popMatrix();
                 }
             }
@@ -1432,11 +1381,9 @@ void ofeliaDrawTextAsShapes_bang(t_ofeliaDrawTextAsShapes *x)
                     if (x->shouldUpdateTextLines) {
                         
                         if (t_ofeliaLoadFont::fonts[pos][index]->isLoaded()) {
-                            
-                            t_ofeliaLoadFont::gMutex.lock();
+
                             getTextLinePosition(t_ofeliaLoadFont::fonts[pos][index],
                                                 x->textMode, x->elem.textLines);
-                            t_ofeliaLoadFont::gMutex.unlock();
                             x->shouldUpdateTextLines = false;
                         }
                     }
@@ -1446,11 +1393,9 @@ void ofeliaDrawTextAsShapes_bang(t_ofeliaDrawTextAsShapes *x)
                     if (x->elem.size)
                         scaleAmt *= x->elem.size / (t_ofeliaLoadFont::fonts[pos][index]->getSize() * scaleAmt);
                     ofGetCurrentRenderer()->scale(scaleAmt, scaleAmt, 1.0f);
-                    t_ofeliaLoadFont::gMutex.lock();
                     
                     for (size_t i=0; i<x->elem.textLines.size(); ++i)
                         t_ofeliaLoadFont::fonts[pos][index]->drawStringAsShapes(x->elem.textLines[i].text.c_str(), x->elem.textLines[i].posX, x->elem.textLines[i].posY);
-                    t_ofeliaLoadFont::gMutex.unlock();
                     ofGetCurrentRenderer()->popMatrix();
                 }
             }
@@ -2184,7 +2129,6 @@ void ofeliaGetTextBoundingBox_bang(t_ofeliaGetTextBoundingBox *x)
                     if (t_ofeliaLoadFont::fonts[pos][index]->isLoaded()) {
                         
                         float boxWidth = 0.0f;
-                        t_ofeliaLoadFont::gMutex.lock();
                         
                         for (auto &v : x->elem.textLines) {
                             
@@ -2194,7 +2138,6 @@ void ofeliaGetTextBoundingBox_bang(t_ofeliaGetTextBoundingBox *x)
                                 boxWidth = lineWidth;
                         }
                         const float stringHeight = t_ofeliaLoadFont::fonts[pos][index]->stringHeight("I");
-                        t_ofeliaLoadFont::gMutex.unlock();
                         const float lineHeight = t_ofeliaLoadFont::fonts[pos][index]->getLineHeight();
                         const float boxHeight = lineHeight * (x->elem.textLines.size() - 1) + stringHeight;
                         const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
@@ -2245,16 +2188,12 @@ void ofeliaGetTextBoundingBox_name(t_ofeliaGetTextBoundingBox *x, t_symbol *s)
 
 void ofeliaGetTextBoundingBox_set(t_ofeliaGetTextBoundingBox *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getDrawTextElemFromArgs(argc, argv, x->elem, t_ofeliaGetTextBoundingBox::objName);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextBoundingBox_text(t_ofeliaGetTextBoundingBox *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getTextLinesFromArgs(argc, argv, x->elem.textLines);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextBoundingBox_print(t_ofeliaGetTextBoundingBox *x)
@@ -2322,7 +2261,6 @@ void ofeliaGetTextMesh2dCommands_bang(t_ofeliaGetTextMesh2dCommands *x)
                     
                     if (t_ofeliaLoadFont::fonts[pos][index]->isLoaded()) {
                         
-                        t_ofeliaLoadFont::gMutex.lock();
                         getTextLinePosition(t_ofeliaLoadFont::fonts[pos][index],
                                             x->textMode, x->elem.textLines);
                         ofMesh mesh;
@@ -2334,7 +2272,6 @@ void ofeliaGetTextMesh2dCommands_bang(t_ofeliaGetTextMesh2dCommands *x)
                                                       x->elem.textLines[i].posX,
                                                       x->elem.textLines[i].posY));
                         }
-                        t_ofeliaLoadFont::gMutex.unlock();
                         vector<t_ofeliaAtomElem> elems;
                         const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                         const size_t numVertices = mesh.getNumVertices();
@@ -2432,23 +2369,17 @@ void ofeliaGetTextMesh2dCommands_name(t_ofeliaGetTextMesh2dCommands *x, t_symbol
 
 void ofeliaGetTextMesh2dCommands_text(t_ofeliaGetTextMesh2dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getTextLinesFromArgs(argc, argv, x->elem.textLines);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh2dCommands_textMode(t_ofeliaGetTextMesh2dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getTextModeFromArgs(argc, argv, x->textMode, t_ofeliaGetTextMesh2dCommands::objName);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh2dCommands_set(t_ofeliaGetTextMesh2dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getDrawTextElemFromArgs(argc, argv, x->elem, t_ofeliaGetTextMesh2dCommands::objName);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh2dCommands_print(t_ofeliaGetTextMesh2dCommands *x)
@@ -2551,7 +2482,6 @@ void ofeliaGetTextMesh3dCommands_bang(t_ofeliaGetTextMesh3dCommands *x)
                     
                     if (t_ofeliaLoadFont::fonts[pos][index]->isLoaded()) {
                         
-                        t_ofeliaLoadFont::gMutex.lock();
                         getTextLinePosition(t_ofeliaLoadFont::fonts[pos][index],
                                             x->textMode, x->elem.textLines);
                         ofMesh mesh;
@@ -2563,7 +2493,6 @@ void ofeliaGetTextMesh3dCommands_bang(t_ofeliaGetTextMesh3dCommands *x)
                                                       x->elem.textLines[i].posX,
                                                       x->elem.textLines[i].posY));
                         }
-                        t_ofeliaLoadFont::gMutex.unlock();
                         vector<t_ofeliaAtomElem> elems;
                         const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                         const size_t numVertices = mesh.getNumVertices();
@@ -2662,23 +2591,17 @@ void ofeliaGetTextMesh3dCommands_name(t_ofeliaGetTextMesh3dCommands *x, t_symbol
 
 void ofeliaGetTextMesh3dCommands_text(t_ofeliaGetTextMesh3dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getTextLinesFromArgs(argc, argv, x->elem.textLines);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh3dCommands_textMode(t_ofeliaGetTextMesh3dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getTextModeFromArgs(argc, argv, x->textMode, t_ofeliaGetTextMesh3dCommands::objName);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh3dCommands_set(t_ofeliaGetTextMesh3dCommands *x, t_symbol *s, int argc, t_atom *argv)
 {
-    t_ofeliaLoadFont::gMutex.lock();
     getDrawTextElemFromArgs(argc, argv, x->elem, t_ofeliaGetTextMesh3dCommands::objName);
-    t_ofeliaLoadFont::gMutex.unlock();
 }
 
 void ofeliaGetTextMesh3dCommands_print(t_ofeliaGetTextMesh3dCommands *x)

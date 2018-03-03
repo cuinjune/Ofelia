@@ -144,9 +144,7 @@ void ofeliaFileHandler::threadedFunction()
                 break;
             }
         }
-        OFELIA_LOCK_PD();
         clock_delay(jobDoneOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
     }
 }
 

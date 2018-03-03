@@ -1,4 +1,5 @@
 #N canvas 641 23 690 746 10;
+#X declare -lib ofelia;
 #X obj 23 148 ofKeyListener;
 #X obj 23 169 route 1;
 #X text 79 169 pass keycode on key press.;
@@ -34,6 +35,7 @@ https://processing.org/examples/keyboard.html;
 #X obj 68 452 ofClear 0;
 #X obj 23 112 ofSetBgAuto OFF;
 #X text 128 113 disable the auto background clearing function.;
+#X obj 539 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 15 0;
 #X connect 3 0 18 0;

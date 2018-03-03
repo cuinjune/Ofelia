@@ -1,4 +1,5 @@
 #N canvas 641 23 750 851 10;
+#X declare -lib ofelia;
 #X obj 25 72 ofWindowLoadBang;
 #X obj 25 338 t b b, f 32;
 #X obj 218 360 list append 0 0;
@@ -85,6 +86,7 @@ example.;
 = 0 \; @scale = random(4 \, 16) \; @drag = random(0.95 \, 0.998) \;
 , f 43;
 #X obj 25 316 ofSepMatrix;
+#X obj 589 29 declare -lib ofelia;
 #X connect 0 0 74 0;
 #X connect 1 0 34 0;
 #X connect 1 1 2 0;

@@ -1,4 +1,5 @@
 #N canvas 321 23 615 727 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofPlane 3 12 0 18 -204280 -1 0
 ;
 #X obj 272 78 loadbang;
@@ -62,6 +63,7 @@
 #X text 211 429 - sets the number of columns. (range: 1~);
 #X text 211 449 - sets the number of rows. (range: 1~);
 #X obj 239 218 ofRotateXYZ 0 0 0;
+#X obj 462 46 declare -lib ofelia;
 #X connect 1 0 37 0;
 #X connect 2 0 42 1;
 #X connect 3 0 42 2;

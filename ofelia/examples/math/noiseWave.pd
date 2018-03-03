@@ -1,4 +1,5 @@
 #N canvas 641 23 711 572 10;
+#X declare -lib ofelia;
 #X obj 27 159 ofHead;
 #X text 331 246 count over a range at once.;
 #X obj 246 247 ofCountUntil;
@@ -28,6 +29,7 @@ https://processing.org/examples/noisewave.html;
 ;
 #X obj 360 400 ofMap 0 1 240 270;
 #X obj 27 65 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 562 29 declare -lib ofelia;
 #X connect 0 0 3 0;
 #X connect 2 0 21 0;
 #X connect 3 0 19 0;

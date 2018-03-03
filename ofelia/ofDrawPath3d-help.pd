@@ -1,4 +1,5 @@
 #N canvas 321 23 601 680 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofDrawPath3d 3 12 0 18 -204280
 -1 0;
 #X obj 0 351 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -24,7 +25,7 @@ name.;
 #X text 26 93 in general \, objects that use vector are divided into
 two types \, "loader" objects that can store an array of data and "getter"
 objects that can read the stored data from "loader" objects.;
-#X restore 486 46 pd about_vector;
+#X restore 486 66 pd about_vector;
 #X obj 23 329 ofWindow 320 240 LEFT TOP;
 #X obj 23 155 ofTranslate 160 120;
 #X obj 56 70 loadbang;
@@ -73,6 +74,7 @@ and drawn as polyline when unfilled.;
 #X text 11 23 draw the stored path3d;
 #X obj 243 70 ofLoadPath3d \; @myPath3d \; circle 50 \; moveTo 25 0
 0 \; lineTo -13 22 0 \; lineTo -13 -22 0 \; close \;;
+#X obj 462 46 declare -lib ofelia;
 #X connect 10 0 27 0;
 #X connect 11 0 12 0;
 #X connect 12 0 13 1;

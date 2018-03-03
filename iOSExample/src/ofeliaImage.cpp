@@ -115,7 +115,6 @@ void *ofeliaCreateImage_new(t_symbol *s, int argc, t_atom *argv)
     x->objID = imageData.objID = t_ofeliaCreateImage::counter++;
     t_ofeliaCreateImage::imageData.push_back(imageData);
     t_ofeliaCreateImage::images.push_back(make_shared<ofImage>());
-    x->jobDoneOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaCreateImage_jobDoneOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -165,17 +164,13 @@ void ofeliaCreateImage_update(t_ofeliaCreateImage *x)
             t_ofeliaCreateImage::images[pos]->setColor(t_ofeliaCreateImage::imageData[pos].data.color);
             t_ofeliaCreateImage::images[pos]->update();
         }
-        OFELIA_LOCK_PD();
-        clock_delay(x->jobDoneOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaCreateImage_jobDoneOut(x);
         x->shouldColor = false;
     }
 }
 
 void ofeliaCreateImage_exit(t_ofeliaCreateImage *x)
 {
-    clock_unset(x->jobDoneOutClock);
-    
     if (t_ofeliaCreateImage::bInited)
         t_ofeliaCreateImage::bInited = false;
     x->shouldAlloc = false;
@@ -262,7 +257,6 @@ void ofeliaCreateImage_print(t_ofeliaCreateImage *x)
 
 void ofeliaCreateImage_free(t_ofeliaCreateImage *x)
 {
-    clock_free(x->jobDoneOutClock);
     const int pos = getPositionByCreatedImageObjID(x->objID);
     t_ofeliaCreateImage::imageData.erase(t_ofeliaCreateImage::imageData.begin() + pos);
     t_ofeliaCreateImage::images.erase(t_ofeliaCreateImage::images.begin() + pos);
@@ -475,8 +469,6 @@ void *ofeliaLoadImage_new(t_symbol *s, int argc, t_atom *argv)
     x->imageLoaded = make_unique<vector<char>>();
     x->imageIDs = make_unique<vector<unsigned int>>();
     x->tempImageIDs = make_unique<vector<unsigned int>>();
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadImage_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -493,9 +485,7 @@ void *ofeliaLoadImage_new(t_symbol *s, int argc, t_atom *argv)
             cmd.path = paths[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = IMAGE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -609,14 +599,10 @@ void ofeliaLoadImage_update(t_ofeliaLoadImage *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
     }
     /* update threaded loader to catch loaded images and to enable texture */
     t_ofeliaLoadImage::loaders[pos]->update();
@@ -663,16 +649,13 @@ void ofeliaLoadImage_update(t_ofeliaLoadImage *x)
                                                  return c != 0;
                                              });
         x->vecSizes.push_back(numLoadedImages);
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadImage_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadImage_exit(t_ofeliaLoadImage *x)
 {
-    clock_unset(x->vecSizeOutClock);
     const int pos = getPositionByLoadedImageObjID(x->objID);
     t_ofeliaLoadImage::loaders[pos]->images_to_load_from_disk.close();
     t_ofeliaLoadImage::loaders[pos]->images_to_update.close();
@@ -728,9 +711,7 @@ void ofeliaLoadImage_load(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom *a
             cmd.path = paths[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = IMAGE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -743,9 +724,7 @@ void ofeliaLoadImage_add(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom *ar
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = IMAGE_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -761,9 +740,7 @@ void ofeliaLoadImage_append(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom 
             cmd.path = paths[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = IMAGE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -780,9 +757,7 @@ void ofeliaLoadImage_prepend(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom
             cmd.path = paths[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = IMAGE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -796,9 +771,7 @@ void ofeliaLoadImage_insert(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom 
         if (getCmdRangeFromArgs(x, argc-1, argv+1, cmd)) {
             
             cmd.state = IMAGE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -812,9 +785,7 @@ void ofeliaLoadImage_fill(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom *a
         if (getCmdRangeFromArgs(x, argc-1, argv+1, cmd)) {
             
             cmd.state = IMAGE_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -826,9 +797,7 @@ void ofeliaLoadImage_erase(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom *
     if (getCmdRangeFromArgs(x, argc, argv, cmd)) {
         
         cmd.state = IMAGE_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -838,9 +807,7 @@ void ofeliaLoadImage_clear(t_ofeliaLoadImage *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = IMAGE_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadImage_set(t_ofeliaLoadImage *x, t_symbol *s, int argc, t_atom *argv)
@@ -878,7 +845,6 @@ void ofeliaLoadImage_print(t_ofeliaLoadImage *x)
 
 void ofeliaLoadImage_free(t_ofeliaLoadImage *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByLoadedImageObjID(x->objID);
     t_ofeliaLoadImage::loaders[pos]->images_to_load_from_disk.close();
     t_ofeliaLoadImage::loaders[pos]->images_to_update.close();
@@ -992,8 +958,6 @@ void *ofeliaEditImage_new(t_symbol *s)
     x->varName.name = s->s_name;
     getVarNameLocalized(x->varName);
     getVarNameIndexed(x->varName);
-    x->cmdMutex = make_unique<ofMutex>();
-    x->jobDoneOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaEditImage_jobDoneOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     outlet_new(&x->x_obj, &s_bang);
     return (x);
@@ -1586,17 +1550,11 @@ void ofeliaEditImage_update(t_ofeliaEditImage *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
-        OFELIA_LOCK_PD();
-        clock_delay(x->jobDoneOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaEditImage_jobDoneOut(x);
     }
 }
 
@@ -1645,9 +1603,7 @@ void ofeliaEditImage_colorAt(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom
             if (getColorAlphaFromArgs(argc-2, argv+2, cmd.color, t_ofeliaEditImage::objName)) {
                 
                 cmd.state = IMAGE_EDIT_CMD_COLORAT;
-                x->cmdMutex->lock();
                 x->cmdVec.push_back(cmd);
-                x->cmdMutex->unlock();
             }
         }
         else {
@@ -1666,27 +1622,21 @@ void ofeliaEditImage_color(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom *
     t_ofeliaEditImageCmdData cmd;
     getColorAlphaFromArgs(argc, argv, cmd.color, t_ofeliaEditImage::objName);
     cmd.state = IMAGE_EDIT_CMD_COLOR;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_grayscale(t_ofeliaEditImage *x)
 {
     t_ofeliaEditImageCmdData cmd;
     cmd.state = IMAGE_EDIT_CMD_GRAYSCALE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_invert(t_ofeliaEditImage *x)
 {
     t_ofeliaEditImageCmdData cmd;
     cmd.state = IMAGE_EDIT_CMD_INVERT;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_brightness(t_ofeliaEditImage *x, t_floatarg f)
@@ -1704,9 +1654,7 @@ void ofeliaEditImage_brightness(t_ofeliaEditImage *x, t_floatarg f)
     t_ofeliaEditImageCmdData cmd;
     cmd.args[0] = brightness;
     cmd.state = IMAGE_EDIT_CMD_BRIGHTNESS;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_contrast(t_ofeliaEditImage *x, t_floatarg f)
@@ -1724,9 +1672,7 @@ void ofeliaEditImage_contrast(t_ofeliaEditImage *x, t_floatarg f)
     t_ofeliaEditImageCmdData cmd;
     cmd.args[0] = contrast;
     cmd.state = IMAGE_EDIT_CMD_CONTRAST;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_gamma(t_ofeliaEditImage *x, t_floatarg f)
@@ -1741,9 +1687,7 @@ void ofeliaEditImage_gamma(t_ofeliaEditImage *x, t_floatarg f)
     t_ofeliaEditImageCmdData cmd;
     cmd.args[0] = gamma;
     cmd.state = IMAGE_EDIT_CMD_GAMMA;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_type(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom *argv)
@@ -1785,9 +1729,7 @@ void ofeliaEditImage_type(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom *a
             return;
         }
         cmd.state = IMAGE_EDIT_CMD_TYPE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
     else {
         
@@ -1801,9 +1743,7 @@ void ofeliaEditImage_resize(t_ofeliaEditImage *x, t_floatarg newWidth, t_floatar
     cmd.args[0] = static_cast<int>(newWidth);
     cmd.args[1] = static_cast<int>(newHeight);
     cmd.state = IMAGE_EDIT_CMD_RESIZE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_crop(t_ofeliaEditImage *x, t_floatarg posX, t_floatarg posY, t_floatarg width, t_floatarg height)
@@ -1814,9 +1754,7 @@ void ofeliaEditImage_crop(t_ofeliaEditImage *x, t_floatarg posX, t_floatarg posY
     cmd.args[2] = static_cast<int>(width);
     cmd.args[3] = static_cast<int>(height);
     cmd.state = IMAGE_EDIT_CMD_CROP;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_mirror(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom *argv)
@@ -1863,9 +1801,7 @@ void ofeliaEditImage_mirror(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom 
             return;
         }
         cmd.state = IMAGE_EDIT_CMD_MIRROR;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
     else {
         
@@ -1877,9 +1813,7 @@ void ofeliaEditImage_generateMipmap(t_ofeliaEditImage *x)
 {
     t_ofeliaEditImageCmdData cmd;
     cmd.state = IMAGE_EDIT_CMD_GENERATEMIPMAP;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_minMagFilter(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom *argv)
@@ -1947,9 +1881,7 @@ void ofeliaEditImage_minMagFilter(t_ofeliaEditImage *x, t_symbol *s, int argc, t
             return;
         }
         cmd.state = IMAGE_EDIT_CMD_MINMAGFILTER;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
     else {
         
@@ -2018,9 +1950,7 @@ void ofeliaEditImage_texWrap(t_ofeliaEditImage *x, t_symbol *s, int argc, t_atom
             return;
         }
         cmd.state = IMAGE_EDIT_CMD_TEXWRAP;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
     else {
         
@@ -2035,9 +1965,7 @@ void ofeliaEditImage_clone(t_ofeliaEditImage *x, t_symbol *s)
     getVarNameLocalized(cmd.varName);
     getVarNameIndexed(cmd.varName);
     cmd.state = IMAGE_EDIT_CMD_CLONE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_alphaMask(t_ofeliaEditImage *x, t_symbol *s)
@@ -2047,9 +1975,7 @@ void ofeliaEditImage_alphaMask(t_ofeliaEditImage *x, t_symbol *s)
     getVarNameLocalized(cmd.varName);
     getVarNameIndexed(cmd.varName);
     cmd.state = IMAGE_EDIT_CMD_ALPHAMASK;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_grabScreen(t_ofeliaEditImage *x, t_floatarg posX, t_floatarg posY, t_floatarg width, t_floatarg height)
@@ -2060,9 +1986,7 @@ void ofeliaEditImage_grabScreen(t_ofeliaEditImage *x, t_floatarg posX, t_floatar
     cmd.args[2] = static_cast<int>(width);
     cmd.args[3] = static_cast<int>(height);
     cmd.state = IMAGE_EDIT_CMD_GRABSCREEN;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaEditImage_set(t_ofeliaEditImage *x, t_symbol *s)
@@ -2087,7 +2011,6 @@ void ofeliaEditImage_print(t_ofeliaEditImage *x)
 
 void ofeliaEditImage_free(t_ofeliaEditImage *x)
 {
-    clock_free(x->jobDoneOutClock);
     pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
 }
 

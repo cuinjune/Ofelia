@@ -1,4 +1,5 @@
 #N canvas 641 23 799 851 10;
+#X declare -lib ofelia;
 #X obj 31 81 ofWindow 640 400 LEFT TOP 1 0;
 #X obj 31 759 ofTranslate;
 #X obj 31 825 ofBindImageTex @earth;
@@ -55,6 +56,7 @@ inlets.;
 #X text 29 26 the camera looks at the center while orbiting around
 the earth. click on the screen to toggle between camera view and normal
 view.;
+#X obj 632 29 declare -lib ofelia;
 #X connect 1 0 5 0;
 #X connect 2 0 6 0;
 #X connect 4 0 2 0;

@@ -1,4 +1,5 @@
 #N canvas 321 23 601 637 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofFile 3 12 0 18 -204280 -1 0
 ;
 #X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -49,6 +50,7 @@
 #X text 231 409 - remove <path \, recursive(default:ON)>.;
 #X obj 75 109 makefilename %s/examples/data/myFile.txt;
 #X obj 75 239 makefilename %s/examples/data/myFile.txt;
+#X obj 462 46 declare -lib ofelia;
 #X connect 7 0 9 0;
 #X connect 8 0 12 0;
 #X connect 9 0 35 0;

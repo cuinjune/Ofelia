@@ -1,4 +1,5 @@
 #N canvas 321 23 599 497 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofGetTime 3 12 0 18 -204280 -1
 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -30,6 +31,7 @@
 #X obj 517 5 ofGetTime;
 #X obj 215 140 ofGetTime;
 #X text 211 349 - gets the time in seconds/minutes/hours.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 7 0 21 0;
 #X connect 10 0 11 0;
 #X connect 10 1 12 0;

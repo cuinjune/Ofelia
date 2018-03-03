@@ -1,4 +1,5 @@
 #N canvas 321 23 603 766 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofCylinder 3 12 0 18 -204280 -1
 0;
 #X obj 262 75 loadbang;
@@ -68,6 +69,7 @@
 #X text 231 685 - sets the initial number of cap segments. (default:
 2);
 #X obj 229 215 ofRotateXYZ 0 0 0;
+#X obj 462 46 declare -lib ofelia;
 #X connect 1 0 39 0;
 #X connect 2 0 44 1;
 #X connect 3 0 44 2;

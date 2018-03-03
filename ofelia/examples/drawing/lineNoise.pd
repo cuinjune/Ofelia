@@ -1,4 +1,5 @@
 #N canvas 641 23 621 703 10;
+#X declare -lib ofelia;
 #X obj 23 113 ofMouseListener, f 36;
 #X obj 23 76 ofWindow 640 400 LEFT TOP 1 102;
 #X obj 23 352 ofHead;
@@ -27,6 +28,7 @@
 #X obj 50 467 ofGetPolyline2dCommand @lines;
 #X text 21 19 left click and drag the mouse to draw line noise. right
 click the mouse to clear the stored line noise.;
+#X obj 472 29 declare -lib ofelia;
 #X connect 0 0 6 0;
 #X connect 0 1 4 0;
 #X connect 2 0 9 0;

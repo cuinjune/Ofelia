@@ -1,4 +1,5 @@
 #N canvas 321 23 601 735 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofCurve2d 3 12 0 18 -204280 -1
 0;
 #X obj 0 401 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -67,6 +68,7 @@ point2 (x2 \, y2). the curve is shaped by the two control points point0
 #X text 211 651 - sets the point3. (x3 \, y3) (default: 200 \, -1000)
 ;
 #X text 266 221 0: OUTLINE \, 1: FILLED.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 7 0 35 0;
 #X connect 19 0 39 1;
 #X connect 20 0 40 1;

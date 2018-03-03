@@ -1,4 +1,5 @@
 #N canvas 640 23 660 459 10;
+#X declare -lib ofelia;
 #X obj 27 75 ofWindow 800 600 LEFT TOP 0.5;
 #X text 213 75 create a window with the scale set to 0.5;
 #X text 273 113 load an image from the specified path.;
@@ -22,6 +23,7 @@ https://processing.org/examples/loaddisplayimage.html;
 #X obj 69 222 ofExpr ofGetHeight / 2;
 #X obj 73 310 ofExpr \; $i1 / 2 \; $i2 / 2 \;;
 #X obj 27 112 ofLoadImage @img ../data/background.jpg;
+#X obj 512 29 declare -lib ofelia;
 #X connect 3 0 4 0;
 #X connect 3 1 18 0;
 #X connect 4 0 5 0;
