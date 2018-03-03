@@ -36,6 +36,9 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Make sure you have [Pd](http://msp.ucsd.edu/software.html) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
+* (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
+  <pre>cd ofelia/scripts/distro_name
+  sudo ./install_dependencies.sh</pre>
 
 ## Explore
 
@@ -45,6 +48,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Create something cool and [share](https://patchstorage.com/) it with other people.
 
 ## Upcoming features
+
 * GLSL shader loader
 * Video player
 * Video grabber
