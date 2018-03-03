@@ -80,9 +80,7 @@ void ofeliaURLSaver::threadedFunction()
                 errorType = URLSAVER_ERROR_FAILTOSAVE;
                 failedURL = response.request.url.c_str();
             }
-            OFELIA_LOCK_PD();
             clock_delay(jobDoneOutClock, 0.0);
-            OFELIA_UNLOCK_PD();
         }
     }
 }

@@ -94,8 +94,7 @@ bool doesFilenameHaveExtension(t_string &path)
 
 bool makePathAbsolute(t_string &path, t_canvas *canvas)
 {
-#if defined(OFELIA_TARGET_EXTERNAL)
-    /* in library mode, we should check library search paths as well as relative path */
+    /* we should check library search paths as well as relative path */
     char buf[MAXPDSTRING], *bufptr;
     const char *dirname = canvas_getdir(canvas)->s_name;
     const char *filename = path.c_str();
@@ -121,17 +120,6 @@ bool makePathAbsolute(t_string &path, t_canvas *canvas)
     close(fd);
 #endif
     return fileExists;
-#else
-    /* in stand-alone mode, we don't check library search paths */
-    /* also, we don't check if the file actually exists or not */
-    if (path[0] != OFELIA_PATH_SEPARATOR) {
-        
-        const t_string &patchDir = canvas_getdir(canvas)->s_name;
-        path.insert(0, OFELIA_PATH_SEPARATOR);
-        path = patchDir + path;
-    }
-    return 1;
-#endif
 }
 
 int getClampIntValue(const int value, const int min, const int max)

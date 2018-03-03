@@ -1,4 +1,5 @@
-#N canvas 321 23 594 548 10;
+#N canvas 321 23 594 562 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofPulse~ 3 12 0 18 -204280 -1
 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -57,7 +58,7 @@
 #X connect 12 0 11 0;
 #X connect 13 0 5 0;
 #X coords 0 -1 1 1 60 20 2 20 20;
-#X restore 520 42 pd dspstate;
+#X restore 520 67 pd dspstate;
 #X floatatom 105 65 5 0 0 0 - - -, f 5;
 #X text 142 64 change frequency.;
 #X text 197 121 write the outgoing signal to array.;
@@ -81,6 +82,7 @@
 #X text 211 431 - the pulse wave oscillator output.;
 #X obj 523 5 ofPulse~;
 #X obj 105 192 ofPulse~ 440;
+#X obj 462 46 declare -lib ofelia;
 #X connect 10 0 34 2;
 #X connect 11 0 14 0;
 #X connect 13 0 8 0;

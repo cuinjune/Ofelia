@@ -1,7 +1,7 @@
-set solib-search-path /Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/obj/local/x86:/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/libs/x86
-set sysroot /Users/cuinjune/Zack/Android/android-ndk-r10e/platforms/android-19/arch-x86/
-directory /Users/cuinjune/Zack/Android/android-ndk-r10e/platforms/android-19/arch-arm/usr/include
-directory /Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/src
-directory /Users/cuinjune/Zack/Android/android-ndk-r10e/sources/cxx-stl/system
-directory /Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/libs/x86
+set solib-search-path /Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/obj/local/x86:/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/libs/x86
+set sysroot /Users/cuinjune/Documents/Android/android-ndk-r10e/platforms/android-19/arch-x86/
+directory /Users/cuinjune/Documents/Android/android-ndk-r10e/platforms/android-19/arch-arm/usr/include
+directory /Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/src
+directory /Users/cuinjune/Documents/Android/android-ndk-r10e/sources/cxx-stl/system
+directory /Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/libs/x86
 

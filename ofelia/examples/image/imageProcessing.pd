@@ -1,4 +1,5 @@
 #N canvas 640 23 656 556 10;
+#X declare -lib ofelia;
 #X obj 27 475 ofHead;
 #X obj 27 87 ofWindow 800 600 LEFT TOP 0.5;
 #X text 213 87 create a window with the scale set to 0.5;
@@ -29,6 +30,7 @@ of the image.;
 #X text 159 313 clone the original image before each processing. (so
 it can always process from its original state);
 #X obj 27 161 ofLoadImage @original ../data/background.jpg;
+#X obj 510 29 declare -lib ofelia;
 #X connect 0 0 5 0;
 #X connect 4 0 11 0;
 #X connect 4 1 11 0;

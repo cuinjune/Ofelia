@@ -1,4 +1,5 @@
-#N canvas 321 23 599 497 10;
+#N canvas 321 23 599 515 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofGetOrienLock 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -36,22 +37,23 @@ name "ofGetOrienLock".;
 #X connect 5 0 0 0;
 #X connect 6 0 2 0;
 #X connect 7 0 3 0;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X text 11 23 get the orientation lock state of the current window
 ;
 #X text 191 383 - the orientation lock state of the the current window.
 ;
 #X obj 255 171 sel 0 1 2;
 #X msg 229 220 FREE;
-#X msg 275 220 SOFT;
-#X msg 318 220 HARD;
-#X obj 275 262 symbol;
-#X symbolatom 275 284 10 0 0 0 - - -, f 10;
+#X msg 272 220 SOFT;
+#X msg 315 220 HARD;
+#X obj 272 262 symbol;
+#X symbolatom 272 284 10 0 0 0 - - -, f 10;
 #X obj 487 5 ofGetOrienLock;
 #X obj 255 130 ofGetOrienLock;
 #X obj 23 318 ofWindow 320 240 LEFT TOP;
 #X text 191 349 - gets the orientation lock state of the current window.
 ;
+#X obj 462 46 declare -lib ofelia;
 #X connect 7 0 22 0;
 #X connect 10 0 15 0;
 #X connect 15 0 16 0;

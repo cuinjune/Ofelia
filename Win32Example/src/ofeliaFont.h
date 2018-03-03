@@ -82,9 +82,6 @@ extern "C" {
         unsigned int objID;
         unsigned int ftID;
         bool shouldOutlet;
-        unique_ptr<ofMutex> cmdMutex;
-        static ofMutex gMutex;
-        t_clock *vecSizeOutClock;
         t_canvas *canvas;
         t_outlet *jobDone_out, *vecSize_out;
         
@@ -124,8 +121,6 @@ extern "C" {
         EditFontErrorType errorType;
         t_string errorName;
         bool bInitGate;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *jobDoneOutClock;
         
     } t_ofeliaEditFont;
     

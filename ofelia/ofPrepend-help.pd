@@ -1,4 +1,5 @@
 #N canvas 321 23 596 538 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofPrepend 3 12 0 18 -204280 -1
 0;
 #X obj 223 253 print;
@@ -31,6 +32,7 @@
 #X text 211 369 - updates the symbol to prepend.;
 #X text 343 189 change the symbol to prepend.;
 #X text 211 459 - sets the symbol to prepend. (default: "");
+#X obj 462 46 declare -lib ofelia;
 #X connect 2 0 17 0;
 #X connect 13 0 17 0;
 #X connect 17 0 1 0;

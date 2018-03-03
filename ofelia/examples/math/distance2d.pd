@@ -1,4 +1,5 @@
 #N canvas 641 23 683 642 10;
+#X declare -lib ofelia;
 #X obj 198 247 ofGetDimen;
 #X obj 198 269 ofDist2d 0 0;
 #X obj 27 203 ofHead;
@@ -29,6 +30,7 @@ https://processing.org/examples/distance2d.html;
 #X obj 198 291 ofVal @maxdist;
 #X obj 27 423 ofSepMatrix;
 #X obj 27 379 * 20;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 24 0;
 #X connect 2 0 18 0;

@@ -1,4 +1,5 @@
 #N canvas 641 23 684 742 10;
+#X declare -lib ofelia;
 #N canvas 641 259 555 300 pointLight1 0;
 #X obj 48 63 inlet;
 #X obj 48 85 t b b;
@@ -218,6 +219,7 @@ the texture mapping.;
 #X text 136 225 start rendering.;
 #X text 141 498 separate render chains in matrix.;
 #X obj 31 118 ofLoadImage @texture ../data/texture.jpg;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;

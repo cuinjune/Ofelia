@@ -89,9 +89,9 @@ public:
     /* static variables */
     static ofAppBaseWindow *window;
     static GLFWwindow *GLFWwin;
-    static bool bFirstUpdate;
-    static bool bFirstDraw;
     static bool bWindowExists;
+    static bool bFirstLoop;
+    static bool bFirstUpdate;
     static int retinaScale;
     static float scaleFactor;
     static bool bDepthTestEnabled;
@@ -183,7 +183,6 @@ private:
     /* static methods */
     static void resizeWindow();
     static void pollEventsMethod(void *nul);
-    static void windowCreatedMethod(void *nul);
     static void sendTouchToPd(const int touchState, const int touchID, const float posX, const float posY);
     static void sendMouseToPd(const int mouseState, const int button, const float posX, const float posY);
     static void sendScrollToPd(const float scrollX, const float scrollY);
@@ -229,8 +228,6 @@ private:
     bool bFullscreenScheduled;
     
     /* static variables */
-    static bool bFirstLoop;
-    static bool bWindowCreatedSent;
     static int windowPosX;
     static int windowPosY;
     static int windowWidth;
@@ -242,7 +239,6 @@ private:
     static bool bWindowResizeLocked;
     static bool bScaleDirectionFixed;
     static t_clock *pollEventsClock;
-    static t_clock *windowCreatedClock;
     static GLFWcursor *blankCursor;
     static unique_ptr<ofPath> fullscreenMaskPath;
     static unique_ptr<ofVboMesh> fullscreenMaskMesh;

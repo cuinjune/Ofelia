@@ -400,7 +400,7 @@ void ofeliaWindowListener_init(t_ofeliaWindowListener *x)
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindowListener::windowListenerSym);
     outlet_new(&x->x_obj, &s_float);
     
-    if (ofeliaWindow::bWindowExists && !ofeliaWindow::bFirstDraw)
+    if (ofeliaWindow::bWindowExists && !ofeliaWindow::bFirstLoop)
         clock_delay(x->windowExistsClock, 0.0);
 }
 
@@ -448,7 +448,7 @@ void ofeliaWindowLoadBang_init(t_ofeliaWindowLoadBang *x)
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindowListener::windowListenerSym);
     outlet_new(&x->x_obj, &s_bang);
     
-    if (ofeliaWindow::bWindowExists && !ofeliaWindow::bFirstDraw)
+    if (ofeliaWindow::bWindowExists && !ofeliaWindow::bFirstLoop)
         clock_delay(x->windowExistsClock, 0.0);
 }
 

@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.cpp">
       <Filter>addons\ofxMidi\src</Filter>
     </ClCompile>
@@ -33,6 +27,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxPd\src\ofxPd.cpp">
       <Filter>addons\ofxPd\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ofeliaAnimate.cpp">
       <Filter>src</Filter>
@@ -224,9 +224,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxBaseMidi.h">
       <Filter>addons\ofxMidi\src</Filter>
     </ClInclude>
@@ -313,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxPd\libs\libpd\include\libpd\util\z_queued.h">
       <Filter>addons\ofxPd\libs\libpd\include\libpd\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofeliaAnimate.h">
       <Filter>src</Filter>

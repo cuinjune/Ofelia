@@ -860,8 +860,6 @@ void *ofeliaLoadPath2d_new(t_symbol *s, int argc, t_atom *argv)
                                         make_unique<ofVboMesh>(),
                                         make_unique<vector<ofPolyline>>()});
     x->vecSize = 0;
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadPath2d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -878,9 +876,7 @@ void *ofeliaLoadPath2d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -956,14 +952,10 @@ void ofeliaLoadPath2d_update(t_ofeliaLoadPath2d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -995,17 +987,13 @@ void ofeliaLoadPath2d_update(t_ofeliaLoadPath2d *x)
         /* output number of points and current size of the path */
         x->numPoints = static_cast<int>(t_ofeliaLoadPath2d::pathData[pos].pointIndices.size());
         x->vecSize = static_cast<int>(t_ofeliaLoadPath2d::pathData[pos].elems.size());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadPath2d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadPath2d_exit(t_ofeliaLoadPath2d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadPath2d::bInited)
         t_ofeliaLoadPath2d::bInited = false;
     x->bInitGate = true;
@@ -1090,9 +1078,7 @@ void ofeliaLoadPath2d_load(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_atom 
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1105,9 +1091,7 @@ void ofeliaLoadPath2d_add(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_atom *
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = PATH_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1123,9 +1107,7 @@ void ofeliaLoadPath2d_append(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_ato
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1142,9 +1124,7 @@ void ofeliaLoadPath2d_prepend(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_at
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1160,9 +1140,7 @@ void ofeliaLoadPath2d_insert(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_ato
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1178,9 +1156,7 @@ void ofeliaLoadPath2d_fill(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_atom 
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = PATH_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1192,9 +1168,7 @@ void ofeliaLoadPath2d_erase(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_atom
     if (getCmdRangeFromArgs(argc, argv, cmd)) {
         
         cmd.state = PATH_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1204,9 +1178,7 @@ void ofeliaLoadPath2d_clear(t_ofeliaLoadPath2d *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = PATH_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadPath2d_set(t_ofeliaLoadPath2d *x, t_symbol *s, int argc, t_atom *argv)
@@ -1259,7 +1231,6 @@ void ofeliaLoadPath2d_print(t_ofeliaLoadPath2d *x)
 
 void ofeliaLoadPath2d_free(t_ofeliaLoadPath2d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByPath2dObjID(x->objID);
     t_ofeliaLoadPath2d::pathData.erase(t_ofeliaLoadPath2d::pathData.begin() + pos);
     t_ofeliaLoadPath2d::pathSets.erase(t_ofeliaLoadPath2d::pathSets.begin() + pos);
@@ -1963,8 +1934,6 @@ void *ofeliaLoadPath3d_new(t_symbol *s, int argc, t_atom *argv)
                                         make_unique<ofVboMesh>(),
                                         make_unique<vector<ofPolyline>>()});
     x->vecSize = 0;
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadPath3d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -1981,9 +1950,7 @@ void *ofeliaLoadPath3d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -2059,14 +2026,10 @@ void ofeliaLoadPath3d_update(t_ofeliaLoadPath3d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -2098,17 +2061,13 @@ void ofeliaLoadPath3d_update(t_ofeliaLoadPath3d *x)
         /* output number of points and current size of the path */
         x->numPoints = static_cast<int>(t_ofeliaLoadPath3d::pathData[pos].pointIndices.size());
         x->vecSize = static_cast<int>(t_ofeliaLoadPath3d::pathData[pos].elems.size());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadPath3d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadPath3d_exit(t_ofeliaLoadPath3d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadPath3d::bInited)
         t_ofeliaLoadPath3d::bInited = false;
     x->bInitGate = true;
@@ -2193,9 +2152,7 @@ void ofeliaLoadPath3d_load(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_atom 
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2208,9 +2165,7 @@ void ofeliaLoadPath3d_add(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_atom *
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = PATH_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -2226,9 +2181,7 @@ void ofeliaLoadPath3d_append(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_ato
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2245,9 +2198,7 @@ void ofeliaLoadPath3d_prepend(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_at
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2263,9 +2214,7 @@ void ofeliaLoadPath3d_insert(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_ato
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = PATH_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2281,9 +2230,7 @@ void ofeliaLoadPath3d_fill(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_atom 
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = PATH_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2295,9 +2242,7 @@ void ofeliaLoadPath3d_erase(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_atom
     if (getCmdRangeFromArgs(argc, argv, cmd)) {
         
         cmd.state = PATH_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -2307,9 +2252,7 @@ void ofeliaLoadPath3d_clear(t_ofeliaLoadPath3d *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = PATH_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadPath3d_set(t_ofeliaLoadPath3d *x, t_symbol *s, int argc, t_atom *argv)
@@ -2362,7 +2305,6 @@ void ofeliaLoadPath3d_print(t_ofeliaLoadPath3d *x)
 
 void ofeliaLoadPath3d_free(t_ofeliaLoadPath3d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByPath3dObjID(x->objID);
     t_ofeliaLoadPath3d::pathData.erase(t_ofeliaLoadPath3d::pathData.begin() + pos);
     t_ofeliaLoadPath3d::pathSets.erase(t_ofeliaLoadPath3d::pathSets.begin() + pos);

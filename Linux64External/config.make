@@ -15,10 +15,8 @@ ISARM=$(shell if [ -n "`uname -m | grep arm`" ] ; then echo yes ; else echo no ;
 ifeq ($(PLATFORM_OS),Linux)
 	ifeq ($(ISARM),yes)
 		APPNAME = ofelia.l_arm
-	else ifeq ($(IS64BIT),yes)
-		APPNAME = ofelia.l_ia64
 	else 
-		APPNAME = ofelia.l_i386
+		APPNAME = ofelia.pd_linux
 	endif	
 	PROJECT_CFLAGS = -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -I ../../../addons/ofxOfelia/libs/pd/src
 	PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath=./libs

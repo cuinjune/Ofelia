@@ -1,4 +1,5 @@
 #N canvas 321 23 600 627 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofSetDepthTest 3 12 0 18 -204280
 -1 0;
 #X obj 0 431 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -47,6 +48,7 @@ to z-depth rather than drawing order. it is disabled by default.;
 #X text 303 364 disable the depth test. (if enabled);
 #X text 211 462 - enables/disables the depth test.;
 #X text 211 549 - enables/disables the depth test. (default: OFF);
+#X obj 462 46 declare -lib ofelia;
 #X connect 10 0 31 1;
 #X connect 14 0 23 3;
 #X connect 17 0 23 0;

@@ -1,4 +1,5 @@
 #N canvas 641 23 693 543 10;
+#X declare -lib ofelia;
 #X obj 31 71 ofWindow 640 400 LEFT TOP 1 51;
 #X obj 31 107 ofHead;
 #X obj 31 129 ofTranslate 320 200;
@@ -19,6 +20,7 @@
 #X text 29 27 use sin cos and time to make some spirally shape.;
 #X text 331 482 This example is based on the openFrameworks example
 "polygonExample";
+#X obj 542 29 declare -lib ofelia;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;

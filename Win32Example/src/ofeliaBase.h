@@ -28,8 +28,10 @@
 #include "ofMain.h"
 #include "ofeliaString.h"
 
-/* OFELIA_TARGET_EXTERNAL or OFELIA_TARGET_STANDALONE */
-#define OFELIA_TARGET_STANDALONE
+/* ofelia version info */
+#define OFELIA_MAJOR_VERSION 1
+#define OFELIA_MINOR_VERSION 0
+#define OFELIA_BUGFIX_VERSION 5
 
 /* default window property values */
 #define OFELIA_DEFAULT_WINDOWWIDTH 320
@@ -51,15 +53,6 @@
 
 /* default rendering order */
 #define OFELIA_DEFAULT_RENDER_ORDER 50.0f
-
-/* lock/unlock pd when accessing varibles from draw thread */
-#if defined(TARGET_OSX) && defined(OFELIA_TARGET_EXTERNAL)
-#define OFELIA_LOCK_PD() sys_lock()
-#define OFELIA_UNLOCK_PD() sys_unlock()
-#else
-#define OFELIA_LOCK_PD()
-#define OFELIA_UNLOCK_PD()
-#endif
 
 /* path separator character */
 #if defined(TARGET_WIN32)

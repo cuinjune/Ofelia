@@ -1,4 +1,5 @@
 #N canvas 641 23 711 624 10;
+#X declare -lib ofelia;
 #X obj 27 258 pack f f, f 15;
 #X obj 27 280 ofPrepend load;
 #X obj 27 324 > 0;
@@ -142,6 +143,7 @@ https://processing.org/examples/simpleparticlesystem.html;
 #X obj 27 193 ofWindowLoadBang;
 #X obj 27 215 ofExpr \; ofGetWidth / 2 \; 50 \;;
 #X obj 27 75 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 561 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 27 0;
 #X connect 2 0 3 0;

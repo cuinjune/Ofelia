@@ -1,4 +1,5 @@
 #N canvas 641 23 658 762 10;
+#X declare -lib ofelia;
 #X obj 27 374 ofHead;
 #X obj 27 396 t b b;
 #X obj 27 138 ofMouseListener;
@@ -38,6 +39,7 @@ https://processing.org/examples/storinginput.html;
 #X obj 54 418 ofExpr ofGetFrameNum % 60;
 #X obj 27 609 ofSepMatrix;
 #X text 102 609 separate render chains in matrix.;
+#X obj 512 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 8 0;
 #X connect 1 1 29 0;

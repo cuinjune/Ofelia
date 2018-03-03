@@ -7,14 +7,9 @@ The external library is currently available to be used under macOS, Linux(64bit)
 
 ## Installation
 
-* Make sure you have Pd-0.48-1 installed on your desktop. (Earlier versions of Pd may not work)
+* Make sure you have Pd installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
-* Go to `Pd` -> `Preferences` -> `Startup`, click `New` and add `ofelia`
-* Restart Pd.
-* (Linux only) Open the Terminal and run the following command to install dependencies.
-  cd ofelia/scripts/distro_name
-  sudo ./install_dependencies.sh
 
 ## Explore
 

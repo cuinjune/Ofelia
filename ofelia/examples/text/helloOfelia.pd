@@ -1,4 +1,5 @@
 #N canvas 641 23 611 645 10;
+#X declare -lib ofelia;
 #X text 205 35 create a window.;
 #X obj 41 171 t b b, f 10;
 #X text 311 62 load an image for the background.;
@@ -39,6 +40,7 @@ image to draw.;
 #X obj 41 87 ofLoadImage @myTex ../data/texture.jpg;
 #X obj 41 113 ofLoadFont @myFont ../data/Sansation.ttf 50;
 #X obj 116 448 ofRotateXYZ;
+#X obj 462 29 declare -lib ofelia;
 #X connect 1 0 29 0;
 #X connect 1 1 26 0;
 #X connect 7 0 24 0;

@@ -1,4 +1,5 @@
 #N canvas 321 23 601 541 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofSetCircleRes 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -36,6 +37,7 @@
 #X text 211 372 - sets the circle resolution. (range: 1~);
 #X text 211 459 - sets the initial circle resolution. (default: 50)
 ;
+#X obj 462 46 declare -lib ofelia;
 #X connect 12 0 18 0;
 #X connect 13 0 22 1;
 #X connect 18 0 19 1;

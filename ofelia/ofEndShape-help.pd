@@ -1,4 +1,5 @@
 #N canvas 321 23 599 591 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofEndShape 3 12 0 18 -204280 -1
 0;
 #X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -44,6 +45,7 @@
 #X obj 215 285 ofVertex2d 110 170;
 #X text 21 43 [ofEndShape] must be called after [ofBeginShape] and
 a list of vertex points otherwise you will not see your shape.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 16 0 17 0;
 #X connect 17 0 18 1;
 #X connect 18 0 19 0;

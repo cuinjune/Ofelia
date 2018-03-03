@@ -1,4 +1,5 @@
 #N canvas 641 23 682 733 10;
+#X declare -lib ofelia;
 #X obj 31 191 ofCount;
 #X obj 31 235 ofHead 50 OFF;
 #X obj 58 301 ofPrepend add;
@@ -43,6 +44,7 @@ https://processing.org/examples/bouncingball.html;
 \; if ($i2 > ofGetHeight \, 1 \, 0) \;;
 #X obj 31 169 sel 1;
 #X obj 31 71 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 11 0;
 #X connect 1 0 6 0;
 #X connect 2 0 26 0;

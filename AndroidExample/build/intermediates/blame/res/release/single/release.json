@@ -1,34 +1,34 @@
 [
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-hdpi-v4_icon.png.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-hdpi-v4/icon.png"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable_ic_launcher.png.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/drawable/ic_launcher.png"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/menu_main_layout.xml.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/menu/main_layout.xml"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/raw_ofdataresources.zip.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/raw/ofdataresources.zip"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/raw_ofdataresources.zip.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/raw/ofdataresources.zip"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-mdpi-v4_icon.png.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-mdpi-v4/icon.png"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/layout_main.xml.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/layout/main.xml"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/layout_main.xml.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/layout/main.xml"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/layout_main_layout.xml.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/layout/main_layout.xml"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-ldpi-v4_icon.png.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-ldpi-v4/icon.png"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-ldpi-v4_icon.png.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-ldpi-v4/icon.png"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/layout_main_layout.xml.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/layout/main_layout.xml"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-mdpi-v4_icon.png.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-mdpi-v4/icon.png"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable-hdpi-v4_icon.png.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxAndroid/ofAndroidLib/build/intermediates/bundles/release/res/drawable-hdpi-v4/icon.png"
     },
     {
-        "merged": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/drawable_ic_launcher.png.flat",
-        "source": "/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/drawable/ic_launcher.png"
+        "merged": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/build/intermediates/res/merged/release/menu_main_layout.xml.flat",
+        "source": "/Users/cuinjune/Zack/openFrameworks/of_v0.9.8_android_release/addons/ofxOfelia/AndroidExample/res/menu/main_layout.xml"
     }
 ]

@@ -109,8 +109,6 @@ extern "C" {
         bool bInitGate;
         unsigned int objID;
         bool shouldOutlet;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *vecSizeOutClock;
         t_outlet *numVertices_out;
         t_outlet *numIndices_out;
         t_outlet *numNormals_out;
@@ -166,8 +164,6 @@ extern "C" {
         bool bInitGate;
         unsigned int objID;
         bool shouldOutlet;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *vecSizeOutClock;
         t_outlet *numVertices_out;
         t_outlet *numIndices_out;
         t_outlet *numNormals_out;

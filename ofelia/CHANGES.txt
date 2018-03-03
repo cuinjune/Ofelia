@@ -1,3 +1,11 @@
+v1.0.5: 2 Mar 2018
+
+* added declare for all help files and examples
+* added help file for ofelia
+* changed the binary extension on linux
+* threaded rendering is disabled on all externals
+* removed all mutex and pd lock/unlocks
+
 v1.0.4: 17 Feb 2018
 
 * print a message to pd console when library is loaded

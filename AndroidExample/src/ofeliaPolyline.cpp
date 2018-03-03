@@ -831,8 +831,6 @@ void *ofeliaLoadPolyline2d_new(t_symbol *s, int argc, t_atom *argv)
     t_ofeliaLoadPolyline2d::polylineSets.push_back({make_unique<ofPath>(),
                                                 make_unique<vector<ofPolyline>>()});
     x->vecSize = 0;
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadPolyline2d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -849,9 +847,7 @@ void *ofeliaLoadPolyline2d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -926,14 +922,10 @@ void ofeliaLoadPolyline2d_update(t_ofeliaLoadPolyline2d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -964,17 +956,13 @@ void ofeliaLoadPolyline2d_update(t_ofeliaLoadPolyline2d *x)
         /* output number of points and current size of the polyline */
         x->numPoints = static_cast<int>(t_ofeliaLoadPolyline2d::polylineData[pos].pointIndices.size());
         x->vecSize = static_cast<int>(t_ofeliaLoadPolyline2d::polylineData[pos].elems.size());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadPolyline2d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadPolyline2d_exit(t_ofeliaLoadPolyline2d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadPolyline2d::bInited)
         t_ofeliaLoadPolyline2d::bInited = false;
     x->bInitGate = true;
@@ -1053,9 +1041,7 @@ void ofeliaLoadPolyline2d_load(t_ofeliaLoadPolyline2d *x, t_symbol *s, int argc,
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1068,9 +1054,7 @@ void ofeliaLoadPolyline2d_add(t_ofeliaLoadPolyline2d *x, t_symbol *s, int argc, 
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = POLYLINE_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1086,9 +1070,7 @@ void ofeliaLoadPolyline2d_append(t_ofeliaLoadPolyline2d *x, t_symbol *s, int arg
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1105,9 +1087,7 @@ void ofeliaLoadPolyline2d_prepend(t_ofeliaLoadPolyline2d *x, t_symbol *s, int ar
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1123,9 +1103,7 @@ void ofeliaLoadPolyline2d_insert(t_ofeliaLoadPolyline2d *x, t_symbol *s, int arg
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1141,9 +1119,7 @@ void ofeliaLoadPolyline2d_fill(t_ofeliaLoadPolyline2d *x, t_symbol *s, int argc,
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = POLYLINE_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -1155,9 +1131,7 @@ void ofeliaLoadPolyline2d_erase(t_ofeliaLoadPolyline2d *x, t_symbol *s, int argc
     if (getCmdRangeFromArgs(argc, argv, cmd)) {
         
         cmd.state = POLYLINE_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -1167,9 +1141,7 @@ void ofeliaLoadPolyline2d_clear(t_ofeliaLoadPolyline2d *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = POLYLINE_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadPolyline2d_set(t_ofeliaLoadPolyline2d *x, t_symbol *s, int argc, t_atom *argv)
@@ -1221,7 +1193,6 @@ void ofeliaLoadPolyline2d_print(t_ofeliaLoadPolyline2d *x)
 
 void ofeliaLoadPolyline2d_free(t_ofeliaLoadPolyline2d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByPolyline2dObjID(x->objID);
     t_ofeliaLoadPolyline2d::polylineData.erase(t_ofeliaLoadPolyline2d::polylineData.begin() + pos);
     t_ofeliaLoadPolyline2d::polylineSets.erase(t_ofeliaLoadPolyline2d::polylineSets.begin() + pos);
@@ -1921,8 +1892,6 @@ void *ofeliaLoadPolyline3d_new(t_symbol *s, int argc, t_atom *argv)
     t_ofeliaLoadPolyline3d::polylineSets.push_back({make_unique<ofPath>(),
                                                 make_unique<vector<ofPolyline>>()});
     x->vecSize = 0;
-    x->cmdMutex = make_unique<ofMutex>();
-    x->vecSizeOutClock = clock_new(x, reinterpret_cast<t_method>(ofeliaLoadPolyline3d_vecSizeOut));
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::initSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::updateSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::exitSym);
@@ -1939,9 +1908,7 @@ void *ofeliaLoadPolyline3d_new(t_symbol *s, int argc, t_atom *argv)
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
     return (x);
@@ -2016,14 +1983,10 @@ void ofeliaLoadPolyline3d_update(t_ofeliaLoadPolyline3d *x)
         }
         if (x->cmdVec.size() > cmdVecSize) {
             
-            x->cmdMutex->lock();
             x->cmdVec.erase(x->cmdVec.begin(), x->cmdVec.begin() + cmdVecSize);
-            x->cmdMutex->unlock();
             return;
         }
-        x->cmdMutex->lock();
         x->cmdVec.clear();
-        x->cmdMutex->unlock();
         x->shouldOutlet = true;
     }
     if (x->shouldOutlet) {
@@ -2054,17 +2017,13 @@ void ofeliaLoadPolyline3d_update(t_ofeliaLoadPolyline3d *x)
         /* output number of points and current size of the polyline */
         x->numPoints = static_cast<int>(t_ofeliaLoadPolyline3d::polylineData[pos].pointIndices.size());
         x->vecSize = static_cast<int>(t_ofeliaLoadPolyline3d::polylineData[pos].elems.size());
-        OFELIA_LOCK_PD();
-        clock_delay(x->vecSizeOutClock, 0.0);
-        OFELIA_UNLOCK_PD();
+        ofeliaLoadPolyline3d_vecSizeOut(x);
         x->shouldOutlet = false;
     }
 }
 
 void ofeliaLoadPolyline3d_exit(t_ofeliaLoadPolyline3d *x)
 {
-    clock_unset(x->vecSizeOutClock);
-    
     if (t_ofeliaLoadPolyline3d::bInited)
         t_ofeliaLoadPolyline3d::bInited = false;
     x->bInitGate = true;
@@ -2143,9 +2102,7 @@ void ofeliaLoadPolyline3d_load(t_ofeliaLoadPolyline3d *x, t_symbol *s, int argc,
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2158,9 +2115,7 @@ void ofeliaLoadPolyline3d_add(t_ofeliaLoadPolyline3d *x, t_symbol *s, int argc, 
         
         cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
         cmd.state = POLYLINE_LOAD_CMD_INSERT;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -2176,9 +2131,7 @@ void ofeliaLoadPolyline3d_append(t_ofeliaLoadPolyline3d *x, t_symbol *s, int arg
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = numeric_limits<t_float>::max();
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2195,9 +2148,7 @@ void ofeliaLoadPolyline3d_prepend(t_ofeliaLoadPolyline3d *x, t_symbol *s, int ar
             cmd.elem = elems[i];
             cmd.fromIndex = cmd.toIndex = static_cast<t_float>(i);
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2213,9 +2164,7 @@ void ofeliaLoadPolyline3d_insert(t_ofeliaLoadPolyline3d *x, t_symbol *s, int arg
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = POLYLINE_LOAD_CMD_INSERT;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2231,9 +2180,7 @@ void ofeliaLoadPolyline3d_fill(t_ofeliaLoadPolyline3d *x, t_symbol *s, int argc,
         if (getCmdRangeFromArgs(argc-ac, argv+ac, cmd)) {
             
             cmd.state = POLYLINE_LOAD_CMD_FILL;
-            x->cmdMutex->lock();
             x->cmdVec.push_back(cmd);
-            x->cmdMutex->unlock();
         }
     }
 }
@@ -2245,9 +2192,7 @@ void ofeliaLoadPolyline3d_erase(t_ofeliaLoadPolyline3d *x, t_symbol *s, int argc
     if (getCmdRangeFromArgs(argc, argv, cmd)) {
         
         cmd.state = POLYLINE_LOAD_CMD_ERASE;
-        x->cmdMutex->lock();
         x->cmdVec.push_back(cmd);
-        x->cmdMutex->unlock();
     }
 }
 
@@ -2257,9 +2202,7 @@ void ofeliaLoadPolyline3d_clear(t_ofeliaLoadPolyline3d *x)
     cmd.fromIndex = 0.0f;
     cmd.toIndex = numeric_limits<t_float>::max();
     cmd.state = POLYLINE_LOAD_CMD_ERASE;
-    x->cmdMutex->lock();
     x->cmdVec.push_back(cmd);
-    x->cmdMutex->unlock();
 }
 
 void ofeliaLoadPolyline3d_set(t_ofeliaLoadPolyline3d *x, t_symbol *s, int argc, t_atom *argv)
@@ -2311,7 +2254,6 @@ void ofeliaLoadPolyline3d_print(t_ofeliaLoadPolyline3d *x)
 
 void ofeliaLoadPolyline3d_free(t_ofeliaLoadPolyline3d *x)
 {
-    clock_free(x->vecSizeOutClock);
     const int pos = getPositionByPolyline3dObjID(x->objID);
     t_ofeliaLoadPolyline3d::polylineData.erase(t_ofeliaLoadPolyline3d::polylineData.begin() + pos);
     t_ofeliaLoadPolyline3d::polylineSets.erase(t_ofeliaLoadPolyline3d::polylineSets.begin() + pos);

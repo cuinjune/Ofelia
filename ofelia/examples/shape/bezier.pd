@@ -1,4 +1,5 @@
 #N canvas 641 23 708 556 10;
+#X declare -lib ofelia;
 #X obj 27 196 ofHead;
 #X text 113 262 count over a range at once.;
 #X obj 27 284 t b f;
@@ -22,6 +23,7 @@ https://processing.org/examples/bezier.html;
 #X obj 70 159 ofDefine @mouseX = $i2;
 #X obj 27 100 ofWindow 640 400 LEFT TOP 1 0;
 #X obj 27 218 ofSetFillMode OUTLINE;
+#X obj 552 29 declare -lib ofelia;
 #X connect 0 0 16 0;
 #X connect 2 0 4 0;
 #X connect 2 1 13 0;

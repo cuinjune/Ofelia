@@ -1,4 +1,5 @@
 #N canvas 641 23 694 592 10;
+#X declare -lib ofelia;
 #X obj 27 102 ofWindow 640 400 LEFT TOP;
 #X text 135 490 display the image.;
 #X obj 27 226 ofCountUntil;
@@ -30,6 +31,7 @@ to [ofEditImage] object. this example creates an image color gradient.
 ;
 #X text 159 182 get dimensions of the image.;
 #X text 219 160 allocate an image. (width \, height \, type);
+#X obj 542 29 declare -lib ofelia;
 #X connect 0 0 12 0;
 #X connect 2 0 3 0;
 #X connect 3 0 15 0;

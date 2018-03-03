@@ -29,8 +29,6 @@
 		FD2E0F4B1E8A326C00E45E6C /* ofeliaLights.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2E0F491E8A326C00E45E6C /* ofeliaLights.h */; };
 		FD2E0F4E1E8A340800E45E6C /* ofeliaMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2E0F4C1E8A340800E45E6C /* ofeliaMaterial.cpp */; };
 		FD2E0F4F1E8A340800E45E6C /* ofeliaMaterial.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2E0F4D1E8A340800E45E6C /* ofeliaMaterial.h */; };
-		FD2F95C0203701AF00FEE2DA /* ofeliaVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2F95BE203701AF00FEE2DA /* ofeliaVersion.cpp */; };
-		FD2F95C1203701AF00FEE2DA /* ofeliaVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2F95BF203701AF00FEE2DA /* ofeliaVersion.h */; };
 		FD2FDED91F026D1B0005283B /* ofeliaAudio.c in Sources */ = {isa = PBXBuildFile; fileRef = FD2FDED71F026D1B0005283B /* ofeliaAudio.c */; };
 		FD2FDEDA1F026D1B0005283B /* ofeliaAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2FDED81F026D1B0005283B /* ofeliaAudio.h */; };
 		FD3110151E6EAAE500D0D122 /* ofeliaMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD3110131E6EAAE500D0D122 /* ofeliaMesh.cpp */; };
@@ -45,8 +43,6 @@
 		FD3D2DC71DD1944300A3367E /* ofeliaGetters.h in Headers */ = {isa = PBXBuildFile; fileRef = FD3D2DC51DD1944300A3367E /* ofeliaGetters.h */; };
 		FD4129E81E5D621B004C5EBA /* ofeliaPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4129E61E5D621B004C5EBA /* ofeliaPath.cpp */; };
 		FD4129E91E5D621B004C5EBA /* ofeliaPath.h in Headers */ = {isa = PBXBuildFile; fileRef = FD4129E71E5D621B004C5EBA /* ofeliaPath.h */; };
-		FD4E79901DEFF420007595F4 /* ofeliaOverwrites.c in Sources */ = {isa = PBXBuildFile; fileRef = FD4E798E1DEFF420007595F4 /* ofeliaOverwrites.c */; };
-		FD4E79911DEFF420007595F4 /* ofeliaOverwrites.h in Headers */ = {isa = PBXBuildFile; fileRef = FD4E798F1DEFF420007595F4 /* ofeliaOverwrites.h */; };
 		FD4E9D411E6ACA23009F6A86 /* ofeliaPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4E9D3F1E6ACA23009F6A86 /* ofeliaPolyline.cpp */; };
 		FD4E9D421E6ACA23009F6A86 /* ofeliaPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = FD4E9D401E6ACA23009F6A86 /* ofeliaPolyline.h */; };
 		FD52F2CB1F873237001D3D5B /* ofeliaDirectoryHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD52F2C91F873237001D3D5B /* ofeliaDirectoryHandler.cpp */; };
@@ -149,8 +145,6 @@
 		FD2E0F491E8A326C00E45E6C /* ofeliaLights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaLights.h; sourceTree = "<group>"; };
 		FD2E0F4C1E8A340800E45E6C /* ofeliaMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaMaterial.cpp; sourceTree = "<group>"; };
 		FD2E0F4D1E8A340800E45E6C /* ofeliaMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaMaterial.h; sourceTree = "<group>"; };
-		FD2F95BE203701AF00FEE2DA /* ofeliaVersion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaVersion.cpp; sourceTree = "<group>"; };
-		FD2F95BF203701AF00FEE2DA /* ofeliaVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofeliaVersion.h; sourceTree = "<group>"; };
 		FD2FDED71F026D1B0005283B /* ofeliaAudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ofeliaAudio.c; sourceTree = "<group>"; };
 		FD2FDED81F026D1B0005283B /* ofeliaAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaAudio.h; sourceTree = "<group>"; };
 		FD3110131E6EAAE500D0D122 /* ofeliaMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaMesh.cpp; sourceTree = "<group>"; };
@@ -167,8 +161,6 @@
 		FD4129E71E5D621B004C5EBA /* ofeliaPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaPath.h; sourceTree = "<group>"; };
 		FD4ABE551D86D08600B315A3 /* ofeliaWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaWindow.cpp; sourceTree = "<group>"; };
 		FD4ABE561D86D08600B315A3 /* ofeliaWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaWindow.h; sourceTree = "<group>"; };
-		FD4E798E1DEFF420007595F4 /* ofeliaOverwrites.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ofeliaOverwrites.c; sourceTree = "<group>"; };
-		FD4E798F1DEFF420007595F4 /* ofeliaOverwrites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaOverwrites.h; sourceTree = "<group>"; };
 		FD4E9D3F1E6ACA23009F6A86 /* ofeliaPolyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaPolyline.cpp; sourceTree = "<group>"; };
 		FD4E9D401E6ACA23009F6A86 /* ofeliaPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaPolyline.h; sourceTree = "<group>"; };
 		FD52F2C91F873237001D3D5B /* ofeliaDirectoryHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaDirectoryHandler.cpp; sourceTree = "<group>"; };
@@ -365,10 +357,6 @@
 				FD28DD5A1D9CB69900623BC3 /* ofeliaOrien.h */,
 				FD4ABE551D86D08600B315A3 /* ofeliaWindow.cpp */,
 				FD4ABE561D86D08600B315A3 /* ofeliaWindow.h */,
-				FD4E798E1DEFF420007595F4 /* ofeliaOverwrites.c */,
-				FD4E798F1DEFF420007595F4 /* ofeliaOverwrites.h */,
-				FD2F95BE203701AF00FEE2DA /* ofeliaVersion.cpp */,
-				FD2F95BF203701AF00FEE2DA /* ofeliaVersion.h */,
 				FD26392E1D7EA77E00F52494 /* ofeliaSetup.cpp */,
 				FD26392F1D7EA77E00F52494 /* ofeliaSetup.h */,
 			);
@@ -406,11 +394,9 @@
 				FDFDE73D1DAD111D00F66F86 /* ofeliaStyle.h in Headers */,
 				FD778C231DC72244004A77EB /* ofeliaHead.h in Headers */,
 				FDDED0D31E8CE4B400217465 /* ofeliaCamera.h in Headers */,
-				FD4E79911DEFF420007595F4 /* ofeliaOverwrites.h in Headers */,
 				FD2FDEDA1F026D1B0005283B /* ofeliaAudio.h in Headers */,
 				FD2297D31EA76DE900CA3F9C /* ofeliaFbo.h in Headers */,
 				FD03CE111F822857007F54F7 /* ofeliaDirectory.h in Headers */,
-				FD2F95C1203701AF00FEE2DA /* ofeliaVersion.h in Headers */,
 				FD2E0F4F1E8A340800E45E6C /* ofeliaMaterial.h in Headers */,
 				FDDF8D311F8B6A5000E4600C /* ofeliaURL.h in Headers */,
 				FDDF8D351F8B6C1400E4600C /* ofeliaURLSaver.h in Headers */,
@@ -542,7 +528,6 @@
 				FD07C4FC1E83621B00D9D748 /* ofeliaSetters.cpp in Sources */,
 				FD28DD5F1D9CC56A00623BC3 /* ofeliaBase.cpp in Sources */,
 				FD8C6F001DE2E20C00DD1F2A /* ofeliaSeparators.cpp in Sources */,
-				FD4E79901DEFF420007595F4 /* ofeliaOverwrites.c in Sources */,
 				FDDF8D341F8B6C1400E4600C /* ofeliaURLSaver.cpp in Sources */,
 				FDA9F8711EB4C289003F6F52 /* ofeliaDevices.c in Sources */,
 				FDE5A0B51F11CD810089DDAD /* ofeliaString.cpp in Sources */,
@@ -575,7 +560,6 @@
 				FD3D2DC61DD1944300A3367E /* ofeliaGetters.cpp in Sources */,
 				FD60E35C1FBAA6600046DDAD /* ofeliaExpr.cpp in Sources */,
 				FD2E0F4A1E8A326C00E45E6C /* ofeliaLights.cpp in Sources */,
-				FD2F95C0203701AF00FEE2DA /* ofeliaVersion.cpp in Sources */,
 				FD2FDED91F026D1B0005283B /* ofeliaAudio.c in Sources */,
 				FD52F2E21F8779E9001D3D5B /* ofeliaImageSaver.cpp in Sources */,
 				FD8C6EFC1DE2DC7500DD1F2A /* ofeliaViewport.cpp in Sources */,

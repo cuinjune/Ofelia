@@ -1,4 +1,5 @@
 #N canvas 321 23 601 690 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofGetPath3dTessellation 3 12 0
 18 -204280 -1 0;
 #X obj 0 491 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -24,7 +25,7 @@ name.;
 #X text 26 93 in general \, objects that use vector are divided into
 two types \, "loader" objects that can store an array of data and "getter"
 objects that can read the stored data from "loader" objects.;
-#X restore 486 46 pd about_vector;
+#X restore 486 66 pd about_vector;
 #X obj 26 182 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 95 499 bang;
@@ -60,6 +61,7 @@ objects that can read the stored data from "loader" objects.;
 #X text 49 182 get the tessellation data.;
 #X text 241 499 - gets the tessellation data to convert path3d to mesh3d.
 ;
+#X obj 462 46 declare -lib ofelia;
 #X connect 9 0 31 0;
 #X connect 14 0 33 0;
 #X connect 21 0 32 0;

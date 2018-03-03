@@ -1,4 +1,5 @@
 #N canvas 321 23 604 520 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofFocusListener 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -23,4 +24,5 @@ when the app goes into the background(0) or foreground(1).;
 #X obj 236 170 ofFocusListener;
 #X obj 23 318 ofWindow 320 240 LEFT TOP;
 #X text 278 201 0: not focused \, 1: focused.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 14 0 8 0;

@@ -43,8 +43,8 @@ bool t_ofeliaWindow::bRenderGate;
 
 /* public static variables */
 ofAppBaseWindow *ofeliaWindow::window;
+bool ofeliaWindow::bFirstLoop;
 bool ofeliaWindow::bFirstUpdate;
-bool ofeliaWindow::bFirstDraw;
 bool ofeliaWindow::bWindowExists;
 int ofeliaWindow::retinaScale;
 float ofeliaWindow::scaleFactor;
@@ -55,8 +55,6 @@ int ofeliaWindow::initialDeviceOrien;
 bool ofeliaWindow::isDefOrienLandscape;
 
 /* private static variables */
-bool ofeliaWindow::bFirstLoop;
-bool ofeliaWindow::bWindowCreatedSent;
 int ofeliaWindow::windowPosX;
 int ofeliaWindow::windowPosY;
 int ofeliaWindow::windowWidth;
@@ -71,7 +69,6 @@ bool ofeliaWindow::bScaleDirectionFixed;
 bool ofeliaWindow::bAccelEnabled;
 ofVec3f ofeliaWindow::accelForce;
 t_clock *ofeliaWindow::pollEventsClock;
-t_clock *ofeliaWindow::windowCreatedClock;
 unique_ptr<ofPath> ofeliaWindow::fullscreenMaskPath;
 unique_ptr<ofVboMesh> ofeliaWindow::fullscreenMaskMesh;
 
@@ -957,8 +954,6 @@ void ofeliaWindow::createWindow()
     retinaScale = 1;
     bFirstLoop = true;
     bFirstUpdate = true;
-    bFirstDraw = true;
-    bWindowCreatedSent = false;
     bWindowOwner = true;
     myOrien.bWindowOwner = true;
     wasOrienInvert = false;
@@ -972,7 +967,6 @@ void ofeliaWindow::createWindow()
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::firstLoopSym);
     pd_bind(&x->x_obj.ob_pd, t_ofeliaWindow::orienChangedSym);
     pollEventsClock = clock_new(this, reinterpret_cast<t_method>(pollEventsMethod));
-    windowCreatedClock = clock_new(this, reinterpret_cast<t_method>(windowCreatedMethod));
     
     /* this is for the first loop method */
     clock_delay(pollEventsClock, 0.0);
@@ -1318,12 +1312,10 @@ void ofeliaWindow::windowUpdate(ofEventArgs &e)
     myOrien.updateRotation();
     
     /* values that need to be updated before each frame */
-    OFELIA_LOCK_PD();
     value_setfloat(t_ofeliaGetFrameNum::getFrameNumSym, static_cast<t_float>(ofGetFrameNum()));
     value_setfloat(t_ofeliaGetFrameRate::getFrameRateSym, ofGetFrameRate());
     value_setfloat(t_ofeliaGetElapsedTime::getElapsedTimeSym, ofGetElapsedTimef()*1000.0f);
     value_setfloat(t_ofeliaGetLastFrameTime::getLastFrameTimeSym, static_cast<t_float>(ofGetLastFrameTime()*1000.0));
-    OFELIA_UNLOCK_PD();
     
     /* send update message to objects that listen to update */
     if (t_ofeliaWindow::updateSym->s_thing)
@@ -1337,7 +1329,6 @@ void ofeliaWindow::windowDraw(ofEventArgs &e)
 {
     if (!bWindowExists || bFirstLoop || bFirstUpdate)
         return;
-    
     ofGetCurrentRenderer()->pushView();
     ofGetCurrentRenderer()->viewport(fullscreenOffset.x,
                                      fullscreenOffset.y,
@@ -1346,31 +1337,26 @@ void ofeliaWindow::windowDraw(ofEventArgs &e)
     ofGetCurrentRenderer()->setupScreen();
     ofGetCurrentRenderer()->scale(scaleFactor, scaleFactor, scaleFactor);
     myOrien.drawRotation();
-
-    if (!bFirstDraw) {
-
-        t_ofeliaWindow::bRenderGate = true;
-
-        /* send bang message through outlet */
-        outlet_bang(x->x_obj.ob_outlet);
-
-        /* send draw message to head objects */
-        if (t_ofeliaWindow::drawSym->s_thing) {
-
-            sort(t_ofeliaHead::vec.begin(),t_ofeliaHead::vec.end());
-
-            for (size_t i=0; i<t_ofeliaHead::vec.size(); ++i) {
-
-                t_atom av[1];
-                av[0].a_type = A_FLOAT;
-                av[0].a_w.w_float = static_cast<t_float>(t_ofeliaHead::vec[i].second);
-                OFELIA_LOCK_PD();
-                typedmess(t_ofeliaWindow::drawSym->s_thing, t_ofeliaWindow::drawMess, 1, av);
-                OFELIA_UNLOCK_PD();
-            }
+    t_ofeliaWindow::bRenderGate = true;
+    
+    /* send bang message through outlet */
+    outlet_bang(x->x_obj.ob_outlet);
+    
+    /* send draw message to head objects */
+    if (t_ofeliaWindow::drawSym->s_thing) {
+        
+        sort(t_ofeliaHead::vec.begin(),t_ofeliaHead::vec.end());
+        
+        for (size_t i=0; i<t_ofeliaHead::vec.size(); ++i) {
+            
+            t_atom av[1];
+            av[0].a_type = A_FLOAT;
+            av[0].a_w.w_float = static_cast<t_float>(t_ofeliaHead::vec[i].second);
+            typedmess(t_ofeliaWindow::drawSym->s_thing, t_ofeliaWindow::drawMess, 1, av);
         }
-        t_ofeliaWindow::bRenderGate = false;
     }
+    t_ofeliaWindow::bRenderGate = false;
+    
     if (bDepthTestEnabled)
         ofGetCurrentRenderer()->setDepthTest(false); //turn off depthTest
     myOrien.drawMasking();
@@ -1388,16 +1374,9 @@ void ofeliaWindow::windowDraw(ofEventArgs &e)
     }
     ofGetCurrentRenderer()->setColor(ofColor(0));
     fullscreenMaskMesh->draw();
+    
     if (bDepthTestEnabled)
         ofGetCurrentRenderer()->setDepthTest(true); //restore depthTest
-
-    if (bFirstDraw && !bWindowCreatedSent) {
-        
-        OFELIA_LOCK_PD();
-        clock_delay(windowCreatedClock, 0.0);
-        OFELIA_UNLOCK_PD();
-        bWindowCreatedSent = true;
-    }
 }
 
 void ofeliaWindow::windowTouchDown(ofTouchEventArgs &e)
@@ -1456,17 +1435,11 @@ void ofeliaWindow::pollEventsMethod(void *nul)
 
         if (t_ofeliaWindow::firstLoopSym->s_thing)
             typedmess(t_ofeliaWindow::firstLoopSym->s_thing, t_ofeliaWindow::firstLoopMess, 0, 0);
-        ofSleepMillis(10);
+        ofSleepMillis(200);
         clock_free(pollEventsClock);
         bFirstLoop = false;
+        sendWindowToPd(true);
     }
-}
-
-void ofeliaWindow::windowCreatedMethod(void *nul)
-{
-    sendWindowToPd(true);
-    bFirstDraw = false;
-    clock_free(windowCreatedClock);
 }
 
 void ofeliaWindow::sendTouchToPd(const int touchState, const int touchID, const float posX, const float posY)

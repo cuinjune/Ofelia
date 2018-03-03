@@ -1,4 +1,5 @@
 #N canvas 641 23 690 770 10;
+#X declare -lib ofelia;
 #X obj 31 319 ofHead;
 #X obj 31 239 ofMouseListener;
 #X obj 31 620 ofTranslate;
@@ -37,6 +38,7 @@ https://processing.org/examples/constrain.html;
 #X obj 31 520 ofSepMatrix 2, f 24;
 #X text 187 520 separate render chains in matrix.;
 #X text 378 471 clamp a value between min and max.;
+#X obj 536 29 declare -lib ofelia;
 #X connect 0 0 3 0;
 #X connect 1 1 18 0;
 #X connect 2 0 6 0;

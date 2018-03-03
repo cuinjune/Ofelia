@@ -1,4 +1,5 @@
 #N canvas 641 23 683 459 10;
+#X declare -lib ofelia;
 #X text 25 23 render a simple sine wave.;
 #X text 331 396 This example was originally written in Processing.
 https://processing.org/examples/sinewave.html;
@@ -63,6 +64,7 @@ function.;
 * @xspacing \; @yvalSize = @w / @xspacing \; @x \; $o1 = @yvalSize
 - 1 \;;
 #X obj 27 62 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 532 29 declare -lib ofelia;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 3 1 5 0;

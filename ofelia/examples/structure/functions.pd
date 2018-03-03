@@ -1,4 +1,5 @@
 #N canvas 641 23 694 434 10;
+#X declare -lib ofelia;
 #X obj 47 170 ofHead;
 #X obj 47 134 ofSetCircleRes 100;
 #X text 45 38 the "drawTarget" subpatch makes it easy to draw many
@@ -69,6 +70,7 @@ https://processing.org/examples/functions.html;
 #X obj 302 214 ofExpr \; ofGetWidth * 0.25 \; ofGetHeight * 0.4 \;
 200 \; 4 \;;
 #X obj 47 112 ofWindow 640 400 LEFT TOP 1 51;
+#X obj 542 29 declare -lib ofelia;
 #X connect 0 0 7 0;
 #X connect 4 0 3 0;
 #X connect 5 0 3 0;

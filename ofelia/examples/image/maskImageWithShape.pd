@@ -1,4 +1,5 @@
 #N canvas 636 23 683 500 10;
+#X declare -lib ofelia;
 #X obj 37 90 ofWindow 800 600 LEFT TOP 0.5;
 #X text 223 90 create a window with the scale set to 0.5;
 #X text 284 171 load an image from the specified path.;
@@ -28,6 +29,7 @@ http://openframeworks.cc/learning/02_graphics/how_to_maskanimagewithashape/
 #X text 141 281 draw a heart at the center of the fbo area.;
 #X obj 37 171 ofLoadImage @img ../data/background.jpg;
 #X obj 37 215 ofHead 50 OFF;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 0 3 0;
 #X connect 3 0 6 0;
 #X connect 7 0 21 0;

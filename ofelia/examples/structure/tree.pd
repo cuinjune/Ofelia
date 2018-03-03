@@ -1,4 +1,5 @@
 #N canvas 641 23 676 535 10;
+#X declare -lib ofelia;
 #X obj 47 231 ofHead;
 #X obj 47 253 t b b;
 #X obj 47 151 ofMouseListener;
@@ -82,6 +83,7 @@ https://processing.org/examples/tree.html;
 @degrees = (@mouseX / ofGetWidth) * 90 \;;
 #X obj 47 115 ofWindow 640 400 LEFT TOP 1 0;
 #X obj 47 399 ofRotateZ 180;
+#X obj 528 29 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 1 1 13 0;

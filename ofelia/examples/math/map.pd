@@ -1,4 +1,5 @@
 #N canvas 641 23 673 618 10;
+#X declare -lib ofelia;
 #X obj 27 233 ofHead;
 #X obj 27 174 ofMouseListener;
 #X obj 79 325 ofMap 0 0 0 175;
@@ -25,6 +26,7 @@ use [ofClamp] to limit the values within a range.;
 #X obj 79 277 ofExpr \; @mouseX \; ofGetWidth \;;
 #X obj 54 466 ofExpr \; ofGetWidth * 0.5 \; ofGetHeight * 0.5 \;;
 #X obj 27 115 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 525 29 declare -lib ofelia;
 #X connect 0 0 15 0;
 #X connect 1 1 14 0;
 #X connect 2 0 12 0;

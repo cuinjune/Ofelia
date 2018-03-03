@@ -1,4 +1,5 @@
 #N canvas 641 23 692 851 10;
+#X declare -lib ofelia;
 #X obj 74 149 list split 1;
 #X obj 31 127 ofMouseListener;
 #X obj 108 215 ofLoadVec3f @points;
@@ -76,6 +77,7 @@ that descend in space. click on the screen to clear the ribbons.;
 #X obj 31 339 t b b b b;
 #X obj 31 1344 ofDrawMesh3d @mesh;
 #X obj 31 1322 ofSetColor 0;
+#X obj 532 29 declare -lib ofelia;
 #X connect 0 1 4 0;
 #X connect 1 0 57 0;
 #X connect 1 1 0 0;

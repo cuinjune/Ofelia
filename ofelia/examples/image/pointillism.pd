@@ -1,4 +1,5 @@
 #N canvas 641 23 683 667 10;
+#X declare -lib ofelia;
 #X text 272 201 load an image from the specified path.;
 #X obj 27 143 ofMouseListener;
 #X obj 70 164 ofDefine @mouseX = $i2;
@@ -31,6 +32,7 @@ in an image.;
 #X obj 27 318 ofHead 50 OFF;
 #X obj 27 242 ofDefine \; @smallPoint = 2 \; @largePoint = 20 \; @imgWidth
 = $i1 \; @imgHeight = $i2 \; $o1 = 1 \;;
+#X obj 532 29 declare -lib ofelia;
 #X connect 1 1 2 0;
 #X connect 3 0 12 0;
 #X connect 3 1 8 0;

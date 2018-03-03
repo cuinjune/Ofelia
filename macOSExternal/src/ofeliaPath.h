@@ -120,8 +120,6 @@ extern "C" {
         unsigned int objID;
         bool shouldOutlet;
         int vecSize, numPoints;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *vecSizeOutClock;
         t_outlet *vecSize_out, *numPoints_out;
         
     } t_ofeliaLoadPath2d;
@@ -175,8 +173,6 @@ extern "C" {
         unsigned int objID;
         bool shouldOutlet;
         int vecSize, numPoints;
-        unique_ptr<ofMutex> cmdMutex;
-        t_clock *vecSizeOutClock;
         t_outlet *vecSize_out, *numPoints_out;
         
     } t_ofeliaLoadPath3d;

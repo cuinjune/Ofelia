@@ -1,4 +1,5 @@
 #N canvas 321 23 601 802 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofLoadPath3d 3 12 0 18 -204280
 -1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
@@ -32,7 +33,7 @@ name.;
 #X text 26 93 in general \, objects that use vector are divided into
 two types \, "loader" objects that can store an array of data and "getter"
 objects that can read the stored data from "loader" objects.;
-#X restore 486 46 pd about_vector;
+#X restore 486 66 pd about_vector;
 #X floatatom 23 238 5 0 0 0 - - -, f 5;
 #X text 241 648 - the number of elements stored in the array.;
 #X text 67 238 the number of elements stored in the array.;
@@ -336,6 +337,7 @@ and drawn as polyline when unfilled.;
 0 \; lineTo -13 22 0 \; lineTo -13 -22 0 \; close \;;
 #X floatatom 122 217 5 0 0 0 - - -, f 5;
 #X text 166 217 the number of 3d points.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 30 0 52 0;
 #X connect 52 0 17 0;
 #X connect 52 1 53 0;

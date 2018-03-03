@@ -1,4 +1,5 @@
 #N canvas 641 23 666 779 10;
+#X declare -lib ofelia;
 #X obj 27 125 ofMouseListener;
 #X obj 27 301 ofDefine \; @beginX = 20 \; @beginY = 10 \; @endX = 570
 \; @endY = 320 \; @distX = @endX - @beginX \; @distY = @endY - @beginY
@@ -27,6 +28,7 @@ y = x^4. click the mouse to have it move to a new position.;
 https://processing.org/examples/movingoncurves.html;
 #X text 128 89 disable the auto background clearing function.;
 #X obj 27 479 t b b;
+#X obj 514 29 declare -lib ofelia;
 #X connect 0 0 9 0;
 #X connect 2 0 17 0;
 #X connect 4 0 12 0;

@@ -56,8 +56,6 @@
 #include "ofeliaEasyCam.h"
 #include "ofeliaCamera.h"
 #include "ofeliaViewport.h"
-#include "ofeliaOverwrites.h"
-#include "ofeliaVersion.h"
 
 void *ofelia_new() {
     
@@ -69,7 +67,6 @@ void ofelia_setup()
 {
     ofelia_class = class_new(gensym("ofelia"), reinterpret_cast<t_newmethod>(ofelia_new), 0,
                              sizeof(t_ofelia), CLASS_NOINLET, A_NULL, 0);
-    ofeliaOverwrites_setup();
     ofeliaWindow_setup();
     ofeliaListeners_setup();
     ofeliaGetters_setup();
@@ -106,6 +103,16 @@ void ofelia_setup()
     ofeliaEasyCam_setup();
     ofeliaCamera_setup();
     ofeliaViewport_setup();
-    ofeliaPrintVersion();
+    stringstream ss;
+    ss << "-------------------------------------------------------------------" << '\n';
+    ss << "ofelia" << ' ';
+    ss << 'v';
+    ss << OFELIA_MAJOR_VERSION << '.';
+    ss << OFELIA_MINOR_VERSION << '.';
+    ss << OFELIA_BUGFIX_VERSION << ':';
+    ss << " compiled on " << __DATE__ << '\n';
+    ss << "(c) 2018 Zack Lee <cuinjune@gmail.com>" << '\n';
+    ss << "-------------------------------------------------------------------";
+    post(ss.str().c_str());
 }
 

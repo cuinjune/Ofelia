@@ -1,4 +1,5 @@
-#N canvas 321 23 599 592 10;
+#N canvas 321 23 599 609 10;
+#X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofPack 3 12 0 18 -204280 -1 0
 ;
 #X obj 183 278 print;
@@ -91,7 +92,7 @@ whenever one of its elements changes.;
 #X connect 23 0 20 0;
 #X connect 24 0 23 0;
 #X connect 25 0 23 1;
-#X restore 480 46 pd more_examples;
+#X restore 480 66 pd more_examples;
 #X text 201 502 - the number of arguments(up to 64) determines the
 number of inlets. you can use floats or symbols to specify the type
 while also initializing that inlet's value.;
@@ -101,6 +102,7 @@ while also initializing that inlet's value.;
 atoms that can be replaced through inlets. creation arguments specify
 the number of inlets and their types. [ofPack] outputs the message
 whenever it receives a message from one of its inlets.;
+#X obj 462 46 declare -lib ofelia;
 #X connect 10 0 31 0;
 #X connect 11 0 31 0;
 #X connect 12 0 31 2;

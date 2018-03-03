@@ -1,4 +1,5 @@
 #N canvas 641 23 675 664 10;
+#X declare -lib ofelia;
 #X text 25 23 all shapes drawn to the screen have a position that is
 specified as a coordinate. all coordinates are measured as the distance
 from the origin in units of pixels. The origin [0 \, 0] is the coordinate
@@ -34,6 +35,7 @@ https://processing.org/examples/coordinates.html;
 = ofGetWidth \; $o4 = $o2 \;;
 #X obj 54 473 ofExpr \; ofGetWidth * 0.25 \; ofGetHeight * 0.1 \; ofGetWidth
 * 0.5 \; ofGetHeight * 0.8 \;;
+#X obj 523 28 declare -lib ofelia;
 #X connect 2 0 3 0;
 #X connect 5 0 9 0;
 #X connect 7 0 5 0;

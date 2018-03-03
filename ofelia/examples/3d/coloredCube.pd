@@ -1,4 +1,5 @@
 #N canvas 601 23 767 586 10;
+#X declare -lib ofelia;
 #X obj 187 147 ofHead;
 #X text 233 147 the start of a rendering chain.;
 #X obj 187 127 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -47,6 +48,7 @@ mesh3d.;
 #X obj 187 293 ofRotateXYZ;
 #X obj 214 212 ofExpr \; ofGetWidth/2 \; ofGetHeight/2 \; ofGetFrameNum*0.75
 \;;
+#X obj 612 29 declare -lib ofelia;
 #X connect 0 0 11 0;
 #X connect 2 0 0 0;
 #X connect 4 0 30 1;

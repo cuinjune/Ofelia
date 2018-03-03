@@ -1,4 +1,5 @@
 #N canvas 641 23 690 554 10;
+#X declare -lib ofelia;
 #X obj 31 332 ofHead;
 #X obj 31 252 ofMouseListener;
 #X obj 31 446 ofTranslate;
@@ -18,6 +19,7 @@ https://processing.org/examples/easing.html;
 (@mouseY - @y) * @easing + @y \; $o1 = @x \; $o2 = @y \;;
 #X obj 74 274 ofDefine \; @mouseX = $i2 \; @mouseY = $i3 \;;
 #X obj 31 161 ofWindowLoadBang;
+#X obj 537 29 declare -lib ofelia;
 #X connect 0 0 3 0;
 #X connect 1 1 10 0;
 #X connect 2 0 4 0;
