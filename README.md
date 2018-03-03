@@ -33,14 +33,9 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Installation
 
-* Make sure you have [Pd-0.48-1](http://msp.ucsd.edu/software.html) installed on your desktop. (Earlier versions of Pd may not work)
+* Make sure you have [Pd](http://msp.ucsd.edu/software.html) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
-* Go to `Pd` -> `Preferences` -> `Startup`, click `New` and add `ofelia`
-* Restart Pd.
-* (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
-  <pre>cd ofelia/scripts/distro_name
-  sudo ./install_dependencies.sh</pre>
 
 ## Explore
 
