@@ -1607,6 +1607,9 @@ void ofeliaWindow::windowDraw(ofEventArgs &e)
 void ofeliaWindow::windowMousePressed(ofMouseEventArgs &e)
 {
     sendMouseToPd(WINDOW_MOUSE_PRESSED, e.button+1, mouseX, mouseY);
+    
+    if (e.button != 0) /* touch only works if the left mouse button is used */
+        return;
     touchState = WINDOW_TOUCH_DOWN;
     touchID++;
     
@@ -1636,6 +1639,9 @@ void ofeliaWindow::windowMouseDragged(ofMouseEventArgs &e)
     sendMouseToPd(WINDOW_MOUSE_MOVED, e.button+1, e.x, e.y);
     mouseX = e.x;
     mouseY = e.y;
+    
+    if (e.button != 0) /* touch only works if the left mouse button is used */
+        return;
     touchState = WINDOW_TOUCH_MOVED;
     
     if (touchID < 0)
@@ -1649,6 +1655,9 @@ void ofeliaWindow::windowMouseDragged(ofMouseEventArgs &e)
 void ofeliaWindow::windowMouseReleased(ofMouseEventArgs &e)
 {
     sendMouseToPd(WINDOW_MOUSE_RELEASED, e.button+1, mouseX, mouseY);
+    
+    if (e.button != 0) /* touch only works if the left mouse button is used */
+        return;
     touchState = WINDOW_TOUCH_UP;
     
     if (bMultiTouchSimEnabled || touchID < 0)
