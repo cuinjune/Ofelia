@@ -33,11 +33,9 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Installation
 
-* Make sure you have [Pd-0.48-1](http://msp.ucsd.edu/software.html) installed on your desktop. (Earlier versions of Pd may not work)
+* Make sure you have [Pd](http://msp.ucsd.edu/software.html) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
-* Go to `Pd` -> `Preferences` -> `Startup`, click `New` and add `ofelia`
-* Restart Pd.
 * (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
@@ -50,6 +48,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Create something cool and [share](https://patchstorage.com/) it with other people.
 
 ## Upcoming features
+
 * GLSL shader loader
 * Video player
 * Video grabber
@@ -60,7 +59,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Description
 
-**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to build the external or create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia.
+**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia.
 
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
@@ -81,23 +80,6 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
   sudo ./updateOF.sh</pre>
 * (Windows) Execute the following batch file to update openFrameworks.
   <pre>OF/addons/ofxOfelia/scripts/Win/updateOF.bat</pre>
-
-## Building the external
-
-#### macOS
-* Open `OF/addons/ofxOfelia/macOSExternal/ofelia.xcodeproj` with Xcode and build the project.
-* Copy the binaries from `OF/addons/ofxOfelia/macOSExternal/bin` into the externals directory.
-
-#### Linux
-* Open the Terminal and run the following command to build the project. 
-  <pre>cd OF/addons/ofxOfelia/Linux64External
-  make
-  sudo ./set_rpath.sh</pre>
-* Copy the binary and the `libs` folder from `OF/addons/ofxOfelia/Linux64External/bin` into the externals directory.
-
-#### Windows
-* Open `OF/addons/ofxOfelia/Win32External/ofelia.vcxproj` with Visual Studio and build the solution.
-* Copy the binaries from `OF/addons/ofxOfelia/Win32External/bin` into the externals directory.
 
 ## Running the standalone example
 
