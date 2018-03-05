@@ -3,7 +3,7 @@
 
 ## Description
 
-**ofelia** is a [Pure Data](https://puredata.info/) external library written with [openFrameworks](http://openframeworks.cc/) for creating cross-platform multimedia applications.<br />
+**ofelia** is a [Pure Data](https://puredata.info/)(aka Pd) external library written with [openFrameworks](http://openframeworks.cc/) for creating cross-platform multimedia applications.<br />
 
 The library consists of over 400 objects covering most features of [openFrameworks core API](http://openframeworks.cc/documentation/), designed to ease the development of multimedia applications such as visual arts, musical apps and interactive games.
 
@@ -33,12 +33,14 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Installation
 
-* Make sure you have [Pd](http://msp.ucsd.edu/software.html) installed on your desktop.
+* Make sure you have [Pd](https://puredata.info/downloads/pure-data) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
+* Try opening any Pd patch inside the downloaded `ofelia` directory to check if the library loads successfully.
 * (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
+* (Windows only) If the library fails to load, execute `ofelia/VC_redist.x86.exe` to install [Microsoft Visual C++ Redistributable 2017](https://support.microsoft.com/en-gb/help/2977003/the-latest-supported-visual-c-downloads).
 
 ## Explore
 
