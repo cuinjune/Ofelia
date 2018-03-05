@@ -110,31 +110,31 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 #### macOS
 * Copy the folder `OF/addons/ofxOfelia/macOSExample` and paste it into `OF/apps/myApps`.
 * Rename the project in Xcode and rename the project folder to your liking.
-* Replace Pd patch and resources in `yourProject/bin/data/pd` with your files. 
+* Replace Pd patch and data in `yourProject/bin/data/pd` with your files. (main patch should be named `main.pd`)
 * Build the project in Xcode. you will find a `.app` file in `yourProject/bin` directory.
 
 #### Linux
 * Copy the folder `OF/addons/ofxOfelia/Linux64Example` and paste it into `OF/apps/myApps`.
 * Rename the project folder to your liking.
-* Replace Pd patch and resources in `yourProject/bin/data/pd` with your files.
+* Replace Pd patch and data in `yourProject/bin/data/pd` with your files. (main patch should be named `main.pd`)
 * Build the project with `make`. you will find a Unix executable file in `yourProject/bin` directory.
 
 #### Windows
 * Copy the folder `OF/addons/ofxOfelia/Win32Example` and paste it into `OF/apps/myApps`.
 * Rename the project in Visual Studio and rename the project folder to your liking.
-* Replace Pd patch and resources in `yourProject/bin/data/pd` with your files. 
+* Replace Pd patch and data in `yourProject/bin/data/pd` with your files. (main patch should be named `main.pd`)
 * Build the project in Visual Studio. you will find a `.exe` file in `yourProject/bin` directory.
 
 #### iOS
 * Copy the folder `OF/addons/ofxOfelia/iOSExample` (or `iOSABExample` if you want your app to support [Audiobus](https://audiob.us/)) and paste it into `OF/apps/myApps`.
 * Rename the project in Xcode and rename the project folder to your liking.
-* Replace Pd patch and resources in `yourProject/bin/data/pd` with your files.
+* Replace Pd patch and data in `yourProject/bin/data/pd` with your files. (main patch should be named `main.pd`)
 * Connect your iOS device and run the project in Xcode.
 
 #### Android
 * Copy the folder `OF/addons/ofxOfelia/AndroidExample` and paste it into `OF/apps/myApps`.
 * Rename the project in Android Studio. (please read `Creating new projects` section from this [link](http://openframeworks.cc/setup/android-studio/))
-* Replace Pd patch and resources in `yourProject/bin/data/pd` with your files.
+* Replace Pd patch and data in `yourProject/bin/data/pd` with your files. (main patch should be named `main.pd`)
 * If your app uses portrait orientation as default, then change `android:screenOrientation="reverseLandscape"` to `android:screenOrientation="portrait"` in AndroidManifest.xml file. 
 * Connect your Android device and run the project in Android Studio.
 
