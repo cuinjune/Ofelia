@@ -69,7 +69,7 @@ You can share the application with a wide range of audiences including non-Pd us
 You don't need to write a single line of code to convert your Pd patch into a standalone application so don't be afraid to follow the setup guide below.
 
 ## Build Requirements
-In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow [the setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
+In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
 
 * macOS / iOS : Xcode.
 * Linux : Makefile.
