@@ -48,6 +48,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Open `ofelia/help-intro.pd` to see the list of built-in objects in ofelia.
 * Open the help files to learn more about each object.
 * Create something cool and [share](https://patchstorage.com/) it with other people.
+* Feel free to contact the [author](#author) if you have any questions or suggestions.
 
 ## Upcoming features
 
