@@ -98,7 +98,7 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 
 #### iOS
 * Open `OF/addons/ofxOfelia/iOSExample/iOSExample.xcodeproj` with Xcode.
-* Connect your iOS device and run the project.
+* Connect your iOS device and run the project. (You need to setup [code signing](https://developer.apple.com/support/code-signing/) to run the app on a device)
 
 #### Android
 * Open Android Studio, select `Open an existing Android Studio project` and open `OF/addons/ofxOfelia/AndroidExample`.
