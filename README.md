@@ -61,7 +61,11 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Description
 
-**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia library and Pd [vanilla](https://puredata.info/downloads/vanilla) objects. (you can also add other externals by including the source file and calling its setup method)
+**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia and Pd [vanilla](https://puredata.info/downloads/vanilla) objects.
+
+You can share the application with a wide range of audiences including non-Pd users and mobile device users.
+
+You don't need to write a single line of code to convert your Pd patch into a standalone application so don't be afraid to follow the setup guide below.
 
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
