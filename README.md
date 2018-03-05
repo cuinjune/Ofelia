@@ -66,9 +66,9 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
 
-* macOS / iOS : Xcode
+* macOS / iOS : Xcode.
 * Linux : Makefile.
-* Windows : Visual Studio Community 2015.
+* Windows : Visual Studio Community 2015. (or Visaul Studio 2017)
 * Android : Android Studio.
 
 ## Setup guide
