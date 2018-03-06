@@ -1,5 +1,5 @@
 # ofelia
-![alt text](doc/screenshot.png)
+![alt text](doc/screenshot.jpg)
 
 ## Description
 
