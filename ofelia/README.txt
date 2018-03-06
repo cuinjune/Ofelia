@@ -37,7 +37,6 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh
-* (Windows only) If the library fails to load, run `ofelia/VC_redist.x86.exe` to install Microsoft Visual C++ Redistributable 2017.
 
 ## Explore
 
@@ -45,6 +44,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Open `ofelia/help-intro.pd` to see the list of built-in objects in ofelia.
 * Open the help files to learn more about each object.
 * Create something cool and share it with other people.
+* Feel free to contact the author if you have any questions or suggestions.
 
 ## Upcoming features
 
