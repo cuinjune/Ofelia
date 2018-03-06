@@ -48,6 +48,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Open `ofelia/help-intro.pd` to see the list of built-in objects in ofelia.
 * Open the help files to learn more about each object.
 * Create something cool and [share](https://patchstorage.com/) it with other people.
+* Feel free to contact the [author](#author) if you have any questions or suggestions.
 
 ## Upcoming features
 
@@ -61,14 +62,18 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Description
 
-**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia.
+**ofxOfelia** is ofelia packaged as an [openFrameworks addon](http://ofxaddons.com/pages/howto#what) which enables you to create a standalone application for macOS, Linux(64bit), Windows(32bit), iOS and Android that can run Pd patches made with ofelia and Pd [vanilla](https://puredata.info/downloads/vanilla) objects.
+
+You can share the application with a wide range of audiences including non-Pd users and mobile device users.
+
+You don't need to write a single line of code to convert your Pd patch into a standalone application so don't be afraid to follow the setup guide below.
 
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks 0.9.8 which is the most recent stable release. ofxOfelia is currently not compatible with openFrameworks 0.10.x and it will be updated after the next stable release of openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.9.8. The following tools are used to build ofxOfelia project.
 
-* macOS / iOS : Xcode
+* macOS / iOS : Xcode.
 * Linux : Makefile.
-* Windows : Visual Studio Community 2015.
+* Windows : Visual Studio Community 2015. (or Visaul Studio 2017)
 * Android : Android Studio.
 
 ## Setup guide
@@ -98,7 +103,7 @@ Place them within the directory `OF/addons`. ("OF" indicates the base directory 
 
 #### iOS
 * Open `OF/addons/ofxOfelia/iOSExample/iOSExample.xcodeproj` with Xcode.
-* Connect your iOS device and run the project.
+* Connect your iOS device and run the project. (you will need to setup [code signing](https://developer.apple.com/support/code-signing/) to run the app on a device)
 
 #### Android
 * Open Android Studio, select `Open an existing Android Studio project` and open `OF/addons/ofxOfelia/AndroidExample`.
