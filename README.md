@@ -40,7 +40,6 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * (Linux only) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
-* (Windows only) If the library fails to load, run `ofelia/VC_redist.x86.exe` to install [Microsoft Visual C++ Redistributable 2017](https://support.microsoft.com/en-gb/help/2977003/the-latest-supported-visual-c-downloads).
 
 ## Explore
 
