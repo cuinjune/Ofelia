@@ -58,15 +58,15 @@ extern "C" {
         
     } t_ofeliaGetDimen;
     
-    /* ofGetScale object class */
-    static t_class *ofeliaGetScale_class;
+    /* ofGetWindowScale object class */
+    static t_class *ofeliaGetWindowScale_class;
     
-    typedef struct _ofeliaGetScale
+    typedef struct _ofeliaGetWinowScale
     {
         t_object x_obj;
-        static t_symbol *getScaleSym;
+        static t_symbol *getWindowScaleSym;
         
-    } t_ofeliaGetScale;
+    } t_ofeliaGetWindowScale;
     
     /* ofGetFrameNum object class */
     static t_class *ofeliaGetFrameNum_class;
@@ -158,35 +158,35 @@ extern "C" {
         
     } t_ofeliaGetFocus;
     
-    /* ofGetPos_x object class */
-    static t_class *ofeliaGetPosX_class;
+    /* ofGetWindowPos_x object class */
+    static t_class *ofeliaGetWindowPosX_class;
     
-    typedef struct _ofeliaGetPosX
+    typedef struct _ofeliaGetWindowPosX
     {
         t_object x_obj;
-        static t_symbol *getPosXSym;
+        static t_symbol *getWindowPosXSym;
         
-    } t_ofeliaGetPosX;
+    } t_ofeliaGetWindowPosX;
     
-    /* ofGetPosY object class */
-    static t_class *ofeliaGetPosY_class;
+    /* ofGetWindowPosY object class */
+    static t_class *ofeliaGetWindowPosY_class;
     
-    typedef struct _ofeliaGetPosY
+    typedef struct _ofeliaGetWindowPosY
     {
         t_object x_obj;
-        static t_symbol *getPosYSym;
+        static t_symbol *getWindowPosYSym;
         
-    } t_ofeliaGetPosY;
+    } t_ofeliaGetWindowPosY;
     
-    /* ofGetPos object class */
-    static t_class *ofeliaGetPos_class;
+    /* ofGetWindowPos object class */
+    static t_class *ofeliaGetWindowPos_class;
     
-    typedef struct _ofeliaGetPos
+    typedef struct _ofeliaGetWindowPos
     {
         t_object x_obj;
-        static t_symbol *getPosSym;
+        static t_symbol *getWindowPosSym;
         
-    } t_ofeliaGetPos;
+    } t_ofeliaGetWindowPos;
     
     /* ofGetScreenWidth object class */
     static t_class *ofeliaGetScreenWidth_class;

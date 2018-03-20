@@ -30,11 +30,11 @@ t_symbol *t_ofeliaMouseListener::mouseListenerSym;
 t_symbol *t_ofeliaScrollListener::scrollListenerSym;
 t_symbol *t_ofeliaKeyListener::keyListenerSym;
 t_symbol *t_ofeliaAccelListener::accelListenerSym;
-t_symbol *t_ofeliaScaleListener::scaleListenerSym;
+t_symbol *t_ofeliaWindowScaleListener::windowScaleListenerSym;
 t_symbol *t_ofeliaOrienListener::orienListenerSym;
 t_symbol *t_ofeliaFullscreenListener::fullscreenListenerSym;
 t_symbol *t_ofeliaFocusListener::focusListenerSym;
-t_symbol *t_ofeliaPosListener::posListenerSym;
+t_symbol *t_ofeliaWindowPosListener::windowPosListenerSym;
 t_symbol *t_ofeliaWindowListener::windowListenerSym;
 t_symbol *t_ofeliaBackListener::backListenerSym;
 
@@ -234,34 +234,34 @@ void ofeliaAccelListener_setup()
 }
 
 /* ________________________________________________________________________________
- * ofScaleListener object methods
+ * ofWindowScaleListener object methods
  */
-void *ofeliaScaleListener_new()
+void *ofeliaWindowScaleListener_new()
 {
-    t_ofeliaScaleListener *x = reinterpret_cast<t_ofeliaScaleListener*>(pd_new(ofeliaScaleListener_class));
-    pd_bind(&x->x_obj.ob_pd, t_ofeliaScaleListener::scaleListenerSym);
+    t_ofeliaWindowScaleListener *x = reinterpret_cast<t_ofeliaWindowScaleListener*>(pd_new(ofeliaWindowScaleListener_class));
+    pd_bind(&x->x_obj.ob_pd, t_ofeliaWindowScaleListener::windowScaleListenerSym);
     outlet_new(&x->x_obj, &s_float);
     return (x);
 }
 
-void ofeliaScaleListener_float(t_ofeliaScaleListener *x, t_floatarg f)
+void ofeliaWindowScaleListener_float(t_ofeliaWindowScaleListener *x, t_floatarg f)
 {
     outlet_float(x->x_obj.ob_outlet, f);
 }
 
-void ofeliaScaleListener_free(t_ofeliaScaleListener *x)
+void ofeliaWindowScaleListener_free(t_ofeliaWindowScaleListener *x)
 {
-    pd_unbind(&x->x_obj.ob_pd, t_ofeliaScaleListener::scaleListenerSym);
+    pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindowScaleListener::windowScaleListenerSym);
 }
 
-void ofeliaScaleListener_setup()
+void ofeliaWindowScaleListener_setup()
 {
-    ofeliaScaleListener_class = class_new(gensym("ofScaleListener"),
-                                          reinterpret_cast<t_newmethod>(ofeliaScaleListener_new),
-                                          reinterpret_cast<t_method>(ofeliaScaleListener_free),
-                                          sizeof(t_ofeliaScaleListener),
+    ofeliaWindowScaleListener_class = class_new(gensym("ofWindowScaleListener"),
+                                          reinterpret_cast<t_newmethod>(ofeliaWindowScaleListener_new),
+                                          reinterpret_cast<t_method>(ofeliaWindowScaleListener_free),
+                                          sizeof(t_ofeliaWindowScaleListener),
                                           CLASS_NOINLET, A_NULL, 0);
-    class_addfloat(ofeliaScaleListener_class, reinterpret_cast<t_method>(ofeliaScaleListener_float));
+    class_addfloat(ofeliaWindowScaleListener_class, reinterpret_cast<t_method>(ofeliaWindowScaleListener_float));
 }
 
 /* ________________________________________________________________________________
@@ -358,34 +358,34 @@ void ofeliaFocusListener_setup()
 }
 
 /* ________________________________________________________________________________
- * ofPosListener object methods
+ * ofWindowPosListener object methods
  */
-void *ofeliaPosListener_new()
+void *ofeliaWindowPosListener_new()
 {
-    t_ofeliaPosListener *x = reinterpret_cast<t_ofeliaPosListener*>(pd_new(ofeliaPosListener_class));
-    pd_bind(&x->x_obj.ob_pd, t_ofeliaPosListener::posListenerSym);
+    t_ofeliaWindowPosListener *x = reinterpret_cast<t_ofeliaWindowPosListener*>(pd_new(ofeliaWindowPosListener_class));
+    pd_bind(&x->x_obj.ob_pd, t_ofeliaWindowPosListener::windowPosListenerSym);
     outlet_new(&x->x_obj, &s_list);
     return (x);
 }
 
-void ofeliaPosListener_list(t_ofeliaPosListener *x, t_symbol *s, int argc, t_atom *argv)
+void ofeliaWindowPosListener_list(t_ofeliaWindowPosListener *x, t_symbol *s, int argc, t_atom *argv)
 {
     outlet_list(x->x_obj.ob_outlet, s, argc, argv);
 }
 
-void ofeliaPosListener_free(t_ofeliaPosListener *x)
+void ofeliaWindowPosListener_free(t_ofeliaWindowPosListener *x)
 {
-    pd_unbind(&x->x_obj.ob_pd, t_ofeliaPosListener::posListenerSym);
+    pd_unbind(&x->x_obj.ob_pd, t_ofeliaWindowPosListener::windowPosListenerSym);
 }
 
-void ofeliaPosListener_setup()
+void ofeliaWindowPosListener_setup()
 {
-    ofeliaPosListener_class = class_new(gensym("ofPosListener"),
-                                        reinterpret_cast<t_newmethod>(ofeliaPosListener_new),
-                                        reinterpret_cast<t_method>(ofeliaPosListener_free),
-                                        sizeof(t_ofeliaPosListener),
+    ofeliaWindowPosListener_class = class_new(gensym("ofWindowPosListener"),
+                                        reinterpret_cast<t_newmethod>(ofeliaWindowPosListener_new),
+                                        reinterpret_cast<t_method>(ofeliaWindowPosListener_free),
+                                        sizeof(t_ofeliaWindowPosListener),
                                         CLASS_NOINLET, A_NULL, 0);
-    class_addlist(ofeliaPosListener_class, reinterpret_cast<t_method>(ofeliaPosListener_list));
+    class_addlist(ofeliaWindowPosListener_class, reinterpret_cast<t_method>(ofeliaWindowPosListener_list));
 }
 
 
@@ -564,11 +564,11 @@ void ofeliaListeners_setup()
     t_ofeliaScrollListener::scrollListenerSym = gensym("{ofScrollListener}");
     t_ofeliaKeyListener::keyListenerSym = gensym("{ofKeyListener}");
     t_ofeliaAccelListener::accelListenerSym = gensym("{ofAccelListener}");
-    t_ofeliaScaleListener::scaleListenerSym = gensym("{ofScaleListener}");
+    t_ofeliaWindowScaleListener::windowScaleListenerSym = gensym("{ofWindowScaleListener}");
     t_ofeliaOrienListener::orienListenerSym = gensym("{ofOrienListener}");
     t_ofeliaFullscreenListener::fullscreenListenerSym = gensym("{ofFullscreenListener}");
     t_ofeliaFocusListener::focusListenerSym = gensym("{ofFocusListener}");
-    t_ofeliaPosListener::posListenerSym = gensym("{ofPosListener}");
+    t_ofeliaWindowPosListener::windowPosListenerSym = gensym("{ofWindowPosListener}");
     t_ofeliaWindowListener::windowListenerSym = gensym("{ofWindowListener}");
     t_ofeliaBackListener::backListenerSym = gensym("{ofBackListener}");
     ofeliaTouchListener_setup();
@@ -576,11 +576,11 @@ void ofeliaListeners_setup()
     ofeliaScrollListener_setup();
     ofeliaKeyListener_setup();
     ofeliaAccelListener_setup();
-    ofeliaScaleListener_setup();
+    ofeliaWindowScaleListener_setup();
     ofeliaOrienListener_setup();
     ofeliaFullscreenListener_setup();
     ofeliaFocusListener_setup();
-    ofeliaPosListener_setup();
+    ofeliaWindowPosListener_setup();
     ofeliaWindowListener_setup();
     ofeliaWindowLoadBang_setup();
     ofeliaWindowCloseBang_setup();

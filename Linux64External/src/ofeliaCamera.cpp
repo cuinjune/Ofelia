@@ -1,22 +1,22 @@
 /*==============================================================================
-	ofelia: OpenFrameworks as an External Library for Interactive Applications
+ ofelia: OpenFrameworks as an External Library for Interactive Applications
  
-	Copyright (c) 2018 Zack Lee <cuinjune@gmail.com>
+ Copyright (c) 2018 Zack Lee <cuinjune@gmail.com>
  
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
  
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-	GNU General Public License for more details.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
  
-	You should have received a copy of the GNU General Public License
-	along with this program. If not, see <http://www.gnu.org/licenses/>.
-	
-	See https://github.com/cuinjune/ofxOfelia for documentation
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ 
+ See https://github.com/cuinjune/ofxOfelia for documentation
  ==============================================================================*/
 
 #include "ofeliaCamera.h"
@@ -99,7 +99,9 @@ void ofeliaCamera_bang(t_ofeliaCamera *x)
             x->camera->setVFlip(x->VFlip);
             x->shouldUpdateCamera = false;
         }
-        x->camera->setPosition(x->pos);
+        ofVec3f pos(x->pos);
+        pos *= ofeliaWindow::retinaScale;
+        x->camera->setPosition(pos);
         
         switch (x->orienType) {
                 
@@ -113,8 +115,12 @@ void ofeliaCamera_bang(t_ofeliaCamera *x)
                 x->camera->setOrientation(ofQuaternion(x->quaternion));
                 break;
             case CAMERA_ORIEN_TYPE_LOOKAT:
-                x->camera->lookAt(x->lookAt);
+            {
+                ofVec3f lookAt(x->lookAt);
+                lookAt *= ofeliaWindow::retinaScale;
+                x->camera->lookAt(lookAt);
                 break;
+            }
             default:
                 break;
         }

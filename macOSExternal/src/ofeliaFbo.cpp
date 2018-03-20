@@ -31,13 +31,13 @@ unsigned int t_ofeliaCreateFbo::counter;
 vector<t_ofeliaCreateFboData> t_ofeliaCreateFbo::fboData;
 vector<shared_ptr<ofFbo>> t_ofeliaCreateFbo::fbos;
 bool t_ofeliaCreateFbo::bInited;
-int t_ofeliaCreateFbo::numSamples;
 const char *t_ofeliaBindFboTex::objName = "ofBindFboTex";
 const char *t_ofeliaDrawFbo::objName = "ofDrawFbo";
 const char *t_ofeliaDoesFboNameExist::objName = "ofDoesFboNameExist";
 const char *t_ofeliaIsFboAllocated::objName = "ofIsFboAllocated";
 const char *t_ofeliaGetFboDimen::objName = "ofGetFboDimen";
 const char *t_ofeliaGetFboType::objName = "ofGetFboType";
+const char *t_ofeliaGetFboMaxSamples::objName = "ofGetFboMaxSamples";
 
 /* ________________________________________________________________________________
  * ofCreateFbo object methods
@@ -156,14 +156,7 @@ void ofeliaCreateFbo_update(t_ofeliaCreateFbo *x)
                     break;
             }
 #endif
-            
-#ifdef TARGET_OPENGLES
-            t_ofeliaCreateFbo::numSamples = 1;
-            t_ofeliaCreateFbo::fbos[pos]->allocate(t_ofeliaCreateFbo::fboData[pos].data.width * ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, t_ofeliaCreateFbo::fboData[pos].data.height * ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, type);
-#else
-            t_ofeliaCreateFbo::numSamples = getClampIntValue(t_ofeliaCreateFbo::fbos[pos]->maxSamples(), 1, 4);
-            t_ofeliaCreateFbo::fbos[pos]->allocate(t_ofeliaCreateFbo::fboData[pos].data.width * ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, t_ofeliaCreateFbo::fboData[pos].data.height * ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, type, t_ofeliaCreateFbo::numSamples);
-#endif
+            t_ofeliaCreateFbo::fbos[pos]->allocate(t_ofeliaCreateFbo::fboData[pos].data.width * ofeliaWindow::retinaScale, t_ofeliaCreateFbo::fboData[pos].data.height * ofeliaWindow::retinaScale, type);
             x->shouldColor = true;
         }
         else {
@@ -203,7 +196,7 @@ void ofeliaCreateFbo_bang(t_ofeliaCreateFbo *x)
             
             t_ofeliaCreateFbo::fbos[pos]->begin();
             ofGetCurrentRenderer()->pushMatrix();
-            ofGetCurrentRenderer()->scale(ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples, 1.0f);
+            ofGetCurrentRenderer()->scale(ofeliaWindow::retinaScale, ofeliaWindow::retinaScale, 1.0f);
             outlet_bang(x->x_obj.ob_outlet);
             ofGetCurrentRenderer()->popMatrix();
             t_ofeliaCreateFbo::fbos[pos]->end();
@@ -442,7 +435,7 @@ void ofeliaDrawFbo_bang(t_ofeliaDrawFbo *x)
                 
                 if (t_ofeliaCreateFbo::fbos[pos]->isAllocated()) {
                     
-                    const float scaleAmt = 1.0f / (ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples);
+                    const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                     
                     if (!x->elem.width && !x->elem.height)
                         t_ofeliaCreateFbo::fbos[pos]->draw(0.0f, 0.0f, t_ofeliaCreateFbo::fbos[pos]->getWidth() * scaleAmt, t_ofeliaCreateFbo::fbos[pos]->getHeight() * scaleAmt);
@@ -496,7 +489,7 @@ void ofeliaDrawFbo_print(t_ofeliaDrawFbo *x)
                 
                 if (t_ofeliaCreateFbo::fbos[pos]->isAllocated()) {
                     
-                    const float scaleAmt = 1.0f / (ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples);
+                    const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                     width = t_ofeliaCreateFbo::fbos[pos]->getWidth() * scaleAmt;
                     height = t_ofeliaCreateFbo::fbos[pos]->getHeight() * scaleAmt;
                 }
@@ -695,7 +688,7 @@ void ofeliaGetFboDimen_bang(t_ofeliaGetFboDimen *x)
             
             if (t_ofeliaCreateFbo::fbos[pos]->isAllocated()) {
                 
-                const float scaleAmt = 1.0f / (ofeliaWindow::retinaScale * t_ofeliaCreateFbo::numSamples);
+                const float scaleAmt = 1.0f / ofeliaWindow::retinaScale;
                 t_atom av[2];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = t_ofeliaCreateFbo::fbos[pos]->getWidth() * scaleAmt;
@@ -833,6 +826,70 @@ void ofeliaGetFboType_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetFboMaxSamples object methods
+ */
+void *ofeliaGetFboMaxSamples_new(t_symbol *s)
+{
+    t_ofeliaGetFboMaxSamples *x = reinterpret_cast<t_ofeliaGetFboMaxSamples*>(pd_new(ofeliaGetFboMaxSamples_class));
+    getVarNameLocalPrefixes(x->varName);
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetFboMaxSamples_bang(t_ofeliaGetFboMaxSamples *x)
+{
+    const t_string &name = x->varName.name;
+    
+    if (!name.empty()) {
+        
+        const int pos = getPositionByFboName(name);
+        
+        if (pos != -1) {
+            
+            const int maxSamples = t_ofeliaCreateFbo::fbos[pos]->maxSamples();
+            outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(maxSamples));
+        }
+        else {
+            
+            error("%s: failed to find '%s'", t_ofeliaGetFboMaxSamples::objName, name.c_str());
+        }
+    }
+    else {
+        
+        error("%s: name not assigned", t_ofeliaGetFboMaxSamples::objName);
+    }
+}
+
+void ofeliaGetFboMaxSamples_set(t_ofeliaGetFboMaxSamples *x, t_symbol *s)
+{
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+}
+
+void ofeliaGetFboMaxSamples_print(t_ofeliaGetFboMaxSamples *x)
+{
+    post("\n[%s]", t_ofeliaGetFboMaxSamples::objName);
+    post("name : %s", x->varName.name.c_str());
+}
+
+void ofeliaGetFboMaxSamples_setup()
+{
+    ofeliaGetFboMaxSamples_class = class_new(gensym("ofGetFboMaxSamples"),
+                                             reinterpret_cast<t_newmethod>(ofeliaGetFboMaxSamples_new),
+                                             0, sizeof(t_ofeliaGetFboMaxSamples),
+                                             CLASS_DEFAULT, A_DEFSYM, 0);
+    class_addbang(ofeliaGetFboMaxSamples_class, reinterpret_cast<t_method>(ofeliaGetFboMaxSamples_bang));
+    class_addmethod(ofeliaGetFboMaxSamples_class, reinterpret_cast<t_method>(ofeliaGetFboMaxSamples_set),
+                    gensym("name"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetFboMaxSamples_class, reinterpret_cast<t_method>(ofeliaGetFboMaxSamples_set),
+                    gensym("set"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetFboMaxSamples_class, reinterpret_cast<t_method>(ofeliaGetFboMaxSamples_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
  * setup methods
  */
 void ofeliaFbo_setup()
@@ -844,5 +901,6 @@ void ofeliaFbo_setup()
     ofeliaIsFboAllocated_setup();
     ofeliaGetFboDimen_setup();
     ofeliaGetFboType_setup();
+    ofeliaGetFboMaxSamples_setup();
 }
 
