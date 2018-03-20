@@ -29,7 +29,7 @@
 t_symbol *t_ofeliaGetWidth::getWidthSym;
 t_symbol *t_ofeliaGetHeight::getHeightSym;
 t_symbol *t_ofeliaGetDimen::getDimenSym;
-t_symbol *t_ofeliaGetScale::getScaleSym;
+t_symbol *t_ofeliaGetWindowScale::getWindowScaleSym;
 t_symbol *t_ofeliaGetFrameNum::getFrameNumSym;
 t_symbol *t_ofeliaGetFrameRate::getFrameRateSym;
 t_symbol *t_ofeliaGetTargetFrameRate::getTargetFrameRateSym;
@@ -39,9 +39,9 @@ t_symbol *t_ofeliaGetOrienLock::getOrienLockSym;
 t_symbol *t_ofeliaGetOrien::getOrienSym;
 t_symbol *t_ofeliaGetFullscreen::getFullscreenSym;
 t_symbol *t_ofeliaGetFocus::getFocusSym;
-t_symbol *t_ofeliaGetPosX::getPosXSym;
-t_symbol *t_ofeliaGetPosY::getPosYSym;
-t_symbol *t_ofeliaGetPos::getPosSym;
+t_symbol *t_ofeliaGetWindowPosX::getWindowPosXSym;
+t_symbol *t_ofeliaGetWindowPosY::getWindowPosYSym;
+t_symbol *t_ofeliaGetWindowPos::getWindowPosSym;
 t_symbol *t_ofeliaGetScreenWidth::getScreenWidthSym;
 t_symbol *t_ofeliaGetScreenHeight::getScreenHeightSym;
 t_symbol *t_ofeliaGetScreenDimen::getScreenDimenSym;
@@ -142,30 +142,30 @@ void ofeliaGetDimen_setup()
 }
 
 /* ________________________________________________________________________________
- * ofGetScale object methods
+ * ofGetWindowScale object methods
  */
-void *ofeliaGetScale_new()
+void *ofeliaGetWindowScale_new()
 {
-    t_ofeliaGetScale *x = reinterpret_cast<t_ofeliaGetScale*>(pd_new(ofeliaGetScale_class));
+    t_ofeliaGetWindowScale *x = reinterpret_cast<t_ofeliaGetWindowScale*>(pd_new(ofeliaGetWindowScale_class));
     outlet_new(&x->x_obj, &s_float);
     return (x);
 }
 
-void ofeliaGetScale_bang(t_ofeliaGetScale *x)
+void ofeliaGetWindowScale_bang(t_ofeliaGetWindowScale *x)
 {
     t_float f;
     
-    if (!value_getfloat(t_ofeliaGetScale::getScaleSym, &f))
+    if (!value_getfloat(t_ofeliaGetWindowScale::getWindowScaleSym, &f))
         outlet_float(x->x_obj.ob_outlet, f);
 }
 
-void ofeliaGetScale_setup()
+void ofeliaGetWindowScale_setup()
 {
-    ofeliaGetScale_class = class_new(gensym("ofGetScale"),
-                                     reinterpret_cast<t_newmethod>(ofeliaGetScale_new),
-                                     0, sizeof(t_ofeliaGetScale),
+    ofeliaGetWindowScale_class = class_new(gensym("ofGetWindowScale"),
+                                     reinterpret_cast<t_newmethod>(ofeliaGetWindowScale_new),
+                                     0, sizeof(t_ofeliaGetWindowScale),
                                      CLASS_DEFAULT, A_NULL, 0);
-    class_addbang(ofeliaGetScale_class, reinterpret_cast<t_method>(ofeliaGetScale_bang));
+    class_addbang(ofeliaGetWindowScale_class, reinterpret_cast<t_method>(ofeliaGetWindowScale_bang));
 }
 
 /* ________________________________________________________________________________
@@ -412,75 +412,75 @@ void ofeliaGetFocus_setup()
 }
 
 /* ________________________________________________________________________________
- * ofGetPosX object methods
+ * ofGetWindowPosX object methods
  */
-void *ofeliaGetPosX_new()
+void *ofeliaGetWindowPosX_new()
 {
-    t_ofeliaGetPosX *x = reinterpret_cast<t_ofeliaGetPosX*>(pd_new(ofeliaGetPosX_class));
+    t_ofeliaGetWindowPosX *x = reinterpret_cast<t_ofeliaGetWindowPosX*>(pd_new(ofeliaGetWindowPosX_class));
     outlet_new(&x->x_obj, &s_float);
     return (x);
 }
 
-void ofeliaGetPosX_bang(t_ofeliaGetPosX *x)
+void ofeliaGetWindowPosX_bang(t_ofeliaGetWindowPosX *x)
 {
     t_float f;
     
-    if (!value_getfloat(t_ofeliaGetPosX::getPosXSym, &f))
+    if (!value_getfloat(t_ofeliaGetWindowPosX::getWindowPosXSym, &f))
         outlet_float(x->x_obj.ob_outlet, f);
 }
 
-void ofeliaGetPosX_setup()
+void ofeliaGetWindowPosX_setup()
 {
-    ofeliaGetPosX_class = class_new(gensym("ofGetPosX"),
-                                     reinterpret_cast<t_newmethod>(ofeliaGetPosX_new),
-                                     0, sizeof(t_ofeliaGetPosX),
+    ofeliaGetWindowPosX_class = class_new(gensym("ofGetWindowPosX"),
+                                     reinterpret_cast<t_newmethod>(ofeliaGetWindowPosX_new),
+                                     0, sizeof(t_ofeliaGetWindowPosX),
                                      CLASS_DEFAULT, A_NULL, 0);
-    class_addbang(ofeliaGetPosX_class, reinterpret_cast<t_method>(ofeliaGetPosX_bang));
+    class_addbang(ofeliaGetWindowPosX_class, reinterpret_cast<t_method>(ofeliaGetWindowPosX_bang));
 }
 
 /* ________________________________________________________________________________
- * ofGetPosY object methods
+ * ofGetWindowPosY object methods
  */
-void *ofeliaGetPosY_new()
+void *ofeliaGetWindowPosY_new()
 {
-    t_ofeliaGetPosY *x = reinterpret_cast<t_ofeliaGetPosY*>(pd_new(ofeliaGetPosY_class));
+    t_ofeliaGetWindowPosY *x = reinterpret_cast<t_ofeliaGetWindowPosY*>(pd_new(ofeliaGetWindowPosY_class));
     outlet_new(&x->x_obj, &s_float);
     return (x);
 }
 
-void ofeliaGetPosY_bang(t_ofeliaGetPosY *x)
+void ofeliaGetWindowPosY_bang(t_ofeliaGetWindowPosY *x)
 {
     t_float f;
     
-    if (!value_getfloat(t_ofeliaGetPosY::getPosYSym, &f))
+    if (!value_getfloat(t_ofeliaGetWindowPosY::getWindowPosYSym, &f))
         outlet_float(x->x_obj.ob_outlet, f);
 }
 
-void ofeliaGetPosY_setup()
+void ofeliaGetWindowPosY_setup()
 {
-    ofeliaGetPosY_class = class_new(gensym("ofGetPosY"),
-                                     reinterpret_cast<t_newmethod>(ofeliaGetPosY_new),
-                                     0, sizeof(t_ofeliaGetPosY),
+    ofeliaGetWindowPosY_class = class_new(gensym("ofGetWindowPosY"),
+                                     reinterpret_cast<t_newmethod>(ofeliaGetWindowPosY_new),
+                                     0, sizeof(t_ofeliaGetWindowPosY),
                                      CLASS_DEFAULT, A_NULL, 0);
-    class_addbang(ofeliaGetPosY_class, reinterpret_cast<t_method>(ofeliaGetPosY_bang));
+    class_addbang(ofeliaGetWindowPosY_class, reinterpret_cast<t_method>(ofeliaGetWindowPosY_bang));
 }
 
 /* ________________________________________________________________________________
- * ofGetPos object methods
+ * ofGetWindowPos object methods
  */
-void *ofeliaGetPos_new()
+void *ofeliaGetWindowPos_new()
 {
-    t_ofeliaGetPos *x = reinterpret_cast<t_ofeliaGetPos*>(pd_new(ofeliaGetPos_class));
+    t_ofeliaGetWindowPos *x = reinterpret_cast<t_ofeliaGetWindowPos*>(pd_new(ofeliaGetWindowPos_class));
     outlet_new(&x->x_obj, &s_list);
     return (x);
 }
 
-void ofeliaGetPos_bang(t_ofeliaGetPos *x)
+void ofeliaGetWindowPos_bang(t_ofeliaGetWindowPos *x)
 {
     t_float f_x, f_y;
     
-    if (!value_getfloat(t_ofeliaGetPosX::getPosXSym, &f_x) &&
-        !value_getfloat(t_ofeliaGetPosY::getPosYSym, &f_y)) {
+    if (!value_getfloat(t_ofeliaGetWindowPosX::getWindowPosXSym, &f_x) &&
+        !value_getfloat(t_ofeliaGetWindowPosY::getWindowPosYSym, &f_y)) {
         
         t_atom av[2];
         av[0].a_type = A_FLOAT;
@@ -491,13 +491,13 @@ void ofeliaGetPos_bang(t_ofeliaGetPos *x)
     }
 }
 
-void ofeliaGetPos_setup()
+void ofeliaGetWindowPos_setup()
 {
-    ofeliaGetPos_class = class_new(gensym("ofGetPos"),
-                                   reinterpret_cast<t_newmethod>(ofeliaGetPos_new),
-                                   0, sizeof(t_ofeliaGetPos),
+    ofeliaGetWindowPos_class = class_new(gensym("ofGetWindowPos"),
+                                   reinterpret_cast<t_newmethod>(ofeliaGetWindowPos_new),
+                                   0, sizeof(t_ofeliaGetWindowPos),
                                    CLASS_DEFAULT, A_NULL, 0);
-    class_addbang(ofeliaGetPos_class, reinterpret_cast<t_method>(ofeliaGetPos_bang));
+    class_addbang(ofeliaGetWindowPos_class, reinterpret_cast<t_method>(ofeliaGetWindowPos_bang));
 }
 
 /* ________________________________________________________________________________
@@ -828,7 +828,7 @@ void ofeliaGetters_setup()
     t_ofeliaGetWidth::getWidthSym = gensym("ofGetWidth");
     t_ofeliaGetHeight::getHeightSym = gensym("ofGetHeight");
     t_ofeliaGetDimen::getDimenSym = gensym("{ofGetDimen}");
-    t_ofeliaGetScale::getScaleSym = gensym("ofGetScale");
+    t_ofeliaGetWindowScale::getWindowScaleSym = gensym("ofGetWindowScale");
     t_ofeliaGetFrameNum::getFrameNumSym = gensym("ofGetFrameNum");
     t_ofeliaGetFrameRate::getFrameRateSym = gensym("ofGetFrameRate");
     t_ofeliaGetTargetFrameRate::getTargetFrameRateSym = gensym("ofGetTargetFrameRate");
@@ -838,9 +838,9 @@ void ofeliaGetters_setup()
     t_ofeliaGetOrien::getOrienSym = gensym("ofGetOrien");
     t_ofeliaGetFullscreen::getFullscreenSym = gensym("ofGetFullscreen");
     t_ofeliaGetFocus::getFocusSym = gensym("ofGetFocus");
-    t_ofeliaGetPosX::getPosXSym = gensym("ofGetPosX");
-    t_ofeliaGetPosY::getPosYSym = gensym("ofGetPosY");
-    t_ofeliaGetPos::getPosSym = gensym("{ofGetPos}");
+    t_ofeliaGetWindowPosX::getWindowPosXSym = gensym("ofGetWindowPosX");
+    t_ofeliaGetWindowPosY::getWindowPosYSym = gensym("ofGetWindowPosY");
+    t_ofeliaGetWindowPos::getWindowPosSym = gensym("{ofGetWindowPos}");
     t_ofeliaGetScreenWidth::getScreenWidthSym = gensym("ofGetScreenWidth");
     t_ofeliaGetScreenHeight::getScreenHeightSym = gensym("ofGetScreenHeight");
     t_ofeliaGetScreenDimen::getScreenDimenSym = gensym("{ofGetScreenDimen}");
@@ -853,7 +853,7 @@ void ofeliaGetters_setup()
     ofeliaGetWidth_setup();
     ofeliaGetHeight_setup();
     ofeliaGetDimen_setup();
-    ofeliaGetScale_setup();
+    ofeliaGetWindowScale_setup();
     ofeliaGetFrameNum_setup();
     ofeliaGetFrameRate_setup();
     ofeliaGetTargetFrameRate_setup();
@@ -863,9 +863,9 @@ void ofeliaGetters_setup()
     ofeliaGetOrien_setup();
     ofeliaGetFullscreen_setup();
     ofeliaGetFocus_setup();
-    ofeliaGetPosX_setup();
-    ofeliaGetPosY_setup();
-    ofeliaGetPos_setup();
+    ofeliaGetWindowPosX_setup();
+    ofeliaGetWindowPosY_setup();
+    ofeliaGetWindowPos_setup();
     ofeliaGetScreenWidth_setup();
     ofeliaGetScreenHeight_setup();
     ofeliaGetScreenDimen_setup();
