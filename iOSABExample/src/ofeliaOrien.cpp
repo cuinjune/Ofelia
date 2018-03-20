@@ -192,7 +192,6 @@ void ofeliaOrien::setDeviceOrientation(int &newOrientation)
 {
     if (orientation == newOrientation)
         return;
-    
     float doubleAnimationTime = animationTime * 2;
     
     if (lockMode == ORIEN_ROTATION_LOCK_FREE) {
@@ -274,7 +273,6 @@ float ofeliaOrien::getAnimatedRotationDegree()
 {
     double lastFrameTime = ofGetLastFrameTime() * 1000;
     float distPerFrame = distFactor * lastFrameTime;
-    
     animatedDegree += distPerFrame;
     
     if ((isIncreasing && animatedDegree >= targetDegree) ||
