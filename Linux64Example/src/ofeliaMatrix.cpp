@@ -20,6 +20,7 @@
  ==============================================================================*/
 
 #include "ofeliaMatrix.h"
+#include "ofeliaOrien.h"
 #include "ofeliaWindow.h"
 
 /* ________________________________________________________________________________
@@ -34,6 +35,9 @@ const char *t_ofeliaRotateZ::objName = "ofRotateZ";
 const char *t_ofeliaRotateXYZ::objName = "ofRotateXYZ";
 const char *t_ofeliaRotate::objName = "ofRotate";
 const char *t_ofeliaScale::objName = "ofScale";
+const char *t_ofeliaGetTranslate::objName = "ofGetTranslate";
+const char *t_ofeliaGetRotate::objName = "ofGetRotate";
+const char *t_ofeliaGetScale::objName = "ofGetScale";
 
 /* ________________________________________________________________________________
  * ofPushMatrix object methods
@@ -673,7 +677,7 @@ bool getScalesFromArgs(const int argc, const t_atom *argv, ofVec3f &scales)
             if (argv[0].a_type == A_FLOAT &&
                 argv[1].a_type == A_FLOAT) {
                 
-                scales.set(argv[0].a_w.w_float, argv[1].a_w.w_float);
+                scales.set(argv[0].a_w.w_float, argv[1].a_w.w_float, 1.0f);
             }
             else {
                 
@@ -783,6 +787,135 @@ void ofeliaScale_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetTranslate object methods
+ */
+void *ofeliaGetTranslate_new()
+{
+    t_ofeliaGetTranslate *x = reinterpret_cast<t_ofeliaGetTranslate*>(pd_new(ofeliaGetTranslate_class));
+    outlet_new(&x->x_obj, &s_list);
+    return (x);
+}
+
+void ofeliaGetTranslate_bang(t_ofeliaGetTranslate *x)
+{
+    if (t_ofeliaWindow::bRenderGate) {
+        
+        const ofMatrix4x4 &modelMatrix = ofGetCurrentMatrix(OF_MATRIX_MODELVIEW) * ofGetCurrentViewMatrix().getInverse();
+        const ofVec3f &translate = modelMatrix.getTranslation() / ofeliaWindow::scaleFactor;
+        t_atom av[3];
+        av[0].a_type = A_FLOAT;
+        av[0].a_w.w_float = translate.x;
+        av[1].a_type = A_FLOAT;
+        av[1].a_w.w_float = translate.y;
+        av[2].a_type = A_FLOAT;
+        av[2].a_w.w_float = translate.z;
+        outlet_list(x->x_obj.ob_outlet, &s_list, 3, av);
+    }
+    else {
+        
+        error("%s: 'bang' can only be received through a rendering chain", t_ofeliaGetTranslate::objName);
+    }
+}
+
+void ofeliaGetTranslate_setup()
+{
+    ofeliaGetTranslate_class = class_new(gensym("ofGetTranslate"),
+                                         reinterpret_cast<t_newmethod>(ofeliaGetTranslate_new),
+                                         0, sizeof(t_ofeliaGetTranslate),
+                                         CLASS_DEFAULT, A_NULL, 0);
+    class_addcreator(reinterpret_cast<t_newmethod>(ofeliaGetTranslate_new),
+                     gensym("ofGetTrans"), A_GIMME, 0);
+    class_addbang(ofeliaGetTranslate_class, reinterpret_cast<t_method>(ofeliaGetTranslate_bang));
+}
+
+/* ________________________________________________________________________________
+ * ofGetRotate object methods
+ */
+void *ofeliaGetRotate_new()
+{
+    t_ofeliaGetRotate *x = reinterpret_cast<t_ofeliaGetRotate*>(pd_new(ofeliaGetRotate_class));
+    outlet_new(&x->x_obj, &s_list);
+    return (x);
+}
+
+void ofeliaGetRotate_bang(t_ofeliaGetRotate *x)
+{
+    if (t_ofeliaWindow::bRenderGate) {
+        
+        const ofMatrix4x4 &modelMatrix = ofGetCurrentMatrix(OF_MATRIX_MODELVIEW) * ofGetCurrentViewMatrix().getInverse();
+        const ofQuaternion &rotate = modelMatrix.getRotate();
+        float angle;
+        ofVec3f axis;
+        rotate.getRotate(angle, axis);
+        t_atom av[4];
+        av[0].a_type = A_FLOAT;
+        av[0].a_w.w_float = angle;
+        av[1].a_type = A_FLOAT;
+        av[1].a_w.w_float = axis.x;
+        av[2].a_type = A_FLOAT;
+        av[2].a_w.w_float = axis.y;
+        av[3].a_type = A_FLOAT;
+        av[3].a_w.w_float = axis.z;
+        outlet_list(x->x_obj.ob_outlet, &s_list, 4, av);
+    }
+    else {
+        
+        error("%s: 'bang' can only be received through a rendering chain", t_ofeliaGetRotate::objName);
+    }
+}
+
+void ofeliaGetRotate_setup()
+{
+    ofeliaGetRotate_class = class_new(gensym("ofGetRotate"),
+                                      reinterpret_cast<t_newmethod>(ofeliaGetRotate_new),
+                                      0, sizeof(t_ofeliaGetRotate),
+                                      CLASS_DEFAULT, A_NULL, 0);
+    class_addcreator(reinterpret_cast<t_newmethod>(ofeliaGetRotate_new),
+                     gensym("ofGetRot"), A_GIMME, 0);
+    class_addbang(ofeliaGetRotate_class, reinterpret_cast<t_method>(ofeliaGetRotate_bang));
+}
+
+/* ________________________________________________________________________________
+ * ofGetScale object methods
+ */
+void *ofeliaGetScale_new()
+{
+    t_ofeliaGetScale *x = reinterpret_cast<t_ofeliaGetScale*>(pd_new(ofeliaGetScale_class));
+    outlet_new(&x->x_obj, &s_list);
+    return (x);
+}
+
+void ofeliaGetScale_bang(t_ofeliaGetScale *x)
+{
+    if (t_ofeliaWindow::bRenderGate) {
+        
+        const ofMatrix4x4 &modelMatrix = ofGetCurrentMatrix(OF_MATRIX_MODELVIEW) * ofGetCurrentViewMatrix().getInverse();
+        ofVec3f scale = modelMatrix.getScale() / ofeliaWindow::scaleFactor;;
+        t_atom av[3];
+        av[0].a_type = A_FLOAT;
+        av[0].a_w.w_float = scale.x;
+        av[1].a_type = A_FLOAT;
+        av[1].a_w.w_float = scale.y;
+        av[2].a_type = A_FLOAT;
+        av[2].a_w.w_float = scale.z;
+        outlet_list(x->x_obj.ob_outlet, &s_list, 3, av);
+    }
+    else {
+        
+        error("%s: 'bang' can only be received through a rendering chain", t_ofeliaGetScale::objName);
+    }
+}
+
+void ofeliaGetScale_setup()
+{
+    ofeliaGetScale_class = class_new(gensym("ofGetScale"),
+                                     reinterpret_cast<t_newmethod>(ofeliaGetScale_new),
+                                     0, sizeof(t_ofeliaGetScale),
+                                     CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaGetScale_class, reinterpret_cast<t_method>(ofeliaGetScale_bang));
+}
+
+/* ________________________________________________________________________________
  * setup methods
  */
 void ofeliaMatrix_setup()
@@ -796,5 +929,8 @@ void ofeliaMatrix_setup()
     ofeliaRotateXYZ_setup();
     ofeliaRotate_setup();
     ofeliaScale_setup();
+    ofeliaGetTranslate_setup();
+    ofeliaGetRotate_setup();
+    ofeliaGetScale_setup();
 }
 
