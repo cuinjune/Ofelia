@@ -47,7 +47,6 @@ extern "C" {
         static vector<t_ofeliaCreateFboData> fboData;
         static vector<shared_ptr<ofFbo>> fbos;
         static bool bInited;
-        static int numSamples;
         bool bInitGate;
         unsigned int objID;
         bool shouldAlloc;
@@ -120,6 +119,17 @@ extern "C" {
         t_ofeliaVarName varName;
         
     } t_ofeliaGetFboType;
+    
+    /* ofGetFboMaxSamples object class */
+    static t_class *ofeliaGetFboMaxSamples_class;
+    
+    typedef struct _ofeliaGetFboMaxSamples
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_ofeliaVarName varName;
+        
+    } t_ofeliaGetFboMaxSamples;
     
     /* setup methods */
     void ofeliaFbo_setup();
