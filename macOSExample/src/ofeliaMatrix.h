@@ -125,6 +125,36 @@ extern "C" {
         
     } t_ofeliaScale;
     
+    /* ofGetTranslate object class */
+    static t_class *ofeliaGetTranslate_class;
+    
+    typedef struct _ofeliaGetTranslate
+    {
+        t_object x_obj;
+        static const char *objName;
+        
+    } t_ofeliaGetTranslate;
+    
+    /* ofGetRotate object class */
+    static t_class *ofeliaGetRotate_class;
+    
+    typedef struct _ofeliaGetRotate
+    {
+        t_object x_obj;
+        static const char *objName;
+        
+    } t_ofeliaGetRotate;
+    
+    /* ofGetScale object class */
+    static t_class *ofeliaGetScale_class;
+    
+    typedef struct _ofeliaGetScale
+    {
+        t_object x_obj;
+        static const char *objName;
+        
+    } t_ofeliaGetScale;
+    
     /* setup methods */
     void ofeliaMatrix_setup();
 }
