@@ -419,9 +419,7 @@ extern "C" {
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
-        t_float level;
-        t_symbol *directory;
+        t_symbol *patchDir;
         
     } t_ofeliaGetPatchDirectory;
     
@@ -514,9 +512,7 @@ extern "C" {
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
-        t_float level;
-        t_symbol *name;
+        t_symbol *canvasName;
         
     } t_ofeliaGetCanvasName;
     
@@ -527,9 +523,7 @@ extern "C" {
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
-        t_float level;
-        t_float dollarzero;
+        t_symbol *dollarZeroSym;
         
     } t_ofeliaGetDollarZero;
     
@@ -540,8 +534,6 @@ extern "C" {
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
-        t_float level;
         int dollarArgc;
         t_atom *dollarArgv;
         

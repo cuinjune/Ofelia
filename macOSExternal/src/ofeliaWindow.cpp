@@ -1160,8 +1160,11 @@ void ofeliaWindow::createWindow()
     glfwSetWindowFocusCallback(GLFWwin, sendFocusToPd);
     glfwSetWindowPosCallback(GLFWwin, sendPosToPd);
     
-    if (bFullscreenMode)
+    if (bFullscreenMode) {
+        
+        bFullscreenMode = false;
         setFullscreenMode(true);
+    }
     mouseX = mouseY = OFELIA_MAX_SCREENSIZE;
     touchState = WINDOW_TOUCH_UP;
     touchID = -1;
@@ -1190,7 +1193,7 @@ void ofeliaWindow::bindGettersValueSymbols()
 {
     value_get(t_ofeliaGetWidth::getWidthSym);
     value_get(t_ofeliaGetHeight::getHeightSym);
-    value_get(t_ofeliaGetScale::getScaleSym);
+    value_get(t_ofeliaGetWindowScale::getWindowScaleSym);
     value_get(t_ofeliaGetFrameNum::getFrameNumSym);
     value_get(t_ofeliaGetFrameRate::getFrameRateSym);
     value_get(t_ofeliaGetTargetFrameRate::getTargetFrameRateSym);
@@ -1200,8 +1203,8 @@ void ofeliaWindow::bindGettersValueSymbols()
     value_get(t_ofeliaGetOrien::getOrienSym);
     value_get(t_ofeliaGetFullscreen::getFullscreenSym);
     value_get(t_ofeliaGetFocus::getFocusSym);
-    value_get(t_ofeliaGetPosX::getPosXSym);
-    value_get(t_ofeliaGetPosY::getPosYSym);
+    value_get(t_ofeliaGetWindowPosX::getWindowPosXSym);
+    value_get(t_ofeliaGetWindowPosY::getWindowPosYSym);
     value_get(t_ofeliaGetScreenWidth::getScreenWidthSym);
     value_get(t_ofeliaGetScreenHeight::getScreenHeightSym);
     value_get(t_ofeliaGetRetina::getRetinaSym);
@@ -1215,7 +1218,7 @@ void ofeliaWindow::unbindGettersValueSymbols()
 {
     value_release(t_ofeliaGetWidth::getWidthSym);
     value_release(t_ofeliaGetHeight::getHeightSym);
-    value_release(t_ofeliaGetScale::getScaleSym);
+    value_release(t_ofeliaGetWindowScale::getWindowScaleSym);
     value_release(t_ofeliaGetFrameNum::getFrameNumSym);
     value_release(t_ofeliaGetFrameRate::getFrameRateSym);
     value_release(t_ofeliaGetTargetFrameRate::getTargetFrameRateSym);
@@ -1225,8 +1228,8 @@ void ofeliaWindow::unbindGettersValueSymbols()
     value_release(t_ofeliaGetOrien::getOrienSym);
     value_release(t_ofeliaGetFullscreen::getFullscreenSym);
     value_release(t_ofeliaGetFocus::getFocusSym);
-    value_release(t_ofeliaGetPosX::getPosXSym);
-    value_release(t_ofeliaGetPosY::getPosYSym);
+    value_release(t_ofeliaGetWindowPosX::getWindowPosXSym);
+    value_release(t_ofeliaGetWindowPosY::getWindowPosYSym);
     value_release(t_ofeliaGetScreenWidth::getScreenWidthSym);
     value_release(t_ofeliaGetScreenHeight::getScreenHeightSym);
     value_release(t_ofeliaGetRetina::getRetinaSym);
@@ -2073,10 +2076,10 @@ void ofeliaWindow::sendAccelToPd(const float accelX, const float accelY, const f
 
 void ofeliaWindow::sendScaleToPd(const float wScale)
 {
-    value_setfloat(t_ofeliaGetScale::getScaleSym, wScale);
+    value_setfloat(t_ofeliaGetWindowScale::getWindowScaleSym, wScale);
     
-    if (t_ofeliaScaleListener::scaleListenerSym->s_thing)
-        pd_float(t_ofeliaScaleListener::scaleListenerSym->s_thing, wScale);
+    if (t_ofeliaWindowScaleListener::windowScaleListenerSym->s_thing)
+        pd_float(t_ofeliaWindowScaleListener::windowScaleListenerSym->s_thing, wScale);
 }
 
 void ofeliaWindow::sendFullscreenToPd(const bool fMode)
@@ -2099,16 +2102,16 @@ void ofeliaWindow::sendPosToPd(GLFWwindow* window, const int posX, const int pos
 {
     if (posX == windowPosX && posY == windowPosY)
         return;
-    value_setfloat(t_ofeliaGetPosX::getPosXSym, static_cast<t_float>(posX));
-    value_setfloat(t_ofeliaGetPosY::getPosYSym, static_cast<t_float>(posY));
+    value_setfloat(t_ofeliaGetWindowPosX::getWindowPosXSym, static_cast<t_float>(posX));
+    value_setfloat(t_ofeliaGetWindowPosY::getWindowPosYSym, static_cast<t_float>(posY));
     t_atom av[2];
     av[0].a_type = A_FLOAT;
     av[0].a_w.w_float = static_cast<t_float>(posX);
     av[1].a_type = A_FLOAT;
     av[1].a_w.w_float = static_cast<t_float>(posY);
     
-    if (t_ofeliaPosListener::posListenerSym->s_thing)
-        pd_list(t_ofeliaPosListener::posListenerSym->s_thing, 0, 2, av);
+    if (t_ofeliaWindowPosListener::windowPosListenerSym->s_thing)
+        pd_list(t_ofeliaWindowPosListener::windowPosListenerSym->s_thing, 0, 2, av);
     windowPosX = posX;
     windowPosY = posY;
 }

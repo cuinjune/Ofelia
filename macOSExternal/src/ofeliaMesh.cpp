@@ -4172,10 +4172,10 @@ void ofeliaEditMesh2dVertex_assign(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4241,10 +4241,10 @@ void ofeliaEditMesh2dVertex_assignX(t_ofeliaEditMesh2dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 vertex.x = f;
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -4275,10 +4275,10 @@ void ofeliaEditMesh2dVertex_assignY(t_ofeliaEditMesh2dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 vertex.y = f;
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -4309,10 +4309,10 @@ void ofeliaEditMesh2dVertex_add(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4378,10 +4378,10 @@ void ofeliaEditMesh2dVertex_sub(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4447,10 +4447,10 @@ void ofeliaEditMesh2dVertex_mult(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4516,10 +4516,10 @@ void ofeliaEditMesh2dVertex_div(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4585,10 +4585,10 @@ void ofeliaEditMesh2dVertex_lerp(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 3) {
                     
@@ -4638,10 +4638,10 @@ void ofeliaEditMesh2dVertex_limit(t_ofeliaEditMesh2dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 vertex.limit(f);
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -4672,10 +4672,10 @@ void ofeliaEditMesh2dVertex_map(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 6) {
                     
@@ -4731,10 +4731,10 @@ void ofeliaEditMesh2dVertex_middle(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 2) {
                     
@@ -4783,10 +4783,10 @@ void ofeliaEditMesh2dVertex_normalize(t_ofeliaEditMesh2dVertex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 vertex.normalize();
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -4817,10 +4817,10 @@ void ofeliaEditMesh2dVertex_perpendicular(t_ofeliaEditMesh2dVertex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 /* ofVec2f::perpendicular() */
                 const float length = static_cast<float>(sqrt(vertex.x * vertex.x + vertex.y * vertex.y));
                 
@@ -4859,10 +4859,10 @@ void ofeliaEditMesh2dVertex_rotate(t_ofeliaEditMesh2dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -4941,10 +4941,10 @@ void ofeliaEditMesh2dVertex_rotateRad(t_ofeliaEditMesh2dVertex *x, t_symbol *s, 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5023,10 +5023,10 @@ void ofeliaEditMesh2dVertex_scale(t_ofeliaEditMesh2dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertices()[index];
                 vertex.scale(f);
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5136,10 +5136,10 @@ void ofeliaEditMesh3dVertex_assign(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5220,10 +5220,10 @@ void ofeliaEditMesh3dVertex_assignX(t_ofeliaEditMesh3dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.x = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5254,10 +5254,10 @@ void ofeliaEditMesh3dVertex_assignY(t_ofeliaEditMesh3dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.y = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5288,10 +5288,10 @@ void ofeliaEditMesh3dVertex_assignZ(t_ofeliaEditMesh3dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.z = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5322,10 +5322,10 @@ void ofeliaEditMesh3dVertex_add(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5406,10 +5406,10 @@ void ofeliaEditMesh3dVertex_sub(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5490,10 +5490,10 @@ void ofeliaEditMesh3dVertex_mult(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5574,10 +5574,10 @@ void ofeliaEditMesh3dVertex_div(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -5658,10 +5658,10 @@ void ofeliaEditMesh3dVertex_cross(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 3) {
                     
@@ -5711,10 +5711,10 @@ void ofeliaEditMesh3dVertex_lerp(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 4) {
                     
@@ -5765,10 +5765,10 @@ void ofeliaEditMesh3dVertex_limit(t_ofeliaEditMesh3dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.limit(f);
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5799,10 +5799,10 @@ void ofeliaEditMesh3dVertex_map(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 12) {
                     
@@ -5864,10 +5864,10 @@ void ofeliaEditMesh3dVertex_middle(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 3) {
                     
@@ -5917,10 +5917,10 @@ void ofeliaEditMesh3dVertex_normalize(t_ofeliaEditMesh3dVertex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.normalize();
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -5951,10 +5951,10 @@ void ofeliaEditMesh3dVertex_perpendicular(t_ofeliaEditMesh3dVertex *x, t_symbol 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 if (argc == 3) {
                     
@@ -6004,10 +6004,10 @@ void ofeliaEditMesh3dVertex_rotate(t_ofeliaEditMesh3dVertex *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -6104,10 +6104,10 @@ void ofeliaEditMesh3dVertex_rotateRad(t_ofeliaEditMesh3dVertex *x, t_symbol *s, 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 
                 switch (argc) {
                         
@@ -6204,10 +6204,10 @@ void ofeliaEditMesh3dVertex_scale(t_ofeliaEditMesh3dVertex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertices()[index];
                 vertex.scale(f);
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -6321,10 +6321,10 @@ void ofeliaEditMesh2dIndex_assign(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index] = f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index] = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6353,10 +6353,10 @@ void ofeliaEditMesh2dIndex_add(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index] += f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index] += f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6385,10 +6385,10 @@ void ofeliaEditMesh2dIndex_sub(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index] -= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index] -= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6417,10 +6417,10 @@ void ofeliaEditMesh2dIndex_mult(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index] *= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index] *= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6449,10 +6449,10 @@ void ofeliaEditMesh2dIndex_div(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index] /= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index] /= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6481,10 +6481,10 @@ void ofeliaEditMesh2dIndex_lerp(t_ofeliaEditMesh2dIndex *x, t_symbol *s, int arg
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                ofIndexType &idx = t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                ofIndexType &idx = t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index];
                 
                 if (argc == 2) {
                     
@@ -6533,10 +6533,10 @@ void ofeliaEditMesh2dIndex_middle(t_ofeliaEditMesh2dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                ofIndexType &idx = t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                ofIndexType &idx = t_ofeliaLoadMesh2d::meshes[pos]->getIndices()[index];
                 idx = static_cast<ofIndexType>((idx + f) * 0.5f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -6627,10 +6627,10 @@ void ofeliaEditMesh3dIndex_assign(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index] = f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index] = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6659,10 +6659,10 @@ void ofeliaEditMesh3dIndex_add(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index] += f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index] += f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6691,10 +6691,10 @@ void ofeliaEditMesh3dIndex_sub(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index] -= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index] -= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6723,10 +6723,10 @@ void ofeliaEditMesh3dIndex_mult(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index] *= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index] *= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6755,10 +6755,10 @@ void ofeliaEditMesh3dIndex_div(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index] /= f;
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index] /= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
             else {
@@ -6787,10 +6787,10 @@ void ofeliaEditMesh3dIndex_lerp(t_ofeliaEditMesh3dIndex *x, t_symbol *s, int arg
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                ofIndexType &idx = t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                ofIndexType &idx = t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index];
                 
                 if (argc == 2) {
                     
@@ -6839,10 +6839,10 @@ void ofeliaEditMesh3dIndex_middle(t_ofeliaEditMesh3dIndex *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                ofIndexType &idx = t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndices()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                ofIndexType &idx = t_ofeliaLoadMesh3d::meshes[pos]->getIndices()[index];
                 idx = static_cast<ofIndexType>((idx + f) * 0.5f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -6933,10 +6933,10 @@ void ofeliaEditMesh2dNormal_assign(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7002,10 +7002,10 @@ void ofeliaEditMesh2dNormal_assignX(t_ofeliaEditMesh2dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 normal.x = f;
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -7036,10 +7036,10 @@ void ofeliaEditMesh2dNormal_assignY(t_ofeliaEditMesh2dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 normal.y = f;
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -7070,10 +7070,10 @@ void ofeliaEditMesh2dNormal_add(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7139,10 +7139,10 @@ void ofeliaEditMesh2dNormal_sub(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7208,10 +7208,10 @@ void ofeliaEditMesh2dNormal_mult(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7277,10 +7277,10 @@ void ofeliaEditMesh2dNormal_div(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7346,10 +7346,10 @@ void ofeliaEditMesh2dNormal_lerp(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 3) {
                     
@@ -7399,10 +7399,10 @@ void ofeliaEditMesh2dNormal_limit(t_ofeliaEditMesh2dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 normal.limit(f);
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -7433,10 +7433,10 @@ void ofeliaEditMesh2dNormal_map(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 6) {
                     
@@ -7492,10 +7492,10 @@ void ofeliaEditMesh2dNormal_middle(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 2) {
                     
@@ -7544,10 +7544,10 @@ void ofeliaEditMesh2dNormal_normalize(t_ofeliaEditMesh2dNormal *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 normal.normalize();
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -7578,10 +7578,10 @@ void ofeliaEditMesh2dNormal_perpendicular(t_ofeliaEditMesh2dNormal *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 /* ofVec2f::perpendicular() */
                 const float length = static_cast<float>(sqrt(normal.x * normal.x + normal.y * normal.y));
                 
@@ -7620,10 +7620,10 @@ void ofeliaEditMesh2dNormal_rotate(t_ofeliaEditMesh2dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7702,10 +7702,10 @@ void ofeliaEditMesh2dNormal_rotateRad(t_ofeliaEditMesh2dNormal *x, t_symbol *s, 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7784,10 +7784,10 @@ void ofeliaEditMesh2dNormal_scale(t_ofeliaEditMesh2dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormals()[index];
                 normal.scale(f);
                 t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -7897,10 +7897,10 @@ void ofeliaEditMesh3dNormal_assign(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -7981,10 +7981,10 @@ void ofeliaEditMesh3dNormal_assignX(t_ofeliaEditMesh3dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.x = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -8015,10 +8015,10 @@ void ofeliaEditMesh3dNormal_assignY(t_ofeliaEditMesh3dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.y = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -8049,10 +8049,10 @@ void ofeliaEditMesh3dNormal_assignZ(t_ofeliaEditMesh3dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.z = f;
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -8083,10 +8083,10 @@ void ofeliaEditMesh3dNormal_add(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8167,10 +8167,10 @@ void ofeliaEditMesh3dNormal_sub(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8251,10 +8251,10 @@ void ofeliaEditMesh3dNormal_mult(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8335,10 +8335,10 @@ void ofeliaEditMesh3dNormal_div(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8419,10 +8419,10 @@ void ofeliaEditMesh3dNormal_cross(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 3) {
                     
@@ -8472,10 +8472,10 @@ void ofeliaEditMesh3dNormal_lerp(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 4) {
                     
@@ -8526,10 +8526,10 @@ void ofeliaEditMesh3dNormal_limit(t_ofeliaEditMesh3dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.limit(f);
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -8560,10 +8560,10 @@ void ofeliaEditMesh3dNormal_map(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int ar
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 12) {
                     
@@ -8625,10 +8625,10 @@ void ofeliaEditMesh3dNormal_middle(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 3) {
                     
@@ -8678,10 +8678,10 @@ void ofeliaEditMesh3dNormal_normalize(t_ofeliaEditMesh3dNormal *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.normalize();
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -8712,10 +8712,10 @@ void ofeliaEditMesh3dNormal_perpendicular(t_ofeliaEditMesh3dNormal *x, t_symbol 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 if (argc == 3) {
                     
@@ -8765,10 +8765,10 @@ void ofeliaEditMesh3dNormal_rotate(t_ofeliaEditMesh3dNormal *x, t_symbol *s, int
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8865,10 +8865,10 @@ void ofeliaEditMesh3dNormal_rotateRad(t_ofeliaEditMesh3dNormal *x, t_symbol *s, 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 
                 switch (argc) {
                         
@@ -8965,10 +8965,10 @@ void ofeliaEditMesh3dNormal_scale(t_ofeliaEditMesh3dNormal *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormals()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormals()[index];
                 normal.scale(f);
                 t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties = true;
                 outlet_bang(x->x_obj.ob_outlet);
@@ -9082,10 +9082,10 @@ void ofeliaEditMesh2dTexCoord_assign(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9150,10 +9150,10 @@ void ofeliaEditMesh2dTexCoord_assignX(t_ofeliaEditMesh2dTexCoord *x, t_floatarg 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.x = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9183,10 +9183,10 @@ void ofeliaEditMesh2dTexCoord_assignY(t_ofeliaEditMesh2dTexCoord *x, t_floatarg 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.y = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9216,10 +9216,10 @@ void ofeliaEditMesh2dTexCoord_add(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9284,10 +9284,10 @@ void ofeliaEditMesh2dTexCoord_sub(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9352,10 +9352,10 @@ void ofeliaEditMesh2dTexCoord_mult(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, i
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9420,10 +9420,10 @@ void ofeliaEditMesh2dTexCoord_div(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9488,10 +9488,10 @@ void ofeliaEditMesh2dTexCoord_lerp(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, i
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 3) {
                     
@@ -9540,10 +9540,10 @@ void ofeliaEditMesh2dTexCoord_limit(t_ofeliaEditMesh2dTexCoord *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.limit(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9573,10 +9573,10 @@ void ofeliaEditMesh2dTexCoord_map(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 6) {
                     
@@ -9630,10 +9630,10 @@ void ofeliaEditMesh2dTexCoord_middle(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 2) {
                     
@@ -9681,10 +9681,10 @@ void ofeliaEditMesh2dTexCoord_normalize(t_ofeliaEditMesh2dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.normalize();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9714,10 +9714,10 @@ void ofeliaEditMesh2dTexCoord_perpendicular(t_ofeliaEditMesh2dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.perpendicular();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9747,10 +9747,10 @@ void ofeliaEditMesh2dTexCoord_rotate(t_ofeliaEditMesh2dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9817,10 +9817,10 @@ void ofeliaEditMesh2dTexCoord_rotateRad(t_ofeliaEditMesh2dTexCoord *x, t_symbol 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -9887,10 +9887,10 @@ void ofeliaEditMesh2dTexCoord_scale(t_ofeliaEditMesh2dTexCoord *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoords()[index];
                 texCoord.scale(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -9999,10 +9999,10 @@ void ofeliaEditMesh3dTexCoord_assign(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10067,10 +10067,10 @@ void ofeliaEditMesh3dTexCoord_assignX(t_ofeliaEditMesh3dTexCoord *x, t_floatarg 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.x = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10100,10 +10100,10 @@ void ofeliaEditMesh3dTexCoord_assignY(t_ofeliaEditMesh3dTexCoord *x, t_floatarg 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.y = f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10133,10 +10133,10 @@ void ofeliaEditMesh3dTexCoord_add(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10201,10 +10201,10 @@ void ofeliaEditMesh3dTexCoord_sub(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10269,10 +10269,10 @@ void ofeliaEditMesh3dTexCoord_mult(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, i
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10337,10 +10337,10 @@ void ofeliaEditMesh3dTexCoord_div(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10405,10 +10405,10 @@ void ofeliaEditMesh3dTexCoord_lerp(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, i
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 3) {
                     
@@ -10457,10 +10457,10 @@ void ofeliaEditMesh3dTexCoord_limit(t_ofeliaEditMesh3dTexCoord *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.limit(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10490,10 +10490,10 @@ void ofeliaEditMesh3dTexCoord_map(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s, in
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 6) {
                     
@@ -10547,10 +10547,10 @@ void ofeliaEditMesh3dTexCoord_middle(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 if (argc == 2) {
                     
@@ -10598,10 +10598,10 @@ void ofeliaEditMesh3dTexCoord_normalize(t_ofeliaEditMesh3dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.normalize();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10631,10 +10631,10 @@ void ofeliaEditMesh3dTexCoord_perpendicular(t_ofeliaEditMesh3dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.perpendicular();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10664,10 +10664,10 @@ void ofeliaEditMesh3dTexCoord_rotate(t_ofeliaEditMesh3dTexCoord *x, t_symbol *s,
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10734,10 +10734,10 @@ void ofeliaEditMesh3dTexCoord_rotateRad(t_ofeliaEditMesh3dTexCoord *x, t_symbol 
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 
                 switch (argc) {
                         
@@ -10804,10 +10804,10 @@ void ofeliaEditMesh3dTexCoord_scale(t_ofeliaEditMesh3dTexCoord *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoords()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoords()[index];
                 texCoord.scale(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10916,10 +10916,10 @@ void ofeliaEditMesh2dColor_assign(t_ofeliaEditMesh2dColor *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 
                 if (!getFloatColorAlphaFromArgs(argc, argv, color, t_ofeliaEditMesh2dColor::objName))
                     return;
@@ -10951,10 +10951,10 @@ void ofeliaEditMesh2dColor_assignR(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.r = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -10984,10 +10984,10 @@ void ofeliaEditMesh2dColor_assignG(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.g = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11017,10 +11017,10 @@ void ofeliaEditMesh2dColor_assignB(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.b = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11050,10 +11050,10 @@ void ofeliaEditMesh2dColor_assignA(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.a = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11083,10 +11083,10 @@ void ofeliaEditMesh2dColor_add(t_ofeliaEditMesh2dColor *x, t_symbol *s, int argc
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 
                 switch (argc) {
                         
@@ -11188,10 +11188,10 @@ void ofeliaEditMesh2dColor_sub(t_ofeliaEditMesh2dColor *x, t_symbol *s, int argc
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 
                 switch (argc) {
                         
@@ -11293,10 +11293,10 @@ void ofeliaEditMesh2dColor_mult(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color *= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11326,10 +11326,10 @@ void ofeliaEditMesh2dColor_div(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color /= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11359,10 +11359,10 @@ void ofeliaEditMesh2dColor_invert(t_ofeliaEditMesh2dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.invert();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11392,10 +11392,10 @@ void ofeliaEditMesh2dColor_lerp(t_ofeliaEditMesh2dColor *x, t_symbol *s, int arg
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 
                 if (argc == 5) {
                     
@@ -11450,10 +11450,10 @@ void ofeliaEditMesh2dColor_normalize(t_ofeliaEditMesh2dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.normalize();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11483,10 +11483,10 @@ void ofeliaEditMesh2dColor_hue(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.setHue(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11516,10 +11516,10 @@ void ofeliaEditMesh2dColor_hueAngle(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.setHueAngle(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11549,10 +11549,10 @@ void ofeliaEditMesh2dColor_brightness(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.setBrightness(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11582,10 +11582,10 @@ void ofeliaEditMesh2dColor_saturation(t_ofeliaEditMesh2dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColors()[index];
                 color.setSaturation(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11694,10 +11694,10 @@ void ofeliaEditMesh3dColor_assign(t_ofeliaEditMesh3dColor *x, t_symbol *s, int a
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 
                 if (!getFloatColorAlphaFromArgs(argc, argv, color, t_ofeliaEditMesh3dColor::objName))
                     return;
@@ -11729,10 +11729,10 @@ void ofeliaEditMesh3dColor_assignR(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.r = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11762,10 +11762,10 @@ void ofeliaEditMesh3dColor_assignG(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.g = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11795,10 +11795,10 @@ void ofeliaEditMesh3dColor_assignB(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.b = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11828,10 +11828,10 @@ void ofeliaEditMesh3dColor_assignA(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.a = ofWrap(f / 255.0f, 0.0f, 1.0f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -11861,10 +11861,10 @@ void ofeliaEditMesh3dColor_add(t_ofeliaEditMesh3dColor *x, t_symbol *s, int argc
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 
                 switch (argc) {
                         
@@ -11966,10 +11966,10 @@ void ofeliaEditMesh3dColor_sub(t_ofeliaEditMesh3dColor *x, t_symbol *s, int argc
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 
                 switch (argc) {
                         
@@ -12071,10 +12071,10 @@ void ofeliaEditMesh3dColor_mult(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color *= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12104,10 +12104,10 @@ void ofeliaEditMesh3dColor_div(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color /= f;
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12137,10 +12137,10 @@ void ofeliaEditMesh3dColor_invert(t_ofeliaEditMesh3dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.invert();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12170,10 +12170,10 @@ void ofeliaEditMesh3dColor_lerp(t_ofeliaEditMesh3dColor *x, t_symbol *s, int arg
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 
                 if (argc == 5) {
                     
@@ -12228,10 +12228,10 @@ void ofeliaEditMesh3dColor_normalize(t_ofeliaEditMesh3dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.normalize();
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12261,10 +12261,10 @@ void ofeliaEditMesh3dColor_hue(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.setHue(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12294,10 +12294,10 @@ void ofeliaEditMesh3dColor_hueAngle(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.setHueAngle(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12327,10 +12327,10 @@ void ofeliaEditMesh3dColor_brightness(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.setBrightness(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12360,10 +12360,10 @@ void ofeliaEditMesh3dColor_saturation(t_ofeliaEditMesh3dColor *x, t_floatarg f)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                ofFloatColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColors()[index];
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                ofFloatColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColors()[index];
                 color.setSaturation(f);
                 outlet_bang(x->x_obj.ob_outlet);
             }
@@ -12467,10 +12467,10 @@ void ofeliaGetMesh2dVertex_bang(t_ofeliaGetMesh2dVertex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices())-1);
-                const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertex(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices())-1);
+                const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertex(index);
                 t_atom av[2];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = vertex.x;
@@ -12552,10 +12552,10 @@ void ofeliaGetMesh3dVertex_bang(t_ofeliaGetMesh3dVertex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices())-1);
-                const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertex(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices())-1);
+                const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertex(index);
                 t_atom av[3];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = vertex.x;
@@ -12639,10 +12639,10 @@ void ofeliaGetMesh2dIndex_bang(t_ofeliaGetMesh2dIndex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices())-1);
-                const ofIndexType idx = t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndex(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices())-1);
+                const ofIndexType idx = t_ofeliaLoadMesh2d::meshes[pos]->getIndex(index);
                 outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(idx));
             }
             else {
@@ -12719,10 +12719,10 @@ void ofeliaGetMesh3dIndex_bang(t_ofeliaGetMesh3dIndex *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices())-1);
-                const ofIndexType idx = t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndex(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices())-1);
+                const ofIndexType idx = t_ofeliaLoadMesh3d::meshes[pos]->getIndex(index);
                 outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(idx));
             }
             else {
@@ -12799,10 +12799,10 @@ void ofeliaGetMesh2dNormal_bang(t_ofeliaGetMesh2dNormal *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals())-1);
-                const ofVec2f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormal(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals())-1);
+                const ofVec2f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormal(index);
                 t_atom av[2];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = normal.x;
@@ -12884,10 +12884,10 @@ void ofeliaGetMesh3dNormal_bang(t_ofeliaGetMesh3dNormal *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals())-1);
-                const ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormal(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals())-1);
+                const ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormal(index);
                 t_atom av[3];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = normal.x;
@@ -12971,10 +12971,10 @@ void ofeliaGetMesh2dTexCoord_bang(t_ofeliaGetMesh2dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords())-1);
-                const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoord(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords())-1);
+                const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoord(index);
                 t_atom av[2];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = texCoord.x;
@@ -13056,10 +13056,10 @@ void ofeliaGetMesh3dTexCoord_bang(t_ofeliaGetMesh3dTexCoord *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords())-1);
-                const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoord(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords())-1);
+                const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoord(index);
                 t_atom av[2];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = texCoord.x;
@@ -13141,10 +13141,10 @@ void ofeliaGetMesh2dColor_bang(t_ofeliaGetMesh2dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors())-1);
-                const ofColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColor(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors())-1);
+                const ofColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColor(index);
                 t_atom av[4];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = color.r;
@@ -13230,10 +13230,10 @@ void ofeliaGetMesh3dColor_bang(t_ofeliaGetMesh3dColor *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors())-1);
-                const ofColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColor(index);
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors())-1);
+                const ofColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColor(index);
                 t_atom av[4];
                 av[0].a_type = A_FLOAT;
                 av[0].a_w.w_float = color.r;
@@ -13318,14 +13318,14 @@ void ofeliaGetMesh2dVertices_bang(t_ofeliaGetMesh2dVertices *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices()*2);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices()*2);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=2) {
                     
-                    const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertex(i/2);
+                    const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertex(i/2);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = vertex.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13400,14 +13400,14 @@ void ofeliaGetMesh3dVertices_bang(t_ofeliaGetMesh3dVertices *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices()*3);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices()*3);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=3) {
                     
-                    const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertex(i/3);
+                    const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertex(i/3);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = vertex.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13484,14 +13484,14 @@ void ofeliaGetMesh2dIndices_bang(t_ofeliaGetMesh2dIndices *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasIndices()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices());
+                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices());
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; ++i) {
                     
-                    const ofIndexType &idx = t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndex(i);
+                    const ofIndexType &idx = t_ofeliaLoadMesh2d::meshes[pos]->getIndex(i);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = static_cast<t_float>(idx);
                 }
@@ -13564,14 +13564,14 @@ void ofeliaGetMesh3dIndices_bang(t_ofeliaGetMesh3dIndices *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasIndices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasIndices()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices());
+                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices());
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; ++i) {
                     
-                    const ofIndexType &idx = t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndex(i);
+                    const ofIndexType &idx = t_ofeliaLoadMesh3d::meshes[pos]->getIndex(i);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = static_cast<t_float>(idx);
                 }
@@ -13644,14 +13644,14 @@ void ofeliaGetMesh2dNormals_bang(t_ofeliaGetMesh2dNormals *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasNormals()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals()*2);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals()*2);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=2) {
                     
-                    const ofVec2f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormal(i/2);
+                    const ofVec2f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormal(i/2);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = normal.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13726,14 +13726,14 @@ void ofeliaGetMesh3dNormals_bang(t_ofeliaGetMesh3dNormals *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasNormals()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasNormals()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals()*3);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals()*3);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=3) {
                     
-                    const ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormal(i/3);
+                    const ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormal(i/3);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = normal.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13810,14 +13810,14 @@ void ofeliaGetMesh2dTexCoords_bang(t_ofeliaGetMesh2dTexCoords *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasTexCoords()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords()*2);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords()*2);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=2) {
                     
-                    const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoord(i/2);
+                    const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoord(i/2);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = texCoord.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13892,14 +13892,14 @@ void ofeliaGetMesh3dTexCoords_bang(t_ofeliaGetMesh3dTexCoords *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasTexCoords()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasTexCoords()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords()*2);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords()*2);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=2) {
                     
-                    const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoord(i/2);
+                    const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoord(i/2);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = texCoord.x;
                     av[i+1].a_type = A_FLOAT;
@@ -13969,19 +13969,19 @@ void ofeliaGetMesh2dColors_bang(t_ofeliaGetMesh2dColors *x)
     const t_string &name = x->varName.name;
     
     if (!name.empty()) {
-
+        
         const int pos = getPositionByMesh2dName(name);
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasColors()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors()*4);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh2d::meshes[pos]->getNumColors()*4);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=4) {
                     
-                    const ofColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColor(i/4);
+                    const ofColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColor(i/4);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = color.r;
                     av[i+1].a_type = A_FLOAT;
@@ -14060,14 +14060,14 @@ void ofeliaGetMesh3dColors_bang(t_ofeliaGetMesh3dColors *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasColors()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasColors()) {
                 
-                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors()*4);
+                const int ac = static_cast<int>(t_ofeliaLoadMesh3d::meshes[pos]->getNumColors()*4);
                 t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
                 
                 for (int i=0; i<ac; i+=4) {
                     
-                    const ofColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColor(i/4);
+                    const ofColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColor(i/4);
                     av[i].a_type = A_FLOAT;
                     av[i].a_w.w_float = color.r;
                     av[i+1].a_type = A_FLOAT;
@@ -14147,11 +14147,11 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
         if (pos != -1) {
             
             vector<t_ofeliaAtomElem> elems;
-            const size_t numVertices = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumVertices();
-            const size_t numIndices = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumIndices();
-            const size_t numNormals = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumNormals();
-            const size_t numTexCoords = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumTexCoords();
-            const size_t numColors = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNumColors();
+            const size_t numVertices = t_ofeliaLoadMesh2d::meshes[pos]->getNumVertices();
+            const size_t numIndices = t_ofeliaLoadMesh2d::meshes[pos]->getNumIndices();
+            const size_t numNormals = t_ofeliaLoadMesh2d::meshes[pos]->getNumNormals();
+            const size_t numTexCoords = t_ofeliaLoadMesh2d::meshes[pos]->getNumTexCoords();
+            const size_t numColors = t_ofeliaLoadMesh2d::meshes[pos]->getNumColors();
             
             if (numVertices) {
                 
@@ -14159,7 +14159,7 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 
                 for (size_t i=0; i<numVertices; ++i) {
                     
-                    const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshData[pos].mesh.getVertex(i);
+                    const ofVec2f &vertex = t_ofeliaLoadMesh2d::meshes[pos]->getVertex(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, vertex.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, vertex.y});
                 }
@@ -14170,7 +14170,7 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 
                 for (size_t i=0; i<numIndices; ++i) {
                     
-                    const ofIndexType idx = t_ofeliaLoadMesh2d::meshData[pos].mesh.getIndex(i);
+                    const ofIndexType idx = t_ofeliaLoadMesh2d::meshes[pos]->getIndex(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(idx)});
                 }
             }
@@ -14180,7 +14180,7 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 
                 for (size_t i=0; i<numNormals; ++i) {
                     
-                    const ofVec2f &normal = t_ofeliaLoadMesh2d::meshData[pos].mesh.getNormal(i);
+                    const ofVec2f &normal = t_ofeliaLoadMesh2d::meshes[pos]->getNormal(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, normal.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, normal.y});
                 }
@@ -14191,7 +14191,7 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 
                 for (size_t i=0; i<numTexCoords; ++i) {
                     
-                    const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshData[pos].mesh.getTexCoord(i);
+                    const ofVec2f &texCoord = t_ofeliaLoadMesh2d::meshes[pos]->getTexCoord(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, texCoord.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, texCoord.y});
                 }
@@ -14202,7 +14202,7 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 
                 for (size_t i=0; i<numColors; ++i) {
                     
-                    const ofColor &color = t_ofeliaLoadMesh2d::meshData[pos].mesh.getColor(i);
+                    const ofColor &color = t_ofeliaLoadMesh2d::meshes[pos]->getColor(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.r)});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.g)});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.b)});
@@ -14292,11 +14292,11 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
         if (pos != -1) {
             
             vector<t_ofeliaAtomElem> elems;
-            const size_t numVertices = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumVertices();
-            const size_t numIndices = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumIndices();
-            const size_t numNormals = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumNormals();
-            const size_t numTexCoords = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumTexCoords();
-            const size_t numColors = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNumColors();
+            const size_t numVertices = t_ofeliaLoadMesh3d::meshes[pos]->getNumVertices();
+            const size_t numIndices = t_ofeliaLoadMesh3d::meshes[pos]->getNumIndices();
+            const size_t numNormals = t_ofeliaLoadMesh3d::meshes[pos]->getNumNormals();
+            const size_t numTexCoords = t_ofeliaLoadMesh3d::meshes[pos]->getNumTexCoords();
+            const size_t numColors = t_ofeliaLoadMesh3d::meshes[pos]->getNumColors();
             
             if (numVertices) {
                 
@@ -14304,7 +14304,7 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 
                 for (size_t i=0; i<numVertices; ++i) {
                     
-                    const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshData[pos].mesh.getVertex(i);
+                    const ofVec3f &vertex = t_ofeliaLoadMesh3d::meshes[pos]->getVertex(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, vertex.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, vertex.y});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, vertex.z});
@@ -14316,7 +14316,7 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 
                 for (size_t i=0; i<numIndices; ++i) {
                     
-                    const ofIndexType idx = t_ofeliaLoadMesh3d::meshData[pos].mesh.getIndex(i);
+                    const ofIndexType idx = t_ofeliaLoadMesh3d::meshes[pos]->getIndex(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(idx)});
                 }
             }
@@ -14326,7 +14326,7 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 
                 for (size_t i=0; i<numNormals; ++i) {
                     
-                    const ofVec3f &normal = t_ofeliaLoadMesh3d::meshData[pos].mesh.getNormal(i);
+                    const ofVec3f &normal = t_ofeliaLoadMesh3d::meshes[pos]->getNormal(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, normal.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, normal.y});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, normal.z});
@@ -14338,7 +14338,7 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 
                 for (size_t i=0; i<numTexCoords; ++i) {
                     
-                    const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshData[pos].mesh.getTexCoord(i);
+                    const ofVec2f &texCoord = t_ofeliaLoadMesh3d::meshes[pos]->getTexCoord(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, texCoord.x});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, texCoord.y});
                 }
@@ -14349,7 +14349,7 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 
                 for (size_t i=0; i<numColors; ++i) {
                     
-                    const ofColor &color = t_ofeliaLoadMesh3d::meshData[pos].mesh.getColor(i);
+                    const ofColor &color = t_ofeliaLoadMesh3d::meshes[pos]->getColor(i);
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.r)});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.g)});
                     elems.push_back({ATOM_ELEM_TYPE_FLOAT, static_cast<float>(color.b)});
@@ -14438,7 +14438,7 @@ void ofeliaGetMesh2dBoundingBox_bang(t_ofeliaGetMesh2dBoundingBox *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
                 if (t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties)
                     updateMesh2dProperties(pos);
@@ -14512,10 +14512,10 @@ void ofeliaGetMesh3dBoundingBox_bang(t_ofeliaGetMesh3dBoundingBox *x)
     if (!name.empty()) {
         
         const int pos = getPositionByMesh3dName(name);
-
+        
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
                 if (t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties)
                     updateMesh3dProperties(pos);
@@ -14594,7 +14594,7 @@ void ofeliaGetMesh2dCentroid_bang(t_ofeliaGetMesh2dCentroid *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh2d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh2d::meshes[pos]->hasVertices()) {
                 
                 if (t_ofeliaLoadMesh2d::meshData[pos].shouldUpdateProperties)
                     updateMesh2dProperties(pos);
@@ -14671,7 +14671,7 @@ void ofeliaGetMesh3dCentroid_bang(t_ofeliaGetMesh3dCentroid *x)
         
         if (pos != -1) {
             
-            if (t_ofeliaLoadMesh3d::meshData[pos].mesh.hasVertices()) {
+            if (t_ofeliaLoadMesh3d::meshes[pos]->hasVertices()) {
                 
                 if (t_ofeliaLoadMesh3d::meshData[pos].shouldUpdateProperties)
                     updateMesh3dProperties(pos);

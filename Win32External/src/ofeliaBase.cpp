@@ -567,8 +567,16 @@ bool getRotateElemFromArgs(const int argc, const t_atom *argv,
         }
         case 1:
         {
-            elem.angle = argv[0].a_w.w_float;
-            elem.axis.set(0.0f, 0.0f, 0.0f);
+            if (argv[0].a_type == A_FLOAT) {
+                
+                elem.angle = argv[0].a_w.w_float;
+                elem.axis.set(0.0f, 0.0f, 0.0f);
+            }
+            else {
+                
+                error("%s: wrong argument type", objName);
+                return 0;
+            }
             break;
         }
         case 4:

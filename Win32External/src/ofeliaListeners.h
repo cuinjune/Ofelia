@@ -92,15 +92,15 @@ extern "C" {
         
     } t_ofeliaAccelListener;
     
-    /* ofScaleListener object class */
-    static t_class *ofeliaScaleListener_class;
+    /* ofWindowScaleListener object class */
+    static t_class *ofeliaWindowScaleListener_class;
     
-    typedef struct _ofeliaScaleListener
+    typedef struct _ofeliaWindowScaleListener
     {
         t_object x_obj;
-        static t_symbol *scaleListenerSym;
+        static t_symbol *windowScaleListenerSym;
         
-    } t_ofeliaScaleListener;
+    } t_ofeliaWindowScaleListener;
     
     /* ofOrienListener object class */
     static t_class *ofeliaOrienListener_class;
@@ -132,15 +132,15 @@ extern "C" {
         
     } t_ofeliaFocusListener;
     
-    /* ofPosListener object class */
-    static t_class *ofeliaPosListener_class;
+    /* ofWindowPosListener object class */
+    static t_class *ofeliaWindowPosListener_class;
     
-    typedef struct _ofeliaPosListener
+    typedef struct _ofeliaWindowPosListener
     {
         t_object x_obj;
-        static t_symbol *posListenerSym;
+        static t_symbol *windowPosListenerSym;
         
-    } t_ofeliaPosListener;
+    } t_ofeliaWindowPosListener;
     
     /* ofWindowListener object class */
     static t_class *ofeliaWindowListener_class;

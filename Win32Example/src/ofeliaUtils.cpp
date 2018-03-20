@@ -4520,6 +4520,9 @@ void *ofeliaValue_new(t_symbol *s)
     x->varName.name = s->s_name;
     getVarNameLocalized(x->varName);
     x->value = value_get(gensym(x->varName.name.c_str()));
+    
+    if (!*s->s_name)
+        inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_symbol, gensym("{name}"));
     outlet_new(&x->x_obj, &s_float);
     return (x);
 }
@@ -4532,6 +4535,14 @@ void ofeliaValue_bang(t_ofeliaValue *x)
 void ofeliaValue_float(t_ofeliaValue *x, t_floatarg f)
 {
     *x->value = f;
+}
+
+void ofeliaValue_set(t_ofeliaValue *x, t_symbol *s)
+{
+    value_release(gensym(x->varName.name.c_str()));
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    x->value = value_get(gensym(x->varName.name.c_str()));
 }
 
 void ofeliaValue_free(t_ofeliaValue *x)
@@ -4550,6 +4561,8 @@ void ofeliaValue_setup()
                      gensym("ofVal"), A_DEFSYM, 0);
     class_addbang(ofeliaValue_class, reinterpret_cast<t_method>(ofeliaValue_bang));
     class_addfloat(ofeliaValue_class, reinterpret_cast<t_method>(ofeliaValue_float));
+    class_addmethod(ofeliaValue_class, reinterpret_cast<t_method>(ofeliaValue_set),
+                    gensym("{name}"), A_SYMBOL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -4564,7 +4577,7 @@ void *ofeliaSend_new(t_symbol *s)
     x->sym = gensym(x->varName.name.c_str());
 
     if (!*s->s_name)
-        inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_symbol, gensym("name"));
+        inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_symbol, gensym("{name}"));
     return (x);
 }
 
@@ -4598,7 +4611,7 @@ void ofeliaSend_anything(t_ofeliaSend *x, t_symbol *s, int argc, t_atom *argv)
     if (x->sym->s_thing) typedmess(x->sym->s_thing, s, argc, argv);
 }
 
-void ofeliaSend_name(t_ofeliaSend *x, t_symbol *s)
+void ofeliaSend_set(t_ofeliaSend *x, t_symbol *s)
 {
     x->varName.name = s->s_name;
     getVarNameLocalized(x->varName);
@@ -4619,8 +4632,8 @@ void ofeliaSend_setup()
     class_addpointer(ofeliaSend_class, reinterpret_cast<t_method>(ofeliaSend_pointer));
     class_addlist(ofeliaSend_class, reinterpret_cast<t_method>(ofeliaSend_list));
     class_addanything(ofeliaSend_class, reinterpret_cast<t_method>(ofeliaSend_anything));
-    class_addmethod(ofeliaSend_class, reinterpret_cast<t_method>(ofeliaSend_name),
-                    gensym("name"), A_SYMBOL, 0);
+    class_addmethod(ofeliaSend_class, reinterpret_cast<t_method>(ofeliaSend_set),
+                    gensym("{name}"), A_SYMBOL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -4633,8 +4646,19 @@ void *ofeliaReceive_new(t_symbol *s)
     x->varName.name = s->s_name;
     getVarNameLocalized(x->varName);
     pd_bind(&x->x_obj.ob_pd, gensym(x->varName.name.c_str()));
+    
+    if (!*s->s_name)
+        inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_symbol, gensym("{name}"));
     outlet_new(&x->x_obj, 0);
     return (x);
+}
+
+void ofeliaReceive_name(t_ofeliaReceive *x, t_symbol *s)
+{
+    pd_unbind(&x->x_obj.ob_pd, gensym(x->varName.name.c_str()));
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    pd_bind(&x->x_obj.ob_pd, gensym(x->varName.name.c_str()));
 }
 
 void ofeliaReceive_bang(t_ofeliaReceive *x)
@@ -4687,6 +4711,8 @@ void ofeliaReceive_setup()
     class_addpointer(ofeliaReceive_class, reinterpret_cast<t_method>(ofeliaReceive_pointer));
     class_addlist(ofeliaReceive_class, reinterpret_cast<t_method>(ofeliaReceive_list));
     class_addanything(ofeliaReceive_class, reinterpret_cast<t_method>(ofeliaReceive_anything));
+    class_addmethod(ofeliaReceive_class, reinterpret_cast<t_method>(ofeliaReceive_name),
+                    gensym("{name}"), A_SYMBOL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -4812,9 +4838,11 @@ void ofeliaGetTime_setup()
 /* ________________________________________________________________________________
  * ofGetPatchDirectory object methods
  */
-void ofeliaGetPatchDirectory_setPatchDirectory(t_ofeliaGetPatchDirectory *x, const t_float level)
+void *ofeliaGetPatchDirectory_new(t_floatarg f)
 {
-    t_canvas *canvas = x->canvas;
+    t_ofeliaGetPatchDirectory *x = reinterpret_cast<t_ofeliaGetPatchDirectory*>(pd_new(ofeliaGetPatchDirectory_class));
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
     
     for (int i=0; i<level; ++i) {
         
@@ -4823,39 +4851,14 @@ void ofeliaGetPatchDirectory_setPatchDirectory(t_ofeliaGetPatchDirectory *x, con
         else
             break;
     }
-    x->directory = canvas_getdir(canvas);
-    x->level = level;
-}
-
-void *ofeliaGetPatchDirectory_new(t_floatarg f)
-{
-    t_ofeliaGetPatchDirectory *x = reinterpret_cast<t_ofeliaGetPatchDirectory*>(pd_new(ofeliaGetPatchDirectory_class));
-    x->canvas = canvas_getcurrent();
-    ofeliaGetPatchDirectory_setPatchDirectory(x, truncf(f));
+    x->patchDir = canvas_getdir(canvas);
     outlet_new(&x->x_obj, &s_symbol);
     return (x);
 }
 
 void ofeliaGetPatchDirectory_bang(t_ofeliaGetPatchDirectory *x)
 {
-    outlet_symbol(x->x_obj.ob_outlet, x->directory);
-}
-
-void ofeliaGetPatchDirectory_float(t_ofeliaGetPatchDirectory *x, t_floatarg f)
-{
-    ofeliaGetPatchDirectory_setPatchDirectory(x, truncf(f));
-    outlet_symbol(x->x_obj.ob_outlet, x->directory);
-}
-
-void ofeliaGetPatchDirectory_set(t_ofeliaGetPatchDirectory *x, t_floatarg f)
-{
-    ofeliaGetPatchDirectory_setPatchDirectory(x, truncf(f));
-}
-
-void ofeliaGetPatchDirectory_print(t_ofeliaGetPatchDirectory *x)
-{
-    post("\n[%s]", t_ofeliaGetPatchDirectory::objName);
-    post("level : %g", x->level);
+    outlet_symbol(x->x_obj.ob_outlet, x->patchDir);
 }
 
 void ofeliaGetPatchDirectory_setup()
@@ -4867,13 +4870,6 @@ void ofeliaGetPatchDirectory_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaGetPatchDirectory_new),
                      gensym("ofGetPatchDir"), A_DEFFLOAT, 0);
     class_addbang(ofeliaGetPatchDirectory_class, reinterpret_cast<t_method>(ofeliaGetPatchDirectory_bang));
-    class_addfloat(ofeliaGetPatchDirectory_class, reinterpret_cast<t_method>(ofeliaGetPatchDirectory_float));
-    class_addmethod(ofeliaGetPatchDirectory_class, reinterpret_cast<t_method>(ofeliaGetPatchDirectory_set),
-                    gensym("level"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetPatchDirectory_class, reinterpret_cast<t_method>(ofeliaGetPatchDirectory_set),
-                    gensym("set"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetPatchDirectory_class, reinterpret_cast<t_method>(ofeliaGetPatchDirectory_print),
-                    gensym("print"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -5228,9 +5224,11 @@ void ofeliaGetDirectoryFilePaths_setup()
 /* ________________________________________________________________________________
  * ofGetCanvasName object methods
  */
-void ofeliaGetCanvasName_setCanvasName(t_ofeliaGetCanvasName *x, const t_float level)
+void *ofeliaGetCanvasName_new(t_floatarg f)
 {
-    t_canvas *canvas = x->canvas;
+    t_ofeliaGetCanvasName *x = reinterpret_cast<t_ofeliaGetCanvasName*>(pd_new(ofeliaGetCanvasName_class));
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
     
     for (int i=0; i<level; ++i) {
         
@@ -5241,39 +5239,14 @@ void ofeliaGetCanvasName_setCanvasName(t_ofeliaGetCanvasName *x, const t_float l
     }
     char canvasVarPrefix[MAXPDSTRING];
     snprintf(canvasVarPrefix, MAXPDSTRING, "%lx", reinterpret_cast<long unsigned int>(canvas));
-    x->name = gensym(canvasVarPrefix);
-    x->level = level;
-}
-
-void *ofeliaGetCanvasName_new(t_floatarg f)
-{
-    t_ofeliaGetCanvasName *x = reinterpret_cast<t_ofeliaGetCanvasName*>(pd_new(ofeliaGetCanvasName_class));
-    x->canvas = canvas_getcurrent();
-    ofeliaGetCanvasName_setCanvasName(x, truncf(f));
+    x->canvasName = gensym(canvasVarPrefix);
     outlet_new(&x->x_obj, &s_symbol);
     return (x);
 }
 
 void ofeliaGetCanvasName_bang(t_ofeliaGetCanvasName *x)
 {
-    outlet_symbol(x->x_obj.ob_outlet, x->name);
-}
-
-void ofeliaGetCanvasName_float(t_ofeliaGetCanvasName *x, t_floatarg f)
-{
-    ofeliaGetCanvasName_setCanvasName(x, truncf(f));
-    outlet_symbol(x->x_obj.ob_outlet, x->name);
-}
-
-void ofeliaGetCanvasName_set(t_ofeliaGetCanvasName *x, t_floatarg f)
-{
-    ofeliaGetCanvasName_setCanvasName(x, truncf(f));
-}
-
-void ofeliaGetCanvasName_print(t_ofeliaGetCanvasName *x)
-{
-    post("\n[%s]", t_ofeliaGetCanvasName::objName);
-    post("level : %g", x->level);
+    outlet_symbol(x->x_obj.ob_outlet, x->canvasName);
 }
 
 void ofeliaGetCanvasName_setup()
@@ -5283,21 +5256,16 @@ void ofeliaGetCanvasName_setup()
                                            0, sizeof(t_ofeliaGetCanvasName),
                                            CLASS_DEFAULT, A_DEFFLOAT, 0);
     class_addbang(ofeliaGetCanvasName_class, reinterpret_cast<t_method>(ofeliaGetCanvasName_bang));
-    class_addfloat(ofeliaGetCanvasName_class, reinterpret_cast<t_method>(ofeliaGetCanvasName_float));
-    class_addmethod(ofeliaGetCanvasName_class, reinterpret_cast<t_method>(ofeliaGetCanvasName_set),
-                    gensym("level"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetCanvasName_class, reinterpret_cast<t_method>(ofeliaGetCanvasName_set),
-                    gensym("set"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetCanvasName_class, reinterpret_cast<t_method>(ofeliaGetCanvasName_print),
-                    gensym("print"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
  * ofGetDollarZero object methods
  */
-void ofeliaGetDollarZero_setDollarZero(t_ofeliaGetDollarZero *x, const t_float level)
+void *ofeliaGetDollarZero_new(t_floatarg f)
 {
-    t_canvas *canvas = x->canvas;
+    t_ofeliaGetDollarZero *x = reinterpret_cast<t_ofeliaGetDollarZero*>(pd_new(ofeliaGetDollarZero_class));
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
     
     for (int i=0; i<level; ++i) {
         
@@ -5306,39 +5274,14 @@ void ofeliaGetDollarZero_setDollarZero(t_ofeliaGetDollarZero *x, const t_float l
         else
             break;
     }
-    x->dollarzero = static_cast<t_float>(ofToInt(canvas_realizedollar(canvas, gensym("$0"))->s_name));
-    x->level = level;
-}
-
-void *ofeliaGetDollarZero_new(t_floatarg f)
-{
-    t_ofeliaGetDollarZero *x = reinterpret_cast<t_ofeliaGetDollarZero*>(pd_new(ofeliaGetDollarZero_class));
-    x->canvas = canvas_getcurrent();
-    ofeliaGetDollarZero_setDollarZero(x, truncf(f));
-    outlet_new(&x->x_obj, &s_float);
+    x->dollarZeroSym = canvas_realizedollar(canvas, gensym("$0"));
+    outlet_new(&x->x_obj, &s_symbol);
     return (x);
 }
 
 void ofeliaGetDollarZero_bang(t_ofeliaGetDollarZero *x)
 {
-    outlet_float(x->x_obj.ob_outlet, x->dollarzero);
-}
-
-void ofeliaGetDollarZero_float(t_ofeliaGetDollarZero *x, t_floatarg f)
-{
-    ofeliaGetDollarZero_setDollarZero(x, truncf(f));
-    outlet_float(x->x_obj.ob_outlet, x->dollarzero);
-}
-
-void ofeliaGetDollarZero_set(t_ofeliaGetDollarZero *x, t_floatarg f)
-{
-    ofeliaGetDollarZero_setDollarZero(x, truncf(f));
-}
-
-void ofeliaGetDollarZero_print(t_ofeliaGetDollarZero *x)
-{
-    post("\n[%s]", t_ofeliaGetDollarZero::objName);
-    post("level : %g", x->level);
+    outlet_symbol(x->x_obj.ob_outlet, x->dollarZeroSym);
 }
 
 void ofeliaGetDollarZero_setup()
@@ -5348,23 +5291,18 @@ void ofeliaGetDollarZero_setup()
                                           0, sizeof(t_ofeliaGetDollarZero),
                                           CLASS_DEFAULT, A_DEFFLOAT, 0);
     class_addbang(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_bang));
-    class_addfloat(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_float));
-    class_addmethod(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_set),
-                    gensym("level"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_set),
-                    gensym("set"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_print),
-                    gensym("print"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
  * ofGetDollarArgs object methods
  */
-void ofeliaGetDollarArgs_free(t_ofeliaGetDollarArgs *x);
-
-void ofeliaGetDollarArgs_setDollarArgs(t_ofeliaGetDollarArgs *x, const t_float level)
+void *ofeliaGetDollarArgs_new(t_floatarg f)
 {
-    t_canvas *canvas = x->canvas;
+    t_ofeliaGetDollarArgs *x = reinterpret_cast<t_ofeliaGetDollarArgs*>(pd_new(ofeliaGetDollarArgs_class));
+    x->dollarArgc = 0;
+    x->dollarArgv = NULL;
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
     
     for (int i=0; i<level; ++i) {
         
@@ -5378,22 +5316,11 @@ void ofeliaGetDollarArgs_setDollarArgs(t_ofeliaGetDollarArgs *x, const t_float l
     pd_pushsym(&canvas->gl_obj.te_g.g_pd);
     canvas_getargs(&ac, &av);
     pd_popsym(&canvas->gl_obj.te_g.g_pd);
-    ofeliaGetDollarArgs_free(x);
     x->dollarArgc = ac;
     x->dollarArgv = (t_atom *)getbytes(ac * sizeof(t_atom));
     
     for (int i=0; i<ac; ++i)
         x->dollarArgv[i] = av[i];
-    x->level = level;
-}
-
-void *ofeliaGetDollarArgs_new(t_floatarg f)
-{
-    t_ofeliaGetDollarArgs *x = reinterpret_cast<t_ofeliaGetDollarArgs*>(pd_new(ofeliaGetDollarArgs_class));
-    x->dollarArgc = 0;
-    x->dollarArgv = NULL;
-    x->canvas = canvas_getcurrent();
-    ofeliaGetDollarArgs_setDollarArgs(x, truncf(f));
     outlet_new(&x->x_obj, &s_list);
     return (x);
 }
@@ -5401,23 +5328,6 @@ void *ofeliaGetDollarArgs_new(t_floatarg f)
 void ofeliaGetDollarArgs_bang(t_ofeliaGetDollarArgs *x)
 {
     outlet_list(x->x_obj.ob_outlet, &s_list, x->dollarArgc, x->dollarArgv);
-}
-
-void ofeliaGetDollarArgs_float(t_ofeliaGetDollarArgs *x, t_floatarg f)
-{
-    ofeliaGetDollarArgs_setDollarArgs(x, truncf(f));
-    outlet_list(x->x_obj.ob_outlet, &s_list, x->dollarArgc, x->dollarArgv);
-}
-
-void ofeliaGetDollarArgs_set(t_ofeliaGetDollarArgs *x, t_floatarg f)
-{
-    ofeliaGetDollarArgs_setDollarArgs(x, truncf(f));
-}
-
-void ofeliaGetDollarArgs_print(t_ofeliaGetDollarArgs *x)
-{
-    post("\n[%s]", t_ofeliaGetDollarArgs::objName);
-    post("level : %g", x->level);
 }
 
 void ofeliaGetDollarArgs_free(t_ofeliaGetDollarArgs *x)
@@ -5438,13 +5348,6 @@ void ofeliaGetDollarArgs_setup()
                                           sizeof(t_ofeliaGetDollarArgs),
                                           CLASS_DEFAULT, A_DEFFLOAT, 0);
     class_addbang(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_bang));
-    class_addfloat(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_float));
-    class_addmethod(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_set),
-                    gensym("level"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_set),
-                    gensym("set"), A_FLOAT, 0);
-    class_addmethod(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_print),
-                    gensym("print"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
