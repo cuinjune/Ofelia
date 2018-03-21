@@ -15,7 +15,7 @@
 #X obj 0 506 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
 #X text 72 529 1) symbol;
-#N canvas 321 146 597 436 related_getter_objects 0;
+#N canvas 321 146 597 526 related_getter_objects 0;
 #X obj 30 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 30 83 5 0 0 0 - - -, f 5;
@@ -42,6 +42,11 @@
 #X text 72 173 0: not allocated \, 1: allocated.;
 #X obj 30 146 ofIsFboAllocated @myFbo;
 #X text 53 121 check if the fbo is allocated or not.;
+#X obj 30 412 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 463 5 0 0 0 - - -, f 5;
+#X obj 30 436 ofGetFboMaxSamples @myFbo;
+#X text 53 411 get the maximum number of MSAA samples.;
 #X connect 0 0 12 0;
 #X connect 2 0 13 0;
 #X connect 3 0 4 0;
@@ -52,6 +57,8 @@
 #X connect 14 0 8 0;
 #X connect 17 0 20 0;
 #X connect 20 0 18 0;
+#X connect 22 0 24 0;
+#X connect 24 0 23 0;
 #X restore 23 298 pd related_getter_objects;
 #X obj 23 329 ofWindow 320 240 LEFT TOP;
 #X text 95 379 name <s>;
@@ -106,7 +113,7 @@
 that can write drawings to it \, used as an image \, bound as a texture
 \, drawn directly to the screen \, or used by its related "getter"
 objects.;
-#N canvas 321 145 600 445 related_editor_objects 0;
+#N canvas 321 145 600 438 related_editor_objects 0;
 #X obj 48 68 ofCreateImage @myImage 80 80 RGB;
 #X obj 48 132 ofEditImage @myImage;
 #X msg 48 105 clone @myFbo;
@@ -124,10 +131,8 @@ objects.;
 #X obj 48 321 print;
 #X text 132 105 copy the specified fbo to image.;
 #X text 47 346 note: when you copy the fbo to image \, the copied image
-can have larger pixels than the fbo's specified dimensions. this is
-because [ofCreateFbo] internally uses msaa(multi sample anti aliasing)
-for the better quality when it is allocated. the number of samples
-can be different depending on the hardware.;
+can have larger pixels than the fbo's specified dimensions if your
+hardware supports retina.;
 #X connect 1 0 5 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 1;
@@ -155,13 +160,18 @@ can be different depending on the hardware.;
 #X text 251 529 - sets the unique variable name for the fbo.;
 #X msg 88 136 clear;
 #X text 251 379 - sets the unique variable name for the fbo.;
-#X text 206 257 a known bug: when used in android device \, fbo may
+#X text 196 275 a known bug: when used in android device \, fbo may
 be cleared when an app goes to the background and then come back to
 the foreground. it is not a problem if you write drawings to the fbo
 every frame like shown in this example. otherwise \, you need to rewrite
 drawings to the fbo when the app comes back to the foreground. you
 can do this with [ofFocusListener].;
 #X obj 462 46 declare -lib ofelia;
+#X text 138 200 note: when you draw the fbo \, it can look aliased
+compared to the original drawings that are written to the fbo. this
+happens if your hardware supports MSAA. if you want to improve the
+quality of the fbo \, you can multiply the fbo's dimensions by 2 \,
+4 or 8 and scale the drawings accordingly.;
 #X connect 13 0 15 0;
 #X connect 15 0 14 0;
 #X connect 16 0 25 0;

@@ -13,6 +13,15 @@
 #X text 21 19 left click and drag the mouse to draw lines. right click
 the mouse to clear the stored lines.;
 #X obj 442 29 declare -lib ofelia;
+#X msg 224 219 orienLock HARD;
+#X obj 319 169 ofOrienListener;
+#X floatatom 319 190 5 0 0 0 - - -, f 5;
+#X msg 230 302 orien 0;
+#X obj 350 265 ofHead;
+#X obj 350 286 ofSetColor red;
+#X obj 350 307 ofCircle;
+#X msg 227 276 orienLock FREE;
+#X msg 229 249 orienLock SOFT;
 #X connect 0 0 6 0;
 #X connect 0 1 4 0;
 #X connect 2 0 9 0;
@@ -22,3 +31,10 @@ the mouse to clear the stored lines.;
 #X connect 6 0 7 0;
 #X connect 6 1 5 0;
 #X connect 7 0 8 0;
+#X connect 12 0 1 0;
+#X connect 13 0 14 0;
+#X connect 15 0 1 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 1 0;
+#X connect 20 0 1 0;

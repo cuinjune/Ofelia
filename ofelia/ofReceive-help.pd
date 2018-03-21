@@ -1,18 +1,18 @@
-#N canvas 321 23 599 517 10;
+#N canvas 321 23 599 526 10;
 #X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofReceive 3 12 0 18 -204280 -1
 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 0 377 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+#X obj 0 384 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 0 462 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+#X obj 0 469 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
 0;
-#X obj 0 413 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+#X obj 0 420 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
-#X floatatom 155 149 5 0 0 0 - - -, f 5;
+#X floatatom 75 149 5 0 0 0 - - -, f 5;
 #X text 523 5 or;
-#X floatatom 155 261 10 0 0 0 - - -, f 10;
+#X floatatom 75 261 10 0 0 0 - - -, f 10;
 #N canvas 321 123 558 681 about_variable 0;
 #X obj 47 279 ofSend @foo;
 #X floatatom 47 253 5 0 0 0 - - -, f 5;
@@ -87,27 +87,36 @@ based variable names in a message box.;
 #X connect 33 1 34 0;
 #X connect 34 0 35 1;
 #X restore 474 66 pd about_variable;
-#X obj 155 174 ofSend @myVar;
-#X obj 155 234 ofReceive @myVar;
-#X floatatom 335 139 5 0 0 0 - - -, f 5;
-#X obj 335 204 ofSend;
-#X msg 368 178 symbol #myVar;
-#X obj 335 158 t f b;
-#X floatatom 335 261 10 0 0 0 - - -, f 10;
-#X obj 335 234 ofReceive #myVar;
-#X text 72 435 1) symbol;
-#X text 211 435 - sets the send/receive name.;
+#X obj 75 174 ofSend @myVar;
+#X obj 75 234 ofReceive @myVar;
+#X floatatom 235 139 5 0 0 0 - - -, f 5;
+#X obj 235 204 ofSend;
+#X msg 268 178 symbol #myVar;
+#X obj 235 158 t f b;
+#X floatatom 235 261 10 0 0 0 - - -, f 10;
+#X obj 235 234 ofReceive #myVar;
+#X text 72 442 1) symbol;
 #X text 11 23 receive messages without patch cords;
 #X obj 462 5 ofReceive;
 #X obj 541 5 ofRcv;
-#X text 21 43 [ofReceive] works just like [receive] object but can
-be used with local variable name prefixes.;
-#X obj 75 385 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+#X obj 75 392 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
 ;
-#X text 72 349 (none);
-#X text 95 385 anything;
-#X text 211 385 - the received message.;
+#X text 95 392 anything;
+#X text 211 392 - the received message.;
 #X obj 462 46 declare -lib ofelia;
+#X obj 385 234 ofReceive;
+#X msg 385 178 symbol @myVar;
+#X msg 405 199 symbol #myVar;
+#X floatatom 385 261 10 0 0 0 - - -, f 10;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 349 symbol;
+#X text 211 349 - if [ofReceive] is created without an argument \,
+the first inlet can be used to change the receive name.;
+#X text 21 43 [ofReceive] works just like [receive] object but can
+be used with local variable name prefixes. also \, the receive name
+can be changed dynamically.;
+#X text 211 442 - sets the receive name.;
 #X connect 5 0 9 0;
 #X connect 10 0 7 0;
 #X connect 11 0 14 0;
@@ -115,3 +124,6 @@ be used with local variable name prefixes.;
 #X connect 14 0 12 0;
 #X connect 14 1 13 0;
 #X connect 16 0 15 0;
+#X connect 25 0 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 25 0;

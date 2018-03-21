@@ -1,0 +1,62 @@
+#N canvas 321 23 597 556 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetTranslate 3 12 0 18 -204280
+-1 0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 417 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 425 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 501 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 453 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 389 render bang;
+#X text 211 389 - the incoming render bang.;
+#X obj 23 358 ofWindow 320 240 LEFT TOP;
+#X obj 462 46 declare -lib ofelia;
+#X obj 402 5 ofGetTranslate;
+#X text 493 5 or;
+#X obj 511 5 ofGetTrans;
+#X text 11 23 get the current translate information;
+#X obj 244 105 loadbang;
+#X floatatom 252 191 5 0 0 0 - - -, f 5;
+#X floatatom 293 191 5 0 0 0 - - -, f 5;
+#X floatatom 334 191 5 0 0 0 - - -, f 5;
+#X text 376 190 change x \, y \, z.;
+#X obj 244 126 ofGetLastRenderOrder;
+#X obj 211 147 ofHead;
+#X obj 211 168 ofClear 63;
+#X obj 211 211 ofTranslate 160 120 0;
+#X obj 211 233 ofSetColor red;
+#X obj 211 254 ofCircle 50;
+#X obj 211 275 ofGetTranslate;
+#X obj 211 296 unpack f f f;
+#X floatatom 211 317 5 0 0 0 - - -, f 5;
+#X floatatom 248 317 5 0 0 0 - - -, f 5;
+#X floatatom 285 317 5 0 0 0 - - -, f 5;
+#X text 308 276 get the current translate information.;
+#X text 95 425 list <f \, f \, f>;
+#X text 21 43 [ofGetTranslate] allows one to get the current translate
+information in the middle of a rendering chain.;
+#X text 211 425 - the current translate x \, y \, z coordinate.;
+#X text 72 476 (none);
+#X text 211 349 note: [ofGetTranslate] currently does not work correctly
+if using non-default orientation on mobile device.;
+#X connect 15 0 20 0;
+#X connect 16 0 23 1;
+#X connect 17 0 23 2;
+#X connect 18 0 23 3;
+#X connect 20 0 21 1;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 27 1 29 0;
+#X connect 27 2 30 0;

@@ -12,9 +12,7 @@
 0;
 #X obj 0 446 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
-#X floatatom 155 149 5 0 0 0 - - -, f 5;
 #X text 523 5 or;
-#X floatatom 155 261 10 0 0 0 - - -, f 10;
 #N canvas 321 124 558 681 about_variable 0;
 #X obj 47 279 ofSend @foo;
 #X floatatom 47 253 5 0 0 0 - - -, f 5;
@@ -94,29 +92,38 @@ based variable names in a message box.;
 #X text 11 23 send messages without patch cords;
 #X text 21 43 [ofSend] works just like [send] object but can be used
 with local variable name prefixes.;
-#X obj 155 174 ofSend @myVar;
-#X obj 155 234 ofReceive @myVar;
 #X text 95 349 anything;
-#X floatatom 335 139 5 0 0 0 - - -, f 5;
-#X obj 335 204 ofSend;
-#X msg 368 178 symbol #myVar;
-#X obj 335 158 t f b;
-#X floatatom 335 261 10 0 0 0 - - -, f 10;
-#X obj 335 234 ofReceive #myVar;
 #X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
 ;
 #X text 72 468 1) symbol;
-#X text 211 468 - sets the send/receive name.;
 #X text 95 372 symbol;
-#X text 211 372 - if [ofSend] is created without an argument \, the
-right inlet can be used to change the send/receive name.;
 #X text 72 418 (none);
 #X text 211 349 - the message to send.;
 #X obj 462 46 declare -lib ofelia;
-#X connect 6 0 14 0;
-#X connect 15 0 8 0;
-#X connect 17 0 20 0;
-#X connect 19 0 18 1;
-#X connect 20 0 18 0;
-#X connect 20 1 19 0;
-#X connect 22 0 21 0;
+#X floatatom 75 149 5 0 0 0 - - -, f 5;
+#X floatatom 75 261 10 0 0 0 - - -, f 10;
+#X obj 75 174 ofSend @myVar;
+#X obj 75 234 ofReceive @myVar;
+#X floatatom 235 139 5 0 0 0 - - -, f 5;
+#X obj 235 204 ofSend;
+#X msg 268 178 symbol #myVar;
+#X obj 235 158 t f b;
+#X floatatom 235 261 10 0 0 0 - - -, f 10;
+#X obj 235 234 ofReceive #myVar;
+#X obj 385 234 ofReceive;
+#X msg 385 178 symbol @myVar;
+#X msg 405 199 symbol #myVar;
+#X floatatom 385 261 10 0 0 0 - - -, f 10;
+#X text 211 372 - if [ofSend] is created without an argument \, the
+right inlet can be used to change the send name.;
+#X text 211 468 - sets the send name.;
+#X connect 19 0 21 0;
+#X connect 22 0 20 0;
+#X connect 23 0 26 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 0;
+#X connect 26 1 25 0;
+#X connect 28 0 27 0;
+#X connect 29 0 32 0;
+#X connect 30 0 29 0;
+#X connect 31 0 29 0;

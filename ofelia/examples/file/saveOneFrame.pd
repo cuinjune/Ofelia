@@ -32,6 +32,9 @@ screen.;
 #X obj 27 97 ofWindow 300 300 LEFT TOP 1 204;
 #X obj 27 543 ofSetLineWidth 1.5;
 #X obj 432 29 declare -lib ofelia;
+#X text 177 259 note: when you take a screenshot using grabScreen \,
+the grabbed image can have larger pixels than the specified window
+dimensions if your hardware supports retina.;
 #X connect 0 0 24 0;
 #X connect 1 0 11 0;
 #X connect 1 1 3 0;
