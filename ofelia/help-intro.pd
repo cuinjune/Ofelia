@@ -8,7 +8,6 @@
 ;
 #N canvas 519 75 650 643 getters 0;
 #X obj 26 99 ofGetDimen;
-#X obj 26 119 ofGetScale;
 #X obj 26 159 ofGetFrameRate;
 #X obj 26 179 ofGetTargetFrameRate;
 #X obj 26 199 ofGetElapsedTime;
@@ -17,7 +16,6 @@
 #X obj 26 259 ofGetOrien;
 #X obj 26 279 ofGetFullscreen;
 #X obj 26 299 ofGetFocus;
-#X obj 26 359 ofGetPos;
 #X obj 26 419 ofGetScreenDimen;
 #X obj 26 439 ofGetRetina;
 #X obj 26 519 ofGetBgColor;
@@ -26,8 +24,6 @@
 #X obj 26 579 ofGetLastRenderOrder;
 #X obj 26 59 ofGetWidth;
 #X obj 26 79 ofGetHeight;
-#X obj 26 319 ofGetPosX;
-#X obj 26 339 ofGetPosY;
 #X obj 26 379 ofGetScreenWidth;
 #X obj 26 399 ofGetScreenHeight;
 #X obj 26 459 ofGetBgColorR;
@@ -66,6 +62,10 @@
 #X text 224 579 - get the last rendering order;
 #X text 24 30 ------------------------- GETTERS -------------------------
 ;
+#X obj 26 319 ofGetWindowPosX;
+#X obj 26 339 ofGetWindowPosY;
+#X obj 26 359 ofGetWindowPos;
+#X obj 26 119 ofGetWindowScale;
 #X restore 26 109 pd getters;
 #N canvas 519 75 650 397 listeners 0;
 #X obj 26 59 ofTouchListener;
@@ -73,11 +73,9 @@
 #X obj 26 99 ofScrollListener;
 #X obj 26 119 ofKeyListener;
 #X obj 26 139 ofAccelListener;
-#X obj 26 159 ofScaleListener;
 #X obj 26 179 ofOrienListener;
 #X obj 26 199 ofFullscreenListener;
 #X obj 26 219 ofFocusListener;
-#X obj 26 239 ofPosListener;
 #X obj 26 259 ofWindowListener;
 #X obj 26 319 ofBackListener;
 #X obj 26 279 ofWindowLoadBang;
@@ -104,10 +102,12 @@ window;
 ;
 #X text 24 30 ------------------------ LISTENERS ------------------------
 ;
+#X obj 26 159 ofWindowScaleListener;
+#X obj 26 239 ofWindowPosListener;
 #X restore 26 129 pd listeners;
 #X text 24 160 ------------------------- GRAPHICS -------------------------
 ;
-#N canvas 519 75 650 294 matrix 0;
+#N canvas 519 75 650 358 matrix 0;
 #X obj 26 199 ofPushMatrix;
 #X obj 26 219 ofPopMatrix;
 #X obj 26 59 ofTranslate;
@@ -132,6 +132,12 @@ window;
 #X text 224 159 - produce a rotation of angle around the vector;
 #X text 24 30 -------------------------- MATRIX --------------------------
 ;
+#X obj 26 239 ofGetTranslate;
+#X text 224 239 - get the current translate information;
+#X obj 26 259 ofGetRotate;
+#X obj 26 279 ofGetScale;
+#X text 224 259 - get the current rotate information;
+#X text 224 279 - get the current scale information;
 #X restore 26 209 pd matrix;
 #N canvas 519 75 650 368 style 0;
 #X obj 26 279 ofPushStyle;
@@ -409,7 +415,7 @@ shape;
 #X text 224 539 - get the size of the perimeter of the path2d;
 #X text 224 559 - get the size of the perimeter of the path3d;
 #X restore 26 349 pd path;
-#N canvas 519 75 650 259 fbo 0;
+#N canvas 519 75 650 273 fbo 0;
 #X text 24 30 --------------------------- FBO ---------------------------
 ;
 #X obj 26 79 ofBindFboTex;
@@ -426,6 +432,8 @@ shape;
 #X text 224 139 - check if the fbo is allocated or not;
 #X text 224 159 - get the dimensions of the fbo;
 #X text 224 179 - get the type of the fbo;
+#X obj 26 199 ofGetFboMaxSamples;
+#X text 224 199 - get the maximum number of MSAA samples;
 #X restore 26 369 pd fbo;
 #N canvas 519 75 650 412 image 0;
 #X text 24 30 -------------------------- IMAGE --------------------------
@@ -1019,7 +1027,7 @@ size;
 #X text 24 30 ------------------------- FILTERS -------------------------
 ;
 #X restore 26 1009 pd filters;
-#N canvas 519 75 650 138 window 0;
+#N canvas 519 75 650 161 window 0;
 #X text 24 30 ------------------------- WINDOW -------------------------
 ;
 #X obj 26 79 ofWindow;

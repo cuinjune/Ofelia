@@ -1,7 +1,7 @@
 #N canvas 321 23 599 516 10;
 #X declare -lib ofelia;
-#X obj 0 0 cnv 15 580 40 empty empty ofGetPos 3 12 0 18 -204280 -1
-0;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetWindowPos 3 12 0 18 -204280
+-1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
 ;
 #X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
@@ -25,18 +25,18 @@
 #X obj 50 243 unpack f f;
 #X floatatom 50 267 5 0 0 0 - - -, f 5;
 #X floatatom 107 267 5 0 0 0 - - -, f 5;
-#X floatatom 347 267 5 0 0 0 - - -, f 5;
-#X obj 50 219 ofGetPos;
+#X floatatom 383 267 5 0 0 0 - - -, f 5;
+#X obj 50 219 ofGetWindowPos;
+#X obj 290 219 ofExpr \; ofGetWindowPosX \; ofGetWindowPosY \;;
 #X text 34 31 you can also get the value using the global variable
-names "ofGetPosX" and "ofGetPosY".;
-#X obj 290 219 ofExpr \; ofGetPosX \; ofGetPosY \;;
+names "ofGetWindowPosX" and "ofGetWindowPosY".;
 #X connect 0 0 6 0;
-#X connect 0 0 8 0;
+#X connect 0 0 7 0;
 #X connect 2 0 3 0;
 #X connect 2 1 4 0;
 #X connect 6 0 2 0;
-#X connect 8 0 1 0;
-#X connect 8 1 5 0;
+#X connect 7 0 1 0;
+#X connect 7 1 5 0;
 #X restore 480 66 pd more_examples;
 #X text 95 383 list <f \, f>;
 #X obj 265 203 unpack f f;
@@ -44,12 +44,12 @@ names "ofGetPosX" and "ofGetPosY".;
 #X floatatom 322 235 5 0 0 0 - - -, f 5;
 #X text 11 23 get the position of the current window;
 #X text 211 383 - the position of the current window.;
-#X obj 523 5 ofGetPos;
-#X obj 265 170 ofGetPos;
 #X obj 23 318 ofWindow 320 240 LEFT TOP;
 #X text 211 349 - gets the position of the current window.;
 #X obj 462 46 declare -lib ofelia;
-#X connect 7 0 18 0;
+#X obj 265 170 ofGetWindowPos;
+#X obj 487 5 ofGetWindowPos;
+#X connect 7 0 20 0;
 #X connect 12 0 13 0;
 #X connect 12 1 14 0;
-#X connect 18 0 12 0;
+#X connect 20 0 12 0;

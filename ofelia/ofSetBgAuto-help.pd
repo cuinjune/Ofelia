@@ -18,17 +18,17 @@
 #X text 211 439 - the incoming render bang.;
 #X obj 75 462 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
 ;
-#X obj 286 176 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 286 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 95 498 render bang;
 #X text 211 498 - the outgoing render bang.;
-#X obj 238 117 loadbang;
-#X obj 238 138 ofGetLastRenderOrder;
-#X obj 205 159 ofHead;
+#X obj 238 107 loadbang;
+#X obj 238 128 ofGetLastRenderOrder;
+#X obj 205 149 ofHead;
 #X obj 23 408 ofWindow 320 240 LEFT TOP;
 #X text 95 462 float/symbol;
 #X text 72 549 1) float/symbol;
-#X text 308 175 0: OFF \, 1: ON.;
+#X text 308 165 0: OFF \, 1: ON.;
 #X obj 505 5 ofSetBgAuto;
 #X text 11 23 enable/disable the auto background clearing function
 ;
@@ -40,17 +40,18 @@ is called.;
 ;
 #X text 211 549 - enables/disables the auto background clearing function.
 (default: ON);
-#X obj 205 218 ofTranslate 160 120;
-#X obj 205 328 ofCircle 10;
-#X obj 205 306 ofTranslate 100 0;
-#X obj 205 284 ofRotateZ;
-#X obj 205 240 t b b, f 9;
-#X obj 256 262 ofExpr ofGetFrameNum * 0.5;
-#X obj 205 196 ofSetBgAuto ON;
-#X text 23 358 note: changing the fullscreen mode will clear the background
-once even when the background clearing function is disabled. you can
-use [ofCreateFbo] and [ofDrawFbo] instead.;
+#X obj 205 208 ofTranslate 160 120;
+#X obj 205 318 ofCircle 10;
+#X obj 205 296 ofTranslate 100 0;
+#X obj 205 274 ofRotateZ;
+#X obj 205 230 t b b, f 9;
+#X obj 256 252 ofExpr ofGetFrameNum * 0.5;
+#X obj 205 186 ofSetBgAuto ON;
 #X obj 462 46 declare -lib ofelia;
+#X text 23 350 note: changing the window scale \, fullscreen mode or
+dimensions will clear the background once even when the background
+clearing function is disabled. if you don't like this \, you can use
+[ofCreateFbo] and [ofDrawFbo] instead.;
 #X connect 10 0 31 1;
 #X connect 13 0 14 0;
 #X connect 14 0 15 1;

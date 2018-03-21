@@ -99,7 +99,7 @@ value will have no effect on the application.;
 #X text 23 348 3) use the hotkey Cmd/Ctrl + '-' or Cmd/Ctrl + '+' to
 decrease or increase the scale value by 0.1.;
 #X text 23 308 2) resize the window using your mouse. (currently works
-on macOS only);
+on macOS and Windows);
 #X restore 280 216 pd more_about_scale;
 #X obj 38 266 ofPack bgColor 200 200 200;
 #X text 206 266 set the background color.;

@@ -1,7 +1,7 @@
-#N canvas 321 23 599 517 10;
+#N canvas 321 23 599 516 10;
 #X declare -lib ofelia;
-#X obj 0 0 cnv 15 580 40 empty empty ofGetPosX 3 12 0 18 -204280 -1
-0;
+#X obj 0 0 cnv 15 580 40 empty empty ofGetWindowPosY 3 12 0 18 -204280
+-1 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
 ;
 #X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
@@ -20,17 +20,17 @@
 #X text 72 434 (none);
 #X floatatom 265 212 5 0 0 0 - - -, f 5;
 #X text 95 383 float;
-#N canvas 323 115 525 355 more_examples 0;
+#N canvas 321 115 556 323 more_examples 0;
 #X floatatom 40 241 5 0 0 0 - - -, f 5;
 #X obj 180 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 180 241 5 0 0 0 - - -, f 5;
-#X floatatom 360 241 5 0 0 0 - - -, f 5;
-#X obj 40 219 ofGetPosX;
+#X floatatom 370 241 5 0 0 0 - - -, f 5;
+#X obj 40 219 ofGetWindowPosY;
 #X text 54 31 you can also get the value using the global variable
-name "ofGetPosX".;
-#X obj 180 219 ofValue ofGetPosX;
-#X obj 360 219 ofExpr ofGetPosX;
+name "ofGetWindowPosY".;
+#X obj 180 219 ofValue ofGetWindowPosY;
+#X obj 370 219 ofExpr ofGetWindowPosY;
 #X connect 1 0 4 0;
 #X connect 1 0 6 0;
 #X connect 1 0 7 0;
@@ -38,12 +38,12 @@ name "ofGetPosX".;
 #X connect 6 0 2 0;
 #X connect 7 0 3 0;
 #X restore 480 66 pd more_examples;
-#X text 11 23 get the x position of the current window;
-#X text 211 383 - the x position of the the current window.;
+#X text 11 23 get the y position of the current window;
+#X text 211 383 - the y position of the the current window.;
 #X obj 23 318 ofWindow 320 240 LEFT TOP;
-#X obj 517 5 ofGetPosX;
-#X obj 265 180 ofGetPosX;
-#X text 211 349 - gets the x position of the current window.;
+#X text 211 349 - gets the y position of the current window.;
 #X obj 462 46 declare -lib ofelia;
-#X connect 7 0 17 0;
-#X connect 17 0 10 0;
+#X obj 481 5 ofGetWindowPosY;
+#X obj 265 180 ofGetWindowPosY;
+#X connect 7 0 19 0;
+#X connect 19 0 10 0;

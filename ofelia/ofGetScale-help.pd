@@ -1,59 +1,60 @@
-#N canvas 321 23 599 515 10;
+#N canvas 321 23 597 556 10;
 #X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofGetScale 3 12 0 18 -204280 -1
 0;
-#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+#X obj 0 417 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
 ;
-#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+#X obj 75 425 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
 ;
-#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+#X obj 0 501 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
 0;
-#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+#X obj 0 453 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
-#X obj 265 149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 95 349 bang;
-#X text 72 434 (none);
-#X floatatom 265 212 5 0 0 0 - - -, f 5;
-#X text 95 383 float;
-#N canvas 322 115 592 504 more_examples 0;
-#X floatatom 100 241 5 0 0 0 - - -, f 5;
-#X obj 240 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 240 241 5 0 0 0 - - -, f 5;
-#X floatatom 420 241 5 0 0 0 - - -, f 5;
-#X floatatom 117 390 5 0 0 0 - - -, f 5;
-#X floatatom 348 390 5 0 0 0 - - -, f 5;
-#X obj 117 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 141 319 get the actual window dimensions in pixels;
-#X text 54 31 you can also get the value using the global variable
-name "ofGetScale".;
-#X obj 100 219 ofGetScale;
-#X obj 240 219 ofValue ofGetScale;
-#X obj 420 219 ofExpr ofGetScale;
-#X obj 117 342 ofExpr \; ofGetWidth * ofGetScale * ofGetRetina \; ofGetHeight
-* ofGetScale * ofGetRetina \;;
-#X connect 1 0 9 0;
-#X connect 1 0 10 0;
-#X connect 1 0 11 0;
-#X connect 6 0 12 0;
-#X connect 9 0 0 0;
-#X connect 10 0 2 0;
-#X connect 11 0 3 0;
-#X connect 12 0 4 0;
-#X connect 12 1 5 0;
-#X restore 480 66 pd more_examples;
-#X text 11 23 get the scale of the current window;
-#X text 211 383 - the scale of the the current window.;
-#X obj 511 5 ofGetScale;
-#X obj 265 180 ofGetScale;
-#X obj 23 318 ofWindow 320 240 LEFT TOP;
-#X text 211 349 - gets the scale of the current window.;
+#X text 95 389 render bang;
+#X text 211 389 - the incoming render bang.;
+#X obj 23 358 ofWindow 320 240 LEFT TOP;
 #X obj 462 46 declare -lib ofelia;
-#X connect 7 0 16 0;
-#X connect 16 0 10 0;
+#X text 95 425 list <f \, f \, f>;
+#X text 72 476 (none);
+#X obj 511 5 ofGetScale;
+#X text 21 43 [ofGetScale] allows one to get the current scale information
+in the middle of a rendering chain.;
+#X obj 228 94 loadbang;
+#X floatatom 224 199 5 0 0 0 - - -, f 5;
+#X floatatom 261 199 5 0 0 0 - - -, f 5;
+#X floatatom 298 199 5 0 0 0 - - -, f 5;
+#X obj 228 115 ofGetLastRenderOrder;
+#X obj 195 136 ofHead;
+#X obj 195 157 ofClear 63;
+#X obj 195 178 ofTranslate 160 120;
+#X obj 195 220 ofScale 1.2 1 1;
+#X obj 195 241 ofCircle 50;
+#X obj 195 262 ofGetScale;
+#X obj 195 283 unpack f f f;
+#X floatatom 195 304 5 0 0 0 - - -, f 5;
+#X floatatom 232 304 5 0 0 0 - - -, f 5;
+#X floatatom 269 304 5 0 0 0 - - -, f 5;
+#X text 211 349 note: [ofGetScale] currently does not work correctly
+if using non-default orientation on mobile device.;
+#X text 211 425 - the current scale amount along the x \, y \, z axis.
+;
+#X text 11 23 get the current scale information;
+#X text 335 199 set scale amount along the x y z axis.;
+#X connect 15 0 19 0;
+#X connect 16 0 23 1;
+#X connect 17 0 23 2;
+#X connect 18 0 23 3;
+#X connect 19 0 20 1;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 26 1 28 0;
+#X connect 26 2 29 0;

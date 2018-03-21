@@ -1,3 +1,13 @@
+v1.0.6: 20 Mar 2018
+
+* [ofCreateFbo] auto MSAA scaling is disabled
+* fixed bug for mesh editor objects
+* [ofReceive], [ofValue] can change name dynamically
+* float inlet removed for [ofGetCanvasName], [ofGetDollarZero], [ofGetDollarArgs]
+* [ofGetPos], [ofGetScale] are renamed to [ofGetWindowPos], [ofGetWindowScale]
+* [ofGetTranslate], [ofGetRotate], [ofGetScale] are added
+* [pdgui] abstractions are added to the "examples/gui" directory
+
 v1.0.5: 2 Mar 2018
 
 * added declare for all help files and examples
