@@ -95,7 +95,7 @@ f 18;
 #X obj 364 469 ofExpr rint($i1 * 10000) / 10000;
 #X obj 545 79 1;
 #X obj 545 100 ofSnd @step;
-#X obj 41 58 _argparse6 \$0 width height fontName step minVal maxVal
+#X obj 41 58 _argParse6 \$0 width height fontName step minVal maxVal
 ;
 #X obj 545 121 ofGetMinFloat;
 #X obj 545 142 ofSnd @minVal;
