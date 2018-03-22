@@ -25,7 +25,7 @@ The library includes the following features:
 
 * GUI abstractions (toggle, slider..)
 
-* Various data types (ofVec3f, ofColor..)
+* Various data types to effectively store and handle data (ofVec3f, ofColor..)
 
 * Various math and utility objects to speed up development (ofExpr, ofCount..)
 
