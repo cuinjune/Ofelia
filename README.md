@@ -5,7 +5,7 @@
 
 **ofelia** is a [Pure Data](https://puredata.info/)(aka Pd) external library written with [openFrameworks](http://openframeworks.cc/) for creating cross-platform multimedia applications.<br />
 
-The library consists of over [400 objects](doc/objectList.pdf) covering most features of [openFrameworks core API](http://openframeworks.cc/documentation/), designed to ease the development of multimedia applications such as visual arts, musical apps and interactive games.
+The library consists of over [400 objects](https://github.com/cuinjune/ofxOfelia/raw/master/doc/objectList.pdf) covering most features of [openFrameworks core API](http://openframeworks.cc/documentation/), designed to ease the development of multimedia applications such as visual arts, musical apps and interactive games.
 
 And thanks to the real-time nature of Pure Data, one can make changes and see the result immediately without having to compile.
 
