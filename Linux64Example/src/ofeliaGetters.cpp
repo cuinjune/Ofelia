@@ -34,7 +34,9 @@ t_symbol *t_ofeliaGetFrameNum::getFrameNumSym;
 t_symbol *t_ofeliaGetFrameRate::getFrameRateSym;
 t_symbol *t_ofeliaGetTargetFrameRate::getTargetFrameRateSym;
 t_symbol *t_ofeliaGetElapsedTime::getElapsedTimeSym;
+t_symbol *t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym;
 t_symbol *t_ofeliaGetLastFrameTime::getLastFrameTimeSym;
+t_symbol *t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym;
 t_symbol *t_ofeliaGetOrienLock::getOrienLockSym;
 t_symbol *t_ofeliaGetOrien::getOrienSym;
 t_symbol *t_ofeliaGetFullscreen::getFullscreenSym;
@@ -301,6 +303,60 @@ void ofeliaGetLastFrameTime_setup()
                                              0, sizeof(t_ofeliaGetLastFrameTime),
                                              CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaGetLastFrameTime_class, reinterpret_cast<t_method>(ofeliaGetLastFrameTime_bang));
+}
+
+/* ________________________________________________________________________________
+ * ofGetElapsedTimeMillis object methods
+ */
+void *ofeliaGetElapsedTimeMillis_new()
+{
+    t_ofeliaGetElapsedTimeMillis *x = reinterpret_cast<t_ofeliaGetElapsedTimeMillis*>(pd_new(ofeliaGetElapsedTimeMillis_class));
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetElapsedTimeMillis_bang(t_ofeliaGetElapsedTimeMillis *x)
+{
+    t_float f;
+    
+    if (!value_getfloat(t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym, &f))
+        outlet_float(x->x_obj.ob_outlet, f);
+}
+
+void ofeliaGetElapsedTimeMillis_setup()
+{
+    ofeliaGetElapsedTimeMillis_class = class_new(gensym("ofGetElapsedTimeMillis"),
+                                                 reinterpret_cast<t_newmethod>(ofeliaGetElapsedTimeMillis_new),
+                                                 0, sizeof(t_ofeliaGetElapsedTimeMillis),
+                                                 CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaGetElapsedTimeMillis_class, reinterpret_cast<t_method>(ofeliaGetElapsedTimeMillis_bang));
+}
+
+/* ________________________________________________________________________________
+ * ofGetLastFrameTimeMillis object methods
+ */
+void *ofeliaGetLastFrameTimeMillis_new()
+{
+    t_ofeliaGetLastFrameTimeMillis *x = reinterpret_cast<t_ofeliaGetLastFrameTimeMillis*>(pd_new(ofeliaGetLastFrameTimeMillis_class));
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetLastFrameTimeMillis_bang(t_ofeliaGetLastFrameTimeMillis *x)
+{
+    t_float f;
+    
+    if (!value_getfloat(t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym, &f))
+        outlet_float(x->x_obj.ob_outlet, f);
+}
+
+void ofeliaGetLastFrameTimeMillis_setup()
+{
+    ofeliaGetLastFrameTimeMillis_class = class_new(gensym("ofGetLastFrameTimeMillis"),
+                                                   reinterpret_cast<t_newmethod>(ofeliaGetLastFrameTimeMillis_new),
+                                                   0, sizeof(t_ofeliaGetLastFrameTimeMillis),
+                                                   CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaGetLastFrameTimeMillis_class, reinterpret_cast<t_method>(ofeliaGetLastFrameTimeMillis_bang));
 }
 
 /* ________________________________________________________________________________
@@ -833,7 +889,9 @@ void ofeliaGetters_setup()
     t_ofeliaGetFrameRate::getFrameRateSym = gensym("ofGetFrameRate");
     t_ofeliaGetTargetFrameRate::getTargetFrameRateSym = gensym("ofGetTargetFrameRate");
     t_ofeliaGetElapsedTime::getElapsedTimeSym = gensym("ofGetElapsedTime");
+    t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym = gensym("ofGetElapsedTimeMillis");
     t_ofeliaGetLastFrameTime::getLastFrameTimeSym = gensym("ofGetLastFrameTime");
+    t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym = gensym("ofGetLastFrameTimeMillis");
     t_ofeliaGetOrienLock::getOrienLockSym = gensym("ofGetOrienLock");
     t_ofeliaGetOrien::getOrienSym = gensym("ofGetOrien");
     t_ofeliaGetFullscreen::getFullscreenSym = gensym("ofGetFullscreen");
@@ -858,7 +916,9 @@ void ofeliaGetters_setup()
     ofeliaGetFrameRate_setup();
     ofeliaGetTargetFrameRate_setup();
     ofeliaGetElapsedTime_setup();
+    ofeliaGetElapsedTimeMillis_setup();
     ofeliaGetLastFrameTime_setup();
+    ofeliaGetLastFrameTimeMillis_setup();
     ofeliaGetOrienLock_setup();
     ofeliaGetOrien_setup();
     ofeliaGetFullscreen_setup();

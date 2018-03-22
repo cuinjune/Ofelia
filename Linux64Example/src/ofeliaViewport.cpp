@@ -87,17 +87,7 @@ bool getViewportElemFromArgs(const int argc, const t_atom *argv, t_ofeliaViewpor
                 elem.y = argv[1].a_w.w_float;
                 elem.width = argv[2].a_w.w_float;
                 elem.height = argv[3].a_w.w_float;
-                const char *VFlip = argv[4].a_w.w_symbol->s_name;
-                
-                if (!strcmp(VFlip, "OFF"))
-                    elem.VFlip = false;
-                else if (!strcmp(VFlip, "ON"))
-                    elem.VFlip = true;
-                else {
-                    
-                    error("%s: no method for '%s'", t_ofeliaViewport::objName, VFlip);
-                    return 0;
-                }
+                getToggleFromSym(argv[4].a_w.w_symbol, elem.VFlip, t_ofeliaViewport::objName);
             }
             else {
                 

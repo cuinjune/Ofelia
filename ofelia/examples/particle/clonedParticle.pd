@@ -60,7 +60,7 @@
 #X obj 72 909 ofExpr \; $i1 * 0.04 \; $i2 * 0.04 \;, f 19;
 #X obj 25 1399 ofCircle;
 #X obj 72 778 ofExpr \; $o1 = @uniqueVal \; $o2 = $i2 * 0.01 \; $o3
-= ofGetElapsedTime * 0.0002 \; $o4 = $o1 \; $o5 = $i1 * 0.01 \; $o6
+= ofGetElapsedTime * 0.2 \; $o4 = $o1 \; $o5 = $i1 * 0.01 \; $o6
 = $o3 \;;
 #X obj 80 602 ofGetVec2fLength @frc;
 #X obj 53 580 t b b;

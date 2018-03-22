@@ -1,48 +1,44 @@
-#N canvas 641 23 673 618 10;
+#N canvas 641 23 673 572 10;
 #X declare -lib ofelia;
 #X obj 27 233 ofHead;
 #X obj 27 174 ofMouseListener;
-#X obj 79 325 ofMap 0 0 0 175;
 #X text 25 23 use [ofMap] object to take any number and scale it to
 a new number that is more useful for the project that you are working
 on. for example \, use the numbers from the mouse position to control
 the size or color of a shape. in this example \, the mouse’s x-coordinate
 are scaled to new numbers to define the color and size of a circle.
 ;
-#X obj 27 422 ofSetColor 255 0 0;
-#X obj 27 444 t b b;
-#X obj 27 514 ofTranslate;
-#X obj 27 536 ofCircle;
+#X obj 27 367 ofSetColor 255 0 0;
+#X obj 27 389 t b b;
+#X obj 27 459 ofTranslate;
+#X obj 27 481 ofCircle;
 #X obj 27 137 ofSetCircleRes 100;
-#X obj 99 373 ofMap 0 0 20 150;
-#X text 327 559 This example was originally written in Processing.
+#X text 327 502 This example was originally written in Processing.
 https://processing.org/examples/map.html;
-#X text 183 325 note: [ofMap] does not clamp the values. you need to
-use [ofClamp] to limit the values within a range.;
-#X obj 79 347 ofClamp 0 175;
-#X obj 99 395 ofClamp 20 150;
 #X obj 70 196 ofDefine @mouseX = $i2;
 #X obj 27 255 t b b, f 9;
 #X obj 79 277 ofExpr \; @mouseX \; ofGetWidth \;;
-#X obj 54 466 ofExpr \; ofGetWidth * 0.5 \; ofGetHeight * 0.5 \;;
+#X obj 54 411 ofExpr \; ofGetWidth * 0.5 \; ofGetHeight * 0.5 \;;
 #X obj 27 115 ofWindow 640 400 LEFT TOP 1 0;
 #X obj 525 29 declare -lib ofelia;
-#X connect 0 0 15 0;
-#X connect 1 1 14 0;
-#X connect 2 0 12 0;
+#X obj 79 325 ofMap 0 0 0 175 ON;
+#X obj 99 346 ofMap 0 0 20 150 ON;
+#X text 200 325 the 5th argument is used to enable/disable clamping.
+;
+#X connect 0 0 10 0;
+#X connect 1 1 9 0;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
+#X connect 4 1 12 0;
 #X connect 5 0 6 0;
-#X connect 5 1 17 0;
-#X connect 6 0 7 0;
-#X connect 9 0 13 0;
-#X connect 12 0 4 2;
-#X connect 13 0 7 1;
-#X connect 15 0 4 0;
-#X connect 15 1 16 0;
-#X connect 16 0 2 0;
-#X connect 16 0 9 0;
-#X connect 16 1 9 2;
-#X connect 16 1 2 2;
-#X connect 17 0 6 1;
-#X connect 17 1 6 2;
-#X connect 18 0 8 0;
+#X connect 10 0 3 0;
+#X connect 10 1 11 0;
+#X connect 11 0 15 0;
+#X connect 11 0 16 0;
+#X connect 11 1 15 2;
+#X connect 11 1 16 2;
+#X connect 12 0 5 1;
+#X connect 12 1 5 2;
+#X connect 13 0 7 0;
+#X connect 15 0 3 2;
+#X connect 16 0 6 1;

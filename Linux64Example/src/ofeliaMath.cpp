@@ -1248,6 +1248,7 @@ bool getMapElemFromArgs(const int argc, const t_atom *argv, t_ofeliaMapElem &ele
             elem.inputMax = 1.0f;
             elem.outputMin = 0.0f;
             elem.outputMax = 1.0f;
+            elem.clamp = false;
             break;
         }
         case 2:
@@ -1259,6 +1260,7 @@ bool getMapElemFromArgs(const int argc, const t_atom *argv, t_ofeliaMapElem &ele
                 elem.inputMax = argv[1].a_w.w_float;
                 elem.outputMin = 0.0f;
                 elem.outputMax = 1.0f;
+                elem.clamp = false;
             }
             else {
                 
@@ -1278,6 +1280,40 @@ bool getMapElemFromArgs(const int argc, const t_atom *argv, t_ofeliaMapElem &ele
                 elem.inputMax = argv[1].a_w.w_float;
                 elem.outputMin = argv[2].a_w.w_float;
                 elem.outputMax = argv[3].a_w.w_float;
+                elem.clamp = false;
+            }
+            else {
+                
+                error("%s: wrong argument type", t_ofeliaMap::objName);
+                return 0;
+            }
+            break;
+        }
+        case 5:
+        {
+            if (argv[0].a_type == A_FLOAT &&
+                argv[1].a_type == A_FLOAT &&
+                argv[2].a_type == A_FLOAT &&
+                argv[3].a_type == A_FLOAT &&
+                argv[4].a_type == A_FLOAT) {
+                
+                elem.inputMin = argv[0].a_w.w_float;
+                elem.inputMax = argv[1].a_w.w_float;
+                elem.outputMin = argv[2].a_w.w_float;
+                elem.outputMax = argv[3].a_w.w_float;
+                elem.clamp = argv[4].a_w.w_float != 0.0f;
+            }
+            else if (argv[0].a_type == A_FLOAT &&
+                     argv[1].a_type == A_FLOAT &&
+                     argv[2].a_type == A_FLOAT &&
+                     argv[3].a_type == A_FLOAT &&
+                     argv[4].a_type == A_SYMBOL) {
+                
+                elem.inputMin = argv[0].a_w.w_float;
+                elem.inputMax = argv[1].a_w.w_float;
+                elem.outputMin = argv[2].a_w.w_float;
+                elem.outputMax = argv[3].a_w.w_float;
+                getToggleFromSym(argv[4].a_w.w_symbol, elem.clamp, t_ofeliaMap::objName);
             }
             else {
                 
@@ -1315,7 +1351,7 @@ void *ofeliaMap_new(t_symbol *s, int argc, t_atom *argv)
 void ofeliaMap_float(t_ofeliaMap *x, t_floatarg f)
 {
     outlet_float(x->x_obj.ob_outlet, ofMap(f, x->elem.inputMin, x->elem.inputMax,
-                                           x->elem.outputMin, x->elem.outputMax, false));
+                                           x->elem.outputMin, x->elem.outputMax, x->elem.clamp));
 }
 
 void ofeliaMap_inputMin(t_ofeliaMap *x, t_floatarg f)
@@ -1338,6 +1374,11 @@ void ofeliaMap_outputMax(t_ofeliaMap *x, t_floatarg f)
     x->elem.outputMax = f;
 }
 
+void ofeliaMap_clamp(t_ofeliaMap *x, t_symbol *s, int argc, t_atom *argv)
+{
+    getToggleFromArgs(argc, argv, x->elem.clamp, t_ofeliaMap::objName);
+}
+
 void ofeliaMap_set(t_ofeliaMap *x, t_symbol *s, int argc, t_atom *argv)
 {
     getMapElemFromArgs(argc, argv, x->elem);
@@ -1350,6 +1391,7 @@ void ofeliaMap_print(t_ofeliaMap *x)
     post("inputMax : %g", x->elem.inputMax);
     post("outputMin : %g", x->elem.outputMin);
     post("outputMax : %g", x->elem.outputMax);
+    printToggle("clamp", x->elem.clamp);
 }
 
 void ofeliaMap_setup()
@@ -1367,6 +1409,8 @@ void ofeliaMap_setup()
                     gensym("outputMin"), A_FLOAT, 0);
     class_addmethod(ofeliaMap_class, reinterpret_cast<t_method>(ofeliaMap_outputMax),
                     gensym("outputMax"), A_FLOAT, 0);
+    class_addmethod(ofeliaMap_class, reinterpret_cast<t_method>(ofeliaMap_clamp),
+                    gensym("clamp"), A_GIMME, 0);
     class_addmethod(ofeliaMap_class, reinterpret_cast<t_method>(ofeliaMap_set),
                     gensym("set"), A_GIMME, 0);
     class_addmethod(ofeliaMap_class, reinterpret_cast<t_method>(ofeliaMap_print),

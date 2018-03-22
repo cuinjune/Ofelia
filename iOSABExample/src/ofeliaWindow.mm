@@ -1036,7 +1036,9 @@ void ofeliaWindow::bindGettersValueSymbols()
     value_get(t_ofeliaGetFrameRate::getFrameRateSym);
     value_get(t_ofeliaGetTargetFrameRate::getTargetFrameRateSym);
     value_get(t_ofeliaGetElapsedTime::getElapsedTimeSym);
+    value_get(t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym);
     value_get(t_ofeliaGetLastFrameTime::getLastFrameTimeSym);
+    value_get(t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym);
     value_get(t_ofeliaGetOrienLock::getOrienLockSym);
     value_get(t_ofeliaGetOrien::getOrienSym);
     value_get(t_ofeliaGetFullscreen::getFullscreenSym);
@@ -1061,7 +1063,9 @@ void ofeliaWindow::unbindGettersValueSymbols()
     value_release(t_ofeliaGetFrameRate::getFrameRateSym);
     value_release(t_ofeliaGetTargetFrameRate::getTargetFrameRateSym);
     value_release(t_ofeliaGetElapsedTime::getElapsedTimeSym);
+    value_release(t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym);
     value_release(t_ofeliaGetLastFrameTime::getLastFrameTimeSym);
+    value_release(t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym);
     value_release(t_ofeliaGetOrienLock::getOrienLockSym);
     value_release(t_ofeliaGetOrien::getOrienSym);
     value_release(t_ofeliaGetFullscreen::getFullscreenSym);
@@ -1411,8 +1415,12 @@ void ofeliaWindow::windowUpdate(ofEventArgs &e)
     /* values that need to be updated before each frame */
     value_setfloat(t_ofeliaGetFrameNum::getFrameNumSym, static_cast<t_float>(ofGetFrameNum()));
     value_setfloat(t_ofeliaGetFrameRate::getFrameRateSym, ofGetFrameRate());
-    value_setfloat(t_ofeliaGetElapsedTime::getElapsedTimeSym, ofGetElapsedTimef()*1000.0f);
-    value_setfloat(t_ofeliaGetLastFrameTime::getLastFrameTimeSym, static_cast<t_float>(ofGetLastFrameTime()*1000.0));
+    const float elapsedTime = ofGetElapsedTimef();
+    value_setfloat(t_ofeliaGetElapsedTime::getElapsedTimeSym, elapsedTime);
+    value_setfloat(t_ofeliaGetElapsedTimeMillis::getElapsedTimeMillisSym, elapsedTime * 1000.0f);
+    const float lastFrameTime = static_cast<float>(ofGetLastFrameTime());
+    value_setfloat(t_ofeliaGetLastFrameTime::getLastFrameTimeSym, lastFrameTime);
+    value_setfloat(t_ofeliaGetLastFrameTimeMillis::getLastFrameTimeMillisSym, lastFrameTime * 1000.0f);
     
     /* send update message to objects that listen to update */
     if (t_ofeliaWindow::updateSym->s_thing)

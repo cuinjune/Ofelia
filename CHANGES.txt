@@ -1,12 +1,15 @@
-v1.0.6: 20 Mar 2018
+v1.0.6: 23 Mar 2018
 
 * [ofCreateFbo] auto MSAA scaling is disabled
-* fixed bug for mesh editor objects
+* fixed bug for mesh editor and getter objects
 * [ofReceive], [ofValue] can change name dynamically
-* float inlet removed for [ofGetCanvasName], [ofGetDollarZero], [ofGetDollarArgs]
+* float inlet is removed from [ofGetCanvasName], [ofGetDollarZero], [ofGetDollarArgs], [ofGetPatchDirectory] as it's problematic when used in cloned abstraction
 * [ofGetPos], [ofGetScale] are renamed to [ofGetWindowPos], [ofGetWindowScale]
 * [ofGetTranslate], [ofGetRotate], [ofGetScale] are added
 * [pdgui] abstractions are added to the "examples/gui" directory
+* [ofMap] has 5th argument which enables/disables clamping
+* [ofGetElapsedTime], [ofGetLastFrameTime] returns time in seconds
+* [ofGetElapsedTimeMillis], [ofGetLastFrameTimeMillis] are added
 
 v1.0.5: 2 Mar 2018
 

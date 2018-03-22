@@ -269,6 +269,7 @@ extern "C" {
         float inputMax;
         float outputMin;
         float outputMax;
+        bool clamp;
         
     } t_ofeliaMapElem;
     
