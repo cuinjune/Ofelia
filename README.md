@@ -11,25 +11,25 @@ And thanks to the real-time nature of Pure Data, one can make changes and see th
 
 The library includes the following features:
 
-* interactive output window
+* Interactive output window
 
-* various getters and event listeners
+* Various getters and event listeners
 
 * 2d/3d shapes drawing
 
-* image and font loading
+* Image and font loading
 
-* camera, lighting, material
+* Camera, lighting, material
 
-* framebuffer object
+* Framebuffer object
 
 * GUI abstractions (toggle, slider..)
 
-* various data types (vec3f, color..)
+* Various data types (ofVec3f, ofColor..)
 
-* various utilities to speed up development (new expr, counter..)
+* Various math and utility objects to speed up development (ofExpr, ofCount..)
 
-* bandlimited oscillators and resonant filters
+* Some useful audio objects including bandlimited oscillators and resonant filters
 
 The library is currently available to be used under macOS, Linux(64bit) and Windows. It will also be available on Raspberry Pi soon.
 
