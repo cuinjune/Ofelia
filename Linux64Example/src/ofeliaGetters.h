@@ -108,6 +108,16 @@ extern "C" {
         
     } t_ofeliaGetElapsedTime;
     
+    /* ofGetElapsedTimeMillis object class */
+    static t_class *ofeliaGetElapsedTimeMillis_class;
+    
+    typedef struct _ofeliaGetElapsedTimeMillis
+    {
+        t_object x_obj;
+        static t_symbol *getElapsedTimeMillisSym;
+        
+    } t_ofeliaGetElapsedTimeMillis;
+    
     /* ofGetLastFrameTime object class */
     static t_class *ofeliaGetLastFrameTime_class;
     
@@ -117,6 +127,16 @@ extern "C" {
         static t_symbol *getLastFrameTimeSym;
         
     } t_ofeliaGetLastFrameTime;
+    
+    /* ofGetLastFrameTimeMillis object class */
+    static t_class *ofeliaGetLastFrameTimeMillis_class;
+    
+    typedef struct _ofeliaGetLastFrameTimeMillis
+    {
+        t_object x_obj;
+        static t_symbol *getLastFrameTimeMillisSym;
+        
+    } t_ofeliaGetLastFrameTimeMillis;
     
     /* ofGetOrienLock object class */
     static t_class *ofeliaGetOrienLock_class;

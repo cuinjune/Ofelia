@@ -8,7 +8,7 @@
 #X msg 107 85 diffuse 216.75 216.75 140.25 \, specular 255 255 255
 ;
 #X obj 48 206 outlet;
-#X obj 75 110 ofExpr \; ofGetWidth*0.5 + cos(ofGetElapsedTime*0.0005)
+#X obj 75 110 ofExpr \; ofGetWidth*0.5 + cos(ofGetElapsedTime*0.5)
 * ofGetWidth*0.3 \; ofGetHeight/2 \; 500 \;, f 64;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -27,8 +27,8 @@
 #X obj 107 63 ofWindowLoadBang;
 #X obj 48 206 outlet;
 #X msg 107 85 diffuse 238 57 135 \, specular 204 204 229.5;
-#X obj 75 110 ofExpr \; ofGetWidth*0.5 + cos(ofGetElapsedTime*0.00015)
-* ofGetWidth*0.3 \; ofGetHeight*0.5 + sin(ofGetElapsedTime*0.0007)
+#X obj 75 110 ofExpr \; ofGetWidth*0.5 + cos(ofGetElapsedTime*0.15)
+* ofGetWidth*0.3 \; ofGetHeight*0.5 + sin(ofGetElapsedTime*0.7)
 * ofGetHeight \; -300 \;, f 65;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -47,8 +47,8 @@
 #X obj 107 63 ofWindowLoadBang;
 #X obj 48 206 outlet;
 #X msg 107 85 diffuse 19 94 77 \, specular 18 150 135;
-#X obj 75 110 ofExpr \; cos(ofGetElapsedTime*0.0015) * ofGetWidth*0.5
-\; sin(ofGetElapsedTime*0.0015) * ofGetWidth*0.5 \; cos(ofGetElapsedTime*0.0002)
+#X obj 75 110 ofExpr \; cos(ofGetElapsedTime*1.5) * ofGetWidth*0.5
+\; sin(ofGetElapsedTime*1.5) * ofGetWidth*0.5 \; cos(ofGetElapsedTime*0.2)
 * ofGetWidth \;, f 62;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -195,8 +195,8 @@
 #X restore 125 630 pd cone;
 #X obj 31 91 ofWindow 640 400 LEFT TOP 1 20;
 #X obj 70 428 ofDefine \; @width = ofGetWidth * 0.12 \; @height = ofGetHeight
-* 0.12 \; @spinX = sin(ofGetElapsedTime * 0.00017) * 360 \; @spinY
-= cos(ofGetElapsedTime * 0.00013) * 360 \;;
+* 0.12 \; @spinX = sin(ofGetElapsedTime * 0.17) * 360 \; @spinY
+= cos(ofGetElapsedTime * 0.13) * 360 \;;
 #X obj 31 154 ofMouseListener;
 #X obj 31 176 bang;
 #X obj 31 406 t b b b;

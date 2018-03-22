@@ -28,11 +28,11 @@
 #X obj 31 117 ofWindowLoadBang;
 #X obj 184 591 ofPrepend debug;
 #X obj 31 351 ofSetDepthTest ON;
-#X obj 58 395 ofExpr \; _dist = 200 \; _deg = ofGetElapsedTime * 0.02
+#X obj 58 395 ofExpr \; _dist = 200 \; _deg = ofGetElapsedTime * 20
 % 360 \; _rad = _deg * pi() / 180 \; _cx = ofGetWidth / 2 \; _cy =
 ofGetHeight / 2 \; _bx = _cx - _dist \; $o1 = _cx \; $o2 = _cy \; $o3
 = (_bx - _cx) * cos(_rad) + _cx \; $o4 = _cy \; $o5 = (_bx - _cx) *
-sin(_rad) \; $o6 = _cx \; $o7 = _cy \; $o8 = ofGetElapsedTime / 200
+sin(_rad) \; $o6 = _cx \; $o7 = _cy \; $o8 = ofGetElapsedTimeMillis / 200
 \;, f 38;
 #X obj 184 570 ofRcv @cameraDebug;
 #X obj 31 205 ofSnd @cameraDebug;

@@ -14210,23 +14210,31 @@ void ofeliaGetMesh2dCommands_bang(t_ofeliaGetMesh2dCommands *x)
                 }
             }
             const int ac = static_cast<int>(elems.size());
-            t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
             
-            for (int i=0; i<ac; ++i) {
+            if (ac) {
                 
-                if (elems[i].type == ATOM_ELEM_TYPE_FLOAT) {
+                t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
+                
+                for (int i=0; i<ac; ++i) {
                     
-                    av[i].a_type = A_FLOAT;
-                    av[i].a_w.w_float = elems[i].value;
+                    if (elems[i].type == ATOM_ELEM_TYPE_FLOAT) {
+                        
+                        av[i].a_type = A_FLOAT;
+                        av[i].a_w.w_float = elems[i].value;
+                    }
+                    else if (elems[i].type == ATOM_ELEM_TYPE_SYMBOL) {
+                        
+                        av[i].a_type = A_SYMBOL;
+                        av[i].a_w.w_symbol = gensym(elems[i].name.c_str());
+                    }
                 }
-                else if (elems[i].type == ATOM_ELEM_TYPE_SYMBOL) {
-                    
-                    av[i].a_type = A_SYMBOL;
-                    av[i].a_w.w_symbol = gensym(elems[i].name.c_str());
-                }
+                outlet_anything(x->x_obj.ob_outlet, av[0].a_w.w_symbol, ac-1, av+1);
+                freebytes(av, ac * sizeof(t_atom));
             }
-            outlet_anything(x->x_obj.ob_outlet, av[0].a_w.w_symbol, ac-1, av+1);
-            freebytes(av, ac * sizeof(t_atom));
+            else {
+                
+                error("%s: '%s' is empty", t_ofeliaGetMesh2dCommands::objName, name.c_str());
+            }
         }
         else {
             
@@ -14357,23 +14365,31 @@ void ofeliaGetMesh3dCommands_bang(t_ofeliaGetMesh3dCommands *x)
                 }
             }
             const int ac = static_cast<int>(elems.size());
-            t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
             
-            for (int i=0; i<ac; ++i) {
+            if (ac) {
                 
-                if (elems[i].type == ATOM_ELEM_TYPE_FLOAT) {
+                t_atom *av = (t_atom *)getbytes(ac * sizeof(t_atom));
+                
+                for (int i=0; i<ac; ++i) {
                     
-                    av[i].a_type = A_FLOAT;
-                    av[i].a_w.w_float = elems[i].value;
+                    if (elems[i].type == ATOM_ELEM_TYPE_FLOAT) {
+                        
+                        av[i].a_type = A_FLOAT;
+                        av[i].a_w.w_float = elems[i].value;
+                    }
+                    else if (elems[i].type == ATOM_ELEM_TYPE_SYMBOL) {
+                        
+                        av[i].a_type = A_SYMBOL;
+                        av[i].a_w.w_symbol = gensym(elems[i].name.c_str());
+                    }
                 }
-                else if (elems[i].type == ATOM_ELEM_TYPE_SYMBOL) {
-                    
-                    av[i].a_type = A_SYMBOL;
-                    av[i].a_w.w_symbol = gensym(elems[i].name.c_str());
-                }
+                outlet_anything(x->x_obj.ob_outlet, av[0].a_w.w_symbol, ac-1, av+1);
+                freebytes(av, ac * sizeof(t_atom));
             }
-            outlet_anything(x->x_obj.ob_outlet, av[0].a_w.w_symbol, ac-1, av+1);
-            freebytes(av, ac * sizeof(t_atom));
+            else {
+                
+                error("%s: '%s' is empty", t_ofeliaGetMesh3dCommands::objName, name.c_str());
+            }
         }
         else {
             

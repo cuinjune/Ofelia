@@ -15,23 +15,23 @@
 #X obj 58 433 ofVertex2d;
 #X obj 115 411 pack f f, f 33;
 #X obj 31 459 ofEndShape ON;
-#X obj 58 239 ofDefine \; @angleStep = (pi()*2) / (100 + sin(ofGetElapsedTime/5000)
-* 60) \; @radiusAdder = 0.5 \; @radius = 0 \; $o1 = 200 \;, f 65;
 #X text 29 27 use sin cos and time to make some spirally shape.;
 #X text 331 482 This example is based on the openFrameworks example
 "polygonExample";
 #X obj 542 29 declare -lib ofelia;
+#X obj 58 239 ofDefine \; @angleStep = (pi()*2) / (100 + sin(ofGetElapsedTime/5)
+* 60) \; @radiusAdder = 0.5 \; @radius = 0 \; $o1 = 200 \;, f 65;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 6 0 12 0;
-#X connect 6 1 13 0;
+#X connect 6 1 16 0;
 #X connect 7 0 9 0;
 #X connect 8 0 11 0;
 #X connect 8 1 11 1;
 #X connect 9 0 10 0;
 #X connect 9 1 8 0;
 #X connect 11 0 10 1;
-#X connect 13 0 7 0;
+#X connect 16 0 7 0;
