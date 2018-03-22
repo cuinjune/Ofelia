@@ -23,6 +23,8 @@ The library includes the following features:
 
 * framebuffer object
 
+* GUI abstractions (toggle, slider..)
+
 * various data types (vec3f, color..)
 
 * various utilities to speed up development (new expr, counter..)
