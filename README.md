@@ -15,7 +15,7 @@ The library includes the following features:
 
 * Various getters and event listeners
 
-* 2d/3d shapes drawing
+* 2d/3d shapes drawing (ofPolyline, ofPath, ofMesh)
 
 * Image and font loading
 
