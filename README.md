@@ -56,6 +56,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * GLSL shader loader
 * Video player
 * Video grabber
+* SVG loader
 
 # ofxOfelia
 
