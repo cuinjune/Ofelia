@@ -23,6 +23,8 @@ The library includes the following features:
 
 * Framebuffer object
 
+* [GLSL shader loader](shader_screenshot.png)
+
 * [GUI abstractions](doc/pdgui_screenshot.png) (toggle, slider..)
 
 * Various data types to effectively store and handle data (ofVec3f, ofColor..)
@@ -53,7 +55,6 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Upcoming features
 
-* GLSL shader loader
 * Video player
 * Video grabber
 * SVG loader
