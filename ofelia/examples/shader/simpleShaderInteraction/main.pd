@@ -1,0 +1,80 @@
+#N canvas 641 23 716 770 10;
+#X declare -lib ofelia;
+#X obj 27 362 ofHead;
+#X obj 562 29 declare -lib ofelia;
+#X text 200 117 load .vert and .frag shaders from the path.;
+#X obj 315 166 ofMouseListener;
+#X obj 358 187 list split 1;
+#X obj 392 300 ofClamp 0 1;
+#X obj 27 383 ofApplyShader @shader;
+#X obj 27 404 t b b;
+#X obj 27 656 ofTranslate;
+#X obj 27 677 ofSetFillMode OUTLINE;
+#X obj 27 698 ofDrawMesh2d @plane;
+#X obj 27 326 ofLoadMesh2d @plane;
+#X obj 27 80 ofWindow 640 400 LEFT TOP 1 55;
+#X obj 27 116 ofLoadShader @shader shader;
+#X text 149 326 load the plane mesh.;
+#X obj 27 142 ofExpr \; _planeWidth = ofGetWidth \; _planeHeight =
+ofGetHeight \; _planeGridSize = 10 \; _planeColums = _planeWidth /
+_planeGridSize \; _planeRows = _planeHeight / _planeGridSize \; _primMode
+= 0 \; $o1 = _planeWidth \; $o2 = _planeHeight \; $o3 = _planeColums
+\; $o4 = _planeRows \; $o5 = _primMode \;;
+#X obj 27 284 pack f f f f f, f 44;
+#X msg 27 305 load plane \$1 \$2 \$3 \$4 \$5;
+#X text 25 23 please find "Adding some interactivity" section from
+http://openframeworks.cc/ofBook/chapters/shaders.html to see the original
+code and learn more about how it works.;
+#X obj 392 208 ofSnd @mousePos;
+#X obj 392 247 ofRcv @mousePos;
+#X obj 392 268 ofExpr \; $i1 / ofGetWidth \;;
+#X text 509 278 percentX;
+#X obj 71 404 ofRcv @mousePos;
+#X obj 27 577 ofSetShaderUniform2f mousePos;
+#X obj 54 425 ofExpr \; _mouseX = $i1 \; _mouseY = $i2 \; _cx = ofGetWidth
+/ 2 \; _cy = ofGetHeight / 2 \; _mx = _mouseX - _cx \; _my = _mouseY
+- _cy \; $o1 = _cx \; $o2 = _cy \; $o3 = _mx \; $o4 = _my \;;
+#X obj 27 598 t b b;
+#X text 401 326 lerp from magenta to cyan by percentX.;
+#X obj 27 635 ofSetShaderUniform4fv mouseColor;
+#X obj 315 142 ofLoadColor @colorMix 255 0 255 255;
+#X msg 392 343 assign 255 0 255 255 \, lerp 0 0 255 255 \$1;
+#X obj 216 614 ofGetColor @colorMix;
+#X obj 392 364 ofEditColor @colorMix;
+#X obj 27 556 ofSetShaderUniform1f mouseRange 100;
+#X text 370 704 This example is based on the openFrameworks example
+"03_simpleShaderInteraction";
+#X floatatom 234 536 5 0 0 0 - - -, f 5;
+#X text 271 535 try changing the value.;
+#X connect 0 0 6 0;
+#X connect 3 1 4 0;
+#X connect 4 1 19 0;
+#X connect 5 0 30 0;
+#X connect 6 0 7 0;
+#X connect 7 0 33 0;
+#X connect 7 1 25 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 13 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 1 16 1;
+#X connect 15 2 16 2;
+#X connect 15 3 16 3;
+#X connect 15 4 16 4;
+#X connect 16 0 17 0;
+#X connect 17 0 11 0;
+#X connect 20 0 21 0;
+#X connect 21 0 5 0;
+#X connect 23 0 25 0;
+#X connect 24 0 26 0;
+#X connect 25 0 8 1;
+#X connect 25 1 8 2;
+#X connect 25 2 24 1;
+#X connect 25 3 24 2;
+#X connect 26 0 28 0;
+#X connect 26 1 31 0;
+#X connect 28 0 8 0;
+#X connect 30 0 32 0;
+#X connect 31 0 28 1;
+#X connect 33 0 24 0;
+#X connect 35 0 33 1;

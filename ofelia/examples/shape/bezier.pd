@@ -9,10 +9,6 @@
 #X obj 145 426 pack f f;
 #X obj 237 426 pack f f;
 #X obj 329 426 pack f f;
-#X text 25 23 The first inlet of [ofBezier2d] object specifies the
-first point in the curve and the last inlet specifies the last point.
-The middle inlets set the control points that define the shape of the
-curve.;
 #X text 358 493 This example was originally written in Processing.
 https://processing.org/examples/bezier.html;
 #X obj 27 262 ofCountUntil;
@@ -24,22 +20,26 @@ https://processing.org/examples/bezier.html;
 #X obj 27 100 ofWindow 640 400 LEFT TOP 1 0;
 #X obj 27 218 ofSetFillMode OUTLINE;
 #X obj 552 29 declare -lib ofelia;
-#X connect 0 0 16 0;
+#X text 25 23 the first inlet of [ofBezier2d] object specifies the
+first point in the curve and the last inlet specifies the last point.
+The middle inlets set the control points that define the shape of the
+curve.;
+#X connect 0 0 15 0;
 #X connect 2 0 4 0;
-#X connect 2 1 13 0;
-#X connect 3 1 14 0;
+#X connect 2 1 12 0;
+#X connect 3 1 13 0;
 #X connect 5 0 4 1;
 #X connect 6 0 4 2;
 #X connect 7 0 4 3;
 #X connect 8 0 4 4;
-#X connect 11 0 2 0;
-#X connect 12 0 11 0;
-#X connect 13 0 5 0;
-#X connect 13 1 5 1;
-#X connect 13 2 6 0;
-#X connect 13 3 6 1;
-#X connect 13 4 7 0;
-#X connect 13 5 7 1;
-#X connect 13 6 8 0;
-#X connect 13 7 8 1;
-#X connect 16 0 12 0;
+#X connect 10 0 2 0;
+#X connect 11 0 10 0;
+#X connect 12 0 5 0;
+#X connect 12 1 5 1;
+#X connect 12 2 6 0;
+#X connect 12 3 6 1;
+#X connect 12 4 7 0;
+#X connect 12 5 7 1;
+#X connect 12 6 8 0;
+#X connect 12 7 8 1;
+#X connect 15 0 11 0;

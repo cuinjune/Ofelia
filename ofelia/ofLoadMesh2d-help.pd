@@ -172,7 +172,7 @@ writing the repeating command names.;
 #X connect 12 0 1 0;
 #X connect 23 0 1 0;
 #X restore 23 93 pd mesh2d_example;
-#N canvas 321 132 1105 604 list_of_mesh2d_commands 0;
+#N canvas 321 132 1105 640 list_of_mesh2d_commands 0;
 #X text 37 34 <command name>;
 #X text 207 34 <arguments>;
 #X text 657 34 <description>;
@@ -220,15 +220,15 @@ writing the repeating command names.;
 #X text 37 434 box;
 #X text 657 434 load a box mesh.;
 #X text 37 454 cone;
-#X text 37 474 cylinder;
+#X text 37 484 cylinder;
 #X text 657 454 load a cone mesh.;
-#X text 657 474 load a cylinder mesh.;
-#X text 37 494 icosphere;
-#X text 657 494 load a icosphere mesh.;
-#X text 37 514 plane;
-#X text 657 514 load a plane mesh.;
-#X text 37 534 sphere;
-#X text 657 534 load a sphere mesh.;
+#X text 657 484 load a cylinder mesh.;
+#X text 37 514 icosphere;
+#X text 657 514 load a icosphere mesh.;
+#X text 37 534 plane;
+#X text 657 534 load a plane mesh.;
+#X text 37 554 sphere;
+#X text 657 554 load a sphere mesh.;
 #X text 657 74 an index represents an order of connection for vertices.
 ;
 #X text 207 54 x \, y.;
@@ -253,13 +253,13 @@ radius4 \, circleRes;
 #X text 207 394 radius \, numSides.;
 #X text 207 414 radius1 \, radius2 \, numPoints.;
 #X text 207 434 width \, height \, depth \, resX \, resY \, resZ.;
+#X text 207 514 radius \, iterations.;
+#X text 207 534 width \, height \, columns \, rows \, primMode.;
 #X text 207 454 radius \, height \, radiusSegments \, heightSegments
-\, capSegments.;
-#X text 207 474 radius \, height \, radiusSegments \, heightSegments
-\, capSegments.;
-#X text 207 494 radius \, iterations.;
-#X text 207 514 width \, height \, columns \, rows.;
-#X text 207 534 radius \, res.;
+\, capSegments \, primMode.;
+#X text 207 484 radius \, height \, radiusSegments \, heightSegments
+\, capSegments \, bCapped \, primMode.;
+#X text 207 554 radius \, res \, primMode.;
 #X restore 161 93 pd list_of_mesh2d_commands;
 #X text 95 569 primMode <f/s>;
 #X obj 75 631 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
