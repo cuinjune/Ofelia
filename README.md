@@ -15,7 +15,7 @@ The library includes the following features:
 
 * Various getters and event listeners
 
-* 2d/3d shapes drawing
+* 2d/3d shapes drawing (ofPolyline, ofPath, ofMesh)
 
 * Image and font loading
 
@@ -48,7 +48,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Try the example patches inside `ofelia/examples` directory.
 * Open `ofelia/help-intro.pd` to see the list of built-in objects in ofelia.
 * Open the help files to learn more about each object.
-* Create something cool and [share](https://patchstorage.com/) it with other people.
+* Create something cool and [share](https://forum.pdpatchrepo.info/) it with other people.
 * Feel free to contact the [author](#author) if you have any questions or suggestions.
 
 ## Upcoming features
@@ -56,6 +56,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * GLSL shader loader
 * Video player
 * Video grabber
+* SVG loader
 
 # ofxOfelia
 
