@@ -23,7 +23,7 @@ The library includes the following features:
 
 * Framebuffer object
 
-* [GLSL shader loader](shader_screenshot.png)
+* [GLSL shader loader](doc/shader_screenshot.png)
 
 * [GUI abstractions](doc/pdgui_screenshot.png) (toggle, slider..)
 
