@@ -1,3 +1,10 @@
+v1.0.7: 7 April 2018
+
+* added primMode argument to cone, cylinder, plane, sphere mesh command
+* added ofShader related objects and help files
+* added shader examples to the "examples/shader" directory
+* added draggableShapes example to the "examples/input" directory 
+
 v1.0.6: 23 Mar 2018
 
 * [ofCreateFbo] auto MSAA scaling is disabled

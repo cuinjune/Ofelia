@@ -1,0 +1,83 @@
+#N canvas 641 23 716 769 10;
+#X declare -lib ofelia;
+#X obj 27 373 ofHead;
+#X obj 562 29 declare -lib ofelia;
+#X text 200 117 load .vert and .frag shaders from the path.;
+#X obj 315 166 ofMouseListener;
+#X obj 358 187 list split 1;
+#X obj 392 208 ofExpr \; $i1 / ofGetWidth \; $i2 / ofGetHeight \;;
+#X obj 392 251 ofClamp 0 1;
+#X obj 497 251 ofMap 0 1 -60 60 ON;
+#X obj 497 272 + 60;
+#X text 509 218 percentX \, percentY;
+#X obj 497 293 ofSnd @rotation;
+#X obj 315 142 ofLoadColor @colorMix 255 0 255 255;
+#X obj 392 355 ofEditColor @colorMix;
+#X msg 392 334 assign 255 0 255 255 \, lerp 0 255 255 255 \$1;
+#X text 401 317 lerp from magenta to cyan by percentX.;
+#X obj 27 478 ofApplyShader @shader;
+#X obj 27 585 ofSetShaderUniform1f time;
+#X obj 27 499 t b b;
+#X obj 27 626 ofTranslate;
+#X obj 27 668 ofRotate 0 1 0 0;
+#X obj 50 647 ofRcv @rotation;
+#X obj 27 457 ofSetColor;
+#X obj 27 394 t b b;
+#X obj 54 415 ofGetColor @colorMix;
+#X obj 54 436 ofPrepend set;
+#X obj 27 689 ofSetFillMode OUTLINE;
+#X obj 27 710 ofDrawMesh2d @plane;
+#X obj 27 337 ofLoadMesh2d @plane;
+#X obj 27 80 ofWindow 640 400 LEFT TOP 1 55;
+#X obj 27 605 ofSetShaderUniform1f scaleFactor;
+#X obj 27 116 ofLoadShader @shader shader;
+#X obj 54 520 ofExpr \; ofGetWidth / 2 \; ofGetHeight / 2 \; ofGetElapsedTime
+\; ofGetRetina * ofGetWindowScale \;;
+#X text 149 337 load the plane mesh.;
+#X text 25 23 please find "Adding Uniforms" section from http://openframeworks.cc/ofBook/chapters/shaders.html
+to see the original code and learn more about how it works.;
+#X obj 27 142 ofExpr \; _planeScale = 0.75 \; _planeWidth = ofGetWidth
+* _planeScale \; _planeHeight = ofGetHeight * _planeScale \; _planeGridSize
+= 10 \; _planeColums = _planeWidth / _planeGridSize \; _planeRows =
+_planeHeight / _planeGridSize \; _primMode = 0 \; $o1 = _planeWidth
+\; $o2 = _planeHeight \; $o3 = _planeColums \; $o4 = _planeRows \;
+$o5 = _primMode \;;
+#X obj 27 295 pack f f f f f, f 44;
+#X msg 27 316 load plane \$1 \$2 \$3 \$4 \$5;
+#X text 370 707 This example is based on the openFrameworks example
+"02_simpleVertexDisplacement";
+#X connect 0 0 22 0;
+#X connect 3 1 4 0;
+#X connect 4 1 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 13 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 13 0 12 0;
+#X connect 15 0 17 0;
+#X connect 16 0 29 0;
+#X connect 17 0 16 0;
+#X connect 17 1 31 0;
+#X connect 18 0 19 0;
+#X connect 19 0 25 0;
+#X connect 20 0 19 1;
+#X connect 21 0 15 0;
+#X connect 22 0 21 0;
+#X connect 22 1 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 21 0;
+#X connect 25 0 26 0;
+#X connect 29 0 18 0;
+#X connect 30 0 34 0;
+#X connect 31 0 18 1;
+#X connect 31 1 18 2;
+#X connect 31 2 16 1;
+#X connect 31 3 29 1;
+#X connect 34 0 35 0;
+#X connect 34 1 35 1;
+#X connect 34 2 35 2;
+#X connect 34 3 35 3;
+#X connect 34 4 35 4;
+#X connect 35 0 36 0;
+#X connect 36 0 27 0;

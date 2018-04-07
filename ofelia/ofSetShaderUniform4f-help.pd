@@ -1,0 +1,67 @@
+#N canvas 321 23 601 679 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetShaderUniform4f 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 460 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 100 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 468 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 624 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 496 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 23 319 ofWindow 320 240 LEFT TOP;
+#X text 95 349 render bang;
+#X text 95 468 render bang;
+#X text 241 349 - the incoming render bang.;
+#X text 241 468 - the outgoing render bang.;
+#X obj 462 46 declare -lib ofelia;
+#X obj 23 65 ofLoadShader \; @myShader \; examples/data/shader \;;
+#X obj 56 124 loadbang;
+#X obj 56 145 ofGetLastRenderOrder;
+#X obj 23 166 ofHead;
+#X obj 23 187 ofClear 63;
+#X text 190 208 apply the shader.;
+#X obj 23 208 ofApplyShader @myShader[0];
+#X text 95 369 float;
+#X text 72 519 1) symbol;
+#X text 72 539 2) float;
+#X text 241 369 - sets v1.;
+#X text 241 539 - sets v1. (default: 0);
+#X obj 23 280 ofRectangle 320 240;
+#X floatatom 70 234 5 0 0 0 - - -, f 5;
+#X floatatom 117 234 5 0 0 0 - - -, f 5;
+#X text 95 389 float;
+#X text 241 389 - sets v2.;
+#X text 72 559 3) float;
+#X text 241 559 - sets v2. (default: 0);
+#X text 241 519 - sets the uniformName.;
+#X floatatom 164 234 5 0 0 0 - - -, f 5;
+#X text 95 409 float;
+#X text 241 409 - sets v3.;
+#X text 72 579 4) float;
+#X text 241 579 - sets v3. (default: 0);
+#X floatatom 212 234 5 0 0 0 - - -, f 5;
+#X text 95 429 float;
+#X text 241 429 - sets v4.;
+#X text 72 599 5) float;
+#X text 241 599 - sets v4. (default: 0);
+#X obj 451 5 ofSetShaderUniform4f;
+#X text 11 23 set a vec4 uniform on the shader;
+#X text 229 254 pass value to "uniform vec4 uniformName" in the shader.
+;
+#X obj 23 254 ofSetShaderUniform4f uniformName;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;
+#X connect 16 0 17 0;
+#X connect 17 0 19 0;
+#X connect 19 0 46 0;
+#X connect 26 0 46 1;
+#X connect 27 0 46 2;
+#X connect 33 0 46 3;
+#X connect 38 0 46 4;
+#X connect 46 0 25 0;

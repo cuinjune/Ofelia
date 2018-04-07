@@ -1,0 +1,32 @@
+#N canvas 641 23 732 466 10;
+#X declare -lib ofelia;
+#X obj 27 152 ofHead;
+#X obj 27 80 ofWindow 640 400 LEFT TOP 1 0;
+#X obj 572 29 declare -lib ofelia;
+#X text 200 117 load .vert and .frag shaders from the path.;
+#X obj 27 173 t b b;
+#X obj 27 295 ofSetShaderUniform2f windowDimen;
+#X obj 27 274 ofApplyShader @shader;
+#X obj 27 346 ofRectangle;
+#X obj 54 193 ofExpr \; _scaleFactor = ofGetRetina * ofGetWindowScale
+\; $o1 = ofGetWidth * _scaleFactor \; $o2 = ofGetHeight * _scaleFactor
+\; $o3 = ofGetWidth \; $o4 = ofGetHeight \;;
+#X obj 27 116 ofLoadShader @shader shader;
+#X text 163 274 apply the shader.;
+#X text 230 295 set the value of uniform "windowDimen" which is used
+in shader.frag.;
+#X text 25 23 please find "Your first shader" section from http://openframeworks.cc/ofBook/chapters/shaders.html
+to see the original code and learn more about how it works.;
+#X text 378 403 This example is based on the openFrameworks example
+"01_simpleColorQuad";
+#X text 339 204 _scaleFactor is used to get the actual window dimensions
+in pixels.;
+#X connect 0 0 4 0;
+#X connect 4 0 6 0;
+#X connect 4 1 8 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 8 0 5 1;
+#X connect 8 1 5 2;
+#X connect 8 2 7 1;
+#X connect 8 3 7 2;

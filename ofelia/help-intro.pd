@@ -1,10 +1,10 @@
 #N canvas 518 23 665 799 10;
 #X declare -lib ofelia;
-#X text 24 520 -------------------------- TYPES --------------------------
+#X text 24 540 -------------------------- TYPES --------------------------
 ;
-#X text 24 680 --------------------------- MATH ---------------------------
+#X text 24 700 --------------------------- MATH ---------------------------
 ;
-#X text 24 960 -------------------------- AUDIO --------------------------
+#X text 24 980 -------------------------- AUDIO --------------------------
 ;
 #N canvas 519 75 650 696 getters 0;
 #X obj 26 99 ofGetDimen;
@@ -509,8 +509,8 @@ vertices;
 #X text 224 299 - get the space size of the font;
 #X text 224 319 - get the mesh2d data based on the font and text;
 #X text 224 339 - get the mesh3d data based on the font and text;
-#X restore 26 409 pd font;
-#N canvas 519 75 650 778 mesh 0;
+#X restore 26 429 pd font;
+#N canvas 519 75 650 747 mesh 0;
 #X text 24 30 --------------------------- MESH ---------------------------
 ;
 #X obj 26 59 ofLoadMesh2d;
@@ -601,7 +601,7 @@ vertices;
 ;
 #X text 224 879 - get the centroid of all the vetices in the mesh3d
 ;
-#X restore 26 429 pd mesh;
+#X restore 26 449 pd mesh;
 #N canvas 519 75 650 158 camera 0;
 #X text 24 30 -------------------------- CAMERA --------------------------
 ;
@@ -611,7 +611,7 @@ vertices;
 space;
 #X text 224 79 - a basic camera for interacting with objects in 3d
 space;
-#X restore 26 449 pd camera;
+#X restore 26 469 pd camera;
 #N canvas 519 75 650 176 light 0;
 #X text 24 30 -------------------------- LIGHT --------------------------
 ;
@@ -622,7 +622,7 @@ space;
 ;
 #X text 224 79 - a light that spreads outward in a cone;
 #X text 224 99 - a light that comes evenly from a given direction;
-#X restore 26 469 pd light;
+#X restore 26 489 pd light;
 #N canvas 519 75 650 235 float 0;
 #X text 24 30 -------------------------- FLOAT --------------------------
 ;
@@ -638,7 +638,7 @@ space;
 #X text 224 119 - get a float element at the given index;
 #X text 224 139 - get all float elements as a list;
 #X text 224 159 - get the average value of float elements;
-#X restore 26 549 pd float;
+#X restore 26 569 pd float;
 #N canvas 519 75 650 381 vec2f 0;
 #X obj 26 119 ofGetVec2f;
 #X obj 26 59 ofLoadVec2f;
@@ -668,7 +668,7 @@ space;
 #X text 224 299 - get the squared length of the vec2f element;
 #X text 24 30 -------------------------- VEC2F --------------------------
 ;
-#X restore 26 569 pd vec2f;
+#X restore 26 589 pd vec2f;
 #N canvas 519 75 650 381 vec3f 0;
 #X text 24 30 -------------------------- VEC3F --------------------------
 ;
@@ -698,7 +698,7 @@ space;
 #X text 224 259 - get the dot product of two vec3fs;
 #X text 224 279 - get the length of the vec3f element;
 #X text 224 299 - get the squared length of the vec3f element;
-#X restore 26 589 pd vec3f;
+#X restore 26 609 pd vec3f;
 #N canvas 519 75 650 334 vec4f 0;
 #X text 24 30 -------------------------- VEC4F --------------------------
 ;
@@ -724,7 +724,7 @@ space;
 #X text 224 219 - get the dot product of two vec4fs;
 #X text 224 239 - get the length of the vec4f element;
 #X text 224 259 - get the squared length of the vec4f element;
-#X restore 26 609 pd vec4f;
+#X restore 26 629 pd vec4f;
 #N canvas 519 75 650 217 color 0;
 #X text 24 30 -------------------------- COLOR --------------------------
 ;
@@ -738,7 +738,7 @@ space;
 #X text 224 99 - check the existence of a color variable name;
 #X text 224 119 - get a color element at the given index;
 #X text 224 139 - get all color elements as a list;
-#X restore 26 629 pd color;
+#X restore 26 649 pd color;
 #N canvas 519 75 650 217 symbol 0;
 #X text 24 30 -------------------------- SYMBOL --------------------------
 ;
@@ -752,7 +752,7 @@ space;
 #X text 224 99 - check the existence of a symbol variable name;
 #X text 224 119 - get a symbol element at the given index;
 #X text 224 139 - get all symbol elements as a list;
-#X restore 26 649 pd symbol;
+#X restore 26 669 pd symbol;
 #N canvas 519 75 650 639 math 0;
 #X text 24 30 -------------------------- MATH --------------------------
 ;
@@ -819,7 +819,7 @@ radians;
 ;
 #X text 224 79 - calculate the difference between two angles in radians
 ;
-#X restore 26 709 pd math;
+#X restore 26 729 pd math;
 #N canvas 519 75 650 171 message 0;
 #X obj 26 59 ofAppend;
 #X obj 26 79 ofPrepend;
@@ -829,7 +829,7 @@ radians;
 #X text 224 99 - combine several atoms into one message;
 #X text 25 30 ------------------------- MESSAGE -------------------------
 ;
-#X restore 26 769 pd message;
+#X restore 26 789 pd message;
 #N canvas 519 75 650 472 list 0;
 #X obj 26 379 ofListToSymbol;
 #X obj 26 399 ofSymbolToList;
@@ -869,7 +869,7 @@ radians;
 #X text 224 399 - convert a symbol into a list;
 #X text 25 30 --------------------------- LIST ---------------------------
 ;
-#X restore 26 789 pd list;
+#X restore 26 809 pd list;
 #N canvas 518 74 650 197 device 0;
 #X obj 26 59 ofGetAudioDevices;
 #X obj 26 79 ofSetAudioDevices;
@@ -884,7 +884,7 @@ size;
 ;
 #X text 25 30 -------------------------- DEVICE --------------------------
 ;
-#X restore 26 909 pd device;
+#X restore 26 929 pd device;
 #N canvas 518 74 650 214 patch 0;
 #X obj 26 99 ofGetDollarZero;
 #X obj 26 119 ofGetDollarArgs;
@@ -898,7 +898,7 @@ size;
 #X text 224 59 - open/close pd patches;
 #X text 25 30 -------------------------- PATCH --------------------------
 ;
-#X restore 26 849 pd patch;
+#X restore 26 869 pd patch;
 #N canvas 518 74 650 231 color 0;
 #X text 25 30 -------------------------- COLOR --------------------------
 ;
@@ -914,7 +914,7 @@ size;
 #X text 224 119 - convert hsb color values to rgb color values;
 #X text 224 139 - convert rgb color values to hex color values;
 #X text 224 159 - convert rgb color values to hsb color values;
-#X restore 26 809 pd color;
+#X restore 26 829 pd color;
 #N canvas 518 74 650 216 file 0;
 #X text 25 30 --------------------------- FILE ---------------------------
 ;
@@ -928,7 +928,7 @@ size;
 #X text 224 139 - get the list of file paths in a directory;
 #X text 224 59 - create/remove/rename/copy/move files;
 #X text 224 79 - save a file from a url;
-#X restore 26 869 pd file;
+#X restore 26 889 pd file;
 #N canvas 518 74 650 250 directory 0;
 #X text 25 30 ------------------------ DIRECTORY ------------------------
 ;
@@ -946,7 +946,7 @@ size;
 #X text 224 159 - get the temporary directory on ios devices;
 #X text 224 179 - check the existence of a directory;
 #X text 224 59 - create/remove/rename/copy/move directories;
-#X restore 26 889 pd directory;
+#X restore 26 909 pd directory;
 #N canvas 519 75 650 340 misc 0;
 #X obj 26 219 ofGetPlatform;
 #X obj 26 239 ofGetDate;
@@ -972,7 +972,7 @@ size;
 #X obj 26 159 ofGate;
 #X text 224 139 - pass messages from a specific inlet;
 #X text 224 159 - route a message to an outlet;
-#X restore 26 929 pd misc;
+#X restore 26 949 pd misc;
 #N canvas 519 75 650 211 variable 0;
 #X obj 26 119 ofExpr;
 #X obj 26 139 ofDefine;
@@ -986,7 +986,7 @@ size;
 #X text 224 59 - nonlocal shared value;
 #X text 224 79 - send messages without patch cords;
 #X text 224 99 - receive messages without patch cords;
-#X restore 26 829 pd variable;
+#X restore 26 849 pd variable;
 #N canvas 519 75 650 291 oscillators 0;
 #X obj 27 59 ofSine~;
 #X obj 27 79 ofTriangle~;
@@ -1008,7 +1008,7 @@ size;
 #X text 225 219 - bandlimited pulse wave oscillator;
 #X text 24 30 ----------------------- OSCILLATORS -----------------------
 ;
-#X restore 26 989 pd oscillators;
+#X restore 26 1009 pd oscillators;
 #N canvas 519 75 650 277 filters 0;
 #X obj 27 59 ofLowPass~;
 #X obj 27 79 ofHighPass~;
@@ -1030,7 +1030,7 @@ size;
 #X text 225 199 - all-pass filter with bandwidth control;
 #X text 24 30 ------------------------- FILTERS -------------------------
 ;
-#X restore 26 1009 pd filters;
+#X restore 26 1029 pd filters;
 #N canvas 519 75 650 161 window 0;
 #X text 24 30 ------------------------- WINDOW -------------------------
 ;
@@ -1044,7 +1044,7 @@ size;
 #X text 224 59 - set the material of the object;
 #X text 24 30 ------------------------- MATERIAL -------------------------
 ;
-#X restore 26 489 pd material;
+#X restore 26 509 pd material;
 #N canvas 519 75 650 137 viewport 0;
 #X obj 26 59 ofViewport;
 #X text 224 59 - setup the drawing viewport;
@@ -1067,9 +1067,92 @@ size;
 #X text 24 30 -------------------------- HEAD --------------------------
 ;
 #X restore 26 189 pd head;
-#X text 24 740 -------------------------- UTILS --------------------------
+#X text 24 760 -------------------------- UTILS --------------------------
 ;
 #X text 24 60 -------------------------- WINDOW --------------------------
 ;
 #X text 23 22 a categorized list of built-in objects in ofelia.;
 #X obj 512 20 declare -lib ofelia;
+#N canvas 519 75 650 747 shader 0;
+#X obj 26 59 ofLoadShader;
+#X obj 26 79 ofApplyShader;
+#X obj 26 99 ofDoesShaderNameExist;
+#X obj 26 119 ofGetShaderPath;
+#X obj 26 139 ofIsShaderLoaded;
+#X obj 26 159 ofSetShaderUniform1i;
+#X obj 26 179 ofSetShaderUniform2i;
+#X obj 26 199 ofSetShaderUniform3i;
+#X obj 26 219 ofSetShaderUniform4i;
+#X obj 26 239 ofSetShaderUniform1f;
+#X obj 26 259 ofSetShaderUniform2f;
+#X obj 26 279 ofSetShaderUniform3f;
+#X obj 26 299 ofSetShaderUniform4f;
+#X obj 26 319 ofSetShaderUniform1iv;
+#X obj 26 339 ofSetShaderUniform2iv;
+#X obj 26 359 ofSetShaderUniform3iv;
+#X obj 26 379 ofSetShaderUniform4iv;
+#X obj 26 399 ofSetShaderUniform1fv;
+#X obj 26 419 ofSetShaderUniform2fv;
+#X obj 26 439 ofSetShaderUniform3fv;
+#X obj 26 459 ofSetShaderUniform4fv;
+#X obj 26 479 ofSetShaderUniformTex;
+#X obj 26 499 ofSetShaderAttribute1s;
+#X obj 26 519 ofSetShaderAttribute2s;
+#X obj 26 539 ofSetShaderAttribute3s;
+#X obj 26 559 ofSetShaderAttribute4s;
+#X obj 26 579 ofSetShaderAttribute1f;
+#X obj 26 599 ofSetShaderAttribute2f;
+#X obj 26 619 ofSetShaderAttribute3f;
+#X obj 26 639 ofSetShaderAttribute4f;
+#X obj 26 659 ofSetShaderAttribute1d;
+#X obj 26 679 ofSetShaderAttribute2d;
+#X obj 26 699 ofSetShaderAttribute3d;
+#X obj 26 719 ofSetShaderAttribute4d;
+#X obj 26 739 ofSetShaderAttribute1fv;
+#X obj 26 759 ofSetShaderAttribute2fv;
+#X obj 26 779 ofSetShaderAttribute3fv;
+#X obj 26 799 ofSetShaderAttribute4fv;
+#X text 224 59 - store an array of shaders;
+#X text 224 79 - apply the shader;
+#X text 224 99 - check the existence of a shader variable name;
+#X text 224 119 - get the absolute path of the shader;
+#X text 224 139 - check if the shader is loaded or not;
+#X text 224 159 - set a int uniform on the shader;
+#X text 224 179 - set a ivec2 uniform on the shader;
+#X text 224 199 - set a ivec3 uniform on the shader;
+#X text 224 219 - set a ivec4 uniform on the shader;
+#X text 224 239 - set a float uniform on the shader;
+#X text 224 259 - set a vec2 uniform on the shader;
+#X text 224 279 - set a vec3 uniform on the shader;
+#X text 224 299 - set a vec4 uniform on the shader;
+#X text 224 319 - set an array of int uniform on the shader;
+#X text 224 339 - set an array of ivec2 uniform on the shader;
+#X text 224 359 - set an array of ivec3 uniform on the shader;
+#X text 224 379 - set an array of ivec4 uniform on the shader;
+#X text 224 399 - set an array of float uniform on the shader;
+#X text 224 419 - set an array of vec2 uniform on the shader;
+#X text 224 439 - set an array of vec3 uniform on the shader;
+#X text 224 459 - set an array of vec4 uniform on the shader;
+#X text 224 479 - set a texture reference on the shader;
+#X text 224 499 - set 1 short attribute on the shader;
+#X text 224 519 - set 2 short attributes on the shader;
+#X text 224 539 - set 3 short attributes on the shader;
+#X text 224 559 - set 4 short attributes on the shader;
+#X text 224 579 - set 1 float attribute on the shader;
+#X text 224 599 - set 2 float attributes on the shader;
+#X text 224 619 - set 3 float attributes on the shader;
+#X text 224 639 - set 4 float attributes on the shader;
+#X text 224 659 - set 1 double attribute on the shader;
+#X text 224 679 - set 2 double attributes on the shader;
+#X text 224 699 - set 3 double attributes on the shader;
+#X text 224 719 - set 4 double attributes on the shader;
+#X text 224 739 - set an array of 1 float attribute on the shader;
+#X text 224 759 - set an array of 2 float attributes on the shader
+;
+#X text 224 779 - set an array of 3 float attributes on the shader
+;
+#X text 224 799 - set an array of 4 float attributes on the shader
+;
+#X text 24 30 -------------------------- SHADER --------------------------
+;
+#X restore 26 409 pd shader;

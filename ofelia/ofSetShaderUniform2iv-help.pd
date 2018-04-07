@@ -1,0 +1,49 @@
+#N canvas 321 23 601 560 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofSetShaderUniform2iv 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 40 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 504 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 23 319 ofWindow 320 240 LEFT TOP;
+#X text 95 349 render bang;
+#X text 95 408 render bang;
+#X text 241 349 - the incoming render bang.;
+#X text 241 408 - the outgoing render bang.;
+#X obj 462 46 declare -lib ofelia;
+#X obj 23 65 ofLoadShader \; @myShader \; examples/data/shader \;;
+#X obj 56 124 loadbang;
+#X obj 56 145 ofGetLastRenderOrder;
+#X obj 23 166 ofHead;
+#X obj 23 187 ofClear 63;
+#X text 190 208 apply the shader.;
+#X obj 23 208 ofApplyShader @myShader[0];
+#X text 72 459 1) symbol;
+#X text 241 459 - sets the uniformName.;
+#X obj 23 280 ofRectangle 320 240;
+#X text 241 369 - sets v.;
+#X text 241 479 - sets v.;
+#X obj 445 5 ofSetShaderUniform2iv;
+#X text 11 23 set an array of ivec2 uniform on the shader;
+#X obj 23 254 ofSetShaderUniform2iv uniformName;
+#X text 232 254 pass value to "uniform ivec2 uniformName[n]" in the
+shader.;
+#X msg 218 233 0 0 1 1;
+#X text 95 369 list;
+#X text 72 479 2) list;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;
+#X connect 16 0 17 0;
+#X connect 17 0 19 0;
+#X connect 19 0 27 0;
+#X connect 27 0 22 0;
+#X connect 29 0 27 1;
