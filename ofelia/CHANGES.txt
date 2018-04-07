@@ -1,4 +1,4 @@
-v1.0.7: 7 April 2018
+v1.0.7: 7 Apr 2018
 
 * added primMode argument to cone, cylinder, plane, sphere mesh command
 * added ofShader related objects and help files

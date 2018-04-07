@@ -311,12 +311,12 @@ bool setLoadMesh2dElemType(const char *name, t_ofeliaLoadMesh2dElem &elem)
     else if (!strcmp(name, "cone")) {
         
         elem.type = MESH_LOAD_CMDTYPE_CONE;
-        elem.numArgs = 5;
+        elem.numArgs = 6;
     }
     else if (!strcmp(name, "cylinder")) {
         
         elem.type = MESH_LOAD_CMDTYPE_CYLINDER;
-        elem.numArgs = 5;
+        elem.numArgs = 7;
     }
     else if (!strcmp(name, "icosphere")) {
         
@@ -326,12 +326,12 @@ bool setLoadMesh2dElemType(const char *name, t_ofeliaLoadMesh2dElem &elem)
     else if (!strcmp(name, "plane")) {
         
         elem.type = MESH_LOAD_CMDTYPE_PLANE;
-        elem.numArgs = 4;
+        elem.numArgs = 5;
     }
     else if (!strcmp(name, "sphere")) {
         
         elem.type = MESH_LOAD_CMDTYPE_SPHERE;
-        elem.numArgs = 2;
+        elem.numArgs = 3;
     }
     else {
         
@@ -1501,7 +1501,8 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
                                                      elem.args[1],
                                                      static_cast<int>(elem.args[2]),
                                                      static_cast<int>(elem.args[3]),
-                                                     static_cast<int>(elem.args[4])));
+                                                     static_cast<int>(elem.args[4]),
+                                                     static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[5]))));
                             t_ofeliaLoadMesh2d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -1523,7 +1524,9 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
                                                          elem.args[1],
                                                          static_cast<int>(elem.args[2]),
                                                          static_cast<int>(elem.args[3]),
-                                                         static_cast<int>(elem.args[4])));
+                                                         static_cast<int>(elem.args[4]),
+                                                         static_cast<bool>(elem.args[5]),
+                                                         static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[6]))));
                             t_ofeliaLoadMesh2d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -1563,7 +1566,8 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
                             ofMesh mesh(ofMesh::plane(elem.args[0],
                                                       elem.args[1],
                                                       static_cast<int>(elem.args[2]),
-                                                      static_cast<int>(elem.args[3])));
+                                                      static_cast<int>(elem.args[3]),
+                                                      static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[4]))));
                             t_ofeliaLoadMesh2d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -1582,7 +1586,8 @@ void ofeliaLoadMesh2d_update(t_ofeliaLoadMesh2d *x)
                         case MESH_LOAD_CMD_INSERT:
                         {
                             ofMesh mesh(ofMesh::sphere(elem.args[0],
-                                                       static_cast<int>(elem.args[1])));
+                                                       static_cast<int>(elem.args[1]),
+                                                       static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[2]))));
                             t_ofeliaLoadMesh2d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -2060,12 +2065,12 @@ bool setLoadMesh3dElemType(const char *name, t_ofeliaLoadMesh3dElem &elem)
     else if (!strcmp(name, "cone")) {
         
         elem.type = MESH_LOAD_CMDTYPE_CONE;
-        elem.numArgs = 5;
+        elem.numArgs = 6;
     }
     else if (!strcmp(name, "cylinder")) {
         
         elem.type = MESH_LOAD_CMDTYPE_CYLINDER;
-        elem.numArgs = 5;
+        elem.numArgs = 7;
     }
     else if (!strcmp(name, "icosphere")) {
         
@@ -2075,12 +2080,12 @@ bool setLoadMesh3dElemType(const char *name, t_ofeliaLoadMesh3dElem &elem)
     else if (!strcmp(name, "plane")) {
         
         elem.type = MESH_LOAD_CMDTYPE_PLANE;
-        elem.numArgs = 4;
+        elem.numArgs = 5;
     }
     else if (!strcmp(name, "sphere")) {
         
         elem.type = MESH_LOAD_CMDTYPE_SPHERE;
-        elem.numArgs = 2;
+        elem.numArgs = 3;
     }
     else {
         
@@ -3254,7 +3259,8 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
                                                      elem.args[1],
                                                      static_cast<int>(elem.args[2]),
                                                      static_cast<int>(elem.args[3]),
-                                                     static_cast<int>(elem.args[4])));
+                                                     static_cast<int>(elem.args[4]),
+                                                     static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[5]))));
                             t_ofeliaLoadMesh3d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -3276,7 +3282,9 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
                                                          elem.args[1],
                                                          static_cast<int>(elem.args[2]),
                                                          static_cast<int>(elem.args[3]),
-                                                         static_cast<int>(elem.args[4])));
+                                                         static_cast<int>(elem.args[4]),
+                                                         static_cast<bool>(elem.args[5]),
+                                                         static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[6]))));
                             t_ofeliaLoadMesh3d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -3316,7 +3324,8 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
                             ofMesh mesh(ofMesh::plane(elem.args[0],
                                                       elem.args[1],
                                                       static_cast<int>(elem.args[2]),
-                                                      static_cast<int>(elem.args[3])));
+                                                      static_cast<int>(elem.args[3]),
+                                                      static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[4]))));
                             t_ofeliaLoadMesh3d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;
@@ -3335,7 +3344,8 @@ void ofeliaLoadMesh3d_update(t_ofeliaLoadMesh3d *x)
                         case MESH_LOAD_CMD_INSERT:
                         {
                             ofMesh mesh(ofMesh::sphere(elem.args[0],
-                                                       static_cast<int>(elem.args[1])));
+                                                       static_cast<int>(elem.args[1]),
+                                                       static_cast<ofPrimitiveMode>(static_cast<int>(elem.args[2]))));
                             t_ofeliaLoadMesh3d::meshData[pos].mesh.append(mesh);
                             x->primMode = mesh.getMode();
                             break;

@@ -239,6 +239,7 @@
     <ClCompile Include="src\ofeliaSeparators.cpp" />
     <ClCompile Include="src\ofeliaSetters.cpp" />
     <ClCompile Include="src\ofeliaSetup.cpp" />
+    <ClCompile Include="src\ofeliaShader.cpp" />
     <ClCompile Include="src\ofeliaShapes.cpp" />
     <ClCompile Include="src\ofeliaString.cpp" />
     <ClCompile Include="src\ofeliaStyle.cpp" />
@@ -317,6 +318,7 @@
     <ClInclude Include="src\ofeliaSeparators.h" />
     <ClInclude Include="src\ofeliaSetters.h" />
     <ClInclude Include="src\ofeliaSetup.h" />
+    <ClInclude Include="src\ofeliaShader.h" />
     <ClInclude Include="src\ofeliaShapes.h" />
     <ClInclude Include="src\ofeliaString.h" />
     <ClInclude Include="src\ofeliaStyle.h" />

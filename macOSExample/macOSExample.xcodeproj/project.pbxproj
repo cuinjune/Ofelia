@@ -22,6 +22,7 @@
 		FD150BD81F12BBA000BB2707 /* ofeliaString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD150BD61F12BBA000BB2707 /* ofeliaString.cpp */; };
 		FD2FDEDF1F0275730005283B /* ofeliaAudio.c in Sources */ = {isa = PBXBuildFile; fileRef = FD2FDEDD1F0275730005283B /* ofeliaAudio.c */; };
 		FD60C3651FA3E86100D94827 /* ofeliaAnimate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD60C3631FA3E86100D94827 /* ofeliaAnimate.cpp */; };
+		FD6FE7C32078DB7100865BDD /* ofeliaShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD6FE7C22078DB7100865BDD /* ofeliaShader.cpp */; };
 		FD935C5E2018A4D300DA6C2E /* ofxRtMidiIn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD935C5A2018A4D300DA6C2E /* ofxRtMidiIn.cpp */; };
 		FD935C5F2018A4D300DA6C2E /* ofxRtMidiOut.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD935C5C2018A4D300DA6C2E /* ofxRtMidiOut.cpp */; };
 		FD935C6C2018A4F700DA6C2E /* ofxBaseMidi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD935C602018A4F700DA6C2E /* ofxBaseMidi.cpp */; };
@@ -221,6 +222,8 @@
 		FD2FDEDE1F0275730005283B /* ofeliaAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaAudio.h; sourceTree = "<group>"; };
 		FD60C3631FA3E86100D94827 /* ofeliaAnimate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaAnimate.cpp; sourceTree = "<group>"; };
 		FD60C3641FA3E86100D94827 /* ofeliaAnimate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaAnimate.h; sourceTree = "<group>"; };
+		FD6FE7C12078DB7100865BDD /* ofeliaShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaShader.h; sourceTree = "<group>"; };
+		FD6FE7C22078DB7100865BDD /* ofeliaShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaShader.cpp; sourceTree = "<group>"; };
 		FD935C5A2018A4D300DA6C2E /* ofxRtMidiIn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxRtMidiIn.cpp; path = ../../../addons/ofxMidi/src/desktop/ofxRtMidiIn.cpp; sourceTree = "<group>"; };
 		FD935C5B2018A4D300DA6C2E /* ofxRtMidiIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxRtMidiIn.h; path = ../../../addons/ofxMidi/src/desktop/ofxRtMidiIn.h; sourceTree = "<group>"; };
 		FD935C5C2018A4D300DA6C2E /* ofxRtMidiOut.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxRtMidiOut.cpp; path = ../../../addons/ofxMidi/src/desktop/ofxRtMidiOut.cpp; sourceTree = "<group>"; };
@@ -880,6 +883,8 @@
 				FDA9F83A1EB49DB4003F6F52 /* ofeliaSetters.h */,
 				FDA9F83B1EB49DB4003F6F52 /* ofeliaSetup.cpp */,
 				FDA9F83C1EB49DB4003F6F52 /* ofeliaSetup.h */,
+				FD6FE7C22078DB7100865BDD /* ofeliaShader.cpp */,
+				FD6FE7C12078DB7100865BDD /* ofeliaShader.h */,
 				FDA9F83D1EB49DB4003F6F52 /* ofeliaShapes.cpp */,
 				FDA9F83E1EB49DB4003F6F52 /* ofeliaShapes.h */,
 				FD150BD61F12BBA000BB2707 /* ofeliaString.cpp */,
@@ -1019,6 +1024,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				FD935D082018A68700DA6C2E /* g_array.c in Sources */,
 				FDA9F8631EB49DB4003F6F52 /* ofeliaUtils.cpp in Sources */,
+				FD6FE7C32078DB7100865BDD /* ofeliaShader.cpp in Sources */,
 				FD935C7E2018A56200DA6C2E /* PdTypes.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				FD935D122018A68700DA6C2E /* g_mycanvas.c in Sources */,

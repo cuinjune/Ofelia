@@ -47,6 +47,7 @@
 #include "ofeliaFont.h"
 #include "ofeliaFbo.h"
 #include "ofeliaImage.h"
+#include "ofeliaShader.h"
 #include "ofeliaMesh.h"
 #include "ofeliaPath.h"
 #include "ofeliaPolyline.h"
@@ -94,6 +95,7 @@ void ofelia_setup()
     ofeliaFont_setup();
     ofeliaFbo_setup();
     ofeliaImage_setup();
+    ofeliaShader_setup();
     ofeliaMesh_setup();
     ofeliaPath_setup();
     ofeliaPolyline_setup();

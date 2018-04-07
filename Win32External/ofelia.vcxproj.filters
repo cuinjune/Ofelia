@@ -12,36 +12,6 @@
     <ResourceCompile Include="icon.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ofeliaSymbol.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaURL.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaURLSaver.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaUtils.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaVec2f.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaVec3f.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaVec4f.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaViewport.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofeliaWindow.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tinyexpr.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ofeliaAnimate.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -141,6 +111,9 @@
     <ClCompile Include="src\ofeliaSetup.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofeliaShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\ofeliaShapes.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -150,38 +123,38 @@
     <ClCompile Include="src\ofeliaStyle.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofeliaSymbol.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaURL.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaURLSaver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaUtils.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec2f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec3f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaVec4f.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaViewport.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofeliaWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyexpr.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofeliaSymbol.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaURL.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaURLSaver.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaUtils.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaVec2f.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaVec3f.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaVec4f.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaViewport.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofeliaWindow.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tinyexpr.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\ofeliaAnimate.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -281,6 +254,9 @@
     <ClInclude Include="src\ofeliaSetup.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\ofeliaShader.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\ofeliaShapes.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -288,6 +264,36 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofeliaStyle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaSymbol.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaURL.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaURLSaver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaUtils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec2f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec3f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaVec4f.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaViewport.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaWindow.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tinyexpr.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
