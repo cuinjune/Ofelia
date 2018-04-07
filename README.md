@@ -1,6 +1,7 @@
 # ofelia
 ![alt text](doc/screenshot.jpg)
 ![alt text](doc/shader_screenshot.png)
+![alt text](doc/pdgui_screenshot.png)
 
 ## Description
 
@@ -24,9 +25,9 @@ The library includes the following features:
 
 * Framebuffer object
 
-* [GLSL shader loader](doc/shader_screenshot.png)
+* GLSL shader loader
 
-* [GUI abstractions](doc/pdgui_screenshot.png) (toggle, slider..)
+* GUI abstractions (toggle, slider..)
 
 * Various data types to effectively store and handle data (ofVec3f, ofColor..)
 
