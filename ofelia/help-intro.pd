@@ -1073,7 +1073,7 @@ size;
 ;
 #X text 23 22 a categorized list of built-in objects in ofelia.;
 #X obj 512 20 declare -lib ofelia;
-#N canvas 519 75 650 747 shader 0;
+#N canvas 519 75 650 707 shader 0;
 #X obj 26 59 ofLoadShader;
 #X obj 26 79 ofApplyShader;
 #X obj 26 99 ofDoesShaderNameExist;
@@ -1096,22 +1096,14 @@ size;
 #X obj 26 439 ofSetShaderUniform3fv;
 #X obj 26 459 ofSetShaderUniform4fv;
 #X obj 26 479 ofSetShaderUniformTex;
-#X obj 26 499 ofSetShaderAttribute1s;
-#X obj 26 519 ofSetShaderAttribute2s;
-#X obj 26 539 ofSetShaderAttribute3s;
-#X obj 26 559 ofSetShaderAttribute4s;
-#X obj 26 579 ofSetShaderAttribute1f;
-#X obj 26 599 ofSetShaderAttribute2f;
-#X obj 26 619 ofSetShaderAttribute3f;
-#X obj 26 639 ofSetShaderAttribute4f;
-#X obj 26 659 ofSetShaderAttribute1d;
-#X obj 26 679 ofSetShaderAttribute2d;
-#X obj 26 699 ofSetShaderAttribute3d;
-#X obj 26 719 ofSetShaderAttribute4d;
-#X obj 26 739 ofSetShaderAttribute1fv;
-#X obj 26 759 ofSetShaderAttribute2fv;
-#X obj 26 779 ofSetShaderAttribute3fv;
-#X obj 26 799 ofSetShaderAttribute4fv;
+#X obj 26 499 ofSetShaderAttribute1f;
+#X obj 26 519 ofSetShaderAttribute2f;
+#X obj 26 539 ofSetShaderAttribute3f;
+#X obj 26 559 ofSetShaderAttribute4f;
+#X obj 26 579 ofSetShaderAttribute1fv;
+#X obj 26 599 ofSetShaderAttribute2fv;
+#X obj 26 619 ofSetShaderAttribute3fv;
+#X obj 26 639 ofSetShaderAttribute4fv;
 #X text 224 59 - store an array of shaders;
 #X text 224 79 - apply the shader;
 #X text 224 99 - check the existence of a shader variable name;
@@ -1134,24 +1126,16 @@ size;
 #X text 224 439 - set an array of vec3 uniform on the shader;
 #X text 224 459 - set an array of vec4 uniform on the shader;
 #X text 224 479 - set a texture reference on the shader;
-#X text 224 499 - set 1 short attribute on the shader;
-#X text 224 519 - set 2 short attributes on the shader;
-#X text 224 539 - set 3 short attributes on the shader;
-#X text 224 559 - set 4 short attributes on the shader;
-#X text 224 579 - set 1 float attribute on the shader;
-#X text 224 599 - set 2 float attributes on the shader;
-#X text 224 619 - set 3 float attributes on the shader;
-#X text 224 639 - set 4 float attributes on the shader;
-#X text 224 659 - set 1 double attribute on the shader;
-#X text 224 679 - set 2 double attributes on the shader;
-#X text 224 699 - set 3 double attributes on the shader;
-#X text 224 719 - set 4 double attributes on the shader;
-#X text 224 739 - set an array of 1 float attribute on the shader;
-#X text 224 759 - set an array of 2 float attributes on the shader
+#X text 224 499 - set 1 float attribute on the shader;
+#X text 224 519 - set 2 float attributes on the shader;
+#X text 224 539 - set 3 float attributes on the shader;
+#X text 224 559 - set 4 float attributes on the shader;
+#X text 224 579 - set an array of 1 float attribute on the shader;
+#X text 224 599 - set an array of 2 float attributes on the shader
 ;
-#X text 224 779 - set an array of 3 float attributes on the shader
+#X text 224 619 - set an array of 3 float attributes on the shader
 ;
-#X text 224 799 - set an array of 4 float attributes on the shader
+#X text 224 639 - set an array of 4 float attributes on the shader
 ;
 #X text 24 30 -------------------------- SHADER --------------------------
 ;
