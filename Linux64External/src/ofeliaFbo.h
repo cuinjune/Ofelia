@@ -28,6 +28,7 @@
 
 extern "C" {
     
+    /* common structs */
     typedef struct _ofeliaCreateFboData {
         
         unsigned int objID;
@@ -35,6 +36,9 @@ extern "C" {
         t_ofeliaImageData data;
         
     } t_ofeliaCreateFboData;
+    
+    /* methods */
+    int getPositionByFboName(const t_string &name);
     
     /* ofCreateFbo object class */
     static t_class *ofeliaCreateFbo_class;

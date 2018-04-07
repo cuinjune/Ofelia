@@ -6446,7 +6446,7 @@ void ofeliaPlane_bang(t_ofeliaPlane *x)
         if (x->shouldLoad) {
             
             x->mesh->operator=(ofMesh::plane(x->elem.width, x->elem.height,
-                                             x->elem.columns, x->elem.rows));
+                                             x->elem.columns, x->elem.rows, OF_PRIMITIVE_TRIANGLES));
             x->shouldLoad = false;
         }
         if (!ofGetStyle().bFill)

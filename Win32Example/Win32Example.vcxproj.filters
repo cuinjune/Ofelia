@@ -133,6 +133,9 @@
     <ClCompile Include="src\ofeliaSetup.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofeliaShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\ofeliaShapes.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -411,6 +414,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofeliaSetup.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaShader.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofeliaShapes.h">

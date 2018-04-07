@@ -31,7 +31,7 @@
 /* ofelia version info */
 #define OFELIA_MAJOR_VERSION 1
 #define OFELIA_MINOR_VERSION 0
-#define OFELIA_BUGFIX_VERSION 6
+#define OFELIA_BUGFIX_VERSION 7
 
 /* default window property values */
 #define OFELIA_DEFAULT_WINDOWWIDTH 320

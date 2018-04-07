@@ -40,6 +40,9 @@ extern "C" {
         
     } t_ofeliaCommonImageData;
     
+    /* methods */
+    int getPositionByImageName(const t_string &name, bool &isLoadedImage);
+    
     /* ofCreateImage object class */
     static t_class *ofeliaCreateImage_class;
     

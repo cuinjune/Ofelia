@@ -96,6 +96,8 @@
 		FDE3ECA11F976B0200975082 /* ofeliaVec4f.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE3EC9F1F976B0200975082 /* ofeliaVec4f.h */; };
 		FDE5A0B51F11CD810089DDAD /* ofeliaString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE5A0B31F11CD810089DDAD /* ofeliaString.cpp */; };
 		FDE5A0B61F11CD810089DDAD /* ofeliaString.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE5A0B41F11CD810089DDAD /* ofeliaString.h */; };
+		FDE6E6372071E90400A4886F /* ofeliaShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE6E6352071E90400A4886F /* ofeliaShader.cpp */; };
+		FDE6E6382071E90400A4886F /* ofeliaShader.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE6E6362071E90400A4886F /* ofeliaShader.h */; };
 		FDFDE73C1DAD111D00F66F86 /* ofeliaStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDFDE73A1DAD111D00F66F86 /* ofeliaStyle.cpp */; };
 		FDFDE73D1DAD111D00F66F86 /* ofeliaStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = FDFDE73B1DAD111D00F66F86 /* ofeliaStyle.h */; };
 /* End PBXBuildFile section */
@@ -213,6 +215,8 @@
 		FDE3EC9F1F976B0200975082 /* ofeliaVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaVec4f.h; sourceTree = "<group>"; };
 		FDE5A0B31F11CD810089DDAD /* ofeliaString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaString.cpp; sourceTree = "<group>"; };
 		FDE5A0B41F11CD810089DDAD /* ofeliaString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaString.h; sourceTree = "<group>"; };
+		FDE6E6352071E90400A4886F /* ofeliaShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaShader.cpp; sourceTree = "<group>"; };
+		FDE6E6362071E90400A4886F /* ofeliaShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofeliaShader.h; sourceTree = "<group>"; };
 		FDFDE73A1DAD111D00F66F86 /* ofeliaStyle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaStyle.cpp; sourceTree = "<group>"; };
 		FDFDE73B1DAD111D00F66F86 /* ofeliaStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaStyle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +333,8 @@
 				FD52F2E11F8779E9001D3D5B /* ofeliaImageSaver.h */,
 				FD9D27321E28CCF000DB1188 /* ofeliaImage.cpp */,
 				FD9D27331E28CCF000DB1188 /* ofeliaImage.h */,
+				FDE6E6352071E90400A4886F /* ofeliaShader.cpp */,
+				FDE6E6362071E90400A4886F /* ofeliaShader.h */,
 				FD3110131E6EAAE500D0D122 /* ofeliaMesh.cpp */,
 				FD3110141E6EAAE500D0D122 /* ofeliaMesh.h */,
 				FD4129E61E5D621B004C5EBA /* ofeliaPath.cpp */,
@@ -423,6 +429,7 @@
 				FD1C77EF1E94B7A200141256 /* ofeliaSymbol.h in Headers */,
 				FDD5553C1DDAF4C60098BABA /* ofeliaMatrix.h in Headers */,
 				FD52F2CC1F873237001D3D5B /* ofeliaDirectoryHandler.h in Headers */,
+				FDE6E6382071E90400A4886F /* ofeliaShader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +572,7 @@
 				FD8C6EFC1DE2DC7500DD1F2A /* ofeliaViewport.cpp in Sources */,
 				FD4129E81E5D621B004C5EBA /* ofeliaPath.cpp in Sources */,
 				FD4E9D411E6ACA23009F6A86 /* ofeliaPolyline.cpp in Sources */,
+				FDE6E6372071E90400A4886F /* ofeliaShader.cpp in Sources */,
 				FD2774DA1E44BFB4005E0A71 /* ofeliaFont.cpp in Sources */,
 				FD8EFC4E1FD1A910005E660C /* ofeliaColor.cpp in Sources */,
 			);

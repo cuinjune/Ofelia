@@ -21,7 +21,6 @@
 
 #include "ofeliaImage.h"
 #include "ofeliaWindow.h"
-#include "ofeliaFont.h"
 #include "ofeliaFbo.h"
 
 /* ________________________________________________________________________________
@@ -938,17 +937,6 @@ int getPositionByImageName(const t_string &name, bool &isLoadedImage)
 /* ________________________________________________________________________________
  * ofEditImage object methods
  */
-int getPositionByFboNameFromImage(const t_string &name)
-{
-    auto it = find_if(begin(t_ofeliaCreateFbo::fboData), end(t_ofeliaCreateFbo::fboData),
-                      [&name] (const t_ofeliaCreateFboData &fboData) {
-                          return (fboData.varName.name == name);
-                      });
-    if (it == end(t_ofeliaCreateFbo::fboData))
-        return -1;
-    return static_cast<int>(it - begin(t_ofeliaCreateFbo::fboData));
-}
-
 void ofeliaEditImage_jobDoneOut(t_ofeliaEditImage *x);
 
 void *ofeliaEditImage_new(t_symbol *s)
@@ -1358,7 +1346,6 @@ void ofeliaEditImage_update(t_ofeliaEditImage *x)
                                             else {
                                                 
                                                 const int cIndex = min(x->cmdVec[i].varName.index, static_cast<int>(t_ofeliaLoadImage::imageData[cPos].paths.size())-1);
-                                                
                                                 cIsEmpty = t_ofeliaLoadImage::imageData[cPos].paths.empty();
                                                 
                                                 if (!cIsEmpty) {
@@ -1398,7 +1385,7 @@ void ofeliaEditImage_update(t_ofeliaEditImage *x)
                                         }
                                         else {
                                             
-                                            cPos = getPositionByFboNameFromImage(cName);
+                                            cPos = getPositionByFboName(cName);
                                             
                                             if (cPos != -1) {
                                                 
@@ -1441,7 +1428,6 @@ void ofeliaEditImage_update(t_ofeliaEditImage *x)
                                             else {
                                                 
                                                 const int cIndex = min(x->cmdVec[i].varName.index, static_cast<int>(t_ofeliaLoadImage::imageData[cPos].paths.size())-1);
-                                                
                                                 cIsEmpty = t_ofeliaLoadImage::imageData[cPos].paths.empty();
                                                 
                                                 if (!cIsEmpty) {
@@ -1481,7 +1467,7 @@ void ofeliaEditImage_update(t_ofeliaEditImage *x)
                                         }
                                         else {
                                             
-                                            cPos = getPositionByFboNameFromImage(cName);
+                                            cPos = getPositionByFboName(cName);
                                             
                                             if (cPos != -1) {
 
