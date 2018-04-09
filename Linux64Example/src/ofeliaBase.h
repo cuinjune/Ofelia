@@ -31,7 +31,7 @@
 /* ofelia version info */
 #define OFELIA_MAJOR_VERSION 1
 #define OFELIA_MINOR_VERSION 0
-#define OFELIA_BUGFIX_VERSION 7
+#define OFELIA_BUGFIX_VERSION 8
 
 /* default window property values */
 #define OFELIA_DEFAULT_WINDOWWIDTH 320
@@ -159,6 +159,7 @@ extern "C" {
         struct _glist *gl_owner;
     };
     t_symbol *canvas_realizedollar(t_canvas *x, t_symbol *s);
+    void glist_delete(t_glist *x, t_gobj *y);
     
     /* methods */
     void removeSemicolonFromArgs(int &argc, t_atom *argv);

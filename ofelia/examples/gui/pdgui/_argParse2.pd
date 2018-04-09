@@ -9,7 +9,7 @@
 #X obj 184 173 ofSnd v\$1_\$2;
 #X obj 267 173 ofSnd v\$1_\$3;
 #X obj 249 312 outlet;
-#X obj 184 110 ofGetDollarArgs 1;
+#X obj 184 110 ofGetCanvasArgs 1;
 #X obj 184 89 ofRcv v\$1_loadargs;
 #X obj 184 131 list split 1;
 #X obj 267 131 list split 1;

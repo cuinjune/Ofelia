@@ -7,7 +7,7 @@
 #X obj 55 312 outlet;
 #X obj 184 173 ofSnd v\$1_\$2;
 #X obj 249 312 outlet;
-#X obj 184 110 ofGetDollarArgs 1;
+#X obj 184 110 ofGetCanvasArgs 1;
 #X obj 184 89 ofRcv v\$1_loadargs;
 #X obj 184 131 list split 1;
 #X text 53 28 this abstraction is used to parse arguments used in a
