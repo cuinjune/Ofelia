@@ -17,7 +17,7 @@
 #X obj 611 152 inlet;
 #X obj 518 173 ofSnd v\$1_\$6;
 #X obj 601 173 ofSnd v\$1_\$7;
-#X obj 184 110 ofGetDollarArgs 1;
+#X obj 184 110 ofGetCanvasArgs 1;
 #X obj 184 89 ofRcv v\$1_loadargs;
 #X obj 184 131 list split 1;
 #X obj 267 131 list split 1;

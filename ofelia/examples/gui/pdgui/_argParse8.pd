@@ -23,7 +23,7 @@
 #X obj 769 173 ofSnd v\$1_\$9;
 #X text 53 28 this abstraction is used to parse arguments used in a
 gui abstraction. requires \$0 and 8 argument names.;
-#X obj 184 110 ofGetDollarArgs 1;
+#X obj 184 110 ofGetCanvasArgs 1;
 #X obj 184 89 ofRcv v\$1_loadargs;
 #X obj 184 131 list split 1;
 #X obj 267 131 list split 1;
