@@ -1,3 +1,8 @@
+v1.0.8: 14 Apr 2018
+
+* renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
+* added [ofSetCanvasArgs] and [ofRemoveCanvas]
+
 v1.0.7: 7 Apr 2018
 
 * added primMode argument to cone, cylinder, plane, sphere mesh command
