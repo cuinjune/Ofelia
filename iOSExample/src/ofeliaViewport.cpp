@@ -214,8 +214,6 @@ void ofeliaViewport_setup()
                                      0, sizeof(t_ofeliaViewport),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaViewport_class, reinterpret_cast<t_method>(ofeliaViewport_bang));
-    class_addmethod(ofeliaViewport_class, reinterpret_cast<t_method>(ofeliaViewport_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaViewport_class, reinterpret_cast<t_method>(ofeliaViewport_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaViewport_class, reinterpret_cast<t_method>(ofeliaViewport_y),

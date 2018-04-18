@@ -2465,8 +2465,6 @@ void ofeliaDrawPolyline2d_setup()
                                            0, sizeof(t_ofeliaDrawPolyline2d),
                                            CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawPolyline2d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline2d_bang));
-    class_addmethod(ofeliaDrawPolyline2d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline2d_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawPolyline2d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline2d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawPolyline2d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline2d_width),
@@ -2622,8 +2620,6 @@ void ofeliaDrawPolyline3d_setup()
                                            0, sizeof(t_ofeliaDrawPolyline3d),
                                            CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawPolyline3d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline3d_bang));
-    class_addmethod(ofeliaDrawPolyline3d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline3d_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawPolyline3d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline3d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawPolyline3d_class, reinterpret_cast<t_method>(ofeliaDrawPolyline3d_width),

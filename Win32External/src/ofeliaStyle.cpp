@@ -831,8 +831,6 @@ void ofeliaPushStyle_setup()
                                       0, sizeof(t_ofeliaPushStyle),
                                       CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaPushStyle_class, reinterpret_cast<t_method>(ofeliaPushStyle_bang));
-    class_addmethod(ofeliaPushStyle_class, reinterpret_cast<t_method>(ofeliaPushStyle_bang),
-                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -866,8 +864,6 @@ void ofeliaPopStyle_setup()
                                      0, sizeof(t_ofeliaPopStyle),
                                      CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaPopStyle_class, reinterpret_cast<t_method>(ofeliaPopStyle_bang));
-    class_addmethod(ofeliaPopStyle_class, reinterpret_cast<t_method>(ofeliaPopStyle_bang),
-                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -944,8 +940,6 @@ void ofeliaSetColor_setup()
                                      0, sizeof(t_ofeliaSetColor),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetColor_class, reinterpret_cast<t_method>(ofeliaSetColor_bang));
-    class_addmethod(ofeliaSetColor_class, reinterpret_cast<t_method>(ofeliaSetColor_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetColor_class, reinterpret_cast<t_method>(ofeliaSetColor_r),
                     gensym("r"), A_FLOAT, 0);
     class_addmethod(ofeliaSetColor_class, reinterpret_cast<t_method>(ofeliaSetColor_g),
@@ -1030,8 +1024,6 @@ void ofeliaSetBgColor_setup()
                                        0, sizeof(t_ofeliaSetBgColor),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetBgColor_class, reinterpret_cast<t_method>(ofeliaSetBgColor_bang));
-    class_addmethod(ofeliaSetBgColor_class, reinterpret_cast<t_method>(ofeliaSetBgColor_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetBgColor_class, reinterpret_cast<t_method>(ofeliaSetBgColor_r),
                     gensym("r"), A_FLOAT, 0);
     class_addmethod(ofeliaSetBgColor_class, reinterpret_cast<t_method>(ofeliaSetBgColor_g),
@@ -1098,8 +1090,6 @@ void ofeliaSetRectMode_setup()
                                         0, sizeof(t_ofeliaSetRectMode),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetRectMode_class, reinterpret_cast<t_method>(ofeliaSetRectMode_bang));
-    class_addmethod(ofeliaSetRectMode_class, reinterpret_cast<t_method>(ofeliaSetRectMode_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetRectMode_class, reinterpret_cast<t_method>(ofeliaSetRectMode_set),
                     gensym("rectMode"), A_GIMME, 0);
     class_addmethod(ofeliaSetRectMode_class, reinterpret_cast<t_method>(ofeliaSetRectMode_set),
@@ -1267,8 +1257,6 @@ void ofeliaSetTextMode_setup()
                                         0, sizeof(t_ofeliaSetTextMode),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetTextMode_class, reinterpret_cast<t_method>(ofeliaSetTextMode_bang));
-    class_addmethod(ofeliaSetTextMode_class, reinterpret_cast<t_method>(ofeliaSetTextMode_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetTextMode_class, reinterpret_cast<t_method>(ofeliaSetTextMode_horMode),
                     gensym("horMode"), A_GIMME, 0);
     class_addmethod(ofeliaSetTextMode_class, reinterpret_cast<t_method>(ofeliaSetTextMode_verMode),
@@ -1378,8 +1366,6 @@ void ofeliaSetFillMode_setup()
                                         0, sizeof(t_ofeliaSetFillMode),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetFillMode_class, reinterpret_cast<t_method>(ofeliaSetFillMode_bang));
-    class_addmethod(ofeliaSetFillMode_class, reinterpret_cast<t_method>(ofeliaSetFillMode_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetFillMode_class, reinterpret_cast<t_method>(ofeliaSetFillMode_set),
                     gensym("fillMode"), A_GIMME, 0);
     class_addmethod(ofeliaSetFillMode_class, reinterpret_cast<t_method>(ofeliaSetFillMode_set),
@@ -1516,8 +1502,6 @@ void ofeliaSetPolyMode_setup()
                                         0, sizeof(t_ofeliaSetPolyMode),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetPolyMode_class, reinterpret_cast<t_method>(ofeliaSetPolyMode_bang));
-    class_addmethod(ofeliaSetPolyMode_class, reinterpret_cast<t_method>(ofeliaSetPolyMode_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetPolyMode_class, reinterpret_cast<t_method>(ofeliaSetPolyMode_set),
                     gensym("polyMode"), A_GIMME, 0);
     class_addmethod(ofeliaSetPolyMode_class, reinterpret_cast<t_method>(ofeliaSetPolyMode_set),
@@ -1659,8 +1643,6 @@ void ofeliaSetBlendMode_setup()
                                          0, sizeof(t_ofeliaSetBlendMode),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetBlendMode_class, reinterpret_cast<t_method>(ofeliaSetBlendMode_bang));
-    class_addmethod(ofeliaSetBlendMode_class, reinterpret_cast<t_method>(ofeliaSetBlendMode_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetBlendMode_class, reinterpret_cast<t_method>(ofeliaSetBlendMode_set),
                     gensym("blendMode"), A_GIMME, 0);
     class_addmethod(ofeliaSetBlendMode_class, reinterpret_cast<t_method>(ofeliaSetBlendMode_set),
@@ -1755,8 +1737,6 @@ void ofeliaSetLineWidth_setup()
                                          0, sizeof(t_ofeliaSetLineWidth),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetLineWidth_class, reinterpret_cast<t_method>(ofeliaSetLineWidth_bang));
-    class_addmethod(ofeliaSetLineWidth_class, reinterpret_cast<t_method>(ofeliaSetLineWidth_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetLineWidth_class, reinterpret_cast<t_method>(ofeliaSetLineWidth_set),
                     gensym("lineWidth"), A_GIMME, 0);
     class_addmethod(ofeliaSetLineWidth_class, reinterpret_cast<t_method>(ofeliaSetLineWidth_set),
@@ -1820,8 +1800,6 @@ void ofeliaSetLineSmoothing_setup()
                                          0, sizeof(t_ofeliaSetLineSmoothing),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetLineSmoothing_class, reinterpret_cast<t_method>(ofeliaSetLineSmoothing_bang));
-    class_addmethod(ofeliaSetLineSmoothing_class, reinterpret_cast<t_method>(ofeliaSetLineSmoothing_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetLineSmoothing_class, reinterpret_cast<t_method>(ofeliaSetLineSmoothing_set),
                     gensym("lineSmoothing"), A_GIMME, 0);
     class_addmethod(ofeliaSetLineSmoothing_class, reinterpret_cast<t_method>(ofeliaSetLineSmoothing_set),
@@ -1916,8 +1894,6 @@ void ofeliaSetCircleRes_setup()
                                          0, sizeof(t_ofeliaSetCircleRes),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetCircleRes_class, reinterpret_cast<t_method>(ofeliaSetCircleRes_bang));
-    class_addmethod(ofeliaSetCircleRes_class, reinterpret_cast<t_method>(ofeliaSetCircleRes_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetCircleRes_class, reinterpret_cast<t_method>(ofeliaSetCircleRes_set),
                     gensym("circleRes"), A_GIMME, 0);
     class_addmethod(ofeliaSetCircleRes_class, reinterpret_cast<t_method>(ofeliaSetCircleRes_set),
@@ -2012,8 +1988,6 @@ void ofeliaSetCurveRes_setup()
                                         0, sizeof(t_ofeliaSetCurveRes),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetCurveRes_class, reinterpret_cast<t_method>(ofeliaSetCurveRes_bang));
-    class_addmethod(ofeliaSetCurveRes_class, reinterpret_cast<t_method>(ofeliaSetCurveRes_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetCurveRes_class, reinterpret_cast<t_method>(ofeliaSetCurveRes_set),
                     gensym("curveRes"), A_GIMME, 0);
     class_addmethod(ofeliaSetCurveRes_class, reinterpret_cast<t_method>(ofeliaSetCurveRes_set),

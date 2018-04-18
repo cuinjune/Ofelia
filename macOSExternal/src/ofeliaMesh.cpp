@@ -3864,8 +3864,6 @@ void ofeliaDrawMesh2d_setup()
                                        0, sizeof(t_ofeliaDrawMesh2d),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawMesh2d_class, reinterpret_cast<t_method>(ofeliaDrawMesh2d_bang));
-    class_addmethod(ofeliaDrawMesh2d_class, reinterpret_cast<t_method>(ofeliaDrawMesh2d_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawMesh2d_class, reinterpret_cast<t_method>(ofeliaDrawMesh2d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawMesh2d_class, reinterpret_cast<t_method>(ofeliaDrawMesh2d_width),
@@ -4027,8 +4025,6 @@ void ofeliaDrawMesh3d_setup()
                                        0, sizeof(t_ofeliaDrawMesh3d),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawMesh3d_class, reinterpret_cast<t_method>(ofeliaDrawMesh3d_bang));
-    class_addmethod(ofeliaDrawMesh3d_class, reinterpret_cast<t_method>(ofeliaDrawMesh3d_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawMesh3d_class, reinterpret_cast<t_method>(ofeliaDrawMesh3d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawMesh3d_class, reinterpret_cast<t_method>(ofeliaDrawMesh3d_width),
