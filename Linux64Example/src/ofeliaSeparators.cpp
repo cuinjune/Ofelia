@@ -123,6 +123,8 @@ void ofeliaSepStyle_setup()
                                      sizeof(t_ofeliaSepStyle),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSepStyle_class, reinterpret_cast<t_method>(ofeliaSepStyle_bang));
+    class_addmethod(ofeliaSepStyle_class, reinterpret_cast<t_method>(ofeliaSepStyle_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -176,6 +178,8 @@ void ofeliaSepMatrix_setup()
                                       sizeof(t_ofeliaSepMatrix),
                                       CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSepMatrix_class, reinterpret_cast<t_method>(ofeliaSepMatrix_bang));
+    class_addmethod(ofeliaSepMatrix_class, reinterpret_cast<t_method>(ofeliaSepMatrix_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -235,6 +239,8 @@ void ofeliaSeparator_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaSeparator_new),
                      gensym("ofSep"), A_GIMME, 0);
     class_addbang(ofeliaSeparator_class, reinterpret_cast<t_method>(ofeliaSeparator_bang));
+    class_addmethod(ofeliaSeparator_class, reinterpret_cast<t_method>(ofeliaSeparator_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________

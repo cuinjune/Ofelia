@@ -140,6 +140,8 @@ void ofeliaMaterial_setup()
     class_addmethod(ofeliaMaterial_class, reinterpret_cast<t_method>(ofeliaMaterial_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaMaterial_class, reinterpret_cast<t_method>(ofeliaMaterial_bang));
+    class_addmethod(ofeliaMaterial_class, reinterpret_cast<t_method>(ofeliaMaterial_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaMaterial_class, reinterpret_cast<t_method>(ofeliaMaterial_specular),
                     gensym("specular"), A_GIMME, 0);
     class_addmethod(ofeliaMaterial_class, reinterpret_cast<t_method>(ofeliaMaterial_diffuse),

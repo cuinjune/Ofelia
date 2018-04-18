@@ -69,6 +69,8 @@ void ofeliaPushMatrix_setup()
                                        0, sizeof(t_ofeliaPushMatrix),
                                        CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaPushMatrix_class, reinterpret_cast<t_method>(ofeliaPushMatrix_bang));
+    class_addmethod(ofeliaPushMatrix_class, reinterpret_cast<t_method>(ofeliaPushMatrix_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -101,6 +103,8 @@ void ofeliaPopMatrix_setup()
                                       0, sizeof(t_ofeliaPopMatrix),
                                       CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaPopMatrix_class, reinterpret_cast<t_method>(ofeliaPopMatrix_bang));
+    class_addmethod(ofeliaPopMatrix_class, reinterpret_cast<t_method>(ofeliaPopMatrix_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -219,6 +223,8 @@ void ofeliaTranslate_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaTranslate_new),
                      gensym("ofTrans"), A_GIMME, 0);
     class_addbang(ofeliaTranslate_class, reinterpret_cast<t_method>(ofeliaTranslate_bang));
+    class_addmethod(ofeliaTranslate_class, reinterpret_cast<t_method>(ofeliaTranslate_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaTranslate_class, reinterpret_cast<t_method>(ofeliaTranslate_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaTranslate_class, reinterpret_cast<t_method>(ofeliaTranslate_y),
@@ -320,6 +326,8 @@ void ofeliaRotateX_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotateX_new),
                      gensym("ofRotX"), A_GIMME, 0);
     class_addbang(ofeliaRotateX_class, reinterpret_cast<t_method>(ofeliaRotateX_bang));
+    class_addmethod(ofeliaRotateX_class, reinterpret_cast<t_method>(ofeliaRotateX_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotateX_class, reinterpret_cast<t_method>(ofeliaRotateX_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaRotateX_class, reinterpret_cast<t_method>(ofeliaRotateX_set),
@@ -383,6 +391,8 @@ void ofeliaRotateY_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotateY_new),
                      gensym("ofRotY"), A_GIMME, 0);
     class_addbang(ofeliaRotateY_class, reinterpret_cast<t_method>(ofeliaRotateY_bang));
+    class_addmethod(ofeliaRotateY_class, reinterpret_cast<t_method>(ofeliaRotateY_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotateY_class, reinterpret_cast<t_method>(ofeliaRotateY_y),
                     gensym("y"), A_FLOAT, 0);
     class_addmethod(ofeliaRotateY_class, reinterpret_cast<t_method>(ofeliaRotateY_set),
@@ -446,6 +456,8 @@ void ofeliaRotateZ_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotateZ_new),
                      gensym("ofRotZ"), A_GIMME, 0);
     class_addbang(ofeliaRotateZ_class, reinterpret_cast<t_method>(ofeliaRotateZ_bang));
+    class_addmethod(ofeliaRotateZ_class, reinterpret_cast<t_method>(ofeliaRotateZ_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotateZ_class, reinterpret_cast<t_method>(ofeliaRotateZ_z),
                     gensym("z"), A_FLOAT, 0);
     class_addmethod(ofeliaRotateZ_class, reinterpret_cast<t_method>(ofeliaRotateZ_set),
@@ -558,6 +570,8 @@ void ofeliaRotateXYZ_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotateXYZ_new),
                      gensym("ofRotXYZ"), A_GIMME, 0);
     class_addbang(ofeliaRotateXYZ_class, reinterpret_cast<t_method>(ofeliaRotateXYZ_bang));
+    class_addmethod(ofeliaRotateXYZ_class, reinterpret_cast<t_method>(ofeliaRotateXYZ_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotateXYZ_class, reinterpret_cast<t_method>(ofeliaRotateXYZ_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaRotateXYZ_class, reinterpret_cast<t_method>(ofeliaRotateXYZ_y),
@@ -646,6 +660,8 @@ void ofeliaRotate_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotate_new),
                      gensym("ofRot"), A_GIMME, 0);
     class_addbang(ofeliaRotate_class, reinterpret_cast<t_method>(ofeliaRotate_bang));
+    class_addmethod(ofeliaRotate_class, reinterpret_cast<t_method>(ofeliaRotate_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotate_class, reinterpret_cast<t_method>(ofeliaRotate_angle),
                     gensym("angle"), A_FLOAT, 0);
     class_addmethod(ofeliaRotate_class, reinterpret_cast<t_method>(ofeliaRotate_x),
@@ -774,6 +790,8 @@ void ofeliaScale_setup()
                                   0, sizeof(t_ofeliaScale),
                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaScale_class, reinterpret_cast<t_method>(ofeliaScale_bang));
+    class_addmethod(ofeliaScale_class, reinterpret_cast<t_method>(ofeliaScale_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaScale_class, reinterpret_cast<t_method>(ofeliaScale_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaScale_class, reinterpret_cast<t_method>(ofeliaScale_y),
@@ -826,6 +844,8 @@ void ofeliaGetTranslate_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaGetTranslate_new),
                      gensym("ofGetTrans"), A_GIMME, 0);
     class_addbang(ofeliaGetTranslate_class, reinterpret_cast<t_method>(ofeliaGetTranslate_bang));
+    class_addmethod(ofeliaGetTranslate_class, reinterpret_cast<t_method>(ofeliaGetTranslate_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -873,6 +893,8 @@ void ofeliaGetRotate_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaGetRotate_new),
                      gensym("ofGetRot"), A_GIMME, 0);
     class_addbang(ofeliaGetRotate_class, reinterpret_cast<t_method>(ofeliaGetRotate_bang));
+    class_addmethod(ofeliaGetRotate_class, reinterpret_cast<t_method>(ofeliaGetRotate_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -913,6 +935,8 @@ void ofeliaGetScale_setup()
                                      0, sizeof(t_ofeliaGetScale),
                                      CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaGetScale_class, reinterpret_cast<t_method>(ofeliaGetScale_bang));
+    class_addmethod(ofeliaGetScale_class, reinterpret_cast<t_method>(ofeliaGetScale_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________

@@ -972,6 +972,8 @@ void ofeliaBindFontTex_setup()
                                         0, sizeof(t_ofeliaBindFontTex),
                                         CLASS_DEFAULT, A_DEFSYM, 0);
     class_addbang(ofeliaBindFontTex_class, reinterpret_cast<t_method>(ofeliaBindFontTex_bang));
+    class_addmethod(ofeliaBindFontTex_class, reinterpret_cast<t_method>(ofeliaBindFontTex_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaBindFontTex_class, reinterpret_cast<t_method>(ofeliaBindFontTex_float));
     class_addmethod(ofeliaBindFontTex_class, reinterpret_cast<t_method>(ofeliaBindFontTex_set),
                     gensym("name"), A_SYMBOL, 0);
@@ -1245,6 +1247,8 @@ void ofeliaDrawText_setup()
                                      0, sizeof(t_ofeliaDrawText),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawText_class, reinterpret_cast<t_method>(ofeliaDrawText_bang));
+    class_addmethod(ofeliaDrawText_class, reinterpret_cast<t_method>(ofeliaDrawText_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaDrawText_class, reinterpret_cast<t_method>(ofeliaDrawText_float));
     class_addmethod(ofeliaDrawText_class, reinterpret_cast<t_method>(ofeliaDrawText_name),
                     gensym("name"), A_SYMBOL, 0);
@@ -1486,6 +1490,8 @@ void ofeliaDrawTextAsShapes_setup()
                                              0, sizeof(t_ofeliaDrawTextAsShapes),
                                              CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawTextAsShapes_class, reinterpret_cast<t_method>(ofeliaDrawTextAsShapes_bang));
+    class_addmethod(ofeliaDrawTextAsShapes_class, reinterpret_cast<t_method>(ofeliaDrawTextAsShapes_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaDrawTextAsShapes_class, reinterpret_cast<t_method>(ofeliaDrawTextAsShapes_float));
     class_addmethod(ofeliaDrawTextAsShapes_class, reinterpret_cast<t_method>(ofeliaDrawTextAsShapes_name),
                     gensym("name"), A_SYMBOL, 0);
