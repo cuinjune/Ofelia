@@ -320,6 +320,17 @@ extern "C" {
         
     } t_ofeliaGetImageTexCoords;
     
+    /* ofGetImageTexID object class */
+    static t_class *ofeliaGetImageTexID_class;
+    
+    typedef struct _ofeliaGetImageTexID
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_ofeliaVarName varName;
+        
+    } t_ofeliaGetImageTexID;
+    
     /* setup method */
     void ofeliaImage_setup();
 }

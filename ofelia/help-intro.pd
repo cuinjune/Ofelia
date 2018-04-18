@@ -419,7 +419,7 @@ shape;
 #X text 224 539 - get the size of the perimeter of the path2d;
 #X text 224 559 - get the size of the perimeter of the path3d;
 #X restore 26 349 pd path;
-#N canvas 519 75 650 273 fbo 0;
+#N canvas 519 75 650 299 fbo 0;
 #X text 24 30 --------------------------- FBO ---------------------------
 ;
 #X obj 26 79 ofBindFboTex;
@@ -438,8 +438,10 @@ shape;
 #X text 224 179 - get the type of the fbo;
 #X obj 26 199 ofGetFboMaxSamples;
 #X text 224 199 - get the maximum number of MSAA samples;
+#X obj 26 219 ofGetFboTexID;
+#X text 224 219 - get the texture ID of the fbo;
 #X restore 26 369 pd fbo;
-#N canvas 519 75 650 412 image 0;
+#N canvas 519 75 650 440 image 0;
 #X text 24 30 -------------------------- IMAGE --------------------------
 ;
 #X obj 26 99 ofEditImage;
@@ -475,6 +477,8 @@ index;
 ;
 #X text 224 339 - get the texture coordinates of the image from 2d
 vertices;
+#X obj 26 359 ofGetImageTexID;
+#X text 224 359 - get the texture ID of the image;
 #X restore 26 389 pd image;
 #N canvas 519 75 650 412 font 0;
 #X text 24 30 --------------------------- FONT ---------------------------
