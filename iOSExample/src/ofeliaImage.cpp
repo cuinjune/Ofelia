@@ -51,6 +51,7 @@ const char *t_ofeliaGetImageType::objName = "ofGetImageType";
 const char *t_ofeliaGetImageColorAt::objName = "ofGetImageColorAt";
 const char *t_ofeliaGetImageTexCoord::objName = "ofGetImageTexCoord";
 const char *t_ofeliaGetImageTexCoords::objName = "ofGetImageTexCoords";
+const char *t_ofeliaGetImageTexID::objName = "ofGetImageTexID";
 
 /* ________________________________________________________________________________
  * ofCreateImage object methods
@@ -3757,6 +3758,110 @@ void ofeliaGetImageTexCoords_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetImageTexID object methods
+ */
+void *ofeliaGetImageTexID_new(t_symbol *s)
+{
+    t_ofeliaGetImageTexID *x = reinterpret_cast<t_ofeliaGetImageTexID*>(pd_new(ofeliaGetImageTexID_class));
+    getVarNameLocalPrefixes(x->varName);
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    getVarNameIndexed(x->varName);
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetImageTexID_bang(t_ofeliaGetImageTexID *x)
+{
+    const t_string &name = x->varName.name;
+    
+    if (!name.empty()) {
+        
+        bool isLoadedImage;
+        const int pos = getPositionByImageName(name, isLoadedImage);
+        
+        if (pos != -1) {
+            
+            ofImage *img = nullptr;
+            
+            if (!isLoadedImage) {
+                
+                img = t_ofeliaCreateImage::images[pos].get();
+            }
+            else {
+                
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadImage::imageData[pos].paths.size())-1);
+                
+                if (!t_ofeliaLoadImage::imageData[pos].paths.empty()) {
+                    
+                    if (!t_ofeliaLoadImage::images[pos].empty() &&
+                        index < static_cast<int>(t_ofeliaLoadImage::images[pos].size())) {
+                        
+                        img = t_ofeliaLoadImage::images[pos][index].get();
+                    }
+                    else {
+                        
+                        error("%s: '%s' is not loaded", t_ofeliaGetImageTexID::objName, name.c_str());
+                        return;
+                    }
+                }
+                else {
+                    
+                    error("%s: '%s' is empty", t_ofeliaGetImageTexID::objName, name.c_str());
+                    return;
+                }
+            }
+            if (img->isAllocated())
+                outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(img->getTexture().getTextureData().textureID));
+            else
+                error("%s: '%s' is not allocated", t_ofeliaGetImageTexID::objName, name.c_str());
+        }
+        else {
+            
+            error("%s: failed to find '%s'", t_ofeliaGetImageTexID::objName, name.c_str());
+        }
+    }
+    else {
+        
+        error("%s: name not assigned", t_ofeliaGetImageTexID::objName);
+    }
+}
+
+void ofeliaGetImageTexID_float(t_ofeliaGetImageTexID *x, t_floatarg f)
+{
+    x->varName.index = max(0, static_cast<int>(f));
+}
+
+void ofeliaGetImageTexID_set(t_ofeliaGetImageTexID *x, t_symbol *s)
+{
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    getVarNameIndexed(x->varName);
+}
+
+void ofeliaGetImageTexID_print(t_ofeliaGetImageTexID *x)
+{
+    post("\n[%s]", t_ofeliaGetImageTexID::objName);
+    post("name : %s[%d]", x->varName.name.c_str(), x->varName.index);
+}
+
+void ofeliaGetImageTexID_setup()
+{
+    ofeliaGetImageTexID_class = class_new(gensym("ofGetImageTexID"),
+                                          reinterpret_cast<t_newmethod>(ofeliaGetImageTexID_new),
+                                          0, sizeof(t_ofeliaGetImageTexID),
+                                          CLASS_DEFAULT, A_DEFSYM, 0);
+    class_addbang(ofeliaGetImageTexID_class, reinterpret_cast<t_method>(ofeliaGetImageTexID_bang));
+    class_addfloat(ofeliaGetImageTexID_class, reinterpret_cast<t_method>(ofeliaGetImageTexID_float));
+    class_addmethod(ofeliaGetImageTexID_class, reinterpret_cast<t_method>(ofeliaGetImageTexID_set),
+                    gensym("name"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetImageTexID_class, reinterpret_cast<t_method>(ofeliaGetImageTexID_set),
+                    gensym("set"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetImageTexID_class, reinterpret_cast<t_method>(ofeliaGetImageTexID_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
  * setup methods
  */
 void ofeliaImage_setup()
@@ -3776,5 +3881,6 @@ void ofeliaImage_setup()
     ofeliaGetImageColorAt_setup();
     ofeliaGetImageTexCoord_setup();
     ofeliaGetImageTexCoords_setup();
+    ofeliaGetImageTexID_setup();
 }
 

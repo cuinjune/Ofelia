@@ -135,6 +135,17 @@ extern "C" {
         
     } t_ofeliaGetFboMaxSamples;
     
+    /* ofGetFboTexID object class */
+    static t_class *ofeliaGetFboTexID_class;
+    
+    typedef struct _ofeliaGetFboTexID
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_ofeliaVarName varName;
+        
+    } t_ofeliaGetFboTexID;
+    
     /* setup methods */
     void ofeliaFbo_setup();
 }

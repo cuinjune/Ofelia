@@ -38,6 +38,7 @@ const char *t_ofeliaIsFboAllocated::objName = "ofIsFboAllocated";
 const char *t_ofeliaGetFboDimen::objName = "ofGetFboDimen";
 const char *t_ofeliaGetFboType::objName = "ofGetFboType";
 const char *t_ofeliaGetFboMaxSamples::objName = "ofGetFboMaxSamples";
+const char *t_ofeliaGetFboTexID::objName = "ofGetFboTexID";
 
 /* ________________________________________________________________________________
  * ofCreateFbo object methods
@@ -890,6 +891,72 @@ void ofeliaGetFboMaxSamples_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetFboTexID object methods
+ */
+void *ofeliaGetFboTexID_new(t_symbol *s)
+{
+    t_ofeliaGetFboTexID *x = reinterpret_cast<t_ofeliaGetFboTexID*>(pd_new(ofeliaGetFboTexID_class));
+    getVarNameLocalPrefixes(x->varName);
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetFboTexID_bang(t_ofeliaGetFboTexID *x)
+{
+    const t_string &name = x->varName.name;
+    
+    if (!name.empty()) {
+        
+        const int pos = getPositionByFboName(name);
+        
+        if (pos != -1) {
+            
+            if (t_ofeliaCreateFbo::fbos[pos]->isAllocated())
+                outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(t_ofeliaCreateFbo::fbos[pos]->getTexture().getTextureData().textureID));
+            else
+                error("%s: '%s' is not allocated", t_ofeliaGetFboTexID::objName, name.c_str());
+        }
+        else {
+            
+            error("%s: failed to find '%s'", t_ofeliaGetFboTexID::objName, name.c_str());
+        }
+    }
+    else {
+        
+        error("%s: name not assigned", t_ofeliaGetFboTexID::objName);
+    }
+}
+
+void ofeliaGetFboTexID_set(t_ofeliaGetFboTexID *x, t_symbol *s)
+{
+    x->varName.name = s->s_name;
+    getVarNameLocalized(x->varName);
+}
+
+void ofeliaGetFboTexID_print(t_ofeliaGetFboTexID *x)
+{
+    post("\n[%s]", t_ofeliaGetFboTexID::objName);
+    post("name : %s", x->varName.name.c_str());
+}
+
+void ofeliaGetFboTexID_setup()
+{
+    ofeliaGetFboTexID_class = class_new(gensym("ofGetFboTexID"),
+                                        reinterpret_cast<t_newmethod>(ofeliaGetFboTexID_new),
+                                        0, sizeof(t_ofeliaGetFboTexID),
+                                        CLASS_DEFAULT, A_DEFSYM, 0);
+    class_addbang(ofeliaGetFboTexID_class, reinterpret_cast<t_method>(ofeliaGetFboTexID_bang));
+    class_addmethod(ofeliaGetFboTexID_class, reinterpret_cast<t_method>(ofeliaGetFboTexID_set),
+                    gensym("name"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetFboTexID_class, reinterpret_cast<t_method>(ofeliaGetFboTexID_set),
+                    gensym("set"), A_SYMBOL, 0);
+    class_addmethod(ofeliaGetFboTexID_class, reinterpret_cast<t_method>(ofeliaGetFboTexID_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
  * setup methods
  */
 void ofeliaFbo_setup()
@@ -902,5 +969,6 @@ void ofeliaFbo_setup()
     ofeliaGetFboDimen_setup();
     ofeliaGetFboType_setup();
     ofeliaGetFboMaxSamples_setup();
+    ofeliaGetFboTexID_setup();
 }
 

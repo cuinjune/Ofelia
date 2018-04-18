@@ -15,7 +15,7 @@
 #X obj 0 506 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
 #X text 72 529 1) symbol;
-#N canvas 321 146 597 526 related_getter_objects 0;
+#N canvas 321 146 597 613 related_getter_objects 0;
 #X obj 30 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 30 83 5 0 0 0 - - -, f 5;
@@ -47,6 +47,11 @@
 #X floatatom 30 463 5 0 0 0 - - -, f 5;
 #X obj 30 436 ofGetFboMaxSamples @myFbo;
 #X text 53 411 get the maximum number of MSAA samples.;
+#X obj 30 502 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 30 553 5 0 0 0 - - -, f 5;
+#X text 53 501 get the texture ID of the fbo.;
+#X obj 30 526 ofGetFboTexID @myFbo;
 #X connect 0 0 12 0;
 #X connect 2 0 13 0;
 #X connect 3 0 4 0;
@@ -59,6 +64,8 @@
 #X connect 20 0 18 0;
 #X connect 22 0 24 0;
 #X connect 24 0 23 0;
+#X connect 26 0 29 0;
+#X connect 29 0 27 0;
 #X restore 23 298 pd related_getter_objects;
 #X obj 23 329 ofWindow 320 240 LEFT TOP;
 #X text 95 379 name <s>;

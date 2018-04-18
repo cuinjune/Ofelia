@@ -34,55 +34,60 @@ two types \, "loader" objects that can store an array of data and "getter"
 objects that can read the stored data from "loader" objects.;
 #X restore 486 66 pd about_vector;
 #X text 233 179 the number of elements stored in the array.;
-#N canvas 321 23 600 835 related_getter_objects 0;
+#N canvas 321 23 600 807 related_getter_objects 0;
 #X obj 30 32 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 212 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 192 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 302 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 278 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 417 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 379 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X floatatom 30 83 5 0 0 0 - - -, f 5;
-#X symbolatom 30 173 70 0 0 0 - - -, f 70;
-#X floatatom 30 263 5 0 0 0 - - -, f 5;
-#X obj 30 353 unpack f f;
-#X floatatom 30 376 5 0 0 0 - - -, f 5;
-#X floatatom 87 376 5 0 0 0 - - -, f 5;
-#X text 129 375 width \, height.;
-#X floatatom 30 468 5 0 0 0 - - -, f 5;
-#X text 127 514 get the color of a pixel at the specified x \, y index.
+#X floatatom 30 77 5 0 0 0 - - -, f 5;
+#X symbolatom 30 157 70 0 0 0 - - -, f 70;
+#X floatatom 30 243 5 0 0 0 - - -, f 5;
+#X obj 30 323 unpack f f;
+#X floatatom 30 344 5 0 0 0 - - -, f 5;
+#X floatatom 87 344 5 0 0 0 - - -, f 5;
+#X text 129 343 width \, height.;
+#X floatatom 30 424 5 0 0 0 - - -, f 5;
+#X text 127 459 get the color of a pixel at the specified x \, y index.
 ;
-#X msg 30 514 0 0;
-#X obj 30 568 print;
-#X text 73 569 outputs r \, g \, b \, a value of the color.;
-#X text 87 613 get the texture coordinate of the image from 2d vertex.
+#X msg 30 459 0 0;
+#X obj 30 507 print;
+#X text 73 508 outputs r \, g \, b \, a value of the color.;
+#X text 87 543 get the texture coordinate of the image from 2d vertex.
 ;
-#X obj 30 668 print;
-#X obj 30 788 print;
-#X text 41 735 get the texture coordinates of the image from 2d vertices.
+#X obj 30 585 print;
+#X obj 30 663 print;
+#X text 182 620 get the texture coordinates of the image from 2d vertices.
 ;
-#X msg 68 514 799 599;
-#X text 72 83 0: not exists \, 1: exists.;
+#X msg 68 459 799 599;
+#X text 72 77 0: not exists \, 1: exists.;
 #X text 53 31 check if the image variable name exists or not.;
 #X obj 30 56 ofDoesImageNameExist @myImages;
-#X obj 30 146 ofGetImagePath @myImages[0];
-#X obj 30 326 ofGetImageDimen @myImages[0];
-#X obj 30 441 ofGetImageType @myImages[0];
-#X obj 30 541 ofGetImageColorAt @myImages[0];
-#X obj 30 641 ofGetImageTexCoord @myImages[0];
-#X obj 30 761 ofGetImageTexCoords @myImages[0];
-#X msg 30 613 100 100;
-#X msg 30 713 0 0 800 0 800 600 0 600;
-#X text 53 301 get the dimensions of the image.;
-#X text 53 416 get the type of the image.;
-#X text 53 121 get the absolute path of the image.;
-#X obj 30 236 ofIsImageAllocated @myImages[0];
-#X text 53 211 check if the image is allocated or not.;
-#X text 72 263 0: not allocated \, 1: allocated.;
-#X text 73 468 0: GRAY \, 1: RGB \, 2: RGBA.;
+#X obj 30 136 ofGetImagePath @myImages[0];
+#X obj 30 302 ofGetImageDimen @myImages[0];
+#X obj 30 403 ofGetImageType @myImages[0];
+#X obj 30 486 ofGetImageColorAt @myImages[0];
+#X obj 30 564 ofGetImageTexCoord @myImages[0];
+#X obj 30 642 ofGetImageTexCoords @myImages[0];
+#X msg 30 543 100 100;
+#X msg 30 621 0 0 800 0 800 600 0 600;
+#X text 53 277 get the dimensions of the image.;
+#X text 53 378 get the type of the image.;
+#X text 53 111 get the absolute path of the image.;
+#X obj 30 216 ofIsImageAllocated @myImages[0];
+#X text 53 191 check if the image is allocated or not.;
+#X text 72 243 0: not allocated \, 1: allocated.;
+#X text 73 424 0: GRAY \, 1: RGB \, 2: RGBA.;
+#X obj 30 699 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 719 ofGetImageTexID @myImages[0];
+#X floatatom 30 740 5 0 0 0 - - -, f 5;
+#X text 51 698 get the texture ID of the image.;
 #X connect 0 0 24 0;
 #X connect 1 0 25 0;
 #X connect 2 0 36 0;
@@ -102,6 +107,8 @@ objects that can read the stored data from "loader" objects.;
 #X connect 31 0 29 0;
 #X connect 32 0 30 0;
 #X connect 36 0 7 0;
+#X connect 40 0 41 0;
+#X connect 41 0 42 0;
 #X restore 23 278 pd related_getter_objects;
 #X obj 23 339 ofWindow 320 240 LEFT TOP;
 #X floatatom 194 179 5 0 0 0 - - -, f 5;
