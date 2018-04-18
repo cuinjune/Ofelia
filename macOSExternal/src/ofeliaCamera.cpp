@@ -327,6 +327,8 @@ void ofeliaCamera_setup()
     class_addmethod(ofeliaCamera_class, reinterpret_cast<t_method>(ofeliaCamera_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCamera_class, reinterpret_cast<t_method>(ofeliaCamera_bang));
+    class_addmethod(ofeliaCamera_class, reinterpret_cast<t_method>(ofeliaCamera_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCamera_class, reinterpret_cast<t_method>(ofeliaCamera_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaCamera_class, reinterpret_cast<t_method>(ofeliaCamera_y),

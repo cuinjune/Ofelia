@@ -281,6 +281,8 @@ void ofeliaBeginShape_setup()
                                        0, sizeof(t_ofeliaBeginShape),
                                        CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaBeginShape_class, reinterpret_cast<t_method>(ofeliaBeginShape_bang));
+    class_addmethod(ofeliaBeginShape_class, reinterpret_cast<t_method>(ofeliaBeginShape_bang),
+                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -338,6 +340,8 @@ void ofeliaEndShape_setup()
                                      0, sizeof(t_ofeliaEndShape),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaEndShape_class, reinterpret_cast<t_method>(ofeliaEndShape_bang));
+    class_addmethod(ofeliaEndShape_class, reinterpret_cast<t_method>(ofeliaEndShape_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaEndShape_class, reinterpret_cast<t_method>(ofeliaEndShape_set),
                     gensym("autoClose"), A_GIMME, 0);
     class_addmethod(ofeliaEndShape_class, reinterpret_cast<t_method>(ofeliaEndShape_set),
@@ -401,6 +405,8 @@ void ofeliaNextContour_setup()
                                         0, sizeof(t_ofeliaNextContour),
                                         CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaNextContour_class, reinterpret_cast<t_method>(ofeliaNextContour_bang));
+    class_addmethod(ofeliaNextContour_class, reinterpret_cast<t_method>(ofeliaNextContour_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaNextContour_class, reinterpret_cast<t_method>(ofeliaNextContour_set),
                     gensym("autoClose"), A_GIMME, 0);
     class_addmethod(ofeliaNextContour_class, reinterpret_cast<t_method>(ofeliaNextContour_set),
@@ -457,6 +463,8 @@ void ofeliaVertex2d_setup()
                                      0, sizeof(t_ofeliaVertex2d),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaVertex2d_class, reinterpret_cast<t_method>(ofeliaVertex2d_bang));
+    class_addmethod(ofeliaVertex2d_class, reinterpret_cast<t_method>(ofeliaVertex2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaVertex2d_class, reinterpret_cast<t_method>(ofeliaVertex2d_set),
                     gensym("vertex"), A_GIMME, 0);
     class_addmethod(ofeliaVertex2d_class, reinterpret_cast<t_method>(ofeliaVertex2d_set),
@@ -513,6 +521,8 @@ void ofeliaVertex3d_setup()
                                      0, sizeof(t_ofeliaVertex3d),
                                      CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaVertex3d_class, reinterpret_cast<t_method>(ofeliaVertex3d_bang));
+    class_addmethod(ofeliaVertex3d_class, reinterpret_cast<t_method>(ofeliaVertex3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaVertex3d_class, reinterpret_cast<t_method>(ofeliaVertex3d_set),
                     gensym("vertex"), A_GIMME, 0);
     class_addmethod(ofeliaVertex3d_class, reinterpret_cast<t_method>(ofeliaVertex3d_set),
@@ -569,6 +579,8 @@ void ofeliaCurveVertex2d_setup()
                                           0, sizeof(t_ofeliaCurveVertex2d),
                                           CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaCurveVertex2d_class, reinterpret_cast<t_method>(ofeliaCurveVertex2d_bang));
+    class_addmethod(ofeliaCurveVertex2d_class, reinterpret_cast<t_method>(ofeliaCurveVertex2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCurveVertex2d_class, reinterpret_cast<t_method>(ofeliaCurveVertex2d_set),
                     gensym("vertex"), A_GIMME, 0);
     class_addmethod(ofeliaCurveVertex2d_class, reinterpret_cast<t_method>(ofeliaCurveVertex2d_set),
@@ -625,6 +637,8 @@ void ofeliaCurveVertex3d_setup()
                                           0, sizeof(t_ofeliaCurveVertex3d),
                                           CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaCurveVertex3d_class, reinterpret_cast<t_method>(ofeliaCurveVertex3d_bang));
+    class_addmethod(ofeliaCurveVertex3d_class, reinterpret_cast<t_method>(ofeliaCurveVertex3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCurveVertex3d_class, reinterpret_cast<t_method>(ofeliaCurveVertex3d_set),
                     gensym("vertex"), A_GIMME, 0);
     class_addmethod(ofeliaCurveVertex3d_class, reinterpret_cast<t_method>(ofeliaCurveVertex3d_set),
@@ -773,6 +787,8 @@ void ofeliaBezierVertex2d_setup()
                                            0, sizeof(t_ofeliaBezierVertex2d),
                                            CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaBezierVertex2d_class, reinterpret_cast<t_method>(ofeliaBezierVertex2d_bang));
+    class_addmethod(ofeliaBezierVertex2d_class, reinterpret_cast<t_method>(ofeliaBezierVertex2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBezierVertex2d_class, reinterpret_cast<t_method>(ofeliaBezierVertex2d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaBezierVertex2d_class, reinterpret_cast<t_method>(ofeliaBezierVertex2d_p2),
@@ -931,6 +947,8 @@ void ofeliaBezierVertex3d_setup()
                                            0, sizeof(t_ofeliaBezierVertex3d),
                                            CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaBezierVertex3d_class, reinterpret_cast<t_method>(ofeliaBezierVertex3d_bang));
+    class_addmethod(ofeliaBezierVertex3d_class, reinterpret_cast<t_method>(ofeliaBezierVertex3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBezierVertex3d_class, reinterpret_cast<t_method>(ofeliaBezierVertex3d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaBezierVertex3d_class, reinterpret_cast<t_method>(ofeliaBezierVertex3d_p2),
@@ -1015,6 +1033,8 @@ void ofeliaCircle_setup()
                                    0, sizeof(t_ofeliaCircle),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaCircle_class, reinterpret_cast<t_method>(ofeliaCircle_bang));
+    class_addmethod(ofeliaCircle_class, reinterpret_cast<t_method>(ofeliaCircle_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCircle_class, reinterpret_cast<t_method>(ofeliaCircle_set),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaCircle_class, reinterpret_cast<t_method>(ofeliaCircle_set),
@@ -1083,6 +1103,8 @@ void ofeliaEllipse_setup()
                                     0, sizeof(t_ofeliaEllipse),
                                     CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaEllipse_class, reinterpret_cast<t_method>(ofeliaEllipse_bang));
+    class_addmethod(ofeliaEllipse_class, reinterpret_cast<t_method>(ofeliaEllipse_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaEllipse_class, reinterpret_cast<t_method>(ofeliaEllipse_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaEllipse_class, reinterpret_cast<t_method>(ofeliaEllipse_height),
@@ -1235,6 +1257,8 @@ void ofeliaArc_setup()
     class_addmethod(ofeliaArc_class, reinterpret_cast<t_method>(ofeliaArc_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaArc_class, reinterpret_cast<t_method>(ofeliaArc_bang));
+    class_addmethod(ofeliaArc_class, reinterpret_cast<t_method>(ofeliaArc_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaArc_class, reinterpret_cast<t_method>(ofeliaArc_radiusX),
                     gensym("radiusX"), A_FLOAT, 0);
     class_addmethod(ofeliaArc_class, reinterpret_cast<t_method>(ofeliaArc_radiusY),
@@ -1394,6 +1418,8 @@ void ofeliaSector_setup()
     class_addmethod(ofeliaSector_class, reinterpret_cast<t_method>(ofeliaSector_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaSector_class, reinterpret_cast<t_method>(ofeliaSector_bang));
+    class_addmethod(ofeliaSector_class, reinterpret_cast<t_method>(ofeliaSector_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSector_class, reinterpret_cast<t_method>(ofeliaSector_radiusX),
                     gensym("radiusX"), A_FLOAT, 0);
     class_addmethod(ofeliaSector_class, reinterpret_cast<t_method>(ofeliaSector_radiusY),
@@ -1527,6 +1553,8 @@ void ofeliaLine2d_setup()
                                    0, sizeof(t_ofeliaLine2d),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaLine2d_class, reinterpret_cast<t_method>(ofeliaLine2d_bang));
+    class_addmethod(ofeliaLine2d_class, reinterpret_cast<t_method>(ofeliaLine2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaLine2d_class, reinterpret_cast<t_method>(ofeliaLine2d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaLine2d_class, reinterpret_cast<t_method>(ofeliaLine2d_p2),
@@ -1660,6 +1688,8 @@ void ofeliaLine3d_setup()
                                    0, sizeof(t_ofeliaLine3d),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaLine3d_class, reinterpret_cast<t_method>(ofeliaLine3d_bang));
+    class_addmethod(ofeliaLine3d_class, reinterpret_cast<t_method>(ofeliaLine3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaLine3d_class, reinterpret_cast<t_method>(ofeliaLine3d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaLine3d_class, reinterpret_cast<t_method>(ofeliaLine3d_p2),
@@ -1896,6 +1926,8 @@ void ofeliaCurve2d_setup()
     class_addmethod(ofeliaCurve2d_class, reinterpret_cast<t_method>(ofeliaCurve2d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCurve2d_class, reinterpret_cast<t_method>(ofeliaCurve2d_bang));
+    class_addmethod(ofeliaCurve2d_class, reinterpret_cast<t_method>(ofeliaCurve2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCurve2d_class, reinterpret_cast<t_method>(ofeliaCurve2d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaCurve2d_class, reinterpret_cast<t_method>(ofeliaCurve2d_p1),
@@ -2144,6 +2176,8 @@ void ofeliaCurve3d_setup()
     class_addmethod(ofeliaCurve3d_class, reinterpret_cast<t_method>(ofeliaCurve3d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCurve3d_class, reinterpret_cast<t_method>(ofeliaCurve3d_bang));
+    class_addmethod(ofeliaCurve3d_class, reinterpret_cast<t_method>(ofeliaCurve3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCurve3d_class, reinterpret_cast<t_method>(ofeliaCurve3d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaCurve3d_class, reinterpret_cast<t_method>(ofeliaCurve3d_p1),
@@ -2337,6 +2371,8 @@ void ofeliaBezier2d_setup()
     class_addmethod(ofeliaBezier2d_class, reinterpret_cast<t_method>(ofeliaBezier2d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaBezier2d_class, reinterpret_cast<t_method>(ofeliaBezier2d_bang));
+    class_addmethod(ofeliaBezier2d_class, reinterpret_cast<t_method>(ofeliaBezier2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBezier2d_class, reinterpret_cast<t_method>(ofeliaBezier2d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaBezier2d_class, reinterpret_cast<t_method>(ofeliaBezier2d_p1),
@@ -2534,6 +2570,8 @@ void ofeliaBezier3d_setup()
     class_addmethod(ofeliaBezier3d_class, reinterpret_cast<t_method>(ofeliaBezier3d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaBezier3d_class, reinterpret_cast<t_method>(ofeliaBezier3d_bang));
+    class_addmethod(ofeliaBezier3d_class, reinterpret_cast<t_method>(ofeliaBezier3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBezier3d_class, reinterpret_cast<t_method>(ofeliaBezier3d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaBezier3d_class, reinterpret_cast<t_method>(ofeliaBezier3d_p1),
@@ -2729,6 +2767,8 @@ void ofeliaQuadBezier2d_setup()
     class_addmethod(ofeliaQuadBezier2d_class, reinterpret_cast<t_method>(ofeliaQuadBezier2d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaQuadBezier2d_class, reinterpret_cast<t_method>(ofeliaQuadBezier2d_bang));
+    class_addmethod(ofeliaQuadBezier2d_class, reinterpret_cast<t_method>(ofeliaQuadBezier2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaQuadBezier2d_class, reinterpret_cast<t_method>(ofeliaQuadBezier2d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaQuadBezier2d_class, reinterpret_cast<t_method>(ofeliaQuadBezier2d_p1),
@@ -2928,6 +2968,8 @@ void ofeliaQuadBezier3d_setup()
     class_addmethod(ofeliaQuadBezier3d_class, reinterpret_cast<t_method>(ofeliaQuadBezier3d_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaQuadBezier3d_class, reinterpret_cast<t_method>(ofeliaQuadBezier3d_bang));
+    class_addmethod(ofeliaQuadBezier3d_class, reinterpret_cast<t_method>(ofeliaQuadBezier3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaQuadBezier3d_class, reinterpret_cast<t_method>(ofeliaQuadBezier3d_p0),
                     gensym("p0"), A_GIMME, 0);
     class_addmethod(ofeliaQuadBezier3d_class, reinterpret_cast<t_method>(ofeliaQuadBezier3d_p1),
@@ -3086,6 +3128,8 @@ void ofeliaTriangle2d_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaTriangle2d_new),
                      gensym("ofTri2d"), A_GIMME, 0);
     class_addbang(ofeliaTriangle2d_class, reinterpret_cast<t_method>(ofeliaTriangle2d_bang));
+    class_addmethod(ofeliaTriangle2d_class, reinterpret_cast<t_method>(ofeliaTriangle2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaTriangle2d_class, reinterpret_cast<t_method>(ofeliaTriangle2d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaTriangle2d_class, reinterpret_cast<t_method>(ofeliaTriangle2d_p2),
@@ -3248,6 +3292,8 @@ void ofeliaTriangle3d_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaTriangle3d_new),
                      gensym("ofTri3d"), A_GIMME, 0);
     class_addbang(ofeliaTriangle3d_class, reinterpret_cast<t_method>(ofeliaTriangle3d_bang));
+    class_addmethod(ofeliaTriangle3d_class, reinterpret_cast<t_method>(ofeliaTriangle3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaTriangle3d_class, reinterpret_cast<t_method>(ofeliaTriangle3d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaTriangle3d_class, reinterpret_cast<t_method>(ofeliaTriangle3d_p2),
@@ -3338,6 +3384,8 @@ void ofeliaEqTriangle_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaEqTriangle_new),
                      gensym("ofEqTri"), A_GIMME, 0);
     class_addbang(ofeliaEqTriangle_class, reinterpret_cast<t_method>(ofeliaEqTriangle_bang));
+    class_addmethod(ofeliaEqTriangle_class, reinterpret_cast<t_method>(ofeliaEqTriangle_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaEqTriangle_class, reinterpret_cast<t_method>(ofeliaEqTriangle_set),
                     gensym("size"), A_FLOAT, 0);
     class_addmethod(ofeliaEqTriangle_class, reinterpret_cast<t_method>(ofeliaEqTriangle_set),
@@ -3413,6 +3461,8 @@ void ofeliaIsoTriangle_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaIsoTriangle_new),
                      gensym("ofIsoTri"), A_GIMME, 0);
     class_addbang(ofeliaIsoTriangle_class, reinterpret_cast<t_method>(ofeliaIsoTriangle_bang));
+    class_addmethod(ofeliaIsoTriangle_class, reinterpret_cast<t_method>(ofeliaIsoTriangle_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaIsoTriangle_class, reinterpret_cast<t_method>(ofeliaIsoTriangle_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaIsoTriangle_class, reinterpret_cast<t_method>(ofeliaIsoTriangle_height),
@@ -3607,6 +3657,8 @@ void ofeliaQuad2d_setup()
                                    0, sizeof(t_ofeliaQuad2d),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaQuad2d_class, reinterpret_cast<t_method>(ofeliaQuad2d_bang));
+    class_addmethod(ofeliaQuad2d_class, reinterpret_cast<t_method>(ofeliaQuad2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaQuad2d_class, reinterpret_cast<t_method>(ofeliaQuad2d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaQuad2d_class, reinterpret_cast<t_method>(ofeliaQuad2d_p2),
@@ -3813,6 +3865,8 @@ void ofeliaQuad3d_setup()
                                    0, sizeof(t_ofeliaQuad3d),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaQuad3d_class, reinterpret_cast<t_method>(ofeliaQuad3d_bang));
+    class_addmethod(ofeliaQuad3d_class, reinterpret_cast<t_method>(ofeliaQuad3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaQuad3d_class, reinterpret_cast<t_method>(ofeliaQuad3d_p1),
                     gensym("p1"), A_GIMME, 0);
     class_addmethod(ofeliaQuad3d_class, reinterpret_cast<t_method>(ofeliaQuad3d_p2),
@@ -3899,6 +3953,8 @@ void ofeliaSquare_setup()
                                    0, sizeof(t_ofeliaSquare),
                                    CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSquare_class, reinterpret_cast<t_method>(ofeliaSquare_bang));
+    class_addmethod(ofeliaSquare_class, reinterpret_cast<t_method>(ofeliaSquare_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSquare_class, reinterpret_cast<t_method>(ofeliaSquare_set),
                     gensym("size"), A_FLOAT, 0);
     class_addmethod(ofeliaSquare_class, reinterpret_cast<t_method>(ofeliaSquare_set),
@@ -3969,6 +4025,8 @@ void ofeliaRectangle_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRectangle_new),
                      gensym("ofRect"), A_GIMME, 0);
     class_addbang(ofeliaRectangle_class, reinterpret_cast<t_method>(ofeliaRectangle_bang));
+    class_addmethod(ofeliaRectangle_class, reinterpret_cast<t_method>(ofeliaRectangle_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRectangle_class, reinterpret_cast<t_method>(ofeliaRectangle_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaRectangle_class, reinterpret_cast<t_method>(ofeliaRectangle_height),
@@ -4149,6 +4207,8 @@ void ofeliaRectRounded_setup()
     class_addmethod(ofeliaRectRounded_class, reinterpret_cast<t_method>(ofeliaRectRounded_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaRectRounded_class, reinterpret_cast<t_method>(ofeliaRectRounded_bang));
+    class_addmethod(ofeliaRectRounded_class, reinterpret_cast<t_method>(ofeliaRectRounded_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRectRounded_class, reinterpret_cast<t_method>(ofeliaRectRounded_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaRectRounded_class, reinterpret_cast<t_method>(ofeliaRectRounded_height),
@@ -4363,6 +4423,8 @@ void ofeliaRectRounded4_setup()
     class_addmethod(ofeliaRectRounded4_class, reinterpret_cast<t_method>(ofeliaRectRounded4_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaRectRounded4_class, reinterpret_cast<t_method>(ofeliaRectRounded4_bang));
+    class_addmethod(ofeliaRectRounded4_class, reinterpret_cast<t_method>(ofeliaRectRounded4_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRectRounded4_class, reinterpret_cast<t_method>(ofeliaRectRounded4_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaRectRounded4_class, reinterpret_cast<t_method>(ofeliaRectRounded4_height),
@@ -4548,6 +4610,8 @@ void ofeliaCross_setup()
     class_addmethod(ofeliaCross_class, reinterpret_cast<t_method>(ofeliaCross_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCross_class, reinterpret_cast<t_method>(ofeliaCross_bang));
+    class_addmethod(ofeliaCross_class, reinterpret_cast<t_method>(ofeliaCross_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCross_class, reinterpret_cast<t_method>(ofeliaCross_size),
                     gensym("size"), A_FLOAT, 0);
     class_addmethod(ofeliaCross_class, reinterpret_cast<t_method>(ofeliaCross_thickness),
@@ -4693,6 +4757,8 @@ void ofeliaHeart_setup()
     class_addmethod(ofeliaHeart_class, reinterpret_cast<t_method>(ofeliaHeart_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaHeart_class, reinterpret_cast<t_method>(ofeliaHeart_bang));
+    class_addmethod(ofeliaHeart_class, reinterpret_cast<t_method>(ofeliaHeart_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaHeart_class, reinterpret_cast<t_method>(ofeliaHeart_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaHeart_class, reinterpret_cast<t_method>(ofeliaHeart_height),
@@ -4881,6 +4947,8 @@ void ofeliaMoon_setup()
     class_addmethod(ofeliaMoon_class, reinterpret_cast<t_method>(ofeliaMoon_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaMoon_class, reinterpret_cast<t_method>(ofeliaMoon_bang));
+    class_addmethod(ofeliaMoon_class, reinterpret_cast<t_method>(ofeliaMoon_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaMoon_class, reinterpret_cast<t_method>(ofeliaMoon_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaMoon_class, reinterpret_cast<t_method>(ofeliaMoon_height),
@@ -5040,6 +5108,8 @@ void ofeliaRegPolygon_setup()
                                        0, sizeof(t_ofeliaRegPolygon),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaRegPolygon_class, reinterpret_cast<t_method>(ofeliaRegPolygon_bang));
+    class_addmethod(ofeliaRegPolygon_class, reinterpret_cast<t_method>(ofeliaRegPolygon_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRegPolygon_class, reinterpret_cast<t_method>(ofeliaRegPolygon_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaRegPolygon_class, reinterpret_cast<t_method>(ofeliaRegPolygon_numSides),
@@ -5235,6 +5305,8 @@ void ofeliaStar_setup()
     class_addmethod(ofeliaStar_class, reinterpret_cast<t_method>(ofeliaStar_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaStar_class, reinterpret_cast<t_method>(ofeliaStar_bang));
+    class_addmethod(ofeliaStar_class, reinterpret_cast<t_method>(ofeliaStar_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaStar_class, reinterpret_cast<t_method>(ofeliaStar_numPoints),
                     gensym("numPoints"), A_FLOAT, 0);
     class_addmethod(ofeliaStar_class, reinterpret_cast<t_method>(ofeliaStar_radius1),
@@ -5367,6 +5439,8 @@ void ofeliaAxis_setup()
     class_addmethod(ofeliaAxis_class, reinterpret_cast<t_method>(ofeliaAxis_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaAxis_class, reinterpret_cast<t_method>(ofeliaAxis_bang));
+    class_addmethod(ofeliaAxis_class, reinterpret_cast<t_method>(ofeliaAxis_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaAxis_class, reinterpret_cast<t_method>(ofeliaAxis_size),
                     gensym("size"), A_FLOAT, 0);
     class_addmethod(ofeliaAxis_class, reinterpret_cast<t_method>(ofeliaAxis_set),
@@ -5626,6 +5700,8 @@ void ofeliaBox_setup()
     class_addmethod(ofeliaBox_class, reinterpret_cast<t_method>(ofeliaBox_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaBox_class, reinterpret_cast<t_method>(ofeliaBox_bang));
+    class_addmethod(ofeliaBox_class, reinterpret_cast<t_method>(ofeliaBox_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBox_class, reinterpret_cast<t_method>(ofeliaBox_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaBox_class, reinterpret_cast<t_method>(ofeliaBox_height),
@@ -5884,6 +5960,8 @@ void ofeliaCone_setup()
     class_addmethod(ofeliaCone_class, reinterpret_cast<t_method>(ofeliaCone_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCone_class, reinterpret_cast<t_method>(ofeliaCone_bang));
+    class_addmethod(ofeliaCone_class, reinterpret_cast<t_method>(ofeliaCone_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCone_class, reinterpret_cast<t_method>(ofeliaCone_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaCone_class, reinterpret_cast<t_method>(ofeliaCone_height),
@@ -6140,6 +6218,8 @@ void ofeliaCylinder_setup()
     class_addmethod(ofeliaCylinder_class, reinterpret_cast<t_method>(ofeliaCylinder_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCylinder_class, reinterpret_cast<t_method>(ofeliaCylinder_bang));
+    class_addmethod(ofeliaCylinder_class, reinterpret_cast<t_method>(ofeliaCylinder_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCylinder_class, reinterpret_cast<t_method>(ofeliaCylinder_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaCylinder_class, reinterpret_cast<t_method>(ofeliaCylinder_height),
@@ -6317,6 +6397,8 @@ void ofeliaIcosphere_setup()
     class_addmethod(ofeliaIcosphere_class, reinterpret_cast<t_method>(ofeliaIcosphere_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaIcosphere_class, reinterpret_cast<t_method>(ofeliaIcosphere_bang));
+    class_addmethod(ofeliaIcosphere_class, reinterpret_cast<t_method>(ofeliaIcosphere_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaIcosphere_class, reinterpret_cast<t_method>(ofeliaIcosphere_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaIcosphere_class, reinterpret_cast<t_method>(ofeliaIcosphere_iterations),
@@ -6536,6 +6618,8 @@ void ofeliaPlane_setup()
     class_addmethod(ofeliaPlane_class, reinterpret_cast<t_method>(ofeliaPlane_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaPlane_class, reinterpret_cast<t_method>(ofeliaPlane_bang));
+    class_addmethod(ofeliaPlane_class, reinterpret_cast<t_method>(ofeliaPlane_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaPlane_class, reinterpret_cast<t_method>(ofeliaPlane_width),
                     gensym("width"), A_FLOAT, 0);
     class_addmethod(ofeliaPlane_class, reinterpret_cast<t_method>(ofeliaPlane_height),
@@ -6716,6 +6800,8 @@ void ofeliaSphere_setup()
     class_addmethod(ofeliaSphere_class, reinterpret_cast<t_method>(ofeliaSphere_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaSphere_class, reinterpret_cast<t_method>(ofeliaSphere_bang));
+    class_addmethod(ofeliaSphere_class, reinterpret_cast<t_method>(ofeliaSphere_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSphere_class, reinterpret_cast<t_method>(ofeliaSphere_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaSphere_class, reinterpret_cast<t_method>(ofeliaSphere_res),
@@ -6889,6 +6975,8 @@ void ofeliaArrow_setup()
                                   0, sizeof(t_ofeliaArrow),
                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaArrow_class, reinterpret_cast<t_method>(ofeliaArrow_bang));
+    class_addmethod(ofeliaArrow_class, reinterpret_cast<t_method>(ofeliaArrow_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaArrow_class, reinterpret_cast<t_method>(ofeliaArrow_start),
                     gensym("start"), A_GIMME, 0);
     class_addmethod(ofeliaArrow_class, reinterpret_cast<t_method>(ofeliaArrow_end),
@@ -7066,6 +7154,8 @@ void ofeliaGrid_setup()
                                  0, sizeof(t_ofeliaGrid),
                                  CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaGrid_class, reinterpret_cast<t_method>(ofeliaGrid_bang));
+    class_addmethod(ofeliaGrid_class, reinterpret_cast<t_method>(ofeliaGrid_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaGrid_class, reinterpret_cast<t_method>(ofeliaGrid_stepSize),
                     gensym("stepSize"), A_FLOAT, 0);
     class_addmethod(ofeliaGrid_class, reinterpret_cast<t_method>(ofeliaGrid_numberOfSteps),
@@ -7187,6 +7277,8 @@ void ofeliaGridPlane_setup()
                                       0, sizeof(t_ofeliaGridPlane),
                                       CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaGridPlane_class, reinterpret_cast<t_method>(ofeliaGridPlane_bang));
+    class_addmethod(ofeliaGridPlane_class, reinterpret_cast<t_method>(ofeliaGridPlane_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaGridPlane_class, reinterpret_cast<t_method>(ofeliaGridPlane_stepSize),
                     gensym("stepSize"), A_FLOAT, 0);
     class_addmethod(ofeliaGridPlane_class, reinterpret_cast<t_method>(ofeliaGridPlane_numberOfSteps),
@@ -7309,6 +7401,8 @@ void ofeliaRotationAxes_setup()
     class_addcreator(reinterpret_cast<t_newmethod>(ofeliaRotationAxes_new),
                      gensym("ofRotAxes"), A_GIMME, 0);
     class_addbang(ofeliaRotationAxes_class, reinterpret_cast<t_method>(ofeliaRotationAxes_bang));
+    class_addmethod(ofeliaRotationAxes_class, reinterpret_cast<t_method>(ofeliaRotationAxes_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaRotationAxes_class, reinterpret_cast<t_method>(ofeliaRotationAxes_radius),
                     gensym("radius"), A_FLOAT, 0);
     class_addmethod(ofeliaRotationAxes_class, reinterpret_cast<t_method>(ofeliaRotationAxes_stripWidth),

@@ -2526,6 +2526,8 @@ void ofeliaDrawPath2d_setup()
                                        0, sizeof(t_ofeliaDrawPath2d),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawPath2d_class, reinterpret_cast<t_method>(ofeliaDrawPath2d_bang));
+    class_addmethod(ofeliaDrawPath2d_class, reinterpret_cast<t_method>(ofeliaDrawPath2d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawPath2d_class, reinterpret_cast<t_method>(ofeliaDrawPath2d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawPath2d_class, reinterpret_cast<t_method>(ofeliaDrawPath2d_width),
@@ -2689,6 +2691,8 @@ void ofeliaDrawPath3d_setup()
                                        0, sizeof(t_ofeliaDrawPath3d),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawPath3d_class, reinterpret_cast<t_method>(ofeliaDrawPath3d_bang));
+    class_addmethod(ofeliaDrawPath3d_class, reinterpret_cast<t_method>(ofeliaDrawPath3d_bang),
+                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawPath3d_class, reinterpret_cast<t_method>(ofeliaDrawPath3d_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawPath3d_class, reinterpret_cast<t_method>(ofeliaDrawPath3d_width),
