@@ -306,8 +306,6 @@ void ofeliaCreateFbo_setup()
     class_addmethod(ofeliaCreateFbo_class, reinterpret_cast<t_method>(ofeliaCreateFbo_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaCreateFbo_class, reinterpret_cast<t_method>(ofeliaCreateFbo_bang));
-    class_addmethod(ofeliaCreateFbo_class, reinterpret_cast<t_method>(ofeliaCreateFbo_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaCreateFbo_class, reinterpret_cast<t_method>(ofeliaCreateFbo_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaCreateFbo_class, reinterpret_cast<t_method>(ofeliaCreateFbo_allocate),
@@ -397,8 +395,6 @@ void ofeliaBindFboTex_setup()
                                        0, sizeof(t_ofeliaBindFboTex),
                                        CLASS_DEFAULT, A_DEFSYM, 0);
     class_addbang(ofeliaBindFboTex_class, reinterpret_cast<t_method>(ofeliaBindFboTex_bang));
-    class_addmethod(ofeliaBindFboTex_class, reinterpret_cast<t_method>(ofeliaBindFboTex_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaBindFboTex_class, reinterpret_cast<t_method>(ofeliaBindFboTex_set),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaBindFboTex_class, reinterpret_cast<t_method>(ofeliaBindFboTex_set),
@@ -533,8 +529,6 @@ void ofeliaDrawFbo_setup()
                                     0, sizeof(t_ofeliaDrawFbo),
                                     CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawFbo_class, reinterpret_cast<t_method>(ofeliaDrawFbo_bang));
-    class_addmethod(ofeliaDrawFbo_class, reinterpret_cast<t_method>(ofeliaDrawFbo_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDrawFbo_class, reinterpret_cast<t_method>(ofeliaDrawFbo_name),
                     gensym("name"), A_SYMBOL, 0);
     class_addmethod(ofeliaDrawFbo_class, reinterpret_cast<t_method>(ofeliaDrawFbo_width),

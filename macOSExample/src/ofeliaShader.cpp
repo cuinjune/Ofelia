@@ -742,8 +742,6 @@ void ofeliaApplyShader_setup()
                                         0, sizeof(t_ofeliaApplyShader),
                                         CLASS_DEFAULT, A_DEFSYM, 0);
     class_addbang(ofeliaApplyShader_class, reinterpret_cast<t_method>(ofeliaApplyShader_bang));
-    class_addmethod(ofeliaApplyShader_class, reinterpret_cast<t_method>(ofeliaApplyShader_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaApplyShader_class, reinterpret_cast<t_method>(ofeliaApplyShader_float));
     class_addmethod(ofeliaApplyShader_class, reinterpret_cast<t_method>(ofeliaApplyShader_set),
                     gensym("name"), A_SYMBOL, 0);
@@ -1088,8 +1086,6 @@ void ofeliaSetShaderUniform1i_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform1i),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform1i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1i_bang));
-    class_addmethod(ofeliaSetShaderUniform1i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1i_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform1i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1i_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform1i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1i_v1),
@@ -1217,8 +1213,6 @@ void ofeliaSetShaderUniform2i_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform2i),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform2i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2i_bang));
-    class_addmethod(ofeliaSetShaderUniform2i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2i_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform2i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2i_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform2i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2i_v1),
@@ -1357,8 +1351,6 @@ void ofeliaSetShaderUniform3i_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform3i),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform3i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3i_bang));
-    class_addmethod(ofeliaSetShaderUniform3i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3i_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform3i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3i_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform3i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3i_v1),
@@ -1508,8 +1500,6 @@ void ofeliaSetShaderUniform4i_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform4i),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform4i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4i_bang));
-    class_addmethod(ofeliaSetShaderUniform4i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4i_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform4i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4i_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform4i_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4i_v1),
@@ -1634,8 +1624,6 @@ void ofeliaSetShaderUniform1f_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform1f),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform1f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1f_bang));
-    class_addmethod(ofeliaSetShaderUniform1f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform1f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1f_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform1f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1f_v1),
@@ -1763,8 +1751,6 @@ void ofeliaSetShaderUniform2f_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform2f),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform2f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2f_bang));
-    class_addmethod(ofeliaSetShaderUniform2f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform2f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2f_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform2f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2f_v1),
@@ -1903,8 +1889,6 @@ void ofeliaSetShaderUniform3f_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform3f),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform3f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3f_bang));
-    class_addmethod(ofeliaSetShaderUniform3f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform3f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3f_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform3f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3f_v1),
@@ -2054,8 +2038,6 @@ void ofeliaSetShaderUniform4f_setup()
                                                0, sizeof(t_ofeliaSetShaderUniform4f),
                                                CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform4f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4f_bang));
-    class_addmethod(ofeliaSetShaderUniform4f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform4f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4f_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform4f_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4f_v1),
@@ -2275,8 +2257,6 @@ void ofeliaSetShaderUniform1iv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform1iv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform1iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1iv_bang));
-    class_addmethod(ofeliaSetShaderUniform1iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1iv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform1iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1iv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform1iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1iv_v),
@@ -2369,8 +2349,6 @@ void ofeliaSetShaderUniform2iv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform2iv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform2iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2iv_bang));
-    class_addmethod(ofeliaSetShaderUniform2iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2iv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform2iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2iv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform2iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2iv_v),
@@ -2463,8 +2441,6 @@ void ofeliaSetShaderUniform3iv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform3iv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform3iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3iv_bang));
-    class_addmethod(ofeliaSetShaderUniform3iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3iv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform3iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3iv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform3iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3iv_v),
@@ -2557,8 +2533,6 @@ void ofeliaSetShaderUniform4iv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform4iv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform4iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4iv_bang));
-    class_addmethod(ofeliaSetShaderUniform4iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4iv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform4iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4iv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform4iv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4iv_v),
@@ -2646,8 +2620,6 @@ void ofeliaSetShaderUniform1fv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform1fv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1fv_bang));
-    class_addmethod(ofeliaSetShaderUniform1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1fv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform1fv_v),
@@ -2740,8 +2712,6 @@ void ofeliaSetShaderUniform2fv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform2fv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2fv_bang));
-    class_addmethod(ofeliaSetShaderUniform2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2fv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform2fv_v),
@@ -2834,8 +2804,6 @@ void ofeliaSetShaderUniform3fv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform3fv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3fv_bang));
-    class_addmethod(ofeliaSetShaderUniform3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3fv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform3fv_v),
@@ -2928,8 +2896,6 @@ void ofeliaSetShaderUniform4fv_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniform4fv),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniform4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4fv_bang));
-    class_addmethod(ofeliaSetShaderUniform4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniform4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4fv_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniform4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderUniform4fv_v),
@@ -3132,8 +3098,6 @@ void ofeliaSetShaderUniformTex_setup()
                                                 0, sizeof(t_ofeliaSetShaderUniformTex),
                                                 CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderUniformTex_class, reinterpret_cast<t_method>(ofeliaSetShaderUniformTex_bang));
-    class_addmethod(ofeliaSetShaderUniformTex_class, reinterpret_cast<t_method>(ofeliaSetShaderUniformTex_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderUniformTex_class, reinterpret_cast<t_method>(ofeliaSetShaderUniformTex_uniformName),
                     gensym("uniformName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderUniformTex_class, reinterpret_cast<t_method>(ofeliaSetShaderUniformTex_imageName),
@@ -3254,8 +3218,6 @@ void ofeliaSetShaderAttribute1f_setup()
                                                  0, sizeof(t_ofeliaSetShaderAttribute1f),
                                                  CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute1f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1f_bang));
-    class_addmethod(ofeliaSetShaderAttribute1f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute1f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1f_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute1f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1f_v1),
@@ -3383,8 +3345,6 @@ void ofeliaSetShaderAttribute2f_setup()
                                                  0, sizeof(t_ofeliaSetShaderAttribute2f),
                                                  CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute2f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2f_bang));
-    class_addmethod(ofeliaSetShaderAttribute2f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute2f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2f_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute2f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2f_v1),
@@ -3523,8 +3483,6 @@ void ofeliaSetShaderAttribute3f_setup()
                                                  0, sizeof(t_ofeliaSetShaderAttribute3f),
                                                  CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute3f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3f_bang));
-    class_addmethod(ofeliaSetShaderAttribute3f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute3f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3f_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute3f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3f_v1),
@@ -3674,8 +3632,6 @@ void ofeliaSetShaderAttribute4f_setup()
                                                  0, sizeof(t_ofeliaSetShaderAttribute4f),
                                                  CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute4f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4f_bang));
-    class_addmethod(ofeliaSetShaderAttribute4f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4f_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute4f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4f_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute4f_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4f_v1),
@@ -3769,8 +3725,6 @@ void ofeliaSetShaderAttribute1fv_setup()
                                                   0, sizeof(t_ofeliaSetShaderAttribute1fv),
                                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1fv_bang));
-    class_addmethod(ofeliaSetShaderAttribute1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1fv_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute1fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute1fv_v),
@@ -3863,8 +3817,6 @@ void ofeliaSetShaderAttribute2fv_setup()
                                                   0, sizeof(t_ofeliaSetShaderAttribute2fv),
                                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2fv_bang));
-    class_addmethod(ofeliaSetShaderAttribute2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2fv_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute2fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute2fv_v),
@@ -3957,8 +3909,6 @@ void ofeliaSetShaderAttribute3fv_setup()
                                                   0, sizeof(t_ofeliaSetShaderAttribute3fv),
                                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3fv_bang));
-    class_addmethod(ofeliaSetShaderAttribute3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3fv_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute3fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute3fv_v),
@@ -4051,8 +4001,6 @@ void ofeliaSetShaderAttribute4fv_setup()
                                                   0, sizeof(t_ofeliaSetShaderAttribute4fv),
                                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetShaderAttribute4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4fv_bang));
-    class_addmethod(ofeliaSetShaderAttribute4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4fv_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetShaderAttribute4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4fv_attributeName),
                     gensym("attributeName"), A_SYMBOL, 0);
     class_addmethod(ofeliaSetShaderAttribute4fv_class, reinterpret_cast<t_method>(ofeliaSetShaderAttribute4fv_v),

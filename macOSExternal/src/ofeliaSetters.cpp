@@ -90,8 +90,6 @@ void ofeliaSetDepthTest_setup()
                                          0, sizeof(t_ofeliaSetDepthTest),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetDepthTest_class, reinterpret_cast<t_method>(ofeliaSetDepthTest_bang));
-    class_addmethod(ofeliaSetDepthTest_class, reinterpret_cast<t_method>(ofeliaSetDepthTest_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetDepthTest_class, reinterpret_cast<t_method>(ofeliaSetDepthTest_set),
                     gensym("depthTest"), A_GIMME, 0);
     class_addmethod(ofeliaSetDepthTest_class, reinterpret_cast<t_method>(ofeliaSetDepthTest_set),
@@ -158,8 +156,6 @@ void ofeliaSetArbTex_setup()
                                       0, sizeof(t_ofeliaSetArbTex),
                                       CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetArbTex_class, reinterpret_cast<t_method>(ofeliaSetArbTex_bang));
-    class_addmethod(ofeliaSetArbTex_class, reinterpret_cast<t_method>(ofeliaSetArbTex_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetArbTex_class, reinterpret_cast<t_method>(ofeliaSetArbTex_set),
                     gensym("arbTex"), A_GIMME, 0);
     class_addmethod(ofeliaSetArbTex_class, reinterpret_cast<t_method>(ofeliaSetArbTex_set),
@@ -226,8 +222,6 @@ void ofeliaSetAntiAliasing_setup()
                                             0, sizeof(t_ofeliaSetAntiAliasing),
                                             CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetAntiAliasing_class, reinterpret_cast<t_method>(ofeliaSetAntiAliasing_bang));
-    class_addmethod(ofeliaSetAntiAliasing_class, reinterpret_cast<t_method>(ofeliaSetAntiAliasing_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetAntiAliasing_class, reinterpret_cast<t_method>(ofeliaSetAntiAliasing_set),
                     gensym("antiAliasing"), A_GIMME, 0);
     class_addmethod(ofeliaSetAntiAliasing_class, reinterpret_cast<t_method>(ofeliaSetAntiAliasing_set),
@@ -291,8 +285,6 @@ void ofeliaSetBgAuto_setup()
                                            0, sizeof(t_ofeliaSetBgAuto),
                                            CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaSetBgAuto_class, reinterpret_cast<t_method>(ofeliaSetBgAuto_bang));
-    class_addmethod(ofeliaSetBgAuto_class, reinterpret_cast<t_method>(ofeliaSetBgAuto_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSetBgAuto_class, reinterpret_cast<t_method>(ofeliaSetBgAuto_set),
                     gensym("bgAuto"), A_GIMME, 0);
     class_addmethod(ofeliaSetBgAuto_class, reinterpret_cast<t_method>(ofeliaSetBgAuto_set),
@@ -375,8 +367,6 @@ void ofeliaClear_setup()
                                   0, sizeof(t_ofeliaClear),
                                   CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaClear_class, reinterpret_cast<t_method>(ofeliaClear_bang));
-    class_addmethod(ofeliaClear_class, reinterpret_cast<t_method>(ofeliaClear_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaClear_class, reinterpret_cast<t_method>(ofeliaClear_r),
                     gensym("r"), A_FLOAT, 0);
     class_addmethod(ofeliaClear_class, reinterpret_cast<t_method>(ofeliaClear_g),
@@ -466,8 +456,6 @@ void ofeliaClearColor_setup()
                                        0, sizeof(t_ofeliaClearColor),
                                        CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaClearColor_class, reinterpret_cast<t_method>(ofeliaClearColor_bang));
-    class_addmethod(ofeliaClearColor_class, reinterpret_cast<t_method>(ofeliaClearColor_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaClearColor_class, reinterpret_cast<t_method>(ofeliaClearColor_r),
                     gensym("r"), A_FLOAT, 0);
     class_addmethod(ofeliaClearColor_class, reinterpret_cast<t_method>(ofeliaClearColor_g),
@@ -512,8 +500,6 @@ void ofeliaClearDepth_setup()
                                        0, sizeof(t_ofeliaClearDepth),
                                        CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaClearDepth_class, reinterpret_cast<t_method>(ofeliaClearDepth_bang));
-    class_addmethod(ofeliaClearDepth_class, reinterpret_cast<t_method>(ofeliaClearDepth_bang),
-                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________
@@ -546,8 +532,6 @@ void ofeliaClearAlpha_setup()
                                        0, sizeof(t_ofeliaClearAlpha),
                                        CLASS_DEFAULT, A_NULL, 0);
     class_addbang(ofeliaClearAlpha_class, reinterpret_cast<t_method>(ofeliaClearAlpha_bang));
-    class_addmethod(ofeliaClearAlpha_class, reinterpret_cast<t_method>(ofeliaClearAlpha_bang),
-                    gensym("gem_state"), A_NULL, 0);
 }
 
 /* ________________________________________________________________________________

@@ -201,8 +201,6 @@ void ofeliaPointLight_setup()
     class_addmethod(ofeliaPointLight_class, reinterpret_cast<t_method>(ofeliaPointLight_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaPointLight_class, reinterpret_cast<t_method>(ofeliaPointLight_bang));
-    class_addmethod(ofeliaPointLight_class, reinterpret_cast<t_method>(ofeliaPointLight_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaPointLight_class, reinterpret_cast<t_method>(ofeliaPointLight_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaPointLight_class, reinterpret_cast<t_method>(ofeliaPointLight_y),
@@ -522,8 +520,6 @@ void ofeliaSpotlight_setup()
     class_addmethod(ofeliaSpotlight_class, reinterpret_cast<t_method>(ofeliaSpotlight_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaSpotlight_class, reinterpret_cast<t_method>(ofeliaSpotlight_bang));
-    class_addmethod(ofeliaSpotlight_class, reinterpret_cast<t_method>(ofeliaSpotlight_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaSpotlight_class, reinterpret_cast<t_method>(ofeliaSpotlight_x),
                     gensym("x"), A_FLOAT, 0);
     class_addmethod(ofeliaSpotlight_class, reinterpret_cast<t_method>(ofeliaSpotlight_y),
@@ -780,8 +776,6 @@ void ofeliaDirectionalLight_setup()
     class_addmethod(ofeliaDirectionalLight_class, reinterpret_cast<t_method>(ofeliaDirectionalLight_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaDirectionalLight_class, reinterpret_cast<t_method>(ofeliaDirectionalLight_bang));
-    class_addmethod(ofeliaDirectionalLight_class, reinterpret_cast<t_method>(ofeliaDirectionalLight_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaDirectionalLight_class, reinterpret_cast<t_method>(ofeliaDirectionalLight_angle),
                     gensym("angle"), A_FLOAT, 0);
     class_addmethod(ofeliaDirectionalLight_class, reinterpret_cast<t_method>(ofeliaDirectionalLight_x),

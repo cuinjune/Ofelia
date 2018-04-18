@@ -120,8 +120,6 @@ void ofeliaEasyCam_setup()
     class_addmethod(ofeliaEasyCam_class, reinterpret_cast<t_method>(ofeliaEasyCam_exit),
                     t_ofeliaWindow::exitMess, A_NULL, 0);
     class_addbang(ofeliaEasyCam_class, reinterpret_cast<t_method>(ofeliaEasyCam_bang));
-    class_addmethod(ofeliaEasyCam_class, reinterpret_cast<t_method>(ofeliaEasyCam_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addmethod(ofeliaEasyCam_class, reinterpret_cast<t_method>(ofeliaEasyCam_VFlip),
                     gensym("VFlip"), A_GIMME, 0);
     class_addmethod(ofeliaEasyCam_class, reinterpret_cast<t_method>(ofeliaEasyCam_debug),

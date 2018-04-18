@@ -2334,8 +2334,6 @@ void ofeliaBindImageTex_setup()
                                          0, sizeof(t_ofeliaBindImageTex),
                                          CLASS_DEFAULT, A_DEFSYM, 0);
     class_addbang(ofeliaBindImageTex_class, reinterpret_cast<t_method>(ofeliaBindImageTex_bang));
-    class_addmethod(ofeliaBindImageTex_class, reinterpret_cast<t_method>(ofeliaBindImageTex_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaBindImageTex_class, reinterpret_cast<t_method>(ofeliaBindImageTex_float));
     class_addmethod(ofeliaBindImageTex_class, reinterpret_cast<t_method>(ofeliaBindImageTex_set),
                     gensym("name"), A_SYMBOL, 0);
@@ -2510,8 +2508,6 @@ void ofeliaDrawImage_setup()
                                       0, sizeof(t_ofeliaDrawImage),
                                       CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawImage_class, reinterpret_cast<t_method>(ofeliaDrawImage_bang));
-    class_addmethod(ofeliaDrawImage_class, reinterpret_cast<t_method>(ofeliaDrawImage_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaDrawImage_class, reinterpret_cast<t_method>(ofeliaDrawImage_float));
     class_addmethod(ofeliaDrawImage_class, reinterpret_cast<t_method>(ofeliaDrawImage_name),
                     gensym("name"), A_SYMBOL, 0);
@@ -2870,8 +2866,6 @@ void ofeliaDrawSubImage_setup()
                                          0, sizeof(t_ofeliaDrawSubImage),
                                          CLASS_DEFAULT, A_GIMME, 0);
     class_addbang(ofeliaDrawSubImage_class, reinterpret_cast<t_method>(ofeliaDrawSubImage_bang));
-    class_addmethod(ofeliaDrawSubImage_class, reinterpret_cast<t_method>(ofeliaDrawSubImage_bang),
-                    gensym("gem_state"), A_NULL, 0);
     class_addfloat(ofeliaDrawSubImage_class, reinterpret_cast<t_method>(ofeliaDrawSubImage_float));
     class_addmethod(ofeliaDrawSubImage_class, reinterpret_cast<t_method>(ofeliaDrawSubImage_name),
                     gensym("name"), A_SYMBOL, 0);
