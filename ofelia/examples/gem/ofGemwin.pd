@@ -1,0 +1,28 @@
+#N canvas 641 143 549 363 10;
+#X declare -lib ofelia;
+#X declare -lib Gem;
+#X obj 39 104 ofWindow;
+#X msg 58 203 dimen 1 1 \, border 0 \, create;
+#X obj 39 161 ofWindowListener;
+#X obj 39 182 sel 0 1;
+#X msg 39 224 destroy;
+#X obj 39 78 inlet;
+#X obj 39 125 outlet;
+#X obj 39 245 gemwin;
+#X obj 83 57 ofGetCanvasArgs;
+#X obj 83 36 loadbang;
+#X text 144 301 This abstraction was originally written by Arnaud Courcelle.
+https://github.com/ArnaudCourcelle;
+#X obj 383 36 declare -lib ofelia;
+#X obj 383 56 declare -lib Gem;
+#X obj 83 78 ofPrepend set;
+#X connect 0 0 6 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 0 0;
+#X connect 8 0 13 0;
+#X connect 9 0 8 0;
+#X connect 13 0 0 0;
