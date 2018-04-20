@@ -34,7 +34,7 @@ The library includes the following features:
 
 * Some useful audio objects including bandlimited oscillators and resonant filters
 
-* Use [GEM](https://puredata.info/downloads/gem/) with ofelia (See `ofelia/examples/gem/main.pd`)
+* Use [GEM](https://puredata.info/downloads/gem/) with ofelia (Try `ofelia/examples/gem/main.pd`)
 
 The library is currently available to be used under macOS, Linux(64bit) and Windows. It will also be available on Raspberry Pi soon.
 
