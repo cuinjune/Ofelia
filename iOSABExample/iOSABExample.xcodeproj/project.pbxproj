@@ -180,6 +180,7 @@
 		FD9A8D361EBF921300624042 /* ofeliaViewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8D181EBF921300624042 /* ofeliaViewport.cpp */; };
 		FD9A8D371EBF921300624042 /* ofeliaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = FD9A8D1A1EBF921300624042 /* ofeliaWindow.mm */; };
 		FDD1CB2A1F0CD6FF007A2024 /* ofeliaDevices.mm in Sources */ = {isa = PBXBuildFile; fileRef = FDD1CB291F0CD6FF007A2024 /* ofeliaDevices.mm */; };
+		FDDC54ED208A08B9001D6E7F /* ofeliaRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDDC54EC208A08B9001D6E7F /* ofeliaRect.cpp */; };
 		FDECBF991F03D3C3009E73E7 /* ABiOSSoundStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = FDECBF951F03D3C3009E73E7 /* ABiOSSoundStream.mm */; };
 		FDECBF9B1F03D3C3009E73E7 /* MyAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FDECBF981F03D3C3009E73E7 /* MyAppDelegate.mm */; };
 		FDECBFAF1F03DA43009E73E7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDECBFAE1F03DA43009E73E7 /* Security.framework */; };
@@ -466,6 +467,8 @@
 		FD9A8D1B1EBF921300624042 /* ofeliaWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaWindow.h; sourceTree = "<group>"; };
 		FDD1CB281F0CD6FF007A2024 /* ofeliaDevices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaDevices.h; sourceTree = "<group>"; };
 		FDD1CB291F0CD6FF007A2024 /* ofeliaDevices.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofeliaDevices.mm; sourceTree = "<group>"; };
+		FDDC54EB208A08B9001D6E7F /* ofeliaRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaRect.h; sourceTree = "<group>"; };
+		FDDC54EC208A08B9001D6E7F /* ofeliaRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaRect.cpp; sourceTree = "<group>"; };
 		FDECBF941F03D3C3009E73E7 /* ABiOSSoundStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABiOSSoundStream.h; sourceTree = "<group>"; };
 		FDECBF951F03D3C3009E73E7 /* ABiOSSoundStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ABiOSSoundStream.mm; sourceTree = "<group>"; };
 		FDECBF971F03D3C3009E73E7 /* MyAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppDelegate.h; sourceTree = "<group>"; };
@@ -1050,6 +1053,8 @@
 				FD9A8D051EBF921300624042 /* ofeliaPath.h */,
 				FD9A8D061EBF921300624042 /* ofeliaPolyline.cpp */,
 				FD9A8D071EBF921300624042 /* ofeliaPolyline.h */,
+				FDDC54EC208A08B9001D6E7F /* ofeliaRect.cpp */,
+				FDDC54EB208A08B9001D6E7F /* ofeliaRect.h */,
 				FD9A8D081EBF921300624042 /* ofeliaSeparators.cpp */,
 				FD9A8D091EBF921300624042 /* ofeliaSeparators.h */,
 				FD9A8D0A1EBF921300624042 /* ofeliaSetters.cpp */,
@@ -1304,6 +1309,7 @@
 				FAF1B9D150A97F982B44AA1B /* d_math.c in Sources */,
 				FD9A8D281EBF921300624042 /* ofeliaMath.cpp in Sources */,
 				DBC6A9793CEA79C41570A743 /* d_misc.c in Sources */,
+				FDDC54ED208A08B9001D6E7F /* ofeliaRect.cpp in Sources */,
 				49C1EFD45F6BB2292E09D84D /* d_osc.c in Sources */,
 				D9AB994BC2BD19C9DBF8AD04 /* d_resample.c in Sources */,
 				1C4FC7CEB109A02B160E1092 /* d_soundfile.c in Sources */,

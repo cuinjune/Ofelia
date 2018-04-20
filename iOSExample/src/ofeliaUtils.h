@@ -506,17 +506,6 @@ extern "C" {
         
     } t_ofeliaGetDirectoryFilePaths;
     
-    /* ofGetDollarZero object class */
-    static t_class *ofeliaGetDollarZero_class;
-    
-    typedef struct _ofeliaGetDollarZero
-    {
-        t_object x_obj;
-        static const char *objName;
-        t_symbol *dollarZeroSym;
-        
-    } t_ofeliaGetDollarZero;
-    
     /* ofGetCanvasName object class */
     static t_class *ofeliaGetCanvasName_class;
     
@@ -528,40 +517,28 @@ extern "C" {
         
     } t_ofeliaGetCanvasName;
     
-    /* ofGetCanvasArgs object class */
-    static t_class *ofeliaGetCanvasArgs_class;
+    /* ofGetDollarZero object class */
+    static t_class *ofeliaGetDollarZero_class;
     
-    typedef struct _ofeliaGetCanvasArgs
+    typedef struct _ofeliaGetDollarZero
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
+        t_symbol *dollarZeroSym;
         
-    } t_ofeliaGetCanvasArgs;
+    } t_ofeliaGetDollarZero;
     
-    /* ofSetCanvasArgs object class */
-    static t_class *ofeliaSetCanvasArgs_class;
+    /* ofGetDollarArgs object class */
+    static t_class *ofeliaGetDollarArgs_class;
     
-    typedef struct _ofeliaSetCanvasArgs
+    typedef struct _ofeliaGetDollarArgs
     {
         t_object x_obj;
         static const char *objName;
-        t_canvas *canvas;
+        int dollarArgc;
+        t_atom *dollarArgv;
         
-    } t_ofeliaSetCanvasArgs;
-    
-    /* ofRemoveCanvas object class */
-    static t_class *ofeliaRemoveCanvas_class;
-    
-    typedef struct _ofeliaRemoveCanvas
-    {
-        t_object x_obj;
-        static const char *objName;
-        t_canvas *canvas;
-        t_gobj *gobj;
-        t_clock *clock;
-        
-    } t_ofeliaRemoveCanvas;
+    } t_ofeliaGetDollarArgs;
     
     /* ofGetMinFloat object class */
     static t_class *ofeliaGetMinFloat_class;
