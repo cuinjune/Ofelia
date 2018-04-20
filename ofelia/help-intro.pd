@@ -2,9 +2,9 @@
 #X declare -lib ofelia;
 #X text 24 540 -------------------------- TYPES --------------------------
 ;
-#X text 24 700 --------------------------- MATH ---------------------------
+#X text 24 720 --------------------------- MATH ---------------------------
 ;
-#X text 24 980 -------------------------- AUDIO --------------------------
+#X text 24 1000 -------------------------- AUDIO --------------------------
 ;
 #N canvas 519 75 650 696 getters 0;
 #X obj 26 99 ofGetDimen;
@@ -756,7 +756,7 @@ space;
 #X text 224 99 - check the existence of a symbol variable name;
 #X text 224 119 - get a symbol element at the given index;
 #X text 224 139 - get all symbol elements as a list;
-#X restore 26 669 pd symbol;
+#X restore 26 689 pd symbol;
 #N canvas 519 75 650 639 math 0;
 #X text 24 30 -------------------------- MATH --------------------------
 ;
@@ -823,7 +823,7 @@ radians;
 ;
 #X text 224 79 - calculate the difference between two angles in radians
 ;
-#X restore 26 729 pd math;
+#X restore 26 749 pd math;
 #N canvas 519 75 650 171 message 0;
 #X obj 26 59 ofAppend;
 #X obj 26 79 ofPrepend;
@@ -833,7 +833,7 @@ radians;
 #X text 224 99 - combine several atoms into one message;
 #X text 25 30 ------------------------- MESSAGE -------------------------
 ;
-#X restore 26 789 pd message;
+#X restore 26 809 pd message;
 #N canvas 519 75 650 472 list 0;
 #X obj 26 379 ofListToSymbol;
 #X obj 26 399 ofSymbolToList;
@@ -873,7 +873,7 @@ radians;
 #X text 224 399 - convert a symbol into a list;
 #X text 25 30 --------------------------- LIST ---------------------------
 ;
-#X restore 26 809 pd list;
+#X restore 26 829 pd list;
 #N canvas 518 74 650 197 device 0;
 #X obj 26 59 ofGetAudioDevices;
 #X obj 26 79 ofSetAudioDevices;
@@ -888,7 +888,7 @@ size;
 ;
 #X text 25 30 -------------------------- DEVICE --------------------------
 ;
-#X restore 26 929 pd device;
+#X restore 26 949 pd device;
 #N canvas 518 74 650 257 patch 0;
 #X obj 26 179 ofError;
 #X obj 26 59 ofPatch;
@@ -906,7 +906,7 @@ size;
 #X text 224 119 - get the arguments of the canvas;
 #X text 224 139 - set the arguments of the canvas;
 #X text 224 159 - remove the canvas;
-#X restore 26 869 pd patch;
+#X restore 26 889 pd patch;
 #N canvas 518 74 650 231 color 0;
 #X text 25 30 -------------------------- COLOR --------------------------
 ;
@@ -922,7 +922,7 @@ size;
 #X text 224 119 - convert hsb color values to rgb color values;
 #X text 224 139 - convert rgb color values to hex color values;
 #X text 224 159 - convert rgb color values to hsb color values;
-#X restore 26 829 pd color;
+#X restore 26 849 pd color;
 #N canvas 518 74 650 216 file 0;
 #X text 25 30 --------------------------- FILE ---------------------------
 ;
@@ -936,7 +936,7 @@ size;
 #X text 224 139 - get the list of file paths in a directory;
 #X text 224 59 - create/remove/rename/copy/move files;
 #X text 224 79 - save a file from a url;
-#X restore 26 889 pd file;
+#X restore 26 909 pd file;
 #N canvas 518 74 650 250 directory 0;
 #X text 25 30 ------------------------ DIRECTORY ------------------------
 ;
@@ -954,7 +954,7 @@ size;
 #X text 224 159 - get the temporary directory on ios devices;
 #X text 224 179 - check the existence of a directory;
 #X text 224 59 - create/remove/rename/copy/move directories;
-#X restore 26 909 pd directory;
+#X restore 26 929 pd directory;
 #N canvas 519 75 650 340 misc 0;
 #X obj 26 219 ofGetPlatform;
 #X obj 26 239 ofGetDate;
@@ -980,7 +980,7 @@ size;
 #X obj 26 159 ofGate;
 #X text 224 139 - pass messages from a specific inlet;
 #X text 224 159 - route a message to an outlet;
-#X restore 26 949 pd misc;
+#X restore 26 969 pd misc;
 #N canvas 519 75 650 211 variable 0;
 #X obj 26 119 ofExpr;
 #X obj 26 139 ofDefine;
@@ -994,7 +994,7 @@ size;
 #X text 224 59 - nonlocal shared value;
 #X text 224 79 - send messages without patch cords;
 #X text 224 99 - receive messages without patch cords;
-#X restore 26 849 pd variable;
+#X restore 26 869 pd variable;
 #N canvas 519 75 650 291 oscillators 0;
 #X obj 27 59 ofSine~;
 #X obj 27 79 ofTriangle~;
@@ -1016,7 +1016,7 @@ size;
 #X text 225 219 - bandlimited pulse wave oscillator;
 #X text 24 30 ----------------------- OSCILLATORS -----------------------
 ;
-#X restore 26 1009 pd oscillators;
+#X restore 26 1029 pd oscillators;
 #N canvas 519 75 650 277 filters 0;
 #X obj 27 59 ofLowPass~;
 #X obj 27 79 ofHighPass~;
@@ -1038,7 +1038,7 @@ size;
 #X text 225 199 - all-pass filter with bandwidth control;
 #X text 24 30 ------------------------- FILTERS -------------------------
 ;
-#X restore 26 1029 pd filters;
+#X restore 26 1049 pd filters;
 #N canvas 519 75 650 161 window 0;
 #X text 24 30 ------------------------- WINDOW -------------------------
 ;
@@ -1075,7 +1075,7 @@ size;
 #X text 24 30 -------------------------- HEAD --------------------------
 ;
 #X restore 26 189 pd head;
-#X text 24 760 -------------------------- UTILS --------------------------
+#X text 24 780 -------------------------- UTILS --------------------------
 ;
 #X text 24 60 -------------------------- WINDOW --------------------------
 ;
@@ -1148,3 +1148,34 @@ size;
 #X text 24 30 -------------------------- SHADER --------------------------
 ;
 #X restore 26 409 pd shader;
+#N canvas 519 75 650 387 rect 0;
+#X text 24 30 -------------------------- RECT --------------------------
+;
+#X obj 26 59 ofLoadRect;
+#X obj 26 79 ofEditRect;
+#X obj 26 99 ofDoesRectNameExist;
+#X obj 26 119 ofGetRect;
+#X obj 26 139 ofGetRects;
+#X text 224 59 - store an array of rectangles;
+#X text 224 79 - edit the stored rectangle;
+#X text 224 99 - check the existence of a rectangle variable name;
+#X text 224 119 - get a rectangle element at the given index;
+#X text 224 139 - get all rectangle elements as a list;
+#X obj 26 159 ofIsPointInsideRect;
+#X text 224 159 - check if a point is inside the rectangle;
+#X obj 26 179 ofIsLineInsideRect;
+#X text 224 179 - check if a line is inside the rectangle;
+#X obj 26 199 ofIsRectInsideRect;
+#X text 224 199 - check if a rectangle is inside the rectangle;
+#X obj 26 219 ofDoesLineIntersectRect;
+#X text 224 219 - check if a line intersects with the rectangle;
+#X obj 26 239 ofDoesRectIntersectRect;
+#X text 224 239 - check if a rectangle intersects with the rectangle
+;
+#X obj 26 259 ofGetRectCenter;
+#X text 224 259 - get the center position of the rectangle;
+#X obj 26 279 ofGetRectArea;
+#X text 224 279 - get the area of the rectangle;
+#X obj 26 299 ofGetRectPerimeter;
+#X text 224 299 - get the perimeter of the rectangle;
+#X restore 26 669 pd rect;
