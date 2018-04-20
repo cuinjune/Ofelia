@@ -4,6 +4,7 @@ v1.0.8: 21 Apr 2018
 * added [ofSetCanvasArgs] and [ofRemoveCanvas]
 * added [ofGetFboTexID] and [ofGetImageTexID]
 * added GEM abstractions and example to the "examples/gem" directory
+* added ofRectangle related objects and help files
 
 v1.0.7: 7 Apr 2018
 
