@@ -39,6 +39,7 @@
 #include "ofeliaVec3f.h"
 #include "ofeliaVec4f.h"
 #include "ofeliaColor.h"
+#include "ofeliaRect.h"
 #include "ofeliaSymbol.h"
 #include "ofeliaHead.h"
 #include "ofeliaSeparators.h"
@@ -87,6 +88,7 @@ void ofelia_setup()
     ofeliaVec3f_setup();
     ofeliaVec4f_setup();
     ofeliaColor_setup();
+    ofeliaRect_setup();
     ofeliaSymbol_setup();
     ofeliaHead_setup();
     ofeliaSeparators_setup();

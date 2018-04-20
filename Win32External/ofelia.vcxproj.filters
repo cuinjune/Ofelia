@@ -153,6 +153,9 @@
     <ClCompile Include="src\tinyexpr.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofeliaRect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofeliaAnimate.h">
@@ -294,6 +297,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\tinyexpr.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaRect.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

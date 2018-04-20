@@ -82,6 +82,8 @@
 		FDD555361DDABC050098BABA /* ofeliaShapes.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD555341DDABC050098BABA /* ofeliaShapes.h */; };
 		FDD5553B1DDAF4C60098BABA /* ofeliaMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDD555391DDAF4C60098BABA /* ofeliaMatrix.cpp */; };
 		FDD5553C1DDAF4C60098BABA /* ofeliaMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD5553A1DDAF4C60098BABA /* ofeliaMatrix.h */; };
+		FDDC54DB2089BEA9001D6E7F /* ofeliaRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDDC54D92089BEA9001D6E7F /* ofeliaRect.cpp */; };
+		FDDC54DC2089BEA9001D6E7F /* ofeliaRect.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDC54DA2089BEA9001D6E7F /* ofeliaRect.h */; };
 		FDDED0D21E8CE4B400217465 /* ofeliaCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDDED0D01E8CE4B400217465 /* ofeliaCamera.cpp */; };
 		FDDED0D31E8CE4B400217465 /* ofeliaCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = FDDED0D11E8CE4B400217465 /* ofeliaCamera.h */; };
 		FDDF8D301F8B6A5000E4600C /* ofeliaURL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDDF8D2E1F8B6A5000E4600C /* ofeliaURL.cpp */; };
@@ -201,6 +203,8 @@
 		FDD555341DDABC050098BABA /* ofeliaShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaShapes.h; sourceTree = "<group>"; };
 		FDD555391DDAF4C60098BABA /* ofeliaMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaMatrix.cpp; sourceTree = "<group>"; };
 		FDD5553A1DDAF4C60098BABA /* ofeliaMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaMatrix.h; sourceTree = "<group>"; };
+		FDDC54D92089BEA9001D6E7F /* ofeliaRect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaRect.cpp; sourceTree = "<group>"; };
+		FDDC54DA2089BEA9001D6E7F /* ofeliaRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofeliaRect.h; sourceTree = "<group>"; };
 		FDDED0D01E8CE4B400217465 /* ofeliaCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaCamera.cpp; sourceTree = "<group>"; };
 		FDDED0D11E8CE4B400217465 /* ofeliaCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaCamera.h; sourceTree = "<group>"; };
 		FDDF8D2E1F8B6A5000E4600C /* ofeliaURL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaURL.cpp; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 				FDE3EC9F1F976B0200975082 /* ofeliaVec4f.h */,
 				FD8EFC4C1FD1A910005E660C /* ofeliaColor.cpp */,
 				FD8EFC4D1FD1A910005E660C /* ofeliaColor.h */,
+				FDDC54D92089BEA9001D6E7F /* ofeliaRect.cpp */,
+				FDDC54DA2089BEA9001D6E7F /* ofeliaRect.h */,
 				FD1C77EC1E94B7A200141256 /* ofeliaSymbol.cpp */,
 				FD1C77ED1E94B7A200141256 /* ofeliaSymbol.h */,
 				FD778C201DC72244004A77EB /* ofeliaHead.cpp */,
@@ -417,6 +423,7 @@
 				FDE3ECA11F976B0200975082 /* ofeliaVec4f.h in Headers */,
 				FD52F2D91F876957001D3D5B /* ofeliaFileHandler.h in Headers */,
 				FDE3EC9D1F9753FB00975082 /* ofeliaVec3f.h in Headers */,
+				FDDC54DC2089BEA9001D6E7F /* ofeliaRect.h in Headers */,
 				FD8C6F011DE2E20C00DD1F2A /* ofeliaSeparators.h in Headers */,
 				FD3D2DC71DD1944300A3367E /* ofeliaGetters.h in Headers */,
 				FD7E61B31E92240700A90AA1 /* ofeliaFloat.h in Headers */,
@@ -573,6 +580,7 @@
 				FD4129E81E5D621B004C5EBA /* ofeliaPath.cpp in Sources */,
 				FD4E9D411E6ACA23009F6A86 /* ofeliaPolyline.cpp in Sources */,
 				FDE6E6372071E90400A4886F /* ofeliaShader.cpp in Sources */,
+				FDDC54DB2089BEA9001D6E7F /* ofeliaRect.cpp in Sources */,
 				FD2774DA1E44BFB4005E0A71 /* ofeliaFont.cpp in Sources */,
 				FD8EFC4E1FD1A910005E660C /* ofeliaColor.cpp in Sources */,
 			);

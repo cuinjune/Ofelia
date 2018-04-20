@@ -224,6 +224,7 @@
     <ClCompile Include="src\ofeliaPatch.cpp" />
     <ClCompile Include="src\ofeliaPath.cpp" />
     <ClCompile Include="src\ofeliaPolyline.cpp" />
+    <ClCompile Include="src\ofeliaRect.cpp" />
     <ClCompile Include="src\ofeliaSeparators.cpp" />
     <ClCompile Include="src\ofeliaSetters.cpp" />
     <ClCompile Include="src\ofeliaSetup.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="src\ofeliaPatch.h" />
     <ClInclude Include="src\ofeliaPath.h" />
     <ClInclude Include="src\ofeliaPolyline.h" />
+    <ClInclude Include="src\ofeliaRect.h" />
     <ClInclude Include="src\ofeliaSeparators.h" />
     <ClInclude Include="src\ofeliaSetters.h" />
     <ClInclude Include="src\ofeliaSetup.h" />
