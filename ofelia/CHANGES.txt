@@ -1,4 +1,4 @@
-v1.0.8: 28 Apr 2018
+v1.0.8: 25 Apr 2018
 
 * renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
 * added [ofSetCanvasArgs] and [ofRemoveCanvas]
