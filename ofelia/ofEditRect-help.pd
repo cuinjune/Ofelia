@@ -1,21 +1,21 @@
-#N canvas 321 23 601 759 10;
+#N canvas 321 23 601 798 10;
 #X declare -lib ofelia;
 #X obj 0 0 cnv 15 580 40 empty empty ofEditRect 3 12 0 18 -204280 -1
 0;
 #X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 0 620 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+#X obj 0 660 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
 ;
-#X obj 75 349 cnv 17 3 260 empty empty 0 5 9 0 16 -228856 -162280 0
+#X obj 75 349 cnv 17 3 300 empty empty 0 5 9 0 16 -228856 -162280 0
 ;
-#X obj 75 628 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+#X obj 75 668 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
 ;
-#X obj 0 705 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+#X obj 0 745 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
 0;
-#X obj 0 656 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+#X obj 0 696 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
 0;
 #X text 95 369 name <s>;
-#X text 72 679 1) symbol;
+#X text 72 719 1) symbol;
 #N canvas 322 115 507 253 about_vector 0;
 #X text 26 23 in ofelia \, a vector data structure is commonly used
 for handling various data types such as float \, symbol and list. vectors
@@ -34,16 +34,16 @@ objects that can read the stored data from "loader" objects.;
 -1;
 #X text 44 247 outputs bang when editing is done.;
 #X obj 26 297 print;
-#X text 95 628 bang;
-#X text 241 628 - outputs bang when editing is done.;
+#X text 95 668 bang;
+#X text 241 668 - outputs bang when editing is done.;
 #X text 241 369 - sets the variable name followed by the index.;
-#X text 241 679 - sets the variable name followed by the index.;
+#X text 241 719 - sets the variable name followed by the index.;
 #X text 71 297 print all array elements as a list.;
 #X text 95 349 float;
 #X text 241 349 - sets the index of the array element.;
 #X obj 462 46 declare -lib ofelia;
 #X obj 511 5 ofEditRect;
-#N canvas 322 119 661 493 ofEditRect_parameters 0;
+#N canvas 322 119 661 545 ofEditRect_parameters 0;
 #X msg 30 34 assign 100 100 30 30;
 #X text 164 34 assign "100 100 30 30" to the array element.;
 #X msg 30 64 assignFromCenter 100 100 30 30;
@@ -59,21 +59,27 @@ objects that can read the stored data from "loader" objects.;
 #X text 128 154 assign "50" to the width of the array element.;
 #X msg 30 184 assignHeight 50;
 #X text 135 185 assign "50" to the height of the array element.;
-#X msg 30 214 growToInclude 300 200;
-#X text 173 214 grow the rectangle to include the given point.;
-#X msg 30 244 growToInclude 300 200 50 50;
-#X text 206 244 grow the rectangle to include the given rectangle.
+#X msg 30 274 growToInclude 300 200;
+#X text 173 274 grow the rectangle to include the given point.;
+#X msg 30 304 growToInclude 300 200 50 50;
+#X text 206 304 grow the rectangle to include the given rectangle.
 ;
-#X text 100 274 scale the width and height of the rectangle.;
-#X text 159 304 scale the width and height of the rectangle from its
+#X text 100 334 scale the width and height of the rectangle.;
+#X text 159 364 scale the width and height of the rectangle from its
 center.;
-#X msg 30 274 scale 2 1;
-#X msg 30 304 scaleFromCenter 1 2;
-#X msg 30 334 standardize;
-#X text 109 334 standardize the rectangle.;
-#X msg 30 364 translate 50 50;
-#X text 133 364 offsets the position of the rectangle.;
-#X obj 30 421 outlet;
+#X msg 30 334 scale 2 1;
+#X msg 30 364 scaleFromCenter 1 2;
+#X msg 30 394 standardize;
+#X text 109 394 standardize the rectangle.;
+#X msg 30 424 translate 50 50;
+#X text 133 424 offsets the position of the rectangle.;
+#X obj 30 481 outlet;
+#X msg 30 214 assignPos 200 200;
+#X text 146 214 assign "200 200" to the position of the array element.
+;
+#X msg 30 244 assignDimen 50 50;
+#X text 146 244 assign "50 50" to the dimensions of the array element.
+;
 #X connect 0 0 24 0;
 #X connect 2 0 24 0;
 #X connect 4 0 24 0;
@@ -86,6 +92,8 @@ center.;
 #X connect 19 0 24 0;
 #X connect 20 0 24 0;
 #X connect 22 0 24 0;
+#X connect 25 0 24 0;
+#X connect 27 0 24 0;
 #X restore 26 198 pd ofEditRect_parameters;
 #X obj 26 222 ofEditRect @myRects[1];
 #X obj 26 270 ofGetRects @myRects;
@@ -102,21 +110,25 @@ center.;
 #X text 241 449 - assigns the y position to the array element.;
 #X text 241 469 - assigns the width to the array element.;
 #X text 241 489 - assigns the height to the array element.;
-#X text 95 509 growToInclude <l>;
-#X text 241 509 - grow the rectangle to include the given point/rectangle.
+#X text 95 549 growToInclude <l>;
+#X text 241 549 - grow the rectangle to include the given point/rectangle.
 ;
-#X text 95 529 scale <f \, f>;
-#X text 241 529 - scale the width and height of the rectangle.;
-#X text 95 549 scaleFromCenter <f \, f>;
-#X text 241 549 - scale the width and height of the rectangle from
+#X text 95 569 scale <f \, f>;
+#X text 241 569 - scale the width and height of the rectangle.;
+#X text 95 589 scaleFromCenter <f \, f>;
+#X text 241 589 - scale the width and height of the rectangle from
 center.;
 #X text 241 409 - assigns the rectangle from center to the array element.
 ;
 #X text 95 409 assignFromCenter <4f>;
-#X text 95 570 standardize;
-#X text 241 569 - standardize the rectangle.;
-#X text 95 589 translate <f \, f>;
-#X text 241 589 - offsets the position of the rectangle.;
+#X text 95 610 standardize;
+#X text 241 609 - standardize the rectangle.;
+#X text 95 629 translate <f \, f>;
+#X text 241 629 - offsets the position of the rectangle.;
+#X text 95 509 assignPos <f \, f>;
+#X text 95 529 assignDimen <f \, f>;
+#X text 241 509 - assigns the position to the array element.;
+#X text 241 529 - assigns the dimension to the array element.;
 #X connect 13 0 27 0;
 #X connect 25 0 26 0;
 #X connect 26 0 13 0;

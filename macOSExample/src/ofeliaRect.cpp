@@ -644,6 +644,73 @@ void ofeliaEditRect_assignHeight(t_ofeliaEditRect *x, t_floatarg f)
     }
 }
 
+void ofeliaEditRect_assignPos(t_ofeliaEditRect *x, t_floatarg posX, t_floatarg posY)
+{
+    const t_string &name = x->varName.name;
+    
+    if (!name.empty()) {
+        
+        const int pos = getPositionByRectName(name);
+        
+        if (pos != -1) {
+            
+            if (!t_ofeliaLoadRect::rectData[pos].rects.empty()) {
+                
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadRect::rectData[pos].rects.size())-1);
+                ofRectangle &rect = t_ofeliaLoadRect::rectData[pos].rects[index];
+                rect.setPosition(posX, posY);
+                outlet_bang(x->x_obj.ob_outlet);
+            }
+            else {
+                
+                error("%s: '%s' is empty", t_ofeliaEditRect::objName, name.c_str());
+            }
+        }
+        else {
+            
+            error("%s: failed to find '%s'", t_ofeliaEditRect::objName, name.c_str());
+        }
+    }
+    else {
+        
+        error("%s: name not assigned", t_ofeliaEditRect::objName);
+    }
+}
+
+void ofeliaEditRect_assignDimen(t_ofeliaEditRect *x, t_floatarg width, t_floatarg height)
+{
+    const t_string &name = x->varName.name;
+    
+    if (!name.empty()) {
+        
+        const int pos = getPositionByRectName(name);
+        
+        if (pos != -1) {
+            
+            if (!t_ofeliaLoadRect::rectData[pos].rects.empty()) {
+                
+                const int index = min(x->varName.index, static_cast<int>(t_ofeliaLoadRect::rectData[pos].rects.size())-1);
+                ofRectangle &rect = t_ofeliaLoadRect::rectData[pos].rects[index];
+                rect.setWidth(width);
+                rect.setHeight(height);
+                outlet_bang(x->x_obj.ob_outlet);
+            }
+            else {
+                
+                error("%s: '%s' is empty", t_ofeliaEditRect::objName, name.c_str());
+            }
+        }
+        else {
+            
+            error("%s: failed to find '%s'", t_ofeliaEditRect::objName, name.c_str());
+        }
+    }
+    else {
+        
+        error("%s: name not assigned", t_ofeliaEditRect::objName);
+    }
+}
+
 void ofeliaEditRect_growToInclude(t_ofeliaEditRect *x, t_symbol *s, int argc, t_atom *argv)
 {
     const t_string &name = x->varName.name;
@@ -951,6 +1018,10 @@ void ofeliaEditRect_setup()
                     gensym("assignWidth"), A_FLOAT, 0);
     class_addmethod(ofeliaEditRect_class, reinterpret_cast<t_method>(ofeliaEditRect_assignHeight),
                     gensym("assignHeight"), A_FLOAT, 0);
+    class_addmethod(ofeliaEditRect_class, reinterpret_cast<t_method>(ofeliaEditRect_assignPos),
+                    gensym("assignPos"), A_FLOAT, A_FLOAT, 0);
+    class_addmethod(ofeliaEditRect_class, reinterpret_cast<t_method>(ofeliaEditRect_assignDimen),
+                    gensym("assignDimen"), A_FLOAT, A_FLOAT, 0);
     class_addmethod(ofeliaEditRect_class, reinterpret_cast<t_method>(ofeliaEditRect_growToInclude),
                     gensym("growToInclude"), A_GIMME, 0);
     class_addmethod(ofeliaEditRect_class, reinterpret_cast<t_method>(ofeliaEditRect_scale),

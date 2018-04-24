@@ -58,14 +58,14 @@ objects that can read the stored data from "loader" objects.;
 #X text 281 729 - sets the unique variable name for the array.;
 #X text 281 749 - initializes an array with one or more elements.;
 #X text 95 303 remove the index range "3~4".;
-#N canvas 322 119 661 555 related_editor_objects 0;
-#X text 176 421 edit the specified array element.;
-#X obj 30 485 print;
-#X obj 30 443 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 322 119 661 620 related_editor_objects 0;
+#X text 176 481 edit the specified array element.;
+#X obj 30 545 print;
+#X obj 30 503 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 48 443 outputs bang when editing is done.;
-#X obj 30 421 ofEditRect @myRects[1];
-#X obj 30 463 ofGetRect @myRects[1];
+#X text 48 503 outputs bang when editing is done.;
+#X obj 30 481 ofEditRect @myRects[1];
+#X obj 30 523 ofGetRect @myRects[1];
 #X msg 30 34 assign 100 100 30 30;
 #X text 164 34 assign "100 100 30 30" to the array element.;
 #X msg 30 64 assignFromCenter 100 100 30 30;
@@ -81,20 +81,26 @@ objects that can read the stored data from "loader" objects.;
 #X text 128 154 assign "50" to the width of the array element.;
 #X msg 30 184 assignHeight 50;
 #X text 135 185 assign "50" to the height of the array element.;
-#X msg 30 214 growToInclude 300 200;
-#X text 173 214 grow the rectangle to include the given point.;
-#X msg 30 244 growToInclude 300 200 50 50;
-#X text 206 244 grow the rectangle to include the given rectangle.
+#X msg 30 274 growToInclude 300 200;
+#X text 173 274 grow the rectangle to include the given point.;
+#X msg 30 304 growToInclude 300 200 50 50;
+#X text 206 304 grow the rectangle to include the given rectangle.
 ;
-#X text 100 274 scale the width and height of the rectangle.;
-#X text 159 304 scale the width and height of the rectangle from its
+#X text 100 334 scale the width and height of the rectangle.;
+#X text 159 364 scale the width and height of the rectangle from its
 center.;
-#X msg 30 274 scale 2 1;
-#X msg 30 304 scaleFromCenter 1 2;
-#X msg 30 334 standardize;
-#X text 109 334 standardize the rectangle.;
-#X msg 30 364 translate 50 50;
-#X text 133 364 offsets the position of the rectangle.;
+#X msg 30 334 scale 2 1;
+#X msg 30 364 scaleFromCenter 1 2;
+#X msg 30 394 standardize;
+#X text 109 394 standardize the rectangle.;
+#X msg 30 424 translate 50 50;
+#X text 133 424 offsets the position of the rectangle.;
+#X msg 30 214 assignPos 200 200;
+#X text 146 214 assign "200 200" to the position of the array element.
+;
+#X msg 30 244 assignDimen 50 50;
+#X text 146 244 assign "50 50" to the dimensions of the array element.
+;
 #X connect 2 0 5 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
@@ -110,6 +116,8 @@ center.;
 #X connect 25 0 4 0;
 #X connect 26 0 4 0;
 #X connect 28 0 4 0;
+#X connect 30 0 4 0;
+#X connect 32 0 4 0;
 #X restore 26 428 pd related_editor_objects;
 #N canvas 321 23 566 835 related_getter_objects 0;
 #X obj 40 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
