@@ -82,6 +82,16 @@ extern "C" {
         
     } t_ofeliaKeyListener;
     
+    /* ofKeyCodeListener object class */
+    static t_class *ofeliaKeyCodeListener_class;
+    
+    typedef struct _ofeliaKeyCodeListener
+    {
+        t_object x_obj;
+        static t_symbol *keyCodeListenerSym;
+        
+    } t_ofeliaKeyCodeListener;
+    
     /* ofAccelListener object class */
     static t_class *ofeliaAccelListener_class;
     

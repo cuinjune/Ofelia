@@ -1619,11 +1619,13 @@ void ofeliaWindow::windowMouseScrolled(ofMouseEventArgs &e)
 void ofeliaWindow::windowKeyPressed(ofKeyEventArgs& e)
 {
     sendKeyToPd(true, e.key);
+    sendKeyCodeToPd(true, e.keycode);
 }
 
 void ofeliaWindow::windowKeyReleased(ofKeyEventArgs& e)
 {
     sendKeyToPd(false, e.key);
+    sendKeyCodeToPd(false, e.keycode);
 }
 
 void ofeliaWindow::windowResized(ofResizeEventArgs& e)
@@ -1808,6 +1810,18 @@ void ofeliaWindow::sendKeyToPd(const bool pressed, const int key)
     
     if (t_ofeliaKeyListener::keyListenerSym->s_thing)
         pd_list(t_ofeliaKeyListener::keyListenerSym->s_thing, 0, 2, av);
+}
+
+void ofeliaWindow::sendKeyCodeToPd(const bool pressed, const int keyCode)
+{
+    t_atom av[2];
+    av[0].a_type = A_FLOAT;
+    av[0].a_w.w_float = static_cast<t_float>(pressed);
+    av[1].a_type = A_FLOAT;
+    av[1].a_w.w_float = static_cast<t_float>(keyCode);
+    
+    if (t_ofeliaKeyCodeListener::keyCodeListenerSym->s_thing)
+        pd_list(t_ofeliaKeyCodeListener::keyCodeListenerSym->s_thing, 0, 2, av);
 }
 
 void ofeliaWindow::sendScaleToPd(const float wScale)

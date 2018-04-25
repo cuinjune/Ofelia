@@ -1,0 +1,83 @@
+#N canvas 321 23 604 519 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofKeyCodeListener 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 375 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 383 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 460 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 411 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 434 (none);
+#X text 72 349 (none);
+#X obj 144 168 unpack f f;
+#X floatatom 144 203 5 0 0 0 - - -, f 5;
+#X floatatom 201 233 5 0 0 0 - - -, f 5;
+#X text 95 383 list <f \, f>;
+#N canvas 321 121 671 473 more_examples 0;
+#X obj 89 78 loadbang;
+#X obj 56 203 t b b;
+#X obj 250 106 route 1;
+#X floatatom 250 133 5 0 0 0 - - -, f 5;
+#X floatatom 250 225 5 0 0 0 - - -, f 5;
+#X floatatom 305 225 5 0 0 0 - - -, f 5;
+#X obj 250 203 * 4;
+#X obj 305 203 * 4;
+#X text 26 22 this example shows moving the star using the arrow keys.
+;
+#X obj 89 106 ofGetLastRenderOrder;
+#X obj 56 138 ofHead;
+#X obj 56 168 ofClear 63;
+#X obj 250 181 ofStep;
+#X obj 305 181 ofStep;
+#X obj 56 278 ofTranslate;
+#X obj 56 330 ofTranslate;
+#X obj 56 362 ofSetColor yellow;
+#X obj 56 394 ofStar 8 4 5;
+#X text 289 133 a pressed key code.;
+#X obj 83 225 ofExpr \; ofGetWidth / 2 \; ofGetHeight / 2 \;;
+#X obj 250 78 ofKeyCodeListener;
+#X obj 250 157 sel 263 262 265 264;
+#X connect 0 0 9 0;
+#X connect 1 0 14 0;
+#X connect 1 1 19 0;
+#X connect 2 0 3 0;
+#X connect 3 0 21 0;
+#X connect 4 0 15 1;
+#X connect 5 0 15 2;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 9 0 10 1;
+#X connect 10 0 11 0;
+#X connect 11 0 1 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 19 0 14 1;
+#X connect 19 1 14 2;
+#X connect 20 0 2 0;
+#X connect 21 0 12 0;
+#X connect 21 1 12 1;
+#X connect 21 2 13 0;
+#X connect 21 3 13 1;
+#X restore 480 66 pd more_examples;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X text 182 202 key state. (0: released \, 1: pressed);
+#X text 211 383 - key state \, key code.;
+#X obj 462 46 declare -lib ofelia;
+#X obj 469 5 ofKeyCodeListener;
+#X obj 144 132 ofKeyCodeListener;
+#X text 242 232 key code. (independent of any modifier keys or keyboard
+layout settings);
+#X text 21 43 [ofKeyCodeListener] is used to detect the key events
+while the window is focused. it will not work on mobile devices.;
+#X text 11 23 listen to the key events independent of modifiers;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 18 0 8 0;

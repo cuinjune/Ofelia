@@ -5,6 +5,7 @@ v1.0.8: 25 Apr 2018
 * added [ofGetFboTexID] and [ofGetImageTexID]
 * added GEM abstractions and example to the "examples/gem" directory
 * added ofRectangle related objects and help files
+* added [ofKeyCodeListener]
 
 v1.0.7: 7 Apr 2018
 
