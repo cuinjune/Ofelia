@@ -71,43 +71,46 @@
 #X obj 26 259 ofGetLastFrameTimeMillis;
 #X text 224 239 - get the last frame time in seconds;
 #X restore 26 109 pd getters;
-#N canvas 519 75 650 397 listeners 0;
+#N canvas 519 75 650 422 listeners 0;
 #X obj 26 59 ofTouchListener;
 #X obj 26 79 ofMouseListener;
 #X obj 26 99 ofScrollListener;
 #X obj 26 119 ofKeyListener;
-#X obj 26 139 ofAccelListener;
-#X obj 26 179 ofOrienListener;
-#X obj 26 199 ofFullscreenListener;
-#X obj 26 219 ofFocusListener;
-#X obj 26 259 ofWindowListener;
-#X obj 26 319 ofBackListener;
-#X obj 26 279 ofWindowLoadBang;
-#X obj 26 299 ofWindowCloseBang;
+#X obj 26 159 ofAccelListener;
+#X obj 26 199 ofOrienListener;
+#X obj 26 219 ofFullscreenListener;
+#X obj 26 239 ofFocusListener;
+#X obj 26 279 ofWindowListener;
+#X obj 26 339 ofBackListener;
+#X obj 26 299 ofWindowLoadBang;
+#X obj 26 319 ofWindowCloseBang;
 #X text 224 59 - listen to the touch events;
 #X text 224 79 - listen to the mouse events;
 #X text 224 99 - listen to the mouse scroll events;
 #X text 224 119 - listen to the key events;
-#X text 224 139 - listen to the accelerometer events;
-#X text 224 159 - listen to the updated scale of the current window
+#X text 224 159 - listen to the accelerometer events;
+#X text 224 179 - listen to the updated scale of the current window
 ;
-#X text 224 179 - listen to the updated orientation of the current
+#X text 224 199 - listen to the updated orientation of the current
 window;
-#X text 224 199 - listen to the fullscreen mode of the current window
+#X text 224 219 - listen to the fullscreen mode of the current window
 ;
-#X text 224 219 - listen to the focus state of the current window;
-#X text 224 239 - listen to the updated position of the current window
+#X text 224 239 - listen to the focus state of the current window;
+#X text 224 259 - listen to the updated position of the current window
 ;
-#X text 224 259 - listen to the creation/destruction of the current
+#X text 224 279 - listen to the creation/destruction of the current
 window;
-#X text 224 279 - listen to the creation of the current window;
-#X text 224 299 - listen to the destruction of the current window;
-#X text 224 319 - listen to the back button press on android devices
+#X text 224 299 - listen to the creation of the current window;
+#X text 224 319 - listen to the destruction of the current window;
+#X text 224 339 - listen to the back button press on android devices
 ;
 #X text 24 30 ------------------------ LISTENERS ------------------------
 ;
-#X obj 26 159 ofWindowScaleListener;
-#X obj 26 239 ofWindowPosListener;
+#X obj 26 179 ofWindowScaleListener;
+#X obj 26 259 ofWindowPosListener;
+#X obj 26 139 ofKeyCodeListener;
+#X text 224 139 - listen to the key events independent of modifiers
+;
 #X restore 26 129 pd listeners;
 #X text 24 160 ------------------------- GRAPHICS -------------------------
 ;

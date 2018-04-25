@@ -187,6 +187,7 @@ private:
     static void sendMouseToPd(const int mouseState, const int button, const float posX, const float posY);
     static void sendScrollToPd(const float scrollX, const float scrollY);
     static void sendKeyToPd(const bool pressed, const int key);
+    static void sendKeyCodeToPd(const bool pressed, const int keyCode);
     static void sendScaleToPd(const float wScale);
     static void sendFullscreenToPd(const bool fMode);
     static void sendFocusToPd(GLFWwindow* window, const int focused);

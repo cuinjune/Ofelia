@@ -29,6 +29,7 @@ t_symbol *t_ofeliaTouchListener::touchListenerSym;
 t_symbol *t_ofeliaMouseListener::mouseListenerSym;
 t_symbol *t_ofeliaScrollListener::scrollListenerSym;
 t_symbol *t_ofeliaKeyListener::keyListenerSym;
+t_symbol *t_ofeliaKeyCodeListener::keyCodeListenerSym;
 t_symbol *t_ofeliaAccelListener::accelListenerSym;
 t_symbol *t_ofeliaWindowScaleListener::windowScaleListenerSym;
 t_symbol *t_ofeliaOrienListener::orienListenerSym;
@@ -200,6 +201,37 @@ void ofeliaKeyListener_setup()
                                         sizeof(t_ofeliaKeyListener),
                                         CLASS_NOINLET, A_NULL, 0);
     class_addlist(ofeliaKeyListener_class, reinterpret_cast<t_method>(ofeliaKeyListener_list));
+}
+
+/* ________________________________________________________________________________
+ * ofKeyCodeListener object methods
+ */
+void *ofeliaKeyCodeListener_new()
+{
+    t_ofeliaKeyCodeListener *x = reinterpret_cast<t_ofeliaKeyCodeListener*>(pd_new(ofeliaKeyCodeListener_class));
+    pd_bind(&x->x_obj.ob_pd, t_ofeliaKeyCodeListener::keyCodeListenerSym);
+    outlet_new(&x->x_obj, &s_list);
+    return (x);
+}
+
+void ofeliaKeyCodeListener_list(t_ofeliaKeyCodeListener *x, t_symbol *s, int argc, t_atom *argv)
+{
+    outlet_list(x->x_obj.ob_outlet, s, argc, argv);
+}
+
+void ofeliaKeyCodeListener_free(t_ofeliaKeyCodeListener *x)
+{
+    pd_unbind(&x->x_obj.ob_pd, t_ofeliaKeyCodeListener::keyCodeListenerSym);
+}
+
+void ofeliaKeyCodeListener_setup()
+{
+    ofeliaKeyCodeListener_class = class_new(gensym("ofKeyCodeListener"),
+                                            reinterpret_cast<t_newmethod>(ofeliaKeyCodeListener_new),
+                                            reinterpret_cast<t_method>(ofeliaKeyCodeListener_free),
+                                            sizeof(t_ofeliaKeyCodeListener),
+                                            CLASS_NOINLET, A_NULL, 0);
+    class_addlist(ofeliaKeyCodeListener_class, reinterpret_cast<t_method>(ofeliaKeyCodeListener_list));
 }
 
 /* ________________________________________________________________________________
@@ -563,6 +595,7 @@ void ofeliaListeners_setup()
     t_ofeliaMouseListener::mouseListenerSym = gensym("{ofMouseListener}");
     t_ofeliaScrollListener::scrollListenerSym = gensym("{ofScrollListener}");
     t_ofeliaKeyListener::keyListenerSym = gensym("{ofKeyListener}");
+    t_ofeliaKeyCodeListener::keyCodeListenerSym = gensym("{ofKeyCodeListener}");
     t_ofeliaAccelListener::accelListenerSym = gensym("{ofAccelListener}");
     t_ofeliaWindowScaleListener::windowScaleListenerSym = gensym("{ofWindowScaleListener}");
     t_ofeliaOrienListener::orienListenerSym = gensym("{ofOrienListener}");
@@ -575,6 +608,7 @@ void ofeliaListeners_setup()
     ofeliaMouseListener_setup();
     ofeliaScrollListener_setup();
     ofeliaKeyListener_setup();
+    ofeliaKeyCodeListener_setup();
     ofeliaAccelListener_setup();
     ofeliaWindowScaleListener_setup();
     ofeliaOrienListener_setup();

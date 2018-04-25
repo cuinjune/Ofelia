@@ -2,29 +2,35 @@
 
 ofelia is a Pure Data(aka Pd) external library written with openFrameworks for creating cross-platform multimedia applications.
 
-The library consists of over 400 objects covering most features of openFrameworks core API, designed to ease the development of multimedia applications such as visual arts, musical apps and interactive games.
+The library consists of over 400 objects covering most features of openFrameworks core API, designed to ease the development of multimedia applications such as audiovisual arts and interactive games.
 
 And thanks to the real-time nature of Pure Data, one can make changes and see the result immediately without having to compile.
 
 The library includes the following features:
 
-* interactive output window
+* Interactive output window
 
-* various getters and event listeners
+* Various getters and event listeners
 
-* 2d/3d shapes drawing
+* 2d/3d shapes drawing (ofPolyline, ofPath, ofMesh)
 
-* image and font loading
+* Image and font loading
 
-* camera, lighting, material
+* Camera, lighting, material
 
-* framebuffer object
+* Framebuffer object
 
-* various data types (vec3f, color..)
+* GLSL shader loader
 
-* various utilities to speed up development (new expr, counter..)
+* GUI abstractions (toggle, slider..)
 
-* bandlimited oscillators and resonant filters
+* Various data types to effectively store and handle data (ofVec3f, ofColor..)
+
+* Various math and utility objects to speed up development (ofExpr, ofCount..)
+
+* Some useful audio objects including bandlimited oscillators and resonant filters
+
+* Use GEM with ofelia
 
 The library is currently available to be used under macOS, Linux(64bit) and Windows. It will also be available on Raspberry Pi soon.
 
@@ -46,11 +52,6 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Create something cool and share it with other people.
 * Feel free to contact the author if you have any questions or suggestions.
 
-## Upcoming features
-
-* GLSL shader loader
-* Video player
-* Video grabber
 
 ## Author
 
