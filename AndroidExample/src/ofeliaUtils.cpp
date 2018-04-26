@@ -66,6 +66,7 @@ const char *t_ofeliaGetDirectoryFileNames::objName = "ofGetDirectoryFileNames";
 const char *t_ofeliaGetDirectoryFilePaths::objName = "ofGetDirectoryFilePaths";
 const char *t_ofeliaGetDollarZero::objName = "ofGetDollarZero";
 const char *t_ofeliaGetCanvasName::objName = "ofGetCanvasName";
+const char *t_ofeliaGetCanvasIndex::objName = "ofGetCanvasIndex";
 const char *t_ofeliaGetCanvasArgs::objName = "ofGetCanvasArgs";
 const char *t_ofeliaSetCanvasArgs::objName = "ofSetCanvasArgs";
 const char *t_ofeliaRemoveCanvas::objName = "ofRemoveCanvas";
@@ -5296,6 +5297,46 @@ void ofeliaGetCanvasName_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetCanvasIndex object methods
+ */
+void *ofeliaGetCanvasIndex_new(t_floatarg f)
+{
+    t_ofeliaGetCanvasIndex *x = reinterpret_cast<t_ofeliaGetCanvasIndex*>(pd_new(ofeliaGetCanvasIndex_class));
+    t_canvas *canvas = canvas_getcurrent();
+    t_gobj *obj = reinterpret_cast<t_gobj*>(x);
+    const int level = truncf(f);
+    
+    for (int i=0; i<level; ++i) {
+        
+        if (canvas->gl_owner) {
+            
+            obj = reinterpret_cast<t_gobj*>(canvas);
+            canvas = canvas->gl_owner;
+        }
+        else
+            break;
+    }
+    x->canvas = canvas;
+    x->gobj = obj;
+    outlet_new(&x->x_obj, &s_float);
+    return (x);
+}
+
+void ofeliaGetCanvasIndex_bang(t_ofeliaGetCanvasIndex *x)
+{
+    outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(glist_getindex(static_cast<t_glist*>(x->canvas), x->gobj)));
+}
+
+void ofeliaGetCanvasIndex_setup()
+{
+    ofeliaGetCanvasIndex_class = class_new(gensym("ofGetCanvasIndex"),
+                                           reinterpret_cast<t_newmethod>(ofeliaGetCanvasIndex_new),
+                                           0, sizeof(t_ofeliaGetCanvasIndex),
+                                           CLASS_DEFAULT, A_DEFFLOAT, 0);
+    class_addbang(ofeliaGetCanvasIndex_class, reinterpret_cast<t_method>(ofeliaGetCanvasIndex_bang));
+}
+
+/* ________________________________________________________________________________
  * ofGetCanvasArgs object methods
  */
 void *ofeliaGetCanvasArgs_new(t_floatarg f)
@@ -5945,6 +5986,7 @@ void ofeliaUtils_setup()
     ofeliaGetDirectoryFilePaths_setup();
     ofeliaGetDollarZero_setup();
     ofeliaGetCanvasName_setup();
+    ofeliaGetCanvasIndex_setup();
     ofeliaGetCanvasArgs_setup();
     ofeliaSetCanvasArgs_setup();
     ofeliaRemoveCanvas_setup();

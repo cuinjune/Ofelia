@@ -64,9 +64,12 @@ const char *t_ofeliaDoesDirectoryExist::objName = "ofDoesDirectoryExist";
 const char *t_ofeliaDoesFileExist::objName = "ofDoesFileExist";
 const char *t_ofeliaGetDirectoryFileNames::objName = "ofGetDirectoryFileNames";
 const char *t_ofeliaGetDirectoryFilePaths::objName = "ofGetDirectoryFilePaths";
-const char *t_ofeliaGetCanvasName::objName = "ofGetCanvasName";
 const char *t_ofeliaGetDollarZero::objName = "ofGetDollarZero";
-const char *t_ofeliaGetDollarArgs::objName = "ofGetDollarArgs";
+const char *t_ofeliaGetCanvasName::objName = "ofGetCanvasName";
+const char *t_ofeliaGetCanvasIndex::objName = "ofGetCanvasIndex";
+const char *t_ofeliaGetCanvasArgs::objName = "ofGetCanvasArgs";
+const char *t_ofeliaSetCanvasArgs::objName = "ofSetCanvasArgs";
+const char *t_ofeliaRemoveCanvas::objName = "ofRemoveCanvas";
 const char *t_ofeliaHexToHsb::objName = "ofHexToHsb";
 const char *t_ofeliaHexToRgb::objName = "ofHexToRgb";
 const char *t_ofeliaHsbToHex::objName = "ofHsbToHex";
@@ -5222,6 +5225,41 @@ void ofeliaGetDirectoryFilePaths_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofGetDollarZero object methods
+ */
+void *ofeliaGetDollarZero_new(t_floatarg f)
+{
+    t_ofeliaGetDollarZero *x = reinterpret_cast<t_ofeliaGetDollarZero*>(pd_new(ofeliaGetDollarZero_class));
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
+    
+    for (int i=0; i<level; ++i) {
+        
+        if (canvas->gl_owner)
+            canvas = canvas->gl_owner;
+        else
+            break;
+    }
+    x->dollarZeroSym = canvas_realizedollar(canvas, gensym("$0"));
+    outlet_new(&x->x_obj, &s_symbol);
+    return (x);
+}
+
+void ofeliaGetDollarZero_bang(t_ofeliaGetDollarZero *x)
+{
+    outlet_symbol(x->x_obj.ob_outlet, x->dollarZeroSym);
+}
+
+void ofeliaGetDollarZero_setup()
+{
+    ofeliaGetDollarZero_class = class_new(gensym("ofGetDollarZero"),
+                                          reinterpret_cast<t_newmethod>(ofeliaGetDollarZero_new),
+                                          0, sizeof(t_ofeliaGetDollarZero),
+                                          CLASS_DEFAULT, A_DEFFLOAT, 0);
+    class_addbang(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_bang));
+}
+
+/* ________________________________________________________________________________
  * ofGetCanvasName object methods
  */
 void *ofeliaGetCanvasName_new(t_floatarg f)
@@ -5259,48 +5297,51 @@ void ofeliaGetCanvasName_setup()
 }
 
 /* ________________________________________________________________________________
- * ofGetDollarZero object methods
+ * ofGetCanvasIndex object methods
  */
-void *ofeliaGetDollarZero_new(t_floatarg f)
+void *ofeliaGetCanvasIndex_new(t_floatarg f)
 {
-    t_ofeliaGetDollarZero *x = reinterpret_cast<t_ofeliaGetDollarZero*>(pd_new(ofeliaGetDollarZero_class));
+    t_ofeliaGetCanvasIndex *x = reinterpret_cast<t_ofeliaGetCanvasIndex*>(pd_new(ofeliaGetCanvasIndex_class));
     t_canvas *canvas = canvas_getcurrent();
+    t_gobj *obj = reinterpret_cast<t_gobj*>(x);
     const int level = truncf(f);
     
     for (int i=0; i<level; ++i) {
         
-        if (canvas->gl_owner)
+        if (canvas->gl_owner) {
+            
+            obj = reinterpret_cast<t_gobj*>(canvas);
             canvas = canvas->gl_owner;
+        }
         else
             break;
     }
-    x->dollarZeroSym = canvas_realizedollar(canvas, gensym("$0"));
-    outlet_new(&x->x_obj, &s_symbol);
+    x->canvas = canvas;
+    x->gobj = obj;
+    outlet_new(&x->x_obj, &s_float);
     return (x);
 }
 
-void ofeliaGetDollarZero_bang(t_ofeliaGetDollarZero *x)
+void ofeliaGetCanvasIndex_bang(t_ofeliaGetCanvasIndex *x)
 {
-    outlet_symbol(x->x_obj.ob_outlet, x->dollarZeroSym);
+    outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(glist_getindex(static_cast<t_glist*>(x->canvas), x->gobj)));
 }
 
-void ofeliaGetDollarZero_setup()
+void ofeliaGetCanvasIndex_setup()
 {
-    ofeliaGetDollarZero_class = class_new(gensym("ofGetDollarZero"),
-                                          reinterpret_cast<t_newmethod>(ofeliaGetDollarZero_new),
-                                          0, sizeof(t_ofeliaGetDollarZero),
-                                          CLASS_DEFAULT, A_DEFFLOAT, 0);
-    class_addbang(ofeliaGetDollarZero_class, reinterpret_cast<t_method>(ofeliaGetDollarZero_bang));
+    ofeliaGetCanvasIndex_class = class_new(gensym("ofGetCanvasIndex"),
+                                           reinterpret_cast<t_newmethod>(ofeliaGetCanvasIndex_new),
+                                           0, sizeof(t_ofeliaGetCanvasIndex),
+                                           CLASS_DEFAULT, A_DEFFLOAT, 0);
+    class_addbang(ofeliaGetCanvasIndex_class, reinterpret_cast<t_method>(ofeliaGetCanvasIndex_bang));
 }
 
 /* ________________________________________________________________________________
- * ofGetDollarArgs object methods
+ * ofGetCanvasArgs object methods
  */
-void *ofeliaGetDollarArgs_new(t_floatarg f)
+void *ofeliaGetCanvasArgs_new(t_floatarg f)
 {
-    t_ofeliaGetDollarArgs *x = reinterpret_cast<t_ofeliaGetDollarArgs*>(pd_new(ofeliaGetDollarArgs_class));
-    x->dollarArgc = 0;
-    x->dollarArgv = NULL;
+    t_ofeliaGetCanvasArgs *x = reinterpret_cast<t_ofeliaGetCanvasArgs*>(pd_new(ofeliaGetCanvasArgs_class));
     t_canvas *canvas = canvas_getcurrent();
     const int level = truncf(f);
     
@@ -5311,43 +5352,121 @@ void *ofeliaGetDollarArgs_new(t_floatarg f)
         else
             break;
     }
-    int ac;
-    t_atom *av;
-    pd_pushsym(&canvas->gl_obj.te_g.g_pd);
-    canvas_getargs(&ac, &av);
-    pd_popsym(&canvas->gl_obj.te_g.g_pd);
-    x->dollarArgc = ac;
-    x->dollarArgv = (t_atom *)getbytes(ac * sizeof(t_atom));
-    
-    for (int i=0; i<ac; ++i)
-        x->dollarArgv[i] = av[i];
+    x->canvas = canvas;
     outlet_new(&x->x_obj, &s_list);
     return (x);
 }
 
-void ofeliaGetDollarArgs_bang(t_ofeliaGetDollarArgs *x)
+void ofeliaGetCanvasArgs_bang(t_ofeliaGetCanvasArgs *x)
 {
-    outlet_list(x->x_obj.ob_outlet, &s_list, x->dollarArgc, x->dollarArgv);
+    t_binbuf *binbuf = x->canvas->gl_obj.te_binbuf;
+    
+    if (binbuf)
+        outlet_list(x->x_obj.ob_outlet, &s_list, binbuf_getnatom(binbuf)-1, binbuf_getvec(binbuf)+1);
+    else
+        outlet_bang(x->x_obj.ob_outlet);
 }
 
-void ofeliaGetDollarArgs_free(t_ofeliaGetDollarArgs *x)
+void ofeliaGetCanvasArgs_setup()
 {
-    if (x->dollarArgv) {
-        
-        freebytes(x->dollarArgv, x->dollarArgc * sizeof(t_atom));
-        x->dollarArgc = 0;
-        x->dollarArgv = NULL;
-    }
-}
-
-void ofeliaGetDollarArgs_setup()
-{
-    ofeliaGetDollarArgs_class = class_new(gensym("ofGetDollarArgs"),
-                                          reinterpret_cast<t_newmethod>(ofeliaGetDollarArgs_new),
-                                          reinterpret_cast<t_method>(ofeliaGetDollarArgs_free),
-                                          sizeof(t_ofeliaGetDollarArgs),
+    ofeliaGetCanvasArgs_class = class_new(gensym("ofGetCanvasArgs"),
+                                          reinterpret_cast<t_newmethod>(ofeliaGetCanvasArgs_new),
+                                          0, sizeof(t_ofeliaGetCanvasArgs),
                                           CLASS_DEFAULT, A_DEFFLOAT, 0);
-    class_addbang(ofeliaGetDollarArgs_class, reinterpret_cast<t_method>(ofeliaGetDollarArgs_bang));
+    class_addbang(ofeliaGetCanvasArgs_class, reinterpret_cast<t_method>(ofeliaGetCanvasArgs_bang));
+}
+
+/* ________________________________________________________________________________
+ * ofSetCanvasArgs object methods
+ */
+void *ofeliaSetCanvasArgs_new(t_floatarg f)
+{
+    t_ofeliaSetCanvasArgs *x = reinterpret_cast<t_ofeliaSetCanvasArgs*>(pd_new(ofeliaSetCanvasArgs_class));
+    t_canvas *canvas = canvas_getcurrent();
+    const int level = truncf(f);
+    
+    for (int i=0; i<level; ++i) {
+        
+        if (canvas->gl_owner)
+            canvas = canvas->gl_owner;
+        else
+            break;
+    }
+    x->canvas = canvas;
+    return (x);
+}
+
+void ofeliaSetCanvasArgs_list(t_ofeliaSetCanvasArgs *x, t_symbol *s, int argc, t_atom *argv)
+{
+    t_binbuf *binbuf = x->canvas->gl_obj.te_binbuf;
+    
+    if (!binbuf)
+        return;
+    t_atom av[1];
+    av[0].a_type = A_SYMBOL;
+    av[0].a_w.w_symbol = binbuf_getvec(binbuf)[0].a_w.w_symbol;
+    binbuf_clear(binbuf);
+    binbuf_add(binbuf, 1, av);
+    binbuf_add(binbuf, argc, argv);
+}
+
+void ofeliaSetCanvasArgs_setup()
+{
+    ofeliaSetCanvasArgs_class = class_new(gensym("ofSetCanvasArgs"),
+                                          reinterpret_cast<t_newmethod>(ofeliaSetCanvasArgs_new),
+                                          0, sizeof(t_ofeliaSetCanvasArgs),
+                                          CLASS_DEFAULT, A_DEFFLOAT, 0);
+    class_addlist(ofeliaSetCanvasArgs_class, reinterpret_cast<t_method>(ofeliaSetCanvasArgs_list));
+}
+
+/* ________________________________________________________________________________
+ * ofRemoveCanvas object methods
+ */
+void ofeliaRemoveCanvas_removeCanvas(t_ofeliaRemoveCanvas *x);
+
+void *ofeliaRemoveCanvas_new(t_floatarg f)
+{
+    t_ofeliaRemoveCanvas *x = reinterpret_cast<t_ofeliaRemoveCanvas*>(pd_new(ofeliaRemoveCanvas_class));
+    t_canvas *canvas = canvas_getcurrent();
+    t_gobj *obj = reinterpret_cast<t_gobj*>(x);
+    const int level = truncf(f);
+    
+    for (int i=0; i<level; ++i) {
+        
+        if (canvas->gl_owner) {
+            
+            obj = reinterpret_cast<t_gobj*>(canvas);
+            canvas = canvas->gl_owner;
+        }
+        else
+            break;
+    }
+    x->canvas = canvas;
+    x->gobj = obj;
+    x->clock = clock_new(x, reinterpret_cast<t_method>(ofeliaRemoveCanvas_removeCanvas));
+    return (x);
+}
+
+void ofeliaRemoveCanvas_bang(t_ofeliaRemoveCanvas *x)
+{
+    clock_delay(x->clock, 0.0);
+}
+
+void ofeliaRemoveCanvas_removeCanvas(t_ofeliaRemoveCanvas *x)
+{
+    clock_free(x->clock);
+    const int dspstate = canvas_suspend_dsp();
+    glist_delete(static_cast<t_glist*>(x->canvas), x->gobj);
+    canvas_resume_dsp(dspstate);
+}
+
+void ofeliaRemoveCanvas_setup()
+{
+    ofeliaRemoveCanvas_class = class_new(gensym("ofRemoveCanvas"),
+                                         reinterpret_cast<t_newmethod>(ofeliaRemoveCanvas_new),
+                                         0, sizeof(t_ofeliaRemoveCanvas),
+                                         CLASS_DEFAULT, A_DEFFLOAT, 0);
+    class_addbang(ofeliaRemoveCanvas_class, reinterpret_cast<t_method>(ofeliaRemoveCanvas_bang));
 }
 
 /* ________________________________________________________________________________
@@ -5865,9 +5984,12 @@ void ofeliaUtils_setup()
     ofeliaDoesFileExist_setup();
     ofeliaGetDirectoryFileNames_setup();
     ofeliaGetDirectoryFilePaths_setup();
-    ofeliaGetCanvasName_setup();
     ofeliaGetDollarZero_setup();
-    ofeliaGetDollarArgs_setup();
+    ofeliaGetCanvasName_setup();
+    ofeliaGetCanvasIndex_setup();
+    ofeliaGetCanvasArgs_setup();
+    ofeliaSetCanvasArgs_setup();
+    ofeliaRemoveCanvas_setup();
     ofeliaGetMinFloat_setup();
     ofeliaGetMaxFloat_setup();
     ofeliaHexToHsb_setup();

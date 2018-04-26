@@ -527,6 +527,18 @@ extern "C" {
         
     } t_ofeliaGetCanvasName;
     
+    /* ofGetCanvasIndex object class */
+    static t_class *ofeliaGetCanvasIndex_class;
+    
+    typedef struct _ofeliaGetCanvasIndex
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_canvas *canvas;
+        t_gobj *gobj;
+        
+    } t_ofeliaGetCanvasIndex;
+    
     /* ofGetCanvasArgs object class */
     static t_class *ofeliaGetCanvasArgs_class;
     
