@@ -5324,7 +5324,13 @@ void *ofeliaGetCanvasIndex_new(t_floatarg f)
 
 void ofeliaGetCanvasIndex_bang(t_ofeliaGetCanvasIndex *x)
 {
-    outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(glist_getindex(static_cast<t_glist*>(x->canvas), x->gobj)));
+    t_glist *glist = static_cast<t_glist*>(x->canvas);
+    t_gobj *obj;
+    int index = 0;
+    
+    for (obj = glist->gl_list; obj && obj != x->gobj; obj = obj->g_next)
+        index++;
+    outlet_float(x->x_obj.ob_outlet, static_cast<t_float>(index));
 }
 
 void ofeliaGetCanvasIndex_setup()
