@@ -892,23 +892,25 @@ size;
 #X text 25 30 -------------------------- DEVICE --------------------------
 ;
 #X restore 26 949 pd device;
-#N canvas 518 74 650 257 patch 0;
-#X obj 26 179 ofError;
+#N canvas 518 74 650 277 patch 0;
+#X obj 26 199 ofError;
 #X obj 26 59 ofPatch;
-#X text 224 179 - print an error to the pd console;
+#X text 224 199 - print an error to the pd console;
 #X text 224 59 - open/close pd patches;
 #X text 25 30 -------------------------- PATCH --------------------------
 ;
 #X obj 26 79 ofGetDollarZero;
-#X obj 26 119 ofGetCanvasArgs;
+#X obj 26 139 ofGetCanvasArgs;
 #X obj 26 99 ofGetCanvasName;
 #X text 224 99 - get the unique name of the canvas;
 #X text 224 79 - get the \$0 value of the patch;
-#X obj 26 139 ofSetCanvasArgs;
-#X obj 26 159 ofRemoveCanvas;
-#X text 224 119 - get the arguments of the canvas;
-#X text 224 139 - set the arguments of the canvas;
-#X text 224 159 - remove the canvas;
+#X obj 26 159 ofSetCanvasArgs;
+#X obj 26 179 ofRemoveCanvas;
+#X text 224 139 - get the arguments of the canvas;
+#X text 224 159 - set the arguments of the canvas;
+#X text 224 179 - remove the canvas;
+#X obj 26 119 ofGetCanvasIndex;
+#X text 224 119 - get the index of the canvas;
 #X restore 26 889 pd patch;
 #N canvas 518 74 650 231 color 0;
 #X text 25 30 -------------------------- COLOR --------------------------
