@@ -159,7 +159,6 @@ extern "C" {
         struct _glist *gl_owner;
     };
     t_symbol *canvas_realizedollar(t_canvas *x, t_symbol *s);
-    int glist_getindex(t_glist *x, t_gobj *y);
     void glist_delete(t_glist *x, t_gobj *y);
     
     /* methods */
