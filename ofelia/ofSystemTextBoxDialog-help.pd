@@ -1,0 +1,53 @@
+#N canvas 321 23 601 558 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofSystemTextBoxDialog 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 420 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 503 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 454 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 477 (none);
+#X obj 185 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 462 46 declare -lib ofelia;
+#X text 95 349 bang;
+#X obj 23 318 ofWindow 320 240 LEFT TOP;
+#X obj 185 121 route 1;
+#X obj 185 100 ofKeyListener;
+#X text 231 349 - opens the dialog window.;
+#X text 208 167 set the error message and then send 'bang' to open
+the dialog window.;
+#X obj 185 142 sel 32;
+#X text 274 99 press the space key while the window has focus.;
+#X obj 445 5 ofSystemTextBoxDialog;
+#X obj 185 244 ofSystemTextBoxDialog;
+#X msg 185 201 question Who invented Pd? \, text Miller Smith Puckette
+\, bang, f 28;
+#X symbolatom 185 285 50 0 0 0 - - -, f 50;
+#X text 197 264 outputs the typed text.;
+#X text 95 369 question <l>;
+#X text 231 369 - sets the question message to show on the dialog window.
+;
+#X text 95 389 text <l>;
+#X text 232 389 - sets the default text to show on the dialog window.
+;
+#X obj 75 349 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 428 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 428 symbol;
+#X text 231 428 - the typed text.;
+#X text 11 23 get the typed text through a dialog window;
+#X text 21 43 [ofSystemTextBoxDialog] is used to get the typed text
+through a dialog window. it only works when a graphics window exists.
+;
+#X connect 6 0 18 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 14 0 6 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
