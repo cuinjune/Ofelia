@@ -663,6 +663,54 @@ extern "C" {
         
     } t_ofeliaError;
     
+    /* ofSystemLoadDialog object class */
+    static t_class *ofeliaSystemLoadDialog_class;
+    
+    typedef struct _ofeliaSystemLoadDialog
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_string windowTitle;
+        bool folderSelection;
+        t_string defaultPath;
+        
+    } t_ofeliaSystemLoadDialog;
+    
+    /* ofSystemSaveDialog object class */
+    static t_class *ofeliaSystemSaveDialog_class;
+    
+    typedef struct _ofeliaSystemSaveDialog
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_string defaultName;
+        t_string messageName;
+        
+    } t_ofeliaSystemSaveDialog;
+    
+    /* ofSystemAlertDialog object class */
+    static t_class *ofeliaSystemAlertDialog_class;
+    
+    typedef struct _ofeliaSystemAlertDialog
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_string errorMessage;
+        
+    } t_ofeliaSystemAlertDialog;
+    
+    /* ofSystemTextBoxDialog object class */
+    static t_class *ofeliaSystemTextBoxDialog_class;
+    
+    typedef struct _ofeliaSystemTextBoxDialog
+    {
+        t_object x_obj;
+        static const char *objName;
+        t_string question;
+        t_string text;
+        
+    } t_ofeliaSystemTextBoxDialog;
+    
     /* setup methods */
     void ofeliaUtils_setup();
 }

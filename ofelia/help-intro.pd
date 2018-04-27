@@ -4,7 +4,7 @@
 ;
 #X text 24 720 --------------------------- MATH ---------------------------
 ;
-#X text 24 1000 -------------------------- AUDIO --------------------------
+#X text 24 1020 -------------------------- AUDIO --------------------------
 ;
 #N canvas 519 75 650 696 getters 0;
 #X obj 26 99 ofGetDimen;
@@ -891,7 +891,7 @@ size;
 ;
 #X text 25 30 -------------------------- DEVICE --------------------------
 ;
-#X restore 26 949 pd device;
+#X restore 26 969 pd device;
 #N canvas 518 74 650 277 patch 0;
 #X obj 26 199 ofError;
 #X obj 26 59 ofPatch;
@@ -985,7 +985,7 @@ size;
 #X obj 26 159 ofGate;
 #X text 224 139 - pass messages from a specific inlet;
 #X text 224 159 - route a message to an outlet;
-#X restore 26 969 pd misc;
+#X restore 26 989 pd misc;
 #N canvas 519 75 650 211 variable 0;
 #X obj 26 119 ofExpr;
 #X obj 26 139 ofDefine;
@@ -1021,7 +1021,7 @@ size;
 #X text 225 219 - bandlimited pulse wave oscillator;
 #X text 24 30 ----------------------- OSCILLATORS -----------------------
 ;
-#X restore 26 1029 pd oscillators;
+#X restore 26 1049 pd oscillators;
 #N canvas 519 75 650 277 filters 0;
 #X obj 27 59 ofLowPass~;
 #X obj 27 79 ofHighPass~;
@@ -1043,7 +1043,7 @@ size;
 #X text 225 199 - all-pass filter with bandwidth control;
 #X text 24 30 ------------------------- FILTERS -------------------------
 ;
-#X restore 26 1049 pd filters;
+#X restore 26 1069 pd filters;
 #N canvas 519 75 650 161 window 0;
 #X text 24 30 ------------------------- WINDOW -------------------------
 ;
@@ -1184,3 +1184,17 @@ size;
 #X obj 26 299 ofGetRectPerimeter;
 #X text 224 299 - get the perimeter of the rectangle;
 #X restore 26 669 pd rect;
+#N canvas 518 74 650 206 system 0;
+#X text 25 30 -------------------------- SYSTEM --------------------------
+;
+#X obj 26 59 ofSystemLoadDialog;
+#X obj 26 79 ofSystemSaveDialog;
+#X obj 26 99 ofSystemAlertDialog;
+#X obj 26 119 ofSystemTextBoxDialog;
+#X text 224 59 - get the path of a file or folder through a dialog
+window;
+#X text 224 79 - get the path of a file to save through a dialog window
+;
+#X text 224 99 - show an alert message through a dialog window;
+#X text 224 119 - get the typed text through a dialog window;
+#X restore 26 949 pd system;

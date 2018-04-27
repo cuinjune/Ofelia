@@ -1,0 +1,53 @@
+#N canvas 321 23 601 557 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofSystemSaveDialog 3 12 0 18 -204280
+-1 0;
+#X obj 0 361 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 440 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 369 cnv 17 3 60 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 523 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 474 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 497 (none);
+#X obj 132 174 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 75 448 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 462 46 declare -lib ofelia;
+#X symbolatom 132 291 70 0 0 0 - - -, f 70;
+#X text 95 369 bang;
+#X text 302 207 the settings are all optional.;
+#X text 95 448 symbol;
+#X obj 23 338 ofWindow 320 240 LEFT TOP;
+#X obj 132 129 route 1;
+#X obj 132 108 ofKeyListener;
+#X text 231 369 - opens the dialog window.;
+#X obj 463 5 ofSystemSaveDialog;
+#X text 11 23 get the path of a file to save through a dialog window
+;
+#X text 21 43 [ofSystemSaveDialog] is used to get the path of a file
+to save through a dialog window. it only works when a graphics window
+exists.;
+#X text 144 270 outputs the path of a file to save. (if selected);
+#X obj 132 250 ofSystemSaveDialog;
+#X text 231 448 - the path of a file to save. (if selected);
+#X text 95 389 defaultName <s>;
+#X text 231 389 - sets the default filename to save.;
+#X text 95 409 messageName <l>;
+#X text 231 409 - sets the message to show on the dialog window.;
+#X msg 132 207 defaultName myFile.txt \, messageName Save the file
+\, bang, f 26;
+#X text 155 173 set the default name \, message name and then send
+'bang' to open the dialog window.;
+#X obj 132 150 sel 32;
+#X text 221 107 press the space key while the window has focus.;
+#X connect 7 0 28 0;
+#X connect 15 0 30 0;
+#X connect 16 0 15 0;
+#X connect 22 0 10 0;
+#X connect 28 0 22 0;
+#X connect 30 0 7 0;

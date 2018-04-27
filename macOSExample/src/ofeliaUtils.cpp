@@ -77,6 +77,10 @@ const char *t_ofeliaHsbToRgb::objName = "ofHsbToRgb";
 const char *t_ofeliaRgbToHex::objName = "ofRgbToHex";
 const char *t_ofeliaRgbToHsb::objName = "ofRgbToHsb";
 const char *t_ofeliaError::objName = "ofError";
+const char *t_ofeliaSystemLoadDialog::objName = "ofSystemLoadDialog";
+const char *t_ofeliaSystemSaveDialog::objName = "ofSystemSaveDialog";
+const char *t_ofeliaSystemAlertDialog::objName = "ofSystemAlertDialog";
+const char *t_ofeliaSystemTextBoxDialog::objName = "ofSystemTextBoxDialog";
 
 /* ________________________________________________________________________________
  * ofAppend object methods
@@ -5945,6 +5949,332 @@ void ofeliaError_setup()
 }
 
 /* ________________________________________________________________________________
+ * ofSystemLoadDialog object methods
+ */
+void *ofeliaSystemLoadDialog_new()
+{
+    t_ofeliaSystemLoadDialog *x = reinterpret_cast<t_ofeliaSystemLoadDialog*>(pd_new(ofeliaSystemLoadDialog_class));
+    x->windowTitle = "";
+    x->folderSelection = false;
+    x->defaultPath = "";
+    outlet_new(&x->x_obj, &s_symbol);
+    return (x);
+}
+
+void ofeliaSystemLoadDialog_bang(t_ofeliaSystemLoadDialog *x)
+{
+    if (!ofeliaWindow::bWindowExists) {
+        
+        error("%s: window does not exist", t_ofeliaSystemLoadDialog::objName);
+        return;
+    }
+    ofFileDialogResult result = ofSystemLoadDialog(x->windowTitle.c_str(), x->folderSelection, x->defaultPath.c_str());
+    
+    if (result.bSuccess)
+        outlet_symbol(x->x_obj.ob_outlet, gensym(result.getPath().c_str()));
+}
+
+void ofeliaSystemLoadDialog_windowTitle(t_ofeliaSystemLoadDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    stringstream ss;
+    const char space = ' ';
+    
+    for (int i=0; i<argc; ++i) {
+        
+        if (argv[i].a_type == A_FLOAT) {
+            
+            ss << argv[i].a_w.w_float;
+        }
+        else if (argv[i].a_type == A_SYMBOL) {
+            
+            ss << argv[i].a_w.w_symbol->s_name;
+        }
+        else {
+            
+            error("%s: wrong argument type", t_ofeliaSystemLoadDialog::objName);
+            return;
+        }
+        ss << space;
+    }
+    x->windowTitle = ss.str().c_str();
+    x->windowTitle.pop_back();
+}
+
+void ofeliaSystemLoadDialog_folderSelection(t_ofeliaSystemLoadDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    getToggleFromArgs(argc, argv, x->folderSelection, t_ofeliaSystemLoadDialog::objName);
+}
+
+void ofeliaSystemLoadDialog_defaultPath(t_ofeliaSystemLoadDialog *x, t_symbol *s)
+{
+    x->defaultPath = s->s_name;
+}
+
+void ofeliaSystemLoadDialog_print(t_ofeliaSystemLoadDialog *x)
+{
+    post("\n[%s]", t_ofeliaSystemLoadDialog::objName);
+    post("windowTitle : %s", x->windowTitle.c_str());
+    printToggle("folderSelection", x->folderSelection);
+    post("defaultPath : %s", x->defaultPath.c_str());
+}
+
+void ofeliaSystemLoadDialog_setup()
+{
+    ofeliaSystemLoadDialog_class = class_new(gensym("ofSystemLoadDialog"),
+                                             reinterpret_cast<t_newmethod>(ofeliaSystemLoadDialog_new),
+                                             0, sizeof(t_ofeliaSystemLoadDialog),
+                                             CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaSystemLoadDialog_class, reinterpret_cast<t_method>(ofeliaSystemLoadDialog_bang));
+    class_addmethod(ofeliaSystemLoadDialog_class, reinterpret_cast<t_method>(ofeliaSystemLoadDialog_windowTitle),
+                    gensym("windowTitle"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemLoadDialog_class, reinterpret_cast<t_method>(ofeliaSystemLoadDialog_folderSelection),
+                    gensym("folderSelection"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemLoadDialog_class, reinterpret_cast<t_method>(ofeliaSystemLoadDialog_defaultPath),
+                    gensym("defaultPath"), A_SYMBOL, 0);
+    class_addmethod(ofeliaSystemLoadDialog_class, reinterpret_cast<t_method>(ofeliaSystemLoadDialog_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
+ * ofSystemSaveDialog object methods
+ */
+void *ofeliaSystemSaveDialog_new()
+{
+    t_ofeliaSystemSaveDialog *x = reinterpret_cast<t_ofeliaSystemSaveDialog*>(pd_new(ofeliaSystemSaveDialog_class));
+    x->defaultName = "";
+    x->messageName = "";
+    outlet_new(&x->x_obj, &s_symbol);
+    return (x);
+}
+
+void ofeliaSystemSaveDialog_bang(t_ofeliaSystemSaveDialog *x)
+{
+    if (!ofeliaWindow::bWindowExists) {
+        
+        error("%s: window does not exist", t_ofeliaSystemSaveDialog::objName);
+        return;
+    }
+    ofFileDialogResult result = ofSystemSaveDialog(x->defaultName.c_str(), x->messageName.c_str());
+    
+    if (result.bSuccess)
+        outlet_symbol(x->x_obj.ob_outlet, gensym(result.getPath().c_str()));
+}
+
+void ofeliaSystemSaveDialog_defaultName(t_ofeliaSystemSaveDialog *x, t_symbol *s)
+{
+    x->defaultName = s->s_name;
+}
+
+void ofeliaSystemSaveDialog_messageName(t_ofeliaSystemSaveDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    stringstream ss;
+    const char space = ' ';
+    
+    for (int i=0; i<argc; ++i) {
+        
+        if (argv[i].a_type == A_FLOAT) {
+            
+            ss << argv[i].a_w.w_float;
+        }
+        else if (argv[i].a_type == A_SYMBOL) {
+            
+            ss << argv[i].a_w.w_symbol->s_name;
+        }
+        else {
+            
+            error("%s: wrong argument type", t_ofeliaSystemSaveDialog::objName);
+            return;
+        }
+        ss << space;
+    }
+    x->messageName = ss.str().c_str();
+    x->messageName.pop_back();
+}
+
+void ofeliaSystemSaveDialog_print(t_ofeliaSystemSaveDialog *x)
+{
+    post("\n[%s]", t_ofeliaSystemSaveDialog::objName);
+    post("defaultName : %s", x->defaultName.c_str());
+    post("messageName : %s", x->messageName.c_str());
+}
+
+void ofeliaSystemSaveDialog_setup()
+{
+    ofeliaSystemSaveDialog_class = class_new(gensym("ofSystemSaveDialog"),
+                                             reinterpret_cast<t_newmethod>(ofeliaSystemSaveDialog_new),
+                                             0, sizeof(t_ofeliaSystemSaveDialog),
+                                             CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaSystemSaveDialog_class, reinterpret_cast<t_method>(ofeliaSystemSaveDialog_bang));
+    class_addmethod(ofeliaSystemSaveDialog_class, reinterpret_cast<t_method>(ofeliaSystemSaveDialog_defaultName),
+                    gensym("defaultName"), A_SYMBOL, 0);
+    class_addmethod(ofeliaSystemSaveDialog_class, reinterpret_cast<t_method>(ofeliaSystemSaveDialog_messageName),
+                    gensym("messageName"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemSaveDialog_class, reinterpret_cast<t_method>(ofeliaSystemSaveDialog_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
+ * ofSystemAlertDialog object methods
+ */
+void *ofeliaSystemAlertDialog_new()
+{
+    t_ofeliaSystemAlertDialog *x = reinterpret_cast<t_ofeliaSystemAlertDialog*>(pd_new(ofeliaSystemAlertDialog_class));
+    x->errorMessage = "";
+    return (x);
+}
+
+void ofeliaSystemAlertDialog_bang(t_ofeliaSystemAlertDialog *x)
+{
+    if (!ofeliaWindow::bWindowExists) {
+        
+        error("%s: window does not exist", t_ofeliaSystemAlertDialog::objName);
+        return;
+    }
+    ofSystemAlertDialog(x->errorMessage.c_str());
+}
+
+void ofeliaSystemAlertDialog_errorMessage(t_ofeliaSystemAlertDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    stringstream ss;
+    const char space = ' ';
+    
+    for (int i=0; i<argc; ++i) {
+        
+        if (argv[i].a_type == A_FLOAT) {
+            
+            ss << argv[i].a_w.w_float;
+        }
+        else if (argv[i].a_type == A_SYMBOL) {
+            
+            ss << argv[i].a_w.w_symbol->s_name;
+        }
+        else {
+            
+            error("%s: wrong argument type", t_ofeliaSystemAlertDialog::objName);
+            return;
+        }
+        ss << space;
+    }
+    x->errorMessage = ss.str().c_str();
+    x->errorMessage.pop_back();
+}
+
+void ofeliaSystemAlertDialog_print(t_ofeliaSystemAlertDialog *x)
+{
+    post("\n[%s]", t_ofeliaSystemAlertDialog::objName);
+    post("errorMessage : %s", x->errorMessage.c_str());
+}
+
+void ofeliaSystemAlertDialog_setup()
+{
+    ofeliaSystemAlertDialog_class = class_new(gensym("ofSystemAlertDialog"),
+                                              reinterpret_cast<t_newmethod>(ofeliaSystemAlertDialog_new),
+                                              0, sizeof(t_ofeliaSystemAlertDialog),
+                                              CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaSystemAlertDialog_class, reinterpret_cast<t_method>(ofeliaSystemAlertDialog_bang));
+    class_addmethod(ofeliaSystemAlertDialog_class, reinterpret_cast<t_method>(ofeliaSystemAlertDialog_errorMessage),
+                    gensym("errorMessage"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemAlertDialog_class, reinterpret_cast<t_method>(ofeliaSystemAlertDialog_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
+ * ofSystemTextBoxDialog object methods
+ */
+void *ofeliaSystemTextBoxDialog_new()
+{
+    t_ofeliaSystemTextBoxDialog *x = reinterpret_cast<t_ofeliaSystemTextBoxDialog*>(pd_new(ofeliaSystemTextBoxDialog_class));
+    x->question = "";
+    x->text = "";
+    outlet_new(&x->x_obj, &s_symbol);
+    return (x);
+}
+
+void ofeliaSystemTextBoxDialog_bang(t_ofeliaSystemTextBoxDialog *x)
+{
+    if (!ofeliaWindow::bWindowExists) {
+        
+        error("%s: window does not exist", t_ofeliaSystemTextBoxDialog::objName);
+        return;
+    }
+    outlet_symbol(x->x_obj.ob_outlet, gensym(ofSystemTextBoxDialog(x->question.c_str(), x->text.c_str()).c_str()));
+}
+
+void ofeliaSystemTextBoxDialog_question(t_ofeliaSystemTextBoxDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    stringstream ss;
+    const char space = ' ';
+    
+    for (int i=0; i<argc; ++i) {
+        
+        if (argv[i].a_type == A_FLOAT) {
+            
+            ss << argv[i].a_w.w_float;
+        }
+        else if (argv[i].a_type == A_SYMBOL) {
+            
+            ss << argv[i].a_w.w_symbol->s_name;
+        }
+        else {
+            
+            error("%s: wrong argument type", t_ofeliaSystemTextBoxDialog::objName);
+            return;
+        }
+        ss << space;
+    }
+    x->question = ss.str().c_str();
+    x->question.pop_back();
+}
+
+void ofeliaSystemTextBoxDialog_text(t_ofeliaSystemTextBoxDialog *x, t_symbol *s, int argc, t_atom *argv)
+{
+    stringstream ss;
+    const char space = ' ';
+    
+    for (int i=0; i<argc; ++i) {
+        
+        if (argv[i].a_type == A_FLOAT) {
+            
+            ss << argv[i].a_w.w_float;
+        }
+        else if (argv[i].a_type == A_SYMBOL) {
+            
+            ss << argv[i].a_w.w_symbol->s_name;
+        }
+        else {
+            
+            error("%s: wrong argument type", t_ofeliaSystemTextBoxDialog::objName);
+            return;
+        }
+        ss << space;
+    }
+    x->text = ss.str().c_str();
+    x->text.pop_back();
+}
+
+void ofeliaSystemTextBoxDialog_print(t_ofeliaSystemTextBoxDialog *x)
+{
+    post("\n[%s]", t_ofeliaSystemTextBoxDialog::objName);
+    post("question : %s", x->question.c_str());
+    post("text : %s", x->text.c_str());
+}
+
+void ofeliaSystemTextBoxDialog_setup()
+{
+    ofeliaSystemTextBoxDialog_class = class_new(gensym("ofSystemTextBoxDialog"),
+                                                reinterpret_cast<t_newmethod>(ofeliaSystemTextBoxDialog_new),
+                                                0, sizeof(t_ofeliaSystemTextBoxDialog),
+                                                CLASS_DEFAULT, A_NULL, 0);
+    class_addbang(ofeliaSystemTextBoxDialog_class, reinterpret_cast<t_method>(ofeliaSystemTextBoxDialog_bang));
+    class_addmethod(ofeliaSystemTextBoxDialog_class, reinterpret_cast<t_method>(ofeliaSystemTextBoxDialog_question),
+                    gensym("question"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemTextBoxDialog_class, reinterpret_cast<t_method>(ofeliaSystemTextBoxDialog_text),
+                    gensym("text"), A_GIMME, 0);
+    class_addmethod(ofeliaSystemTextBoxDialog_class, reinterpret_cast<t_method>(ofeliaSystemTextBoxDialog_print),
+                    gensym("print"), A_NULL, 0);
+}
+
+/* ________________________________________________________________________________
  * setup methods
  */
 void ofeliaUtils_setup()
@@ -6005,5 +6335,9 @@ void ofeliaUtils_setup()
     ofeliaRgbToHex_setup();
     ofeliaRgbToHsb_setup();
     ofeliaError_setup();
+    ofeliaSystemLoadDialog_setup();
+    ofeliaSystemSaveDialog_setup();
+    ofeliaSystemAlertDialog_setup();
+    ofeliaSystemTextBoxDialog_setup();
 }
 
