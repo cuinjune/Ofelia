@@ -19,8 +19,6 @@
 #X obj 185 121 route 1;
 #X obj 185 100 ofKeyListener;
 #X text 231 349 - opens the dialog window.;
-#X text 208 167 set the error message and then send 'bang' to open
-the dialog window.;
 #X obj 185 142 sel 32;
 #X text 274 99 press the space key while the window has focus.;
 #X obj 445 5 ofSystemTextBoxDialog;
@@ -45,9 +43,11 @@ the dialog window.;
 #X text 21 43 [ofSystemTextBoxDialog] is used to get the typed text
 through a dialog window. it only works when a graphics window exists.
 ;
-#X connect 6 0 18 0;
-#X connect 10 0 14 0;
+#X text 208 167 set the question \, default text and then send 'bang'
+to open the dialog window.;
+#X connect 6 0 17 0;
+#X connect 10 0 13 0;
 #X connect 11 0 10 0;
-#X connect 14 0 6 0;
-#X connect 17 0 19 0;
-#X connect 18 0 17 0;
+#X connect 13 0 6 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
