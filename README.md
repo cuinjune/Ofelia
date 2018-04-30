@@ -15,7 +15,7 @@ The library includes the following features:
 
 * Interactive output window
 
-* Various getters and event listeners
+* Various getters and event listeners (mouse, keyboard, multitouch)
 
 * 2d/3d shapes drawing (ofPolyline, ofPath, ofMesh)
 
