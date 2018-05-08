@@ -5968,10 +5968,17 @@ void ofeliaSystemLoadDialog_bang(t_ofeliaSystemLoadDialog *x)
         error("%s: window does not exist", t_ofeliaSystemLoadDialog::objName);
         return;
     }
-    ofFileDialogResult result = ofSystemLoadDialog(x->windowTitle.c_str(), x->folderSelection, x->defaultPath.c_str());
-    
+    t_string defaultPath = x->defaultPath;
+#if defined(TARGET_WIN32)
+    replace(defaultPath.begin(), defaultPath.end(), '/', '\\');
+#endif
+    ofFileDialogResult result = ofSystemLoadDialog(x->windowTitle.c_str(), x->folderSelection, defaultPath.c_str());
+    t_string path = result.getPath().c_str();
+#if defined(TARGET_WIN32)
+    replace(path.begin(), path.end(), '\\', '/');
+#endif
     if (result.bSuccess)
-        outlet_symbol(x->x_obj.ob_outlet, gensym(result.getPath().c_str()));
+        outlet_symbol(x->x_obj.ob_outlet, gensym(path.c_str()));
 }
 
 void ofeliaSystemLoadDialog_windowTitle(t_ofeliaSystemLoadDialog *x, t_symbol *s, int argc, t_atom *argv)
@@ -6055,9 +6062,12 @@ void ofeliaSystemSaveDialog_bang(t_ofeliaSystemSaveDialog *x)
         return;
     }
     ofFileDialogResult result = ofSystemSaveDialog(x->defaultName.c_str(), x->messageName.c_str());
-    
+    t_string path = result.getPath().c_str();
+#if defined(TARGET_WIN32)
+    replace(path.begin(), path.end(), '\\', '/');
+#endif
     if (result.bSuccess)
-        outlet_symbol(x->x_obj.ob_outlet, gensym(result.getPath().c_str()));
+        outlet_symbol(x->x_obj.ob_outlet, gensym(path.c_str()));
 }
 
 void ofeliaSystemSaveDialog_defaultName(t_ofeliaSystemSaveDialog *x, t_symbol *s)
