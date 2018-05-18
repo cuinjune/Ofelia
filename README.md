@@ -1,7 +1,6 @@
 # ofelia
 ![alt text](doc/screenshot.jpg)
 ![alt text](doc/shader_screenshot.png)
-![alt text](doc/textbox_screenshot.png)
 
 ## Description
 
