@@ -58,8 +58,9 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Upcoming features
 
-* Video player
-* Video grabber
+* Lua scripting
+* Video features
+* Update OF to 0.10.0
 * SVG loader
 
 # ofxOfelia
