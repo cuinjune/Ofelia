@@ -355,7 +355,11 @@ void ofApp::newMidiMessage(ofxMidiMessage& msg) {
     midiMessage = msg;
     midiChan = midiMessage.channel;
     
-    if (midiMessage.getStatusString(midiMessage.status) == "Note On") {
+    if (midiMessage.getStatusString(midiMessage.status) == "Note Off") {
+        
+        pd.sendNoteOn(midiChan, midiMessage.pitch, 0);
+    }
+    else if (midiMessage.getStatusString(midiMessage.status) == "Note On") {
         
         pd.sendNoteOn(midiChan, midiMessage.pitch, midiMessage.velocity);
     }
