@@ -80,6 +80,8 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 
 Until this is ready, please download openFrameworks 0.9.8 from [this link](https://openframeworks.cc/download/older/) and follow the setup guides from [here](https://openframeworks.cc/download/).
 
+(Note: For Android, you need to download `android-ndk-r10e` instead of `android-ndk-r15c`)
+
 The following tools are used to build ofxOfelia project.
 
 * macOS / iOS : Xcode.
