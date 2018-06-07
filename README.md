@@ -87,7 +87,7 @@ The following tools are used to build ofxOfelia project.
 
 * macOS / iOS : Xcode.
 * Linux : Makefile.
-* Windows : Visual Studio Community 2015. (or Visaul Studio 2017)
+* Windows : Visual Studio Community 2015. (or Visual Studio 2017)
 * Android : Android Studio.
 
 ## Setup guide
