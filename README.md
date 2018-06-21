@@ -1,7 +1,6 @@
 # ofelia
 ![alt text](doc/screenshot.jpg)
 ![alt text](doc/shader_screenshot.png)
-![alt text](doc/lua_screenshot.png)
 
 ## Description
 
@@ -59,10 +58,7 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 
 ## Upcoming features
 
-* Lua scripting
-* Video features
-* Update OF to 0.10.0
-* SVG loader
+* There will be a major update soon. (using OF 0.10.0 + ofxLua)
 
 # ofxOfelia
 
