@@ -56,6 +56,10 @@ The library is currently available to be used under macOS, Linux(64bit) and Wind
 * Create something cool and [share](https://forum.pdpatchrepo.info/) it with other people.
 * Feel free to contact the [author](#author) if you have any questions or suggestions.
 
+## Upcoming features
+
+* There will be a major update soon. (using OF 0.10.0 + ofxLua)
+
 # ofxOfelia
 
 ![alt text](doc/crossplatform.png)
@@ -158,4 +162,3 @@ If you find any bugs or suggestions please log them to GitHub as well.
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />
 GNU General Public License v3.0<br />
 For information on usage and redistribution, and for a DISCLAIMER OF ALL WARRANTIES, see the file, "LICENSE.txt," in this distribution.
-
