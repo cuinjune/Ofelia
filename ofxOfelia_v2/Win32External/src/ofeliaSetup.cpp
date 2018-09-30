@@ -27,11 +27,6 @@
 #include "ofeliaExists.h"
 #include "ofeliaCreator.h"
 
-/* ofelia version info */
-#define OFELIA_MAJOR_VERSION 2
-#define OFELIA_MINOR_VERSION 0
-#define OFELIA_BUGFIX_VERSION 1
-
 void ofelia_setup()
 {
     if (!ofeliaLua::init()) return;

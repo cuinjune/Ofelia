@@ -28,10 +28,11 @@ lua_State *ofeliaLua::L;
 
 extern "C"
 {
-	int luaopen_of(lua_State *L);
-	int luaopen_pd(lua_State *L);
-	int luaopen_print(lua_State *L);
+    int luaopen_of(lua_State *L);
+    int luaopen_pd(lua_State *L);
+    int luaopen_print(lua_State *L);
 }
+
 /* redefined print function for the pd window */
 int l_my_print(lua_State *L)
 {

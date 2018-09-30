@@ -91,7 +91,6 @@ extern "C"
     private:
         ofeliaData *dataPtr; /* pointer to data */
     };
-    
 }
 
 #endif /* ofeliaLua_h */

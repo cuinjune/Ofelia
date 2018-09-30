@@ -24,6 +24,7 @@
 
 #pragma once
 
+#include "ofeliaSetup.h"
 #include "ofMain.h"
 #include "ofeliaLua.h"
 #include "ofeliaData.h"
@@ -72,7 +73,27 @@ public:
     void create()
     {
         if (owner || exists) return;
+#if !defined( TARGET_OF_IOS ) & !defined(TARGET_ANDROID) & !defined(TARGET_EMSCRIPTEN) & !defined(TARGET_RASPBERRY_PI)
+        ofGLFWWindowSettings settings;
+        settings.setGLVersion(glVersionMajor, glVersionMinor);
+        settings.numSamples = numSamples;
+        settings.doubleBuffering = doubleBuffering;
+        settings.redBits = redBits;
+        settings.greenBits = greenBits;
+        settings.blueBits = blueBits;
+        settings.alphaBits = alphaBits;
+        settings.depthBits = depthBits;
+        settings.stencilBits = stencilBits;
+        settings.stereo = stereo;
+        settings.visible = visible;
+        settings.iconified = iconified;
+        settings.decorated = decorated;
+        settings.resizable = resizable;
+        settings.monitor = monitor;
+        settings.multiMonitorFullScreen = multiMonitorFullScreen;
+#else
         ofWindowSettings settings;
+#endif
         settings.title = title->s_name;
         settings.windowMode = windowMode;
         if (positionSet) settings.setPosition(position);
@@ -82,6 +103,10 @@ public:
         mainLoop = ofGetMainLoop().get();
         mainLoop->setEscapeQuitsLoop(false);
         windowPtr = ofGetWindowPtr();
+#if !defined( TARGET_OF_IOS ) & !defined(TARGET_ANDROID) & !defined(TARGET_EMSCRIPTEN) & !defined(TARGET_RASPBERRY_PI)
+        ofAppGLFWWindow *ofAppGLFWwin = static_cast<ofAppGLFWWindow *>(windowPtr);
+        scale = ofAppGLFWwin->getPixelScreenCoordScale();
+#endif
         ofResetElapsedTimeCounter();
         ofSetFrameRate(60);
         owner = true;
