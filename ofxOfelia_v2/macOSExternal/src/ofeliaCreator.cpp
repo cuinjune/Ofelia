@@ -32,7 +32,7 @@ void *ofeliaCreator::newWrapper(t_symbol *s, int argc, t_atom *argv)
         pd_this->pd_newest = static_cast<t_pd *>(ofeliaDefine::newWrapper(s, argc, argv));
     else
     {
-        char *str = argv[0].a_w.w_symbol->s_name;
+        const char *str = argv[0].a_w.w_symbol->s_name;
         if (!strcmp(str, "d") || !strcmp(str, "define"))
             pd_this->pd_newest = static_cast<t_pd *>(ofeliaDefine::newWrapper(s, argc - 1, argv + 1));
         else if (!strcmp(str, "get"))
