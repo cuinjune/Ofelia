@@ -24,7 +24,6 @@
 
 #pragma once
 
-#include "ofeliaSetup.h"
 #include "ofMain.h"
 #include "ofeliaLua.h"
 #include "ofeliaData.h"
