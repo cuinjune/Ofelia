@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ofelia</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>
+..\..\..\addons\ofxLua\src;
+..\..\..\addons\ofxLua\src\bindings;
+..\..\..\addons\ofxLua\src\bindings\desktop;
+..\..\..\addons\ofxLua\src\bindings\ios;
+..\..\..\addons\ofxLua\src\bindings\linuxarm;
+..\..\..\addons\ofxLua\libs\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>
+..\..\..\addons\ofxLua\src;
+..\..\..\addons\ofxLua\src\bindings;
+..\..\..\addons\ofxLua\src\bindings\desktop;
+..\..\..\addons\ofxLua\src\bindings\ios;
+..\..\..\addons\ofxLua\src\bindings\linuxarm;
+..\..\..\addons\ofxLua\libs\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\addons\ofxOfelia\libs\pd\src;$(OF_ROOT)\addons\ofxLua\src;$(OF_ROOT)\addons\ofxLua\src\bindings;$(OF_ROOT)\addons\ofxLua\src\bindings\desktop;$(OF_ROOT)\addons\ofxLua\src\bindings\ios;$(OF_ROOT)\addons\ofxLua\src\bindings\linuxarm;$(OF_ROOT)\addons\ofxLua\libs\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>$(OF_ROOT)\addons\ofxOfelia\libs\pd\bin\x86\pd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/export:ofelia_setup %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\addons\ofxOfelia\libs\pd\src;..\..\..\addons\ofxLua\src;..\..\..\addons\ofxLua\src\bindings;..\..\..\addons\ofxLua\src\bindings\desktop;..\..\..\addons\ofxLua\src\bindings\ios;..\..\..\addons\ofxLua\src\bindings\linuxarm;..\..\..\addons\ofxLua\libs\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <Optimization>Full</Optimization>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>-DPD_LONGINTTYPE=__int64 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>$(OF_ROOT)\addons\ofxOfelia\libs\pd\bin\x64\pd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>
+      </ImageHasSafeExceptionHandlers>
+      <AdditionalOptions>/export:ofelia_setup %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lapi.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lauxlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lbaselib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lbitlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lcode.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lcorolib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lctype.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ldblib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ldebug.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ldo.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ldump.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lfunc.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lgc.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\linit.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\liolib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\llex.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lmathlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lmem.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\loadlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lobject.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lopcodes.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\loslib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lparser.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lstate.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lstring.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lstrlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ltable.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ltablib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\ltm.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lundump.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lutf8lib.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lvm.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\libs\lua\lzio.c" />
+    <ClCompile Include="..\..\..\addons\ofxLua\src\bindings\desktop\ofBindings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxLua\src\bindings\glmBindings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxLua\src\ofxLua.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxLua\src\ofxLuaFileWriter.cpp" />
+    <ClCompile Include="src\ofeliaBindings.cpp" />
+    <ClCompile Include="src\ofeliaClient.cpp" />
+    <ClCompile Include="src\ofeliaCreator.cpp" />
+    <ClCompile Include="src\ofeliaData.cpp" />
+    <ClCompile Include="src\ofeliaDefine.cpp" />
+    <ClCompile Include="src\ofeliaExists.cpp" />
+    <ClCompile Include="src\ofeliaGet.cpp" />
+    <ClCompile Include="src\ofeliaIO.cpp" />
+    <ClCompile Include="src\ofeliaLua.cpp" />
+    <ClCompile Include="src\ofeliaSet.cpp" />
+    <ClCompile Include="src\ofeliaSetup.cpp" />
+    <ClCompile Include="src\ofeliaSignal.cpp" />
+    <ClCompile Include="src\ofeliaTextBuf.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lapi.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lauxlib.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lcode.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lctype.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\ldebug.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\ldo.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lfunc.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lgc.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\llex.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\llimits.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lmem.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lobject.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lopcodes.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lparser.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lprefix.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lstate.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lstring.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\ltable.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\ltm.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lua.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lua.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\luaconf.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lualib.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lundump.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lvm.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\libs\lua\lzio.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\src\bindings\ofBindings.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\src\ofxLua.h" />
+    <ClInclude Include="..\..\..\addons\ofxLua\src\ofxLuaFileWriter.h" />
+    <ClInclude Include="src\ofeliaBindings.h" />
+    <ClInclude Include="src\ofeliaClient.h" />
+    <ClInclude Include="src\ofeliaCreator.h" />
+    <ClInclude Include="src\ofeliaData.h" />
+    <ClInclude Include="src\ofeliaDefine.h" />
+    <ClInclude Include="src\ofeliaExists.h" />
+    <ClInclude Include="src\ofeliaGet.h" />
+    <ClInclude Include="src\ofeliaIO.h" />
+    <ClInclude Include="src\ofeliaLua.h" />
+    <ClInclude Include="src\ofeliaSet.h" />
+    <ClInclude Include="src\ofeliaSetup.h" />
+    <ClInclude Include="src\ofeliaSignal.h" />
+    <ClInclude Include="src\ofeliaTextBuf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\ofeliaBindings.i" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

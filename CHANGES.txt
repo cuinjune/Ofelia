@@ -1,12 +1,30 @@
-v1.0.8: 27 Apr 2018
+v2.0.2: 11 Nov 2018
 
+* fixed bind issue on direct mode
+* added Inlet class in pd module
+* fixed lua stack corruption issue
+* fixed duplicated script name issue
+* changed setpause value for gc
+* added abstracions and examples
+
+v2.0.1: 17 Sep 2018
+
+* added userdata passing feature
+* fixed minor bugs
+
+v2.0.0: 3 Sep 2018
+
+* major update
+* use openFrameworks and Pd with Lua
+
+v1.0.8: 25 Apr 2018
+
+* renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
+* added [ofSetCanvasArgs] and [ofRemoveCanvas]
 * added [ofGetFboTexID] and [ofGetImageTexID]
 * added GEM abstractions and example to the "examples/gem" directory
 * added ofRectangle related objects and help files
-* renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
-* added [ofSetCanvasArgs], [ofRemoveCanvas], [ofGetCanvasIndex]
 * added [ofKeyCodeListener]
-* added ofSystemUtils objects and help files
 
 v1.0.7: 7 Apr 2018
 

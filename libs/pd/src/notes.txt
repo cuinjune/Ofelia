@@ -1,0 +1,142 @@
+---------------- dolist --------------------
+
+GUIs: slider, etc "clip (pre-0.46) " (on for old ones, off by default)
+toggle to get "track value (pre-0.46)"
+
+x_text.c:
+text dimension setting (message or creation arg - how to do it in structs?)
+copying ala text_define_topointer
+"open" and "save as" messages to open text window
+how to integrate message boxes !?
+
+x_array.c:
+allow for lying about x and y labels
+no-mouse, quantize and clip flags for plotting/mousing
+save ticks, labels, other flags (and add dialog to set them)
+array y range to reflect y increment sign (so no 1 to -1 range)
+array search and array sort objects
+maybe: array segment, array spline, array sinesum, etc? or array gen?  or
+array forward (forwards message to defining array)
+Is there a way to generate a pointer to an anonymous array? (do we need that?)
+
+OS specific:
+linux:
+  rpm packages; BSD versions (set up VMs for testing)
+windows:
+  put call to PA_Terminate back in where appropriate (first test on windows)
+  "-audiodev" with no args in registry can't start up?
+  mmio out of portaudio but consider adding wdmks
+mac:
+  check if window titles wrong on Macintosh
+  clicking on windows seems sometimes not to open them
+  compile for jack on OSX by default (32 bit version at least).
+  turn on paMacCore_ChangeDeviceParameters for mac (pa_mac_core.h)
+
+problems:
+fix behavior when dragging object outside screen (stop the evil auto-scrolls)
+pd~ "start" followed by messages gives race condition because of "fromgui" biz
+pd~ deadlock protection
+find asdf$1 (e.g.) doesn't work
+objects on GOP don't erase if you edit the GOP while they're showing
+add -stack option to make 'regular' stack larger
+menu item to save help patches to directory
+look again at array vis/invis conundrum, g_template.c
+floor, ciel functions in expr misdeclared
+graph names don't appear until graph moved? (invis/vis on new array/rename)
+don't filter locked click() through getrect
+patcher inlets don't deal with scalars (zbug.pd)
+read xx.txt in "bad" gives warnings
+Krzysztof's qlist_next reentrancy bug
+don't draw in/outlets on gui objects in graph-on-parent
+get rid of messages causing renaming; try to prevent patches closing themselves.
+scofo reports error on reading score1.txt
+better error message for adc~ / dac~ reblocking
+fix limitations in number of array elements that can be graphed
+
+more demonstration patches:
+vibrato using variable delay
+real-time spectrum grapher
+document ||, |, etc, better
+
+features:
+-nomidibuf flag (Nicola Pandini on pd list Aug 8 2013)
+add way to query readsf~ for fill pointer (sf feature request 3598776)
+'route' object to sprout inlet if no args (like sel)
+optionally suppress leading "." directories and files on "open"
+"installation mode": flag or messages to suppress menus&accelerators,
+  and invisibilize Pd window
+sigmund~: sort by pitch; pitch estimate to include pitch height; message
+  to lie about previous track output
+expr to parse exponential notation
+mem alignment for SSE
+replace gatom_escapit with a quoting mechanism (handle '[', spaces, etc.)
+poly inlet to turn stealing on/off, plus mode to handle note-with-duration
+integrate video into tilde objects
+think of a way to embed abstractions in a patch (zlib?)
+delete-in-rectangle message to Pds
+put serial object in main dist (see rat@telecoma, Apr. 25; winfried May 22)
+see x_list.c for more "list" object ideas
+open64() for linux (if 32 bits, close soundfile and open64 it)
+
+paths:
+fix declare to update current patch when changed
+open_via_path call in d_soundfile.c isn't threadsafe
+open/save panel to take messages to set extent list
+new open_via_path to take list of extents
+
+editing:
+control-enter to deselect an object?
+pasting should look at current mouse location
+clickless connection (hit 'c' key? see Bouchard paper)
+tab to jump to a connected object (first one?) (shift-tab to back up?)
+arrow keys to shift connections left and right
+menu item to connect selected objects
+highlight connections (and I/Os) on mouse motion
+select line and hit "insert" to interpolate an object
+option-drag an outlet to make a new, connected object
+make a way to make multiple connections  
+"fix width" menu item
+close-subwindows menu item
+canvas zooming (use tcl/tk canvas scale command?)
+
+data:
+add -x [-n?] flag to drawnumbers
+flag to disable edits for arrays
+make a 2-pass process for finding hot spot closest to any given click
+hooks for table mousing, other changes (scalars?)
+data to save as succession of "list" messages that textfile can store, etc.
+data copy/paste doesn't check templates aren't changed
+pointer == and select equivalents
+cursor to show (x, y) location and/or what parameter is being set to what
+improve typing at drawnumbers
+append doesn't do symbols yet.
+non-clickable arrays (plus arrays that respond more easily than default)
+set -any, get -any
+build out scalar object - naming; "scalar set/get" objects
+pointer methods to search and delete
+optimize by pre-fetching field name offsets in accessor objects
+double-click on drawtext in scalar to create editor window
+
+more features:
+signal inlets to sense signals; fix +~ etc, vcf~, biquad~, other filters
+message dialog not to disappear
+show results of opening MIDI on dialog
+new: abs~, nexttick~, extend threshold~ and snapshot~ (vthreshold~ etc)
+netsend separate thread
+in glist_delete, consider why this can't be just "vis 0" -- why do we need it?
+closebang and initbang
+put in something for tilde order forcing
+extensible "toolbar" so people can add external GUI objects
+number boxes to darken for typing and/or received messages
+new message box look
+dialog to give values of $1, ... for the canvas
+bang at end of line~, tabwrite~, etc.
+should sys_bail kill all "threads" on the way out?
+allow backslashes (or else really disallow them)
+icon & desktop integration
+tools (reassigns meaning of primary click)
+
+code style improvements:
+-Wno-unused to -Wno-unused-paramter and clean up unused automatic variables
+rewrite t_getbytes properly (m_newmemory.c in pd/attic)
+obj_new should do a longjmp on out-of-memory

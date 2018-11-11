@@ -1,0 +1,57 @@
+
+# build files
+build
+*.a
+obj/*
+
+# mac Finder index files
+.DS_*
+
+# mac apps
+*.app*
+
+# xcode user project files
+*.pbxuser
+*.perspectivev3
+*.mode1*v3
+xcuserdata
+xcshareddata
+
+# codeblocks
+*.layout
+*.depend
+
+# linux
+*.o
+*.d
+*~
+
+# example project files
+
+luaExample/Makefile
+luaExample/*.xcodeproj
+luaExample/config.make
+luaExample/*xcconfig
+luaExample/*.plist
+luaExample/bin/lib*.so
+luaExample/bin/luaExample
+luaExample/obj/*
+
+luaExampleIOS/Makefile
+luaExampleIOS/*.xcodeproj
+luaExampleIOS/config.make
+luaExampleIOS/*xcconfig
+luaExampleIOS/*.plist
+luaExampleIOS/*.pch
+luaExampleIOS/bin/data/Default*.png
+luaExampleIOS/bin/data/Icon*.png
+luaExampleIOS/mediaAssets
+
+luaTests/Makefile
+luaTests/*.xcodeproj
+luaTests/config.make
+luaTests/*xcconfig
+luaTests/*.plist
+luaTests/bin/lib*.so
+luaTests/bin/luaTests
+luaTests/obj/*

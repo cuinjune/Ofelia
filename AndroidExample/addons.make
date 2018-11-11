@@ -1,4 +1,0 @@
-ofxAndroid
-ofxAccelerometer
-ofxPd
-ofxMidi
