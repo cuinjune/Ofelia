@@ -43,7 +43,7 @@ The library is available to be used under macOS(64bit), Linux(64bit), Windows an
 You can share the application with a wide range of audiences including non-Pd users and mobile device users.
 
 ## Build Requirements
-In order to use ofxOfelia, you first need to download and install openFrameworks 0.10.0 which is the most recent stable release. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.10.0. The following tools are used to build ofxOfelia project.
+In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks. The following tools are used to build ofxOfelia project.
 
 * macOS / iOS : Xcode.
 * Linux / Raspberry Pi : Makefile.
