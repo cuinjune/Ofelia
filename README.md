@@ -25,7 +25,7 @@ Other features are available through [ofelia] object which allows you to code Lu
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
 ## Installation
-* Make sure you have [Pd](https://puredata.info/downloads/pure-data) installed on your desktop.
+* Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the proper version of ofelia for your system to download and install.
 * Try opening patches inside the downloaded `ofelia/examples` directory.
