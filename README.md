@@ -22,7 +22,7 @@ ofelia currently provides over 300 abstactions which cover the following feature
 
 Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
 
-The library is available to be used under macOS(64bit), Linux(64bit), Windows and Raspberry Pi.
+The library is available to be used under macOS, Linux, Windows and Raspberry Pi.
 
 ## Installation
 * Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
