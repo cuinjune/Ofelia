@@ -42,8 +42,6 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
 
 You can share the application with a wide range of audiences including non-Pd users and mobile device users.
 
-You don't need to write a single line of code to convert your Pd patch into a standalone application so don't be afraid of giving a try by following the setup guide below.
-
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks 0.10.0 which is the most recent stable release. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.10.0. The following tools are used to build ofxOfelia project.
 
