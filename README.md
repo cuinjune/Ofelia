@@ -20,7 +20,7 @@ ofelia currently provides over 300 abstactions which cover the following feature
 * [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation like `ofToUpper` or `ofSplitString` to time functions like `ofGetSeconds` or `ofGetMinutes`.
 * [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains mostly functions for creating message and file opening and saving dialogs.
 
-Although More abstractions will be added, you can use other features using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
+Although more abstractions will be added later, you can already use all features of openFrameworks core API using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
