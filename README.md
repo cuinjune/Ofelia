@@ -1,4 +1,5 @@
 # ofelia
+![alt text](doc/screenshot1.png)
 
 ## Description
 **ofelia** is an external library which allows you to use openFrameworks within Pure Data through Lua.
