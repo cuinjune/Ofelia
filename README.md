@@ -20,7 +20,7 @@ ofelia currently provides over 300 abstactions which cover the following feature
 * [of3dUtils](https://openframeworks.cc/documentation/3d/of3dUtils/): allows to draw 3d utililty objects such as arrows, axis and grid.
 * [ofMath](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like calculating the distance between two points.
 * [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
-* [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains mostly functions for creating message and file opening and saving dialogs.
+* [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains functions for creating message and file opening and saving dialogs.
 
 Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
 
