@@ -14,12 +14,12 @@ ofelia currently provides over 300 abstactions which cover the following feature
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
 * [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
 * [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several functions to change the state of the graphics pipeline and allows to quickly draw 2d shapes.
-* [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images in lots of different image formats and do basic transformations on them like cropping, resizing, scaling and iterating through the pixel data.
+* [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images and do basic transformations on them like cropping, resizing, scaling and iterating through the pixel data.
 * [ofTrueTypeFont](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/): can load true type fonts in different formats and draw text using the loaded font.
 * [of3dGraphics](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw the most used 3d shapes like spheres, cones and boxes.
 * [of3dUtils](https://openframeworks.cc/documentation/3d/of3dUtils/): allows to draw 3d utililty objects such as arrows, axis and grid.
-* [ofMath](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like generating a random number with `ofRandom`, or calculating the distance between two points with `ofDist`.
-* [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation like `ofToUpper` or `ofSplitString` to time functions like `ofGetSeconds` or `ofGetMinutes`.
+* [ofMath](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like calculating the distance between two points.
+* [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
 * [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains mostly functions for creating message and file opening and saving dialogs.
 
 Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
