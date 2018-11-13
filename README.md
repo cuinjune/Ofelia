@@ -13,10 +13,10 @@ ofelia currently provides over 300 abstactions which cover the following feature
 
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
 * [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
-* [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several utility functions to change the state of the graphics pipeline (like the default color or the blending mode) and allows to draw shapes in immediate mode which can be useful if you want to draw something quickly, for prototipying, instead of using `ofPath`.
-* [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images in lots of different image formats, it holds an `ofTexture` which allows to draw the image through the graphics card and an `ofPixels` which is also part of this module and contains the pixel information of the image allowing also to do basic transformations on them like cropping, resizing, scaling, iterating through the pixel data.
+* [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several utility functions to change the state of the graphics pipeline and allows to draw 2d shapes in immediate mode.
+* [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images in lots of different image formats and do basic transformations on them like cropping, resizing, scaling and iterating through the pixel data.
 * [ofTrueTypeFont](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/): can load true type fonts in different formats and draw text using the loaded font.
-* [of3dGraphics](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw the most used primitives like spheres, cones and boxes.
+* [of3dGraphics](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw the most used 3d shapes like spheres, cones and boxes.
 * [of3dUtils](https://openframeworks.cc/documentation/3d/of3dUtils/): allows to draw 3d utililty objects such as arrows, axis and grid.
 * [ofMath](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like generating a random number with `ofRandom`, or calculating the distance between two points with `ofDist`.
 * [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation like `ofToUpper` or `ofSplitString` to time functions like `ofGetSeconds` or `ofGetMinutes`.
