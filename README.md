@@ -37,6 +37,7 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
   sudo ./install_dependencies.sh</pre>
   
 # ofxOfelia
+![alt text](doc/esmeril.png)
 
 ## Description
 
