@@ -3,11 +3,11 @@
 ![alt text](doc/screenshot2.png)
 
 ## Description
-**ofelia** is an external library which allows you to use openFrameworks and Lua within real-time visual programming environment, Pure Data.
+**ofelia** is an external library which allows you to use openFrameworks and Lua within Pure Data to create cross-platform multimedia applications.
 
 [openFrameworks](http://openframeworks.cc/) is an open source C++ toolkit for creative coding.<br />
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
-[Pure Data](https://puredata.info/)(aka Pd) is an open source visual programming language for multimedia.<br />
+[Pure Data](https://puredata.info/)(aka Pd) is an open source real-time visual programming language for multimedia.<br />
 
 ofelia currently provides over 300 abstactions which cover the following features of openFrameworks.
 
