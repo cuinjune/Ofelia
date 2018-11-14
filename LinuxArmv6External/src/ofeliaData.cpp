@@ -133,7 +133,7 @@ void ofeliaData::argParse(int argc, t_atom *argv, t_symbol *s, bool define)
         symbolinlet_new(&ob, &sym);
     if (isDirectMode) return;
     binbuf = binbuf_new();
-    initSym();
+    if (define) initSym();
     bindSym();
 }
 
