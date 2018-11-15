@@ -1,0 +1,55 @@
+#N canvas 720 100 665 755 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/ez;
+#X obj 28 134 of.Window;
+#X obj 28 92 loadbang;
+#X obj 28 170 of.setup;
+#X obj 28 248 of.draw;
+#X obj 28 191 of.background 102;
+#X obj 28 212 of.fill;
+#X text 318 703 This example was originally written in Processing.
+https://processing.org/examples/regularpolygon.html;
+#X obj 28 269 of.pushMatrix;
+#X obj 28 387 of.popMatrix;
+#X obj 28 408 of.pushMatrix;
+#X obj 28 526 of.popMatrix;
+#X text 178 366 Triangle;
+#X text 186 505 Icosahedron;
+#X obj 28 547 of.pushMatrix;
+#X obj 28 665 of.popMatrix;
+#X text 179 644 Heptagon;
+#X obj 28 290 ofelia d \; function ofelia.bang() \; of.translate(of.getWidth()*0.2
+\, of.getHeight()*0.5) \; of.rotateZDeg(of.getFrameNum()*0.5) \; return
+nil \; end \;;
+#X obj 28 568 ofelia d \; function ofelia.bang() \; of.translate(of.getWidth()*0.8
+\, of.getHeight()*0.5) \; of.rotateZDeg(of.getFrameNum()*-1) \; return
+nil \; end \;;
+#X obj 28 429 ofelia d \; function ofelia.bang() \; of.translate(of.getWidth()*0.5
+\, of.getHeight()*0.5) \; of.rotateZDeg(of.getFrameNum()*1) \; return
+nil \; end \;;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/ez;
+#X obj 28 366 ez.drawPolygon 0 0 82 3;
+#X obj 28 505 ez.drawPolygon 0 0 80 20;
+#X obj 28 644 ez.drawPolygon 0 0 70 7;
+#X text 25 23 What is your favorite? Pentagon? Hexagon? Heptagon? No?
+What about the icosagon? The [ez.drawPolygon] abstraction is capable
+of drawing any regular polygon. Try setting different arguments for
+the abstraction to explore.;
+#X msg 28 113 setPosition 30 100 \, setSize 640 400 \, create;
+#X connect 1 0 25 0;
+#X connect 2 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 9 0 18 0;
+#X connect 10 0 13 0;
+#X connect 13 0 17 0;
+#X connect 16 0 21 0;
+#X connect 17 0 23 0;
+#X connect 18 0 22 0;
+#X connect 21 0 8 0;
+#X connect 22 0 10 0;
+#X connect 23 0 14 0;
+#X connect 25 0 0 0;

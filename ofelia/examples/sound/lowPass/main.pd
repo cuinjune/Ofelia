@@ -1,0 +1,54 @@
+#N canvas 720 100 847 754 10;
+#X obj 27 666 dac~;
+#X obj 27 640 *~ 0.1;
+#X obj 253 108 hsl 128 15 20 10000 0 1 empty empty empty -2 -8 0 10
+-262144 -1 -1 1500 1;
+#X floatatom 250 128 5 0 0 0 - - -;
+#X obj 477 108 hsl 128 15 1 40 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 474 128 5 0 0 0 - - -;
+#X obj 250 169 line~;
+#X obj 474 169 line~;
+#X msg 250 148 \$1 100;
+#X msg 474 148 \$1 100;
+#X obj 27 169 noise~;
+#X obj 27 190 ofelia d -s31 \; local inlet = pd.Inlet(this) \; local
+sig = pd.Signal() \; local PD = pd.PD() \; local twopi = math.pi *
+2 \; local ax1 \, ax2 \, ay1 \, ay2 = 0 \, 0 \, 0 \, 0 \; function
+ofelia.perform(v1 \, v2 \, v3) \; local sampleRate = sig:getSampleRate()
+\; local nyquist = sampleRate * 0.5 \; local x1 \, x2 \, y1 \, y2 =
+ax1 \, ax2 \, ay1 \, ay2 \; for i=1 \, #v1 do \; local x0 = v1[i] \;
+local cutoff = v2[i] \; local res = math.max(v3[i] \, 1) \; local omega
+= 2 * twopi * cutoff / sampleRate \; local cs = math.cos(omega) \;
+local alpha = math.sin(omega) / (2 * res) \; local b1 = 1 - cs \; local
+b0 = b1 * 0.5 \; local b2 = b0 \; local a0 = 1 + alpha \; local a1
+= -2 * cs \; local a2 = 1 - alpha \; local y0 = (b0/a0)*x0 + (b1/a0)*x1
++ (b2/a0)*x2 - (a1/a0)*y1 - (a2/a0)*y2 \; if PD:isBigOrSmall(y0) then
+\; v1[i] = 0 \; else \; v1[i] = y0 \; end \; x2 = x1 \; x1 = x0 \;
+y2 = y1 \; y1 = v1[i] \; end \; ax1 = x1 \; ax2 = x2 \; ay1 = y1 \;
+ay2 = y2 \; return v1 \; end \;;
+#X f 75;
+#X text 485 602 ofelia.perform() returns 1 table since the object has
+1 signal outlet.;
+#X text 485 256 ofelia.perform() takes 3 table parameters since the
+object has 3 signal inlets.;
+#X text 250 91 Sets cutoff frequency in Hz.;
+#X text 472 91 Sets resonance. (range: 1 ~ 40);
+#X text 71 169 Incoming noise signal.;
+#X text 25 23 This example shows how to create a Low-pass filter with
+a resonance control. The "-s31" flag creates 3 signal inlets and 1
+signal outlet. ofelia.perform() function is called at each DSP-cycle.
+The function takes input audio buffer as table parameters and returns
+a table for output audio buffer.;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 11 1;
+#X connect 7 0 11 2;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 1 0;

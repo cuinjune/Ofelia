@@ -1,0 +1,54 @@
+#N canvas 720 100 665 698 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 28 122 of.Window;
+#X obj 28 80 loadbang;
+#X obj 28 158 of.setup;
+#X obj 28 424 of.draw;
+#X obj 28 305 s \$0-img;
+#X obj 28 200 pd.Canvas;
+#X msg 28 179 getDir;
+#X msg 28 284 image \$1;
+#X obj 46 445 r \$0-img;
+#X obj 28 242 of.setDataPathRoot;
+#X msg 28 221 newRoot \$1/data \, bang;
+#X obj 28 263 of.Image;
+#X obj 28 326 r \$0-img;
+#X obj 28 347 t b a;
+#X text 148 242 Set the new root path to the data folder.;
+#X text 104 446 Sets the image to draw.;
+#X text 88 263 Outputs the pointer to the image.;
+#X text 88 306 Send "image pointer" message.;
+#X text 208 368 Load an image.;
+#X text 333 646 This example was originally written in Processing.
+https://processing.org/examples/transparency.html;
+#X text 25 23 Move the pointer left and right across the image to change
+its position. This program overlays one image over another by modifying
+the alpha value of the image.;
+#X obj 28 466 ofelia d \; local img = nil \; local offset = 0 \; local
+easing = 0.05 \; function ofelia.image(p) \; img = p \; end \; function
+ofelia.bang() \; img:draw(0 \, 0) \; local dx = (of.getMouseX() - img:getWidth()/2)
+- offset \; offset = offset + (dx * easing) \; of.setColor(255 \, 255
+\, 255 \, 127) \; img:draw(offset \, 0) \; end \;;
+#X f 57;
+#X floatatom 28 389 5 0 0 0 - - -;
+#X text 68 389 0: fail \, 1: success.;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/pd;
+#X obj 28 368 of.Image.load moonwalk.jpg;
+#X msg 28 101 setPosition 30 100 \, setSize 640 360 \, create;
+#X connect 1 0 27 0;
+#X connect 2 0 6 0;
+#X connect 3 0 21 0;
+#X connect 5 0 10 0;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 8 0 21 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 26 0;
+#X connect 13 1 26 0;
+#X connect 26 0 22 0;
+#X connect 27 0 0 0;

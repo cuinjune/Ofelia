@@ -1,0 +1,64 @@
+#N canvas 720 100 665 595 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/ez;
+#X obj 28 92 loadbang;
+#X msg 28 217 load data/background.jpg;
+#X floatatom 28 259 5 0 0 0 - - -;
+#X text 68 260 0: fail \, 1: success.;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/ez;
+#X obj 28 134 of.Window;
+#X obj 28 170 of.setup;
+#X obj 28 294 of.draw;
+#X obj 28 336 of.translate 400 300;
+#X obj 28 191 of.disableArbTex;
+#X floatatom 208 259 5 0 0 0 - - -;
+#X text 248 260 0: fail \, 1: success.;
+#X msg 208 217 load data/texture.jpg;
+#X obj 28 238 ez.loadImage \$0-bg;
+#X obj 208 238 ez.loadImage \$0-tex;
+#X obj 28 444 ez.bindImage \$0-tex;
+#X obj 28 465 of.setDepthTest 1;
+#X obj 28 507 of.setDepthTest 0;
+#X obj 28 357 ofelia d \; function ofelia.bang() \; of.rotateXDeg(of.getFrameNum()
+* 1) \; of.rotateYDeg(of.getFrameNum() * 0.7) \; of.rotateZDeg(of.getFrameNum()
+* 0.3) \; return nil \; end \;;
+#X obj 28 486 of.drawBox 150;
+#X obj 28 528 ez.unbindImage \$0-tex;
+#X text 150 315 Optional additional arguments to set x \, y \, z \,
+width \, height.;
+#X obj 28 315 ez.drawImage \$0-bg;
+#X text 269 378 Rotate around the x \, y and z axis.;
+#X text 156 445 Bind the image's texture.;
+#X text 167 528 Unbind the texture.;
+#X text 145 465 Enable the depth test.;
+#X text 145 508 Disable the depth test.;
+#X text 146 487 Draw a box.;
+#X text 159 337 Move to the center x \, y position.;
+#X text 82 295 Drawing callback.;
+#X text 87 171 Setup callback.;
+#X text 299 113 Create a window.;
+#X text 25 23 The [ez.loadImage] abstraction allows user to load an
+image which can be easily accessed from other abstractions of its kind
+such as [ez.drawImage] \, [ez.bindImage] and [ez.unbindImage] by sharing
+the same name.;
+#X text 351 217 Load images from relative or absolute path.;
+#X text 136 191 Disable rectangular textures.;
+#X msg 28 113 setPosition 30 100 \, setSize 800 600 \, create;
+#X connect 0 0 37 0;
+#X connect 1 0 14 0;
+#X connect 7 0 10 0;
+#X connect 8 0 23 0;
+#X connect 9 0 19 0;
+#X connect 10 0 1 0;
+#X connect 10 0 13 0;
+#X connect 13 0 15 0;
+#X connect 14 0 2 0;
+#X connect 15 0 11 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 21 0;
+#X connect 19 0 16 0;
+#X connect 20 0 18 0;
+#X connect 23 0 9 0;
+#X connect 37 0 6 0;

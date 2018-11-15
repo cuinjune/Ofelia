@@ -1,0 +1,61 @@
+#N canvas 720 100 665 739 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 28 122 of.Window;
+#X obj 28 80 loadbang;
+#X obj 28 158 of.setup;
+#X obj 28 466 of.draw;
+#X obj 28 347 s \$0-img;
+#X obj 28 242 pd.Canvas;
+#X msg 28 221 getDir;
+#X msg 28 326 image \$1;
+#X obj 46 487 r \$0-img;
+#X obj 28 284 of.setDataPathRoot;
+#X msg 28 263 newRoot \$1/data \, bang;
+#X obj 28 305 of.Image;
+#X obj 28 368 r \$0-img;
+#X obj 28 389 t b a;
+#X text 148 284 Set the new root path to the data folder.;
+#X text 104 488 Sets the image to draw.;
+#X text 88 305 Outputs the pointer to the image.;
+#X text 88 348 Send "image pointer" message.;
+#X text 198 410 Load an image.;
+#X obj 28 200 of.setBackgroundAuto 0;
+#X obj 28 179 of.setBackgroundColor 255;
+#X text 25 23 Mouse horizontal location controls size of dots. Creates
+a simple pointillist effect using circles colored according to pixels
+in an image.;
+#X text 333 687 This example was originally written in Processing.
+https://processing.org/examples/pointillism.html;
+#X obj 28 508 ofelia d \; local img = nil \; local smallPoint \, largePoint
+= 2 \, 20 \; function ofelia.image(p) \; img = p \; end \; function
+ofelia.bang() \; local pointillize = of.map(of.getMouseX() \, 0 \,
+of.getWidth() \, smallPoint \, largePoint) \; pointillize = of.clamp(pointillize
+\, smallPoint \, largePoint) \; local x \, y = of.random(img:getWidth())
+\, of.random(img:getHeight()) \; local pix = img:getColor(x \, y) \;
+of.setColor(pix \, 128) \; of.drawCircle(x \, y \, pointillize) \;
+end \;;
+#X f 86;
+#X floatatom 28 431 5 0 0 0 - - -;
+#X text 68 431 0: fail \, 1: success.;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/pd;
+#X obj 28 410 of.Image.load moonwalk.jpg;
+#X msg 28 101 setPosition 30 100 \, setSize 640 360 \, create;
+#X connect 1 0 29 0;
+#X connect 2 0 20 0;
+#X connect 3 0 23 0;
+#X connect 5 0 10 0;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 8 0 23 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 28 0;
+#X connect 13 1 28 0;
+#X connect 19 0 6 0;
+#X connect 20 0 19 0;
+#X connect 28 0 24 0;
+#X connect 29 0 0 0;

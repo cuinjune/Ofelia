@@ -1,0 +1,61 @@
+#N canvas 720 100 665 635 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/ez;
+#X obj 28 92 loadbang;
+#X floatatom 28 258 5 0 0 0 - - -;
+#X text 68 259 0: fail \, 1: success.;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/ez;
+#X obj 28 134 of.Window;
+#X obj 28 170 of.setup;
+#X obj 28 293 of.draw;
+#X floatatom 228 258 5 0 0 0 - - -;
+#X text 268 259 0: fail \, 1: success.;
+#X text 82 294 Drawing callback.;
+#X text 87 171 Setup callback.;
+#X text 299 113 Create a window.;
+#X text 394 216 Load fonts from relative or absolute path.;
+#X obj 28 237 ez.loadFont \$0-content;
+#X obj 228 237 ez.loadFont \$0-title;
+#X text 25 23 The [ez.loadFont] abstraction allows user to load a font
+which can be easily accessed from other abstractions of its kind such
+as [ez.drawFontString] and [ez.drawFontStringAsShapes] by sharing the
+same name.;
+#X obj 101 356 ofelia d \; function ofelia.bang() \; return "What is
+OFELIA?" \; end \;;
+#X obj 101 335 loadbang;
+#X obj 107 452 loadbang;
+#X msg 228 216 load data/Sansation.ttf 48;
+#X msg 28 216 load data/DejaVuSansMono.ttf 32;
+#X obj 28 431 of.drawLine 80 95 560 95;
+#X obj 28 314 of.setColor 255;
+#X obj 28 191 of.setBackgroundColor 55;
+#X obj 28 549 ez.drawFontString \$0-content text 80 160;
+#X text 263 378 Generate a string for title.;
+#X obj 28 410 ez.drawFontString \$0-title text 80 80;
+#X obj 107 473 ofelia d \; local n = string.char(10) \; function ofelia.bang()
+\; return "OFELIA stands for"..n.."OpenFrameworks as"..n.."an External
+Library"..n.."for Interactive"..n.."Applications." \; end \;;
+#X f 61;
+#X text 265 410 Draw the string at position (80 \, 80).;
+#X text 280 550 Draw the string at position (80 \, 160).;
+#X text 482 508 Generate a string for content.;
+#X text 184 192 Set background color.;
+#X msg 28 113 setPosition 30 100 \, setSize 640 400 \, create;
+#X connect 0 0 33 0;
+#X connect 6 0 24 0;
+#X connect 7 0 23 0;
+#X connect 14 0 1 0;
+#X connect 15 0 8 0;
+#X connect 17 0 27 1;
+#X connect 18 0 17 0;
+#X connect 19 0 28 0;
+#X connect 20 0 15 0;
+#X connect 21 0 14 0;
+#X connect 22 0 25 0;
+#X connect 23 0 27 0;
+#X connect 24 0 21 0;
+#X connect 24 0 20 0;
+#X connect 27 0 22 0;
+#X connect 28 0 25 1;
+#X connect 33 0 5 0;

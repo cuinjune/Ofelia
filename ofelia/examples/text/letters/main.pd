@@ -1,0 +1,58 @@
+#N canvas 720 80 665 798 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 28 112 of.Window;
+#X obj 28 70 loadbang;
+#X obj 28 148 of.setup;
+#X obj 28 435 of.draw;
+#X obj 28 211 pd.Canvas;
+#X msg 28 190 getDir;
+#X obj 28 253 of.setDataPathRoot;
+#X msg 28 232 newRoot \$1/data \, bang;
+#X obj 28 358 t b a;
+#X text 148 253 Set the new root path to the data folder.;
+#X text 25 23 Draws letters to the screen. This requires loading a
+font \, setting the font \, and then drawing the letters.;
+#X obj 28 274 of.TrueTypeFont;
+#X text 128 274 Outputs the pointer to the font.;
+#X msg 28 295 font \$1;
+#X obj 28 316 s \$0-font;
+#X text 94 317 Send "font pointer" message.;
+#X obj 28 337 r \$0-font;
+#X text 332 379 Load a font.;
+#X text 111 457 Sets the font to draw.;
+#X obj 46 456 r \$0-font;
+#X text 333 745 This example was originally written in Processing.
+https://processing.org/examples/letters.html;
+#X obj 28 169 of.setBackgroundColor 0;
+#X floatatom 28 400 5 0 0 0 - - -;
+#X text 68 400 0: fail \, 1: success.;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/pd;
+#X obj 28 379 of.TrueTypeFont.load SourceCodePro-Regular.ttf 24;
+#X obj 28 477 ofelia d \; local font = nil \; local gap = 46 \; function
+ofelia.font(p) \; font = p \; end \; function ofelia.bang() \; of.translate(35
+\, 70) \; local counter = 35 \; for y = 0 \, of.getHeight()-gap*2 \,
+gap do \; for x = 0 \, of.getWidth()-gap \, gap do \; local letter
+= string.char(counter) \; if letter == "A" or letter == "E" or letter
+== "I" or letter == "O" or letter == "U" then \; of.setColor(255 \,
+204 \, 0) \; else \; of.setColor(255) \; end \; font:drawString(tostring(letter)
+\, x \, y) \; counter = counter + 1 \; end \; end \; end \;;
+#X f 91;
+#X msg 28 91 setPosition 30 100 \, setSize 640 400 \, create;
+#X connect 1 0 28 0;
+#X connect 2 0 21 0;
+#X connect 3 0 27 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 11 0;
+#X connect 7 0 6 0;
+#X connect 8 0 26 0;
+#X connect 8 1 26 0;
+#X connect 11 0 13 0;
+#X connect 13 0 14 0;
+#X connect 16 0 8 0;
+#X connect 19 0 27 0;
+#X connect 21 0 5 0;
+#X connect 26 0 22 0;
+#X connect 28 0 0 0;
