@@ -9,7 +9,7 @@
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
 [Pure Data](https://puredata.info/)(aka Pd) is a real-time visual programming language for multimedia.<br />
 
-ofelia currently provides over 300 abstactions which cover the following features of openFrameworks.
+ofelia currently provides over [300 abstactions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) which cover the following features of openFrameworks.
 
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
 * [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
