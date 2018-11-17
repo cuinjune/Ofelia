@@ -5,7 +5,7 @@
 ## Description
 **ofelia** is an external library which allows you to use openFrameworks and Lua within Pure Data to create cross-platform multimedia applications.
 
-[openFrameworks](http://openframeworks.cc/) is an open source C++ toolkit for creative coding.<br />
+[openFrameworks](http://openframeworks.cc/)(aka OF) is an open source C++ toolkit for creative coding.<br />
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
 [Pure Data](https://puredata.info/)(aka Pd) is a real-time visual programming language for multimedia.<br />
 
@@ -29,7 +29,9 @@ There is only one slight difference in function and class names. For exmaple,
 * `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
 * `ofImage` in openFrameworks becomes `of.Image` in ofelia.
 
-Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua and [openFrameworks API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. You can contribute to ofelia by creating and sharing these abstractions.
+The Pd help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply google the name of the function to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
+
+Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
@@ -42,6 +44,9 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
 * (Linux, Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
+  
+## Contributing to ofelia
+You can contribute to ofelia by reporting bugs, creating the missing `of` abstractions or by sharing your own custom abstractions. Please open an [issue](https://github.com/cuinjune/ofxOfelia/issues) or contact the [author](#author) if you have any questions or suggestions.
   
 # ofxOfelia
 ![alt text](doc/standalone.png)
@@ -66,7 +71,7 @@ The setup guide and examples for creating standalone project will be ready soon.
 ## Developing ofxOfelia
 You can help developing ofxOfelia on GitHub: https://github.com/cuinjune/ofxOfelia<br />
 Create an account, clone or fork the repo, then request a push/merge.<br />
-If you find any bugs or suggestions please log them to GitHub as well.
+Feel free to contact the [author](#author) if you have any questions or suggestions.
 
 ## Author
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />
