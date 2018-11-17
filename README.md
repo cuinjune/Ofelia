@@ -24,7 +24,7 @@ ofelia currently provides over 300 abstactions which cover the following feature
 
 The abstractions use the same function names, arguments and return types as the original openFrameworks API so users can easily learn and transfer from one to another when needed.
 
-There is only one slight difference in function and class names:
+There is only one slight difference in function and class names. For exmaple,
 
 * `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
 * `ofImage` in openFrameworks becomes `of.Image` in ofelia.
