@@ -37,7 +37,7 @@ The help files for the abstractions currently don't exist but you can learn abou
 
 Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. See the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-help.pd) to learn how to use it.
 
-The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
+The library is available to be used under macOS, Windows, Linux and Raspberry Pi. (64bit only on macOS and Linux)
 
 ## Installation
 * Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
