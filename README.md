@@ -32,10 +32,10 @@ There is only one slight difference in function and class names. For exmaple,
 * `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
 * `ofImage` in openFrameworks becomes `of.Image` in ofelia.
 
-The Pd help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply google the name of the function to find the page.<br /> 
+The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply google the name of the function to find the page.<br /> 
 (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
-Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself.
+Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. See the object help file to learn how to use it.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
