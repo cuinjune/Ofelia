@@ -77,6 +77,19 @@ You can help developing ofxOfelia on GitHub: https://github.com/cuinjune/ofxOfel
 Create an account, clone or fork the repo, then request a push/merge.<br />
 Feel free to contact the [author](#author) if you have any questions or suggestions.
 
+--------------
+
+## Projects that used ofelia/ofxOfelia
+* [Bruno Rohde](esmeril.ufba.br): [ESMERIL](https://youtu.be/MOz3MCIBDzM)
+* [Virual Insight: World of Piano](https://gust.com/companies/virtual-insight)
+* [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/)
+* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole)
+* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg)
+
+## Acknowledgments
+I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd](http://puredata.info/) community for developing and maintaining Pd, [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) which ofelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem/) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/) for answering so many questions from the OF forum, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and so many others
+who contributed to the development of ofelia.
+
 ## Author
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />
 GNU General Public License v3.0<br />
