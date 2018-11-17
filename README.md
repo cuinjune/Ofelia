@@ -64,10 +64,10 @@ You can share the application with a wide range of audiences including non-Pd us
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks. The following tools are used to build ofxOfelia project.
 
-* macOS / iOS : Xcode.
-* Linux / Raspberry Pi : Makefile.
-* Windows : Visual Studio Community 2017.
-* Android : Android Studio.
+* macOS / iOS : [Xcode](https://developer.apple.com/xcode/).
+* Linux / Raspberry Pi : [Makefile](https://www.gnu.org/software/make/).
+* Windows : [Visual Studio Community 2017](https://openframeworks.cc/versions/v0.10.1/of_v0.10.1_vs2017_release.zip).
+* Android : [Android Studio](https://developer.android.com/studio/).
 
 ## Setup guide
 The setup guide and examples for creating standalone project will be ready soon.
@@ -80,11 +80,11 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 --------------
 
 ## Projects that used ofelia/ofxOfelia
-* [Bruno Rohde](esmeril.ufba.br): [ESMERIL](https://youtu.be/MOz3MCIBDzM)
-* [Virual Insight: World of Piano](https://gust.com/companies/virtual-insight)
-* [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/)
-* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole)
-* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg)
+* [Bruno Rohde](esmeril.ufba.br): [ESMERIL](https://youtu.be/MOz3MCIBDzM).
+* [Virual Insight: World of Piano](https://gust.com/companies/virtual-insight).
+* [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/).
+* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole).
+* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg).
 
 ## Acknowledgments
 I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community) for developing and maintaining [Pd](http://puredata.info/), [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) which ofelia/ofxOfelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem/) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/) and answering so many questions, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and so many others
