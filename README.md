@@ -22,7 +22,14 @@ ofelia currently provides over 300 abstactions which cover the following feature
 * [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
 * [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains functions for creating message and file opening and saving dialogs.
 
-Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua on a Pd patch or create such abstractions yourself.
+The abstractions use the same function names, arguments and return types as the original openFrameworks API so users can easily learn and transfer from one to another when needed.
+
+There is only one slight difference in function and class names:
+
+* `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
+* `ofImage` in openFrameworks becomes `of.Image` in ofelia.
+
+Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua and [openFrameworks API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. You can contribute to ofelia by creating and sharing these abstractions.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
