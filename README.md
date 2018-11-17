@@ -9,7 +9,10 @@
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
 [Pure Data](https://puredata.info/)(aka Pd) is a real-time visual programming language for multimedia.<br />
 
-ofelia currently provides over 300 abstactions which cover the following features of openFrameworks.
+Thanks to the Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow.
+
+Using ofelia, you can flexibly choose between patching and coding style depending on the situation.<br />
+For patching style, ofelia currently provides over 300 abstactions which cover the following features of openFrameworks.
 
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
 * [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
@@ -31,7 +34,7 @@ There is only one slight difference in function and class names. For exmaple,
 
 The Pd help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply google the name of the function to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
-Although more abstractions will be added later, you can already use all features of openFrameworks using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself.
+Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi.
 
