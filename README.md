@@ -66,7 +66,7 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 
 * macOS / iOS : [Xcode](https://developer.apple.com/xcode/).
 * Linux / Raspberry Pi : [Makefile](https://www.gnu.org/software/make/).
-* Windows : [Visual Studio Community 2017](https://openframeworks.cc/versions/v0.10.1/of_v0.10.1_vs2017_release.zip).
+* Windows : [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/).
 * Android : [Android Studio](https://developer.android.com/studio/).
 
 ## Setup guide
