@@ -81,7 +81,7 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 
 ## Projects that used ofelia/ofxOfelia
 * [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/MOz3MCIBDzM/).
-* [Virual Insight: World of Piano](https://gust.com/companies/virtual-insight).
+* [Virtual Insight: World of Piano](https://gust.com/companies/virtual-insight).
 * [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/).
 * [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole/).
 * [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
