@@ -4,37 +4,35 @@
 #X obj 28 82 loadbang;
 #X obj 28 160 of.setup;
 #X obj 462 29 declare -path ofelia/libs/of;
-#X obj 28 322 of.draw;
+#X obj 28 280 of.draw;
 #X obj 28 181 of.setWindowPosition 30 100;
 #X msg 28 103 create;
-#X msg 48 368 rad \$1;
-#X floatatom 48 348 5 0 0 0 - - -;
-#X text 88 347 Try changing the value.;
+#X msg 48 326 rad \$1;
+#X floatatom 48 306 5 0 0 0 - - -;
+#X text 88 305 Try changing the value.;
 #X text 25 22 Many instances of lined equilateral triangles with different
 color \, rotataion and size can generate an interesting whirling motion.
 ;
 #X obj 28 223 of.setBackgroundColor 0;
-#X obj 28 265 of.setLineWidth 0.1;
-#X obj 28 286 of.noFill;
-#X obj 28 244 of.setCircleResolution 3;
 #X obj 28 202 of.setWindowShape 1024 768;
-#X obj 28 394 ofelia d \; a = ofelia \; a.rad = 100 \; local angle
-= 0 \; function ofelia.bang() \; local centerX \, centerY = of.getWidth()
-/ 2 \, of.getHeight() / 2 \; of.translate(centerX \, centerY) \; for
-i=1 \, 500 do \; of.pushMatrix() \; of.setColor(i * 2 \, (255 / i)
-* 100 \, i / 20) \; of.rotateXDeg(angle * 10 / i * 0.01) \; of.rotateYDeg(angle
-* 7 / i * 0.02) \; of.rotateZDeg(angle * 4 * i * 0.03) \; of.drawCircle(0
-\, 0 \, a.rad + math.sin(angle + i) * 200 + i * math.cos(angle) * 0.5)
-\; of.popMatrix() \; end \; angle = angle + 0.01 \; end \;;
+#X obj 28 352 ofelia d \; a = ofelia \; a.rad = 100 \; local angle
+= 0 \; function ofelia.bang() \; of.noFill() \; of.setLineWidth(0.1)
+\; of.enableSmoothing() \; of.setCircleResolution(3) \; local centerX
+\, centerY = of.getWidth() / 2 \, of.getHeight() / 2 \; of.translate(centerX
+\, centerY) \; for i=1 \, 500 do \; of.pushMatrix() \; of.setColor(i
+* 2 \, (255 / i) * 100 \, i / 20) \; of.rotateXDeg(angle * 10 / i *
+0.01) \; of.rotateYDeg(angle * 7 / i * 0.02) \; of.rotateZDeg(angle
+* 4 * i * 0.03) \; of.drawCircle(0 \, 0 \, a.rad + math.sin(angle +
+i) * 200 + i * math.cos(angle) * 0.5) \; of.popMatrix() \; end \; angle
+= angle + 0.01 \; end \;;
 #X f 84;
+#X obj 28 244 of.setFrameRate 30;
 #X connect 1 0 6 0;
 #X connect 2 0 5 0;
-#X connect 4 0 16 0;
-#X connect 5 0 15 0;
+#X connect 4 0 13 0;
+#X connect 5 0 12 0;
 #X connect 6 0 0 0;
-#X connect 7 0 16 0;
+#X connect 7 0 13 0;
 #X connect 8 0 7 0;
 #X connect 11 0 14 0;
-#X connect 12 0 13 0;
-#X connect 14 0 12 0;
-#X connect 15 0 11 0;
+#X connect 12 0 11 0;

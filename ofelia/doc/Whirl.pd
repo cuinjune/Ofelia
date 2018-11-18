@@ -4,11 +4,13 @@
 #X obj 30 24 loadbang;
 #X obj 30 102 of.setup;
 #X obj 521 24 declare -path ofelia/libs/of;
-#X obj 30 222 of.draw;
+#X obj 30 180 of.draw;
 #X obj 30 123 of.setBackgroundColor 0;
 #X msg 30 45 setPosition 2 0 \, setSize 1440 900 \, title Whirl \,
 create;
-#X obj 30 243 ofelia d \; local angle = 0 \; function ofelia.bang()
+#X obj 30 144 of.setFrameRate 30;
+#X obj 30 201 ofelia d \; local angle = 0 \; function ofelia.bang()
+\; of.noFill() \; of.setLineWidth(0.1) \; of.enableSmoothing() \; of.setCircleResolution(3)
 \; local centerX \, centerY = of.getWidth() / 2 \, of.getHeight() /
 2 \; of.translate(centerX \, centerY) \; for i=1 \, 500 do \; of.pushMatrix()
 \; of.setColor(i * 2 \, (255 / i) * 100 \, i / 20) \; of.rotateXDeg(angle
@@ -17,13 +19,8 @@ create;
 * 200 + i * math.cos(angle) * 0.5) \; of.popMatrix() \; end \; angle
 = angle + 0.01 \; end \;;
 #X f 82;
-#X obj 30 144 of.setCircleResolution 3;
-#X obj 30 165 of.setLineWidth 0.1;
-#X obj 30 186 of.noFill;
 #X connect 1 0 6 0;
 #X connect 2 0 5 0;
-#X connect 4 0 7 0;
-#X connect 5 0 8 0;
+#X connect 4 0 8 0;
+#X connect 5 0 7 0;
 #X connect 6 0 0 0;
-#X connect 8 0 9 0;
-#X connect 9 0 10 0;
