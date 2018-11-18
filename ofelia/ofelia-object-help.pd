@@ -4,7 +4,9 @@
 #X msg 49 352 click;
 #X msg 97 352 close;
 #X obj 28 415 ofelia define -k \$0-test;
-#A set print("Hello World");
+#A set ofelia.myBoolean = true \; ofelia.myNumber = 42 \; ofelia.myString
+= "Foo" \; ofelia.myTable = {1 \, 2 \, 3 \, 4} \; \; function ofelia.myFunction(f)
+\; return f * 2 \; end;
 #X msg 38 200 myBoolean \$1;
 #X obj 38 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
