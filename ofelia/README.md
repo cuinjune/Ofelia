@@ -35,7 +35,7 @@ There is only one slight difference in function and class names. For exmaple,
 The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function to find the page.<br /> 
 (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
-Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. See the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-help.pd) to learn how to use it.
+Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. See the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-object-help.pd) to learn how to use it.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi. (64bit only on macOS and Linux)
 
@@ -81,13 +81,14 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 
 ## Projects that used ofelia/ofxOfelia
 * [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/MOz3MCIBDzM/).
+* [Mike Moreno](https://github.com/MikeMorenoAudio/): [Paths](https://youtu.be/Si_IbyIvPy4/).
+* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole).
 * [Virtual Insight](https://gust.com/companies/virtual-insight): [World of Piano](https://www.worldofpiano.net/).
-* [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/).
-* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole/).
-* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
+* [The Center for Haptic Audio Interaction Reseach: Instrument development](https://chair.audio/).
+* [POLR Technologies](https://www.facebook.com/polrtech): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
 
 ## Acknowledgments
-I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/), [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua/), [ofxPd](https://github.com/danomatika/ofxPd/) and [ofxMidi](https://github.com/danomatika/ofxMidi/) which ofelia/ofxOfelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig/) for developing [GEM](https://puredata.info/downloads/gem/) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/) and answering so many questions, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and many others who contributed to the development of ofelia.
+I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/), [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) which ofelia/ofxOfelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/) and answering so many questions, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and many others who contributed to the development of ofelia.
 
 ## Author
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />
