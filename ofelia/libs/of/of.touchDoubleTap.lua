@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.touchDoubleTap(e)
-  return e
+  return {e.type, e.x, e.y, e.id, e.time, e.numTouches, e.width, e.height, e.angle, e.minoraxis, e.majoraxis, e.pressure, e.xspeed, e.yspeed, e.xaccel, e.yaccel}
 end

@@ -5,7 +5,7 @@ v2.0.2: 14 Nov 2018
 * fixed lua stack corruption issue
 * fixed duplicated script name issue
 * changed setpause value for gc
-* added abstracions and examples
+* added helpfile, abstracions and examples
 
 v2.0.1: 17 Sep 2018
 

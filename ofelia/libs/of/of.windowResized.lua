@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.windowResized(e)
-  return e
+  return {e.width, e.height}
 end

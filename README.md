@@ -1,6 +1,6 @@
 # ofelia
-![alt text](doc/screenshot1.png)
-![alt text](doc/screenshot2.png)
+![alt text](doc/Logo.png)
+![alt text](doc/Whirl.png)
 
 ## Description
 **ofelia** is an external library which allows you to use openFrameworks and Lua within Pure Data to create cross-platform multimedia applications.
@@ -53,7 +53,7 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
 You can contribute to ofelia by reporting bugs, creating the missing `of` abstractions or by sharing your own custom abstractions. Please open an [issue](https://github.com/cuinjune/ofxOfelia/issues) or contact the [author](#author) if you have any questions or suggestions.
   
 # ofxOfelia
-![alt text](doc/standalone.png)
+![alt text](doc/ESMERIL.png)
 
 ## Description
 

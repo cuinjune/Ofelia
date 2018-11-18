@@ -1,0 +1,28 @@
+#N canvas 720 100 665 643 10;
+#X declare -path ofelia/libs/of;
+#X obj 28 104 of.Window;
+#X obj 28 62 loadbang;
+#X obj 28 140 of.setup;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X msg 28 83 setPosition 30 100 \, setSize 640 400 \, create;
+#X obj 28 218 of.draw;
+#X text 325 556 This example was originally written in Processing.
+https://processing.org/examples/brownian.html;
+#X obj 28 161 of.background 51;
+#X obj 28 182 of.setFrameRate 30;
+#X obj 28 239 ofelia d \; local num = 2000 \; local range = 6 \; local
+ax \, ay = table.pack() \, table.pack() \; function ofelia.new() \;
+for i=1 \, num do \; ax[i] = 320 \; ay[i] = 200 \; end \; end \; function
+ofelia.bang() \; for i=2 \, num do \; ax[i-1] = ax[i] \; ay[i-1] =
+ay[i] \; end \; ax[num] = ax[num] + of.random(-range \, range) \; ay[num]
+= ay[num] + of.random(-range \, range) \; ax[num] = of.clamp(ax[num]
+\, 0 \, of.getWidth()) \; ay[num] = of.clamp(ay[num] \, 0 \, of.getHeight())
+\; for i=2 \, num do \; local val = i/num * 204 + 51 \; of.setColor(val)
+\; of.drawLine(ax[i-1] \, ay[i-1] \, ax[i] \, ay[i]) \; end \; end
+\;;
+#X text 25 23 Recording random movement as a continuous line.;
+#X connect 1 0 4 0;
+#X connect 2 0 7 0;
+#X connect 4 0 0 0;
+#X connect 5 0 9 0;
+#X connect 7 0 8 0;

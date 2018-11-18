@@ -1,6 +1,6 @@
 # ofelia
-![alt text](doc/screenshot1.png)
-![alt text](doc/screenshot2.png)
+![alt text](doc/Logo.png)
+![alt text](doc/Whirl.png)
 
 ## Description
 **ofelia** is an external library which allows you to use openFrameworks and Lua within Pure Data to create cross-platform multimedia applications.
@@ -53,7 +53,7 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
 You can contribute to ofelia by reporting bugs, creating the missing `of` abstractions or by sharing your own custom abstractions. Please open an [issue](https://github.com/cuinjune/ofxOfelia/issues) or contact the [author](#author) if you have any questions or suggestions.
   
 # ofxOfelia
-![alt text](doc/standalone.png)
+![alt text](doc/ESMERIL.png)
 
 ## Description
 
@@ -80,14 +80,14 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 --------------
 
 ## Projects that used ofelia/ofxOfelia
-* [Bruno Rohde](esmeril.ufba.br): [ESMERIL](https://youtu.be/MOz3MCIBDzM).
+* [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/MOz3MCIBDzM/).
 * [Virual Insight: World of Piano](https://gust.com/companies/virtual-insight).
 * [The Center for Haptic Audio Interaction Reseach: instrument development](https://chair.audio/).
-* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole).
-* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg).
+* [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole/).
+* [POLR Technologies](https://www.facebook.com/polrtech/): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
 
 ## Acknowledgments
-I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community) for developing and maintaining [Pd](http://puredata.info/), [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) which ofelia/ofxOfelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem/) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/) and answering so many questions, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and many others who contributed to the development of ofelia.
+I would like to thank [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/), [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua/), [ofxPd](https://github.com/danomatika/ofxPd/) and [ofxMidi](https://github.com/danomatika/ofxMidi/) which ofelia/ofxOfelia uses, [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig/) for developing [GEM](https://puredata.info/downloads/gem/) which has greatly influenced ofelia, [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/) and answering so many questions, [Henri Menke](https://www.henrimenke.com/) for consulting on Lua design matters, and many others who contributed to the development of ofelia.
 
 ## Author
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />

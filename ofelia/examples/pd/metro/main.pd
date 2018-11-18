@@ -1,0 +1,38 @@
+#N canvas 720 100 665 542 10;
+#X msg 41 85 1;
+#X msg 58 132 0;
+#X msg 47 108 bang;
+#X msg 58 154 stop;
+#X msg 278 154 tempo \$1;
+#X floatatom 278 134 5 1 10000 0 - - -;
+#X obj 41 427 f;
+#X obj 70 427 + 1;
+#X floatatom 41 448 10 0 0 0 - - -;
+#X obj 18 427 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 340 154 Set tempo in units of milliseconds.;
+#X text 89 132 Zero or "stop" to stop.;
+#X text 73 85 Nonzero number or "bang" to start.;
+#X text 37 32 Simple [metro] obect emulation. You can call a function
+after a certain duration by using pd.Clock() class.;
+#X text 281 251 Register a function named "bang" to be delayed.;
+#X text 281 276 Schedule calling the function after the specified time
+in milliseconds.;
+#X text 281 319 Cancel the scheduled function call.;
+#X obj 41 219 ofelia d \; local a = ofelia \; a.tempo = 300 \; local
+clock = pd.Clock(this \, "bang") \; function a.bang() \; clock:delay(a.tempo)
+\; return nil \; end \; function a.stop() \; clock:unset() \; end \;
+function a.float(i) \; if i ~= 0 then \; return a.bang() \; else \;
+a.stop() \; end \; end \;;
+#X f 38;
+#X connect 0 0 17 0;
+#X connect 1 0 17 0;
+#X connect 2 0 17 0;
+#X connect 3 0 17 0;
+#X connect 4 0 17 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 17 0 6 0;
+#X connect 17 0 9 0;

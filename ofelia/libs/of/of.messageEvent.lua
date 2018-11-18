@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.messageEvent(e)
-  return e
+  return e.message
 end

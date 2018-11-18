@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.keyReleased(e)
-  return e
+  return {e.type, e.key, e.keycode, e.scancode, e.codepoint, e.isRepeat, e.modifiers}
 end

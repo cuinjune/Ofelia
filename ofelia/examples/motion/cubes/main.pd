@@ -1,0 +1,35 @@
+#N canvas 720 100 665 637 10;
+#X declare -path ofelia/libs/of;
+#X obj 28 114 of.Window;
+#X obj 28 72 loadbang;
+#X obj 28 150 of.setup;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 28 270 of.draw;
+#X obj 28 213 of.background 0;
+#X obj 28 234 of.noFill;
+#X obj 28 171 of.setWindowPosition 30 100;
+#X msg 28 93 create;
+#X floatatom 48 296 5 0 0 0 - - -;
+#X text 88 295 Try changing the value.;
+#X msg 48 316 size \$1;
+#X text 25 22 Rotating lined cubes with different color \, line width
+and size which oscillates over time.;
+#X obj 28 352 ofelia d \; local a = ofelia \; a.size = 100 \; local
+angle = 0 \; function a.bang() \; local centerX \, centerY = of.getWidth()
+/ 2 \, of.getHeight() / 2 \; of.translate(centerX \, centerY) \; for
+i=1 \, 8 do \; of.pushMatrix() \; of.setLineWidth(i) \; of.setColor((i
+* 80) % 255 \, (i * 50) % 255 \, (i * 30) % 255) \; of.rotateXDeg(angle
+* 9) \; of.rotateYDeg(angle * 7) \; of.rotateZDeg(angle * 3) \; of.drawBox(a.size
++ math.sin(angle * 0.1 + i) * 100 + i * math.cos(angle * 0.25 + i)*
+8) \; of.popMatrix() \; end \; angle = angle + 0.1 \; end \;;
+#X f 90;
+#X obj 28 192 of.setWindowShape 1024 768;
+#X connect 1 0 8 0;
+#X connect 2 0 7 0;
+#X connect 4 0 13 0;
+#X connect 5 0 6 0;
+#X connect 7 0 14 0;
+#X connect 8 0 0 0;
+#X connect 9 0 11 0;
+#X connect 11 0 13 0;
+#X connect 14 0 5 0;

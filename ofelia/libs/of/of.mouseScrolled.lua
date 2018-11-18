@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.mouseScrolled(e)
-  return e
+  return {e.type, e.x, e.y, e.button, e.scrollX, e.scrollY, e.modifiers}
 end

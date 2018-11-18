@@ -23,5 +23,5 @@ function ofelia.free()
 end
 
 function ofelia.fileDragEvent(e)
-  return e
+  return {e.files, e.x, e.y, e.position}
 end
