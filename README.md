@@ -29,8 +29,8 @@ These standard `of` abstractions follow the same function names, arguments and r
 
 There is only one slight difference in function and class names. For example,
 
-* `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
-* `ofImage` in openFrameworks becomes `of.Image` in ofelia.
+* function: `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
+* class: `ofImage` in openFrameworks becomes `of.Image` in ofelia. (notice uppercase `I`)
 
 The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
