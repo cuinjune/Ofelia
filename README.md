@@ -32,7 +32,7 @@ There is only one slight difference in function and class names. For example,
 * function: `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
 * class: `ofImage` in openFrameworks becomes `of.Image` in ofelia. (notice uppercase `I`)
 
-The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
+The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function or class to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
 Although some features are not implemented as abstractions yet, you can already use them by writing a Lua script on `ofelia define` object. Please see the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-object-help.pd) in Pd and read [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) to learn how openFrameworks functions and classes can be used within a Lua script.
 
