@@ -11,7 +11,7 @@
 
 Thanks to the Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
 
-Using ofelia, you can flexibly choose between patching and coding style depending on the situation.<br />
+Using ofelia, you can flexibly choose between patching and coding style depending on your preference.<br />
 For patching style, ofelia currently provides over [300 abstactions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) which cover the following features of openFrameworks.
 
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
