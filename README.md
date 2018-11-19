@@ -41,7 +41,7 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
 ## Installation
 * Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
-* Select the proper version of ofelia for your system to download and install.
+* Select the latest version of ofelia to download and install.
 * Try opening patches inside the downloaded `ofelia/examples` directory.
 * (Windows) If the library fails to load, open `vc_redist` executable file inside `ofelia` directory to install [Microsoft Visual C++ Redistributable packages](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads).
 * (Linux, Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
