@@ -27,7 +27,7 @@ For patching style, ofelia currently provides over [300 abstactions](https://git
 
 These standard [`of` abstractions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) follow the same function names, arguments and return types as the original openFrameworks API so users who have used openFrameworks can easily use them and transfer from one to another when needed. (If you learn ofelia, you can easily learn openFrameworks and vice versa)
 
-There is only one slight difference in function and class names. For exmaple,
+There is only one slight difference in function and class names. For example,
 
 * `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
 * `ofImage` in openFrameworks becomes `of.Image` in ofelia.
