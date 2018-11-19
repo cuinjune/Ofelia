@@ -9,7 +9,7 @@
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
 [Pure Data](https://puredata.info/)(aka Pd) is a real-time visual programming language for multimedia.<br />
 
-Thanks to the Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow.
+Thanks to the Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
 
 Using ofelia, you can flexibly choose between patching and coding style depending on the situation.<br />
 For patching style, ofelia currently provides over [300 abstactions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) which cover the following features of openFrameworks.
@@ -35,7 +35,7 @@ There is only one slight difference in function and class names. For exmaple,
 The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function to find the page.<br /> 
 (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
-Although more abstractions will be added later, you can already use all openFrameworks features using [ofelia] object which allows you to code Lua and [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) on a Pd patch or create such abstractions yourself. See the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-object-help.pd) to learn how to use it.
+Although some features are not implemented as abstractions yet, you can already use them by writing a Lua script on `ofelia define` object. Please see the object [help file](https://github.com/cuinjune/ofxOfelia/blob/master/ofelia/ofelia-object-help.pd) in Pd then read [OF API bindings](https://github.com/danomatika/ofxLua#of-api-bindings) to learn how openFrameworks functions and classes can be used within a Lua script.
 
 The library is available to be used under macOS, Windows, Linux and Raspberry Pi. (64bit only on macOS and Linux)
 
