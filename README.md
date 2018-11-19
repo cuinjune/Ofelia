@@ -6,7 +6,7 @@
 **ofelia** is a Pd external library which allows you to use openFrameworks and Lua within a real-time [visual programming environment](https://en.wikipedia.org/wiki/Visual_programming_language) for creating [Audiovisual](https://en.wikipedia.org/wiki/Audiovisual) artwork or [Multimedia](https://en.wikipedia.org/wiki/Multimedia) applications such as games.
 
 [openFrameworks](http://openframeworks.cc/)(aka OF) is an open source C++ toolkit for creative coding.<br />
-[Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
+[Lua](https://www.lua.org/) is a powerful, efficient, lightweight, easy-to-learn scripting language.<br />
 [Pure Data](https://puredata.info/)(aka Pd) is a real-time visual programming language for multimedia.<br />
 
 Thanks to the Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
