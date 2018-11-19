@@ -3,7 +3,7 @@
 ![alt text](doc/Whirl.png)
 
 ## Description
-**ofelia** is an external library which allows you to use openFrameworks and Lua within Pure Data to create cross-platform multimedia applications.
+**ofelia** is a Pd external library which allows you to use openFrameworks and Lua within a real-time [visual programming environment](https://en.wikipedia.org/wiki/Visual_programming_language) for creating [audiovisual](https://en.wikipedia.org/wiki/Audiovisual) artwork or [multimedia](https://en.wikipedia.org/wiki/Multimedia) applications such as games.
 
 [openFrameworks](http://openframeworks.cc/)(aka OF) is an open source C++ toolkit for creative coding.<br />
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, embeddable scripting language.<br />
