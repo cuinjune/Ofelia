@@ -49,7 +49,7 @@ The library is available to be used under macOS, Windows, Linux and Raspberry Pi
   sudo ./install_dependencies.sh</pre>
   
 ## Contributing to ofelia
-You can contribute to ofelia by reporting bugs, creating the missing `of` abstractions or by sharing your own custom abstractions. Please open an [issue](https://github.com/cuinjune/ofxOfelia/issues) or contact the [author](#author) if you have any questions or suggestions.
+You can contribute to ofelia by reporting bugs, adding unimplemented `of` abstractions or by sharing your own custom abstractions such as [`ez` abstractions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/ez). Please open an [issue](https://github.com/cuinjune/ofxOfelia/issues) or contact the [author](#author) if you have any questions or suggestions.
   
 # ofxOfelia
 ![alt text](doc/ESMERIL.png)
