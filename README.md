@@ -14,23 +14,23 @@ Thanks to the Lua scripting feature, you can do text coding directly on a Pd pat
 Using ofelia, you can flexibly choose between patching and coding style depending on your preference.<br />
 For patching style, ofelia currently provides over [300 abstactions](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) which cover the following features of openFrameworks.
 
-* [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
-* [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
-* [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several functions to change the state of the graphics pipeline and allows to quickly draw 2d shapes.
-* [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images and do basic transformations on them.
-* [ofTrueTypeFont](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/): can load true type fonts in different formats and draw text using the loaded font.
-* [of3dGraphics](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw the most used 3d shapes like spheres, cones and boxes.
-* [of3dUtils](https://openframeworks.cc/documentation/3d/of3dUtils/): allows to draw 3d utililty objects such as arrows, axis and grid.
-* [ofMath](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like calculating the distance between two points.
-* [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
-* [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains functions for creating message and file opening and saving dialogs.
+* [**ofAppRunner**](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
+* [**ofBaseApp**](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
+* [**ofGraphics**](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several functions to change the state of the graphics pipeline and allows to quickly draw 2d shapes.
+* [**ofImage**](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images and do basic transformations on them.
+* [**ofTrueTypeFont**](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/): can load true type fonts in different formats and draw text using the loaded font.
+* [**of3dGraphics**](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw the most used 3d shapes like spheres, cones and boxes.
+* [**of3dUtils**](https://openframeworks.cc/documentation/3d/of3dUtils/): allows to draw 3d utililty objects such as arrows, axis and grid.
+* [**ofMath**](https://openframeworks.cc/documentation/math/ofMath/): contains functions for various mathematical operations like calculating the distance between two points.
+* [**ofUtils**](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
+* [**ofSystemUtils**](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains functions for creating message and file opening and saving dialogs.
 
 These standard `of` abstractions follow the same function names, arguments and return types as the original openFrameworks API so users who have used openFrameworks can easily use them and transfer from one to another when needed. (If you learn ofelia, you can easily learn openFrameworks and vice versa)
 
 There is only one slight difference in function and class names. For example,
 
-* function: `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
-* class: `ofImage` in openFrameworks becomes `of.Image` in ofelia. (notice uppercase `I`)
+* **function**: `ofDrawCircle` in openFrameworks becomes `of.drawCircle` in ofelia.
+* **class**: `ofImage` in openFrameworks becomes `of.Image` in ofelia. (notice uppercase `I`)
 
 The help files for the abstractions currently don't exist but you can learn about them from one of the openFrameworks documentation pages above or you can simply [google](https://www.google.com/) the name of the function to find the page. (e.g. google `ofDrawCircle` to learn about `of.drawCircle` abstraction in ofelia)
 
@@ -65,10 +65,10 @@ You can share the application with a wide range of audiences including non-Pd us
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks. The following tools are used to build ofxOfelia project.
 
-* macOS / iOS : [Xcode](https://developer.apple.com/xcode/).
-* Linux / Raspberry Pi : [Makefile](https://www.gnu.org/software/make/).
-* Windows : [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/).
-* Android : [Android Studio](https://developer.android.com/studio/).
+* **macOS / iOS**: [Xcode](https://developer.apple.com/xcode/).
+* **Linux / Raspberry Pi**: [Makefile](https://www.gnu.org/software/make/).
+* **Windows**: [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/).
+* **Android**: [Android Studio](https://developer.android.com/studio/).
 
 ## Setup guide
 The setup guide and examples for creating standalone project will be ready soon.
