@@ -25,7 +25,7 @@ For patching style, ofelia currently provides over [300 abstactions](https://git
 * [ofUtils](https://openframeworks.cc/documentation/utils/ofUtils/): contains different functions for varied purposes, from string manipulation to time functions.
 * [ofSystemUtils](https://openframeworks.cc/documentation/utils/ofSystemUtils/): contains functions for creating message and file opening and saving dialogs.
 
-The abstractions use the same function names, arguments and return types as the original openFrameworks API so users can easily learn about them and transfer from one to another when needed. (If you learn ofelia, you can easily learn openFrameworks and vice versa)
+These standard `of` abstractions follow the same function names, arguments and return types as the original openFrameworks API so users who used openFrameworks can easily use them and transfer from one to another when needed. (If you learn ofelia, you can easily learn openFrameworks and vice versa)
 
 There is only one slight difference in function and class names. For exmaple,
 
