@@ -84,7 +84,7 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 * [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/MOz3MCIBDzM/).
 * [Mike Moreno](https://github.com/MikeMorenoAudio/): [Paths](https://youtu.be/Si_IbyIvPy4/).
 * [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole).
-* [Virtual Insight](https://gust.com/companies/virtual-insight): [World of Piano](https://www.worldofpiano.net/).
+* [Virtual Insight: World of Piano](https://www.worldofpiano.net/).
 * [The Center for Haptic Audio Interaction Reseach: Instrument development](https://chair.audio/).
 * [POLR Technologies](https://www.facebook.com/polrtech): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
 
