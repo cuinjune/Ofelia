@@ -16,7 +16,7 @@ For patching style, ofelia currently provides over [300 abstactions](https://git
 
 * [ofAppRunner](https://openframeworks.cc/documentation/application/ofAppRunner/): contains functions for getting and setting the properties of the window.
 * [ofBaseApp](https://openframeworks.cc/documentation/application/ofBaseApp/): contains callback functions such as setup, update, draw and keyPressed.
-* [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several functions that can be used to change the state of the graphics pipeline and to quickly draw 2d shapes.
+* [ofGraphics](https://openframeworks.cc/documentation/graphics/ofGraphics/): has several functions to change the state of the graphics pipeline and to quickly draw 2d shapes.
 * [ofImage](https://openframeworks.cc/documentation/graphics/ofImage/): allows to load, save and draw images and do basic transformations on them.
 * [ofTrueTypeFont](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/): can load true type fonts in different formats and draw text using the loaded font.
 * [of3dGraphics](https://openframeworks.cc/documentation/3d/of3dGraphics/): contains some functions to quickly draw commonly used 3d shapes like spheres, cones and boxes.
