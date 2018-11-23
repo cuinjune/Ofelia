@@ -1,4 +1,7 @@
-local window = pd.OFWindow()
+if type(window) ~= "userdata" then
+  window = pd.OFWindow()
+end
+
 local clock = pd.Clock(this, "setup")
 local DV = class()
 function DV:__init(x, y)

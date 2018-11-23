@@ -1,4 +1,7 @@
-local window = pd.OFWindow()
+if type(window) ~= "userdata" then
+  window = pd.OFWindow()
+end
+
 local canvas = pd.Canvas(this)
 local clock = pd.Clock(this, "setup")
 local shaderDir = canvas:getDir() .. "/data/"
@@ -77,5 +80,6 @@ end
 
 function ofelia.exit()
   shader:unload()
+  plane:setUseVbo(false)
   img:clear()
 end
