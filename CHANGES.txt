@@ -1,3 +1,8 @@
+v2.0.3: 23 Nov 2018
+
+* changed window to global variable in single script examples
+* disabled use of vbo for plane on exit in displacementMap example
+
 v2.0.2: 14 Nov 2018
 
 * fixed bind issue on direct mode
