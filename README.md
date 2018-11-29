@@ -5,7 +5,7 @@
 ## Description
 ofelia is a Pd external which allows you to use openFrameworks and Lua within a real-time [visual programming environment](https://en.wikipedia.org/wiki/Visual_programming_language) for creating [audiovisual](https://en.wikipedia.org/wiki/Audiovisual) artwork or [multimedia](https://en.wikipedia.org/wiki/Multimedia) applications such as games.
 
-[openFrameworks](http://openframeworks.cc/)(OF) is an open source C++ toolkit for creative coding.<br />
+[openFrameworks](http://openframeworks.cc/) is an open source C++ toolkit for creative coding.<br />
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, easy-to-learn scripting language.<br />
 [Pure Data](https://puredata.info/)(Pd) is a real-time visual programming language for multimedia.<br />
 
