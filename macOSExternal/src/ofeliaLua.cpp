@@ -21,6 +21,7 @@
 
 #include "ofeliaLua.h"
 #include "ofeliaData.h"
+#include <deque>
 #include <cstring>
 #include <sstream>
 
@@ -307,8 +308,7 @@ void ofeliaLua::outletTable()
     lua_pushnil(L);
     int ac = 0;
     t_atom *av = static_cast<t_atom *>(getbytes(sizeof(t_atom) * ac));
-    int userDataRef[OFELIA_USERDATAREF_SIZE];
-    std::fill_n(userDataRef, OFELIA_USERDATAREF_SIZE, LUA_NOREF);
+    std::deque<int> userDataRef;
     while (lua_next(L, -2))
     {
         av = static_cast<t_atom *>(resizebytes(av, sizeof(t_atom) * ac,
@@ -334,8 +334,8 @@ void ofeliaLua::outletTable()
         else if (lua_isuserdata(L, -1))
         {
             av[ac].a_type = A_POINTER;
-            userDataRef[ac] = luaL_ref(L, LUA_REGISTRYINDEX);
-            av[ac].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef[ac]);
+            userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+            av[ac].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back());
         }
         ac++;
     }
@@ -351,21 +351,13 @@ void ofeliaLua::outletTable()
             else if (av[i].a_type == A_SYMBOL)
                 outlet_symbol(io.outlets[i], av[i].a_w.w_symbol);
             else if (av[i].a_type == A_POINTER)
-            {
                 outlet_pointer(io.outlets[i], av[i].a_w.w_gpointer);
-                luaL_unref(L, LUA_REGISTRYINDEX, userDataRef[i]);
-            }
         }
     }
     else
-    {
         outlet_list(dataPtr->ob.ob_outlet, &s_list, ac, av);
-        for (int i = 0; i < ac; ++i)
-        {
-            if (userDataRef[i] != LUA_NOREF)
-                luaL_unref(L, LUA_REGISTRYINDEX, userDataRef[i]);
-        }
-    }
+    for (const int i : userDataRef)
+        luaL_unref(L, LUA_REGISTRYINDEX, i);
     freebytes(av, sizeof(t_atom) * ac);
 }
 

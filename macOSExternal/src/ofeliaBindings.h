@@ -945,9 +945,9 @@ public:
         t_garray *a; int size; t_word *vec;
         if (exists(&a) && getData(a, &size, &vec))
         {
-            garray_resize_long(a, long(n));
             for (int i = 0; i < n; ++i)
                 vec[i].w_float = f[i];
+            garray_resize_long(a, long(n));
             garray_redraw(a);
         }
     }

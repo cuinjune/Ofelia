@@ -1,3 +1,7 @@
+/* terminal command to generate .cpp wrapper
+swig -c++ -lua -fcompact -fvirtual -I../../../libs/openFrameworks ofeliaBindings.i && mv ofeliaBindings_wrap.cxx ofeliaBindings.cpp
+*/
+
 %module pd
 %{
     #include "ofeliaBindings.h"
@@ -71,13 +75,17 @@ static void lua_len(lua_State *L, int i)
     $1 = static_cast<lua_Integer>(lua_tointeger(L, -1));
     if (!$1) SWIG_exception(SWIG_RuntimeError, "table is empty");
     $2 = static_cast<t_atom *>(getbytes($1 * sizeof(t_atom)));
-    int userDataRef[OFELIA_USERDATAREF_SIZE];
-    std::fill_n(userDataRef, OFELIA_USERDATAREF_SIZE, LUA_NOREF);
+    std::deque<int> userDataRef;
     for (int i = 0; i < $1; ++i) 
     {
         lua_pushinteger(L, i + 1);
         lua_gettable(L, $input);
-	if (lua_isnumber(L, -1)) 
+        if (lua_isboolean(L, -1)) 
+        {
+	    $2[i].a_type = A_FLOAT;
+	    $2[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1));
+        }  
+	else if (lua_isnumber(L, -1)) 
         {
 	    $2[i].a_type = A_FLOAT;
 	    $2[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1));
@@ -90,14 +98,16 @@ static void lua_len(lua_State *L, int i)
         else if (lua_isuserdata(L, -1)) 
         {
 	    $2[i].a_type = A_POINTER;
-	    userDataRef[i] = luaL_ref(L, LUA_REGISTRYINDEX);
-            $2[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef[i]);
+	    userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+            $2[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back());
         }
 	else 
         {
 	    SWIG_exception(SWIG_RuntimeError, "unhandled argument type");
         }
     }
+    for (const int i : userDataRef)
+        luaL_unref(L, LUA_REGISTRYINDEX, i);
 }
 %typemap(freearg) (int argc, t_atom *argv) 
 {
@@ -278,7 +288,7 @@ static void lua_len(lua_State *L, int i)
     $1 = static_cast<lua_Integer>(lua_tointeger(L, -1));
     if (!$1) SWIG_exception(SWIG_RuntimeError, "table is empty");
     $2 = static_cast<t_float *>(getbytes($1 * sizeof(t_float)));
-    for (int i = 0; i < $1; ++i) 
+    for (int i = 0; i < $1; ++i)
     {
         lua_pushinteger(L, i + 1);
         lua_gettable(L, $input);
