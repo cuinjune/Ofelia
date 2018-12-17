@@ -28,6 +28,8 @@
 #include "g_canvas.h"
 #include "lua.hpp"
 
+#define OFELIA_USERDATAREF_SIZE 1000 /* maximum table size that can handle userdata */
+
 extern "C"
 {
     class ofeliaData;

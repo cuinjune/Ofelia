@@ -38,8 +38,8 @@ void ofelia_setup()
     
     /* print version info if loaded successfully */
     post("-------------------------------------------------------------------");
-    post("ofelia v%d.%d : compiled on %s",
-         OFELIA_MAJOR_VERSION, OFELIA_MINOR_VERSION, __DATE__);
+    post("ofelia v%d.%d.%d : compiled on %s",
+         OFELIA_MAJOR_VERSION, OFELIA_MINOR_VERSION, OFELIA_BUGFIX_VERSION, __DATE__);
     post("(c) 2018 Zack Lee <cuinjune@gmail.com>");
     post("-------------------------------------------------------------------");
 }
