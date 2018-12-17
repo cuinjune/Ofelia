@@ -1,3 +1,7 @@
+v2.0.4: 17 Dec 2018
+
+* fixed crash issue when outputting large sized table through outlet
+
 v2.0.3: 23 Nov 2018
 
 * changed window to global variable in single script examples
