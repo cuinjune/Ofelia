@@ -4002,23 +4002,24 @@ static int _wrap_Array_setAt(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Ar
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Array,0))){ SWIG_fail_ptr("Array_setAt",1,SWIGTYPE_p_Array); } 
   arg2 = (int)lua_tonumber(L, 2); { arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  (arg1)->setAt(arg2,arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_Array_getTable(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Array *) 0 ; t_word **arg2 = (t_word **) 0 ;
-  int *arg3 = (int *) 0 ; t_word *tmp2 = nullptr ; int tsize2 = 0 ; arg2 = &tmp2; arg3 = &tsize2;
-  SWIG_check_num_args("Array::getTable",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Array::getTable",1,"Array *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Array,0))){ SWIG_fail_ptr("Array_getTable",1,SWIGTYPE_p_Array); } 
-  (arg1)->getTable(arg2,arg3); { lua_newtable(L); for (int i = 0; i < *arg3; ++i) {
+static int _wrap_Array_get(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Array *) 0 ; t_word **arg2 = (t_word **) 0 ;
+  int *arg3 = (int *) 0 ; int arg4 ; t_word *tmp2 = nullptr ; int tsize2 = 0 ; arg2 = &tmp2; arg3 = &tsize2;
+  SWIG_check_num_args("Array::get",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Array::get",1,"Array *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("Array::get",2,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Array,0))){ SWIG_fail_ptr("Array_get",1,SWIGTYPE_p_Array); } 
+  arg4 = (int)lua_tonumber(L, 2); (arg1)->get(arg2,arg3,arg4); { lua_newtable(L); for (int i = 0; i < *arg3; ++i) {
       lua_pushnumber(L, static_cast<lua_Number>((*arg2)[i].w_float)); lua_rawseti(L, -2, i + 1); }  SWIG_arg++; } 
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_Array_setTable(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Array *) 0 ; int arg2 ;
-  t_floatarg *arg3 = (t_floatarg *) 0 ; SWIG_check_num_args("Array::setTable",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Array::setTable",1,"Array *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Array,0))){ SWIG_fail_ptr("Array_setTable",1,SWIGTYPE_p_Array); } 
-  { if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
+static int _wrap_Array_set(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Array *) 0 ; int arg2 ;
+  t_floatarg *arg3 = (t_floatarg *) 0 ; int arg4 ; SWIG_check_num_args("Array::set",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Array::set",1,"Array *"); if(!lua_isnumber(L,3)) SWIG_fail_arg("Array::set",3,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Array,0))){ SWIG_fail_ptr("Array_set",1,SWIGTYPE_p_Array); }  {
+    if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
     arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
     arg3 = static_cast<t_float *>(getbytes(arg2 * sizeof(t_float))); for (int i = 0; i < arg2; ++i) { lua_pushinteger(L, i + 1);
       lua_gettable(L, 2); if (lua_isnumber(L, -1)) arg3[i] = static_cast<t_float>(lua_tonumber(L, -1));        else
-      SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  (arg1)->setTable(arg2,arg3); {
-    freebytes(arg3, arg2 * sizeof(t_float)); }  return SWIG_arg; if(0) SWIG_fail; fail: {
+      SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  arg4 = (int)lua_tonumber(L, 3);
+  (arg1)->set(arg2,arg3,arg4); { freebytes(arg3, arg2 * sizeof(t_float)); }  return SWIG_arg; if(0) SWIG_fail; fail: {
     freebytes(arg3, arg2 * sizeof(t_float)); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Array_getSize(lua_State* L) { int SWIG_arg = 0; Array *arg1 = (Array *) 0 ; int result;
   SWIG_check_num_args("Array::getSize",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Array::getSize",1,"Array *");
@@ -4050,8 +4051,8 @@ static swig_lua_method swig_Array_methods[]= {
     { "exists", _wrap_Array_exists},
     { "getAt", _wrap_Array_getAt},
     { "setAt", _wrap_Array_setAt},
-    { "getTable", _wrap_Array_getTable},
-    { "setTable", _wrap_Array_setTable},
+    { "get", _wrap_Array_get},
+    { "set", _wrap_Array_set},
     { "getSize", _wrap_Array_getSize},
     { "setSize", _wrap_Array_setSize},
     {0,0}

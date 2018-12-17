@@ -1,8 +1,11 @@
 v2.0.4: 17 Dec 2018
 
-* fixed setTable method from Array class not working on Windows
-* fixed crash issue when outputting large sized table through outlet
+* fixed Array:setTable() bug on Windows
+* renamed Array:getTable() and Array:setTable() to Array:get() and Array:set()
+* added additional argument to Array:get() and Array:set() to set onset value
+* fixed crashing issue when returning a large sized table as a list
 * disabled printing the bug fix version on the pd console
+* added "examples/pd/misc" example to show various pd objects emulation
 
 v2.0.3: 23 Nov 2018
 

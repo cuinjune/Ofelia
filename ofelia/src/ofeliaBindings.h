@@ -931,23 +931,28 @@ public:
             garray_redraw(a);
         }
     }
-    void getTable(t_word **vecp, int *sizep)
+    void get(t_word **vecp, int *sizep, int onset)
     {
         t_garray *a; int size; t_word *vec;
         if (exists(&a) && getData(a, &size, &vec))
         {
-            *vecp = vec;
-            *sizep = size;
+            if (onset < 0) onset = 0;
+            *vecp = vec + onset;
+            *sizep = size - onset;
         }
     }
-    void setTable(int n, t_floatarg *f)
+    void set(int n, t_floatarg *f, int onset)
     {
         t_garray *a; int size; t_word *vec;
         if (exists(&a) && getData(a, &size, &vec))
         {
+            if (onset < 0) onset = 0;
             for (int i = 0; i < n; ++i)
-                vec[i].w_float = f[i];
-            garray_resize_long(a, long(n));
+            {
+                int io = i + onset;
+                if (io < size) vec[io].w_float = f[i];
+                else break;
+            }
             garray_redraw(a);
         }
     }

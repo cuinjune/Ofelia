@@ -261,7 +261,7 @@ static void lua_len(lua_State *L, int i)
     freebytes(*$1, 2 * sizeof(int));
 }
 
-/* used for Array:getTable() */
+/* used for Array:get() */
 %typemap(in, numinputs = 0) (t_word **vecp, int *sizep) 
 (t_word *tmp = nullptr, int tsize = 0) 
 %{
@@ -279,7 +279,7 @@ static void lua_len(lua_State *L, int i)
     SWIG_arg++;
 }
 
-/* used for Inlet:setFloatInlets() and Array:setTable() */
+/* used for Inlet:setFloatInlets() and Array:set() */
 %typemap(in) (int n, t_floatarg *f)
 {
     if (!lua_istable(L, $input))
