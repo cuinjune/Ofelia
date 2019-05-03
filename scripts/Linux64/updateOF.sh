@@ -5,15 +5,8 @@ ofPath=`cd "../../../.."; pwd`
 
 # paths to be updated
 paths=(
-"${ofPath}/libs/fmodex"
-"${ofPath}/libs/glm"
-"${ofPath}/libs/json"
 "${ofPath}/libs/kiss"
-"${ofPath}/libs/libxml2"
-"${ofPath}/libs/poco"
-"${ofPath}/libs/svgtiny"
 "${ofPath}/libs/tess2"
-"${ofPath}/libs/utf8"
 "${ofPath}/libs/openFrameworksCompiled/project/linux64/config.linux64.default.mk"
 )
 
@@ -21,7 +14,7 @@ paths=(
 if [ $(uname -m) == 'x86_64' ]; then
 startIndex=0
 else
-startIndex=10
+startIndex=3
 fi
 
 # number of paths

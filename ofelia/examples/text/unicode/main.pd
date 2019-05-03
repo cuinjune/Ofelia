@@ -1,0 +1,50 @@
+#N canvas 720 81 665 741 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 28 112 of.Window;
+#X obj 28 70 loadbang;
+#X obj 28 148 of.setup;
+#X obj 28 169 of.setBackgroundColor 0;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 462 50 declare -path ofelia/libs/pd;
+#X msg 28 91 setPosition 30 100 \, setSize 640 400 \, create;
+#X obj 28 211 pd.Canvas;
+#X msg 28 190 getDir;
+#X obj 28 253 of.setDataPathRoot;
+#X msg 28 232 newRoot \$1/data \, bang;
+#X text 148 253 Set the new root path to the data folder.;
+#X obj 28 274 of.TrueTypeFont;
+#X obj 28 536 of.draw;
+#X text 115 558 Sets the font to draw.;
+#X obj 50 557 r \$0-font;
+#X msg 28 295 font \$1;
+#X obj 28 316 s \$0-font;
+#X obj 28 337 r \$0-font;
+#X obj 28 358 t b a;
+#X obj 28 379 ofelia d \; local font = nil \; function ofelia.font(p)
+\; font = p \; end \; function ofelia.bang() \; local settings = of.TrueTypeFontSettings("gungsuh.ttf"
+\, 30) \; settings:addRange(of.Unicode.HangulSyllables) \; if font
+~= nil then \; font:load(settings) \; end \; end \;;
+#X f 63;
+#X obj 28 578 ofelia d \; local font = nil \; function ofelia.font(p)
+\; font = p \; end \; function ofelia.bang() \; of.setColor(255 \,
+255 \, 255) \; if font ~= nil then \; font:drawString("안녕하세요"
+\, 200 \, 200) \; end \; end \;;
+#X f 40;
+#X text 25 23 This example shows loading and drawing a unicode text
+to the screen.;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 6 0 0 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 16 0;
+#X connect 13 0 21 0;
+#X connect 15 0 21 0;
+#X connect 16 0 17 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 19 1 20 0;

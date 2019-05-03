@@ -1,3 +1,9 @@
+v2.1.0: 2 May 2019
+
+* rebuilt using openFrameworks 0.10.1
+* enabled ofUnicode, ofAlphabet and ofTrueTypeFontSettings classes
+* added "examples/text/unicode" example
+
 v2.0.4: 17 Dec 2018
 
 * fixed Array:setTable() bug on Windows
