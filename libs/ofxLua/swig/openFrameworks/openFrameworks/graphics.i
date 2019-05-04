@@ -201,23 +201,76 @@ void ofDrawBitmapString(const std::string & textString, float x, float y, float 
 //         ignore internal font structs
 %ignore FT_Face;
 
-// DIFF:   ignoring ofUnicode and ofAlphabet
-//%ignore ofUnicode;
-//%ignore ofAlphabet;
-//%ignore ofUnicode::range; // nested struct
+// strip "of" from following ofAlphabet enums
+#ifdef OF_SWIG_RENAME
+	%rename("%(regex:/of(Alphabet.*)/\\1/)s", %$isenumitem) "";
+#endif
+
+// replace std::initializer with an enum that SWIG understands
+%inline %{
+	enum ofAlphabetEnum : int {
+		ofAlphabet_Emoji,
+		ofAlphabet_Japanese,
+		ofAlphabet_Chinese,
+		ofAlphabet_Korean,
+		ofAlphabet_Arabic,
+		ofAlphabet_Devanagari,
+		ofAlphabet_Latin,
+		ofAlphabet_Greek,
+		ofAlphabet_Cyrillic
+	};
+%}
+%ignore ofAlphabet;
+
+// ignore ofUnicode::range nested struct warning
+%warnfilter(325) ofUnicode::range;
 
 // DIFF:   ignoring ofTrueTypeShutdown() & ofExitCallback() friend
 %ignore ofTrueTypeShutdown;
 %ignore ofExitCallback;
 
+// ignore std::initializer
+%ignore ofTrueTypeFontSettings::addRanges(std::initializer_list<ofUnicode::range>);
+
+// DIFF:   replaced ofAlphabet static instances with afAlphabet_ enums
+%extend ofTrueTypeFontSettings {
+	void addRanges(ofAlphabetEnum alphabet) {
+		switch(alphabet) {
+			case ofAlphabet_Emoji:
+				$self->addRanges(ofAlphabet::Emoji);
+				break;
+			case ofAlphabet_Japanese:
+				$self->addRanges(ofAlphabet::Japanese);
+				break;
+			case ofAlphabet_Chinese:
+				$self->addRanges(ofAlphabet::Chinese);
+				break;
+			case ofAlphabet_Korean:
+				$self->addRanges(ofAlphabet::Korean);
+				break;
+			case ofAlphabet_Arabic:
+				$self->addRanges(ofAlphabet::Arabic);
+				break;
+			case ofAlphabet_Devanagari:
+				$self->addRanges(ofAlphabet::Devanagari);
+				break;
+			case ofAlphabet_Latin:
+				$self->addRanges(ofAlphabet::Latin);
+				break;
+			case ofAlphabet_Greek:
+				$self->addRanges(ofAlphabet::Greek);
+				break;
+			case ofAlphabet_Cyrillic:
+				$self->addRanges(ofAlphabet::Cyrillic);
+				break;
+			default:
+				break;
+		}
+	}
+}
+
 // DIFF:   ignoring const & copy constructor in favor of && constructor
 %ignore ofTrueTypeFont::ofTrueTypeFont(ofTrueTypeFont const &);
-
-// DIFF:   ignoring ofTrueTypeFontSettings struct
-//%ignore ofTrueTypeFontSettings;
-//%ignore ofTrueTypeFont::Settings;
-//%ignore ofTrueTypeFont::load(const ofTrueTypeFontSettings &);
-//%ignore ofTrueTypeFont::setDirection(ofTrueTypeFontDirection);
 
 // DIFF:   ignoring protected structs
 %ignore ofTrueTypeFont::range;
