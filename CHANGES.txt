@@ -1,6 +1,7 @@
-v2.1.0: 2 May 2019
+v2.1.0: 6 May 2019
 
 * rebuilt using openFrameworks 0.10.1
+* fixed ofelia get/set issue with inlets
 * enabled ofUnicode, ofAlphabet and ofTrueTypeFontSettings classes
 * added "examples/text/unicode" example
 
