@@ -92,6 +92,21 @@ void ofeliaClient::pointerMethod(t_gpointer *p)
 void ofeliaClient::listMethod(t_symbol *s, int argc, t_atom *argv)
 {
     if (!isDataValid()) return;
+    if (!argc)
+    {
+        bangMethod();
+        return;
+    }
+    if (argc == 1)
+    {
+        if (argv->a_type == A_FLOAT)
+            floatMethod(argv->a_w.w_float);
+        else if (argv->a_type == A_SYMBOL)
+            symbolMethod(argv->a_w.w_symbol);
+        else if (argv->a_type == A_POINTER)
+            pointerMethod(argv->a_w.w_gpointer);
+        return;
+    }
     if (data.io.hasMultiControlInlets)
     {
         int ac = data.io.numInlets + argc - 1;

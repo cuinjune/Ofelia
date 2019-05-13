@@ -1,8 +1,9 @@
-v2.1.0: 6 May 2019
+v2.1.0: 13 May 2019
 
 * rebuilt using openFrameworks 0.10.1
 * fixed ofelia get/set issue with inlets
-* enabled ofUnicode, ofAlphabet and ofTrueTypeFontSettings classes
+* fixed handling of list with 0 or 1 argument 
+* enabled ofUnicode, ofAlphabet and ofTrueTypeFontSettings classes in swig
 * added "examples/text/unicode" example
 
 v2.0.4: 17 Dec 2018
