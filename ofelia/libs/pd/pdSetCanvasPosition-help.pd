@@ -1,0 +1,56 @@
+#N canvas 321 23 598 519 10;
+#X declare -path ofelia/libs/pd;
+#X obj 0 0 cnv 15 580 40 empty empty pdSetCanvasPosition 3 12 0 18
+-204280 -1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 377 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 462 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 413 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 436 1) float;
+#X text 211 436 - the 'n'th level. (default: 0);
+#X text 11 23 set the arguments of the canvas;
+#X text 95 349 list;
+#X obj 408 46 declare -path ofelia/libs/pd;
+#X obj 75 385 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 385 bang;
+#X obj 457 5 pdSetCanvasPosition;
+#X text 21 43 [pdSetCanvasPosition] is used to set the position of
+the current or the parent canvas. for example \, if you use [pdSetCanvasPosition]
+in an abstraction \, you can change the abstraction's position.;
+#X obj 115 148 pdSetCanvasPosition;
+#X text 171 123 set the position of the object.;
+#X obj 115 216 pdSetCanvasPosition 1;
+#X text 168 191 set the position of the parent patch. (if it exists)
+;
+#N canvas 322 142 450 300 myCanvas 0;
+#X obj 182 83 inlet;
+#X obj 182 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 182 184 unpack f f;
+#X floatatom 182 205 5 0 0 0 - - -;
+#X floatatom 239 205 5 0 0 0 - - -;
+#X obj 182 106 pdSetCanvasPosition 1;
+#X obj 182 163 pdGetCanvasPosition 1;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 6 0 2 0;
+#X restore 115 286 pd myCanvas;
+#X text 172 260 set the position of the subpatch. (including the name)
+;
+#X text 211 349 - sets the position of the canvas.;
+#X text 211 385 - outputs bang after setting the position.;
+#X msg 115 123 20 150;
+#X msg 115 191 20 220;
+#X msg 115 261 20 290;
+#X connect 23 0 15 0;
+#X connect 24 0 17 0;
+#X connect 25 0 19 0;

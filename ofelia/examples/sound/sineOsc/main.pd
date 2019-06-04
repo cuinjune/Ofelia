@@ -1,22 +1,15 @@
-#N canvas 720 100 674 536 10;
-#X obj 27 459 dac~;
+#N canvas 720 100 674 583 10;
+#X declare -path ofelia/libs/pd;
+#X obj 27 448 dac~;
 #X obj 27 124 sig~ 440;
 #X floatatom 27 104 5 0 0 0 - - -;
 #X msg 251 124 phase \$1;
 #X msg 251 103 0;
 #X msg 281 103 0.5;
-#X obj 27 433 *~ 0.1;
+#X obj 27 422 *~ 0.1;
 #X text 314 104 Sets the phase.;
 #X text 64 104 Sets the frequency.;
 #X floatatom 42 145 5 0 0 0 - - -;
-#X obj 27 170 ofelia d -s11 440 \; local inlet = pd.Inlet(this) \;
-local sig = pd.Signal() \; local twopi = math.pi * 2 \; local phase
-= 0 \; function ofelia.float(f) \; inlet:setSignalInlet(f) \; end \;
-function ofelia.phase(f) \; phase = f \; end \; function ofelia.perform(v)
-\; local freq = v[1] \; local step = 1 / (sig:getSampleRate() / freq)
-\; for i=1 \, #v do \; v[i] = math.sin(phase * twopi) \; if (phase
->= 1) then \; phase = phase - 1 \; end \; phase = phase + step \; end
-\; return v \; end \;;
 #X text 312 169 An optional argument can be used to set initial value
 for the main signal inlet.;
 #X text 25 23 This example shows how to create a simple Sine Wave Oscillator.
@@ -24,18 +17,32 @@ The "-s11" flag creates 1 signal inlet and 1 signal outlet. ofelia.perform()
 function is called at each DSP-cycle. The function takes input audio
 buffer as a table parameter and returns a table for output audio buffer.
 ;
-#X text 312 292 ofelia.perform() takes 1 table parameter since the
-object has 1 signal inlet.;
-#X text 312 398 ofelia.perform() returns 1 table since the object has
-1 signal outlet.;
 #X text 79 145 It also accepts float value. (while signal is not connected)
 ;
-#X connect 1 0 10 0;
+#X text 312 283 ofelia.perform() takes 1 sample table parameter since
+the object has 1 signal inlet.;
+#X text 312 388 ofelia.perform() returns 1 sample table since the object
+has 1 signal outlet.;
+#X obj 27 170 ofelia d -s11 440 \; local inlet = pdInlet(this) \; local
+sig = pdSignal() \; local phase = 0 \; function ofelia.float(f) \;
+inlet:setSignalInlet(f) \; end \; function ofelia.phase(f) \; phase
+= f \; end \; function ofelia.perform(s1) \; local freq = s1[1] \;
+local step = 1 / (sig:getSampleRate() / freq) \; for i=1 \, #s1 do
+\; s1[i] = math.sin(phase * TWO_PI) \; if (phase >= 1) then \; phase
+= phase - 1 \; end \; phase = phase + step \; end \; return s1 \; end
+\;;
+#X text 163 493 <- Right click and see the help file.;
+#X text 103 440 This object works identically as the [pdSine~] abstraction
+which uses the built-in pdOsc() class allowing users to use various
+types of oscillators.;
+#X obj 106 493 pdSine~;
+#X obj 478 21 declare -path ofelia/libs/pd;
+#X connect 1 0 15 0;
 #X connect 2 0 1 0;
-#X connect 3 0 10 0;
+#X connect 3 0 15 0;
 #X connect 4 0 3 0;
 #X connect 5 0 3 0;
 #X connect 6 0 0 0;
 #X connect 6 0 0 1;
-#X connect 9 0 10 0;
-#X connect 10 0 6 0;
+#X connect 9 0 15 0;
+#X connect 15 0 6 0;

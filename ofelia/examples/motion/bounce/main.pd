@@ -1,40 +1,49 @@
-#N canvas 720 100 665 643 10;
+#N canvas 720 100 665 626 10;
 #X declare -path ofelia/libs/of;
-#X obj 28 114 of.Window;
 #X obj 28 72 loadbang;
-#X obj 28 150 of.setup;
 #X obj 462 29 declare -path ofelia/libs/of;
-#X msg 28 93 setPosition 30 100 \, setSize 640 400 \, create;
-#X obj 28 228 of.draw;
 #X text 25 23 When the shape hits the edge of the window \, it reverses
 its direction.;
-#X obj 28 171 of.background 102;
-#X obj 28 192 of.setCircleResolution 50;
-#X msg 45 274 rad \$1;
-#X floatatom 45 254 5 0 0 0 - - -;
-#X floatatom 97 254 5 0 0 0 - - -;
-#X msg 97 274 xspeed \$1;
-#X floatatom 167 254 5 0 0 0 - - -;
-#X msg 167 274 yspeed \$1;
-#X text 215 253 Try changing these values.;
-#X obj 28 319 ofelia d \; \; local a = ofelia \; a.rad = 60 \; a.xpos
-\, a.ypos = 320 \, 200 \; a.xspeed \, a.yspeed = 2.8 \, 2.2 \; a.xdirection
-\, a.ydirection = 1 \, 1 \; \; function ofelia.bang() \; a.xpos = a.xpos
-+ (a.xspeed * a.xdirection) \; a.ypos = a.ypos + (a.yspeed * a.ydirection)
-\; \; if a.xpos > of.getWidth()-a.rad or a.xpos < a.rad then \; a.xdirection
-= a.xdirection * -1 \; end \; if a.ypos > of.getHeight()-a.rad or a.ypos
-< a.rad then \; a.ydirection = a.ydirection * -1 \; end \; \; of.drawCircle(a.xpos
-\, a.ypos \, a.rad) \; end \;;
-#X text 325 576 This example was originally written in Processing.
+#X text 325 534 This example was originally written in Processing.
 https://processing.org/examples/bounce.html;
-#X connect 1 0 4 0;
-#X connect 2 0 7 0;
-#X connect 4 0 0 0;
-#X connect 5 0 16 0;
-#X connect 7 0 8 0;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 171 ofBackground 102;
+#X obj 28 192 ofSetCircleResolution 50;
+#X obj 28 354 ofDraw;
+#X floatatom 59 218 5 0 0 0 - - -;
+#X floatatom 148 218 5 0 0 0 - - -;
+#X text 185 218 xspeed;
+#X text 96 218 radius;
+#X floatatom 239 218 5 0 0 0 - - -;
+#X text 276 218 yspeed;
+#X text 244 283 Variables used.;
+#X msg 59 238 rad \$1;
+#X msg 148 238 xspeed \$1;
+#X msg 239 238 yspeed \$1;
+#X obj 28 396 ofelia f \; a.xpos = a.xpos + (a.xspeed * a.xdirection)
+\; a.ypos = a.ypos + (a.yspeed * a.ydirection) \; if a.xpos > ofGetWidth()
+- a.rad or a.xpos < a.rad then \; a.xdirection = a.xdirection * -1
+\; end \; if a.ypos > ofGetHeight()- a.rad or a.ypos < a.rad then \;
+a.ydirection = a.ydirection * -1 \; end \; ofDrawCircle(a.xpos \, a.ypos
+\, a.rad) \;;
+#X obj 28 375 ofGetPtr \$0-vars;
+#X text 134 375 Get a pointer to the variable module.;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 274 ofelia f \$0-vars \; M.rad = 60 \; M.xspeed \, M.yspeed
+= 2.8 \, 2.2 \; M.xpos \, M.ypos = 320 \, 200 \; M.xdirection \, M.ydirection
+= 1 \, 1 \;;
+#X text 242 299 "M" is an alias of the module table "ofelia".;
+#X connect 0 0 22 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 23 0;
+#X connect 8 0 20 0;
 #X connect 9 0 16 0;
-#X connect 10 0 9 0;
-#X connect 11 0 12 0;
-#X connect 12 0 16 0;
-#X connect 13 0 14 0;
-#X connect 14 0 16 0;
+#X connect 10 0 17 0;
+#X connect 13 0 18 0;
+#X connect 16 0 23 0;
+#X connect 17 0 23 0;
+#X connect 18 0 23 0;
+#X connect 20 0 19 0;
+#X connect 22 0 4 0;

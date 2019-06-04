@@ -1,11 +1,11 @@
-#N canvas 66 53 636 596 10;
+#N canvas 66 53 636 544 10;
 #N canvas 710 53 719 716 define 0;
 #X msg 28 76 clear;
 #X msg 49 352 click;
 #X msg 97 352 close;
 #X obj 28 415 ofelia define -k \$0-test;
-#A set ofelia.myBoolean = true \; ofelia.myNumber = 42 \; ofelia.myString
-= "Foo" \; ofelia.myTable = {1 \, 2 \, 3 \, 4} \; \; function ofelia.myFunction(f)
+#A set M.myBoolean = true \; M.myNumber = 42 \; M.myString = "Foo"
+\; M.myTable = {1 \, 2 \, 3 \, 4} \; \; function ofelia.myFunction(f)
 \; return f * 2 \; end;
 #X msg 38 200 myBoolean \$1;
 #X obj 38 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -15,8 +15,6 @@
 #X msg 68 298 myTable 5 6 7 8 nine;
 #X obj 28 552 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 28 572 ofelia define \; function ofelia.bang() \; local a =
-require("\$0-test") \; return a.myNumber \; end \;;
 #X msg 78 324 myFunction 3;
 #X msg 58 272 myString apple;
 #X obj 28 436 print Result;
@@ -56,23 +54,25 @@ functions in the script.;
 #X text 72 76 Clear the script.;
 #X msg 28 102 clear \, set print("Hello World");
 #X text 230 102 Clear and dynamically set the script.;
+#X obj 28 572 ofelia define \; function ofelia.bang() \; local m =
+require("\$0-test") \; return m.myNumber \; end \;;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 3 0;
-#X connect 3 0 13 0;
+#X connect 3 0 12 0;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
 #X connect 6 0 3 0;
 #X connect 7 0 6 0;
 #X connect 8 0 3 0;
-#X connect 9 0 10 0;
-#X connect 10 0 14 0;
+#X connect 9 0 39 0;
+#X connect 10 0 3 0;
 #X connect 11 0 3 0;
-#X connect 12 0 3 0;
+#X connect 34 0 3 0;
 #X connect 35 0 3 0;
-#X connect 36 0 3 0;
-#X connect 38 0 3 0;
-#X restore 462 277 pd define;
+#X connect 37 0 3 0;
+#X connect 39 0 13 0;
+#X restore 462 197 pd define;
 #N canvas 711 53 702 595 get 0;
 #X obj 28 247 ofelia get \$0-test;
 #X msg 28 86 myBoolean;
@@ -100,18 +100,18 @@ inlets and outlets. (e.g. -s21: 2 inlets and 1 outlet);
 #X connect 4 0 0 0;
 #X connect 5 0 0 0;
 #X connect 7 0 0 1;
-#X restore 462 303 pd get;
+#X restore 462 249 pd get;
 #X obj 18 16 ofelia;
-#X obj 250 277 ofelia define;
-#X obj 250 303 ofelia get;
-#X obj 250 329 ofelia set;
-#X obj 250 355 ofelia exists;
-#X text 61 233 The ofelia object's first argument sets its function:
+#X obj 250 197 ofelia define;
+#X obj 250 249 ofelia get;
+#X obj 250 275 ofelia set;
+#X obj 250 301 ofelia exists;
+#X text 61 153 The ofelia object's first argument sets its function:
 , f 30;
-#X text 340 276 or;
-#X obj 361 277 ofelia d;
-#X text 339 354 or;
-#X obj 360 355 ofelia e;
+#X text 340 196 or;
+#X obj 361 197 ofelia d;
+#X text 339 300 or;
+#X obj 360 301 ofelia e;
 #N canvas 711 53 702 595 set 0;
 #X msg 28 104 myBoolean \$1;
 #X obj 28 84 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
@@ -149,7 +149,7 @@ inlets and outlets. (e.g. -s21: 2 inlets and 1 outlet);
 #X connect 7 0 5 0;
 #X connect 8 0 5 0;
 #X connect 9 0 5 0;
-#X restore 462 329 pd set;
+#X restore 462 275 pd set;
 #N canvas 711 53 702 595 exists 0;
 #X msg 151 226 symbol foo;
 #X obj 28 247 ofelia exists \$0-test;
@@ -163,19 +163,15 @@ a named define object.;
 #X connect 0 0 1 1;
 #X connect 1 0 2 0;
 #X connect 4 0 1 0;
-#X restore 462 355 pd exists;
-#X text 37 276 Create \, store \, edit lua script.;
-#X text 61 302 Get the value of variables.;
-#X text 61 328 Set the value of variables.;
-#X text 7 355 Check the existence of named object.;
-#X text 461 236 (Click for details), f 11;
+#X restore 462 301 pd exists;
+#X text 61 248 Get the value of variables.;
+#X text 61 274 Set the value of variables.;
+#X text 7 301 Check the existence of named object.;
+#X text 461 156 (Click for details), f 11;
 #X text 63 16 - run a lua script.;
 #X text 62 100 Besides the lua language \, ofelia provides "of" module
 which is the bindings for the openFrameworks API. And "pd" module which
 has some useful pd related classes.;
-#X text 62 150 For now \, please visit "https://github.com/danomatika/ofxLua"
-to learn about "of" module. And check "src/ofeliaBindings.h" to see
-classes and functions used in "pd" module.;
 #X text 62 50 "ofelia" object can be used to execute a lua script which
 consists of variables and functions that can be set or called by sending
 messages to the object.;
@@ -201,8 +197,8 @@ them in the function.;
 #X text 195 261 Built-in functions:;
 #X text 29 261 Custom functions:;
 #X text 459 695 ofelia.pointer() function is used for accepting userdata.
-(e.g. of.Color());
-#X obj 296 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+(e.g. ofColor());
+#X obj 296 324 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 196 407 ofelia d \; function ofelia.new() \; end \; \; function
 ofelia.free() \; end \; \; function ofelia.bang() \; print("got bang")
@@ -212,8 +208,6 @@ ofelia.free() \; end \; \; function ofelia.bang() \; print("got bang")
 \; print("got list : " .. v[i]) \; end \; end \; \; function ofelia.pointer(p)
 \; print("got pointer : " .. p.r \, p.g \, p.b) \; end \;;
 #X f 42;
-#X obj 296 341 ofelia d \; function ofelia.bang() \; return of.Color(255
-\, 200 \, 10) \; end \;;
 #X text 32 29 You can create custom functions by writing "function
 ofelia.name()". Functions can take one argument which can be number(float)
 \, string(symbol) \, table(list) and userdate(pointer). You can check
@@ -231,6 +225,7 @@ the type of an argument inside a function if necessary.;
 \, "notify" \, "set" \, "clear" \, "write" and "read" as the name of
 your custom function since these methods are reserved by "ofelia define"
 object so the functions cannot be called by message.;
+#X obj 296 344 ofelia f \; return ofColor(255 \, 200 \, 10) \;;
 #X connect 1 0 4 0;
 #X connect 2 0 4 0;
 #X connect 3 0 4 0;
@@ -240,14 +235,14 @@ object so the functions cannot be called by message.;
 #X connect 7 0 17 0;
 #X connect 8 0 17 0;
 #X connect 9 0 17 0;
-#X connect 16 0 18 0;
+#X connect 16 0 27 0;
 #X connect 17 0 11 0;
-#X connect 18 0 17 0;
-#X connect 21 0 20 0;
-#X connect 22 0 20 0;
-#X connect 23 0 20 0;
-#X connect 24 0 20 0;
-#X restore 62 458 pd functions;
+#X connect 20 0 19 0;
+#X connect 21 0 19 0;
+#X connect 22 0 19 0;
+#X connect 23 0 19 0;
+#X connect 27 0 17 0;
+#X restore 62 404 pd functions;
 #N canvas 640 54 794 810 variables 0;
 #X obj 36 728 ofelia get \$0-abc;
 #X msg 36 588 x;
@@ -255,8 +250,8 @@ object so the functions cannot be called by message.;
 #X msg 46 614 y;
 #X msg 56 640 w;
 #X msg 66 666 h;
-#X obj 36 443 ofelia d \; function ofelia.bang() \; local a = require("\$0-abc")
-\; return a.w * a.h \; end \;;
+#X obj 36 443 ofelia d \; function ofelia.bang() \; local m = require("\$0-abc")
+\; return m.w * m.h \; end \;;
 #X obj 36 423 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 36 508 5 0 0 0 - - -;
@@ -270,7 +265,7 @@ object so the functions cannot be called by message.;
 #X msg 313 693 w \$1;
 #X msg 351 693 h \$1;
 #X msg 76 692 bang;
-#X floatatom 36 388 5 0 0 0 - - -;
+#X floatatom 36 377 5 0 0 0 - - -;
 #X obj 36 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 203 749 5 0 0 0 - - -;
@@ -291,9 +286,6 @@ the same name.;
 #X msg 584 37 getLocal;
 #X obj 405 118 ofelia d \; local boo = 8 \;;
 #X obj 514 150 print Result;
-#X obj 36 279 ofelia d \$0-abc \; local a = ofelia \; a.x = 100 \;
-a.y = 200 \; a.w = 80 \; a.h = 50 \; function a.bang() \; return a.x
-+ a.y \; end \;;
 #X text 404 175 If the variable is undefined or set to "nil" \, it
 will output bang. "nil" type is interpreted as "bang" in ofelia.;
 #X text 30 116 Second type is local variable which cannot be accessed
@@ -305,20 +297,28 @@ outside of "ofelia define" object. It is usually not recommended to
 use global variables.;
 #X text 393 693 Update variables of "ofelia define \$0-abc" object.
 ;
-#X text 160 291 "ofelia" is a default table variable that exists in
-each "ofelia define" object which includes built-in functions such
-as "ofelia.bang()" function. You can add any variables or functions
-to it. You can change the name of "ofelia" table by assigning it to
-other variable with different name. (if you want to make the code shorter
-for instance);
-#X text 219 452 Variables and functions that belong to "ofelia" table
-can be accessed from other "ofelia define" objects by using the "require"
-function.;
-#X text 30 184 Third type is ofelia variable which belongs to "ofelia"
-table that locally exists in each "ofelia define" object. The table
-can be accessed from other "ofelia define" or "ofelia get" and "ofelia
-set" objects by using the "require" function. Please see the examples
-below.;
+#X text 30 184 Third type is ofelia variable which belongs to a module
+table named "ofelia" (or "M") that locally exists in each "ofelia define"
+object. The table can be accessed from other "ofelia define" or "ofelia
+get" and "ofelia set" objects by using the "require" function. Please
+see the examples below.;
+#X text 160 291 "ofelia" (or "M") is the name of a module table that
+exists in each "ofelia define" object which includes built-in functions
+such as "ofelia.bang()" function. You can add any variables or functions
+to the module.;
+#X obj 36 279 ofelia d \$0-abc \; M.x = 100 \; M.y = 200 \; M.w = 80
+\; M.h = 50 \; function M.bang() \; return M.x + M.y \; end \;;
+#X text 219 452 Variables and functions that belong to the "ofelia"
+(or "M") module table can be accessed from other "ofelia define" objects
+by using the "require" function.;
+#X obj 536 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 536 279 ofelia d \; M.x = 100 \; M.y = 200 \; M.w = 80 \; M.h
+= 50 \; function M.bang() \; return M \; end \;;
+#X floatatom 536 431 5 0 0 0 - - -;
+#X obj 536 377 ofelia d \; function M.pointer(p) \; return p.w * p.h
+\; end \;;
+#X text 556 259 You can also output the whole module.;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 0 0;
@@ -336,89 +336,134 @@ below.;
 #X connect 16 0 9 0;
 #X connect 17 0 9 0;
 #X connect 18 0 0 0;
-#X connect 20 0 34 0;
+#X connect 20 0 40 0;
 #X connect 23 0 9 0;
 #X connect 29 0 33 0;
 #X connect 30 0 29 0;
 #X connect 31 0 29 0;
-#X connect 34 0 19 0;
-#X restore 62 479 pd variables;
-#N canvas 709 53 719 597 inlets_and_outlets 0;
-#X obj 33 132 ofelia d -c21 \; function ofelia.list(fv) \; return fv[1]
+#X connect 40 0 19 0;
+#X connect 42 0 43 0;
+#X connect 43 0 45 0;
+#X connect 45 0 44 0;
+#X restore 62 425 pd variables;
+#N canvas 709 53 719 775 inlets_and_outlets 0;
+#X obj 33 122 ofelia d -c21 \; function ofelia.list(fv) \; return fv[1]
 + fv[2] \; end \;;
-#X floatatom 180 112 5 0 0 0 - - -;
-#X floatatom 33 112 5 0 0 0 - - -;
-#X floatatom 33 186 5 0 0 0 - - -;
-#X text 201 132 Optional -c flag with 2 digits sets the number of control
+#X floatatom 180 102 5 0 0 0 - - -;
+#X floatatom 33 102 5 0 0 0 - - -;
+#X floatatom 33 176 5 0 0 0 - - -;
+#X text 201 122 Optional -c flag with 2 digits sets the number of control
 inlets and outlets. (e.g. -c21: 2 inlets and 1 outlet);
-#X obj 35 245 osc~ 440;
-#X obj 35 358 dac~;
-#X obj 35 266 ofelia d -s11 \; function ofelia.perform(v) \; for i=1
-\, #v do \; v[i] = v[i] * 0.1 \; end \; return v \; end \;;
-#X text 214 264 Optional -s flag with 2 digits sets the number of signal
+#X obj 33 485 osc~ 440;
+#X text 212 504 Optional -s flag with 2 digits sets the number of signal
 inlets and outlets. (e.g. -s21: 2 inlets and 1 outlet);
-#X text 214 294 ofelia.perform() function is called at each DSP-cycle.
+#X text 212 534 ofelia.perform() function is called at each DSP-cycle.
 ;
-#X obj 33 455 ofelia d -k -c13;
+#X obj 33 702 ofelia d -k -c13;
 #A set function ofelia.bang() \; return {1 \, 2 \, 3} \; end \; \;
 function ofelia.list(fv) \; return fv \; end \;;
-#X obj 33 402 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 33 649 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X floatatom 33 476 5 0 0 0 - - -;
-#X floatatom 79 476 5 0 0 0 - - -;
-#X floatatom 126 476 5 0 0 0 - - -;
-#X msg 43 427 4 5 6;
-#X text 201 162 Multiple control inlets are packed to a list when a
+#X floatatom 33 723 5 0 0 0 - - -;
+#X floatatom 79 723 5 0 0 0 - - -;
+#X floatatom 126 723 5 0 0 0 - - -;
+#X msg 43 674 4 5 6;
+#X text 201 152 Multiple control inlets are packed to a list when a
 messaage is sent to the first inlet.;
-#X text 176 454 If an object has multiple control outlets \, a returned
+#X text 176 701 If an object has multiple control outlets \, a returned
 table(list) is unpacked and will be output accordingly.;
-#X text 214 324 Warning: ofelia.perform() function should have the
+#X text 212 564 Warning: ofelia.perform() function should have the
 same number of arguments as the signal inlet and same number of return
 table as the signal outlet.;
 #X text 30 31 You can set the number of inlets and outlets of "ofelia
 define" \, "ofelia get" and "ofelia set". You can also make the object
 use signal inlets and outlets.;
+#X obj 33 231 ofelia d -c31 12 34 \; function ofelia.list(fv) \; print(fv[1]
+\, fv[2]) \; end \;;
+#X obj 33 211 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 106 211 5 0 0 0 - - -;
+#X floatatom 180 211 5 0 0 0 - - -;
+#X obj 33 377 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 98 377 5 0 0 0 - - -;
+#X floatatom 163 377 5 0 0 0 - - -;
+#X floatatom 228 377 5 0 0 0 - - -;
+#X floatatom 33 450 5 0 0 0 - - -;
+#X floatatom 79 450 5 0 0 0 - - -;
+#X floatatom 126 450 5 0 0 0 - - -;
+#X obj 33 397 ofelia f -c41 250 125 75 \; return ofColor(a[1] \, a[2]
+\, a[3]) \;;
+#X text 248 397 Another example that uses additional inlets.;
+#X text 201 231 Optional float arguments are used to set the default
+values for additional inlets.;
+#X obj 33 300 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 341 print;
+#X obj 33 320 ofelia d -c41 -k \$0-name 7 8 9;
+#A set function ofelia.list(fv) \; return fv \; end \;;
+#X text 231 320 An optional name for the script can be written between
+the flags and inlet arguments.;
+#X obj 33 429 ofelia f -c13 -k;
+#A set return {a.r \, a.g \, a.b} \;;
+#X obj 33 593 env~;
+#X floatatom 33 614 5 0 0 0 - - -;
+#X obj 33 506 ofelia d -s11 \; function ofelia.perform(s) \; for i=1
+\, #s do \; s[i] = s[i] * 0.1 \; end \; return s \; end \;;
 #X connect 0 0 3 0;
 #X connect 1 0 0 1;
 #X connect 2 0 0 0;
-#X connect 5 0 7 0;
-#X connect 7 0 6 0;
-#X connect 7 0 6 1;
-#X connect 10 0 12 0;
-#X connect 10 1 13 0;
-#X connect 10 2 14 0;
-#X connect 11 0 10 0;
-#X connect 15 0 10 0;
-#X restore 62 500 pd inlets_and_outlets;
+#X connect 5 0 39 0;
+#X connect 8 0 10 0;
+#X connect 8 1 11 0;
+#X connect 8 2 12 0;
+#X connect 9 0 8 0;
+#X connect 13 0 8 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 1;
+#X connect 21 0 18 2;
+#X connect 22 0 29 0;
+#X connect 23 0 29 1;
+#X connect 24 0 29 2;
+#X connect 25 0 29 3;
+#X connect 29 0 36 0;
+#X connect 32 0 34 0;
+#X connect 34 0 33 0;
+#X connect 36 0 26 0;
+#X connect 36 1 27 0;
+#X connect 36 2 28 0;
+#X connect 37 0 38 0;
+#X connect 39 0 37 0;
+#X restore 62 446 pd inlets_and_outlets;
 #N canvas 709 53 719 597 warnings 0;
-#X obj 34 158 ofelia d \; function ofelia.bang() \; of.drawCircle(0
+#X obj 34 158 ofelia d \; function ofelia.bang() \; ofDrawCircle(0
 \, 0 \, 100) \; end \;;
 #X obj 34 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 278 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 34 288 ofelia d -c13 \; function ofelia.bang() \; local p =
-of.Vec3f(1 \, 2 \, 3) \; return table.pack(p.x \, p.y \, p.z) \; end
+ofVec3f(1 \, 2 \, 3) \; return table.pack(p.x \, p.y \, p.z) \; end
 \;;
 #X floatatom 34 353 5 0 0 0 - - -;
 #X floatatom 131 353 5 0 0 0 - - -;
 #X floatatom 229 353 5 0 0 0 - - -;
-#X obj 208 158 ofelia d \; function ofelia.bang() \; return of.getWidth()
+#X obj 208 158 ofelia d \; function ofelia.bang() \; return ofGetWidth()
 \; end \;;
 #X floatatom 278 342 5 0 0 0 - - -;
-#X floatatom 462 342 5 0 0 0 - - -;
-#X floatatom 647 342 5 0 0 0 - - -;
+#X floatatom 450 342 5 0 0 0 - - -;
+#X floatatom 623 342 5 0 0 0 - - -;
 #X text 30 226 However \, constructing the data types or calling utility
 functions works fine without the graphics window.;
 #X text 30 31 When you use "of" module \, you should avoid calling
 the functions that are directly related to graphics and drawings while
 the graphics output window is absent.;
-#X obj 278 288 ofelia d -c13 \; function ofelia.bang() \; return table.pack(of.getYear()
-\, of.getMonth() \, of.getDay()) \; end \;;
-#X f 62;
+#X obj 278 288 ofelia d -c13 \; function ofelia.bang() \; return table.pack(ofGetYear()
+\, ofGetMonth() \, ofGetDay()) \; end \;;
+#X f 58;
 #X text 30 81 For example \, calling the following functions without
 creating the graphics window or calling them with [loadbang] will cause
-Pd to crash. Please use the "setup" listener or [of.setup] abstraction
+Pd to crash. Please use the "setup" listener or [ofSetup] abstraction
 instead of [loadbang].;
 #X connect 1 0 3 0;
 #X connect 2 0 13 0;
@@ -428,6 +473,111 @@ instead of [loadbang].;
 #X connect 13 0 8 0;
 #X connect 13 1 9 0;
 #X connect 13 2 10 0;
-#X restore 62 521 pd warnings;
-#X text 61 413 Please click the subpatches below for more examples
+#X restore 62 467 pd warnings;
+#X text 61 359 Please click the subpatches below for more examples
 and detailed explanations.;
+#X text 352 222 or;
+#X text 37 196 Create \, edit \, run a lua script.;
+#X text 37 222 Wrap a lua script in a function.;
+#X obj 250 223 ofelia function;
+#X obj 373 223 ofelia f;
+#N canvas 710 53 719 763 function 0;
+#X floatatom 51 130 5 0 0 0 - - -;
+#X obj 32 203 ofelia function \; return a \;;
+#X obj 32 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 63 152 symbol dog;
+#X msg 69 177 list 1 2 3 4 5;
+#X text 22 20 "ofelia function" works just like "ofelia define" except
+that the written script is automatically wrapped in a function. It
+is useful when you want to quickly create an object that uses a single
+function which is called when bang \, float \, symbol \, pointer or
+list message is received through the first inlet.;
+#X floatatom 501 130 5 0 0 0 - - -;
+#X obj 482 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 513 152 symbol dog;
+#X msg 519 177 list 1 2 3 4 5;
+#X text 137 212 <- This script is internally converted to this script
+->;
+#X obj 32 235 print Function;
+#X obj 482 422 print Define;
+#X floatatom 144 510 5 0 0 0 - - -;
+#X obj 32 530 ofelia f -c33 -k \$0-optionalName 45 67;
+#A set return a \;;
+#X floatatom 257 510 5 0 0 0 - - -;
+#X floatatom 32 551 5 0 0 0 - - -;
+#X floatatom 144 551 5 0 0 0 - - -;
+#X floatatom 257 551 5 0 0 0 - - -;
+#X floatatom 32 510 5 0 0 0 - - -;
+#X text 296 530 <- All flags \, name and default inlet values can be
+used just like "ofelia define".;
+#X obj 32 412 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 32 432 ofelia f -c13 \; local m = require("\$0-data") \; return
+table.pack(m.name \, m.age \, m.married) \;;
+#X symbolatom 32 475 10 0 0 0 - - -;
+#X floatatom 162 474 5 0 0 0 - - -;
+#X floatatom 293 474 5 0 0 0 - - -;
+#X msg 68 317 age \$1;
+#X floatatom 68 297 5 0 0 0 - - -;
+#X obj 32 271 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 55 270 <- Click to define variables first.;
+#X msg 121 317 married \$1;
+#X obj 121 297 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 144 297 Variable values can be changed.;
+#X text 54 411 <- Click to get the values of defined variables.;
+#X obj 482 203 ofelia define \; function ofelia.bang() \; return ofelia.anything(nil)
+\; end \; function ofelia.float(f) \; return ofelia.anything(f) \;
+end \; function ofelia.symbol(s) \; return ofelia.anything(s) \; end
+\; function ofelia.pointer(p) \; return ofelia.anything(p) \; end \;
+function ofelia.list(l) \; return ofelia.anything(l) \; end \; function
+ofelia.anything(a) \; return a \; end \;;
+#X obj 32 586 osc~ 440;
+#X obj 32 672 env~;
+#X floatatom 32 693 5 0 0 0 - - -;
+#X obj 197 586 osc~ 330;
+#X text 212 609 <- This script is identical to this ->;
+#X obj 32 607 ofelia f -s21 \; for i=1 \, #a1 do \; a1[i] = (a1[i]
++ a2[i]) / 8 \; end \; return a1 \;;
+#X obj 457 606 ofelia d -s21 \; function ofelia.perform(a1 \, a2) \;
+for i=1 \, #a1 do \; a1[i] = (a1[i] + a2[i]) / 8 \; end \; return a1
+\; end \;;
+#X text 212 629 (a1: First inlet's audio buffer table);
+#X text 212 649 (a2: Second inlet's audio buffer table);
+#X obj 32 343 ofelia f \$0-data \; M.name = "John" \; M.age = 30 \;
+M.married = true \;;
+#X text 123 235 Please note that "ofelia function" always takes an
+argument named "a".;
+#X connect 0 0 1 0;
+#X connect 1 0 11 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 6 0 34 0;
+#X connect 7 0 34 0;
+#X connect 8 0 34 0;
+#X connect 9 0 34 0;
+#X connect 13 0 14 1;
+#X connect 14 0 16 0;
+#X connect 14 1 17 0;
+#X connect 14 2 18 0;
+#X connect 15 0 14 2;
+#X connect 19 0 14 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 22 1 24 0;
+#X connect 22 2 25 0;
+#X connect 26 0 44 0;
+#X connect 27 0 26 0;
+#X connect 28 0 44 0;
+#X connect 30 0 44 0;
+#X connect 31 0 30 0;
+#X connect 34 0 12 0;
+#X connect 35 0 40 0;
+#X connect 36 0 37 0;
+#X connect 38 0 40 1;
+#X connect 40 0 36 0;
+#X restore 462 223 pd function;

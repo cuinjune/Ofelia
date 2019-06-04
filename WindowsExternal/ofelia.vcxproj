@@ -234,6 +234,7 @@
     <ClCompile Include="..\..\..\addons\ofxLua\src\bindings\glmBindings.cpp" />
     <ClCompile Include="..\..\..\addons\ofxLua\src\ofxLua.cpp" />
     <ClCompile Include="..\..\..\addons\ofxLua\src\ofxLuaFileWriter.cpp" />
+    <ClCompile Include="src\ofeliaAliases.cpp" />
     <ClCompile Include="src\ofeliaBindings.cpp" />
     <ClCompile Include="src\ofeliaClient.cpp" />
     <ClCompile Include="src\ofeliaCreator.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="..\..\..\addons\ofxLua\src\bindings\ofBindings.h" />
     <ClInclude Include="..\..\..\addons\ofxLua\src\ofxLua.h" />
     <ClInclude Include="..\..\..\addons\ofxLua\src\ofxLuaFileWriter.h" />
+    <ClInclude Include="src\ofeliaAliases.h" />
     <ClInclude Include="src\ofeliaBindings.h" />
     <ClInclude Include="src\ofeliaClient.h" />
     <ClInclude Include="src\ofeliaCreator.h" />

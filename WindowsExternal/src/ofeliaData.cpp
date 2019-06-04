@@ -126,8 +126,11 @@ void ofeliaData::argParse(int argc, t_atom *argv, t_symbol *s, bool define)
             lua.doArgs(--argc, ++argv);
             return;
         }
-        post("warning: ofelia %s ignoring extra argument: ", s->s_name);
-        postatom(argc, argv); endpost();
+        if (!(argv->a_type == A_FLOAT && argv->a_w.w_float == 0)) /* skip posting errors for dollar args */
+        {
+            post("warning: ofelia %s ignoring extra argument: ", s->s_name);
+            postatom(argc, argv); endpost();
+        }
     }
     if (!define && !ioAdded)
         symbolinlet_new(&ob, &sym);

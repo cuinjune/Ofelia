@@ -1,0 +1,65 @@
+#N canvas 720 100 682 650 10;
+#X declare -path ofelia/libs/of;
+#X obj 28 102 loadbang;
+#X floatatom 28 306 5 0 0 0 - - -;
+#X text 68 307 0: fail \, 1: success.;
+#X obj 472 29 declare -path ofelia/libs/of;
+#X floatatom 229 306 5 0 0 0 - - -;
+#X text 269 307 0: fail \, 1: success.;
+#X text 86 180 Setup callback.;
+#X text 402 243 Load fonts from relative or absolute path.;
+#X msg 229 243 load data/Sansation.ttf 48;
+#X msg 28 243 load data/DejaVuSansMono.ttf 32;
+#X text 261 422 Generate a string for title.;
+#X text 257 443 Draw the string at position (80 \, 80).;
+#X text 480 546 Generate a string for content.;
+#X text 184 202 Set background color.;
+#X obj 28 144 ofWindow;
+#X obj 28 180 ofSetup;
+#X obj 28 201 ofSetBackgroundColor 55;
+#X obj 28 264 ofFont \$0-content;
+#X obj 229 264 ofFont \$0-title;
+#X obj 28 285 route load;
+#X obj 229 285 route load;
+#X obj 28 222 t b b, f 34;
+#X obj 28 343 ofDraw;
+#X obj 28 364 ofSetColor 255;
+#X obj 28 443 ofDrawFontString \$0-title text 80 80;
+#X obj 28 464 ofDrawLine 80 95 560 95;
+#X text 178 464 Draw a line.;
+#X text 83 344 Draw callback.;
+#X obj 105 511 ofelia f \; local n = string.char(10) \; return "OFELIA
+stands for"..n.."OpenFrameworks as"..n.."an External Library"..n.."for
+Interactive"..n.."Applications." \;;
+#X f 61;
+#X obj 99 411 ofelia f \; return "What is OFELIA?" \;;
+#X text 25 23 The [ofFont] abstraction allows user to load a font which
+can be easily accessed from other abstractions of its kind such as
+[ofDrawFontString] and [ofDrawFontStringAsShapes] by sharing the same
+name. [ofFont] is identical to "ofTrueTypeFont" class in openFrameworks.
+;
+#X msg 28 123 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 565 ofDrawFontString \$0-content text 80 140;
+#X text 277 565 Draw the string at position (80 \, 140).;
+#X obj 99 390 ofSetup;
+#X obj 105 490 ofSetup;
+#X connect 0 0 31 0;
+#X connect 8 0 18 0;
+#X connect 9 0 17 0;
+#X connect 15 0 16 0;
+#X connect 16 0 21 0;
+#X connect 17 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 1 0;
+#X connect 20 0 4 0;
+#X connect 21 0 9 0;
+#X connect 21 1 8 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 32 0;
+#X connect 28 0 32 1;
+#X connect 29 0 24 1;
+#X connect 31 0 14 0;
+#X connect 34 0 29 0;
+#X connect 35 0 28 0;

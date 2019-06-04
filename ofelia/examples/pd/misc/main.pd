@@ -12,7 +12,7 @@
 #X obj 272 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 272 240 5 0 0 0 - - -;
-#X obj 43 145 ofelia d \; local value = pd.Value("v\$0_foo") \; function
+#X obj 43 145 ofelia d \; local value = pdValue("v\$0_foo") \; function
 ofelia.float(f) \; value:set(f) \; end \; function ofelia.bang() \;
 return value:get() \; end \;;
 #X obj 270 145 value v\$0_foo;
@@ -24,11 +24,11 @@ return value:get() \; end \;;
 #X restore 453 438 graph;
 #X obj 290 376 tabread \$0-boo;
 #X floatatom 290 401 5 0 0 0 - - -;
-#X obj 48 333 ofelia d \; local array = pd.Array("\$0-boo") \; function
+#X obj 48 333 ofelia d \; local array = pdArray("\$0-boo") \; function
 ofelia.float(f) \; return array:getAt(f) \; end \;;
 #X obj 266 542 tabwrite \$0-boo;
 #X floatatom 314 475 5 0 0 0 - - -;
-#X obj 42 500 ofelia d -c20 \; local array = pd.Array("\$0-boo") \;
+#X obj 42 500 ofelia d -c20 \; local array = pdArray("\$0-boo") \;
 function ofelia.list(fv) \; array:setAt(fv[2] \, fv[1]) \; end \;;
 #X msg 99 457 0.8;
 #X msg 135 459 -0.8;
@@ -43,7 +43,7 @@ function ofelia.list(fv) \; array:setAt(fv[2] \, fv[1]) \; end \;;
 #X obj 284 1031 array size \$0-boo;
 #X floatatom 283 1121 5 0 0 0 - - -;
 #X floatatom 57 1116 5 0 0 0 - - -;
-#X obj 57 1016 ofelia d \; local array = pd.Array("\$0-boo") \; function
+#X obj 57 1016 ofelia d \; local array = pdArray("\$0-boo") \; function
 ofelia.bang() \; return array:getSize() \; end \; function ofelia.float(f)
 \; return array:setSize(f) \; end \;;
 #X msg 161 986 5;
@@ -54,7 +54,7 @@ ofelia.bang() \; return array:getSize() \; end \; function ofelia.float(f)
 -1 -1;
 #X floatatom 89 1188 5 0 0 0 - - -;
 #X msg 133 1189 symbol haha;
-#X obj 78 1219 ofelia d \; local send = pd.Send("\$0-goo") \; function
+#X obj 78 1219 ofelia d \; local send = pdSend("\$0-goo") \; function
 ofelia.bang() \; send:sendBang() \; end \; function ofelia.float(f)
 \; send:sendFloat(f) \; end \; function ofelia.symbol(s) \; send:sendSymbol(s)
 \; end \; function ofelia.pointer(p) \; send:sendPointer(p) \; end
@@ -62,30 +62,27 @@ ofelia.bang() \; send:sendBang() \; end \; function ofelia.float(f)
 ofelia.any(av) \; send:sendAnything(av) \; end \;;
 #X msg 217 1189 list a b c;
 #X msg 295 1188 any a b c;
-#X obj 89 1501 ofelia d \$0-voo \; function ofelia.float(f) \; return
-f \; end \;;
-#X floatatom 89 1556 5 0 0 0 - - -;
 #X obj 378 1527 s \$0-voo;
-#X floatatom 378 1504 5 0 0 0 - - -;
-#X obj 100 1651 ofelia d -c14 -k;
-#A set local outlet = pd.Outlet(this) \; function ofelia.bang() \;
-outlet:outletFloat(0 \, 123) \; outlet:outletSymbol(1 \, "hello") \;
-outlet:outletList(2 \, {"abc" \, 1 \, 2}) \; outlet:outletAnything(3
-\, {"abc" \, 1 \, 2}) \; end \;;
-#X obj 98 1627 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 401 1467 5 0 0 0 - - -;
+#X obj 90 1631 ofelia d -c14 -k;
+#A set local outlet = pdOutlet(this) \; function ofelia.bang() \; outlet:outletFloat(0
+\, 123) \; outlet:outletSymbol(1 \, "hello") \; outlet:outletList(2
+\, {"abc" \, 1 \, 2}) \; outlet:outletAnything(3 \, {"abc" \, 1 \,
+2}) \; end \;;
+#X obj 90 1607 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 61 1691 5 0 0 0 - - -;
-#X symbolatom 113 1693 10 0 0 0 - - -;
-#X obj 191 1691 unpack s f f;
-#X symbolatom 174 1718 10 0 0 0 - - -;
-#X floatatom 241 1719 5 0 0 0 - - -;
-#X floatatom 276 1720 5 0 0 0 - - -;
-#X obj 335 1688 route abc;
-#X obj 338 1712 unpack f f;
-#X floatatom 338 1733 5 0 0 0 - - -;
-#X floatatom 401 1734 5 0 0 0 - - -;
-#X text 340 1669 abc 1 2;
-#X text 199 1675 list abc 1 2;
+#X floatatom 51 1671 5 0 0 0 - - -;
+#X symbolatom 103 1673 10 0 0 0 - - -;
+#X obj 181 1671 unpack s f f;
+#X symbolatom 164 1698 10 0 0 0 - - -;
+#X floatatom 231 1699 5 0 0 0 - - -;
+#X floatatom 266 1700 5 0 0 0 - - -;
+#X obj 325 1668 route abc;
+#X obj 328 1692 unpack f f;
+#X floatatom 328 1713 5 0 0 0 - - -;
+#X floatatom 391 1714 5 0 0 0 - - -;
+#X text 330 1649 abc 1 2;
+#X text 189 1655 list abc 1 2;
 #X text 40 92 value emulation;
 #X text 38 290 tabread emulation;
 #X text 38 437 tabwrite emulation;
@@ -98,11 +95,8 @@ outlet:outletList(2 \, {"abc" \, 1 \, 2}) \; outlet:outletAnything(3
 #X msg 63 813 0 0.5 0.9 0.2 -0.5 -0.7 -0.9 0 0.5 0.7;
 #X msg 113 839 onset \$1;
 #X floatatom 402 753 5 0 0 0 - - -;
-#X obj 56 862 ofelia d -c10 \; ofelia.onset = 0 \; local array = pd.Array("\$0-boo")
-\; function ofelia.list(fv) \; return array:set(fv \, ofelia.onset)
-\; end \;;
 #X text 237 583 onset;
-#X obj 45 640 ofelia d \; local array = pd.Array("\$0-boo") \; function
+#X obj 45 640 ofelia d \; local array = pdArray("\$0-boo") \; function
 ofelia.float(f) \; return array:get(f) \; end \;;
 #X msg 202 584 0;
 #X msg 405 731 0;
@@ -113,10 +107,19 @@ ofelia.float(f) \; return array:get(f) \; end \;;
 #X text 251 296 x index;
 #X text 89 399 y value;
 #X text 330 399 y value;
-#X text 94 1604 outputting values individually. (unlike return);
-#X text 38 16 You can use various pd's internal features within "ofelia
-define" object using a "pd" module. These examples show how classes
-in a "pd" module can be used to emulate some of pd objects.;
+#X text 84 1584 outputting values individually. (unlike return);
+#X obj 89 1501 ofelia f \$0-voo \; return a \;;
+#X obj 89 1533 print Received;
+#X obj 378 1466 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 439 1466 symbol pizza;
+#X msg 439 1487 list q w e r t y 1 2 3;
+#X text 38 26 You can use various pd's internal features within "ofelia
+define" object using the pd classes. These examples show how pd classes
+can be used to emulate some of pd objects.;
+#X obj 56 862 ofelia d -c10 \; M.onset = 0 \; local array = pdArray("\$0-boo")
+\; function ofelia.list(fv) \; return array:set(fv \, M.onset) \; end
+\;;
 #X connect 0 0 11 0;
 #X connect 1 0 11 0;
 #X connect 2 0 10 0;
@@ -135,7 +138,7 @@ in a "pd" module can be used to emulate some of pd objects.;
 #X connect 21 0 17 0;
 #X connect 22 0 24 0;
 #X connect 26 0 25 0;
-#X connect 27 0 73 0;
+#X connect 27 0 89 0;
 #X connect 28 0 29 0;
 #X connect 28 0 32 0;
 #X connect 29 0 30 0;
@@ -148,26 +151,29 @@ in a "pd" module can be used to emulate some of pd objects.;
 #X connect 39 0 40 0;
 #X connect 41 0 40 0;
 #X connect 42 0 40 0;
-#X connect 43 0 44 0;
+#X connect 44 0 43 0;
+#X connect 45 0 47 0;
+#X connect 45 1 48 0;
+#X connect 45 2 49 0;
+#X connect 45 3 53 0;
 #X connect 46 0 45 0;
-#X connect 47 0 49 0;
-#X connect 47 1 50 0;
-#X connect 47 2 51 0;
-#X connect 47 3 55 0;
-#X connect 48 0 47 0;
-#X connect 51 0 52 0;
-#X connect 51 1 53 0;
-#X connect 51 2 54 0;
-#X connect 55 0 56 0;
-#X connect 56 0 57 0;
-#X connect 56 1 58 0;
-#X connect 69 0 25 0;
-#X connect 70 0 73 0;
-#X connect 71 0 73 0;
-#X connect 72 0 71 0;
-#X connect 72 0 25 1;
-#X connect 75 0 23 0;
-#X connect 76 0 79 0;
-#X connect 77 0 72 0;
-#X connect 79 0 75 0;
-#X connect 79 0 22 0;
+#X connect 49 0 50 0;
+#X connect 49 1 51 0;
+#X connect 49 2 52 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
+#X connect 54 1 56 0;
+#X connect 67 0 25 0;
+#X connect 68 0 89 0;
+#X connect 69 0 89 0;
+#X connect 70 0 69 0;
+#X connect 70 0 25 1;
+#X connect 72 0 23 0;
+#X connect 73 0 76 0;
+#X connect 74 0 70 0;
+#X connect 76 0 72 0;
+#X connect 76 0 22 0;
+#X connect 83 0 84 0;
+#X connect 85 0 43 0;
+#X connect 86 0 43 0;
+#X connect 87 0 43 0;

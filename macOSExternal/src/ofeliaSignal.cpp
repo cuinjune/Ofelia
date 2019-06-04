@@ -24,6 +24,7 @@
 
 void ofeliaSignal::addDsp(t_signal **sp)
 {
+    dataPtr->lua.doFunction(gensym("dsp"));
     const ofeliaIO &io = dataPtr->io;
     int sum = io.numInlets + io.numOutlets;
     t_int **w = this->w;
@@ -54,7 +55,22 @@ t_int *ofeliaSignal::perform(t_int *w)
                 lua_settable(L, -3);
             }
         }
-        lua_call(L, numInlets, numOutlets);
+        if (lua_pcall(L, numInlets, numOutlets, 0))
+        {
+            error("ofelia: %s", lua_tostring(L, -1));
+            lua_pop(L, 2);
+            goto error;
+        }
+        if (!lua_istable(L, -1))
+        {
+            const char *s = "ofelia: 'perform' function should return";
+            if (numOutlets == 1)
+                error("%s %s", s, "a table");
+            else if (numOutlets > 1)
+                error("%s %d %s", s, numOutlets, "tables");
+            lua_pop(L, 1 + numOutlets);
+            goto error;
+        }
         for (int i = 0; i < numOutlets; ++i)
         {
             t_float *out = reinterpret_cast<t_float *>(w[i + 3 + numInlets]);
@@ -66,17 +82,17 @@ t_int *ofeliaSignal::perform(t_int *w)
                 out[j] = static_cast<t_float>(lua_tonumber(L, -1));
                 lua_pop(L, 1);
             }
-            lua_pop(L, 2);
+            lua_pop(L, 1);
         }
+        lua_pop(L, 1);
     }
     else
     {
+    error: /* silence the audio if something is wrong */
         for (int i = 0; i < numOutlets; ++i)
         {
-            t_float *in = reinterpret_cast<t_float *>(w[3]);
             t_float *out = reinterpret_cast<t_float *>(w[i + 3 + numInlets]);
-            for (int j = 0; j < nsamples; ++j)
-                out[j] = in[j];
+            for (int j = 0; j < nsamples; ++j) out[j] = 0;
         }
     }
     return w + numInlets + numOutlets + 3;

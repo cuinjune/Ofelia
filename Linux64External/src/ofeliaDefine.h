@@ -48,6 +48,7 @@ extern "C"
         void notifyMethod();
         void freeMethod();
         static void *newWrapper(t_symbol *s, int argc, t_atom *argv);
+        static void *newWrapper_function(t_symbol *s, int argc, t_atom *argv);
         static void bangWrapper(ofeliaDefine *x);
         static void floatWrapper(ofeliaDefine *x, t_floatarg f);
         static void symbolWrapper(ofeliaDefine *x, t_symbol *s);

@@ -2693,30 +2693,36 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_Array swig_types[0]
-#define SWIGTYPE_p_Canvas swig_types[1]
-#define SWIGTYPE_p_Clock swig_types[2]
-#define SWIGTYPE_p_Inlet swig_types[3]
-#define SWIGTYPE_p_Log swig_types[4]
-#define SWIGTYPE_p_OFWindow swig_types[5]
-#define SWIGTYPE_p_Outlet swig_types[6]
-#define SWIGTYPE_p_PD swig_types[7]
-#define SWIGTYPE_p_Send swig_types[8]
-#define SWIGTYPE_p_Signal swig_types[9]
-#define SWIGTYPE_p_Sys swig_types[10]
-#define SWIGTYPE_p_Value swig_types[11]
-#define SWIGTYPE_p_int swig_types[12]
-#define SWIGTYPE_p_p_int swig_types[13]
-#define SWIGTYPE_p_p_t_atom swig_types[14]
-#define SWIGTYPE_p_p_t_canvas swig_types[15]
-#define SWIGTYPE_p_p_t_garray swig_types[16]
-#define SWIGTYPE_p_p_t_word swig_types[17]
-#define SWIGTYPE_p_std__string swig_types[18]
-#define SWIGTYPE_p_t_atom swig_types[19]
-#define SWIGTYPE_p_t_float swig_types[20]
-#define SWIGTYPE_p_t_floatarg swig_types[21]
-#define SWIGTYPE_p_tupleT_int_int_int_t swig_types[22]
-static swig_type_info *swig_types[24];
-static swig_module_info swig_module = {swig_types, 23, 0, 0, 0, 0};
+#define SWIGTYPE_p_BlOsc swig_types[1]
+#define SWIGTYPE_p_Canvas swig_types[2]
+#define SWIGTYPE_p_Clock swig_types[3]
+#define SWIGTYPE_p_Filter swig_types[4]
+#define SWIGTYPE_p_Inlet swig_types[5]
+#define SWIGTYPE_p_Log swig_types[6]
+#define SWIGTYPE_p_OFWindow swig_types[7]
+#define SWIGTYPE_p_Osc swig_types[8]
+#define SWIGTYPE_p_Outlet swig_types[9]
+#define SWIGTYPE_p_PD swig_types[10]
+#define SWIGTYPE_p_Send swig_types[11]
+#define SWIGTYPE_p_Signal swig_types[12]
+#define SWIGTYPE_p_Sys swig_types[13]
+#define SWIGTYPE_p_Value swig_types[14]
+#define SWIGTYPE_p_a_515__t_float swig_types[15]
+#define SWIGTYPE_p_float swig_types[16]
+#define SWIGTYPE_p_int swig_types[17]
+#define SWIGTYPE_p_p_int swig_types[18]
+#define SWIGTYPE_p_p_t_atom swig_types[19]
+#define SWIGTYPE_p_p_t_canvas swig_types[20]
+#define SWIGTYPE_p_p_t_garray swig_types[21]
+#define SWIGTYPE_p_p_t_word swig_types[22]
+#define SWIGTYPE_p_std__dequeT_int_t swig_types[23]
+#define SWIGTYPE_p_std__string swig_types[24]
+#define SWIGTYPE_p_t_atom swig_types[25]
+#define SWIGTYPE_p_t_float swig_types[26]
+#define SWIGTYPE_p_t_floatarg swig_types[27]
+#define SWIGTYPE_p_tupleT_int_int_int_t swig_types[28]
+static swig_type_info *swig_types[30];
+static swig_module_info swig_module = {swig_types, 29, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2930,7 +2936,7 @@ SWIGINTERN void SWIG_write_ptr_array(lua_State* L,void **array,int size,swig_typ
 #if LUA_VERSION_NUM <= 501
 static void lua_len(lua_State *L, int i) 
 {
-    switch (lua_type(L, i)) 
+    switch (lua_type(L, i))
     {
         case LUA_TSTRING:
             lua_pushnumber(L, (lua_Number)lua_objlen(L, i));
@@ -3057,6 +3063,38 @@ static swig_lua_class *swig_string_bases[] = {0};
 static const char *swig_string_base_names[] = {0};
 static swig_lua_class _wrap_class_string = { "string", "string", &SWIGTYPE_p_std__string,_proxy__wrap_new_string, swig_delete_string, swig_string_methods, swig_string_attributes, &swig_string_Sf_SwigStatic, swig_string_meta, swig_string_bases, swig_string_base_names };
 
+static int _wrap_blTriangleTab_set(lua_State* L) { int SWIG_arg = 0; t_float (*arg1)[515] ;
+  SWIG_check_num_args("blTriangleTab",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("blTriangleTab",1,"t_float [20][515]");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_a_515__t_float,0))){
+    SWIG_fail_ptr("blTriangleTab_set",1,SWIGTYPE_p_a_515__t_float); }  { t_float (*inp)[515] = (t_float (*)[515])(arg1);
+    t_float (*dest)[515] = (t_float (*)[515])(blTriangleTab); size_t ii = 0; for (; ii < 20; ++ii) { t_float *ip = inp[ii];
+      t_float *dp = dest[ii]; size_t jj = 0; for (; jj < 515; ++jj) dp[jj] = ip[jj]; }  }  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_blTriangleTab_get(lua_State* L) { int SWIG_arg = 0; t_float (*result)[515] = 0 ;
+  SWIG_check_num_args("blTriangleTab",0,0) result = (t_float (*)[515])(t_float (*)[515])blTriangleTab;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_a_515__t_float,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_blSawTab_set(lua_State* L) { int SWIG_arg = 0; t_float (*arg1)[515] ; SWIG_check_num_args("blSawTab",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("blSawTab",1,"t_float [40][515]");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_a_515__t_float,0))){
+    SWIG_fail_ptr("blSawTab_set",1,SWIGTYPE_p_a_515__t_float); }  { t_float (*inp)[515] = (t_float (*)[515])(arg1);
+    t_float (*dest)[515] = (t_float (*)[515])(blSawTab); size_t ii = 0; for (; ii < 40; ++ii) { t_float *ip = inp[ii];
+      t_float *dp = dest[ii]; size_t jj = 0; for (; jj < 515; ++jj) dp[jj] = ip[jj]; }  }  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_blSawTab_get(lua_State* L) { int SWIG_arg = 0; t_float (*result)[515] = 0 ; SWIG_check_num_args("blSawTab",0,0)
+  result = (t_float (*)[515])(t_float (*)[515])blSawTab; SWIG_NewPointerObj(L,result,SWIGTYPE_p_a_515__t_float,0); SWIG_arg++; 
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_blSquareTab_set(lua_State* L) { int SWIG_arg = 0; t_float (*arg1)[515] ; SWIG_check_num_args("blSquareTab",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("blSquareTab",1,"t_float [20][515]");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_a_515__t_float,0))){
+    SWIG_fail_ptr("blSquareTab_set",1,SWIGTYPE_p_a_515__t_float); }  { t_float (*inp)[515] = (t_float (*)[515])(arg1);
+    t_float (*dest)[515] = (t_float (*)[515])(blSquareTab); size_t ii = 0; for (; ii < 20; ++ii) { t_float *ip = inp[ii];
+      t_float *dp = dest[ii]; size_t jj = 0; for (; jj < 515; ++jj) dp[jj] = ip[jj]; }  }  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_blSquareTab_get(lua_State* L) { int SWIG_arg = 0; t_float (*result)[515] = 0 ;
+  SWIG_check_num_args("blSquareTab",0,0) result = (t_float (*)[515])(t_float (*)[515])blSquareTab;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_a_515__t_float,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_new_OFWindow(lua_State* L) { int SWIG_arg = 0; OFWindow *result = 0 ;
   SWIG_check_num_args("OFWindow::OFWindow",0,0) result = (OFWindow *)new OFWindow();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_OFWindow,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
@@ -3481,13 +3519,11 @@ static int _wrap_new_Canvas(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; arg
         return _wrap_new_Canvas__SWIG_1(L);}  }  } 
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Canvas'\n" "  Possible C/C++ prototypes are:\n"
   "    Canvas::Canvas(t_symbol *)\n" "    Canvas::Canvas(t_symbol *,t_floatarg)\n"); lua_error(L);return 0; }
-static int _wrap_Canvas_realizeDollar(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 = (Canvas *) 0 ;
-  t_symbol *arg2 = (t_symbol *) 0 ; t_symbol *result = 0 ; SWIG_check_num_args("Canvas::realizeDollar",2,2)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Canvas::realizeDollar",1,"Canvas *");
+static int _wrap_Canvas_getDollarZero(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 = (Canvas *) 0 ; t_symbol *result = 0 ;
+  SWIG_check_num_args("Canvas::getDollarZero",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Canvas::getDollarZero",1,"Canvas *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Canvas,0))){
-    SWIG_fail_ptr("Canvas_realizeDollar",1,SWIGTYPE_p_Canvas); }  { arg2 = gensym(lua_tostring(L, 2)); } 
-  result = (t_symbol *)(arg1)->realizeDollar(arg2); { lua_pushstring(L, (result)->s_name); ++SWIG_arg; }  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Canvas_getDollarZero",1,SWIGTYPE_p_Canvas); }  result = (t_symbol *)(arg1)->getDollarZero(); {
+    lua_pushstring(L, (result)->s_name); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Canvas_getName(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 = (Canvas *) 0 ; t_symbol *result = 0 ;
   SWIG_check_num_args("Canvas::getName",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Canvas::getName",1,"Canvas *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Canvas,0))){ SWIG_fail_ptr("Canvas_getName",1,SWIGTYPE_p_Canvas); }
@@ -3516,21 +3552,23 @@ static int _wrap_Canvas_getArgs(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 =
           const char *s = canvas_realizedollar(*arg4, gensym(tbuf))->s_name; lua_pushstring(L, s); break; }  default: break; } 
       lua_rawseti(L, -2, i + 1); }  SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Canvas_setArgs(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 = (Canvas *) 0 ; int arg2 ;
-  t_atom *arg3 = (t_atom *) 0 ; SWIG_check_num_args("Canvas::setArgs",2,2)
+  t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("Canvas::setArgs",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Canvas::setArgs",1,"Canvas *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Canvas,0))){ SWIG_fail_ptr("Canvas_setArgs",1,SWIGTYPE_p_Canvas); }
    { if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
     arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg2; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
         arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg3[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->setArgs(arg2,arg3); { freebytes(arg3, arg2 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->setArgs(arg2,arg3,arg4); {
+    freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Canvas_getPosition(lua_State* L) { int SWIG_arg = 0; Canvas *arg1 = (Canvas *) 0 ; int **arg2 = (int **) 0 ;
   int *tmp2 = nullptr ; arg2 = &tmp2; SWIG_check_num_args("Canvas::getPosition",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Canvas::getPosition",1,"Canvas *");
@@ -3571,7 +3609,7 @@ static swig_lua_attribute swig_Canvas_attributes[] = {
     {0,0,0}
 };
 static swig_lua_method swig_Canvas_methods[]= {
-    { "realizeDollar", _wrap_Canvas_realizeDollar},
+    { "getDollarZero", _wrap_Canvas_getDollarZero},
     { "getName", _wrap_Canvas_getName},
     { "getIndex", _wrap_Canvas_getIndex},
     { "getArgs", _wrap_Canvas_getArgs},
@@ -3635,37 +3673,41 @@ static int _wrap_Send_sendPointer(lua_State* L) { int SWIG_arg = 0; Send *arg1 =
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Send,0))){ SWIG_fail_ptr("Send_sendPointer",1,SWIGTYPE_p_Send); } 
   { arg2 = nullptr; }  (arg1)->sendPointer(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Send_sendList(lua_State* L) { int SWIG_arg = 0; Send *arg1 = (Send *) 0 ; int arg2 ;
-  t_atom *arg3 = (t_atom *) 0 ; SWIG_check_num_args("Send::sendList",2,2)
+  t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("Send::sendList",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Send::sendList",1,"Send *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Send,0))){ SWIG_fail_ptr("Send_sendList",1,SWIGTYPE_p_Send); }  {
     if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
     arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg2; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
         arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg3[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->sendList(arg2,arg3); { freebytes(arg3, arg2 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->sendList(arg2,arg3,arg4); {
+    freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Send_sendAnything(lua_State* L) { int SWIG_arg = 0; Send *arg1 = (Send *) 0 ; int arg2 ;
-  t_atom *arg3 = (t_atom *) 0 ; SWIG_check_num_args("Send::sendAnything",2,2)
+  t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("Send::sendAnything",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Send::sendAnything",1,"Send *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Send,0))){ SWIG_fail_ptr("Send_sendAnything",1,SWIGTYPE_p_Send); }
    { if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
     arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg2; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
         arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg3[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->sendAnything(arg2,arg3); { freebytes(arg3, arg2 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->sendAnything(arg2,arg3,arg4); {
+    freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static void swig_delete_Send(void *obj) {
 Send *arg1 = (Send *) obj;
 delete arg1;
@@ -3828,41 +3870,45 @@ static int _wrap_Outlet_outletPointer(lua_State* L) { int SWIG_arg = 0; Outlet *
     SWIG_fail_ptr("Outlet_outletPointer",1,SWIGTYPE_p_Outlet); }  arg2 = (int)lua_tonumber(L, 2); { arg3 = nullptr; } 
   (arg1)->outletPointer(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Outlet_outletList(lua_State* L) { int SWIG_arg = 0; Outlet *arg1 = (Outlet *) 0 ; int arg2 ; int arg3 ;
-  t_atom *arg4 = (t_atom *) 0 ; SWIG_check_num_args("Outlet::outletList",3,3)
+  t_atom *arg4 = (t_atom *) 0 ; std::deque< int > arg5 ; SWIG_check_num_args("Outlet::outletList",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Outlet::outletList",1,"Outlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("Outlet::outletList",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Outlet,0))){
     SWIG_fail_ptr("Outlet_outletList",1,SWIGTYPE_p_Outlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_istable(L, 3))
     SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 3);
     arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg3; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
+    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
         arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg4[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->outletList(arg2,arg3,arg4); { freebytes(arg4, arg3 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
+        (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->outletList(arg2,arg3,arg4,arg5); {
+    freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Outlet_outletAnything(lua_State* L) { int SWIG_arg = 0; Outlet *arg1 = (Outlet *) 0 ; int arg2 ; int arg3 ;
-  t_atom *arg4 = (t_atom *) 0 ; SWIG_check_num_args("Outlet::outletAnything",3,3)
+  t_atom *arg4 = (t_atom *) 0 ; std::deque< int > arg5 ; SWIG_check_num_args("Outlet::outletAnything",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Outlet::outletAnything",1,"Outlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("Outlet::outletAnything",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Outlet,0))){
     SWIG_fail_ptr("Outlet_outletAnything",1,SWIGTYPE_p_Outlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_istable(L, 3))
     SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 3);
     arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg3; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
+    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
         arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg4[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->outletAnything(arg2,arg3,arg4); { freebytes(arg4, arg3 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
+        (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->outletAnything(arg2,arg3,arg4,arg5); {
+    freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static void swig_delete_Outlet(void *obj) {
 Outlet *arg1 = (Outlet *) obj;
 delete arg1;
@@ -4480,6 +4526,342 @@ static swig_lua_class *swig_PD_bases[] = {0};
 static const char *swig_PD_base_names[] = {0};
 static swig_lua_class _wrap_class_PD = { "PD", "PD", &SWIGTYPE_p_PD,_proxy__wrap_new_PD, swig_delete_PD, swig_PD_methods, swig_PD_attributes, &swig_PD_Sf_SwigStatic, swig_PD_meta, swig_PD_bases, swig_PD_base_names };
 
+static int _wrap_new_Osc(lua_State* L) { int SWIG_arg = 0; Osc *result = 0 ; SWIG_check_num_args("Osc::Osc",0,0)
+  result = (Osc *)new Osc(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_Osc,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_setPhase(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("Osc::setPhase",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::setPhase",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_setPhase",1,SWIGTYPE_p_Osc); }  {
+    arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->setPhase(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_getPhase(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; t_float result;
+  SWIG_check_num_args("Osc::getPhase",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::getPhase",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_getPhase",1,SWIGTYPE_p_Osc); } 
+  result = (arg1)->getPhase(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_sine(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  SWIG_check_num_args("Osc::sine",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::sine",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_sine",1,SWIGTYPE_p_Osc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->sine(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_triangle(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  SWIG_check_num_args("Osc::triangle",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::triangle",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_triangle",1,SWIGTYPE_p_Osc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->triangle(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_saw(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  SWIG_check_num_args("Osc::saw",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::saw",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_saw",1,SWIGTYPE_p_Osc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->saw(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_square(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  SWIG_check_num_args("Osc::square",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::square",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_square",1,SWIGTYPE_p_Osc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->square(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_Osc_pulse(lua_State* L) { int SWIG_arg = 0; Osc *arg1 = (Osc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  float *arg4 = (float *) 0 ; int arg5 ; SWIG_check_num_args("Osc::pulse",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Osc::pulse",1,"Osc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Osc,0))){ SWIG_fail_ptr("Osc_pulse",1,SWIGTYPE_p_Osc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; (arg1)->pulse(arg2,arg3,arg4,arg5); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++; 
+  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); lua_error(L); return SWIG_arg; }
+static void swig_delete_Osc(void *obj) {
+Osc *arg1 = (Osc *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_Osc(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_Osc);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_Osc_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_Osc_methods[]= {
+    { "setPhase", _wrap_Osc_setPhase},
+    { "getPhase", _wrap_Osc_getPhase},
+    { "sine", _wrap_Osc_sine},
+    { "triangle", _wrap_Osc_triangle},
+    { "saw", _wrap_Osc_saw},
+    { "square", _wrap_Osc_square},
+    { "pulse", _wrap_Osc_pulse},
+    {0,0}
+};
+static swig_lua_method swig_Osc_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_Osc_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_Osc_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_Osc_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_Osc_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_Osc_Sf_SwigStatic = {
+    "Osc",
+    swig_Osc_Sf_SwigStatic_methods,
+    swig_Osc_Sf_SwigStatic_attributes,
+    swig_Osc_Sf_SwigStatic_constants,
+    swig_Osc_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_Osc_bases[] = {0};
+static const char *swig_Osc_base_names[] = {0};
+static swig_lua_class _wrap_class_Osc = { "Osc", "Osc", &SWIGTYPE_p_Osc,_proxy__wrap_new_Osc, swig_delete_Osc, swig_Osc_methods, swig_Osc_attributes, &swig_Osc_Sf_SwigStatic, swig_Osc_meta, swig_Osc_bases, swig_Osc_base_names };
+
+static int _wrap_new_BlOsc(lua_State* L) { int SWIG_arg = 0; BlOsc *result = 0 ; SWIG_check_num_args("BlOsc::BlOsc",0,0)
+  result = (BlOsc *)new BlOsc(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_BlOsc,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_setPhase(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("BlOsc::setPhase",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::setPhase",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_setPhase",1,SWIGTYPE_p_BlOsc); } 
+  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->setPhase(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_getPhase(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; t_float result;
+  SWIG_check_num_args("BlOsc::getPhase",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::getPhase",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_getPhase",1,SWIGTYPE_p_BlOsc); } 
+  result = (arg1)->getPhase(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_triangle(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; SWIG_check_num_args("BlOsc::triangle",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::triangle",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_triangle",1,SWIGTYPE_p_BlOsc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->triangle(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_saw(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; float *arg2 = (float *) 0 ; int arg3 ;
+  SWIG_check_num_args("BlOsc::saw",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::saw",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_saw",1,SWIGTYPE_p_BlOsc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->saw(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_square(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; SWIG_check_num_args("BlOsc::square",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::square",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_square",1,SWIGTYPE_p_BlOsc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; (arg1)->square(arg2,arg3);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_FREE_ARRAY(arg2); lua_error(L); return SWIG_arg; }
+static int _wrap_BlOsc_pulse(lua_State* L) { int SWIG_arg = 0; BlOsc *arg1 = (BlOsc *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; SWIG_check_num_args("BlOsc::pulse",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("BlOsc::pulse",1,"BlOsc *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_BlOsc,0))){ SWIG_fail_ptr("BlOsc_pulse",1,SWIGTYPE_p_BlOsc); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; (arg1)->pulse(arg2,arg3,arg4,arg5); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++; 
+  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); lua_error(L); return SWIG_arg; }
+static void swig_delete_BlOsc(void *obj) {
+BlOsc *arg1 = (BlOsc *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_BlOsc(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_BlOsc);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_BlOsc_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_BlOsc_methods[]= {
+    { "setPhase", _wrap_BlOsc_setPhase},
+    { "getPhase", _wrap_BlOsc_getPhase},
+    { "triangle", _wrap_BlOsc_triangle},
+    { "saw", _wrap_BlOsc_saw},
+    { "square", _wrap_BlOsc_square},
+    { "pulse", _wrap_BlOsc_pulse},
+    {0,0}
+};
+static swig_lua_method swig_BlOsc_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_BlOsc_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_BlOsc_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_BlOsc_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_BlOsc_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_BlOsc_Sf_SwigStatic = {
+    "BlOsc",
+    swig_BlOsc_Sf_SwigStatic_methods,
+    swig_BlOsc_Sf_SwigStatic_attributes,
+    swig_BlOsc_Sf_SwigStatic_constants,
+    swig_BlOsc_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_BlOsc_bases[] = {0};
+static const char *swig_BlOsc_base_names[] = {0};
+static swig_lua_class _wrap_class_BlOsc = { "BlOsc", "BlOsc", &SWIGTYPE_p_BlOsc,_proxy__wrap_new_BlOsc, swig_delete_BlOsc, swig_BlOsc_methods, swig_BlOsc_attributes, &swig_BlOsc_Sf_SwigStatic, swig_BlOsc_meta, swig_BlOsc_bases, swig_BlOsc_base_names };
+
+static int _wrap_new_Filter(lua_State* L) { int SWIG_arg = 0; Filter *result = 0 ; SWIG_check_num_args("Filter::Filter",0,0)
+  result = (Filter *)new Filter(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_Filter,1); SWIG_arg++;  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_clear(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ;
+  SWIG_check_num_args("Filter::clear",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::clear",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){ SWIG_fail_ptr("Filter_clear",1,SWIGTYPE_p_Filter); } 
+  (arg1)->clear(); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_lowPass(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ;
+  SWIG_check_num_args("Filter::lowPass",4,4) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::lowPass",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){ SWIG_fail_ptr("Filter_lowPass",1,SWIGTYPE_p_Filter); }
+   arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail;
+  (arg1)->lowPass(arg2,arg3,arg4,arg5,arg6,arg7); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_highPass(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ;
+  SWIG_check_num_args("Filter::highPass",4,4) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::highPass",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){
+    SWIG_fail_ptr("Filter_highPass",1,SWIGTYPE_p_Filter); }  arg2 = SWIG_get_float_num_array_var(L,2,&arg3);
+  if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5); if (!arg4) SWIG_fail;
+  arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail; (arg1)->highPass(arg2,arg3,arg4,arg5,arg6,arg7);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6);
+  return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Filter_bandPass(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ;
+  SWIG_check_num_args("Filter::bandPass",4,4) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::bandPass",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){
+    SWIG_fail_ptr("Filter_bandPass",1,SWIGTYPE_p_Filter); }  arg2 = SWIG_get_float_num_array_var(L,2,&arg3);
+  if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5); if (!arg4) SWIG_fail;
+  arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail; (arg1)->bandPass(arg2,arg3,arg4,arg5,arg6,arg7);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6);
+  return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Filter_notch(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ;
+  SWIG_check_num_args("Filter::notch",4,4) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::notch",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){ SWIG_fail_ptr("Filter_notch",1,SWIGTYPE_p_Filter); } 
+  arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail;
+  (arg1)->notch(arg2,arg3,arg4,arg5,arg6,arg7); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_peaking(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ; float *arg8 = (float *) 0 ;
+  int arg9 ; SWIG_check_num_args("Filter::peaking",5,5) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::peaking",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){ SWIG_fail_ptr("Filter_peaking",1,SWIGTYPE_p_Filter); }
+   arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail;
+  arg8 = SWIG_get_float_num_array_var(L,5,&arg9); if (!arg8) SWIG_fail;
+  (arg1)->peaking(arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++; 
+  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); SWIG_FREE_ARRAY(arg8); return SWIG_arg; if(0) SWIG_fail;
+  fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); SWIG_FREE_ARRAY(arg8); lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Filter_lowShelf(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ; float *arg8 = (float *) 0 ;
+  int arg9 ; SWIG_check_num_args("Filter::lowShelf",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::lowShelf",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){
+    SWIG_fail_ptr("Filter_lowShelf",1,SWIGTYPE_p_Filter); }  arg2 = SWIG_get_float_num_array_var(L,2,&arg3);
+  if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5); if (!arg4) SWIG_fail;
+  arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail; arg8 = SWIG_get_float_num_array_var(L,5,&arg9);
+  if (!arg8) SWIG_fail; (arg1)->lowShelf(arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6);
+  SWIG_FREE_ARRAY(arg8); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4);
+  SWIG_FREE_ARRAY(arg6); SWIG_FREE_ARRAY(arg8); lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_highShelf(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ; float *arg8 = (float *) 0 ;
+  int arg9 ; SWIG_check_num_args("Filter::highShelf",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::highShelf",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){
+    SWIG_fail_ptr("Filter_highShelf",1,SWIGTYPE_p_Filter); }  arg2 = SWIG_get_float_num_array_var(L,2,&arg3);
+  if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5); if (!arg4) SWIG_fail;
+  arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail; arg8 = SWIG_get_float_num_array_var(L,5,&arg9);
+  if (!arg8) SWIG_fail; (arg1)->highShelf(arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+  SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6);
+  SWIG_FREE_ARRAY(arg8); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4);
+  SWIG_FREE_ARRAY(arg6); SWIG_FREE_ARRAY(arg8); lua_error(L); return SWIG_arg; }
+static int _wrap_Filter_allPass(lua_State* L) { int SWIG_arg = 0; Filter *arg1 = (Filter *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; float *arg6 = (float *) 0 ; int arg7 ;
+  SWIG_check_num_args("Filter::allPass",4,4) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Filter::allPass",1,"Filter *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Filter,0))){ SWIG_fail_ptr("Filter_allPass",1,SWIGTYPE_p_Filter); }
+   arg2 = SWIG_get_float_num_array_var(L,2,&arg3); if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5);
+  if (!arg4) SWIG_fail; arg6 = SWIG_get_float_num_array_var(L,4,&arg7); if (!arg6) SWIG_fail;
+  (arg1)->allPass(arg2,arg3,arg4,arg5,arg6,arg7); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++;  SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); return SWIG_arg; if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2);
+  SWIG_FREE_ARRAY(arg4); SWIG_FREE_ARRAY(arg6); lua_error(L); return SWIG_arg; }
+static void swig_delete_Filter(void *obj) {
+Filter *arg1 = (Filter *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_Filter(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_Filter);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_Filter_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_Filter_methods[]= {
+    { "clear", _wrap_Filter_clear},
+    { "lowPass", _wrap_Filter_lowPass},
+    { "highPass", _wrap_Filter_highPass},
+    { "bandPass", _wrap_Filter_bandPass},
+    { "notch", _wrap_Filter_notch},
+    { "peaking", _wrap_Filter_peaking},
+    { "lowShelf", _wrap_Filter_lowShelf},
+    { "highShelf", _wrap_Filter_highShelf},
+    { "allPass", _wrap_Filter_allPass},
+    {0,0}
+};
+static swig_lua_method swig_Filter_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_Filter_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_Filter_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_Filter_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_Filter_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_Filter_Sf_SwigStatic = {
+    "Filter",
+    swig_Filter_Sf_SwigStatic_methods,
+    swig_Filter_Sf_SwigStatic_attributes,
+    swig_Filter_Sf_SwigStatic_constants,
+    swig_Filter_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_Filter_bases[] = {0};
+static const char *swig_Filter_base_names[] = {0};
+static swig_lua_class _wrap_class_Filter = { "Filter", "Filter", &SWIGTYPE_p_Filter,_proxy__wrap_new_Filter, swig_delete_Filter, swig_Filter_methods, swig_Filter_attributes, &swig_Filter_Sf_SwigStatic, swig_Filter_meta, swig_Filter_bases, swig_Filter_base_names };
+
 static int _wrap_Log_post__SWIG_0(lua_State* L) { int SWIG_arg = 0; Log *arg1 = (Log *) 0 ; char *arg2 = (char *) 0 ;
   SWIG_check_num_args("Log::post",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Log::post",1,"Log *");
   if(!SWIG_lua_isnilstring(L,2)) SWIG_fail_arg("Log::post",2,"char const *");
@@ -4520,20 +4902,23 @@ static int _wrap_Log_postFloat(lua_State* L) { int SWIG_arg = 0; Log *arg1 = (Lo
     arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->postFloat(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Log_postAtom(lua_State* L) { int SWIG_arg = 0; Log *arg1 = (Log *) 0 ; int arg2 ; t_atom *arg3 = (t_atom *) 0 ;
-  SWIG_check_num_args("Log::postAtom",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Log::postAtom",1,"Log *");
+  std::deque< int > arg4 ; SWIG_check_num_args("Log::postAtom",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Log::postAtom",1,"Log *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Log,0))){ SWIG_fail_ptr("Log_postAtom",1,SWIGTYPE_p_Log); }  {
     if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
     arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); std::deque<int> userDataRef; for (int i = 0; i < arg2; ++i) 
-    { lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
+      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
         arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
         arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
       else if (lua_isstring(L, -1))  { arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(lua_tostring(L, -1)); } 
-      else if (lua_isuserdata(L, -1))  { arg3[i].a_type = A_POINTER; userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  for (const int i : userDataRef)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  (arg1)->postAtom(arg2,arg3); { freebytes(arg3, arg2 * sizeof(t_atom)); } 
-  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); }  lua_error(L); return SWIG_arg; }
+      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->postAtom(arg2,arg3,arg4); {
+    freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+  if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Log_endPost(lua_State* L) { int SWIG_arg = 0; Log *arg1 = (Log *) 0 ; SWIG_check_num_args("Log::endPost",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("Log::endPost",1,"Log *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_Log,0))){ SWIG_fail_ptr("Log_endPost",1,SWIGTYPE_p_Log); } 
@@ -4602,11 +4987,21 @@ static const char *swig_Log_base_names[] = {0};
 static swig_lua_class _wrap_class_Log = { "Log", "Log", &SWIGTYPE_p_Log,_proxy__wrap_new_Log, swig_delete_Log, swig_Log_methods, swig_Log_attributes, &swig_Log_Sf_SwigStatic, swig_Log_meta, swig_Log_bases, swig_Log_base_names };
 
 static swig_lua_attribute swig_SwigModule_attributes[] = {
+    { "blTriangleTab", _wrap_blTriangleTab_get, _wrap_blTriangleTab_set },
+    { "blSawTab", _wrap_blSawTab_get, _wrap_blSawTab_set },
+    { "blSquareTab", _wrap_blSquareTab_get, _wrap_blSquareTab_set },
     { "OFWindow_exists", _wrap_OFWindow_exists_get, _wrap_OFWindow_exists_set },
     { "OFWindow_scale", _wrap_OFWindow_scale_get, _wrap_OFWindow_scale_set },
     {0,0,0}
 };
 static swig_lua_const_info swig_SwigModule_constants[]= {
+    {SWIG_LUA_CONSTTAB_FLOAT("UNITBIT32", 1572864.)},
+    {SWIG_LUA_CONSTTAB_INT("TABNUM_TRIANGLE", 20)},
+    {SWIG_LUA_CONSTTAB_INT("TABNUM_SAW", 40)},
+    {SWIG_LUA_CONSTTAB_INT("TABNUM_SQUARE", 20)},
+    {SWIG_LUA_CONSTTAB_INT("TABSIZE", 515)},
+    {SWIG_LUA_CONSTTAB_INT("HIOFFSET", 1)},
+    {SWIG_LUA_CONSTTAB_INT("LOWOFFSET", 0)},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
@@ -4628,6 +5023,9 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_Sys,
 &_wrap_class_Signal,
 &_wrap_class_PD,
+&_wrap_class_Osc,
+&_wrap_class_BlOsc,
+&_wrap_class_Filter,
 &_wrap_class_Log,
     0
 };
@@ -4650,23 +5048,29 @@ static swig_lua_namespace swig_SwigModule = {
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
 static swig_type_info _swigt__p_Array = {"_p_Array", "Array *", 0, 0, (void*)&_wrap_class_Array, 0};
+static swig_type_info _swigt__p_BlOsc = {"_p_BlOsc", "BlOsc *", 0, 0, (void*)&_wrap_class_BlOsc, 0};
 static swig_type_info _swigt__p_Canvas = {"_p_Canvas", "Canvas *", 0, 0, (void*)&_wrap_class_Canvas, 0};
 static swig_type_info _swigt__p_Clock = {"_p_Clock", "Clock *", 0, 0, (void*)&_wrap_class_Clock, 0};
+static swig_type_info _swigt__p_Filter = {"_p_Filter", "Filter *", 0, 0, (void*)&_wrap_class_Filter, 0};
 static swig_type_info _swigt__p_Inlet = {"_p_Inlet", "Inlet *", 0, 0, (void*)&_wrap_class_Inlet, 0};
 static swig_type_info _swigt__p_Log = {"_p_Log", "Log *", 0, 0, (void*)&_wrap_class_Log, 0};
 static swig_type_info _swigt__p_OFWindow = {"_p_OFWindow", "OFWindow *", 0, 0, (void*)&_wrap_class_OFWindow, 0};
+static swig_type_info _swigt__p_Osc = {"_p_Osc", "Osc *", 0, 0, (void*)&_wrap_class_Osc, 0};
 static swig_type_info _swigt__p_Outlet = {"_p_Outlet", "Outlet *", 0, 0, (void*)&_wrap_class_Outlet, 0};
 static swig_type_info _swigt__p_PD = {"_p_PD", "PD *", 0, 0, (void*)&_wrap_class_PD, 0};
 static swig_type_info _swigt__p_Send = {"_p_Send", "Send *", 0, 0, (void*)&_wrap_class_Send, 0};
 static swig_type_info _swigt__p_Signal = {"_p_Signal", "Signal *", 0, 0, (void*)&_wrap_class_Signal, 0};
 static swig_type_info _swigt__p_Sys = {"_p_Sys", "Sys *", 0, 0, (void*)&_wrap_class_Sys, 0};
 static swig_type_info _swigt__p_Value = {"_p_Value", "Value *", 0, 0, (void*)&_wrap_class_Value, 0};
+static swig_type_info _swigt__p_a_515__t_float = {"_p_a_515__t_float", "t_float (*)[515]", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_int = {"_p_p_int", "int **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_t_atom = {"_p_p_t_atom", "t_atom **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_t_canvas = {"_p_p_t_canvas", "t_canvas **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_t_garray = {"_p_p_t_garray", "t_garray **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_t_word = {"_p_p_t_word", "t_word **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__dequeT_int_t = {"_p_std__dequeT_int_t", "std::deque< int > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)&_wrap_class_string, 0};
 static swig_type_info _swigt__p_t_atom = {"_p_t_atom", "t_atom *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_t_float = {"_p_t_float", "t_float *", 0, 0, (void*)0, 0};
@@ -4675,23 +5079,29 @@ static swig_type_info _swigt__p_tupleT_int_int_int_t = {"_p_tupleT_int_int_int_t
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Array,
+  &_swigt__p_BlOsc,
   &_swigt__p_Canvas,
   &_swigt__p_Clock,
+  &_swigt__p_Filter,
   &_swigt__p_Inlet,
   &_swigt__p_Log,
   &_swigt__p_OFWindow,
+  &_swigt__p_Osc,
   &_swigt__p_Outlet,
   &_swigt__p_PD,
   &_swigt__p_Send,
   &_swigt__p_Signal,
   &_swigt__p_Sys,
   &_swigt__p_Value,
+  &_swigt__p_a_515__t_float,
+  &_swigt__p_float,
   &_swigt__p_int,
   &_swigt__p_p_int,
   &_swigt__p_p_t_atom,
   &_swigt__p_p_t_canvas,
   &_swigt__p_p_t_garray,
   &_swigt__p_p_t_word,
+  &_swigt__p_std__dequeT_int_t,
   &_swigt__p_std__string,
   &_swigt__p_t_atom,
   &_swigt__p_t_float,
@@ -4700,23 +5110,29 @@ static swig_type_info *swig_type_initial[] = {
 };
 
 static swig_cast_info _swigc__p_Array[] = {  {&_swigt__p_Array, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_BlOsc[] = {  {&_swigt__p_BlOsc, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Canvas[] = {  {&_swigt__p_Canvas, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Clock[] = {  {&_swigt__p_Clock, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Filter[] = {  {&_swigt__p_Filter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Inlet[] = {  {&_swigt__p_Inlet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Log[] = {  {&_swigt__p_Log, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_OFWindow[] = {  {&_swigt__p_OFWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Osc[] = {  {&_swigt__p_Osc, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Outlet[] = {  {&_swigt__p_Outlet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PD[] = {  {&_swigt__p_PD, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Send[] = {  {&_swigt__p_Send, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Signal[] = {  {&_swigt__p_Signal, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Sys[] = {  {&_swigt__p_Sys, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Value[] = {  {&_swigt__p_Value, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_a_515__t_float[] = {  {&_swigt__p_a_515__t_float, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_int[] = {  {&_swigt__p_p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_t_atom[] = {  {&_swigt__p_p_t_atom, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_t_canvas[] = {  {&_swigt__p_p_t_canvas, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_t_garray[] = {  {&_swigt__p_p_t_garray, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_t_word[] = {  {&_swigt__p_p_t_word, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__dequeT_int_t[] = {  {&_swigt__p_std__dequeT_int_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_atom[] = {  {&_swigt__p_t_atom, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_float[] = {  {&_swigt__p_t_float, 0, 0, 0},{0, 0, 0, 0}};
@@ -4725,23 +5141,29 @@ static swig_cast_info _swigc__p_tupleT_int_int_int_t[] = {  {&_swigt__p_tupleT_i
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Array,
+  _swigc__p_BlOsc,
   _swigc__p_Canvas,
   _swigc__p_Clock,
+  _swigc__p_Filter,
   _swigc__p_Inlet,
   _swigc__p_Log,
   _swigc__p_OFWindow,
+  _swigc__p_Osc,
   _swigc__p_Outlet,
   _swigc__p_PD,
   _swigc__p_Send,
   _swigc__p_Signal,
   _swigc__p_Sys,
   _swigc__p_Value,
+  _swigc__p_a_515__t_float,
+  _swigc__p_float,
   _swigc__p_int,
   _swigc__p_p_int,
   _swigc__p_p_t_atom,
   _swigc__p_p_t_canvas,
   _swigc__p_p_t_garray,
   _swigc__p_p_t_word,
+  _swigc__p_std__dequeT_int_t,
   _swigc__p_std__string,
   _swigc__p_t_atom,
   _swigc__p_t_float,

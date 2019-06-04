@@ -1,45 +1,45 @@
 if type(window) ~= "userdata" then
-  window = pd.OFWindow()
+  window = ofWindow()
 end
 
-local canvas = pd.Canvas(this)
-local clock = pd.Clock(this, "setup")
+local canvas = pdCanvas(this)
+local clock = pdClock(this, "setup")
 local fontDir = canvas:getDir() .. "/data/"
-local vidGrabber = of.VideoGrabber()
+local vidGrabber = ofVideoGrabber()
 local camWidth, camHeight = 640, 480
 local asciiCharacters = ""
-local font = of.TrueTypeFont()
+local font = ofTrueTypeFont()
 
 function ofelia.new()
-  pd.OFWindow.addListener("setup", this)
-  pd.OFWindow.addListener("update", this)
-  pd.OFWindow.addListener("draw", this)
-  pd.OFWindow.addListener("keyPressed", this)
-  pd.OFWindow.addListener("exit", this)
+  ofWindow.addListener("setup", this)
+  ofWindow.addListener("update", this)
+  ofWindow.addListener("draw", this)
+  ofWindow.addListener("keyPressed", this)
+  ofWindow.addListener("exit", this)
   window:setPosition(30, 100)
   window:setSize(640, 480)
   window:create()
-  if pd.OFWindow.exists then
+  if ofWindow.exists then
     clock:delay(0)
   end
 end
 
 function ofelia.free()
   window:destroy()
-  pd.OFWindow.removeListener("setup", this)
-  pd.OFWindow.removeListener("update", this)
-  pd.OFWindow.removeListener("draw", this)
-  pd.OFWindow.removeListener("keyPressed", this)
-  pd.OFWindow.removeListener("exit", this)
+  ofWindow.removeListener("setup", this)
+  ofWindow.removeListener("update", this)
+  ofWindow.removeListener("draw", this)
+  ofWindow.removeListener("keyPressed", this)
+  ofWindow.removeListener("exit", this)
 end
 
 function ofelia.setup()
-  of.setWindowTitle("ascii video example")
-  of.background(0, 0, 0)
+  ofSetWindowTitle("ascii video example")
+  ofBackground(0, 0, 0)
   vidGrabber:setup(camWidth, camHeight)
   font:load(fontDir .. "Courier New Bold.ttf", 9)
   asciiCharacters = "  ..,,,'''``--_::^^**" .. '""=+<>iv%&xclrs)/){}I?!][1taeo7zjLunT#@JCwfy325Fp6mqSghVd4EgXPGZbYkOA8U$KHDBWNMR0Q'
-  of.enableAlphaBlending()
+  ofEnableAlphaBlending()
 end
 
 function ofelia.update()
@@ -47,15 +47,15 @@ function ofelia.update()
 end
 
 function ofelia.draw()
-  local videoAlphaValue = of.map(of.getMouseX(), 0, of.getWidth(), 0, 255)
-  of.setColor(255, 255, 255, videoAlphaValue)
+  local videoAlphaValue = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)
+  ofSetColor(255, 255, 255, videoAlphaValue)
   vidGrabber:draw(0,0)
   local pixelsRef = vidGrabber:getPixels()
-  of.setHexColor(0xffffff)
+  ofSetHexColor(0xffffff)
   for i = 0, camWidth-1, 7 do
     for j = 0, camHeight-1, 9 do
       local lightness = pixelsRef:getColor(i, j):getLightness()
-      local character = math.floor(of.map(lightness, 0, 255, 0, 1)^2.5 * string.len(asciiCharacters))
+      local character = math.floor(ofMap(lightness, 0, 255, 0, 1)^2.5 * string.len(asciiCharacters))
       font:drawString(string.sub(asciiCharacters, character, character+1), i, j)
     end
   end

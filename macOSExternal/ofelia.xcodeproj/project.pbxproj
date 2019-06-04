@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FD76D9241D80A4FC00A4F2A2 /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		FD8CC3DA1D80CE8700F9F9A9 /* ofeliaSetup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD26392E1D7EA77E00F52494 /* ofeliaSetup.cpp */; };
+		FD9455B02297C1E5005AEF38 /* ofeliaAliases.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD9455AE2297C1E5005AEF38 /* ofeliaAliases.cpp */; };
+		FD9455B12297C1E5005AEF38 /* ofeliaAliases.h in Headers */ = {isa = PBXBuildFile; fileRef = FD9455AF2297C1E5005AEF38 /* ofeliaAliases.h */; };
 		FD995CE121327C45001CCBFC /* ofeliaSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD995CDF21327C45001CCBFC /* ofeliaSignal.cpp */; };
 		FD995CE221327C45001CCBFC /* ofeliaSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = FD995CE021327C45001CCBFC /* ofeliaSignal.h */; };
 		FD995CE521327D99001CCBFC /* ofeliaIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD995CE321327D99001CCBFC /* ofeliaIO.cpp */; };
@@ -125,6 +127,8 @@
 		FD26392E1D7EA77E00F52494 /* ofeliaSetup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaSetup.cpp; sourceTree = "<group>"; };
 		FD26392F1D7EA77E00F52494 /* ofeliaSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofeliaSetup.h; sourceTree = "<group>"; };
 		FD8CC3E21D80D6AB00F9F9A9 /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		FD9455AE2297C1E5005AEF38 /* ofeliaAliases.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaAliases.cpp; sourceTree = "<group>"; };
+		FD9455AF2297C1E5005AEF38 /* ofeliaAliases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofeliaAliases.h; sourceTree = "<group>"; };
 		FD995CDF21327C45001CCBFC /* ofeliaSignal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaSignal.cpp; sourceTree = "<group>"; };
 		FD995CE021327C45001CCBFC /* ofeliaSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofeliaSignal.h; sourceTree = "<group>"; };
 		FD995CE321327D99001CCBFC /* ofeliaIO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofeliaIO.cpp; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 			children = (
 				FDA44D2B20AC0B71007FA768 /* ofeliaBindings.cpp */,
 				FDA44D2820AC064C007FA768 /* ofeliaBindings.h */,
+				FD9455AE2297C1E5005AEF38 /* ofeliaAliases.cpp */,
+				FD9455AF2297C1E5005AEF38 /* ofeliaAliases.h */,
 				FD995CE721327E1A001CCBFC /* ofeliaLua.cpp */,
 				FD995CE821327E1A001CCBFC /* ofeliaLua.h */,
 				FD995CDF21327C45001CCBFC /* ofeliaSignal.cpp */,
@@ -447,6 +453,7 @@
 				FDF0FAF220E8C6590071CB0F /* ldebug.h in Headers */,
 				FDF0FAFA20E8C6590071CB0F /* lundump.h in Headers */,
 				FDF0FAE420E8C6590071CB0F /* lstring.h in Headers */,
+				FD9455B12297C1E5005AEF38 /* ofeliaAliases.h in Headers */,
 				FDF0FAEC20E8C6590071CB0F /* lzio.h in Headers */,
 				FDF0FAFF20E8C6590071CB0F /* luaconf.h in Headers */,
 				FDF0FAD020E8C6590071CB0F /* lctype.h in Headers */,
@@ -607,6 +614,7 @@
 				FDF0FAFB20E8C6590071CB0F /* ltablib.c in Sources */,
 				FDF0FAF320E8C6590071CB0F /* loslib.c in Sources */,
 				FDF0FADE20E8C6590071CB0F /* lmathlib.c in Sources */,
+				FD9455B02297C1E5005AEF38 /* ofeliaAliases.cpp in Sources */,
 				FD995D05213283AD001CCBFC /* ofeliaExists.cpp in Sources */,
 				FDF0FAE220E8C6590071CB0F /* ldblib.c in Sources */,
 				FDF0FAF520E8C6590071CB0F /* loadlib.c in Sources */,

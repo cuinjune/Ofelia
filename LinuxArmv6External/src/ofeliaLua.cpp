@@ -20,6 +20,7 @@
  ==============================================================================*/
 
 #include "ofeliaLua.h"
+#include "ofeliaAliases.h"
 #include "ofeliaData.h"
 #include <deque>
 #include <cstring>
@@ -83,6 +84,9 @@ bool ofeliaLua::init()
     
     /* clear stack since opening libs leaves tables on the stack */
     lua_settop(L, 0);
+    
+    /* make aliases of classes and functions in modules */
+    ofeliaAliases::makeAliases(L);
     
     /* make garbage collector run more frequently (default: 200) */
     lua_gc(L, LUA_GCSETPAUSE, 100);
@@ -331,11 +335,17 @@ void ofeliaLua::outletTable()
             av[ac].a_w.w_symbol = gensym(lua_tostring(L, -1));
             lua_pop(L, 1);
         }
-        else if (lua_isuserdata(L, -1))
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))
         {
             av[ac].a_type = A_POINTER;
             userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
             av[ac].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back());
+        }
+        else if (lua_isstring(L, -2)) /* if the table has keys */
+        {
+            lua_pop(L, 2);
+            outletUserData(); /* treat the table as a userdata */
+            return;
         }
         ac++;
     }
@@ -533,19 +543,31 @@ void ofeliaLua::doString(const char *s)
     std::ostringstream ss;
     const char *name = dataPtr->sym->s_name;
     ss << "package.preload['" << name << "'] = nil package.loaded['" << name << "'] = nil\n"
-    << "package.preload['" << name << "'] = function(this) local ofelia = {}\n"
-    << s << "\nreturn ofelia end";
-    
+    << "package.preload['" << name << "'] = function(this) local ofelia = {} local M = ofelia\n";
+    if (!dataPtr->isFunctionMode)
+        ss << s;
+    else if (!dataPtr->isSignalObject)
+    {
+        ss << "function ofelia.bang() return ofelia.anything(nil) end function ofelia.float(f) return ofelia.anything(f) end function ofelia.symbol(s) return ofelia.anything(s) end function ofelia.pointer(p) return ofelia.anything(p) end function ofelia.list(l) return ofelia.anything(l) end function ofelia.anything(a)\n" << s << "\nend";
+    }
+    else
+    {
+        ss << "function ofelia.perform(";
+        const int numInlets = dataPtr->io.numInlets;
+        for (int i = 0; i < numInlets; ++i)
+        {
+            if (i) ss << ',';
+            ss << 'a' << i + 1;
+        }
+        ss << ")\n" << s << "\nend";
+    }
+    ss << "\nreturn ofelia end";
     /* run the lua chunk */
     const int ret = luaL_dostring(L, ss.str().c_str());
-    if (ret)
+    if (ret != LUA_OK)
     {
-        if (ret == LUA_ERRSYNTAX)
-            error("ofelia: %s", lua_tostring(L, -1));
-        else if (ret == LUA_ERRMEM)
-            error("ofelia: memory error");
-        else
-            error("ofelia: syntax error");
+        error("ofelia: %s", lua_tostring(L, -1));
+        lua_pop(L, 1);
         return;
     }
     /* call the new function */

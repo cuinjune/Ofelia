@@ -1,60 +1,60 @@
 if type(window) ~= "userdata" then
-  window = pd.OFWindow()
+  window = ofWindow()
 end
 
-local canvas = pd.Canvas(this)
-local clock = pd.Clock(this, "setup")
+local canvas = pdCanvas(this)
+local clock = pdClock(this, "setup")
 local shaderDir = canvas:getDir() .. "/data/"
-local shader = of.Shader()
-local plane = of.PlanePrimitive()
-local img = of.Image()
+local shader = ofShader()
+local plane = ofPlanePrimitive()
+local img = ofImage()
 
 function ofelia.new()
-  pd.OFWindow.addListener("setup", this)
-  pd.OFWindow.addListener("update", this)
-  pd.OFWindow.addListener("draw", this)
-  pd.OFWindow.addListener("exit", this)
+  ofWindow.addListener("setup", this)
+  ofWindow.addListener("update", this)
+  ofWindow.addListener("draw", this)
+  ofWindow.addListener("exit", this)
   window:setPosition(30, 100)
   window:setSize(1024, 768)
   window:create()
-  if pd.OFWindow.exists then
+  if ofWindow.exists then
     clock:delay(0)
   end
 end
 
 function ofelia.free()
   window:destroy()
-  pd.OFWindow.removeListener("setup", this)
-  pd.OFWindow.removeListener("update", this)
-  pd.OFWindow.removeListener("draw", this)
-  pd.OFWindow.removeListener("exit", this)
+  ofWindow.removeListener("setup", this)
+  ofWindow.removeListener("update", this)
+  ofWindow.removeListener("draw", this)
+  ofWindow.removeListener("exit", this)
 end
 
 function ofelia.setup()
-  of.setWindowTitle("displacement map")
-  of.enableArbTex()
-  of.background(55)
-  if of.isGLProgrammableRenderer() then
+  ofSetWindowTitle("displacement map")
+  ofEnableArbTex()
+  ofBackground(55)
+  if ofIsGLProgrammableRenderer() then
     shader:load(shaderDir .. "shadersGL3/shader")
   else
     shader:load(shaderDir .. "shadersGL2/shader")
   end
-  img:allocate(80, 60, of.IMAGE_GRAYSCALE)
+  img:allocate(80, 60, OF_IMAGE_GRAYSCALE)
   plane:set(800, 600, 80, 60)
   plane:mapTexCoordsFromTexture(img:getTexture())
 end
 
 function ofelia.update()
-  local noiseScale = of.map(of.getMouseX(), 0, of.getWidth(), 0, 0.1)
-  local noiseVel = of.getElapsedTimef()
+  local noiseScale = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 0.1)
+  local noiseVel = ofGetElapsedTimef()
   local pixels = img:getPixels()
   local w = img:getWidth()
   local h = img:getHeight()
   for y=0, h-1 do
     for x=0, w-1 do    
       local i = y * w + x
-      local noiseVelue = of.noise(x * noiseScale, y * noiseScale, noiseVel)
-      pixels:setColor(i, of.Color(255 * noiseVelue))
+      local noiseValue = ofNoise(x * noiseScale, y * noiseScale, noiseVel)
+      pixels:setColor(i, ofColor(255 * noiseValue))
     end
   end
   img:update()
@@ -63,18 +63,18 @@ end
 function ofelia.draw()
   img:getTexture():bind()
   shader:beginShader()
-  of.pushMatrix()
-  local tx = of.getWidth() / 2
-  local ty = of.getHeight() / 2
-  of.translate(tx, ty)
-  local percentY = of.getMouseY() / of.getHeight()
-  local rotation = of.map(percentY, 0, 1, -60, 60, true) + 60
-  of.rotateDeg(rotation, 1, 0, 0)
+  ofPushMatrix()
+  local tx = ofGetWidth() / 2
+  local ty = ofGetHeight() / 2
+  ofTranslate(tx, ty)
+  local percentY = ofGetMouseY() / ofGetHeight()
+  local rotation = ofMap(percentY, 0, 1, -60, 60, true) + 60
+  ofRotateDeg(rotation, 1, 0, 0)
   plane:drawWireframe()
-  of.popMatrix()
+  ofPopMatrix()
   shader:endShader()
   img:getTexture():unbind()
-  of.setColor(255)
+  ofSetColor(255)
   img:draw(0, 0)
 end
 

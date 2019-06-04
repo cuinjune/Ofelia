@@ -16,7 +16,7 @@ swig -c++ -lua -fcompact -fvirtual -I../../../libs/openFrameworks ofeliaBindings
 #if LUA_VERSION_NUM <= 501
 static void lua_len(lua_State *L, int i) 
 {
-    switch (lua_type(L, i)) 
+    switch (lua_type(L, i))
     {
         case LUA_TSTRING:
             lua_pushnumber(L, (lua_Number)lua_objlen(L, i));
@@ -67,7 +67,7 @@ static void lua_len(lua_State *L, int i)
 }
 
 /* convert the input lua_Table to int, t_atom* */
-%typemap(in) (int argc, t_atom *argv)
+%typemap(in) (int argc, t_atom *argv, std::deque<int> userDataRef)
 {
     if (!lua_istable(L, $input))
         SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected");
@@ -75,7 +75,6 @@ static void lua_len(lua_State *L, int i)
     $1 = static_cast<lua_Integer>(lua_tointeger(L, -1));
     if (!$1) SWIG_exception(SWIG_RuntimeError, "table is empty");
     $2 = static_cast<t_atom *>(getbytes($1 * sizeof(t_atom)));
-    std::deque<int> userDataRef;
     for (int i = 0; i < $1; ++i) 
     {
         lua_pushinteger(L, i + 1);
@@ -95,23 +94,23 @@ static void lua_len(lua_State *L, int i)
 	    $2[i].a_type = A_SYMBOL;
 	    $2[i].a_w.w_symbol = gensym(lua_tostring(L, -1));
         }
-        else if (lua_isuserdata(L, -1)) 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1)) 
         {
 	    $2[i].a_type = A_POINTER;
-	    userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-            $2[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back());
+	    $3.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+            $2[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&$3.back());
         }
 	else 
         {
 	    SWIG_exception(SWIG_RuntimeError, "unhandled argument type");
         }
     }
-    for (const int i : userDataRef)
-        luaL_unref(L, LUA_REGISTRYINDEX, i);
 }
-%typemap(freearg) (int argc, t_atom *argv) 
+%typemap(freearg) (int argc, t_atom *argv, std::deque<int> userDataRef) 
 {
     freebytes($2, $1 * sizeof(t_atom));
+    for (const int i : $3)
+        luaL_unref(L, LUA_REGISTRYINDEX, i);
 }
 
 /* convert the output t_float to lua_Number */
@@ -302,5 +301,11 @@ static void lua_len(lua_State *L, int i)
 {
     freebytes($2, $1 * sizeof(t_float));
 }
+
+/* used for Filter class methods */
+%apply (float *INOUT, int) {(float *in1, int n1)};
+%apply (float *INPUT, int) {(float *in2, int n2)};
+%apply (float *INPUT, int) {(float *in3, int n3)};
+%apply (float *INPUT, int) {(float *in4, int n4)};
 
 %include "ofeliaBindings.h"

@@ -1,0 +1,15 @@
+#N canvas 397 307 515 239 10;
+#X obj 32 107 inlet;
+#X obj 32 29 loadbang;
+#X obj 32 191 outlet;
+#X msg 32 50 read -c ofImage.lua;
+#X obj 32 170 ofelia d \$1;
+#X obj 32 128 route clear;
+#X msg 32 149 _clear;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 1 4 0;
+#X connect 6 0 4 0;

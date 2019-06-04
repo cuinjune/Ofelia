@@ -1,36 +1,31 @@
-#N canvas 720 100 665 654 10;
+#N canvas 720 100 665 577 10;
 #X declare -path ofelia/libs/of;
-#X obj 28 134 of.Window;
 #X obj 28 92 loadbang;
-#X obj 28 170 of.setup;
 #X obj 462 29 declare -path ofelia/libs/of;
-#X msg 28 113 setPosition 30 100 \, setSize 640 400 \, create;
-#X text 315 566 This example was originally written in Processing.
+#X text 315 484 This example was originally written in Processing.
 https://processing.org/examples/keyboard.html;
-#X obj 28 302 of.keyPressed;
-#X text 120 302 Listen to the keyboard press. Open the abstraction's
+#X text 120 248 Listen to the keyboard press. Open the abstraction's
 script to see the types of values it outputs.;
 #X text 25 23 Click on the window to give it focus and press the letter
 keys to create forms in time and space. Each key has a unique identifying
 number. These numbers can be used to position shapes in space.;
-#X obj 28 191 of.background 0;
-#X obj 28 233 ofelia d \$0-var \; function ofelia.bang() \; ofelia.rectWidth
-= of.getWidth()/4 \; end \;;
-#X obj 28 212 of.setBackgroundAuto 0;
-#X msg 28 323 keyPressed \$2;
-#X obj 28 344 ofelia d \; function ofelia.keyPressed(key) \; local
-keyIndex = -1 \; if key >= string.byte("A") and key <= string.byte("Z")
-then \; keyIndex = key - string.byte("A") \; elseif key >= string.byte("a")
-and key <= string.byte("z") then \; keyIndex = key - string.byte("a")
-\; end \; if keyIndex == -1 then \; of.background(0) \; else \; of.setColor(of.getElapsedTimeMillis()
-% 255) \; local a = require("\$0-var") \; local x = of.map(keyIndex
-\, 0 \, 25 \, 0 \, of.getWidth() - a.rectWidth) \; of.drawRectangle(x
-\, 0 \, a.rectWidth \, of.getHeight()) \; end \; end \;;
+#X obj 28 134 ofWindow;
+#X obj 28 212 ofSetBackgroundAuto 0;
+#X obj 28 191 ofBackground 0;
+#X obj 28 170 ofSetup;
+#X obj 28 248 ofKeyPressed;
+#X obj 28 280 ofelia f \; local key \, keyIndex = a[2] \, -1 \; if
+key >= string.byte("A") and key <= string.byte("Z") then \; keyIndex
+= key - string.byte("A") \; elseif key >= string.byte("a") and key
+<= string.byte("z") then \; keyIndex = key - string.byte("a") \; end
+\; if keyIndex == -1 then \; ofBackground(0) \; else \; ofSetColor(ofGetElapsedTimeMillis()
+% 255) \; local rectWidth = ofGetWidth() / 4 \; local x = ofMap(keyIndex
+\, 0 \, 25 \, 0 \, ofGetWidth() - rectWidth) \; ofDrawRectangle(x \,
+0 \, rectWidth \, ofGetHeight()) \; end \;;
 #X f 67;
-#X connect 1 0 4 0;
-#X connect 2 0 9 0;
-#X connect 4 0 0 0;
-#X connect 6 0 12 0;
-#X connect 9 0 11 0;
-#X connect 11 0 10 0;
-#X connect 12 0 13 0;
+#X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
+#X connect 0 0 11 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 11 0 5 0;

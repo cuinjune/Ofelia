@@ -1,35 +1,35 @@
 if type(window) ~= "userdata" then
-  window = pd.OFWindow()
+  window = ofWindow()
 end
 
-local canvas = pd.Canvas(this)
-local clock = pd.Clock(this, "setup")
+local canvas = pdCanvas(this)
+local clock = pdClock(this, "setup")
 local shaderDir = canvas:getDir() .. "/data/"
-local shader = of.Shader()
+local shader = ofShader()
 
 function ofelia.new()
-  pd.OFWindow.addListener("setup", this)
-  pd.OFWindow.addListener("draw", this)
-  pd.OFWindow.addListener("exit", this)
+  ofWindow.addListener("setup", this)
+  ofWindow.addListener("draw", this)
+  ofWindow.addListener("exit", this)
   window:setPosition(30, 100)
   window:setSize(1024, 768)
   window:create()
-  if pd.OFWindow.exists then
+  if ofWindow.exists then
     clock:delay(0)
   end
 end
 
 function ofelia.free()
   window:destroy()
-  pd.OFWindow.removeListener("setup", this)
-  pd.OFWindow.removeListener("draw", this)
-  pd.OFWindow.removeListener("exit", this)
+  ofWindow.removeListener("setup", this)
+  ofWindow.removeListener("draw", this)
+  ofWindow.removeListener("exit", this)
 end
 
 function ofelia.setup()
-  of.setWindowTitle("simple color quad")
-  of.background(255, 255, 255, 255)
-  if of.isGLProgrammableRenderer() then
+  ofSetWindowTitle("simple color quad")
+  ofBackground(255, 255, 255, 255)
+  if ofIsGLProgrammableRenderer() then
     shader:load(shaderDir .. "shadersGL3/shader")
   else
     shader:load(shaderDir .. "shadersGL2/shader")
@@ -37,9 +37,9 @@ function ofelia.setup()
 end
 
 function ofelia.draw()
-  of.setColor(255)
+  ofSetColor(255)
   shader:beginShader()
-  of.drawRectangle(0, 0, of.getWidth(), of.getHeight())
+  ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight())
   shader:endShader()
 end
 

@@ -151,6 +151,9 @@
     <ClCompile Include="src\ofeliaTextBuf.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofeliaAliases.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -303,6 +306,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofeliaTextBuf.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofeliaAliases.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

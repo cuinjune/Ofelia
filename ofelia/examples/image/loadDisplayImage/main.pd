@@ -1,55 +1,44 @@
-#N canvas 720 100 665 574 10;
+#N canvas 720 100 665 498 10;
 #X declare -path ofelia/libs/of;
-#X declare -path ofelia/libs/pd;
-#X obj 28 112 of.Window;
 #X obj 28 70 loadbang;
-#X obj 28 148 of.setup;
-#X obj 28 414 of.draw;
-#X text 313 520 This example was originally written in Processing.
+#X text 313 400 This example was originally written in Processing.
 https://processing.org/examples/loaddisplayimage.html;
-#X obj 28 295 s \$0-img;
 #X text 25 23 Images can be loaded and displayed to the screen at their
 actual size or any other size.;
-#X obj 28 190 pd.Canvas;
-#X msg 28 169 getDir;
-#X msg 28 274 image \$1;
-#X obj 28 456 of.Image.draw 0 0;
-#X obj 46 435 r \$0-img;
-#X obj 28 232 of.setDataPathRoot;
-#X msg 28 211 newRoot \$1/data \, bang;
-#X obj 28 253 of.Image;
-#X obj 28 316 r \$0-img;
-#X obj 28 337 t b a;
-#X text 148 232 Set the new root path to the data folder.;
-#X text 105 435 Sets the image to draw.;
-#X text 88 253 Outputs the pointer to the image.;
-#X text 88 296 Send "image pointer" message.;
-#X text 198 358 Load an image.;
-#X text 142 456 Displays the image at its actual size at point (0 \,
+#X text 172 289 Displays the image at its actual size at point (0 \,
 0).;
-#X floatatom 28 379 5 0 0 0 - - -;
-#X text 68 379 0: fail \, 1: success.;
 #X obj 462 29 declare -path ofelia/libs/of;
-#X obj 462 50 declare -path ofelia/libs/pd;
-#X obj 28 358 of.Image.load moonwalk.jpg;
-#X obj 28 477 of.Image.draw 0 180 320 180;
-#X text 201 477 Displays the image at point (0 \, 180) at half of its
+#X text 231 340 Displays the image at point (0 \, 180) at half of its
 size.;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X floatatom 28 232 5 0 0 0 - - -;
+#X msg 28 169 load data/moonwalk.jpg;
+#X text 69 232 0: fail \, 1: success.;
+#X obj 28 268 ofDraw;
+#X obj 28 190 ofImage \$0-img;
+#X text 124 190 Create an ofImage class named "\$0-img".;
+#X obj 28 289 ofDrawImage \$0-img 0 0;
+#X obj 28 340 ofDrawImage \$0-img 0 180 320 180;
+#X text 173 168 Load an image from the path. (relative or absolute
+path);
+#X obj 28 211 route load;
+#X floatatom 179 320 5 0 0 0 - - -;
+#X floatatom 217 320 5 0 0 0 - - -;
+#X floatatom 65 320 5 0 0 0 - - -;
+#X floatatom 103 320 5 0 0 0 - - -;
+#X text 256 320 <- Try changing the position and size of the image.
+;
 #X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
-#X connect 1 0 30 0;
-#X connect 2 0 8 0;
-#X connect 3 0 10 0;
-#X connect 7 0 13 0;
-#X connect 8 0 7 0;
-#X connect 9 0 5 0;
-#X connect 10 0 28 0;
-#X connect 11 0 10 0;
-#X connect 11 0 28 0;
-#X connect 12 0 14 0;
-#X connect 13 0 12 0;
-#X connect 14 0 9 0;
-#X connect 15 0 16 0;
-#X connect 16 0 27 0;
-#X connect 16 1 27 0;
-#X connect 27 0 23 0;
-#X connect 30 0 0 0;
+#X connect 0 0 23 0;
+#X connect 7 0 9 0;
+#X connect 9 0 12 0;
+#X connect 11 0 14 0;
+#X connect 12 0 17 0;
+#X connect 14 0 15 0;
+#X connect 17 0 8 0;
+#X connect 18 0 15 4;
+#X connect 19 0 15 5;
+#X connect 20 0 15 1;
+#X connect 21 0 15 2;
+#X connect 23 0 6 0;

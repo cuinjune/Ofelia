@@ -1,58 +1,36 @@
-#N canvas 720 100 665 756 10;
+#N canvas 720 100 665 664 10;
 #X declare -path ofelia/libs/of;
-#X obj 28 144 of.Window;
 #X obj 28 102 loadbang;
-#X obj 28 180 of.setup;
-#X obj 28 258 of.draw;
-#X obj 28 222 of.fill;
-#X text 315 699 This example was originally written in Processing.
+#X text 315 577 This example was originally written in Processing.
 https://processing.org/examples/shapeprimitives.html;
-#X obj 28 201 of.background 0;
-#X obj 28 279 of.setColor 204;
-#X obj 28 300 of.drawTriangle 18 18 18 360 81 360;
-#X obj 28 321 of.setColor 102;
-#X obj 28 342 of.drawRectangle 81 81 63 63;
-#X obj 28 363 of.setColor 204;
-#X obj 28 384 of.beginShape;
-#X obj 28 405 of.vertex 189 18;
-#X obj 28 426 of.vertex 216 18;
-#X obj 28 447 of.vertex 216 360;
-#X obj 28 468 of.vertex 144 360;
-#X obj 28 489 of.endShape 1;
-#X obj 28 510 of.setColor 255;
-#X obj 28 552 of.setColor 204;
-#X obj 28 573 of.drawTriangle 288 18 351 360 288 360;
-#X obj 28 594 of.setColor 255;
-#X obj 28 615 ofelia d \; function ofelia.bang() \; local path = of.Path()
-\; path:arc(479 \, 300 \, 140 \, 140 \, 180 \, 0) \; path:draw() \;
-end \;;
-#X obj 28 531 of.drawCircle 252 144 36;
-#X text 269 632 More complex shapes can be drawn using of.Path() class.
-https://openframeworks.cc/documentation/graphics/ofPath/;
-#X text 25 23 The basic shape primitive abstractions include of.drawTriangle()
-\, of.drawRectangle() and of.drawCircle(). Squares are made with of.drawRectangle().
-Each of these abstractions requires a number of parameters to determine
-the shape's position and size.;
 #X obj 462 29 declare -path ofelia/libs/of;
-#X msg 28 123 setPosition 30 100 \, setSize 640 400 \, create;
-#X connect 1 0 27 0;
-#X connect 2 0 6 0;
-#X connect 3 0 7 0;
-#X connect 6 0 4 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 9 0 10 0;
+#X obj 28 312 ofDraw;
+#X obj 28 180 ofSetup;
+#X obj 28 201 ofBackground 0;
+#X obj 28 222 ofFill;
+#X obj 28 144 ofWindow;
+#X text 275 252 Create a path for the arc shape.;
+#X text 25 23 The basic shape primitive functions include ofDrawTriangle()
+\, ofDrawRectangle() and ofDrawCircle(). Squares are made with ofDrawRectangle().
+Each of these functions requires a number of parameters to determine
+the shape's position and size.;
+#X obj 28 333 ofGetPtr \$0-vars;
+#X obj 28 354 ofelia f \; ofSetColor(204) \; ofDrawTriangle(18 \, 18
+\, 18 \, 360 \, 81 \, 360) \; ofSetColor(102) \; ofDrawRectangle(81
+\, 81 \, 63 \, 63) \; ofSetColor(204) \; ofBeginShape() \; ofVertex(189
+\, 18) \; ofVertex(216 \, 18) \; ofVertex(216 \, 360) \; ofVertex(144
+\, 360) \; ofEndShape(true) \; ofSetColor(255) \; ofDrawCircle(252
+\, 144 \, 36) \; ofSetColor(204) \; ofDrawTriangle(288 \, 18 \, 351
+\, 360 \, 288 \, 360) \; ofSetColor(255) \; a.path:draw() \;;
+#X text 135 333 Get a pointer to the variable module.;
+#X msg 28 123 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 243 ofelia f \$0-vars \; M.path = ofPath() \; M.path:setCircleResolution(50)
+\; M.path:arc(479 \, 300 \, 140 \, 140 \, 180 \, 0) \;;
+#X text 275 269 "M" is an alias of the module table "ofelia".;
+#X connect 0 0 13 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 14 0;
 #X connect 10 0 11 0;
-#X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 13 0 14 0;
-#X connect 14 0 15 0;
-#X connect 15 0 16 0;
-#X connect 16 0 17 0;
-#X connect 17 0 18 0;
-#X connect 18 0 23 0;
-#X connect 19 0 20 0;
-#X connect 20 0 21 0;
-#X connect 21 0 22 0;
-#X connect 23 0 19 0;
-#X connect 27 0 0 0;
+#X connect 13 0 7 0;

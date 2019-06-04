@@ -28,7 +28,8 @@ t_class *ofeliaDefine::pdClass;
 void *ofeliaDefine::newMethod(t_symbol *s, int argc, t_atom *argv)
 {
     t_symbol *asym = gensym("#A");
-    data.argParse(argc, argv, gensym("define"), true);
+    t_symbol *name = data.isFunctionMode ? gensym("function") : gensym("define");
+    data.argParse(argc, argv, name, true);
     /* bashily unbind #A -- this would create garbage if #A were
      multiply bound but we believe in this context it's at most
      bound to whichever ofelia_define or array was created most recently */
@@ -190,6 +191,14 @@ void *ofeliaDefine::newWrapper(t_symbol *s, int argc, t_atom *argv)
     return x->newMethod(s, argc, argv);
 }
 
+void *ofeliaDefine::newWrapper_function(t_symbol *s, int argc, t_atom *argv)
+{
+    ofeliaDefine *x = reinterpret_cast<ofeliaDefine *>(pd_new(pdClass));
+    new (x) ofeliaDefine();
+    x->data.isFunctionMode = true;
+    return x->newMethod(s, argc, argv);
+}
+
 void ofeliaDefine::bangWrapper(ofeliaDefine *x)
 {
     x->bangMethod();
@@ -283,6 +292,7 @@ void ofeliaDefine::setup()
                         reinterpret_cast<t_newmethod>(newWrapper),
                         reinterpret_cast<t_method>(freeWrapper),
                         sizeof(ofeliaDefine), 0, A_GIMME, 0);
+    class_addcreator(reinterpret_cast<t_newmethod>(newWrapper_function), gensym("ofelia function"), A_GIMME, 0);
     class_addmethod(pdClass, reinterpret_cast<t_method>(openWrapper),
                     gensym("click"), A_NULL, 0);
     class_addmethod(pdClass, reinterpret_cast<t_method>(closeWrapper),

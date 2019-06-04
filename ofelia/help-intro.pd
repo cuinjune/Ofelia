@@ -1,0 +1,872 @@
+#N canvas 518 23 665 799 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 457 20 declare -path ofelia/libs/of;
+#X obj 457 40 declare -path ofelia/libs/pd;
+#N canvas 519 75 650 524 ofAppRunner 0;
+#X obj 26 59 ofDoesHWOrientation;
+#X obj 26 79 ofGetClipboardString;
+#X obj 26 99 ofGetFrameNum;
+#X text 224 99 - get the current frame as an int;
+#X obj 26 119 ofGetFrameRate;
+#X obj 26 139 ofGetHeight;
+#X obj 26 159 ofGetLastFrameTime;
+#X obj 26 179 ofGetOrientation;
+#X text 224 179 - get the orientation of the window;
+#X obj 26 199 ofGetScreenHeight;
+#X text 224 199 - get the height of the screen;
+#X text 224 139 - get the height of the window;
+#X text 224 119 - get the current frame rate;
+#X text 224 159 - get the last frame time;
+#X text 224 79 - get string from clipboard;
+#X obj 26 219 ofGetScreenWidth;
+#X text 224 219 - get the width of the screen;
+#X obj 26 239 ofGetTargetFrameRate;
+#X text 224 239 - get the target frame rate;
+#X obj 26 259 ofGetWidth;
+#X text 224 259 - get the width of the window;
+#X obj 26 279 ofHideCursor;
+#X text 224 279 - hide the mouse cursor;
+#X text 224 299 - set string to clipboard;
+#X obj 26 319 ofSetFrameRate;
+#X text 224 319 - set the frame rate to a given target;
+#X text 224 339 - change the app window mode to fullscreen or window
+;
+#X obj 26 339 ofSetFullscreen;
+#X obj 26 359 ofSetOrientation;
+#X text 224 359 - set the orientation of the window;
+#X obj 26 379 ofSetVerticalSync;
+#X obj 26 399 ofShowCursor;
+#X text 224 399 - show the mouse cursor;
+#X obj 26 419 ofToggleFullscreen;
+#X text 224 419 - toggle the fullscreen mode;
+#X text 24 30 ----------------------- ofAppRunner -----------------------
+;
+#X text 224 60 - check if your current device does hardware orientation
+;
+#X text 224 379 - synchronize the redraw of the screen to the refresh
+rate;
+#X obj 26 439 ofGetPtr;
+#X text 224 439 - get the pointer to a named ofelia module;
+#X obj 26 299 ofSetClipboardString;
+#X restore 26 139 pd ofAppRunner;
+#X text 24 60 ----------------------- APPLICATION -----------------------
+;
+#N canvas 519 75 650 540 ofBaseApp 0;
+#X obj 26 59 ofDragged;
+#X text 224 59 - listen to the dragging of the files to the window
+;
+#X obj 26 79 ofDraw;
+#X text 224 79 - a draw callback which is called regularly to draw
+things;
+#X obj 26 99 ofExit;
+#X text 224 99 - an exit callback which is called before the app is
+closed;
+#X obj 26 119 ofKeyPressed;
+#X obj 26 139 ofKeyReleased;
+#X obj 26 179 ofMouseDragged;
+#X obj 26 199 ofMouseEntered;
+#X text 224 199 - listen when the mouse cursor enters the window area
+;
+#X obj 26 219 ofMouseExited;
+#X text 224 219 - listen when the mouse cursor leaves the window area
+;
+#X obj 26 239 ofMouseMoved;
+#X text 224 119 - listen to the key press event;
+#X text 224 139 - listen to the key release event;
+#X text 224 179 - listen to the mouse drag event;
+#X text 224 239 - listen to the mouse movement;
+#X obj 26 259 ofMousePressed;
+#X text 224 259 - listen when the mouse is pushed down;
+#X obj 26 279 ofMouseReleased;
+#X text 224 279 - listen when the mouse is released;
+#X obj 26 299 ofMouseScrolled;
+#X text 224 299 - listen when the mouse wheel is scrolled;
+#X obj 26 319 ofSetup;
+#X text 224 319 - a setup callback which is called at the start of
+the app;
+#X obj 26 339 ofTouchCancelled;
+#X text 224 339 - listen when the touch is being cancelled;
+#X obj 26 359 ofTouchDoubleTap;
+#X obj 26 379 ofTouchDown;
+#X text 224 379 - listen to the touch down event;
+#X text 224 359 - listen to the touch double tap event;
+#X obj 26 399 ofTouchMoved;
+#X text 224 399 - listen to the touch move event;
+#X obj 26 419 ofTouchUp;
+#X text 224 419 - listen to the touch up event;
+#X obj 26 439 ofUpdate;
+#X text 224 439 - an update callback called before draw to update states
+;
+#X obj 26 459 ofWindowResized;
+#X text 224 459 - listen when the window is being resized;
+#X text 24 30 ------------------------ ofBaseApp ------------------------
+;
+#X obj 26 159 ofMessageReceived;
+#X text 224 159 - listen to the messages sent from ofSendMessage;
+#X restore 26 159 pd ofBaseApp;
+#X text 24 210 ------------------------- GRAPHICS -------------------------
+;
+#X text 24 230 2d graphics \, images and typography.;
+#N canvas 519 75 650 712 ofGraphics 0;
+#X text 24 30 ------------------------ ofGraphics ------------------------
+;
+#X obj 26 59 ofBackground;
+#X text 224 59 - set the background color;
+#X text 224 79 - set the background color to a gradient;
+#X obj 26 79 ofBackgroundGradient;
+#X obj 26 99 ofBackgroundHex;
+#X text 224 99 - set the background color using a hex color value;
+#X obj 26 119 ofBeginSaveScreenAsPDF;
+#X text 224 119 - begin rendering to a PDF file;
+#X text 224 139 - begin rendering to a SVG file;
+#X obj 26 139 ofBeginSaveScreenAsSVG;
+#X obj 26 159 ofBeginShape;
+#X text 224 159 - start drawing a new shape;
+#X text 224 179 - describe a bezier curve through three points of a
+shape;
+#X obj 26 179 ofBezierVertex;
+#X obj 26 199 ofClear;
+#X obj 26 219 ofClearAlpha;
+#X text 224 199 - clear the color and depth bits of current renderer
+;
+#X text 224 219 - clear the alpha channel;
+#X obj 26 239 ofCurveVertex;
+#X obj 26 259 ofDisableAlphaBlending;
+#X text 224 239 - specify a single point of a shape;
+#X text 224 259 - turn off alpha blending;
+#X obj 26 279 ofDisableAntiAliasing;
+#X text 224 279 - turn off anti-aliasing (smoothing);
+#X obj 26 299 ofDisableBlendMode;
+#X text 224 299 - disable the current blend mode;
+#X obj 26 319 ofDisableDepthTest;
+#X text 224 319 - turn off depth testing so rendering happens in draw
+order;
+#X obj 26 339 ofDisablePointSprites;
+#X text 224 339 - turn off point sprite;
+#X obj 26 359 ofDisableSmoothing;
+#X text 224 359 - turn off smoothing for lines;
+#X obj 26 379 ofDrawBezier;
+#X text 224 379 - draw a bezier curve;
+#X obj 26 399 ofDrawBitmapString;
+#X text 224 399 - draw a bitmapped string;
+#X obj 26 419 ofDrawBitmapStringHighlight;
+#X text 224 419 - draw a highlighted bitmapped string;
+#X obj 26 439 ofDrawCircle;
+#X text 224 439 - draw a circle;
+#X obj 26 459 ofDrawCurve;
+#X text 224 459 - draw a curve;
+#X obj 26 479 ofDrawEllipse;
+#X text 224 479 - draw an ellipse;
+#X obj 26 499 ofDrawLine;
+#X text 224 499 - draw a line;
+#X obj 26 519 ofDrawRectRounded;
+#X text 224 519 - draw a rectangle with rounded corners;
+#X obj 26 539 ofDrawRectangle;
+#X text 224 539 - draw a rectangle;
+#X obj 26 559 ofDrawTriangle;
+#X text 224 559 - draw a triangle;
+#X obj 26 579 ofEnableAlphaBlending;
+#X text 223 579 - turn on alpha blending;
+#X obj 26 599 ofEnableAntiAliasing;
+#X text 223 599 - enable anti-aliasing (smoothing) for lines;
+#X obj 26 619 ofEnableBlendMode;
+#X text 223 619 - set and enable the blend mode for drawing;
+#X obj 26 639 ofEnableDepthTest;
+#X text 223 639 - turn on depth testing so rendering happens in z-depth
+;
+#X obj 26 659 ofEnablePointSprites;
+#X text 223 659 - turn on point sprite;
+#X obj 26 679 ofEnableSmoothing;
+#X text 223 679 - turn on smoothing for lines;
+#X obj 26 699 ofEndSaveScreenAsPDF;
+#X text 223 699 - terminate drawing to PDF and output the file;
+#X text 223 719 - terminate drawing to SVG and output the PDF file
+;
+#X text 223 739 - finish the shape and draw it to the screen;
+#X obj 26 739 ofEndShape;
+#X obj 26 759 ofFill;
+#X text 223 759 - draw shapes filled with the current draw color;
+#X obj 26 779 ofGetBackgroundAuto;
+#X text 223 779 - get the state of the background clearing function
+;
+#X obj 26 799 ofGetBackgroundColor;
+#X text 223 799 - return the current background color (r \, g \, b
+\, a);
+#X obj 26 819 ofGetCurrentViewport;
+#X text 223 819 - get the position and size of the current viewport
+;
+#X obj 26 839 ofGetFill;
+#X text 223 839 - get the filled state;
+#X obj 26 859 ofGetNativeViewport;
+#X text 223 859 - get the position and size of the native viewport
+;
+#X obj 26 879 ofGetRectMode;
+#X text 223 879 - get the rect mode state (0: corner \, 1: center)
+;
+#X obj 26 899 ofGetViewportHeight;
+#X text 223 899 - get the height of the current viewport;
+#X obj 26 919 ofGetViewportWidth;
+#X text 223 919 - get the width of the current viewport;
+#X obj 26 939 ofIsVFlipped;
+#X text 223 939 - get if view is flipped vertically;
+#X obj 26 959 ofNextContour;
+#X obj 26 979 ofNoFill;
+#X obj 26 999 ofOrientationToDegrees;
+#X obj 26 1019 ofPopMatrix;
+#X obj 26 1039 ofPopStyle;
+#X obj 26 1059 ofPopView;
+#X obj 26 1079 ofPushMatrix;
+#X obj 26 1099 ofPushStyle;
+#X obj 26 1119 ofPushView;
+#X obj 26 1139 ofRotateDeg;
+#X obj 26 1159 ofRotateRad;
+#X obj 26 1179 ofRotateXDeg;
+#X obj 26 1199 ofRotateXRad;
+#X obj 26 1219 ofRotateYDeg;
+#X obj 26 1239 ofRotateYRad;
+#X obj 26 1259 ofRotateZDeg;
+#X obj 26 1279 ofRotateZRad;
+#X obj 26 1299 ofScale;
+#X obj 26 1319 ofSetBackgroundAuto;
+#X obj 26 1339 ofSetBackgroundColor;
+#X obj 26 1359 ofSetBackgroundColorHex;
+#X obj 26 1379 ofSetCircleResolution;
+#X obj 26 1399 ofSetColor;
+#X obj 26 1419 ofSetCurveResolution;
+#X obj 26 1439 ofSetDepthTest;
+#X obj 26 1459 ofSetDrawBitmapMode;
+#X obj 26 1479 ofSetHexColor;
+#X obj 26 1499 ofSetLineWidth;
+#X obj 26 1519 ofSetMatrixMode;
+#X obj 26 1539 ofSetPolyMode;
+#X obj 26 1559 ofSetRectMode;
+#X obj 26 1579 ofTranslate;
+#X obj 26 1599 ofVertex;
+#X obj 26 1619 ofViewport;
+#X text 223 979 - draw shapes as outlines with the current draw color.
+;
+#X text 223 959 - allow you to draw multiple contours within one shape
+;
+#X text 223 999 - convert orientation to degrees;
+#X text 223 1019 - restore the prior coordinate system;
+#X text 223 1039 - restore the prior style settings;
+#X text 223 1059 - restore the viewport and matrix settings;
+#X text 223 1079 - save the current coordinate system;
+#X text 223 1099 - save the current style settings;
+#X text 223 1119 - store the current viewport and matrix settings;
+#X text 223 1139 - rotate around the z-axis;
+#X text 223 1159 - rotate around the z-axis;
+#X text 223 1179 - rotate around the x-axis of our coordinate system
+;
+#X text 223 1219 - rotate around the y-axis of our coordinate system
+;
+#X text 223 1259 - rotate around the z-axis of our coordinate system
+;
+#X text 223 1199 - rotate around the x-axis of our coordinate system
+;
+#X text 223 1239 - rotate around the y-axis of our coordinate system
+;
+#X text 223 1279 - rotate around the z-axis of our coordinate system
+;
+#X text 223 1319 - set the background clearing function to be auto
+or not;
+#X text 223 1339 - set the background color;
+#X text 223 1359 - set the background color using a hex color value
+;
+#X text 223 1399 - set the draw color with r \, g \, b \, a (0-255)
+;
+#X text 223 1439 - set depth testing on or off;
+#X text 223 1459 - set the bitmap drawing mode;
+#X text 223 1479 - set the draw color with a hex value;
+#X text 223 1519 - set the matrix mode;
+#X text 223 1539 - set the drawing behavior for overlapping parts of
+a shape;
+#X text 223 1559 - set the mode for drawing rectangular objects;
+#X text 223 1619 - setup the drawing viewport;
+#X text 223 1599 - specify a single point of a shape;
+#X text 223 1579 - move along the x \, y and z axis;
+#X text 223 1299 - scale along the x \, y and z axis;
+#X text 223 1379 - set the resolution for circles;
+#X text 223 1419 - set the resolution for curves;
+#X text 223 1499 - set the width of lines;
+#X obj 26 719 ofEndSaveScreenAsSVG;
+#X restore 26 259 pd ofGraphics;
+#N canvas 519 75 650 398 ofImage 0;
+#X text 24 30 ------------------------- ofImage -------------------------
+;
+#X obj 26 59 ofImage;
+#X obj 26 79 ofBindImage;
+#X obj 26 99 ofDrawImage;
+#X obj 26 119 ofDrawImageSubsection;
+#X obj 26 139 ofGetImageColor;
+#X obj 26 159 ofGetImageHeight;
+#X obj 26 179 ofGetImagePixels;
+#X obj 26 199 ofGetImagePtr;
+#X obj 26 219 ofGetImageTexture;
+#X obj 26 239 ofGetImageType;
+#X obj 26 259 ofGetImageWidth;
+#X obj 26 279 ofIsImageAllocated;
+#X obj 26 299 ofIsImageUsingTexture;
+#X obj 26 319 ofUnbindImage;
+#X text 224 99 - draw the image;
+#X text 224 79 - bind the ofTexture instance that the ofImage contains
+;
+#X text 224 59 - create an ofImage class to store and edit an image
+;
+#X text 224 119 - draw a subsection of the image;
+#X text 224 139 - get the r \, g \, b \, a color in the image at the
+index/pixels;
+#X text 224 159 - get the height of the image;
+#X text 224 259 - get the width of the image;
+#X text 224 179 - get a raw pointer to the pixel data;
+#X text 224 199 - get the pointer to a named ofImage class;
+#X text 224 219 - get a reference to the texture that the ofImage contains
+;
+#X text 224 239 - get the type of the image;
+#X text 224 319 - unbind the ofTexture instance that the ofImage contains
+;
+#X text 224 279 - check whether the image has been allocated or not
+;
+#X text 224 299 - check whether the ofImage has a texture or not;
+#X restore 26 279 pd ofImage;
+#N canvas 519 75 650 547 ofFont 0;
+#X text 24 30 ------------------------- ofFont -------------------------
+;
+#X obj 26 59 ofFont;
+#X text 224 59 - create an ofTrueTypeFont class to store and edit a
+font;
+#X obj 26 79 ofDrawFontString;
+#X obj 26 99 ofDrawFontStringAsShapes;
+#X obj 26 119 ofGetFontAscenderHeight;
+#X obj 26 139 ofGetFontDecscenderHeight;
+#X obj 26 159 ofGetFontGlyphBBox;
+#X obj 26 179 ofGetFontLetterSpacing;
+#X obj 26 199 ofGetFontLineHeight;
+#X obj 26 219 ofGetFontNumCharacters;
+#X obj 26 239 ofGetFontPtr;
+#X obj 26 259 ofGetFontSize;
+#X obj 26 279 ofGetFontSpaceSize;
+#X obj 26 299 ofGetFontStringBoundingBox;
+#X obj 26 339 ofGetFontStringMesh;
+#X obj 26 359 ofGetFontStringTexture;
+#X obj 26 379 ofGetFontStringWidth;
+#X obj 26 399 ofGetFontTexture;
+#X obj 26 419 ofHasFontFullCharacterSet;
+#X obj 26 439 ofIsFontAntiAliased;
+#X obj 26 459 ofIsFontLoaded;
+#X obj 26 319 ofGetFontStringHeight;
+#X text 224 79 - draw a string using the font;
+#X text 224 99 - draw a string as shapes using the font;
+#X text 224 119 - get the ascender distance for this font;
+#X text 224 139 - get the descender distance for this font;
+#X text 224 159 - get the global bounding box for this font;
+#X text 224 179 - get the letter spacing of the font;
+#X text 224 199 - get the line height of the font;
+#X text 224 219 - get the number of characters this font represents
+;
+#X text 224 239 - get the pointer to a named ofTrueTypeFont class;
+#X text 224 259 - get the size of the font;
+#X text 224 279 - get the space size of the font;
+#X text 224 299 - get the bounding box of the font;
+#X text 224 339 - get the string as an ofMesh;
+#X text 224 359 - get the string texture;
+#X text 224 379 - get the string width;
+#X text 224 319 - get the string height;
+#X text 224 399 - get the texture that ofTrueTypeFont uses internally
+;
+#X text 224 419 - check if the font was allocated with a full character
+set;
+#X text 224 459 - check if the font is loaded properly;
+#X text 224 439 - check whether the font is set to be anti-aliased
+or not;
+#X restore 26 299 pd ofFont;
+#N canvas 519 75 650 163 ofFontSettings 0;
+#X text 24 30 ---------------------- ofFontSettings ----------------------
+;
+#X obj 26 59 ofFontSettings;
+#X obj 26 79 ofGetFontSettingsPtr;
+#X text 224 79 - get the pointer to a named ofTrueTypeFontSettings
+class;
+#X text 224 59 - create an ofTrueTypeFontSettings to store font settings
+;
+#X restore 26 319 pd ofFontSettings;
+#X text 24 570 --------------------------- MATH ---------------------------
+;
+#N canvas 519 75 650 645 ofMath 0;
+#X text 24 30 -------------------------- ofMath --------------------------
+;
+#X obj 26 59 ofAngleDifferenceDegrees;
+#X obj 26 79 ofAngleDifferenceRadians;
+#X obj 26 99 ofClamp;
+#X obj 26 119 ofDegToRad;
+#X obj 26 139 ofDist;
+#X obj 26 159 ofDistSquared;
+#X obj 26 179 ofInRange;
+#X obj 26 199 ofLerp;
+#X obj 26 219 ofLerpDegrees;
+#X obj 26 239 ofLerpRadians;
+#X obj 26 259 ofMap, f 13;
+#X obj 26 279 ofNextPow2;
+#X obj 26 299 ofNoise;
+#X obj 26 319 ofNormalize;
+#X obj 26 339 ofRadToDeg;
+#X obj 26 359 ofRandom;
+#X obj 26 379 ofRandomHeight;
+#X obj 26 399 ofRandomWidth;
+#X obj 26 419 ofRandomf;
+#X obj 26 439 ofRandomuf;
+#X obj 26 459 ofSeedRandom;
+#X obj 26 479 ofSign;
+#X obj 26 499 ofSignedNoise;
+#X obj 26 519 ofWrap;
+#X obj 26 539 ofWrapDegrees;
+#X obj 26 559 ofWrapRadians;
+#X text 224 59 - calculate the difference between two angles in degrees
+;
+#X text 224 79 - calculate the difference between two angles in radians
+;
+#X text 224 99 - clamp a value between min and max;
+#X text 224 119 - convert degrees to radians;
+#X text 224 139 - calculate the 2d distance between two points;
+#X text 224 159 - calculate the squared 2d distance between two points
+;
+#X text 224 179 - determine if a number is inside of a given range
+;
+#X text 224 199 - linearly interpolate a value within a range;
+#X text 224 219 - linearly interpolate a value between two angles in
+degrees;
+#X text 224 239 - linearly interpolate a value between two angles in
+radians;
+#X text 224 259 - map the value to an output range;
+#X text 224 279 - calculate the next larger power of 2;
+#X text 224 319 - map the value to be within 0 and 1;
+#X text 224 339 - convert radians to degrees;
+#X text 224 359 - get a random number between 0 and max;
+#X text 224 379 - get a random number between 0 and the window height
+;
+#X text 224 399 - get a random number between 0 and the window width
+;
+#X text 224 419 - get a random floating point number between -1 and
+1;
+#X text 224 439 - get a random floating point number between 0 and
+1;
+#X text 224 459 - seed the random number generator with a unique value
+;
+#X text 224 479 - get the sign of a number;
+#X text 224 519 - wrap the value within a given range if it overflows
+;
+#X text 224 539 - wrap the value in degrees if it overflows;
+#X text 224 559 - wrap the value in radians if it overflows;
+#X text 224 499 - calculate a perlin noise value between -1 and 1;
+#X text 224 299 - calculate a perlin noise value between 0 and 1;
+#X restore 26 629 pd ofMath;
+#X text 24 450 ---------------------------- GL ----------------------------
+;
+#X text 24 470 OpenGL object oriented wrappers.;
+#N canvas 519 75 650 605 ofFbo 0;
+#X text 24 30 -------------------------- ofFbo --------------------------
+;
+#X obj 26 59 ofFbo;
+#X text 224 59 - create an ofFbo class to store and edit an fbo;
+#X obj 26 79 ofBeginFbo;
+#X obj 26 99 ofBindFbo;
+#X obj 26 119 ofCheckFboGLSupport;
+#X obj 26 139 ofCheckFboStatus;
+#X obj 26 159 ofDrawFbo;
+#X obj 26 179 ofEndFbo;
+#X obj 26 199 ofGetFboDefaultTextureIndex;
+#X obj 26 219 ofGetFboDepthBuffer;
+#X obj 26 239 ofGetFboDepthTexture;
+#X obj 26 259 ofGetFboHeight;
+#X obj 26 279 ofGetFboId;
+#X obj 26 299 ofGetFboIdDrawBuffer;
+#X obj 26 319 ofGetFboMaxColorAttachments;
+#X obj 26 339 ofGetFboMaxDrawBuffers;
+#X obj 26 359 ofGetFboMaxSamples;
+#X obj 26 379 ofGetFboNumTextures;
+#X obj 26 399 ofGetFboPtr;
+#X obj 26 419 ofGetFboStencilBuffer;
+#X obj 26 439 ofGetFboTexture;
+#X obj 26 459 ofGetFboWidth;
+#X obj 26 479 ofIsFboAllocated;
+#X obj 26 499 ofIsFboUsingTexture;
+#X obj 26 519 ofUnbindFbo;
+#X text 224 399 - get the pointer to a named ofFbo class;
+#X text 224 79 - begin drawing things into the fbo;
+#X text 224 99 - bind the ofTexture instance that the ofFbo contains
+;
+#X text 224 119 - check whether your graphics card supports fbo objects
+;
+#X text 224 159 - draw the fbo to the screen;
+#X text 224 179 - stop drawing things into the fbo;
+#X text 224 199 - get the default texture index;
+#X text 223 259 - get the height of the fbo;
+#X text 224 279 - get id of the underlying GL object for advanced actions
+;
+#X text 224 299 - get id of Fbo for texture attachments;
+#X text 224 319 - get the max number of simultaneous max color attachments
+;
+#X text 224 339 - get the max number of simultaneous draw buffers;
+#X text 224 359 - get the maximum number of MSAA samples;
+#X text 224 379 - get the number of textures that the fbo contains
+;
+#X text 224 419 - get the OpenGL id of the stencil RenderBuffer;
+#X text 224 219 - get the OpenGL id of the depth buffer;
+#X text 224 239 - get the OpenGL id of the depth texture;
+#X text 224 439 - get the texture of the fbo;
+#X text 224 459 - get the width of the fbo;
+#X text 224 479 - check whether the fbo is allocated or not;
+#X text 224 499 - check whether the fbo is using texture or not;
+#X text 224 519 - unbind the ofTexture instance that the ofFbo contains
+;
+#X text 224 139 - check the status of your fbo object;
+#X restore 26 499 pd ofFbo;
+#N canvas 519 75 650 400 ofWindow 0;
+#X obj 26 59 ofWindow;
+#X text 224 59 - create \, destroy and change settings for the window
+;
+#X obj 26 99 ofGetWindowHeight;
+#X text 224 99 - get the height of the window;
+#X obj 26 119 ofGetWindowMode;
+#X text 224 119 - get the window mode (window/fullscreen/game);
+#X obj 26 139 ofGetWindowPositionX;
+#X text 224 139 - get the x position of the window;
+#X text 224 159 - get the y position of the window;
+#X obj 26 159 ofGetWindowPositionY;
+#X obj 26 179 ofGetWindowPtr;
+#X obj 26 199 ofGetWindowRect;
+#X text 224 199 - get the window dimensions (x \, y \, width \, height)
+;
+#X obj 26 239 ofGetWindowSize;
+#X text 224 239 - get the window size (width \, height);
+#X obj 26 259 ofGetWindowWidth;
+#X text 224 259 - get the width of the window;
+#X obj 26 279 ofSetWindowPosition;
+#X text 224 279 - set the position of the window;
+#X obj 26 299 ofSetWindowShape;
+#X text 224 299 - set the dimension of the window;
+#X obj 26 319 ofSetWindowTitle;
+#X text 224 319 - set the title of the window;
+#X text 224 179 - get the pointer to a named ofWindow class;
+#X obj 26 79 ofDoesWindowExist;
+#X text 224 79 - check if the window exists;
+#X obj 26 219 ofGetWindowScale;
+#X text 224 219 - get the scale factor of the screen;
+#X text 24 30 ------------------------- ofWindow -------------------------
+;
+#X restore 26 119 pd ofWindow;
+#X text 24 350 ---------------------------- 3D ----------------------------
+;
+#X text 23 22 A categorized list of abstractions in ofelia.;
+#X text 24 80 Create a window \, start the application and check info
+about its state.;
+#N canvas 519 75 650 478 of3dGraphics 0;
+#X text 24 30 ----------------------- of3dGraphics -----------------------
+;
+#X obj 26 59 ofDrawBox, f 10;
+#X obj 26 79 ofDrawCone;
+#X obj 26 99 ofDrawCylinder;
+#X obj 26 119 ofDrawIcoSphere;
+#X obj 26 139 ofDrawPlane;
+#X obj 26 159 ofDrawSphere;
+#X obj 26 179 ofGetBoxResolution;
+#X obj 26 199 ofGetConeResolution;
+#X obj 26 219 ofGetCylinderResolution;
+#X obj 26 239 ofGetIcoSphereResolution;
+#X obj 26 259 ofGetPlaneResolution;
+#X obj 26 279 ofGetSphereResolution;
+#X obj 26 299 ofSetBoxResolution;
+#X obj 26 319 ofSetConeResolution;
+#X obj 26 339 ofSetCylinderResolution;
+#X obj 26 359 ofSetIcoSphereResolution;
+#X obj 26 379 ofSetPlaneResolution;
+#X obj 26 399 ofSetSphereResolution;
+#X text 224 59 - draw a rectangular box;
+#X text 224 79 - draw a cone;
+#X text 224 99 - draw a cylinder;
+#X text 224 119 - draw an icosphere;
+#X text 224 139 - draw a plane;
+#X text 224 159 - draw a sphere;
+#X text 224 179 - get the box resolution;
+#X text 224 199 - get the cone resolution;
+#X text 224 219 - get the cylinder resolution;
+#X text 224 239 - get the icosphere resolution;
+#X text 224 259 - get the plane resolution;
+#X text 224 279 - get the sphere resolution;
+#X text 224 299 - set the resolution for boxes;
+#X text 224 319 - set the resolution for cones;
+#X text 224 339 - set the resolution for cylinders;
+#X text 224 359 - set the resolution for icospheres;
+#X text 224 379 - set the resolution for planes;
+#X text 224 399 - set the resolution for spheres;
+#X restore 26 399 pd of3dGraphics;
+#N canvas 519 75 650 218 of3dUtils 0;
+#X text 24 30 ------------------------ of3dUtils ------------------------
+;
+#X obj 26 59 ofDrawArrow;
+#X obj 26 79 ofDrawAxis;
+#X obj 26 99 ofDrawGrid;
+#X obj 26 119 ofDrawGridPlane;
+#X obj 26 139 ofDrawRotationAxes;
+#X text 224 59 - draw an arrow;
+#X text 224 79 - draw an axis;
+#X text 224 119 - draw a yz grid plane;
+#X text 224 99 - draw xyz grid planes;
+#X text 224 139 - draw a rotation axes;
+#X restore 26 419 pd of3dUtils;
+#X text 24 660 -------------------------- UTILS --------------------------
+;
+#X text 24 680 Filesystem \, threading \, popup windows and other utilities.
+;
+#N canvas 519 75 650 711 ofUtils 0;
+#X text 24 30 ------------------------- ofUtils -------------------------
+;
+#X obj 26 59 ofGetCurrentTime;
+#X obj 26 79 ofGetDay;
+#X obj 26 99 ofGetElapsedTimeMicros;
+#X obj 26 119 ofGetElapsedTimeMillis;
+#X obj 26 139 ofGetElapsedTimef;
+#X obj 26 159 ofGetEnv;
+#X obj 26 179 ofGetHours;
+#X obj 26 199 ofGetMinutes;
+#X obj 26 219 ofGetMonth;
+#X obj 26 239 ofGetSeconds;
+#X obj 26 259 ofGetSystemTimeMicros;
+#X obj 26 279 ofGetSystemTimeMillis;
+#X obj 26 299 ofGetTargetPlatform;
+#X obj 26 319 ofGetTimestampString;
+#X obj 26 339 ofGetVersionInfo;
+#X obj 26 359 ofGetVersionMajor;
+#X obj 26 379 ofGetVersionMinor;
+#X obj 26 399 ofGetVersionPatch;
+#X obj 26 419 ofGetVersionPreRelease;
+#X obj 26 439 ofGetWeekday;
+#X obj 26 459 ofGetYear;
+#X obj 26 479 ofIsStringInString;
+#X obj 26 499 ofLaunchBrowser;
+#X obj 26 519 ofResetElapsedTimeCounter;
+#X obj 26 539 ofRestoreWorkingDirectoryToDefault;
+#X obj 26 559 ofSaveFrame;
+#X obj 26 579 ofSaveScreen;
+#X obj 26 599 ofSaveViewport;
+#X obj 26 619 ofSetDataPathRoot;
+#X obj 26 639 ofSleepMillis;
+#X obj 26 659 ofStringTimesInString;
+#X obj 26 679 ofSystem;
+#X obj 26 699 ofToDataPath;
+#X obj 26 719 ofToLower;
+#X obj 26 739 ofToUpper;
+#X text 224 59 - get the system time;
+#X text 224 79 - get the current day within the month;
+#X text 224 99 - get the elapsed time in microseconds;
+#X text 224 119 - get the elapsed time in milliseconds;
+#X text 224 139 - get the elapsed time in seconds as a float;
+#X text 224 159 - get the value of a given environment variable;
+#X text 224 179 - get the hour of the day;
+#X text 224 199 - get minutes after the hour;
+#X text 224 219 - get the current month;
+#X text 224 239 - get the seconds after the minute;
+#X text 224 259 - get the system time in microseconds;
+#X text 224 279 - get the system time in milliseconds;
+#X text 224 299 - get the target platform of the current system;
+#X text 224 339 - get the current version of openFrameworks;
+#X text 224 359 - get the major version number of openFrameworks;
+#X text 224 379 - get the minor version number of openFrameworks;
+#X text 224 399 - get the patch version number of openFrameworks;
+#X text 224 419 - get the pre-release version of openFrameworks;
+#X text 224 439 - get the current weekday;
+#X text 224 459 - get the current year;
+#X text 224 499 - lauch the browser with the given URL;
+#X text 224 319 - format the current system time;
+#X text 224 479 - check if the string needle exists in the string haystack
+;
+#X text 224 539 - reset the working directory to the platform default
+;
+#X text 224 519 - reset the elapsed time counter;
+#X text 224 559 - save the current frame as a PNG image;
+#X text 224 579 - save the current screen image into a given file name
+;
+#X text 224 599 - save the current viewport as an image;
+#X text 224 619 - set the relative path to the data/ folder;
+#X text 224 639 - sleep the current thread for the specified milliseconds
+;
+#X text 224 659 - check how many times a string contains another string
+;
+#X text 224 699 - make a path relative to the location of the data/
+folder;
+#X text 224 679 - execute a system command and returns its output as
+string;
+#X text 224 719 - convert all characters in the string src to lowercase
+;
+#X text 224 739 - Convert all characters in the string src to uppercase
+;
+#X restore 26 709 pd ofUtils;
+#N canvas 519 75 650 199 ofSystemUtils 0;
+#X text 24 30 ---------------------- ofSystemUtils ----------------------
+;
+#X obj 26 59 ofSystemAlertDialog;
+#X obj 26 79 ofSystemLoadDialog;
+#X obj 26 99 ofSystemSaveDialog;
+#X obj 26 119 ofSystemTextBoxDialog;
+#X text 224 59 - show an error message in an alert dialog box;
+#X text 224 79 - show a file load dialog box;
+#X text 224 99 - show a file save dialog box;
+#X text 224 119 - show a text entry dialog box;
+#X restore 26 729 pd ofSystemUtils;
+#X text 24 760 ---------------------------- PD ----------------------------
+;
+#N canvas 519 75 650 298 pdCanvas 0;
+#X text 24 30 ------------------------- pdCanvas -------------------------
+;
+#X obj 26 59 pdGetCanvasArgs;
+#X obj 26 79 pdGetCanvasDir;
+#X obj 26 99 pdGetCanvasDollarZero;
+#X obj 26 119 pdGetCanvasIndex;
+#X obj 26 139 pdGetCanvasName;
+#X obj 26 159 pdGetCanvasPosition;
+#X obj 26 179 pdRemoveCanvas;
+#X obj 26 199 pdSetCanvasArgs;
+#X obj 26 219 pdSetCanvasPosition;
+#X text 224 59 - get the arguments of the canvas;
+#X text 224 99 - get the \$0 value of the patch;
+#X text 224 119 - get the index of the canvas;
+#X text 224 139 - get the unique name of the canvas;
+#X text 224 159 - get the position of the canvas;
+#X text 224 179 - remove the canvas;
+#X text 224 199 - set the arguments of the canvas;
+#X text 224 219 - set the position of the canvas;
+#X text 224 79 - get the canvas directory;
+#X restore 26 809 pd pdCanvas;
+#N canvas 519 75 650 171 pdsys 0;
+#X obj 26 59 pdSysGui;
+#X text 24 30 -------------------------- pdSys --------------------------
+;
+#X text 224 59 - send tcl/tk commands to pd;
+#X restore 26 829 pd pdsys;
+#X text 24 780 Pd related abstractions.;
+#X text 24 590 Vector math \, geometry utils and other mathematical
+abstractions.;
+#X text 24 370 Three-dimensional graphics abstractions.;
+#N canvas 519 75 650 171 pdPD 0;
+#X text 24 30 --------------------------- pdPD ---------------------------
+;
+#X obj 26 59 pdGetMaxFloat;
+#X obj 26 79 pdGetMinFloat;
+#X obj 26 99 pdGetVersion;
+#X text 224 59 - get the highest possible float;
+#X text 224 79 - get the lowest possible float;
+#X text 224 99 - get the current version of pd;
+#X restore 26 849 pd pdPD;
+#N canvas 519 75 650 277 pdFilter 0;
+#X text 225 59 - low-pass filter with resonance control;
+#X text 225 79 - high-pass filter with resonance control;
+#X text 225 99 - band-pass filter with Q control;
+#X text 225 119 - notch filter with bandwidth control;
+#X text 225 139 - peaking filter with Q and gain control;
+#X text 225 159 - low shelf filter with shelf slope and gain control
+;
+#X text 225 179 - high shelf filter with shelf slope and gain control
+;
+#X text 225 199 - all-pass filter with bandwidth control;
+#X obj 27 59 pdLowPass~;
+#X obj 27 79 pdHighPass~;
+#X obj 27 99 pdBandPass~;
+#X obj 27 119 pdNotch~;
+#X obj 27 139 pdPeaking~;
+#X obj 27 159 pdLowShelf~;
+#X obj 27 179 pdHighShelf~;
+#X obj 27 199 pdAllPass~;
+#X text 24 30 ------------------------- pdFilter -------------------------
+;
+#X restore 26 909 pd pdFilter;
+#N canvas 519 75 650 298 ofTexture 0;
+#X obj 26 59 ofDisableArbTex;
+#X text 24 30 ------------------------ ofTexture ------------------------
+;
+#X obj 26 79 ofDisableNormalizedTexCoords;
+#X obj 26 99 ofDisableTextureEdgeHack;
+#X obj 26 119 ofEnableArbTex;
+#X obj 26 139 ofEnableNormalizedTexCoords;
+#X obj 26 159 ofEnableTextureEdgeHack;
+#X obj 26 179 ofGetUsingArbTex;
+#X obj 26 199 ofGetUsingNormalizedTexCoords;
+#X obj 26 219 ofIsTextureEdgeHackEnabled;
+#X text 224 79 - use pixel-based texture coordinates;
+#X text 224 99 - disable global texture "edge hack";
+#X text 224 119 - enable the use of ARB textures;
+#X text 224 59 - disable the use of ARB textures;
+#X text 224 139 - use normalized (0-1) texture coordinates;
+#X text 224 159 - enable the global texture "edge hack";
+#X text 224 179 - Check whether OF is using ARB textures;
+#X text 224 199 - Check whether OF is using normalized texture coordinates
+;
+#X text 224 219 - Check whether OF is using the texture "edge hack"
+;
+#X restore 26 539 pd ofTexture;
+#N canvas 519 75 650 278 ofLighting 0;
+#X obj 26 59 ofDisableLighting;
+#X obj 26 79 ofDisableSeparateSpecularLight;
+#X obj 26 99 ofEnableLighting;
+#X obj 26 119 ofEnableSeparateSpecularLight;
+#X obj 26 139 ofGetGlobalAmbientColor;
+#X obj 26 159 ofGetLightingEnabled;
+#X obj 26 179 ofSetGlobalAmbientColor;
+#X obj 26 199 ofSetSmoothLighting;
+#X text 224 59 - disable lighting;
+#X text 224 79 - disable separate specular light;
+#X text 224 99 - enable lighting;
+#X text 224 119 - enable separate specular light;
+#X text 224 159 - check whether the lighting is enabled or not;
+#X text 224 139 - get global ambient color;
+#X text 224 179 - set global ambient color;
+#X text 224 199 - set smooth lighting;
+#X text 24 30 ------------------------ ofLighting ------------------------
+;
+#X restore 26 519 pd ofLighting;
+#N canvas 519 75 650 254 ofEvents 0;
+#X text 24 30 ------------------------- ofEvents -------------------------
+;
+#X obj 26 59 ofGetKeyPressed;
+#X obj 26 79 ofGetMousePressed;
+#X obj 26 99 ofGetMouseX;
+#X obj 26 119 ofGetMouseY;
+#X obj 26 139 ofGetPreviousMouseX;
+#X obj 26 159 ofGetPreviousMouseY;
+#X text 224 59 - check whether the key is pressed or not;
+#X text 224 79 - check whether the mouse button is pressed or not;
+#X text 224 99 - get the x position of the mouse;
+#X text 224 119 - get the y position of the mouse;
+#X text 224 139 - get the previous x position of the mouse;
+#X text 224 159 - get the previous y position of the mouse;
+#X obj 26 179 ofSendMessage;
+#X text 224 179 - send messages to ofMessageReceived listener;
+#X restore 26 179 pd ofEvents;
+#N canvas 519 75 650 215 pdOsc 0;
+#X text 225 59 - sine wave oscillator;
+#X text 225 79 - triangle wave oscillator;
+#X text 225 99 - sawtooth wave oscillator;
+#X text 225 119 - square wave oscillator;
+#X text 225 139 - pulse wave oscillator;
+#X text 24 30 -------------------------- pdOsc --------------------------
+;
+#X obj 27 59 pdSine~;
+#X obj 27 79 pdTriangle~;
+#X obj 27 99 pdSaw~;
+#X obj 27 119 pdSquare~;
+#X obj 27 139 pdPulse~;
+#X restore 26 869 pd pdOsc;
+#N canvas 519 75 650 196 pdBlOsc 0;
+#X text 225 59 - bandlimited triangle wave oscillator;
+#X text 225 79 - bandlimited sawtooth wave oscillator;
+#X text 225 99 - bandlimited square wave oscillator;
+#X text 225 119 - bandlimited pulse wave oscillator;
+#X text 24 30 ------------------------- pdBlOsc -------------------------
+;
+#X obj 27 59 pdBlTriangle~;
+#X obj 27 79 pdBlSaw~;
+#X obj 27 99 pdBlSquare~;
+#X obj 27 119 pdBlPulse~;
+#X restore 26 889 pd pdBlOsc;
+#X text 24 1130 ------------------------------------------------------------
+;

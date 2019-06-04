@@ -41,6 +41,7 @@ extern "C"
         ,canvas(nullptr)
         ,guiconnect(nullptr)
         ,sym(&s_)
+        ,isFunctionMode(false)
         ,shouldKeep(false)
         ,isSignalObject(false)
         ,isDirectMode(false)
@@ -64,6 +65,7 @@ extern "C"
         t_symbol *getUniqueSym();
         
         /* states */
+        bool isFunctionMode; /* whether to automatically wrap the script in a function */
         bool shouldKeep; /* whether to embed contents in patch on save */
         bool isSignalObject; /* whether an object is a signal object or not */
         bool isDirectMode; /* whether to write script directly on object */
