@@ -278,9 +278,11 @@ int main(int argc, const char * argv[])
         {
             string name = line.substr(first + 11, last - first - 11);
             string value = line.substr(last + 1);
-            
-            ss << indent << "lua_pushnumber(L, " << value << ");\n";
-            ss << indent << "lua_setglobal(L, \"GL_" << name << "\");\n";
+            if (isdigit(value[0]))
+            {
+                ss << indent << "lua_pushnumber(L, " << value << ");\n";
+                ss << indent << "lua_setglobal(L, \"GL_" << name << "\");\n";
+            }
         }
     }
     ss << "}";
