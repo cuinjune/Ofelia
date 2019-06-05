@@ -57,17 +57,12 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
   
 ## Building the external
 
-#### macOS
-* Open `OF/addons/ofxOfelia/macOSExternal/ofelia.xcodeproj` with Xcode and build the project.
-
-#### Linux / Raspberry Pi
-* Open the Terminal and run the following command to build the project. 
+* (macOS) Open `OF/addons/ofxOfelia/macOSExternal/ofelia.xcodeproj` with Xcode and build the project.
+* (Windows) Open `OF/addons/ofxOfelia/WindowsExternal/ofelia.vcxproj` with Visual Studio and build the solution.
+* (Linux / Raspberry Pi) Open the Terminal and run the following command to build the project.
   <pre>cd OF/addons/ofxOfelia/(targetOS)
   make
-
-#### Windows
-* Open `OF/addons/ofxOfelia/WindowsExternal/ofelia.vcxproj` with Visual Studio and build the solution.
- 
+  
 Copy the binaries from `OF/addons/ofxOfelia/(targetOS)/bin` into the Pd externals directory.
 
 ## Creating your own standalone project
