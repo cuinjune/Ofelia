@@ -14,7 +14,7 @@ Thanks to Lua scripting feature, you can do text coding directly on a Pd patch o
 Using ofelia, you can flexibly choose between patching and coding style based on your preference.<br />
 For patching style, ofelia currently provides over 300 [openFrameworks](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) and [Pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/pd) abstractions.
 
-You can see a categorized list of abstractions from [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
+You can see a categorized list of abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
 
 The external is available to be used under macOS, Windows, Linux and Raspberry Pi. (64bit only on macOS and Linux)
 
