@@ -23,7 +23,7 @@ The external is available to be used under macOS, Windows, Linux and Raspberry P
 * Select the latest version of ofelia to download and install.
 * Try opening patches inside downloaded `ofelia/examples` directory.
 * (Windows) If the library fails to load, open `vc_redist` executable file inside `ofelia` directory to install [Microsoft Visual C++ Redistributable packages](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). And if video examples don't work properly, try installing the [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm).
-* (Linux, Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
+* (Linux / Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
 
@@ -51,7 +51,7 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 * Download [ofxOfelia_targetOS.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
 Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
 * Move `ofxOfelia/libs/ofxLua` folder to `OF/addons`.
-* (Linux / RaspberryPi) Open the Terminal and run the following to update openFrameworks.
+* (Linux / Raspberry Pi) Open the Terminal and run the following to update openFrameworks.
   <pre>cd OF/addons/ofxOfelia/scripts/(targetOS)
   sudo ./updateOF.sh</pre>
   
