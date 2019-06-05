@@ -62,7 +62,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 * (Linux / Raspberry Pi) Open the Terminal and run the following command to build the project.
   <pre>cd OF/addons/ofxOfelia/(targetOS)
   make</pre>
-Copy the binaries from `OF/addons/ofxOfelia/(targetOS)/bin` into the Pd externals directory.
+* Copy the binaries from `OF/addons/ofxOfelia/(targetOS)/bin` into the Pd externals directory.
 
 ## Creating your own standalone project
 The setup guide and examples for creating standalone project will be ready soon.
