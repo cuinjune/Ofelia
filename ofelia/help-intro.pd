@@ -52,7 +52,7 @@ rate;
 #X restore 26 139 pd ofAppRunner;
 #X text 24 60 ----------------------- APPLICATION -----------------------
 ;
-#N canvas 519 75 650 540 ofBaseApp 0;
+#N canvas 519 75 650 581 ofBaseApp 0;
 #X obj 26 59 ofDragged;
 #X text 224 59 - listen to the dragging of the files to the window
 ;
@@ -104,6 +104,10 @@ the app;
 ;
 #X obj 26 159 ofMessageReceived;
 #X text 224 159 - listen to the messages sent from ofSendMessage;
+#X obj 26 479 ofGetFirstDrawOrder;
+#X obj 26 499 ofGetLastDrawOrder;
+#X text 224 479 - get the first draw order;
+#X text 224 499 - get the last draw order;
 #X restore 26 159 pd ofBaseApp;
 #X text 24 210 ------------------------- GRAPHICS -------------------------
 ;
@@ -522,7 +526,7 @@ radians;
 ;
 #X text 224 139 - check the status of your fbo object;
 #X restore 26 499 pd ofFbo;
-#N canvas 519 75 650 400 ofWindow 0;
+#N canvas 519 75 650 390 ofWindow 0;
 #X obj 26 59 ofWindow;
 #X text 224 59 - create \, destroy and change settings for the window
 ;
@@ -538,21 +542,19 @@ radians;
 #X obj 26 199 ofGetWindowRect;
 #X text 224 199 - get the window dimensions (x \, y \, width \, height)
 ;
-#X obj 26 239 ofGetWindowSize;
-#X text 224 239 - get the window size (width \, height);
-#X obj 26 259 ofGetWindowWidth;
-#X text 224 259 - get the width of the window;
-#X obj 26 279 ofSetWindowPosition;
-#X text 224 279 - set the position of the window;
-#X obj 26 299 ofSetWindowShape;
-#X text 224 299 - set the dimension of the window;
-#X obj 26 319 ofSetWindowTitle;
-#X text 224 319 - set the title of the window;
+#X obj 26 219 ofGetWindowSize;
+#X text 224 219 - get the window size (width \, height);
+#X obj 26 239 ofGetWindowWidth;
+#X text 224 239 - get the width of the window;
+#X obj 26 259 ofSetWindowPosition;
+#X text 224 259 - set the position of the window;
+#X obj 26 279 ofSetWindowShape;
+#X text 224 279 - set the dimension of the window;
+#X obj 26 299 ofSetWindowTitle;
+#X text 224 299 - set the title of the window;
 #X text 224 179 - get the pointer to a named ofWindow class;
 #X obj 26 79 ofDoesWindowExist;
 #X text 224 79 - check if the window exists;
-#X obj 26 219 ofGetWindowScale;
-#X text 224 219 - get the scale factor of the screen;
 #X text 24 30 ------------------------- ofWindow -------------------------
 ;
 #X restore 26 119 pd ofWindow;
@@ -738,26 +740,10 @@ string;
 #X text 224 219 - set the position of the canvas;
 #X text 224 79 - get the canvas directory;
 #X restore 26 809 pd pdCanvas;
-#N canvas 519 75 650 171 pdsys 0;
-#X obj 26 59 pdSysGui;
-#X text 24 30 -------------------------- pdSys --------------------------
-;
-#X text 224 59 - send tcl/tk commands to pd;
-#X restore 26 829 pd pdsys;
 #X text 24 780 Pd related abstractions.;
 #X text 24 590 Vector math \, geometry utils and other mathematical
 abstractions.;
 #X text 24 370 Three-dimensional graphics abstractions.;
-#N canvas 519 75 650 171 pdPD 0;
-#X text 24 30 --------------------------- pdPD ---------------------------
-;
-#X obj 26 59 pdGetMaxFloat;
-#X obj 26 79 pdGetMinFloat;
-#X obj 26 99 pdGetVersion;
-#X text 224 59 - get the highest possible float;
-#X text 224 79 - get the lowest possible float;
-#X text 224 99 - get the current version of pd;
-#X restore 26 849 pd pdPD;
 #N canvas 519 75 650 277 pdFilter 0;
 #X text 225 59 - low-pass filter with resonance control;
 #X text 225 79 - high-pass filter with resonance control;
@@ -779,7 +765,7 @@ abstractions.;
 #X obj 27 199 pdAllPass~;
 #X text 24 30 ------------------------- pdFilter -------------------------
 ;
-#X restore 26 909 pd pdFilter;
+#X restore 26 869 pd pdFilter;
 #N canvas 519 75 650 298 ofTexture 0;
 #X obj 26 59 ofDisableArbTex;
 #X text 24 30 ------------------------ ofTexture ------------------------
@@ -855,7 +841,7 @@ abstractions.;
 #X obj 27 99 pdSaw~;
 #X obj 27 119 pdSquare~;
 #X obj 27 139 pdPulse~;
-#X restore 26 869 pd pdOsc;
+#X restore 26 829 pd pdOsc;
 #N canvas 519 75 650 196 pdBlOsc 0;
 #X text 225 59 - bandlimited triangle wave oscillator;
 #X text 225 79 - bandlimited sawtooth wave oscillator;
@@ -867,6 +853,20 @@ abstractions.;
 #X obj 27 79 pdBlSaw~;
 #X obj 27 99 pdBlSquare~;
 #X obj 27 119 pdBlPulse~;
-#X restore 26 889 pd pdBlOsc;
+#X restore 26 849 pd pdBlOsc;
 #X text 24 1130 ------------------------------------------------------------
 ;
+#N canvas 519 75 650 222 pdUtils 0;
+#X obj 26 59 pdSysGui;
+#X text 224 59 - send tcl/tk commands to pd;
+#X obj 26 79 pdGetMaxFloat;
+#X obj 26 99 pdGetMinFloat;
+#X obj 26 119 pdGetVersion;
+#X text 224 79 - get the highest possible float;
+#X text 224 99 - get the lowest possible float;
+#X text 224 119 - get the current version of pd;
+#X obj 26 139 pdGetDspState;
+#X text 224 139 - get the current dsp state;
+#X text 24 30 ------------------------- pdUtils -------------------------
+;
+#X restore 26 889 pd pdUtils;

@@ -1,3 +1,13 @@
+v2.3.0: 21 June 2019
+
+* added a logger channel to pass on OF logs to the pd console
+* pdSys, pdSignal, pdPD classes are deprecated and changed to static functions
+* added a constructor for pdLog class to set a module name
+* updated "ofelia/help-intro.pd"
+* added "ofelia/examples/sound/synth"
+* added standalone example projects to ofxOfelia
+* cleaned ofxOfelia addon directory so source files can be shared among projects
+
 v2.2.0: 4 June 2019
 
 * added "ofelia function" object for quickly writing a simple lua script

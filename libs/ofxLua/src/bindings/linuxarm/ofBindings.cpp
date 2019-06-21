@@ -2697,197 +2697,202 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Firmata_Encoder_Data swig_types[0]
-#define SWIGTYPE_p_Firmata_I2C_Data swig_types[1]
-#define SWIGTYPE_p_Firmata_Serial_Data swig_types[2]
-#define SWIGTYPE_p_Firmata_Stepper_Data swig_types[3]
-#define SWIGTYPE_p_GLintptr swig_types[4]
-#define SWIGTYPE_p_GLsizei swig_types[5]
-#define SWIGTYPE_p_GLsizeiptr swig_types[6]
-#define SWIGTYPE_p_TESSindex swig_types[7]
-#define SWIGTYPE_p__XDisplay swig_types[8]
-#define SWIGTYPE_p_boost__filesystem__path swig_types[9]
-#define SWIGTYPE_p_double swig_types[10]
-#define SWIGTYPE_p_float swig_types[11]
-#define SWIGTYPE_p_glm__mat3 swig_types[12]
-#define SWIGTYPE_p_glm__mat4 swig_types[13]
-#define SWIGTYPE_p_glm__quat swig_types[14]
-#define SWIGTYPE_p_glm__tvec2T_int_glm__precision__defaultp_t swig_types[15]
-#define SWIGTYPE_p_glm__tvec3T_int_glm__precision__defaultp_t swig_types[16]
-#define SWIGTYPE_p_glm__tvec4T_int_glm__precision__defaultp_t swig_types[17]
-#define SWIGTYPE_p_glm__vec2 swig_types[18]
-#define SWIGTYPE_p_glm__vec3 swig_types[19]
-#define SWIGTYPE_p_glm__vec4 swig_types[20]
-#define SWIGTYPE_p_int swig_types[21]
-#define SWIGTYPE_p_int16_t swig_types[22]
-#define SWIGTYPE_p_int32_t swig_types[23]
-#define SWIGTYPE_p_int8_t swig_types[24]
-#define SWIGTYPE_p_long_long swig_types[25]
-#define SWIGTYPE_p_of3dPrimitive swig_types[26]
-#define SWIGTYPE_p_ofAbstractParameter swig_types[27]
-#define SWIGTYPE_p_ofAppBaseWindow swig_types[28]
-#define SWIGTYPE_p_ofArduino swig_types[29]
-#define SWIGTYPE_p_ofBaseDraws swig_types[30]
-#define SWIGTYPE_p_ofBaseHasPixels swig_types[31]
-#define SWIGTYPE_p_ofBaseHasTexture swig_types[32]
-#define SWIGTYPE_p_ofBaseImage_T_float_t swig_types[33]
-#define SWIGTYPE_p_ofBaseImage_T_unsigned_char_t swig_types[34]
-#define SWIGTYPE_p_ofBaseImage_T_unsigned_short_t swig_types[35]
-#define SWIGTYPE_p_ofBaseLoggerChannel swig_types[36]
-#define SWIGTYPE_p_ofBaseMaterial swig_types[37]
-#define SWIGTYPE_p_ofBaseRenderer swig_types[38]
-#define SWIGTYPE_p_ofBaseSoundInput swig_types[39]
-#define SWIGTYPE_p_ofBaseSoundOutput swig_types[40]
-#define SWIGTYPE_p_ofBaseSoundPlayer swig_types[41]
-#define SWIGTYPE_p_ofBaseSoundStream swig_types[42]
-#define SWIGTYPE_p_ofBaseUpdates swig_types[43]
-#define SWIGTYPE_p_ofBaseVideo swig_types[44]
-#define SWIGTYPE_p_ofBaseVideoDraws swig_types[45]
-#define SWIGTYPE_p_ofBaseVideoGrabber swig_types[46]
-#define SWIGTYPE_p_ofBaseVideoPlayer swig_types[47]
-#define SWIGTYPE_p_ofBoxPrimitive swig_types[48]
-#define SWIGTYPE_p_ofBuffer swig_types[49]
-#define SWIGTYPE_p_ofBufferObject swig_types[50]
-#define SWIGTYPE_p_ofCamera swig_types[51]
-#define SWIGTYPE_p_ofColor_T_float_t swig_types[52]
-#define SWIGTYPE_p_ofColor_T_unsigned_char_t swig_types[53]
-#define SWIGTYPE_p_ofColor_T_unsigned_short_t swig_types[54]
-#define SWIGTYPE_p_ofConePrimitive swig_types[55]
-#define SWIGTYPE_p_ofConsoleLoggerChannel swig_types[56]
-#define SWIGTYPE_p_ofCoreEvents swig_types[57]
-#define SWIGTYPE_p_ofCylinderPrimitive swig_types[58]
-#define SWIGTYPE_p_ofDirectory swig_types[59]
-#define SWIGTYPE_p_ofDragInfo swig_types[60]
-#define SWIGTYPE_p_ofEasyCam swig_types[61]
-#define SWIGTYPE_p_ofEventArgs swig_types[62]
-#define SWIGTYPE_p_ofEventT_Firmata_I2C_Data_const_t swig_types[63]
-#define SWIGTYPE_p_ofEventT_Firmata_Serial_Data_const_t swig_types[64]
-#define SWIGTYPE_p_ofEventT_Firmata_Stepper_Data_const_t swig_types[65]
-#define SWIGTYPE_p_ofEventT_int_const_t swig_types[66]
-#define SWIGTYPE_p_ofEventT_std__pairT_int_Firmata_Pin_Modes_t_const_t swig_types[67]
-#define SWIGTYPE_p_ofEventT_std__string_const_t swig_types[68]
-#define SWIGTYPE_p_ofEventT_std__vectorT_Firmata_Encoder_Data_t_const_t swig_types[69]
-#define SWIGTYPE_p_ofEventT_std__vectorT_unsigned_char_t_const_t swig_types[70]
-#define SWIGTYPE_p_ofFbo swig_types[71]
-#define SWIGTYPE_p_ofFile swig_types[72]
-#define SWIGTYPE_p_ofFileDialogResult swig_types[73]
-#define SWIGTYPE_p_ofFileLoggerChannel swig_types[74]
-#define SWIGTYPE_p_ofFilePath swig_types[75]
-#define SWIGTYPE_p_ofFpsCounter swig_types[76]
-#define SWIGTYPE_p_ofHttpRequest swig_types[77]
-#define SWIGTYPE_p_ofHttpResponse swig_types[78]
-#define SWIGTYPE_p_ofIcoSpherePrimitive swig_types[79]
-#define SWIGTYPE_p_ofImageLoadSettings swig_types[80]
-#define SWIGTYPE_p_ofImage_T_float_t swig_types[81]
-#define SWIGTYPE_p_ofImage_T_unsigned_char_t swig_types[82]
-#define SWIGTYPE_p_ofImage_T_unsigned_short_t swig_types[83]
-#define SWIGTYPE_p_ofKeyEventArgs swig_types[84]
-#define SWIGTYPE_p_ofLight swig_types[85]
-#define SWIGTYPE_p_ofLog swig_types[86]
-#define SWIGTYPE_p_ofLogError swig_types[87]
-#define SWIGTYPE_p_ofLogFatalError swig_types[88]
-#define SWIGTYPE_p_ofLogNotice swig_types[89]
-#define SWIGTYPE_p_ofLogVerbose swig_types[90]
-#define SWIGTYPE_p_ofLogWarning swig_types[91]
-#define SWIGTYPE_p_ofMaterial swig_types[92]
-#define SWIGTYPE_p_ofMaterialSettings swig_types[93]
-#define SWIGTYPE_p_ofMatrix3x3 swig_types[94]
-#define SWIGTYPE_p_ofMatrix4x4 swig_types[95]
-#define SWIGTYPE_p_ofMatrixStack swig_types[96]
-#define SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[97]
-#define SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[98]
-#define SWIGTYPE_p_ofMessage swig_types[99]
-#define SWIGTYPE_p_ofMouseEventArgs swig_types[100]
-#define SWIGTYPE_p_ofNode swig_types[101]
-#define SWIGTYPE_p_ofParameterGroup swig_types[102]
-#define SWIGTYPE_p_ofPath swig_types[103]
-#define SWIGTYPE_p_ofPixels_T_float_t swig_types[104]
-#define SWIGTYPE_p_ofPixels_T_unsigned_char_t swig_types[105]
-#define SWIGTYPE_p_ofPixels_T_unsigned_short_t swig_types[106]
-#define SWIGTYPE_p_ofPlanePrimitive swig_types[107]
-#define SWIGTYPE_p_ofPolyline_T_glm__vec3_t swig_types[108]
-#define SWIGTYPE_p_ofQuaternion swig_types[109]
-#define SWIGTYPE_p_ofRectangle swig_types[110]
-#define SWIGTYPE_p_ofResizeEventArgs swig_types[111]
-#define SWIGTYPE_p_ofSerial swig_types[112]
-#define SWIGTYPE_p_ofSerialDeviceInfo swig_types[113]
-#define SWIGTYPE_p_ofShader swig_types[114]
-#define SWIGTYPE_p_ofShaderSettings swig_types[115]
-#define SWIGTYPE_p_ofSoundDevice swig_types[116]
-#define SWIGTYPE_p_ofSoundPlayer swig_types[117]
-#define SWIGTYPE_p_ofSoundStream swig_types[118]
-#define SWIGTYPE_p_ofSoundStreamSettings swig_types[119]
-#define SWIGTYPE_p_ofSpherePrimitive swig_types[120]
-#define SWIGTYPE_p_ofStyle swig_types[121]
-#define SWIGTYPE_p_ofTexture swig_types[122]
-#define SWIGTYPE_p_ofTextureData swig_types[123]
-#define SWIGTYPE_p_ofTime swig_types[124]
-#define SWIGTYPE_p_ofTouchEventArgs swig_types[125]
-#define SWIGTYPE_p_ofTrueTypeFont swig_types[126]
-#define SWIGTYPE_p_ofURLFileLoader swig_types[127]
-#define SWIGTYPE_p_ofVbo swig_types[128]
-#define SWIGTYPE_p_ofVboMesh swig_types[129]
-#define SWIGTYPE_p_ofVec2f swig_types[130]
-#define SWIGTYPE_p_ofVec3f swig_types[131]
-#define SWIGTYPE_p_ofVec4f swig_types[132]
-#define SWIGTYPE_p_ofVideoDevice swig_types[133]
-#define SWIGTYPE_p_ofVideoFormat swig_types[134]
-#define SWIGTYPE_p_ofVideoGrabber swig_types[135]
-#define SWIGTYPE_p_ofVideoPlayer swig_types[136]
-#define SWIGTYPE_p_ofWindowPosEventArgs swig_types[137]
-#define SWIGTYPE_p_ofXml swig_types[138]
-#define SWIGTYPE_p_ofXml__Attribute swig_types[139]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t swig_types[140]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t swig_types[141]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t swig_types[142]
-#define SWIGTYPE_p_std__chrono__nanoseconds swig_types[143]
-#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__nanoseconds_t swig_types[144]
-#define SWIGTYPE_p_std__fstream swig_types[145]
-#define SWIGTYPE_p_std__functionT_void_fofHttpResponse_const_RF_t swig_types[146]
-#define SWIGTYPE_p_std__functionT_void_fofSoundBuffer_RF_t swig_types[147]
-#define SWIGTYPE_p_std__istream swig_types[148]
-#define SWIGTYPE_p_std__mapT_int_supportedPinTypes_t swig_types[149]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t swig_types[150]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseLoggerChannel_t swig_types[151]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseRenderer_t swig_types[152]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundPlayer_t swig_types[153]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundStream_t swig_types[154]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoGrabber_t swig_types[155]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoPlayer_t swig_types[156]
-#define SWIGTYPE_p_std__string swig_types[157]
-#define SWIGTYPE_p_std__vectorT_TESSindex_t swig_types[158]
-#define SWIGTYPE_p_std__vectorT_float_t swig_types[159]
-#define SWIGTYPE_p_std__vectorT_glm__vec2_t swig_types[160]
-#define SWIGTYPE_p_std__vectorT_glm__vec3_t swig_types[161]
-#define SWIGTYPE_p_std__vectorT_int_t swig_types[162]
-#define SWIGTYPE_p_std__vectorT_ofColor_T_float_t_t swig_types[163]
-#define SWIGTYPE_p_std__vectorT_ofFile_t swig_types[164]
-#define SWIGTYPE_p_std__vectorT_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t_t swig_types[165]
-#define SWIGTYPE_p_std__vectorT_ofPath__Command_t swig_types[166]
-#define SWIGTYPE_p_std__vectorT_ofPath_t swig_types[167]
-#define SWIGTYPE_p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_t swig_types[168]
-#define SWIGTYPE_p_std__vectorT_ofSerialDeviceInfo_t swig_types[169]
-#define SWIGTYPE_p_std__vectorT_ofSoundDevice_t swig_types[170]
-#define SWIGTYPE_p_std__vectorT_ofTexture_t swig_types[171]
-#define SWIGTYPE_p_std__vectorT_ofVec2f_t swig_types[172]
-#define SWIGTYPE_p_std__vectorT_ofVec3f_t swig_types[173]
-#define SWIGTYPE_p_std__vectorT_ofVideoDevice_t swig_types[174]
-#define SWIGTYPE_p_std__vectorT_ofVideoFormat_t swig_types[175]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[176]
-#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[177]
-#define SWIGTYPE_p_std__vectorT_unsigned_int_t swig_types[178]
-#define SWIGTYPE_p_supportedPinTypes swig_types[179]
-#define SWIGTYPE_p_timespec swig_types[180]
-#define SWIGTYPE_p_uint16_t swig_types[181]
-#define SWIGTYPE_p_uint32_t swig_types[182]
-#define SWIGTYPE_p_uint8_t swig_types[183]
-#define SWIGTYPE_p_unsigned_char swig_types[184]
-#define SWIGTYPE_p_unsigned_int swig_types[185]
-#define SWIGTYPE_p_unsigned_long swig_types[186]
-#define SWIGTYPE_p_unsigned_long_long swig_types[187]
-#define SWIGTYPE_p_unsigned_short swig_types[188]
-static swig_type_info *swig_types[190];
-static swig_module_info swig_module = {swig_types, 189, 0, 0, 0, 0};
+#define SWIGTYPE_p_Base swig_types[0]
+#define SWIGTYPE_p_Firmata_Encoder_Data swig_types[1]
+#define SWIGTYPE_p_Firmata_I2C_Data swig_types[2]
+#define SWIGTYPE_p_Firmata_Serial_Data swig_types[3]
+#define SWIGTYPE_p_Firmata_Stepper_Data swig_types[4]
+#define SWIGTYPE_p_GLintptr swig_types[5]
+#define SWIGTYPE_p_GLsizei swig_types[6]
+#define SWIGTYPE_p_GLsizeiptr swig_types[7]
+#define SWIGTYPE_p_Node swig_types[8]
+#define SWIGTYPE_p__XDisplay swig_types[9]
+#define SWIGTYPE_p_boost__filesystem__path swig_types[10]
+#define SWIGTYPE_p_double swig_types[11]
+#define SWIGTYPE_p_float swig_types[12]
+#define SWIGTYPE_p_glm__mat3 swig_types[13]
+#define SWIGTYPE_p_glm__mat4 swig_types[14]
+#define SWIGTYPE_p_glm__quat swig_types[15]
+#define SWIGTYPE_p_glm__tvec2T_int_glm__precision__defaultp_t swig_types[16]
+#define SWIGTYPE_p_glm__tvec3T_int_glm__precision__defaultp_t swig_types[17]
+#define SWIGTYPE_p_glm__tvec4T_int_glm__precision__defaultp_t swig_types[18]
+#define SWIGTYPE_p_glm__vec2 swig_types[19]
+#define SWIGTYPE_p_glm__vec3 swig_types[20]
+#define SWIGTYPE_p_glm__vec4 swig_types[21]
+#define SWIGTYPE_p_int swig_types[22]
+#define SWIGTYPE_p_int16_t swig_types[23]
+#define SWIGTYPE_p_int32_t swig_types[24]
+#define SWIGTYPE_p_int8_t swig_types[25]
+#define SWIGTYPE_p_long_long swig_types[26]
+#define SWIGTYPE_p_of3dPrimitive swig_types[27]
+#define SWIGTYPE_p_ofAbstractParameter swig_types[28]
+#define SWIGTYPE_p_ofAppBaseWindow swig_types[29]
+#define SWIGTYPE_p_ofArduino swig_types[30]
+#define SWIGTYPE_p_ofBaseDraws swig_types[31]
+#define SWIGTYPE_p_ofBaseHasPixels swig_types[32]
+#define SWIGTYPE_p_ofBaseHasTexture swig_types[33]
+#define SWIGTYPE_p_ofBaseImage_T_float_t swig_types[34]
+#define SWIGTYPE_p_ofBaseImage_T_unsigned_char_t swig_types[35]
+#define SWIGTYPE_p_ofBaseImage_T_unsigned_short_t swig_types[36]
+#define SWIGTYPE_p_ofBaseLoggerChannel swig_types[37]
+#define SWIGTYPE_p_ofBaseMaterial swig_types[38]
+#define SWIGTYPE_p_ofBaseRenderer swig_types[39]
+#define SWIGTYPE_p_ofBaseSoundInput swig_types[40]
+#define SWIGTYPE_p_ofBaseSoundOutput swig_types[41]
+#define SWIGTYPE_p_ofBaseSoundPlayer swig_types[42]
+#define SWIGTYPE_p_ofBaseSoundStream swig_types[43]
+#define SWIGTYPE_p_ofBaseUpdates swig_types[44]
+#define SWIGTYPE_p_ofBaseVideo swig_types[45]
+#define SWIGTYPE_p_ofBaseVideoDraws swig_types[46]
+#define SWIGTYPE_p_ofBaseVideoGrabber swig_types[47]
+#define SWIGTYPE_p_ofBaseVideoPlayer swig_types[48]
+#define SWIGTYPE_p_ofBoxPrimitive swig_types[49]
+#define SWIGTYPE_p_ofBuffer swig_types[50]
+#define SWIGTYPE_p_ofBufferObject swig_types[51]
+#define SWIGTYPE_p_ofCamera swig_types[52]
+#define SWIGTYPE_p_ofColor_T_float_t swig_types[53]
+#define SWIGTYPE_p_ofColor_T_unsigned_char_t swig_types[54]
+#define SWIGTYPE_p_ofColor_T_unsigned_short_t swig_types[55]
+#define SWIGTYPE_p_ofConePrimitive swig_types[56]
+#define SWIGTYPE_p_ofConsoleLoggerChannel swig_types[57]
+#define SWIGTYPE_p_ofCoreEvents swig_types[58]
+#define SWIGTYPE_p_ofCylinderPrimitive swig_types[59]
+#define SWIGTYPE_p_ofDirectory swig_types[60]
+#define SWIGTYPE_p_ofDragInfo swig_types[61]
+#define SWIGTYPE_p_ofEasyCam swig_types[62]
+#define SWIGTYPE_p_ofEventArgs swig_types[63]
+#define SWIGTYPE_p_ofEventT_Firmata_I2C_Data_const_t swig_types[64]
+#define SWIGTYPE_p_ofEventT_Firmata_Serial_Data_const_t swig_types[65]
+#define SWIGTYPE_p_ofEventT_Firmata_Stepper_Data_const_t swig_types[66]
+#define SWIGTYPE_p_ofEventT_int_const_t swig_types[67]
+#define SWIGTYPE_p_ofEventT_std__pairT_int_Firmata_Pin_Modes_t_const_t swig_types[68]
+#define SWIGTYPE_p_ofEventT_std__string_const_t swig_types[69]
+#define SWIGTYPE_p_ofEventT_std__vectorT_Firmata_Encoder_Data_t_const_t swig_types[70]
+#define SWIGTYPE_p_ofEventT_std__vectorT_unsigned_char_t_const_t swig_types[71]
+#define SWIGTYPE_p_ofFbo swig_types[72]
+#define SWIGTYPE_p_ofFile swig_types[73]
+#define SWIGTYPE_p_ofFileDialogResult swig_types[74]
+#define SWIGTYPE_p_ofFileLoggerChannel swig_types[75]
+#define SWIGTYPE_p_ofFilePath swig_types[76]
+#define SWIGTYPE_p_ofFpsCounter swig_types[77]
+#define SWIGTYPE_p_ofHttpRequest swig_types[78]
+#define SWIGTYPE_p_ofHttpResponse swig_types[79]
+#define SWIGTYPE_p_ofIcoSpherePrimitive swig_types[80]
+#define SWIGTYPE_p_ofImageLoadSettings swig_types[81]
+#define SWIGTYPE_p_ofImage_T_float_t swig_types[82]
+#define SWIGTYPE_p_ofImage_T_unsigned_char_t swig_types[83]
+#define SWIGTYPE_p_ofImage_T_unsigned_short_t swig_types[84]
+#define SWIGTYPE_p_ofKeyEventArgs swig_types[85]
+#define SWIGTYPE_p_ofLight swig_types[86]
+#define SWIGTYPE_p_ofLog swig_types[87]
+#define SWIGTYPE_p_ofLogError swig_types[88]
+#define SWIGTYPE_p_ofLogFatalError swig_types[89]
+#define SWIGTYPE_p_ofLogNotice swig_types[90]
+#define SWIGTYPE_p_ofLogVerbose swig_types[91]
+#define SWIGTYPE_p_ofLogWarning swig_types[92]
+#define SWIGTYPE_p_ofMaterial swig_types[93]
+#define SWIGTYPE_p_ofMaterialSettings swig_types[94]
+#define SWIGTYPE_p_ofMatrix3x3 swig_types[95]
+#define SWIGTYPE_p_ofMatrix4x4 swig_types[96]
+#define SWIGTYPE_p_ofMatrixStack swig_types[97]
+#define SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[98]
+#define SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[99]
+#define SWIGTYPE_p_ofMessage swig_types[100]
+#define SWIGTYPE_p_ofMouseEventArgs swig_types[101]
+#define SWIGTYPE_p_ofNode swig_types[102]
+#define SWIGTYPE_p_ofParameterGroup swig_types[103]
+#define SWIGTYPE_p_ofPath swig_types[104]
+#define SWIGTYPE_p_ofPixels_T_float_t swig_types[105]
+#define SWIGTYPE_p_ofPixels_T_unsigned_char_t swig_types[106]
+#define SWIGTYPE_p_ofPixels_T_unsigned_short_t swig_types[107]
+#define SWIGTYPE_p_ofPlanePrimitive swig_types[108]
+#define SWIGTYPE_p_ofPolyline_T_glm__vec3_t swig_types[109]
+#define SWIGTYPE_p_ofQuaternion swig_types[110]
+#define SWIGTYPE_p_ofRectangle swig_types[111]
+#define SWIGTYPE_p_ofResizeEventArgs swig_types[112]
+#define SWIGTYPE_p_ofSerial swig_types[113]
+#define SWIGTYPE_p_ofSerialDeviceInfo swig_types[114]
+#define SWIGTYPE_p_ofShader swig_types[115]
+#define SWIGTYPE_p_ofShaderSettings swig_types[116]
+#define SWIGTYPE_p_ofSoundDevice swig_types[117]
+#define SWIGTYPE_p_ofSoundPlayer swig_types[118]
+#define SWIGTYPE_p_ofSoundStream swig_types[119]
+#define SWIGTYPE_p_ofSoundStreamSettings swig_types[120]
+#define SWIGTYPE_p_ofSpherePrimitive swig_types[121]
+#define SWIGTYPE_p_ofStyle swig_types[122]
+#define SWIGTYPE_p_ofTexture swig_types[123]
+#define SWIGTYPE_p_ofTextureData swig_types[124]
+#define SWIGTYPE_p_ofTime swig_types[125]
+#define SWIGTYPE_p_ofTouchEventArgs swig_types[126]
+#define SWIGTYPE_p_ofTrueTypeFont swig_types[127]
+#define SWIGTYPE_p_ofTrueTypeFontSettings swig_types[128]
+#define SWIGTYPE_p_ofURLFileLoader swig_types[129]
+#define SWIGTYPE_p_ofUnicode swig_types[130]
+#define SWIGTYPE_p_ofUnicode__range swig_types[131]
+#define SWIGTYPE_p_ofVbo swig_types[132]
+#define SWIGTYPE_p_ofVboMesh swig_types[133]
+#define SWIGTYPE_p_ofVec2f swig_types[134]
+#define SWIGTYPE_p_ofVec3f swig_types[135]
+#define SWIGTYPE_p_ofVec4f swig_types[136]
+#define SWIGTYPE_p_ofVideoDevice swig_types[137]
+#define SWIGTYPE_p_ofVideoFormat swig_types[138]
+#define SWIGTYPE_p_ofVideoGrabber swig_types[139]
+#define SWIGTYPE_p_ofVideoPlayer swig_types[140]
+#define SWIGTYPE_p_ofWindowPosEventArgs swig_types[141]
+#define SWIGTYPE_p_ofXml swig_types[142]
+#define SWIGTYPE_p_ofXmlAttributeIterator swig_types[143]
+#define SWIGTYPE_p_ofXml__Attribute swig_types[144]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlAttributeIterator_t swig_types[145]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t swig_types[146]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t swig_types[147]
+#define SWIGTYPE_p_std__chrono__nanoseconds swig_types[148]
+#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__nanoseconds_t swig_types[149]
+#define SWIGTYPE_p_std__fstream swig_types[150]
+#define SWIGTYPE_p_std__functionT_void_fofHttpResponse_const_RF_t swig_types[151]
+#define SWIGTYPE_p_std__functionT_void_fofSoundBuffer_RF_t swig_types[152]
+#define SWIGTYPE_p_std__istream swig_types[153]
+#define SWIGTYPE_p_std__mapT_int_supportedPinTypes_t swig_types[154]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t swig_types[155]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseLoggerChannel_t swig_types[156]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseRenderer_t swig_types[157]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundPlayer_t swig_types[158]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundStream_t swig_types[159]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoGrabber_t swig_types[160]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoPlayer_t swig_types[161]
+#define SWIGTYPE_p_std__string swig_types[162]
+#define SWIGTYPE_p_std__vectorT_float_t swig_types[163]
+#define SWIGTYPE_p_std__vectorT_glm__vec2_t swig_types[164]
+#define SWIGTYPE_p_std__vectorT_glm__vec3_t swig_types[165]
+#define SWIGTYPE_p_std__vectorT_int_t swig_types[166]
+#define SWIGTYPE_p_std__vectorT_ofColor_T_float_t_t swig_types[167]
+#define SWIGTYPE_p_std__vectorT_ofFile_t swig_types[168]
+#define SWIGTYPE_p_std__vectorT_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t_t swig_types[169]
+#define SWIGTYPE_p_std__vectorT_ofPath__Command_t swig_types[170]
+#define SWIGTYPE_p_std__vectorT_ofPath_t swig_types[171]
+#define SWIGTYPE_p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_t swig_types[172]
+#define SWIGTYPE_p_std__vectorT_ofSerialDeviceInfo_t swig_types[173]
+#define SWIGTYPE_p_std__vectorT_ofSoundDevice_t swig_types[174]
+#define SWIGTYPE_p_std__vectorT_ofTexture_t swig_types[175]
+#define SWIGTYPE_p_std__vectorT_ofUnicode__range_t swig_types[176]
+#define SWIGTYPE_p_std__vectorT_ofVec2f_t swig_types[177]
+#define SWIGTYPE_p_std__vectorT_ofVec3f_t swig_types[178]
+#define SWIGTYPE_p_std__vectorT_ofVideoDevice_t swig_types[179]
+#define SWIGTYPE_p_std__vectorT_ofVideoFormat_t swig_types[180]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[181]
+#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[182]
+#define SWIGTYPE_p_std__vectorT_unsigned_int_t swig_types[183]
+#define SWIGTYPE_p_std__vectorT_unsigned_short_t swig_types[184]
+#define SWIGTYPE_p_supportedPinTypes swig_types[185]
+#define SWIGTYPE_p_uint16_t swig_types[186]
+#define SWIGTYPE_p_uint32_t swig_types[187]
+#define SWIGTYPE_p_uint8_t swig_types[188]
+#define SWIGTYPE_p_unsigned_char swig_types[189]
+#define SWIGTYPE_p_unsigned_int swig_types[190]
+#define SWIGTYPE_p_unsigned_long swig_types[191]
+#define SWIGTYPE_p_unsigned_long_long swig_types[192]
+#define SWIGTYPE_p_unsigned_short swig_types[193]
+static swig_type_info *swig_types[195];
+static swig_module_info swig_module = {swig_types, 194, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3239,6 +3244,52 @@ SWIGINTERN void std_vector_Sl_ofPolyline_Sg____setitem__(std::vector< ofPolyline
 					throw std::out_of_range("in vector::__setitem__()");
 				(*self)[idx]=val;
 			}
+
+	enum ofAlphabetEnum : int {
+		ofAlphabet_Emoji,
+		ofAlphabet_Japanese,
+		ofAlphabet_Chinese,
+		ofAlphabet_Korean,
+		ofAlphabet_Arabic,
+		ofAlphabet_Devanagari,
+		ofAlphabet_Latin,
+		ofAlphabet_Greek,
+		ofAlphabet_Cyrillic
+	};
+
+SWIGINTERN void ofTrueTypeFontSettings_addRanges(ofTrueTypeFontSettings *self,ofAlphabetEnum alphabet){
+		switch(alphabet) {
+			case ofAlphabet_Emoji:
+				self->addRanges(ofAlphabet::Emoji);
+				break;
+			case ofAlphabet_Japanese:
+				self->addRanges(ofAlphabet::Japanese);
+				break;
+			case ofAlphabet_Chinese:
+				self->addRanges(ofAlphabet::Chinese);
+				break;
+			case ofAlphabet_Korean:
+				self->addRanges(ofAlphabet::Korean);
+				break;
+			case ofAlphabet_Arabic:
+				self->addRanges(ofAlphabet::Arabic);
+				break;
+			case ofAlphabet_Devanagari:
+				self->addRanges(ofAlphabet::Devanagari);
+				break;
+			case ofAlphabet_Latin:
+				self->addRanges(ofAlphabet::Latin);
+				break;
+			case ofAlphabet_Greek:
+				self->addRanges(ofAlphabet::Greek);
+				break;
+			case ofAlphabet_Cyrillic:
+				self->addRanges(ofAlphabet::Cyrillic);
+				break;
+			default:
+				break;
+		}
+	}
 
 #define ofColor__Sl_unsigned_SS_char_Sg__r_get(self_) self_->r
 #define ofColor__Sl_unsigned_SS_char_Sg__r_set(self_, val_) self_->r = val_
@@ -4707,14 +4758,6 @@ static int _wrap_Time_getAsSeconds(lua_State* L) { int SWIG_arg = 0; ofTime *arg
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTime,0))){
     SWIG_fail_ptr("Time_getAsSeconds",1,SWIGTYPE_p_ofTime); }  result = (double)((ofTime const *)arg1)->getAsSeconds();
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_Time_getAsTimespec(lua_State* L) { int SWIG_arg = 0; ofTime *arg1 = (ofTime *) 0 ; timespec result;
-  SWIG_check_num_args("ofTime::getAsTimespec",1,1)
-  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTime::getAsTimespec",1,"ofTime const *");
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTime,0))){
-    SWIG_fail_ptr("Time_getAsTimespec",1,SWIGTYPE_p_ofTime); }  result = ((ofTime const *)arg1)->getAsTimespec(); {
-    timespec * resultptr = new timespec((const timespec &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_timespec,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
 static int _wrap_Time_getAsTimePoint(lua_State* L) { int SWIG_arg = 0; ofTime *arg1 = (ofTime *) 0 ;
   std::chrono::time_point< std::chrono::nanoseconds > result; SWIG_check_num_args("ofTime::getAsTimePoint",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTime::getAsTimePoint",1,"ofTime const *");
@@ -4774,7 +4817,6 @@ static swig_lua_method swig_Time_methods[]= {
     { "getAsMicroseconds", _wrap_Time_getAsMicroseconds},
     { "getAsNanoseconds", _wrap_Time_getAsNanoseconds},
     { "getAsSeconds", _wrap_Time_getAsSeconds},
-    { "getAsTimespec", _wrap_Time_getAsTimespec},
     { "getAsTimePoint", _wrap_Time_getAsTimePoint},
     { "__sub", _wrap_Time___sub},
     { "__lt", _wrap_Time___lt},
@@ -13507,26 +13549,24 @@ static int _wrap_Mesh_addVertices(lua_State* L) { int argc; int argv[4]={ 1,2,3,
   lua_error(L);return 0; }
 static int _wrap_Mesh_removeVertex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeVertex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeVertex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeVertex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeVertex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_removeVertex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_removeVertex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->removeVertex(arg2); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->removeVertex(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setVertex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultVertexType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultVertexType *arg3 = 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",3,"ofDefaultVertexType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setVertex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setVertex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec3,0))){
     SWIG_fail_ptr("Mesh_setVertex",3,SWIGTYPE_p_glm__vec3); }  (arg1)->setVertex(arg2,(ofDefaultVertexType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
@@ -13584,14 +13624,13 @@ static int _wrap_Mesh_getVerticesPointer(lua_State* L) { int argc; int argv[2]={
   lua_error(L);return 0; }
 static int _wrap_Mesh_getVertex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultVertexType result;
+  ofIndexType arg2 ; ofDefaultVertexType result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getVertex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getVertex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getVertex(arg2);
   { ofDefaultVertexType * resultptr = new ofDefaultVertexType((const ofDefaultVertexType &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_glm__vec3,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
@@ -13667,14 +13706,13 @@ static int _wrap_Mesh_getCentroid(lua_State* L) { int SWIG_arg = 0;
   lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getNormal(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultNormalType result;
+  ofIndexType arg2 ; ofDefaultNormalType result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getNormal",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getNormal",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getNormal(arg2);
   { ofDefaultNormalType * resultptr = new ofDefaultNormalType((const ofDefaultNormalType &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_glm__vec3,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
@@ -13724,26 +13762,24 @@ static int _wrap_Mesh_addNormals(lua_State* L) { int argc; int argv[4]={ 1,2,3,4
   lua_error(L);return 0; }
 static int _wrap_Mesh_removeNormal(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeNormal",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeNormal",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeNormal",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeNormal",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_removeNormal",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_removeNormal",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->removeNormal(arg2); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->removeNormal(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setNormal(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultNormalType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultNormalType *arg3 = 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",3,"ofDefaultNormalType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setNormal",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setNormal",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec3,0))){
     SWIG_fail_ptr("Mesh_setNormal",3,SWIGTYPE_p_glm__vec3); }  (arg1)->setNormal(arg2,(ofDefaultNormalType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
@@ -13872,15 +13908,13 @@ static int _wrap_Mesh_flatNormals(lua_State* L) { int SWIG_arg = 0;
    (arg1)->flatNormals(); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getFace(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
-  ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > result;
+  ofIndexType arg2 ; ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getFace",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getFace",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getFace",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getFace",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getFace",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getFace",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getFace(arg2);
   {
     ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > * resultptr = new ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >((const ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > &) result);
@@ -13933,14 +13967,13 @@ static int _wrap_Mesh_getUniqueFaces(lua_State* L) { int SWIG_arg = 0;
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getColor(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultColorType result;
+  ofIndexType arg2 ; ofDefaultColorType result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getColor",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getColor",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getColor(arg2);
   { ofDefaultColorType * resultptr = new ofDefaultColorType((const ofDefaultColorType &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofColor_T_float_t,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail;
@@ -13990,26 +14023,24 @@ static int _wrap_Mesh_addColors(lua_State* L) { int argc; int argv[4]={ 1,2,3,4}
   lua_error(L);return 0; }
 static int _wrap_Mesh_removeColor(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeColor",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeColor",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeColor",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeColor",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_removeColor",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_removeColor",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->removeColor(arg2); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->removeColor(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setColor(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultColorType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultColorType *arg3 = 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",3,"ofDefaultColorType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setColor",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setColor",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_ofColor_T_float_t,0))){
     SWIG_fail_ptr("Mesh_setColor",3,SWIGTYPE_p_ofColor_T_float_t); }  (arg1)->setColor(arg2,(ofDefaultColorType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
@@ -14121,14 +14152,13 @@ static int _wrap_Mesh_usingColors(lua_State* L) { int SWIG_arg = 0;
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getTexCoord(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultTexCoordType result;
+  ofIndexType arg2 ; ofDefaultTexCoordType result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getTexCoord",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getTexCoord",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getTexCoord(arg2);
   { ofDefaultTexCoordType * resultptr = new ofDefaultTexCoordType((const ofDefaultTexCoordType &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_glm__vec2,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
@@ -14178,26 +14208,24 @@ static int _wrap_Mesh_addTexCoords(lua_State* L) { int argc; int argv[4]={ 1,2,3
   lua_error(L);return 0; }
 static int _wrap_Mesh_removeTexCoord(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeTexCoord",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeTexCoord",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeTexCoord",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeTexCoord",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_removeTexCoord",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_removeTexCoord",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->removeTexCoord(arg2);
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->removeTexCoord(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setTexCoord(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultTexCoordType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultTexCoordType *arg3 = 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",3,"ofDefaultTexCoordType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setTexCoord",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setTexCoord",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec2,0))){
     SWIG_fail_ptr("Mesh_setTexCoord",3,SWIGTYPE_p_glm__vec2); }  (arg1)->setTexCoord(arg2,(ofDefaultTexCoordType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
@@ -14322,33 +14350,29 @@ static int _wrap_Mesh_getIndices__SWIG_0(lua_State* L) { int SWIG_arg = 0;
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
    result = (std::vector< ofIndexType > *) &(arg1)->getIndices();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_TESSindex_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_unsigned_short_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getIndex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofIndexType result;
+  ofIndexType arg2 ; ofIndexType result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getIndex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getIndex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getIndex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getIndex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getIndex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getIndex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getIndex(arg2);
-  { ofIndexType * resultptr = new ofIndexType((const ofIndexType &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_TESSindex,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  result = (ofIndexType)((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getIndex(arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_addIndex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_addIndex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_addIndex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->addIndex(arg2); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->addIndex(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_addIndices__SWIG_0(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
   std::vector< ofIndexType > *arg2 = 0 ;
@@ -14357,8 +14381,8 @@ static int _wrap_Mesh_addIndices__SWIG_0(lua_State* L) { int SWIG_arg = 0;
   if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndices",2,"std::vector< ofIndexType > const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_addIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_TESSindex_t,0))){
-    SWIG_fail_ptr("Mesh_addIndices",2,SWIGTYPE_p_std__vectorT_TESSindex_t); } 
+   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_unsigned_short_t,0))){
+    SWIG_fail_ptr("Mesh_addIndices",2,SWIGTYPE_p_std__vectorT_unsigned_short_t); } 
   (arg1)->addIndices((std::vector< ofIndexType > const &)*arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_Mesh_addIndices__SWIG_1(lua_State* L) { int SWIG_arg = 0;
@@ -14370,8 +14394,8 @@ static int _wrap_Mesh_addIndices__SWIG_1(lua_State* L) { int SWIG_arg = 0;
   if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addIndices",3,"std::size_t");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_addIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_addIndices",2,SWIGTYPE_p_TESSindex); } 
+   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_short,0))){
+    SWIG_fail_ptr("Mesh_addIndices",2,SWIGTYPE_p_unsigned_short); } 
   SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (std::size_t)lua_tonumber(L, 3);
   (arg1)->addIndices((ofIndexType const *)arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_addIndices(lua_State* L) { int argc; int argv[4]={ 1,2,3,4} ; argc = lua_gettop(L); if (argc == 2) {
@@ -14382,29 +14406,26 @@ static int _wrap_Mesh_addIndices(lua_State* L) { int argc; int argv[4]={ 1,2,3,4
   lua_error(L);return 0; }
 static int _wrap_Mesh_removeIndex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeIndex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeIndex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeIndex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::removeIndex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_removeIndex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_removeIndex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2; (arg1)->removeIndex(arg2); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  (arg1)->removeIndex(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setIndex(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType *argp2 ; ofIndexType *argp3 ;
+  ofIndexType arg2 ; ofIndexType arg3 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",2,"ofIndexType");
-  if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",3,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",2,"ofIndexType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setIndex",3,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setIndex",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setIndex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&argp3,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setIndex",3,SWIGTYPE_p_TESSindex); }  arg3 = *argp3; (arg1)->setIndex(arg2,arg3); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (ofIndexType)lua_tonumber(L, 3);
+  (arg1)->setIndex(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_clearIndices(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::clearIndices",1,1)
@@ -14429,7 +14450,7 @@ static int _wrap_Mesh_getIndexPointer__SWIG_0(lua_State* L) { int SWIG_arg = 0;
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getIndexPointer",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getIndexPointer",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   result = (ofIndexType *)(arg1)->getIndexPointer(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_TESSindex,0); SWIG_arg++; 
+   result = (ofIndexType *)(arg1)->getIndexPointer(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_unsigned_short,0); SWIG_arg++; 
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getIndexPointer__SWIG_1(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
@@ -14440,7 +14461,7 @@ static int _wrap_Mesh_getIndexPointer__SWIG_1(lua_State* L) { int SWIG_arg = 0;
     SWIG_fail_ptr("Mesh_getIndexPointer",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
   
   result = (ofIndexType *)((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getIndexPointer();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_TESSindex,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_unsigned_short,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_Mesh_getIndexPointer(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L); if (argc == 1) {
     return _wrap_Mesh_getIndexPointer__SWIG_0(L);}  if (argc == 1) { return _wrap_Mesh_getIndexPointer__SWIG_1(L);} 
@@ -14458,7 +14479,7 @@ static int _wrap_Mesh_getIndices__SWIG_1(lua_State* L) { int SWIG_arg = 0;
     SWIG_fail_ptr("Mesh_getIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
   
   result = (std::vector< ofIndexType > *) &((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getIndices();
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_TESSindex_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_unsigned_short_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getIndices(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L); if (argc == 1) {
     return _wrap_Mesh_getIndices__SWIG_0(L);}  if (argc == 1) { return _wrap_Mesh_getIndices__SWIG_1(L);} 
@@ -14478,21 +14499,18 @@ static int _wrap_Mesh_hasIndices(lua_State* L) { int SWIG_arg = 0;
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_addTriangle(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType arg4 ; ofIndexType *argp2 ; ofIndexType *argp3 ; ofIndexType *argp4 ;
+  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType arg4 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",4,4)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",2,"ofIndexType");
-  if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",3,"ofIndexType");
-  if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",4,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",2,"ofIndexType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",3,"ofIndexType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::addTriangle",4,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_addTriangle",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_addTriangle",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&argp3,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_addTriangle",3,SWIGTYPE_p_TESSindex); }  arg3 = *argp3;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_addTriangle",4,SWIGTYPE_p_TESSindex); }  arg4 = *argp4; (arg1)->addTriangle(arg2,arg3,arg4);
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (ofIndexType)lua_tonumber(L, 3);
+  SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative") arg4 = (ofIndexType)lua_tonumber(L, 4);
+  (arg1)->addTriangle(arg2,arg3,arg4); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_enableIndices(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::enableIndices",1,1)
@@ -14519,36 +14537,31 @@ static int _wrap_Mesh_usingIndices(lua_State* L) { int SWIG_arg = 0;
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_setColorForIndices(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType arg3 ; ofDefaultColorType arg4 ; ofIndexType *argp2 ; ofIndexType *argp3 ;
-  ofDefaultColorType *argp4 ;
+  ofIndexType arg2 ; ofIndexType arg3 ; ofDefaultColorType arg4 ; ofDefaultColorType *argp4 ;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",4,4)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",2,"ofIndexType");
-  if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",3,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",2,"ofIndexType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",3,"ofIndexType");
   if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColorForIndices",4,"ofDefaultColorType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_setColorForIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setColorForIndices",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&argp3,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_setColorForIndices",3,SWIGTYPE_p_TESSindex); }  arg3 = *argp3;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (ofIndexType)lua_tonumber(L, 3);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_ofColor_T_float_t,0))){
     SWIG_fail_ptr("Mesh_setColorForIndices",4,SWIGTYPE_p_ofColor_T_float_t); }  arg4 = *argp4;
   (arg1)->setColorForIndices(arg2,arg3,arg4); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getMeshForIndices__SWIG_0(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType *argp2 ; ofIndexType *argp3 ;
+  ofIndexType arg2 ; ofIndexType arg3 ;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",2,"ofIndexType");
-  if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",3,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",2,"ofIndexType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",3,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getMeshForIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&argp3,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",3,SWIGTYPE_p_TESSindex); }  arg3 = *argp3;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (ofIndexType)lua_tonumber(L, 3);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getMeshForIndices(arg2,arg3);
   {
     ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > * resultptr = new ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >((const ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > &) result);
@@ -14556,25 +14569,20 @@ static int _wrap_Mesh_getMeshForIndices__SWIG_0(lua_State* L) { int SWIG_arg = 0
    return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Mesh_getMeshForIndices__SWIG_1(lua_State* L) { int SWIG_arg = 0;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType arg4 ; ofIndexType arg5 ; ofIndexType *argp2 ; ofIndexType *argp3 ;
-  ofIndexType *argp4 ; ofIndexType *argp5 ;
+  ofIndexType arg2 ; ofIndexType arg3 ; ofIndexType arg4 ; ofIndexType arg5 ;
   ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > result;
   SWIG_check_num_args("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",5,5)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",1,"ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",2,"ofIndexType");
-  if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",3,"ofIndexType");
-  if(!lua_isuserdata(L,4)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",4,"ofIndexType");
-  if(!lua_isuserdata(L,5)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",5,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",2,"ofIndexType");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",3,"ofIndexType");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",4,"ofIndexType");
+  if(!lua_isnumber(L,5)) SWIG_fail_arg("ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getMeshForIndices",5,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("Mesh_getMeshForIndices",1,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&argp3,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",3,SWIGTYPE_p_TESSindex); }  arg3 = *argp3;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&argp4,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",4,SWIGTYPE_p_TESSindex); }  arg4 = *argp4;
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,5,(void**)&argp5,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Mesh_getMeshForIndices",5,SWIGTYPE_p_TESSindex); }  arg5 = *argp5;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
+  SWIG_contract_assert((lua_tonumber(L,3)>=0),"number must not be negative") arg3 = (ofIndexType)lua_tonumber(L, 3);
+  SWIG_contract_assert((lua_tonumber(L,4)>=0),"number must not be negative") arg4 = (ofIndexType)lua_tonumber(L, 4);
+  SWIG_contract_assert((lua_tonumber(L,5)>=0),"number must not be negative") arg5 = (ofIndexType)lua_tonumber(L, 5);
   result = ((ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getMeshForIndices(arg2,arg3,arg4,arg5);
   {
     ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > * resultptr = new ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >((const ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > &) result);
@@ -14834,111 +14842,103 @@ static int _wrap_MeshFace_getFaceNormal(lua_State* L) { int SWIG_arg = 0;
   return SWIG_arg; }
 static int _wrap_MeshFace_setVertex(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultVertexType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultVertexType *arg3 = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setVertex",3,"ofDefaultVertexType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_setVertex",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_setVertex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec3,0))){
     SWIG_fail_ptr("MeshFace_setVertex",3,SWIGTYPE_p_glm__vec3); }  (arg1)->setVertex(arg2,(ofDefaultVertexType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_MeshFace_getVertex(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultVertexType *result = 0 ;
+  ofIndexType arg2 ; ofDefaultVertexType *result = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getVertex",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_getVertex",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_getVertex",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = (ofDefaultVertexType *) &((ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getVertex(arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_glm__vec3,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_MeshFace_setNormal(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultNormalType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultNormalType *arg3 = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setNormal",3,"ofDefaultNormalType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_setNormal",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_setNormal",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec3,0))){
     SWIG_fail_ptr("MeshFace_setNormal",3,SWIGTYPE_p_glm__vec3); }  (arg1)->setNormal(arg2,(ofDefaultNormalType const &)*arg3);
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_MeshFace_getNormal(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultNormalType *result = 0 ;
+  ofIndexType arg2 ; ofDefaultNormalType *result = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getNormal",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_getNormal",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_getNormal",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = (ofDefaultNormalType *) &((ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getNormal(arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_glm__vec3,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_MeshFace_setColor(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultColorType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultColorType *arg3 = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setColor",3,"ofDefaultColorType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_setColor",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_setColor",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_ofColor_T_float_t,0))){
     SWIG_fail_ptr("MeshFace_setColor",3,SWIGTYPE_p_ofColor_T_float_t); } 
   (arg1)->setColor(arg2,(ofDefaultColorType const &)*arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_MeshFace_getColor(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultColorType *result = 0 ;
+  ofIndexType arg2 ; ofDefaultColorType *result = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getColor",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_getColor",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_getColor",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = (ofDefaultColorType *) &((ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getColor(arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofColor_T_float_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_MeshFace_setTexCoord(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofDefaultTexCoordType *arg3 = 0 ; ofIndexType *argp2 ;
+  ofIndexType arg2 ; ofDefaultTexCoordType *arg3 = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",2,"ofIndexType");
   if(!lua_isuserdata(L,3)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::setTexCoord",3,"ofDefaultTexCoordType const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_setTexCoord",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_setTexCoord",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_glm__vec2,0))){
     SWIG_fail_ptr("MeshFace_setTexCoord",3,SWIGTYPE_p_glm__vec2); } 
   (arg1)->setTexCoord(arg2,(ofDefaultTexCoordType const &)*arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_MeshFace_getTexCoord(lua_State* L) { int SWIG_arg = 0;
   ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *arg1 = (ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *) 0 ;
-  ofIndexType arg2 ; ofIndexType *argp2 ; ofDefaultTexCoordType *result = 0 ;
+  ofIndexType arg2 ; ofDefaultTexCoordType *result = 0 ;
   SWIG_check_num_args("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",1,"ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *");
-  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,"ofIndexType");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType >::getTexCoord",2,"ofIndexType");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,0))){
     SWIG_fail_ptr("MeshFace_getTexCoord",1,SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&argp2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("MeshFace_getTexCoord",2,SWIGTYPE_p_TESSindex); }  arg2 = *argp2;
+   SWIG_contract_assert((lua_tonumber(L,2)>=0),"number must not be negative") arg2 = (ofIndexType)lua_tonumber(L, 2);
   result = (ofDefaultTexCoordType *) &((ofMeshFace_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > const *)arg1)->getTexCoord(arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_glm__vec2,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
@@ -16147,14 +16147,14 @@ static int _wrap_CylinderPrimitive_setBottomCapColor(lua_State* L) { int SWIG_ar
     SWIG_fail_ptr("CylinderPrimitive_setBottomCapColor",2,SWIGTYPE_p_ofColor_T_unsigned_char_t); }  arg2 = *argp2;
   (arg1)->setBottomCapColor(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getTopCapIndices(lua_State* L) { int SWIG_arg = 0;
-  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< TESSindex > > result;
+  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< unsigned short > > result;
   SWIG_check_num_args("ofCylinderPrimitive::getTopCapIndices",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofCylinderPrimitive::getTopCapIndices",1,"ofCylinderPrimitive const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofCylinderPrimitive,0))){
     SWIG_fail_ptr("CylinderPrimitive_getTopCapIndices",1,SWIGTYPE_p_ofCylinderPrimitive); } 
   result = ((ofCylinderPrimitive const *)arg1)->getTopCapIndices(); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getTopCapMesh(lua_State* L) { int SWIG_arg = 0;
   ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; ofMesh result;
@@ -16166,14 +16166,14 @@ static int _wrap_CylinderPrimitive_getTopCapMesh(lua_State* L) { int SWIG_arg = 
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,1); SWIG_arg++; }
    return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getCylinderIndices(lua_State* L) { int SWIG_arg = 0;
-  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< TESSindex > > result;
+  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< unsigned short > > result;
   SWIG_check_num_args("ofCylinderPrimitive::getCylinderIndices",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofCylinderPrimitive::getCylinderIndices",1,"ofCylinderPrimitive const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofCylinderPrimitive,0))){
     SWIG_fail_ptr("CylinderPrimitive_getCylinderIndices",1,SWIGTYPE_p_ofCylinderPrimitive); } 
   result = ((ofCylinderPrimitive const *)arg1)->getCylinderIndices(); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getCylinderMesh(lua_State* L) { int SWIG_arg = 0;
   ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; ofMesh result;
@@ -16185,14 +16185,14 @@ static int _wrap_CylinderPrimitive_getCylinderMesh(lua_State* L) { int SWIG_arg 
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,1); SWIG_arg++; }
    return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getBottomCapIndices(lua_State* L) { int SWIG_arg = 0;
-  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< TESSindex > > result;
+  ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; SwigValueWrapper< std::vector< unsigned short > > result;
   SWIG_check_num_args("ofCylinderPrimitive::getBottomCapIndices",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofCylinderPrimitive::getBottomCapIndices",1,"ofCylinderPrimitive const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofCylinderPrimitive,0))){
     SWIG_fail_ptr("CylinderPrimitive_getBottomCapIndices",1,SWIGTYPE_p_ofCylinderPrimitive); } 
   result = ((ofCylinderPrimitive const *)arg1)->getBottomCapIndices(); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_CylinderPrimitive_getBottomCapMesh(lua_State* L) { int SWIG_arg = 0;
   ofCylinderPrimitive *arg1 = (ofCylinderPrimitive *) 0 ; ofMesh result;
@@ -16502,13 +16502,13 @@ static int _wrap_ConePrimitive_setCapColor(lua_State* L) { int SWIG_arg = 0; ofC
     SWIG_fail_ptr("ConePrimitive_setCapColor",2,SWIGTYPE_p_ofColor_T_unsigned_char_t); }  arg2 = *argp2;
   (arg1)->setCapColor(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_ConePrimitive_getConeIndices(lua_State* L) { int SWIG_arg = 0; ofConePrimitive *arg1 = (ofConePrimitive *) 0 ;
-  SwigValueWrapper< std::vector< TESSindex > > result; SWIG_check_num_args("ofConePrimitive::getConeIndices",1,1)
+  SwigValueWrapper< std::vector< unsigned short > > result; SWIG_check_num_args("ofConePrimitive::getConeIndices",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofConePrimitive::getConeIndices",1,"ofConePrimitive const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofConePrimitive,0))){
     SWIG_fail_ptr("ConePrimitive_getConeIndices",1,SWIGTYPE_p_ofConePrimitive); } 
   result = ((ofConePrimitive const *)arg1)->getConeIndices(); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_ConePrimitive_getConeMesh(lua_State* L) { int SWIG_arg = 0; ofConePrimitive *arg1 = (ofConePrimitive *) 0 ;
   ofMesh result; SWIG_check_num_args("ofConePrimitive::getConeMesh",1,1)
@@ -16519,13 +16519,13 @@ static int _wrap_ConePrimitive_getConeMesh(lua_State* L) { int SWIG_arg = 0; ofC
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t,1); SWIG_arg++; }
    return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_ConePrimitive_getCapIndices(lua_State* L) { int SWIG_arg = 0; ofConePrimitive *arg1 = (ofConePrimitive *) 0 ;
-  SwigValueWrapper< std::vector< TESSindex > > result; SWIG_check_num_args("ofConePrimitive::getCapIndices",1,1)
+  SwigValueWrapper< std::vector< unsigned short > > result; SWIG_check_num_args("ofConePrimitive::getCapIndices",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofConePrimitive::getCapIndices",1,"ofConePrimitive const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofConePrimitive,0))){
     SWIG_fail_ptr("ConePrimitive_getCapIndices",1,SWIGTYPE_p_ofConePrimitive); } 
   result = ((ofConePrimitive const *)arg1)->getCapIndices(); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_ConePrimitive_getCapMesh(lua_State* L) { int SWIG_arg = 0; ofConePrimitive *arg1 = (ofConePrimitive *) 0 ;
   ofMesh result; SWIG_check_num_args("ofConePrimitive::getCapMesh",1,1)
@@ -16770,14 +16770,14 @@ static int _wrap_BoxPrimitive_resizeToTexture(lua_State* L) { int SWIG_arg = 0; 
     SWIG_fail_ptr("BoxPrimitive_resizeToTexture",2,SWIGTYPE_p_ofTexture); }  (arg1)->resizeToTexture(*arg2); return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_BoxPrimitive_getSideIndices(lua_State* L) { int SWIG_arg = 0; ofBoxPrimitive *arg1 = (ofBoxPrimitive *) 0 ;
-  int arg2 ; SwigValueWrapper< std::vector< TESSindex > > result; SWIG_check_num_args("ofBoxPrimitive::getSideIndices",2,2)
+  int arg2 ; SwigValueWrapper< std::vector< unsigned short > > result; SWIG_check_num_args("ofBoxPrimitive::getSideIndices",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofBoxPrimitive::getSideIndices",1,"ofBoxPrimitive const *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("ofBoxPrimitive::getSideIndices",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofBoxPrimitive,0))){
     SWIG_fail_ptr("BoxPrimitive_getSideIndices",1,SWIGTYPE_p_ofBoxPrimitive); }  arg2 = (int)lua_tonumber(L, 2);
   result = ((ofBoxPrimitive const *)arg1)->getSideIndices(arg2); {
     std::vector< ofIndexType > * resultptr = new std::vector< ofIndexType >((const std::vector< ofIndexType > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_TESSindex_t,1); SWIG_arg++; }  return SWIG_arg;
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_unsigned_short_t,1); SWIG_arg++; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_BoxPrimitive_getSideMesh(lua_State* L) { int SWIG_arg = 0; ofBoxPrimitive *arg1 = (ofBoxPrimitive *) 0 ;
   int arg2 ; ofMesh result; SWIG_check_num_args("ofBoxPrimitive::getSideMesh",2,2)
@@ -27018,10 +27018,10 @@ static int _wrap_Vbo_setIndexData(lua_State* L) { int SWIG_arg = 0; ofVbo *arg1 
   if(!lua_isnumber(L,3)) SWIG_fail_arg("ofVbo::setIndexData",3,"int");
   if(!lua_isnumber(L,4)) SWIG_fail_arg("ofVbo::setIndexData",4,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofVbo,0))){ SWIG_fail_ptr("Vbo_setIndexData",1,SWIGTYPE_p_ofVbo); }
-   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Vbo_setIndexData",2,SWIGTYPE_p_TESSindex); }  arg3 = (int)lua_tonumber(L, 3); arg4 = (int)lua_tonumber(L, 4);
-  (arg1)->setIndexData((ofIndexType const *)arg2,arg3,arg4); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
-  return SWIG_arg; }
+   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_short,0))){
+    SWIG_fail_ptr("Vbo_setIndexData",2,SWIGTYPE_p_unsigned_short); }  arg3 = (int)lua_tonumber(L, 3);
+  arg4 = (int)lua_tonumber(L, 4); (arg1)->setIndexData((ofIndexType const *)arg2,arg3,arg4); return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Vbo_setVertexData__SWIG_4(lua_State* L) { int SWIG_arg = 0; ofVbo *arg1 = (ofVbo *) 0 ;
   float *arg2 = (float *) 0 ; int arg3 ; int arg4 ; int arg5 ; int arg6 ; SWIG_check_num_args("ofVbo::setVertexData",6,6)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofVbo::setVertexData",1,"ofVbo *");
@@ -27590,8 +27590,8 @@ static int _wrap_Vbo_updateIndexData(lua_State* L) { int SWIG_arg = 0; ofVbo *ar
   if(!lua_isnumber(L,3)) SWIG_fail_arg("ofVbo::updateIndexData",3,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofVbo,0))){
     SWIG_fail_ptr("Vbo_updateIndexData",1,SWIGTYPE_p_ofVbo); } 
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_TESSindex,0))){
-    SWIG_fail_ptr("Vbo_updateIndexData",2,SWIGTYPE_p_TESSindex); }  arg3 = (int)lua_tonumber(L, 3);
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_unsigned_short,0))){
+    SWIG_fail_ptr("Vbo_updateIndexData",2,SWIGTYPE_p_unsigned_short); }  arg3 = (int)lua_tonumber(L, 3);
   (arg1)->updateIndexData((ofIndexType const *)arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_Vbo_updateVertexData__SWIG_4(lua_State* L) { int SWIG_arg = 0; ofVbo *arg1 = (ofVbo *) 0 ;
@@ -34883,6 +34883,550 @@ static int _wrap_TTF_SERIF_get(lua_State* L) { int SWIG_arg = 0; std::string *re
 static int _wrap_TTF_MONO_get(lua_State* L) { int SWIG_arg = 0; std::string *result = 0 ; SWIG_check_num_args("OF_TTF_MONO",0,0)
   result = (std::string *) &OF_TTF_MONO; lua_pushlstring(L,result->data(),result->size()); SWIG_arg++; return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Unicode_Space_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Space",0,0) result = (ofUnicode::range *)&ofUnicode::Space;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_IdeographicSpace_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::IdeographicSpace",0,0) result = (ofUnicode::range *)&ofUnicode::IdeographicSpace;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Latin_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Latin",0,0) result = (ofUnicode::range *)&ofUnicode::Latin;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Latin1Supplement_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Latin1Supplement",0,0) result = (ofUnicode::range *)&ofUnicode::Latin1Supplement;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_LatinA_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::LatinA",0,0) result = (ofUnicode::range *)&ofUnicode::LatinA;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Greek_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Greek",0,0) result = (ofUnicode::range *)&ofUnicode::Greek;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Cyrillic_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Cyrillic",0,0) result = (ofUnicode::range *)&ofUnicode::Cyrillic;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Arabic_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Arabic",0,0) result = (ofUnicode::range *)&ofUnicode::Arabic;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_ArabicSupplement_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ArabicSupplement",0,0) result = (ofUnicode::range *)&ofUnicode::ArabicSupplement;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_ArabicExtendedA_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ArabicExtendedA",0,0) result = (ofUnicode::range *)&ofUnicode::ArabicExtendedA;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Devanagari_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Devanagari",0,0) result = (ofUnicode::range *)&ofUnicode::Devanagari;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_HangulJamo_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::HangulJamo",0,0) result = (ofUnicode::range *)&ofUnicode::HangulJamo;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_VedicExtensions_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::VedicExtensions",0,0) result = (ofUnicode::range *)&ofUnicode::VedicExtensions;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_LatinExtendedAdditional_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::LatinExtendedAdditional",0,0)
+  result = (ofUnicode::range *)&ofUnicode::LatinExtendedAdditional;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_GreekExtended_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::GreekExtended",0,0) result = (ofUnicode::range *)&ofUnicode::GreekExtended;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_GeneralPunctuation_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::GeneralPunctuation",0,0) result = (ofUnicode::range *)&ofUnicode::GeneralPunctuation;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_SuperAndSubScripts_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::SuperAndSubScripts",0,0) result = (ofUnicode::range *)&ofUnicode::SuperAndSubScripts;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_CurrencySymbols_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::CurrencySymbols",0,0) result = (ofUnicode::range *)&ofUnicode::CurrencySymbols;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_LetterLikeSymbols_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::LetterLikeSymbols",0,0) result = (ofUnicode::range *)&ofUnicode::LetterLikeSymbols;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_NumberForms_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::NumberForms",0,0) result = (ofUnicode::range *)&ofUnicode::NumberForms;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Arrows_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Arrows",0,0) result = (ofUnicode::range *)&ofUnicode::Arrows;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_MathOperators_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::MathOperators",0,0) result = (ofUnicode::range *)&ofUnicode::MathOperators;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_MiscTechnical_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::MiscTechnical",0,0) result = (ofUnicode::range *)&ofUnicode::MiscTechnical;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_BoxDrawing_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::BoxDrawing",0,0) result = (ofUnicode::range *)&ofUnicode::BoxDrawing;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_BlockElement_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::BlockElement",0,0) result = (ofUnicode::range *)&ofUnicode::BlockElement;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_GeometricShapes_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::GeometricShapes",0,0) result = (ofUnicode::range *)&ofUnicode::GeometricShapes;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_MiscSymbols_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::MiscSymbols",0,0) result = (ofUnicode::range *)&ofUnicode::MiscSymbols;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Dingbats_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Dingbats",0,0) result = (ofUnicode::range *)&ofUnicode::Dingbats;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Hiragana_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Hiragana",0,0) result = (ofUnicode::range *)&ofUnicode::Hiragana;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Katakana_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Katakana",0,0) result = (ofUnicode::range *)&ofUnicode::Katakana;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_HangulCompatJamo_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::HangulCompatJamo",0,0) result = (ofUnicode::range *)&ofUnicode::HangulCompatJamo;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_KatakanaPhoneticExtensions_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::KatakanaPhoneticExtensions",0,0)
+  result = (ofUnicode::range *)&ofUnicode::KatakanaPhoneticExtensions;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_CJKLettersAndMonths_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::CJKLettersAndMonths",0,0) result = (ofUnicode::range *)&ofUnicode::CJKLettersAndMonths;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_CJKUnified_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::CJKUnified",0,0) result = (ofUnicode::range *)&ofUnicode::CJKUnified;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_DevanagariExtended_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::DevanagariExtended",0,0) result = (ofUnicode::range *)&ofUnicode::DevanagariExtended;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_HangulExtendedA_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::HangulExtendedA",0,0) result = (ofUnicode::range *)&ofUnicode::HangulExtendedA;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_HangulSyllables_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::HangulSyllables",0,0) result = (ofUnicode::range *)&ofUnicode::HangulSyllables;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_HangulExtendedB_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::HangulExtendedB",0,0) result = (ofUnicode::range *)&ofUnicode::HangulExtendedB;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_AlphabeticPresentationForms_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::AlphabeticPresentationForms",0,0)
+  result = (ofUnicode::range *)&ofUnicode::AlphabeticPresentationForms;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_ArabicPresFormsA_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ArabicPresFormsA",0,0) result = (ofUnicode::range *)&ofUnicode::ArabicPresFormsA;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_ArabicPresFormsB_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ArabicPresFormsB",0,0) result = (ofUnicode::range *)&ofUnicode::ArabicPresFormsB;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_KatakanaHalfAndFullwidthForms_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::KatakanaHalfAndFullwidthForms",0,0)
+  result = (ofUnicode::range *)&ofUnicode::KatakanaHalfAndFullwidthForms;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_KanaSupplement_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::KanaSupplement",0,0) result = (ofUnicode::range *)&ofUnicode::KanaSupplement;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_RumiNumericalSymbols_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::RumiNumericalSymbols",0,0) result = (ofUnicode::range *)&ofUnicode::RumiNumericalSymbols;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_ArabicMath_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ArabicMath",0,0) result = (ofUnicode::range *)&ofUnicode::ArabicMath;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_MiscSymbolsAndPictographs_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::MiscSymbolsAndPictographs",0,0)
+  result = (ofUnicode::range *)&ofUnicode::MiscSymbolsAndPictographs;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Emoticons_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Emoticons",0,0) result = (ofUnicode::range *)&ofUnicode::Emoticons;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_TransportAndMap_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::TransportAndMap",0,0) result = (ofUnicode::range *)&ofUnicode::TransportAndMap;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_EnclosedCharacters_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::EnclosedCharacters",0,0) result = (ofUnicode::range *)&ofUnicode::EnclosedCharacters;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_Uncategorized_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::Uncategorized",0,0) result = (ofUnicode::range *)&ofUnicode::Uncategorized;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_AdditionalEmoticons_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::AdditionalEmoticons",0,0) result = (ofUnicode::range *)&ofUnicode::AdditionalEmoticons;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_AdditionalTransportAndMap_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::AdditionalTransportAndMap",0,0)
+  result = (ofUnicode::range *)&ofUnicode::AdditionalTransportAndMap;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Unicode_OtherAdditionalSymbols_get(lua_State* L) { int SWIG_arg = 0; ofUnicode::range *result = 0 ;
+  SWIG_check_num_args("ofUnicode::OtherAdditionalSymbols",0,0) result = (ofUnicode::range *)&ofUnicode::OtherAdditionalSymbols;
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode__range,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_new_Unicode(lua_State* L) { int SWIG_arg = 0; ofUnicode *result = 0 ;
+  SWIG_check_num_args("ofUnicode::ofUnicode",0,0) result = (ofUnicode *)new ofUnicode();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofUnicode,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static void swig_delete_Unicode(void *obj) {
+ofUnicode *arg1 = (ofUnicode *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_Unicode(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_Unicode);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_Unicode_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_Unicode_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_Unicode_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_Unicode_Sf_SwigStatic_attributes[] = {
+    { "Space", _wrap_Unicode_Space_get, SWIG_Lua_set_immutable },
+    { "IdeographicSpace", _wrap_Unicode_IdeographicSpace_get, SWIG_Lua_set_immutable },
+    { "Latin", _wrap_Unicode_Latin_get, SWIG_Lua_set_immutable },
+    { "Latin1Supplement", _wrap_Unicode_Latin1Supplement_get, SWIG_Lua_set_immutable },
+    { "LatinA", _wrap_Unicode_LatinA_get, SWIG_Lua_set_immutable },
+    { "Greek", _wrap_Unicode_Greek_get, SWIG_Lua_set_immutable },
+    { "Cyrillic", _wrap_Unicode_Cyrillic_get, SWIG_Lua_set_immutable },
+    { "Arabic", _wrap_Unicode_Arabic_get, SWIG_Lua_set_immutable },
+    { "ArabicSupplement", _wrap_Unicode_ArabicSupplement_get, SWIG_Lua_set_immutable },
+    { "ArabicExtendedA", _wrap_Unicode_ArabicExtendedA_get, SWIG_Lua_set_immutable },
+    { "Devanagari", _wrap_Unicode_Devanagari_get, SWIG_Lua_set_immutable },
+    { "HangulJamo", _wrap_Unicode_HangulJamo_get, SWIG_Lua_set_immutable },
+    { "VedicExtensions", _wrap_Unicode_VedicExtensions_get, SWIG_Lua_set_immutable },
+    { "LatinExtendedAdditional", _wrap_Unicode_LatinExtendedAdditional_get, SWIG_Lua_set_immutable },
+    { "GreekExtended", _wrap_Unicode_GreekExtended_get, SWIG_Lua_set_immutable },
+    { "GeneralPunctuation", _wrap_Unicode_GeneralPunctuation_get, SWIG_Lua_set_immutable },
+    { "SuperAndSubScripts", _wrap_Unicode_SuperAndSubScripts_get, SWIG_Lua_set_immutable },
+    { "CurrencySymbols", _wrap_Unicode_CurrencySymbols_get, SWIG_Lua_set_immutable },
+    { "LetterLikeSymbols", _wrap_Unicode_LetterLikeSymbols_get, SWIG_Lua_set_immutable },
+    { "NumberForms", _wrap_Unicode_NumberForms_get, SWIG_Lua_set_immutable },
+    { "Arrows", _wrap_Unicode_Arrows_get, SWIG_Lua_set_immutable },
+    { "MathOperators", _wrap_Unicode_MathOperators_get, SWIG_Lua_set_immutable },
+    { "MiscTechnical", _wrap_Unicode_MiscTechnical_get, SWIG_Lua_set_immutable },
+    { "BoxDrawing", _wrap_Unicode_BoxDrawing_get, SWIG_Lua_set_immutable },
+    { "BlockElement", _wrap_Unicode_BlockElement_get, SWIG_Lua_set_immutable },
+    { "GeometricShapes", _wrap_Unicode_GeometricShapes_get, SWIG_Lua_set_immutable },
+    { "MiscSymbols", _wrap_Unicode_MiscSymbols_get, SWIG_Lua_set_immutable },
+    { "Dingbats", _wrap_Unicode_Dingbats_get, SWIG_Lua_set_immutable },
+    { "Hiragana", _wrap_Unicode_Hiragana_get, SWIG_Lua_set_immutable },
+    { "Katakana", _wrap_Unicode_Katakana_get, SWIG_Lua_set_immutable },
+    { "HangulCompatJamo", _wrap_Unicode_HangulCompatJamo_get, SWIG_Lua_set_immutable },
+    { "KatakanaPhoneticExtensions", _wrap_Unicode_KatakanaPhoneticExtensions_get, SWIG_Lua_set_immutable },
+    { "CJKLettersAndMonths", _wrap_Unicode_CJKLettersAndMonths_get, SWIG_Lua_set_immutable },
+    { "CJKUnified", _wrap_Unicode_CJKUnified_get, SWIG_Lua_set_immutable },
+    { "DevanagariExtended", _wrap_Unicode_DevanagariExtended_get, SWIG_Lua_set_immutable },
+    { "HangulExtendedA", _wrap_Unicode_HangulExtendedA_get, SWIG_Lua_set_immutable },
+    { "HangulSyllables", _wrap_Unicode_HangulSyllables_get, SWIG_Lua_set_immutable },
+    { "HangulExtendedB", _wrap_Unicode_HangulExtendedB_get, SWIG_Lua_set_immutable },
+    { "AlphabeticPresentationForms", _wrap_Unicode_AlphabeticPresentationForms_get, SWIG_Lua_set_immutable },
+    { "ArabicPresFormsA", _wrap_Unicode_ArabicPresFormsA_get, SWIG_Lua_set_immutable },
+    { "ArabicPresFormsB", _wrap_Unicode_ArabicPresFormsB_get, SWIG_Lua_set_immutable },
+    { "KatakanaHalfAndFullwidthForms", _wrap_Unicode_KatakanaHalfAndFullwidthForms_get, SWIG_Lua_set_immutable },
+    { "KanaSupplement", _wrap_Unicode_KanaSupplement_get, SWIG_Lua_set_immutable },
+    { "RumiNumericalSymbols", _wrap_Unicode_RumiNumericalSymbols_get, SWIG_Lua_set_immutable },
+    { "ArabicMath", _wrap_Unicode_ArabicMath_get, SWIG_Lua_set_immutable },
+    { "MiscSymbolsAndPictographs", _wrap_Unicode_MiscSymbolsAndPictographs_get, SWIG_Lua_set_immutable },
+    { "Emoticons", _wrap_Unicode_Emoticons_get, SWIG_Lua_set_immutable },
+    { "TransportAndMap", _wrap_Unicode_TransportAndMap_get, SWIG_Lua_set_immutable },
+    { "EnclosedCharacters", _wrap_Unicode_EnclosedCharacters_get, SWIG_Lua_set_immutable },
+    { "Uncategorized", _wrap_Unicode_Uncategorized_get, SWIG_Lua_set_immutable },
+    { "AdditionalEmoticons", _wrap_Unicode_AdditionalEmoticons_get, SWIG_Lua_set_immutable },
+    { "AdditionalTransportAndMap", _wrap_Unicode_AdditionalTransportAndMap_get, SWIG_Lua_set_immutable },
+    { "OtherAdditionalSymbols", _wrap_Unicode_OtherAdditionalSymbols_get, SWIG_Lua_set_immutable },
+    {0,0,0}
+};
+static swig_lua_const_info swig_Unicode_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_Unicode_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_Unicode_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_Unicode_Sf_SwigStatic = {
+    "Unicode",
+    swig_Unicode_Sf_SwigStatic_methods,
+    swig_Unicode_Sf_SwigStatic_attributes,
+    swig_Unicode_Sf_SwigStatic_constants,
+    swig_Unicode_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_Unicode_bases[] = {0};
+static const char *swig_Unicode_base_names[] = {0};
+static swig_lua_class _wrap_class_Unicode = { "Unicode", "Unicode", &SWIGTYPE_p_ofUnicode,_proxy__wrap_new_Unicode, swig_delete_Unicode, swig_Unicode_methods, swig_Unicode_attributes, &swig_Unicode_Sf_SwigStatic, swig_Unicode_meta, swig_Unicode_bases, swig_Unicode_base_names };
+
+static int _wrap_TrueTypeFontSettings_fontName_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; std::filesystem::path *arg2 = (std::filesystem::path *) 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::fontName",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::fontName",1,"ofTrueTypeFontSettings *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::fontName",2,"std::filesystem::path *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_fontName_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_boost__filesystem__path,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_fontName_set",2,SWIGTYPE_p_boost__filesystem__path); } 
+  if (arg1) (arg1)->fontName = *arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_fontName_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; std::filesystem::path *result = 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::fontName",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::fontName",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_fontName_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (std::filesystem::path *)& ((arg1)->fontName);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_boost__filesystem__path,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_fontSize_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; int arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::fontSize",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::fontSize",1,"ofTrueTypeFontSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::fontSize",2,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_fontSize_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); }  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->fontSize = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_fontSize_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; int result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::fontSize",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::fontSize",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_fontSize_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (int) ((arg1)->fontSize); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_antialiased_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; bool arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::antialiased",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::antialiased",1,"ofTrueTypeFontSettings *");
+  if(!lua_isboolean(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::antialiased",2,"bool");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_antialiased_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  arg2 = (lua_toboolean(L, 2)!=0); if (arg1) (arg1)->antialiased = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_antialiased_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; bool result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::antialiased",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::antialiased",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_antialiased_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (bool) ((arg1)->antialiased); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_contours_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; bool arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::contours",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::contours",1,"ofTrueTypeFontSettings *");
+  if(!lua_isboolean(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::contours",2,"bool");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_contours_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); }  arg2 = (lua_toboolean(L, 2)!=0);
+  if (arg1) (arg1)->contours = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_contours_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; bool result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::contours",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::contours",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_contours_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (bool) ((arg1)->contours); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_simplifyAmt_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; float arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::simplifyAmt",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::simplifyAmt",1,"ofTrueTypeFontSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::simplifyAmt",2,"float");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_simplifyAmt_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  arg2 = (float)lua_tonumber(L, 2); if (arg1) (arg1)->simplifyAmt = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_simplifyAmt_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; float result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::simplifyAmt",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::simplifyAmt",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_simplifyAmt_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (float) ((arg1)->simplifyAmt); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_dpi_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; int arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::dpi",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::dpi",1,"ofTrueTypeFontSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::dpi",2,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_dpi_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); }  arg2 = (int)lua_tonumber(L, 2);
+  if (arg1) (arg1)->dpi = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_dpi_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; int result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::dpi",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::dpi",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_dpi_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); }  result = (int) ((arg1)->dpi);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_direction_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; ofTrueTypeFontDirection arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::direction",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::direction",1,"ofTrueTypeFontSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::direction",2,"ofTrueTypeFontDirection");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_direction_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  arg2 = (ofTrueTypeFontDirection)(int)lua_tonumber(L, 2); if (arg1) (arg1)->direction = arg2; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_direction_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; ofTrueTypeFontDirection result;
+  SWIG_check_num_args("ofTrueTypeFontSettings::direction",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::direction",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_direction_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (ofTrueTypeFontDirection) ((arg1)->direction); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_ranges_set(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ;
+  std::vector< ofUnicode::range > *arg2 = (std::vector< ofUnicode::range > *) 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::ranges",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::ranges",1,"ofTrueTypeFontSettings *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::ranges",2,"std::vector< ofUnicode::range > *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_ranges_set",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_std__vectorT_ofUnicode__range_t,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_ranges_set",2,SWIGTYPE_p_std__vectorT_ofUnicode__range_t); } 
+  if (arg1) (arg1)->ranges = *arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_ranges_get(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; std::vector< ofUnicode::range > *result = 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::ranges",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::ranges",1,"ofTrueTypeFontSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_ranges_get",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (std::vector< ofUnicode::range > *)& ((arg1)->ranges);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_std__vectorT_ofUnicode__range_t,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_new_TrueTypeFontSettings(lua_State* L) { int SWIG_arg = 0; std::filesystem::path *arg1 = 0 ; int arg2 ;
+  std::filesystem::path temp1 ; ofTrueTypeFontSettings *result = 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::ofTrueTypeFontSettings",2,2)
+  if(!lua_isstring(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::ofTrueTypeFontSettings",1,"std::filesystem::path const &");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::ofTrueTypeFontSettings",2,"int"); {
+    size_t len = lua_rawlen(L, 1); temp1 = lua_tolstring(L, 1, &len); arg1 = &temp1; }  arg2 = (int)lua_tonumber(L, 2);
+  result = (ofTrueTypeFontSettings *)new ofTrueTypeFontSettings((std::filesystem::path const &)*arg1,arg2);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofTrueTypeFontSettings,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_addRange(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; ofUnicode::range *arg2 = 0 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::addRange",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::addRange",1,"ofTrueTypeFontSettings *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::addRange",2,"ofUnicode::range const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_addRange",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofUnicode__range,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_addRange",2,SWIGTYPE_p_ofUnicode__range); } 
+  (arg1)->addRange((ofUnicode::range const &)*arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFontSettings_addRanges(lua_State* L) { int SWIG_arg = 0;
+  ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) 0 ; ofAlphabetEnum arg2 ;
+  SWIG_check_num_args("ofTrueTypeFontSettings::addRanges",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFontSettings::addRanges",1,"ofTrueTypeFontSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFontSettings::addRanges",2,"ofAlphabetEnum");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFontSettings_addRanges",1,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  arg2 = (ofAlphabetEnum)(int)lua_tonumber(L, 2); ofTrueTypeFontSettings_addRanges(arg1,arg2); return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static void swig_delete_TrueTypeFontSettings(void *obj) {
+ofTrueTypeFontSettings *arg1 = (ofTrueTypeFontSettings *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_TrueTypeFontSettings(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_TrueTypeFontSettings);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_TrueTypeFontSettings_attributes[] = {
+    { "fontName", _wrap_TrueTypeFontSettings_fontName_get, _wrap_TrueTypeFontSettings_fontName_set },
+    { "fontSize", _wrap_TrueTypeFontSettings_fontSize_get, _wrap_TrueTypeFontSettings_fontSize_set },
+    { "antialiased", _wrap_TrueTypeFontSettings_antialiased_get, _wrap_TrueTypeFontSettings_antialiased_set },
+    { "contours", _wrap_TrueTypeFontSettings_contours_get, _wrap_TrueTypeFontSettings_contours_set },
+    { "simplifyAmt", _wrap_TrueTypeFontSettings_simplifyAmt_get, _wrap_TrueTypeFontSettings_simplifyAmt_set },
+    { "dpi", _wrap_TrueTypeFontSettings_dpi_get, _wrap_TrueTypeFontSettings_dpi_set },
+    { "direction", _wrap_TrueTypeFontSettings_direction_get, _wrap_TrueTypeFontSettings_direction_set },
+    { "ranges", _wrap_TrueTypeFontSettings_ranges_get, _wrap_TrueTypeFontSettings_ranges_set },
+    {0,0,0}
+};
+static swig_lua_method swig_TrueTypeFontSettings_methods[]= {
+    { "addRange", _wrap_TrueTypeFontSettings_addRange},
+    { "addRanges", _wrap_TrueTypeFontSettings_addRanges},
+    {0,0}
+};
+static swig_lua_method swig_TrueTypeFontSettings_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_TrueTypeFontSettings_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_TrueTypeFontSettings_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_TrueTypeFontSettings_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_TrueTypeFontSettings_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_TrueTypeFontSettings_Sf_SwigStatic = {
+    "TrueTypeFontSettings",
+    swig_TrueTypeFontSettings_Sf_SwigStatic_methods,
+    swig_TrueTypeFontSettings_Sf_SwigStatic_attributes,
+    swig_TrueTypeFontSettings_Sf_SwigStatic_constants,
+    swig_TrueTypeFontSettings_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_TrueTypeFontSettings_bases[] = {0};
+static const char *swig_TrueTypeFontSettings_base_names[] = {0};
+static swig_lua_class _wrap_class_TrueTypeFontSettings = { "TrueTypeFontSettings", "TrueTypeFontSettings", &SWIGTYPE_p_ofTrueTypeFontSettings,_proxy__wrap_new_TrueTypeFontSettings, swig_delete_TrueTypeFontSettings, swig_TrueTypeFontSettings_methods, swig_TrueTypeFontSettings_attributes, &swig_TrueTypeFontSettings_Sf_SwigStatic, swig_TrueTypeFontSettings_meta, swig_TrueTypeFontSettings_bases, swig_TrueTypeFontSettings_base_names };
+
 static int _wrap_new_TrueTypeFont__SWIG_0(lua_State* L) { int SWIG_arg = 0; ofTrueTypeFont *result = 0 ;
   SWIG_check_num_args("ofTrueTypeFont::ofTrueTypeFont",0,0) result = (ofTrueTypeFont *)new ofTrueTypeFont();
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofTrueTypeFont,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
@@ -34984,17 +35528,29 @@ static int _wrap_TrueTypeFont_load__SWIG_5(lua_State* L) { int SWIG_arg = 0; ofT
     temp2 = lua_tolstring(L, 2, &len); arg2 = &temp2; }  arg3 = (int)lua_tonumber(L, 3);
   result = (bool)(arg1)->load((std::filesystem::path const &)*arg2,arg3); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFont_load__SWIG_6(lua_State* L) { int SWIG_arg = 0; ofTrueTypeFont *arg1 = (ofTrueTypeFont *) 0 ;
+  ofTrueTypeFontSettings *arg2 = 0 ; bool result; SWIG_check_num_args("ofTrueTypeFont::load",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFont::load",1,"ofTrueTypeFont *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofTrueTypeFont::load",2,"ofTrueTypeFontSettings const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFont,0))){
+    SWIG_fail_ptr("TrueTypeFont_load",1,SWIGTYPE_p_ofTrueTypeFont); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofTrueTypeFontSettings,0))){
+    SWIG_fail_ptr("TrueTypeFont_load",2,SWIGTYPE_p_ofTrueTypeFontSettings); } 
+  result = (bool)(arg1)->load((ofTrueTypeFontSettings const &)*arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_TrueTypeFont_load(lua_State* L) { int argc; int argv[9]={ 1,2,3,4,5,6,7,8,9} ; argc = lua_gettop(L);
-  if (argc == 3) { return _wrap_TrueTypeFont_load__SWIG_5(L);}  if (argc == 4) { return _wrap_TrueTypeFont_load__SWIG_4(L);} 
-  if (argc == 5) { return _wrap_TrueTypeFont_load__SWIG_3(L);}  if (argc == 6) { return _wrap_TrueTypeFont_load__SWIG_2(L);} 
-  if (argc == 7) { return _wrap_TrueTypeFont_load__SWIG_1(L);}  if (argc == 8) { return _wrap_TrueTypeFont_load__SWIG_0(L);} 
+  if (argc == 2) { return _wrap_TrueTypeFont_load__SWIG_6(L);}  if (argc == 3) { return _wrap_TrueTypeFont_load__SWIG_5(L);} 
+  if (argc == 4) { return _wrap_TrueTypeFont_load__SWIG_4(L);}  if (argc == 5) { return _wrap_TrueTypeFont_load__SWIG_3(L);} 
+  if (argc == 6) { return _wrap_TrueTypeFont_load__SWIG_2(L);}  if (argc == 7) { return _wrap_TrueTypeFont_load__SWIG_1(L);} 
+  if (argc == 8) { return _wrap_TrueTypeFont_load__SWIG_0(L);} 
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'TrueTypeFont_load'\n" "  Possible C/C++ prototypes are:\n"
   "    ofTrueTypeFont::load(std::filesystem::path const &,int,bool,bool,bool,float,int)\n"
   "    ofTrueTypeFont::load(std::filesystem::path const &,int,bool,bool,bool,float)\n"
   "    ofTrueTypeFont::load(std::filesystem::path const &,int,bool,bool,bool)\n"
   "    ofTrueTypeFont::load(std::filesystem::path const &,int,bool,bool)\n"
   "    ofTrueTypeFont::load(std::filesystem::path const &,int,bool)\n"
-  "    ofTrueTypeFont::load(std::filesystem::path const &,int)\n"); lua_error(L);return 0; }
+  "    ofTrueTypeFont::load(std::filesystem::path const &,int)\n" "    ofTrueTypeFont::load(ofTrueTypeFontSettings const &)\n");
+  lua_error(L);return 0; }
 static int _wrap_TrueTypeFont_isLoaded(lua_State* L) { int SWIG_arg = 0; ofTrueTypeFont *arg1 = (ofTrueTypeFont *) 0 ;
   bool result; SWIG_check_num_args("ofTrueTypeFont::isLoaded",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFont::isLoaded",1,"ofTrueTypeFont const *");
@@ -35371,6 +35927,14 @@ static int _wrap_TrueTypeFont_isValidGlyph(lua_State* L) { int SWIG_arg = 0; ofT
     SWIG_fail_ptr("TrueTypeFont_isValidGlyph",2,SWIGTYPE_p_uint32_t); }  arg2 = *argp2;
   result = (bool)((ofTrueTypeFont const *)arg1)->isValidGlyph(arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_TrueTypeFont_setDirection(lua_State* L) { int SWIG_arg = 0; ofTrueTypeFont *arg1 = (ofTrueTypeFont *) 0 ;
+  ofTrueTypeFontDirection arg2 ; SWIG_check_num_args("ofTrueTypeFont::setDirection",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofTrueTypeFont::setDirection",1,"ofTrueTypeFont *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofTrueTypeFont::setDirection",2,"ofTrueTypeFontDirection");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofTrueTypeFont,0))){
+    SWIG_fail_ptr("TrueTypeFont_setDirection",1,SWIGTYPE_p_ofTrueTypeFont); } 
+  arg2 = (ofTrueTypeFontDirection)(int)lua_tonumber(L, 2); (arg1)->setDirection(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
 static void swig_delete_TrueTypeFont(void *obj) {
 ofTrueTypeFont *arg1 = (ofTrueTypeFont *) obj;
 delete arg1;
@@ -35414,6 +35978,7 @@ static swig_lua_method swig_TrueTypeFont_methods[]= {
     { "getStringTexture", _wrap_TrueTypeFont_getStringTexture},
     { "getFirstGlyphPosForTexture", _wrap_TrueTypeFont_getFirstGlyphPosForTexture},
     { "isValidGlyph", _wrap_TrueTypeFont_isValidGlyph},
+    { "setDirection", _wrap_TrueTypeFont_setDirection},
     {0,0}
 };
 static swig_lua_method swig_TrueTypeFont_meta[] = {
@@ -42315,6 +42880,10 @@ static int _wrap_Xml_save(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml
     size_t len = lua_rawlen(L, 2); temp2 = lua_tolstring(L, 2, &len); arg2 = &temp2; } 
   result = (bool)((ofXml const *)arg1)->save((std::filesystem::path const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_clear(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; SWIG_check_num_args("ofXml::clear",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::clear",1,"ofXml *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){ SWIG_fail_ptr("Xml_clear",1,SWIGTYPE_p_ofXml); } 
+  (arg1)->clear(); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Xml_toString__SWIG_0(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
   std::string temp2 ; std::string result; SWIG_check_num_args("ofXml::toString",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::toString",1,"ofXml const *");
@@ -42383,6 +42952,14 @@ static int _wrap_Xml_prependChild__SWIG_0(lua_State* L) { int SWIG_arg = 0; ofXm
     ofXml * resultptr = new ofXml((const ofXml &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofXml,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeChild__SWIG_0(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; ofXml *arg2 = 0 ;
+  bool result; SWIG_check_num_args("ofXml::removeChild",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::removeChild",1,"ofXml *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofXml::removeChild",2,"ofXml const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){ SWIG_fail_ptr("Xml_removeChild",1,SWIGTYPE_p_ofXml); }
+   if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofXml,0))){ SWIG_fail_ptr("Xml_removeChild",2,SWIGTYPE_p_ofXml); }
+   result = (bool)(arg1)->removeChild((ofXml const &)*arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Xml_appendChild__SWIG_1(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
   std::string temp2 ; ofXml result; SWIG_check_num_args("ofXml::appendChild",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::appendChild",1,"ofXml *");
@@ -42415,13 +42992,20 @@ static int _wrap_Xml_prependChild(lua_State* L) { int argc; int argv[3]={ 1,2,3}
     return _wrap_Xml_prependChild__SWIG_1(L);} 
   SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Xml_prependChild'\n" "  Possible C/C++ prototypes are:\n"
   "    ofXml::prependChild(ofXml const &)\n" "    ofXml::prependChild(std::string const &)\n"); lua_error(L);return 0; }
-static int _wrap_Xml_removeChild(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
+static int _wrap_Xml_removeChild__SWIG_1(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
   std::string temp2 ; bool result; SWIG_check_num_args("ofXml::removeChild",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::removeChild",1,"ofXml *");
   if(!lua_isstring(L,2)) SWIG_fail_arg("ofXml::removeChild",2,"std::string const &");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){ SWIG_fail_ptr("Xml_removeChild",1,SWIGTYPE_p_ofXml); }
    temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2; result = (bool)(arg1)->removeChild((std::string const &)*arg2);
   lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeChild(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 2) {
+    int _v = 0; { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_ofXml, 0)) { _v = 0; }  else {
+          _v = 1; }  } }  if (!_v) goto check_1; return _wrap_Xml_removeChild__SWIG_0(L);}  check_1: if (argc == 2) {
+    return _wrap_Xml_removeChild__SWIG_1(L);} 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Xml_removeChild'\n" "  Possible C/C++ prototypes are:\n"
+  "    ofXml::removeChild(ofXml const &)\n" "    ofXml::removeChild(std::string const &)\n"); lua_error(L);return 0; }
 static int _wrap_Xml_insertChildAfter(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
   ofXml *arg3 = 0 ; std::string temp2 ; ofXml result; SWIG_check_num_args("ofXml::insertChildAfter",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::insertChildAfter",1,"ofXml *");
@@ -42519,14 +43103,13 @@ static int _wrap_Xml_getAttribute(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofXml__Attribute,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail;
   fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Xml_getAttributes(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ;
-  SwigValueWrapper< ofXml::Range< ofXmlIterator< pugi::xml_attribute_iterator > > > result;
-  SWIG_check_num_args("ofXml::getAttributes",1,1)
+  SwigValueWrapper< ofXml::Range< ofXmlAttributeIterator > > result; SWIG_check_num_args("ofXml::getAttributes",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::getAttributes",1,"ofXml const *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){
     SWIG_fail_ptr("Xml_getAttributes",1,SWIGTYPE_p_ofXml); }  result = ((ofXml const *)arg1)->getAttributes(); {
-    ofXml::Range< ofXmlIterator< pugi::xml_attribute_iterator > > * resultptr = new ofXml::Range< ofXmlIterator< pugi::xml_attribute_iterator > >((const ofXml::Range< ofXmlIterator< pugi::xml_attribute_iterator > > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t,1); SWIG_arg++; }
-   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    ofXml::Range< ofXmlAttributeIterator > * resultptr = new ofXml::Range< ofXmlAttributeIterator >((const ofXml::Range< ofXmlAttributeIterator > &) result);
+    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofXml__RangeT_ofXmlAttributeIterator_t,1); SWIG_arg++; } 
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Xml_getFirstAttribute(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; ofXml::Attribute result;
   SWIG_check_num_args("ofXml::getFirstAttribute",1,1)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::getFirstAttribute",1,"ofXml const *");
@@ -42563,6 +43146,46 @@ static int _wrap_Xml_prependAttribute(lua_State* L) { int SWIG_arg = 0; ofXml *a
     ofXml::Attribute * resultptr = new ofXml::Attribute((const ofXml::Attribute &) result);
     SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_ofXml__Attribute,1); SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail;
   fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeAttribute__SWIG_0(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ;
+  std::string *arg2 = 0 ; std::string temp2 ; bool result; SWIG_check_num_args("ofXml::removeAttribute",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::removeAttribute",1,"ofXml *");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("ofXml::removeAttribute",2,"std::string const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){
+    SWIG_fail_ptr("Xml_removeAttribute",1,SWIGTYPE_p_ofXml); }  temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
+  result = (bool)(arg1)->removeAttribute((std::string const &)*arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeAttribute__SWIG_1(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ;
+  ofXml::Attribute *arg2 = 0 ; bool result; SWIG_check_num_args("ofXml::removeAttribute",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::removeAttribute",1,"ofXml *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofXml::removeAttribute",2,"ofXml::Attribute const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){
+    SWIG_fail_ptr("Xml_removeAttribute",1,SWIGTYPE_p_ofXml); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofXml__Attribute,0))){
+    SWIG_fail_ptr("Xml_removeAttribute",2,SWIGTYPE_p_ofXml__Attribute); } 
+  result = (bool)(arg1)->removeAttribute((ofXml::Attribute const &)*arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeAttribute__SWIG_2(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ;
+  ofXml::Attribute *arg2 = 0 ; bool result; SWIG_check_num_args("ofXml::removeAttribute",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::removeAttribute",1,"ofXml *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofXml::removeAttribute",2,"ofXml::Attribute &&");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXml,0))){
+    SWIG_fail_ptr("Xml_removeAttribute",1,SWIGTYPE_p_ofXml); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofXml__Attribute,0))){
+    SWIG_fail_ptr("Xml_removeAttribute",2,SWIGTYPE_p_ofXml__Attribute); } 
+  result = (bool)(arg1)->removeAttribute((ofXml::Attribute &&)*arg2); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Xml_removeAttribute(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 2) {
+    int _v = 0; { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_ofXml__Attribute, 0)) {
+          _v = 0; }  else { _v = 1; }  } }  if (!_v) goto check_1; return _wrap_Xml_removeAttribute__SWIG_1(L);}  check_1:
+  if (argc == 2) { int _v = 0; { { void *ptr;
+        if (lua_isuserdata(L,argv[1])==0 || SWIG_ConvertPtr(L,argv[1], (void **) &ptr, SWIGTYPE_p_ofXml__Attribute, 0)) {
+          _v = 0; }  else { _v = 1; }  } }  if (!_v) goto check_2; return _wrap_Xml_removeAttribute__SWIG_2(L);}  check_2:
+  if (argc == 2) { return _wrap_Xml_removeAttribute__SWIG_0(L);} 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'Xml_removeAttribute'\n"
+  "  Possible C/C++ prototypes are:\n" "    ofXml::removeAttribute(std::string const &)\n"
+  "    ofXml::removeAttribute(ofXml::Attribute const &)\n" "    ofXml::removeAttribute(ofXml::Attribute &&)\n");
+  lua_error(L);return 0; }
 static int _wrap_Xml_findFirst(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = (ofXml *) 0 ; std::string *arg2 = 0 ;
   std::string temp2 ; ofXml result; SWIG_check_num_args("ofXml::findFirst",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXml::findFirst",1,"ofXml const *");
@@ -42645,6 +43268,7 @@ static swig_lua_method swig_Xml_methods[]= {
     { "load", _wrap_Xml_load},
     { "parse", _wrap_Xml_parse},
     { "save", _wrap_Xml_save},
+    { "clear", _wrap_Xml_clear},
     { "toString", _wrap_Xml_toString},
     { "getChild", _wrap_Xml_getChild},
     { "getChildren", _wrap_Xml_getChildren},
@@ -42663,6 +43287,7 @@ static swig_lua_method swig_Xml_methods[]= {
     { "getLastAttribute", _wrap_Xml_getLastAttribute},
     { "appendAttribute", _wrap_Xml_appendAttribute},
     { "prependAttribute", _wrap_Xml_prependAttribute},
+    { "removeAttribute", _wrap_Xml_removeAttribute},
     { "findFirst", _wrap_Xml_findFirst},
     { "getValue", _wrap_Xml_getValue},
     { "getName", _wrap_Xml_getName},
@@ -42703,6 +43328,121 @@ static swig_lua_namespace swig_Xml_Sf_SwigStatic = {
 static swig_lua_class *swig_Xml_bases[] = {0};
 static const char *swig_Xml_base_names[] = {0};
 static swig_lua_class _wrap_class_Xml = { "Xml", "Xml", &SWIGTYPE_p_ofXml,_proxy__wrap_new_Xml, swig_delete_Xml, swig_Xml_methods, swig_Xml_attributes, &swig_Xml_Sf_SwigStatic, swig_Xml_meta, swig_Xml_bases, swig_Xml_base_names };
+
+static int _wrap_new_XmlAttributeIterator(lua_State* L) { int SWIG_arg = 0; ofXmlAttributeIterator *result = 0 ;
+  SWIG_check_num_args("ofXmlAttributeIterator::ofXmlAttributeIterator",0,0)
+  result = (ofXmlAttributeIterator *)new ofXmlAttributeIterator();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofXmlAttributeIterator,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___eq(lua_State* L) { int SWIG_arg = 0;
+  ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) 0 ; ofXmlAttributeIterator *arg2 = 0 ; bool result;
+  SWIG_check_num_args("ofXmlAttributeIterator::operator ==",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXmlAttributeIterator::operator ==",1,"ofXmlAttributeIterator const *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofXmlAttributeIterator::operator ==",2,"ofXmlAttributeIterator const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___eq",1,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___eq",2,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  result = (bool)((ofXmlAttributeIterator const *)arg1)->operator ==((ofXmlAttributeIterator const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___ref____SWIG_0(lua_State* L) { int SWIG_arg = 0;
+  ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) 0 ; ofXml::Attribute *result = 0 ;
+  SWIG_check_num_args("ofXmlAttributeIterator::operator *",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXmlAttributeIterator::operator *",1,"ofXmlAttributeIterator const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___ref__",1,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  result = (ofXml::Attribute *) &((ofXmlAttributeIterator const *)arg1)->operator *();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofXml__Attribute,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___deref____SWIG_0(lua_State* L) { int SWIG_arg = 0;
+  ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) 0 ; ofXml::Attribute *result = 0 ;
+  SWIG_check_num_args("ofXmlAttributeIterator::operator ->",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXmlAttributeIterator::operator ->",1,"ofXmlAttributeIterator const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___deref__",1,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  result = (ofXml::Attribute *)((ofXmlAttributeIterator const *)arg1)->operator ->();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofXml__Attribute,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___ref____SWIG_1(lua_State* L) { int SWIG_arg = 0;
+  ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) 0 ; ofXml::Attribute *result = 0 ;
+  SWIG_check_num_args("ofXmlAttributeIterator::operator *",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXmlAttributeIterator::operator *",1,"ofXmlAttributeIterator *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___ref__",1,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  result = (ofXml::Attribute *) &(arg1)->operator *(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofXml__Attribute,0); SWIG_arg++; 
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___ref__(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L);
+  if (argc == 1) { return _wrap_XmlAttributeIterator___ref____SWIG_1(L);}  if (argc == 1) {
+    return _wrap_XmlAttributeIterator___ref____SWIG_0(L);} 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'XmlAttributeIterator___ref__'\n"
+  "  Possible C/C++ prototypes are:\n" "    ofXmlAttributeIterator::operator *() const\n"
+  "    ofXmlAttributeIterator::operator *()\n"); lua_error(L);return 0; }
+static int _wrap_XmlAttributeIterator___deref____SWIG_1(lua_State* L) { int SWIG_arg = 0;
+  ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) 0 ; ofXml::Attribute *result = 0 ;
+  SWIG_check_num_args("ofXmlAttributeIterator::operator ->",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofXmlAttributeIterator::operator ->",1,"ofXmlAttributeIterator *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofXmlAttributeIterator,0))){
+    SWIG_fail_ptr("XmlAttributeIterator___deref__",1,SWIGTYPE_p_ofXmlAttributeIterator); } 
+  result = (ofXml::Attribute *)(arg1)->operator ->(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofXml__Attribute,0); SWIG_arg++; 
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_XmlAttributeIterator___deref__(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L);
+  if (argc == 1) { return _wrap_XmlAttributeIterator___deref____SWIG_1(L);}  if (argc == 1) {
+    return _wrap_XmlAttributeIterator___deref____SWIG_0(L);} 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'XmlAttributeIterator___deref__'\n"
+  "  Possible C/C++ prototypes are:\n" "    ofXmlAttributeIterator::operator ->() const\n"
+  "    ofXmlAttributeIterator::operator ->()\n"); lua_error(L);return 0; }
+static void swig_delete_XmlAttributeIterator(void *obj) {
+ofXmlAttributeIterator *arg1 = (ofXmlAttributeIterator *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_XmlAttributeIterator(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_XmlAttributeIterator);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_XmlAttributeIterator_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_XmlAttributeIterator_methods[]= {
+    { "__eq", _wrap_XmlAttributeIterator___eq},
+    { "__ref__", _wrap_XmlAttributeIterator___ref__},
+    { "__deref__", _wrap_XmlAttributeIterator___deref__},
+    {0,0}
+};
+static swig_lua_method swig_XmlAttributeIterator_meta[] = {
+    { "__eq", _wrap_XmlAttributeIterator___eq},
+    { "__ref__", _wrap_XmlAttributeIterator___ref__},
+    { "__deref__", _wrap_XmlAttributeIterator___deref__},
+    {0,0}
+};
+
+static swig_lua_attribute swig_XmlAttributeIterator_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_XmlAttributeIterator_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_XmlAttributeIterator_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_XmlAttributeIterator_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_XmlAttributeIterator_Sf_SwigStatic = {
+    "XmlAttributeIterator",
+    swig_XmlAttributeIterator_Sf_SwigStatic_methods,
+    swig_XmlAttributeIterator_Sf_SwigStatic_attributes,
+    swig_XmlAttributeIterator_Sf_SwigStatic_constants,
+    swig_XmlAttributeIterator_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_XmlAttributeIterator_bases[] = {0};
+static const char *swig_XmlAttributeIterator_base_names[] = {0};
+static swig_lua_class _wrap_class_XmlAttributeIterator = { "XmlAttributeIterator", "XmlAttributeIterator", &SWIGTYPE_p_ofXmlAttributeIterator,_proxy__wrap_new_XmlAttributeIterator, swig_delete_XmlAttributeIterator, swig_XmlAttributeIterator_methods, swig_XmlAttributeIterator_attributes, &swig_XmlAttributeIterator_Sf_SwigStatic, swig_XmlAttributeIterator_meta, swig_XmlAttributeIterator_bases, swig_XmlAttributeIterator_base_names };
 
 static int _wrap_serialize(lua_State* L) { int SWIG_arg = 0; ofXml *arg1 = 0 ; ofAbstractParameter *arg2 = 0 ;
   SWIG_check_num_args("ofSerialize",2,2) if(!lua_isuserdata(L,1)) SWIG_fail_arg("ofSerialize",1,"ofXml &");
@@ -46655,6 +47395,59 @@ static swig_lua_attribute swig_SwigModule_attributes[] = {
     { "TTF_SANS", _wrap_TTF_SANS_get, SWIG_Lua_set_immutable },
     { "TTF_SERIF", _wrap_TTF_SERIF_get, SWIG_Lua_set_immutable },
     { "TTF_MONO", _wrap_TTF_MONO_get, SWIG_Lua_set_immutable },
+    { "Unicode_Space", _wrap_Unicode_Space_get, SWIG_Lua_set_immutable },
+    { "Unicode_IdeographicSpace", _wrap_Unicode_IdeographicSpace_get, SWIG_Lua_set_immutable },
+    { "Unicode_Latin", _wrap_Unicode_Latin_get, SWIG_Lua_set_immutable },
+    { "Unicode_Latin1Supplement", _wrap_Unicode_Latin1Supplement_get, SWIG_Lua_set_immutable },
+    { "Unicode_LatinA", _wrap_Unicode_LatinA_get, SWIG_Lua_set_immutable },
+    { "Unicode_Greek", _wrap_Unicode_Greek_get, SWIG_Lua_set_immutable },
+    { "Unicode_Cyrillic", _wrap_Unicode_Cyrillic_get, SWIG_Lua_set_immutable },
+    { "Unicode_Arabic", _wrap_Unicode_Arabic_get, SWIG_Lua_set_immutable },
+    { "Unicode_ArabicSupplement", _wrap_Unicode_ArabicSupplement_get, SWIG_Lua_set_immutable },
+    { "Unicode_ArabicExtendedA", _wrap_Unicode_ArabicExtendedA_get, SWIG_Lua_set_immutable },
+    { "Unicode_Devanagari", _wrap_Unicode_Devanagari_get, SWIG_Lua_set_immutable },
+    { "Unicode_HangulJamo", _wrap_Unicode_HangulJamo_get, SWIG_Lua_set_immutable },
+    { "Unicode_VedicExtensions", _wrap_Unicode_VedicExtensions_get, SWIG_Lua_set_immutable },
+    { "Unicode_LatinExtendedAdditional", _wrap_Unicode_LatinExtendedAdditional_get, SWIG_Lua_set_immutable },
+    { "Unicode_GreekExtended", _wrap_Unicode_GreekExtended_get, SWIG_Lua_set_immutable },
+    { "Unicode_GeneralPunctuation", _wrap_Unicode_GeneralPunctuation_get, SWIG_Lua_set_immutable },
+    { "Unicode_SuperAndSubScripts", _wrap_Unicode_SuperAndSubScripts_get, SWIG_Lua_set_immutable },
+    { "Unicode_CurrencySymbols", _wrap_Unicode_CurrencySymbols_get, SWIG_Lua_set_immutable },
+    { "Unicode_LetterLikeSymbols", _wrap_Unicode_LetterLikeSymbols_get, SWIG_Lua_set_immutable },
+    { "Unicode_NumberForms", _wrap_Unicode_NumberForms_get, SWIG_Lua_set_immutable },
+    { "Unicode_Arrows", _wrap_Unicode_Arrows_get, SWIG_Lua_set_immutable },
+    { "Unicode_MathOperators", _wrap_Unicode_MathOperators_get, SWIG_Lua_set_immutable },
+    { "Unicode_MiscTechnical", _wrap_Unicode_MiscTechnical_get, SWIG_Lua_set_immutable },
+    { "Unicode_BoxDrawing", _wrap_Unicode_BoxDrawing_get, SWIG_Lua_set_immutable },
+    { "Unicode_BlockElement", _wrap_Unicode_BlockElement_get, SWIG_Lua_set_immutable },
+    { "Unicode_GeometricShapes", _wrap_Unicode_GeometricShapes_get, SWIG_Lua_set_immutable },
+    { "Unicode_MiscSymbols", _wrap_Unicode_MiscSymbols_get, SWIG_Lua_set_immutable },
+    { "Unicode_Dingbats", _wrap_Unicode_Dingbats_get, SWIG_Lua_set_immutable },
+    { "Unicode_Hiragana", _wrap_Unicode_Hiragana_get, SWIG_Lua_set_immutable },
+    { "Unicode_Katakana", _wrap_Unicode_Katakana_get, SWIG_Lua_set_immutable },
+    { "Unicode_HangulCompatJamo", _wrap_Unicode_HangulCompatJamo_get, SWIG_Lua_set_immutable },
+    { "Unicode_KatakanaPhoneticExtensions", _wrap_Unicode_KatakanaPhoneticExtensions_get, SWIG_Lua_set_immutable },
+    { "Unicode_CJKLettersAndMonths", _wrap_Unicode_CJKLettersAndMonths_get, SWIG_Lua_set_immutable },
+    { "Unicode_CJKUnified", _wrap_Unicode_CJKUnified_get, SWIG_Lua_set_immutable },
+    { "Unicode_DevanagariExtended", _wrap_Unicode_DevanagariExtended_get, SWIG_Lua_set_immutable },
+    { "Unicode_HangulExtendedA", _wrap_Unicode_HangulExtendedA_get, SWIG_Lua_set_immutable },
+    { "Unicode_HangulSyllables", _wrap_Unicode_HangulSyllables_get, SWIG_Lua_set_immutable },
+    { "Unicode_HangulExtendedB", _wrap_Unicode_HangulExtendedB_get, SWIG_Lua_set_immutable },
+    { "Unicode_AlphabeticPresentationForms", _wrap_Unicode_AlphabeticPresentationForms_get, SWIG_Lua_set_immutable },
+    { "Unicode_ArabicPresFormsA", _wrap_Unicode_ArabicPresFormsA_get, SWIG_Lua_set_immutable },
+    { "Unicode_ArabicPresFormsB", _wrap_Unicode_ArabicPresFormsB_get, SWIG_Lua_set_immutable },
+    { "Unicode_KatakanaHalfAndFullwidthForms", _wrap_Unicode_KatakanaHalfAndFullwidthForms_get, SWIG_Lua_set_immutable },
+    { "Unicode_KanaSupplement", _wrap_Unicode_KanaSupplement_get, SWIG_Lua_set_immutable },
+    { "Unicode_RumiNumericalSymbols", _wrap_Unicode_RumiNumericalSymbols_get, SWIG_Lua_set_immutable },
+    { "Unicode_ArabicMath", _wrap_Unicode_ArabicMath_get, SWIG_Lua_set_immutable },
+    { "Unicode_MiscSymbolsAndPictographs", _wrap_Unicode_MiscSymbolsAndPictographs_get, SWIG_Lua_set_immutable },
+    { "Unicode_Emoticons", _wrap_Unicode_Emoticons_get, SWIG_Lua_set_immutable },
+    { "Unicode_TransportAndMap", _wrap_Unicode_TransportAndMap_get, SWIG_Lua_set_immutable },
+    { "Unicode_EnclosedCharacters", _wrap_Unicode_EnclosedCharacters_get, SWIG_Lua_set_immutable },
+    { "Unicode_Uncategorized", _wrap_Unicode_Uncategorized_get, SWIG_Lua_set_immutable },
+    { "Unicode_AdditionalEmoticons", _wrap_Unicode_AdditionalEmoticons_get, SWIG_Lua_set_immutable },
+    { "Unicode_AdditionalTransportAndMap", _wrap_Unicode_AdditionalTransportAndMap_get, SWIG_Lua_set_immutable },
+    { "Unicode_OtherAdditionalSymbols", _wrap_Unicode_OtherAdditionalSymbols_get, SWIG_Lua_set_immutable },
     { "Color_white", _wrap_Color_white_get, SWIG_Lua_set_immutable },
     { "Color_gray", _wrap_Color_gray_get, SWIG_Lua_set_immutable },
     { "Color_black", _wrap_Color_black_get, SWIG_Lua_set_immutable },
@@ -47104,7 +47897,7 @@ static swig_lua_attribute swig_SwigModule_attributes[] = {
 static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("VERSION_MAJOR", 0)},
     {SWIG_LUA_CONSTTAB_INT("VERSION_MINOR", 10)},
-    {SWIG_LUA_CONSTTAB_INT("VERSION_PATCH", 0)},
+    {SWIG_LUA_CONSTTAB_INT("VERSION_PATCH", 1)},
     {SWIG_LUA_CONSTTAB_STRING("VERSION_PRE_RELEASE", "stable")},
     {SWIG_LUA_CONSTTAB_INT("USE_LEGACY_VECTOR_MATH", 0)},
     {SWIG_LUA_CONSTTAB_INT("USING_STD_FS", 0)},
@@ -47477,6 +48270,15 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("CIRC_RESOLUTION", 22)},
     {SWIG_LUA_CONSTTAB_INT("OPEN", OF_OPEN)},
     {SWIG_LUA_CONSTTAB_INT("CLOSE", OF_CLOSE)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Emoji", ofAlphabet_Emoji)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Japanese", ofAlphabet_Japanese)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Chinese", ofAlphabet_Chinese)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Korean", ofAlphabet_Korean)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Arabic", ofAlphabet_Arabic)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Devanagari", ofAlphabet_Devanagari)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Latin", ofAlphabet_Latin)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Greek", ofAlphabet_Greek)},
+    {SWIG_LUA_CONSTTAB_INT("Alphabet_Cyrillic", ofAlphabet_Cyrillic)},
     {SWIG_LUA_CONSTTAB_INT("TTF_LEFT_TO_RIGHT", OF_TTF_LEFT_TO_RIGHT)},
     {SWIG_LUA_CONSTTAB_INT("TTF_RIGHT_TO_LEFT", OF_TTF_RIGHT_TO_LEFT)},
     {SWIG_LUA_CONSTTAB_INT("ASPECT_RATIO_IGNORE", OF_ASPECT_RATIO_IGNORE)},
@@ -47979,6 +48781,8 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_Path,
 &_wrap_class_PolylineVector,
 &_wrap_class_Polyline,
+&_wrap_class_Unicode,
+&_wrap_class_TrueTypeFontSettings,
 &_wrap_class_TrueTypeFont,
 &_wrap_class_SoundStream,
 &_wrap_class_SoundPlayer,
@@ -47988,6 +48792,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_Rectangle,
 &_wrap_class_FpsCounter,
 &_wrap_class_Xml,
+&_wrap_class_XmlAttributeIterator,
 &_wrap_class_MatrixStack,
 &_wrap_class_Buffer,
 &_wrap_class_FilePath,
@@ -48220,6 +49025,7 @@ static void *_p_ofBaseVideoPlayerTo_p_ofBaseUpdates(void *x, int *SWIGUNUSEDPARM
 static void *_p_ofVideoPlayerTo_p_ofBaseUpdates(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((ofBaseUpdates *) (ofBaseVideo *)(ofBaseVideoPlayer *) ((ofVideoPlayer *) x));
 }
+static swig_type_info _swigt__p_Base = {"_p_Base", "Base *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Firmata_Encoder_Data = {"_p_Firmata_Encoder_Data", "Firmata_Encoder_Data *", 0, 0, (void*)&_wrap_class_Firmata_Encoder_Data, 0};
 static swig_type_info _swigt__p_Firmata_I2C_Data = {"_p_Firmata_I2C_Data", "Firmata_I2C_Data *", 0, 0, (void*)&_wrap_class_Firmata_I2C_Data, 0};
 static swig_type_info _swigt__p_Firmata_Serial_Data = {"_p_Firmata_Serial_Data", "Firmata_Serial_Data *", 0, 0, (void*)&_wrap_class_Firmata_Serial_Data, 0};
@@ -48227,7 +49033,7 @@ static swig_type_info _swigt__p_Firmata_Stepper_Data = {"_p_Firmata_Stepper_Data
 static swig_type_info _swigt__p_GLintptr = {"_p_GLintptr", "GLintptr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_GLsizei = {"_p_GLsizei", "GLsizei *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_GLsizeiptr = {"_p_GLsizeiptr", "GLsizeiptr *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_TESSindex = {"_p_TESSindex", "ofIndexType *|TESSindex *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Node = {"_p_Node", "Node *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p__XDisplay = {"_p__XDisplay", "_XDisplay *|Display *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__filesystem__path = {"_p_boost__filesystem__path", "boost::filesystem::path *|std::filesystem::path *", 0, 0, (void*)&_wrap_class_path, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
@@ -48348,7 +49154,10 @@ static swig_type_info _swigt__p_ofTextureData = {"_p_ofTextureData", "ofTextureD
 static swig_type_info _swigt__p_ofTime = {"_p_ofTime", "ofTime *", 0, 0, (void*)&_wrap_class_Time, 0};
 static swig_type_info _swigt__p_ofTouchEventArgs = {"_p_ofTouchEventArgs", "ofTouchEventArgs *", 0, 0, (void*)&_wrap_class_TouchEventArgs, 0};
 static swig_type_info _swigt__p_ofTrueTypeFont = {"_p_ofTrueTypeFont", "ofTrueTypeFont *", 0, 0, (void*)&_wrap_class_TrueTypeFont, 0};
+static swig_type_info _swigt__p_ofTrueTypeFontSettings = {"_p_ofTrueTypeFontSettings", "ofTrueTypeFontSettings *", 0, 0, (void*)&_wrap_class_TrueTypeFontSettings, 0};
 static swig_type_info _swigt__p_ofURLFileLoader = {"_p_ofURLFileLoader", "ofURLFileLoader *", 0, 0, (void*)&_wrap_class_URLFileLoader, 0};
+static swig_type_info _swigt__p_ofUnicode = {"_p_ofUnicode", "ofUnicode *", 0, 0, (void*)&_wrap_class_Unicode, 0};
+static swig_type_info _swigt__p_ofUnicode__range = {"_p_ofUnicode__range", "ofUnicode::range *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofVbo = {"_p_ofVbo", "ofVbo *", 0, 0, (void*)&_wrap_class_Vbo, 0};
 static swig_type_info _swigt__p_ofVboMesh = {"_p_ofVboMesh", "ofVboMesh *", 0, 0, (void*)&_wrap_class_VboMesh, 0};
 static swig_type_info _swigt__p_ofVec2f = {"_p_ofVec2f", "ofVec2f *", 0, 0, (void*)&_wrap_class_Vec2f, 0};
@@ -48359,8 +49168,9 @@ static swig_type_info _swigt__p_ofVideoFormat = {"_p_ofVideoFormat", "ofVideoFor
 static swig_type_info _swigt__p_ofVideoGrabber = {"_p_ofVideoGrabber", "ofVideoGrabber *", 0, 0, (void*)&_wrap_class_VideoGrabber, 0};
 static swig_type_info _swigt__p_ofVideoPlayer = {"_p_ofVideoPlayer", "ofVideoPlayer *", 0, 0, (void*)&_wrap_class_VideoPlayer, 0};
 static swig_type_info _swigt__p_ofXml = {"_p_ofXml", "ofXml *", 0, 0, (void*)&_wrap_class_Xml, 0};
+static swig_type_info _swigt__p_ofXmlAttributeIterator = {"_p_ofXmlAttributeIterator", "ofXmlAttributeIterator *", 0, 0, (void*)&_wrap_class_XmlAttributeIterator, 0};
 static swig_type_info _swigt__p_ofXml__Attribute = {"_p_ofXml__Attribute", "ofXml::Attribute *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t = {"_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t", "ofXml::Range< ofXmlIterator< pugi::xml_attribute_iterator > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_ofXml__RangeT_ofXmlAttributeIterator_t = {"_p_ofXml__RangeT_ofXmlAttributeIterator_t", "ofXml::Range< ofXmlAttributeIterator > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t = {"_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t", "ofXml::Range< ofXmlIterator< pugi::xml_named_node_iterator > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t = {"_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t", "ofXml::Range< ofXmlIterator< pugi::xml_node_iterator > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__chrono__nanoseconds = {"_p_std__chrono__nanoseconds", "std::chrono::nanoseconds *", 0, 0, (void*)0, 0};
@@ -48378,7 +49188,6 @@ static swig_type_info _swigt__p_std__shared_ptrT_ofBaseSoundStream_t = {"_p_std_
 static swig_type_info _swigt__p_std__shared_ptrT_ofBaseVideoGrabber_t = {"_p_std__shared_ptrT_ofBaseVideoGrabber_t", "std::shared_ptr< ofBaseVideoGrabber > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__shared_ptrT_ofBaseVideoPlayer_t = {"_p_std__shared_ptrT_ofBaseVideoPlayer_t", "std::shared_ptr< ofBaseVideoPlayer > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)&_wrap_class_string, 0};
-static swig_type_info _swigt__p_std__vectorT_TESSindex_t = {"_p_std__vectorT_TESSindex_t", "std::vector< TESSindex > *|std::vector< ofIndexType > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_float_t = {"_p_std__vectorT_float_t", "std::vector< float > *", 0, 0, (void*)&_wrap_class_FloatVector, 0};
 static swig_type_info _swigt__p_std__vectorT_glm__vec2_t = {"_p_std__vectorT_glm__vec2_t", "std::vector< glm::vec2 > *|std::vector< ofDefaultTexCoordType > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_glm__vec3_t = {"_p_std__vectorT_glm__vec3_t", "std::vector< glm::vec3 > *|std::vector< ofDefaultVertexType > *|std::vector< ofDefaultNormalType > *", 0, 0, (void*)0, 0};
@@ -48392,6 +49201,7 @@ static swig_type_info _swigt__p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_
 static swig_type_info _swigt__p_std__vectorT_ofSerialDeviceInfo_t = {"_p_std__vectorT_ofSerialDeviceInfo_t", "std::vector< ofSerialDeviceInfo > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ofSoundDevice_t = {"_p_std__vectorT_ofSoundDevice_t", "std::vector< ofSoundDevice > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ofTexture_t = {"_p_std__vectorT_ofTexture_t", "std::vector< ofTexture > *", 0, 0, (void*)&_wrap_class_TextureVector, 0};
+static swig_type_info _swigt__p_std__vectorT_ofUnicode__range_t = {"_p_std__vectorT_ofUnicode__range_t", "std::vector< ofUnicode::range > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ofVec2f_t = {"_p_std__vectorT_ofVec2f_t", "std::vector< ofVec2f > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ofVec3f_t = {"_p_std__vectorT_ofVec3f_t", "std::vector< ofVec3f > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__vectorT_ofVideoDevice_t = {"_p_std__vectorT_ofVideoDevice_t", "std::vector< ofVideoDevice > *", 0, 0, (void*)&_wrap_class_VideoDeviceVector, 0};
@@ -48399,8 +49209,8 @@ static swig_type_info _swigt__p_std__vectorT_ofVideoFormat_t = {"_p_std__vectorT
 static swig_type_info _swigt__p_std__vectorT_std__string_t = {"_p_std__vectorT_std__string_t", "std::vector< std::string > *", 0, 0, (void*)&_wrap_class_StringVector, 0};
 static swig_type_info _swigt__p_std__vectorT_unsigned_char_t = {"_p_std__vectorT_unsigned_char_t", "std::vector< unsigned char > *", 0, 0, (void*)&_wrap_class_UCharVector, 0};
 static swig_type_info _swigt__p_std__vectorT_unsigned_int_t = {"_p_std__vectorT_unsigned_int_t", "std::vector< unsigned int > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__vectorT_unsigned_short_t = {"_p_std__vectorT_unsigned_short_t", "std::vector< unsigned short > *|std::vector< ofIndexType > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_supportedPinTypes = {"_p_supportedPinTypes", "supportedPinTypes *", 0, 0, (void*)&_wrap_class_supportedPinTypes, 0};
-static swig_type_info _swigt__p_timespec = {"_p_timespec", "timespec *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_uint16_t = {"_p_uint16_t", "uint16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_uint32_t = {"_p_uint32_t", "uint32_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_uint8_t = {"_p_uint8_t", "uint8_t *", 0, 0, (void*)0, 0};
@@ -48408,9 +49218,10 @@ static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned c
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "size_t *|unsigned int *|GLuint *|GLenum *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "Window *|unsigned long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint64_t *|unsigned long long *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned short *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "ofIndexType *|TESSindex *|unsigned short *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_Base,
   &_swigt__p_Firmata_Encoder_Data,
   &_swigt__p_Firmata_I2C_Data,
   &_swigt__p_Firmata_Serial_Data,
@@ -48418,7 +49229,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_GLintptr,
   &_swigt__p_GLsizei,
   &_swigt__p_GLsizeiptr,
-  &_swigt__p_TESSindex,
+  &_swigt__p_Node,
   &_swigt__p__XDisplay,
   &_swigt__p_boost__filesystem__path,
   &_swigt__p_double,
@@ -48538,7 +49349,10 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_ofTime,
   &_swigt__p_ofTouchEventArgs,
   &_swigt__p_ofTrueTypeFont,
+  &_swigt__p_ofTrueTypeFontSettings,
   &_swigt__p_ofURLFileLoader,
+  &_swigt__p_ofUnicode,
+  &_swigt__p_ofUnicode__range,
   &_swigt__p_ofVbo,
   &_swigt__p_ofVboMesh,
   &_swigt__p_ofVec2f,
@@ -48550,8 +49364,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_ofVideoPlayer,
   &_swigt__p_ofWindowPosEventArgs,
   &_swigt__p_ofXml,
+  &_swigt__p_ofXmlAttributeIterator,
   &_swigt__p_ofXml__Attribute,
-  &_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t,
+  &_swigt__p_ofXml__RangeT_ofXmlAttributeIterator_t,
   &_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t,
   &_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t,
   &_swigt__p_std__chrono__nanoseconds,
@@ -48569,7 +49384,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__shared_ptrT_ofBaseVideoGrabber_t,
   &_swigt__p_std__shared_ptrT_ofBaseVideoPlayer_t,
   &_swigt__p_std__string,
-  &_swigt__p_std__vectorT_TESSindex_t,
   &_swigt__p_std__vectorT_float_t,
   &_swigt__p_std__vectorT_glm__vec2_t,
   &_swigt__p_std__vectorT_glm__vec3_t,
@@ -48583,6 +49397,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_ofSerialDeviceInfo_t,
   &_swigt__p_std__vectorT_ofSoundDevice_t,
   &_swigt__p_std__vectorT_ofTexture_t,
+  &_swigt__p_std__vectorT_ofUnicode__range_t,
   &_swigt__p_std__vectorT_ofVec2f_t,
   &_swigt__p_std__vectorT_ofVec3f_t,
   &_swigt__p_std__vectorT_ofVideoDevice_t,
@@ -48590,8 +49405,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_std__string_t,
   &_swigt__p_std__vectorT_unsigned_char_t,
   &_swigt__p_std__vectorT_unsigned_int_t,
+  &_swigt__p_std__vectorT_unsigned_short_t,
   &_swigt__p_supportedPinTypes,
-  &_swigt__p_timespec,
   &_swigt__p_uint16_t,
   &_swigt__p_uint32_t,
   &_swigt__p_uint8_t,
@@ -48602,6 +49417,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_short,
 };
 
+static swig_cast_info _swigc__p_Base[] = {  {&_swigt__p_Base, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Firmata_Encoder_Data[] = {  {&_swigt__p_Firmata_Encoder_Data, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Firmata_I2C_Data[] = {  {&_swigt__p_Firmata_I2C_Data, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Firmata_Serial_Data[] = {  {&_swigt__p_Firmata_Serial_Data, 0, 0, 0},{0, 0, 0, 0}};
@@ -48609,7 +49425,7 @@ static swig_cast_info _swigc__p_Firmata_Stepper_Data[] = {  {&_swigt__p_Firmata_
 static swig_cast_info _swigc__p_GLintptr[] = {  {&_swigt__p_GLintptr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_GLsizei[] = {  {&_swigt__p_GLsizei, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_GLsizeiptr[] = {  {&_swigt__p_GLsizeiptr, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_TESSindex[] = {  {&_swigt__p_TESSindex, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Node[] = {  {&_swigt__p_Node, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p__XDisplay[] = {  {&_swigt__p__XDisplay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__filesystem__path[] = {  {&_swigt__p_boost__filesystem__path, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
@@ -48730,7 +49546,10 @@ static swig_cast_info _swigc__p_ofTextureData[] = {  {&_swigt__p_ofTextureData, 
 static swig_cast_info _swigc__p_ofTime[] = {  {&_swigt__p_ofTime, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofTouchEventArgs[] = {  {&_swigt__p_ofTouchEventArgs, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofTrueTypeFont[] = {  {&_swigt__p_ofTrueTypeFont, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofTrueTypeFontSettings[] = {  {&_swigt__p_ofTrueTypeFontSettings, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofURLFileLoader[] = {  {&_swigt__p_ofURLFileLoader, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofUnicode[] = {  {&_swigt__p_ofUnicode, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofUnicode__range[] = {  {&_swigt__p_ofUnicode__range, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVbo[] = {  {&_swigt__p_ofVbo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVboMesh[] = {  {&_swigt__p_ofVboMesh, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVec2f[] = {  {&_swigt__p_ofVec2f, 0, 0, 0},{0, 0, 0, 0}};
@@ -48741,8 +49560,9 @@ static swig_cast_info _swigc__p_ofVideoFormat[] = {  {&_swigt__p_ofVideoFormat, 
 static swig_cast_info _swigc__p_ofVideoGrabber[] = {  {&_swigt__p_ofVideoGrabber, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVideoPlayer[] = {  {&_swigt__p_ofVideoPlayer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml[] = {  {&_swigt__p_ofXml, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofXmlAttributeIterator[] = {  {&_swigt__p_ofXmlAttributeIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml__Attribute[] = {  {&_swigt__p_ofXml__Attribute, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t[] = {  {&_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofXml__RangeT_ofXmlAttributeIterator_t[] = {  {&_swigt__p_ofXml__RangeT_ofXmlAttributeIterator_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t[] = {  {&_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t[] = {  {&_swigt__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__chrono__nanoseconds[] = {  {&_swigt__p_std__chrono__nanoseconds, 0, 0, 0},{0, 0, 0, 0}};
@@ -48760,7 +49580,6 @@ static swig_cast_info _swigc__p_std__shared_ptrT_ofBaseSoundStream_t[] = {  {&_s
 static swig_cast_info _swigc__p_std__shared_ptrT_ofBaseVideoGrabber_t[] = {  {&_swigt__p_std__shared_ptrT_ofBaseVideoGrabber_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__shared_ptrT_ofBaseVideoPlayer_t[] = {  {&_swigt__p_std__shared_ptrT_ofBaseVideoPlayer_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_TESSindex_t[] = {  {&_swigt__p_std__vectorT_TESSindex_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_float_t[] = {  {&_swigt__p_std__vectorT_float_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_glm__vec2_t[] = {  {&_swigt__p_std__vectorT_glm__vec2_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_glm__vec3_t[] = {  {&_swigt__p_std__vectorT_glm__vec3_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -48774,6 +49593,7 @@ static swig_cast_info _swigc__p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_
 static swig_cast_info _swigc__p_std__vectorT_ofSerialDeviceInfo_t[] = {  {&_swigt__p_std__vectorT_ofSerialDeviceInfo_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ofSoundDevice_t[] = {  {&_swigt__p_std__vectorT_ofSoundDevice_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ofTexture_t[] = {  {&_swigt__p_std__vectorT_ofTexture_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_ofUnicode__range_t[] = {  {&_swigt__p_std__vectorT_ofUnicode__range_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ofVec2f_t[] = {  {&_swigt__p_std__vectorT_ofVec2f_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ofVec3f_t[] = {  {&_swigt__p_std__vectorT_ofVec3f_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_ofVideoDevice_t[] = {  {&_swigt__p_std__vectorT_ofVideoDevice_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -48781,8 +49601,8 @@ static swig_cast_info _swigc__p_std__vectorT_ofVideoFormat_t[] = {  {&_swigt__p_
 static swig_cast_info _swigc__p_std__vectorT_std__string_t[] = {  {&_swigt__p_std__vectorT_std__string_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_unsigned_char_t[] = {  {&_swigt__p_std__vectorT_unsigned_char_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__vectorT_unsigned_int_t[] = {  {&_swigt__p_std__vectorT_unsigned_int_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__vectorT_unsigned_short_t[] = {  {&_swigt__p_std__vectorT_unsigned_short_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_supportedPinTypes[] = {  {&_swigt__p_supportedPinTypes, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_timespec[] = {  {&_swigt__p_timespec, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_uint16_t[] = {  {&_swigt__p_uint16_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_uint32_t[] = {  {&_swigt__p_uint32_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_uint8_t[] = {  {&_swigt__p_uint8_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -48793,6 +49613,7 @@ static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_l
 static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_Base,
   _swigc__p_Firmata_Encoder_Data,
   _swigc__p_Firmata_I2C_Data,
   _swigc__p_Firmata_Serial_Data,
@@ -48800,7 +49621,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_GLintptr,
   _swigc__p_GLsizei,
   _swigc__p_GLsizeiptr,
-  _swigc__p_TESSindex,
+  _swigc__p_Node,
   _swigc__p__XDisplay,
   _swigc__p_boost__filesystem__path,
   _swigc__p_double,
@@ -48920,7 +49741,10 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_ofTime,
   _swigc__p_ofTouchEventArgs,
   _swigc__p_ofTrueTypeFont,
+  _swigc__p_ofTrueTypeFontSettings,
   _swigc__p_ofURLFileLoader,
+  _swigc__p_ofUnicode,
+  _swigc__p_ofUnicode__range,
   _swigc__p_ofVbo,
   _swigc__p_ofVboMesh,
   _swigc__p_ofVec2f,
@@ -48932,8 +49756,9 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_ofVideoPlayer,
   _swigc__p_ofWindowPosEventArgs,
   _swigc__p_ofXml,
+  _swigc__p_ofXmlAttributeIterator,
   _swigc__p_ofXml__Attribute,
-  _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_attribute_iterator_t_t,
+  _swigc__p_ofXml__RangeT_ofXmlAttributeIterator_t,
   _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t,
   _swigc__p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t,
   _swigc__p_std__chrono__nanoseconds,
@@ -48951,7 +49776,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__shared_ptrT_ofBaseVideoGrabber_t,
   _swigc__p_std__shared_ptrT_ofBaseVideoPlayer_t,
   _swigc__p_std__string,
-  _swigc__p_std__vectorT_TESSindex_t,
   _swigc__p_std__vectorT_float_t,
   _swigc__p_std__vectorT_glm__vec2_t,
   _swigc__p_std__vectorT_glm__vec3_t,
@@ -48965,6 +49789,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_ofSerialDeviceInfo_t,
   _swigc__p_std__vectorT_ofSoundDevice_t,
   _swigc__p_std__vectorT_ofTexture_t,
+  _swigc__p_std__vectorT_ofUnicode__range_t,
   _swigc__p_std__vectorT_ofVec2f_t,
   _swigc__p_std__vectorT_ofVec3f_t,
   _swigc__p_std__vectorT_ofVideoDevice_t,
@@ -48972,8 +49797,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_std__string_t,
   _swigc__p_std__vectorT_unsigned_char_t,
   _swigc__p_std__vectorT_unsigned_int_t,
+  _swigc__p_std__vectorT_unsigned_short_t,
   _swigc__p_supportedPinTypes,
-  _swigc__p_timespec,
   _swigc__p_uint16_t,
   _swigc__p_uint32_t,
   _swigc__p_uint8_t,

@@ -1,0 +1,18 @@
+#N canvas 397 307 444 239 10;
+#X obj 32 29 loadbang;
+#X obj 32 71 s \$0-of;
+#X obj 32 107 inlet~;
+#X obj 32 149 outlet~;
+#X obj 202 148 s \$0-of;
+#X obj 202 107 inlet;
+#X msg 202 128 setPhase \$1;
+#X obj 32 128 ofelia d -s21 \$0-of;
+#X obj 143 107 inlet~;
+#X msg 32 50 read -c pdPulse~.lua;
+#X connect 0 0 9 0;
+#X connect 2 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 8 0 7 1;
+#X connect 9 0 1 0;

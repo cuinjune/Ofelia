@@ -3,24 +3,12 @@
 #   This file is where we make project specific configurations.
 ################################################################################
 
-ifndef PLATFORM_OS 
-    # determine from the uname if not defined manually
-    PLATFORM_OS=$(shell uname -s)
-endif
-
-IS64BIT=$(shell if [ -n "`uname -a | grep x86_64`" ] ; then echo yes ; else echo no ; fi)
-
-ISARM=$(shell if [ -n "`uname -m | grep arm`" ] ; then echo yes ; else echo no ; fi)
-
-ifeq ($(PLATFORM_OS),Linux)
-	ifeq ($(ISARM),yes)
-		APPNAME = ofelia.l_arm
-	else 
-		APPNAME = ofelia.pd_linux
-	endif	
-	PROJECT_CFLAGS = -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -I ../../../addons/ofxOfelia/libs/pd/src
+	APPNAME = ofelia.pd_linux	
+	PROJECT_CFLAGS = -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -I../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src
 	PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath=./libs
-endif
+	PROJECT_EXTERNAL_SOURCE_PATHS = ../../../addons/ofxOfelia/src
+	PROJECT_DEFINES = LUA_USE_LINUX HAVE_LIBDL TARGET_EXTERNAL
+	PROJECT_OPTIMIZATION_CFLAGS_RELEASE = -Os -DNDEBUG
 
 ################################################################################
 # OF ROOT

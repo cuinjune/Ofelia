@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WindowsExample</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win32\libpd.lib;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win32\pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win64\libpd.lib;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win64\pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win32\libpd.lib;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win32\pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>Default</CompileAs>
+      <Optimization>Full</Optimization>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalOptions>-DPD_LONGINTTYPE=__int64 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win64\libpd.lib;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\lib\Win64\pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lauxlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lbaselib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lbitlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lcode.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lcorolib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lctype.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldblib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldebug.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldo.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldump.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lfunc.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lgc.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\linit.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\liolib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\llex.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lmathlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lmem.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\loadlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lobject.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lopcodes.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\loslib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lparser.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lstate.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lstring.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lstrlib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ltable.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ltablib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ltm.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lundump.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lutf8lib.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lvm.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lzio.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop\ofBindings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\glmBindings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\ofxLua.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\ofxLuaFileWriter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi\RtMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop\ofxRtMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop\ofxRtMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxBaseMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiClock.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTimecode.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\s_libpdmidi.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\z_hooks.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\z_libpd.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~\bob~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~\bonk~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice\choice.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~\fiddle~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~\loop~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~\lrshift~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\binarymsg.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\pdsched.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\pd~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique\pique.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~\sigmund~.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\stdout\stdout.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_arithmetic.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_array.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_ctl.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_dac.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_delay.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_fft.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_fft_fftsg.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_filter.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_global.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_math.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_misc.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_osc.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_resample.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_soundfile.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\d_ugen.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_all_guis.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_array.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_bang.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_canvas.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_clone.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_editor.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_editor_extras.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_graph.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_guiconnect.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_hdial.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_hslider.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_io.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_mycanvas.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_numbox.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_readwrite.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_rtext.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_scalar.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_template.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_text.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_toggle.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_traversal.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_undo.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_vdial.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_vslider.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_vumeter.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_atom.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_binbuf.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_class.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_conf.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_glob.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_memory.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_obj.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_pd.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_sched.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_audio.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_audio_dummy.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_inter.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_loader.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_main.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_path.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_print.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_utf8.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_acoustics.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_arithmetic.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_array.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_connective.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_gui.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_interface.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_list.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_midi.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_misc.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_net.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_scalar.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_text.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_time.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp_fun.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp_if.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\src\ofxPd.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAliases.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaBindings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaCreator.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaData.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaExists.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaGet.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaIO.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLog.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSet.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSignal.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ofApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lapi.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lauxlib.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lcode.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lctype.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldebug.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ldo.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lfunc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lgc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\llex.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\llimits.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lmem.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lobject.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lopcodes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lparser.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lprefix.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lstate.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lstring.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ltable.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\ltm.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lua.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lua.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\luaconf.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lualib.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lundump.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lvm.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lzio.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\ofBindings.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\ofxLua.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\ofxLuaFileWriter.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi\RtMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop\ofxRtMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop\ofxRtMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxBaseMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiClock.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTimecode.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdBase.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdMidiReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdReceiver.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdTypes.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\x_libpdreceive.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\z_hooks.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\z_libpd.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_all_guis.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_canvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_undo.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_imp.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_pd.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_stuff.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_utf8.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\src\ofxPd.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAliases.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaBindings.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaCreator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaData.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaExists.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaGet.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaIO.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLog.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSet.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSignal.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.h" />
+    <ClInclude Include="src\ofApp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="packages\pthreads.redist.2.9.1.4\build\native\pthreads.redist.targets" Condition="Exists('packages\pthreads.redist.2.9.1.4\build\native\pthreads.redist.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\pthreads.redist.2.9.1.4\build\native\pthreads.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\pthreads.redist.2.9.1.4\build\native\pthreads.redist.targets'))" />
+    <Error Condition="!Exists('packages\pthreads.2.9.1.4\build\native\pthreads.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\pthreads.2.9.1.4\build\native\pthreads.targets'))" />
+  </Target>
+  <Import Project="packages\pthreads.2.9.1.4\build\native\pthreads.targets" Condition="Exists('packages\pthreads.2.9.1.4\build\native\pthreads.targets')" />
+</Project>
