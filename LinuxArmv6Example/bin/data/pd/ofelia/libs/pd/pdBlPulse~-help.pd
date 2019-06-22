@@ -1,0 +1,109 @@
+#N canvas 320 23 600 562 10;
+#X declare -path ofelia/libs/pd;
+#X obj 0 0 cnv 15 580 40 empty empty pdBlPulse~ 3 12 0 18 -204280 -1
+0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 423 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 431 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 507 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 459 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 55 311 dac~;
+#X obj 206 311 tabwrite~ \$0-array;
+#X obj 179 191 0;
+#X obj 179 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-array 100 float 0;
+#X coords 0 1 99 -1 150 100 1 0 0;
+#X restore 373 227 graph;
+#X obj 55 277 *~ 0.1;
+#X obj 179 167 t b b;
+#N canvas 8 23 228 316 dspstate 0;
+#X obj 102 46 r pd;
+#X obj 102 72 route dsp;
+#X msg 121 158 1;
+#X obj 71 189 sig~;
+#X obj 71 213 snapshot~;
+#X obj 102 129 t b b b;
+#X msg 150 158 set 0;
+#X obj 71 158 del 10;
+#X obj 39 21 cnv 15 40 18 empty empty dsp 9 9 1 15 -233017 -66577 0
+;
+#X obj 20 20 tgl 20 0 \$0-d.dspstate-s \$0-d.dspstate-r empty 17 7
+0 10 -228856 -1 -1 0 1;
+#X msg 71 243 set \$1;
+#X obj 20 99 s pd;
+#X msg 20 72 dsp \$1;
+#X obj 148 46 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 5 0;
+#X coords 0 -1 1 1 60 20 2 20 20;
+#X restore 520 67 pd dspstate;
+#X floatatom 55 103 10 0 0 0 - - -;
+#X text 201 142 write the outgoing signal to array.;
+#X text 95 349 float/signal;
+#X text 211 349 - an incoming float/signal changes the frequency.;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 395 float;
+#X text 211 395 - a float to the right inlet resets the phase.;
+#X text 95 431 signal;
+#X text 193 79 change frequency.;
+#X obj 58 80 hsl 128 15 20 22050 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 55 147 line~;
+#X obj 55 124 pack 0 100;
+#X text 11 23 bandlimited pulse wave oscillator;
+#X obj 144 103 hsl 128 15 0 0.9 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 141 124 5 0 0 0 - - -;
+#X obj 102 191 line~;
+#X obj 102 168 pack 0 100;
+#X text 280 102 change pulsewidth. (50~95% duty cycle);
+#X text 211 431 - the bandlimited pulse wave oscillator output.;
+#X obj 408 46 declare -path ofelia/libs/pd;
+#X text 21 43 [pdBlPulse~] generates an anti-aliased pulse wave at
+a given frequency.;
+#X obj 511 5 pdBlPulse~;
+#X obj 55 217 pdBlPulse~;
+#X text 72 482 (none);
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float/signal;
+#X text 211 372 - an incoming float/signal changes the pulse width.
+;
+#X connect 9 0 37 2;
+#X connect 10 0 13 0;
+#X connect 12 0 7 0;
+#X connect 12 0 7 1;
+#X connect 13 0 9 0;
+#X connect 13 1 8 0;
+#X connect 15 0 26 0;
+#X connect 24 0 15 0;
+#X connect 25 0 37 0;
+#X connect 26 0 25 0;
+#X connect 28 0 29 0;
+#X connect 29 0 31 0;
+#X connect 30 0 37 1;
+#X connect 31 0 30 0;
+#X connect 37 0 12 0;
+#X connect 37 0 8 0;

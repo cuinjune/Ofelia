@@ -94,7 +94,6 @@ linuxarmv7l:
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 
-	# support dynamic loading
 	ADDON_CFLAGS += -DLUA_USE_LINUX -DHAVE_LIBDL
 
 msys2:

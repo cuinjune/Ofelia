@@ -1,0 +1,18 @@
+#N canvas 397 307 444 239 10;
+#X obj 32 107 inlet;
+#X obj 32 29 loadbang;
+#X obj 32 149 outlet;
+#X obj 192 107 inlet;
+#X obj 32 71 s \$0-of;
+#X obj 192 149 s \$0-of;
+#X msg 192 128 order \$1;
+#X msg 32 50 read -c ofDragged.lua;
+#X obj 32 128 ofelia d -c12 \$0-of;
+#X obj 143 149 outlet;
+#X connect 0 0 8 0;
+#X connect 1 0 7 0;
+#X connect 3 0 6 0;
+#X connect 6 0 5 0;
+#X connect 7 0 4 0;
+#X connect 8 0 2 0;
+#X connect 8 1 9 0;
