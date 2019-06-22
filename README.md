@@ -72,7 +72,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 * (Android) Open Android Studio, select `Open an existing Android Studio project` and open `OF/addons/ofxOfelia/AndroidExample` and run the project.
 
 ## Creating your own standalone project
-* Copy an example project from `OF/addons/ofxOfelia` and paste it into `OF/apps/myApps`.
+* Copy an example project from `OF/addons/ofxOfelia` and paste it into `OF/apps/myApps` directory.
 * Rename the project and folder to your liking.
 * Replace Pd patches and data in `yourProject/bin/data/pd` with your files.
 * Build the project and find the executable file in `yourProject/bin` directory.
