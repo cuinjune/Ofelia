@@ -9,7 +9,7 @@ paths=(
 )
 
 # compile the code
-clang++ -Wall -std=c++14 makeAliases.cpp -o makeAliases
+g++ -Wall -std=c++14 makeAliases.cpp -o makeAliases
 
 # run the binary (generates "ofxOfeliaAliases.cpp")
 ./makeAliases

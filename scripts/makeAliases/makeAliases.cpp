@@ -17,7 +17,7 @@ int main(int argc, const char * argv[])
     const string &ofPath = "../../../../";
     const string &ofBindingsPath = ofPath + "addons/ofxOfelia/libs/ofxLua/src/bindings/desktop/ofBindings.cpp";
     const string &ofxOfeliaBindingsPath = ofPath + "addons/ofxOfelia/src/ofxOfeliaBindings.cpp";
-    const string &glewPath = ofPath + "libs/glew/include/GL/glew.h";;
+    const string &glewPath = "glew.h";
     const string &ofxOfeliaAliasesPath = "ofxOfeliaAliases.cpp";
     
     ifstream input;
