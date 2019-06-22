@@ -50,7 +50,6 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 * Make sure you have openFrameworks setup on your desktop.
 * Download [ofxOfelia_targetOS.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
 Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
-* Move `ofxOfelia/libs/ofxLua` folder to `OF/addons`.
 * (Linux / Raspberry Pi) Open the Terminal and run the following to update openFrameworks.
   <pre>cd OF/addons/ofxOfelia/scripts/(targetOS)
   sudo ./updateOF.sh</pre>
