@@ -55,7 +55,6 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
   sudo ./updateOF.sh</pre>
   
 ## Building the external
-
 * (macOS) Open `OF/addons/ofxOfelia/macOSExternal/ofelia.xcodeproj` with Xcode and build the project.
 * (Windows) Open `OF/addons/ofxOfelia/WindowsExternal/ofelia.sln` with Visual Studio and build the solution.
 * (Linux / Raspberry Pi) Open the Terminal and run the following command to build the project.
@@ -63,8 +62,20 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
   make</pre>
 * Copy the generated binaries from `OF/addons/ofxOfelia/(targetOS)/bin` into the Pd externals directory.
 
+## Running the standalone example
+* (macOS) Open `OF/addons/ofxOfelia/macOSExample/macOSExample.xcodeproj` with Xcode and run the project.
+* (Windows) Open `OF/addons/ofxOfelia/WindowsExample/WindowsExample.sln` with Visual Studio and run the solution.
+* (Linux / Raspberry Pi) Open the Terminal and run the following command to run the project.
+  <pre>cd OF/addons/ofxOfelia/LinuxExample
+  make && make RunRelease</pre>
+* (iOS) Open `OF/addons/ofxOfelia/iOSExample/iOSExample.xcodeproj` with Xcode and run the project.
+* (Android) Open Android Studio, select `Open an existing Android Studio project` and open `OF/addons/ofxOfelia/AndroidExample` and run the project.
+
 ## Creating your own standalone project
-The setup guide and examples for creating standalone project will be ready soon.
+* Copy an example project from `OF/addons/ofxOfelia` and paste it into `OF/apps/myApps`.
+* Rename the project and folder to your liking.
+* Replace Pd patches and data in `yourProject/bin/data/pd` with your files.
+* Build the project and find the executable file in `yourProject/bin` directory.
 
 ## Developing ofxOfelia
 You can help develop ofxOfelia on GitHub: https://github.com/cuinjune/ofxOfelia<br />
