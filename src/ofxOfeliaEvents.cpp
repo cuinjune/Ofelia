@@ -98,7 +98,7 @@ void ofxOfeliaEvents::removeDataPair(DataPairVec &vec, ofxOfeliaData *x)
 void ofxOfeliaEvents::sortDataPairVec(DataPairVec &vec)
 {
     stable_sort(vec.begin(), vec.end(),
-                [](const auto &a, const auto &b) {return a.second < b.second;});
+                [](const DataPair &a, const DataPair &b) {return a.second < b.second;});
 }
 
 void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofEventArgs &e, t_symbol *s)

@@ -4,7 +4,6 @@
 ################################################################################
 
 	PROJECT_CFLAGS = -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized
-	PROJECT_DEFINES = TARGET_STANDALONE
 	PROJECT_OPTIMIZATION_CFLAGS_RELEASE = -Os -DNDEBUG
 
 ################################################################################
