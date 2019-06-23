@@ -26,15 +26,9 @@ common:
 	ADDON_CFLAGS = -DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX
 	ADDON_CPPFLAGS = -DTARGET_STANDALONE
 
-	ADDON_SOURCES_EXCLUDE += libs/ofxLua/scripts/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/swig/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/scripts/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxPd/scripts/%
 
-	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/scripts/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/swig/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/scripts/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/scripts/%
 	
 linux64:
 	ADDON_PKG_CONFIG_LIBRARIES = alsa jack
