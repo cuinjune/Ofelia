@@ -15,7 +15,7 @@ Using ofelia, you can flexibly choose between patching and coding style based on
 For patching style, ofelia currently provides over 300 [openFrameworks](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) and [Pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/pd) abstractions.<br />
 You can see a categorized list of abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
 
-The external is available to be used under macOS, Windows, Linux and Raspberry Pi.
+The external is available to be used under macOS, Windows, Linux and Raspbian.
 
 ## Installation
 * Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
@@ -23,7 +23,7 @@ The external is available to be used under macOS, Windows, Linux and Raspberry P
 * Select the latest version of ofelia to download and install.
 * Try opening patches inside downloaded `ofelia/examples` directory.
 * (Windows) If the library fails to load, open `vc_redist` executable file inside `ofelia` directory to install [Microsoft Visual C++ Redistributable packages](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). And if video examples don't work properly, try installing the [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm).
-* (Linux / Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
+* (Linux / Raspbian) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
 
@@ -34,7 +34,7 @@ The external is available to be used under macOS, Windows, Linux and Raspberry P
 
 ## Description
 
-**ofxOfelia** is ofelia packaged as an openFrameworks addon which enables you to create a standalone application for macOS, Windows, Linux, Raspberry Pi, iOS and Android that can run Pd patches made with ofelia and Pd vanilla objects.
+**ofxOfelia** is ofelia packaged as an openFrameworks addon which enables you to create a standalone application for macOS, Windows, Linux, Raspbian, iOS and Android that can run Pd patches made with ofelia and Pd vanilla objects.
 
 You can share the application with a wide range of audiences including non-Pd users and mobile device users.
 
@@ -42,7 +42,7 @@ You can share the application with a wide range of audiences including non-Pd us
 In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks. The following tools are used to build ofxOfelia project.
 
 * macOS / iOS: [Xcode](https://developer.apple.com/xcode/).
-* Linux / Raspberry Pi: [Makefile](https://www.gnu.org/software/make/).
+* Linux / Raspbian: [Makefile](https://www.gnu.org/software/make/).
 * Windows: [Visual Studio Community 2017](https://visualstudio.microsoft.com/vs/community/).
 * Android: [Android Studio](https://developer.android.com/studio/).
 
@@ -50,14 +50,14 @@ In order to use ofxOfelia, you first need to download and install openFrameworks
 * Make sure you have openFrameworks setup on your desktop.
 * Download [ofxOfelia_targetOS.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
 Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
-* (Linux / Raspberry Pi) Open the Terminal and run the following to update openFrameworks.
+* (Linux / Raspbian) Open the Terminal and run the following to update openFrameworks.
   <pre>cd OF/addons/ofxOfelia/scripts/(targetOS)
   sudo ./updateOF.sh</pre>
   
 ## Building the external
 * (macOS) Open `OF/addons/ofxOfelia/macOSExternal/ofelia.xcodeproj` with Xcode and build the project.
 * (Windows) Open `OF/addons/ofxOfelia/WindowsExternal/ofelia.sln` with Visual Studio and build the solution.
-* (Linux / Raspberry Pi) Open the Terminal and run the following command to build the project.
+* (Linux / Raspbian) Open the Terminal and run the following command to build the project.
   <pre>cd OF/addons/ofxOfelia/LinuxExternal
   make</pre>
 * Copy the generated binaries from `OF/addons/ofxOfelia/(targetOS)/bin` into the Pd externals directory.
@@ -65,7 +65,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 ## Running the standalone example
 * (macOS) Open `OF/addons/ofxOfelia/macOSExample/macOSExample.xcodeproj` with Xcode and run the project.
 * (Windows) Open `OF/addons/ofxOfelia/WindowsExample/WindowsExample.sln` with Visual Studio and run the solution.
-* (Linux / Raspberry Pi) Open the Terminal and run the following command to run the project.
+* (Linux / Raspbian) Open the Terminal and run the following command to run the project.
   <pre>cd OF/addons/ofxOfelia/LinuxExample
   make && make RunRelease</pre>
 * (iOS) Open `OF/addons/ofxOfelia/iOSExample/iOSExample.xcodeproj` with Xcode and run the project.
