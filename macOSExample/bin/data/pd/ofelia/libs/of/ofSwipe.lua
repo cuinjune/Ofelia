@@ -31,5 +31,5 @@ function ofelia.swipe(e)
   if not enabled then
     return
   end
-  return e
+  return {e.dir, e.id}
 end

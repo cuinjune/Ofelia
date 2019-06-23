@@ -291,8 +291,13 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, const std
 
 static void callEventListener(ofxOfeliaData *x, t_symbol *s, const std::pair<int, int> &e)
 {
-    t_atom av[2];
-    SETFLOAT(av, static_cast<t_float>(e.first));
-    SETFLOAT(av + 1, static_cast<t_float>(e.second));
-    x->lua.doFunction(s, 2, av);
+    int top; if (!x->lua.isFunction(s, top)) return;
+    lua_State *L = x->lua.L;
+    lua_newtable(L);
+    lua_pushinteger(L, static_cast<lua_Integer>(e.first));
+    lua_setfield(L, -2, "dir");
+    lua_pushinteger(L, static_cast<lua_Integer>(e.second));
+    lua_setfield(L, -2, "id");
+    x->lua.callFunction(top);
+    lua_pop(L, 1);
 }
