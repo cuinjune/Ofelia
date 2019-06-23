@@ -1,3 +1,9 @@
+v2.3.1: 23 June 2019
+
+* added ios and android specific listener abstractions
+* updated "ofelia/help-intro.pd"
+* fixed scripts for installing dependencies on linux and raspbian
+
 v2.3.0: 21 June 2019
 
 * added a logger channel to pass on OF logs to the pd console

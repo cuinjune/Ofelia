@@ -6,10 +6,10 @@
 class ofApp : public ofBaseApp
 {
 public:
-    void setup(ofEventArgs &e);
-    void update(ofEventArgs &e);
-    void draw(ofEventArgs &e);
-    void exit(ofEventArgs &e);
+    void setup();
+    void update();
+    void draw();
+    void exit();
     void keyPressed(ofKeyEventArgs &e);
     void keyReleased(ofKeyEventArgs &e);
     void mouseMoved(ofMouseEventArgs &e);

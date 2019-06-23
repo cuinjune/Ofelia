@@ -21,6 +21,19 @@ ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::touchDoubleTapVec;
 ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::touchDownVec;
 ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::touchMovedVec;
 ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::touchUpVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::lostFocusVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::gotFocusVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::gotMemoryWarningVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::deviceOrientationChangedVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::launchedWithURLVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::swipeVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::pauseVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::stopVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::resumeVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::reloadTexturesVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::backPressedVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::okPressedVec;
+ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::cancelPressedVec;
 
 ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
 {
@@ -66,6 +79,32 @@ ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
         return &touchMovedVec;
     else if (!strcmp(s->s_name, "touchUp"))
         return &touchUpVec;
+    else if (!strcmp(s->s_name, "lostFocus"))
+        return &lostFocusVec;
+    else if (!strcmp(s->s_name, "gotFocus"))
+        return &gotFocusVec;
+    else if (!strcmp(s->s_name, "gotMemoryWarning"))
+        return &gotMemoryWarningVec;
+    else if (!strcmp(s->s_name, "deviceOrientationChanged"))
+        return &deviceOrientationChangedVec;
+    else if (!strcmp(s->s_name, "launchedWithURL"))
+        return &launchedWithURLVec;
+    else if (!strcmp(s->s_name, "swipe"))
+        return &swipeVec;
+    else if (!strcmp(s->s_name, "pause"))
+        return &pauseVec;
+    else if (!strcmp(s->s_name, "stop"))
+        return &stopVec;
+    else if (!strcmp(s->s_name, "resume"))
+        return &resumeVec;
+    else if (!strcmp(s->s_name, "reloadTextures"))
+        return &reloadTexturesVec;
+    else if (!strcmp(s->s_name, "backPressed"))
+        return &backPressedVec;
+    else if (!strcmp(s->s_name, "okPressed"))
+        return &okPressedVec;
+    else if (!strcmp(s->s_name, "cancelPressed"))
+        return &cancelPressedVec;
     else
         error("ofelia: unknown listener method '%s'", s->s_name);
     return nullptr;
@@ -101,12 +140,12 @@ void ofxOfeliaEvents::sortDataPairVec(DataPairVec &vec)
                 [](const DataPair &a, const DataPair &b) {return a.second < b.second;});
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofEventArgs &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s)
 {
     x->lua.doFunction(s);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofKeyEventArgs &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofKeyEventArgs &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -129,7 +168,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofKeyEventArgs &e, t_s
     lua_pop(L, 1);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofMouseEventArgs &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofMouseEventArgs &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -152,7 +191,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofMouseEventArgs &e, t
     lua_pop(L, 1);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofResizeEventArgs &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofResizeEventArgs &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -165,7 +204,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofResizeEventArgs &e, 
     lua_pop(L, 1);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofMessage &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofMessage &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -176,7 +215,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofMessage &e, t_symbol
     lua_pop(L, 1);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofDragInfo &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofDragInfo &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -199,7 +238,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofDragInfo &e, t_symbo
     lua_pop(L, 1);
 }
 
-void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofTouchEventArgs &e, t_symbol *s)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofTouchEventArgs &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;
@@ -238,4 +277,22 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, ofTouchEventArgs &e, t
     lua_setfield(L, -2, "yaccel");
     x->lua.callFunction(top);
     lua_pop(L, 1);
+}
+
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, const int e)
+{
+    x->lua.doFunction(s, static_cast<t_floatarg>(e));
+}
+
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, const std::string &e)
+{
+    x->lua.doFunction(s, gensym(e.c_str()));
+}
+
+static void callEventListener(ofxOfeliaData *x, t_symbol *s, const std::pair<int, int> &e)
+{
+    t_atom av[2];
+    SETFLOAT(av, static_cast<t_float>(e.first));
+    SETFLOAT(av + 1, static_cast<t_float>(e.second));
+    x->lua.doFunction(s, 2, av);
 }

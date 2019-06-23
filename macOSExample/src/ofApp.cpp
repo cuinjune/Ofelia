@@ -1,7 +1,7 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(ofEventArgs &e)
+void ofApp::setup()
 {
     // basic settings
     const int numInChannels = 0; // number of audio input channels to use
@@ -24,25 +24,25 @@ void ofApp::setup(ofEventArgs &e)
     {
         OF_EXIT_APP(1);
     }
-    ofelia.setup(e);
+    ofelia.setup();
 }
 
 //--------------------------------------------------------------
-void ofApp::update(ofEventArgs &e)
+void ofApp::update()
 {
-    ofelia.update(e);
+    ofelia.update();
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(ofEventArgs &e)
+void ofApp::draw()
 {
-    ofelia.draw(e);
+    ofelia.draw();
 }
 
 //--------------------------------------------------------------
-void ofApp::exit(ofEventArgs &e)
+void ofApp::exit()
 {
-    ofelia.exit(e);
+    ofelia.exit();
     
     // clear resources
     ofelia.clear();

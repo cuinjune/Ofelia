@@ -23,21 +23,34 @@ public:
     static void addDataPair(DataPairVec &vec, ofxOfeliaData *x, t_floatarg f);
     static void removeDataPair(DataPairVec &vec, ofxOfeliaData *x);
     static void sortDataPairVec(DataPairVec &vec);
-    static void callEventListener(ofxOfeliaData *x, ofEventArgs &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofKeyEventArgs &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofMouseEventArgs &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofResizeEventArgs &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofMessage &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofDragInfo &e, t_symbol *s);
-    static void callEventListener(ofxOfeliaData *x, ofTouchEventArgs &e, t_symbol *s);
-    template<typename T>
-    static void callEventListeners(DataPairVec &vec, T &e, t_symbol *s)
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofKeyEventArgs &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofMouseEventArgs &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofResizeEventArgs &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofMessage &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofDragInfo &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, ofTouchEventArgs &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, const int e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, const std::string &e);
+    static void callEventListener(ofxOfeliaData *x, t_symbol *s, const std::pair<int, int> &e);
+    static void callEventListeners(DataPairVec &vec, t_symbol *s)
     {
         sortDataPairVec(vec);
         for (const auto &i : vec)
         {
             PD_SYS_LOCK();
-            callEventListener(i.first, e, s);
+            callEventListener(i.first, s);
+            PD_SYS_UNLOCK();
+        }
+    }
+    template<typename T>
+    static void callEventListeners(DataPairVec &vec, t_symbol *s, T &e)
+    {
+        sortDataPairVec(vec);
+        for (const auto &i : vec)
+        {
+            PD_SYS_LOCK();
+            callEventListener(i.first, s, e);
             PD_SYS_UNLOCK();
         }
     }
@@ -63,5 +76,18 @@ public:
     static DataPairVec touchDownVec;
     static DataPairVec touchMovedVec;
     static DataPairVec touchUpVec;
+    static DataPairVec lostFocusVec;
+    static DataPairVec gotFocusVec;
+    static DataPairVec gotMemoryWarningVec;
+    static DataPairVec deviceOrientationChangedVec;
+    static DataPairVec launchedWithURLVec;
+    static DataPairVec swipeVec;
+    static DataPairVec pauseVec;
+    static DataPairVec stopVec;
+    static DataPairVec resumeVec;
+    static DataPairVec reloadTexturesVec;
+    static DataPairVec backPressedVec;
+    static DataPairVec okPressedVec;
+    static DataPairVec cancelPressedVec;
 private:
 };

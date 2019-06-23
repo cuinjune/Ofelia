@@ -28,10 +28,10 @@ public:
     void clear();
     
     // event listeners
-    void setup(ofEventArgs &e);
-    void update(ofEventArgs &e);
-    void draw(ofEventArgs &e);
-    void exit(ofEventArgs &e);
+    void setup();
+    void update();
+    void draw();
+    void exit();
     void keyPressed(ofKeyEventArgs &e);
     void keyReleased(ofKeyEventArgs &e);
     void mouseMoved(ofMouseEventArgs &e);
@@ -49,6 +49,23 @@ public:
     void touchDown(ofTouchEventArgs &e);
     void touchMoved(ofTouchEventArgs &e);
     void touchUp(ofTouchEventArgs &e);
+    
+    // ios specific listeners
+    void lostFocus();
+    void gotFocus();
+    void gotMemoryWarning();
+    void deviceOrientationChanged(const int e);
+    void launchedWithURL(const std::string &e);
+    
+    // android specific listeners
+    void swipe(const std::pair<int, int> &e);
+    void pause();
+    void stop();
+    void resume();
+    void reloadTextures();
+    bool backPressed();
+    void okPressed();
+    void cancelPressed();
     
     // audio callbacks
     void audioReceived(float *input, int bufferSize, int nChannels);

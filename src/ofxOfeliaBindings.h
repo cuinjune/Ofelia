@@ -207,90 +207,90 @@ private:
     }
     void setup(ofEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::setupVec, e, gensym("setup"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::setupVec, gensym("setup"));
     }
     void update(ofEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::updateVec, e, gensym("update"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::updateVec, gensym("update"));
     }
     void draw(ofEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::drawVec, e, gensym("draw"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::drawVec, gensym("draw"));
     }
     void exit(ofEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::exitVec, e, gensym("exit"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::exitVec, gensym("exit"));
         removeWindowListeners();
         owner = false;
         exists = false;
     }
     void keyPressed(ofKeyEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::keyPressedVec, e, gensym("keyPressed"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::keyPressedVec, gensym("keyPressed"), e);
     }
     void keyReleased(ofKeyEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::keyReleasedVec, e, gensym("keyReleased"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::keyReleasedVec, gensym("keyReleased"), e);
     }
     void mouseMoved(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseMovedVec, e, gensym("mouseMoved"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseMovedVec, gensym("mouseMoved"), e);
     }
     void mouseDragged(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseDraggedVec, e, gensym("mouseDragged"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseDraggedVec, gensym("mouseDragged"), e);
     }
     void mousePressed(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mousePressedVec, e, gensym("mousePressed"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mousePressedVec, gensym("mousePressed"), e);
     }
     void mouseReleased(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseReleasedVec, e, gensym("mouseReleased"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseReleasedVec, gensym("mouseReleased"), e);
     }
     void mouseScrolled(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseScrolledVec, e, gensym("mouseScrolled"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseScrolledVec, gensym("mouseScrolled"), e);
     }
     void mouseEntered(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseEnteredVec, e, gensym("mouseEntered"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseEnteredVec, gensym("mouseEntered"), e);
     }
     void mouseExited(ofMouseEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseExitedVec, e, gensym("mouseExited"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::mouseExitedVec, gensym("mouseExited"), e);
     }
     void windowResized(ofResizeEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::windowResizedVec, e, gensym("windowResized"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::windowResizedVec, gensym("windowResized"), e);
     }
     void messageReceived(ofMessage &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::messageReceivedVec, e, gensym("messageReceived"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::messageReceivedVec, gensym("messageReceived"), e);
     }
     void dragged(ofDragInfo &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::draggedVec, e, gensym("dragged"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::draggedVec, gensym("dragged"), e);
     }
     void touchCancelled(ofTouchEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchCancelledVec, e, gensym("touchCancelled"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchCancelledVec, gensym("touchCancelled"), e);
     }
     void touchDoubleTap(ofTouchEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchDoubleTapVec, e, gensym("touchDoubleTap"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchDoubleTapVec, gensym("touchDoubleTap"), e);
     }
     void touchDown(ofTouchEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchDownVec, e, gensym("touchDown"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchDownVec, gensym("touchDown"), e);
     }
     void touchMoved(ofTouchEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchMovedVec, e, gensym("touchMoved"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchMovedVec, gensym("touchMoved"), e);
     }
     void touchUp(ofTouchEventArgs &e)
     {
-        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchUpVec, e, gensym("touchUp"));
+        ofxOfeliaEvents::callEventListeners(ofxOfeliaEvents::touchUpVec, gensym("touchUp"), e);
     }
     static void loop(OFWindow *window)
     {
