@@ -49,18 +49,18 @@ cp -rp "../../README.md" "${WindowsPath}"
 cp -rp "../../addon_config.mk" "${WindowsPath}"
 
 # create directory and copy iOS related sources into it
-# iOSPath="ofxOfelia_iOS"
-# rm -rf "${iOSPath}"
-# mkdir "${iOSPath}"
-# mkdir "${iOSPath}/scripts"
-# cp -rp "../../scripts/makeAliases" "${iOSPath}/scripts"
-# cp -rp "../../iOSExample" "${iOSPath}"
-# cp -rp "../../libs" "${iOSPath}"
-# cp -rp "../../src" "${iOSPath}"
-# cp -rp "../../LICENSE.txt" "${iOSPath}"
-# cp -rp "../../CHANGES.txt" "${iOSPath}"
-# cp -rp "../../README.md" "${iOSPath}"
-# cp -rp "../../addon_config.mk" "${iOSPath}"
+iOSPath="ofxOfelia_iOS"
+rm -rf "${iOSPath}"
+mkdir "${iOSPath}"
+mkdir "${iOSPath}/scripts"
+cp -rp "../../scripts/makeAliases" "${iOSPath}/scripts"
+cp -rp "../../iOSExample" "${iOSPath}"
+cp -rp "../../libs" "${iOSPath}"
+cp -rp "../../src" "${iOSPath}"
+cp -rp "../../LICENSE.txt" "${iOSPath}"
+cp -rp "../../CHANGES.txt" "${iOSPath}"
+cp -rp "../../README.md" "${iOSPath}"
+cp -rp "../../addon_config.mk" "${iOSPath}"
 
 # create directory and copy Android related sources into it
 # AndroidPath="ofxOfelia_Android"
@@ -83,12 +83,12 @@ find . -name '.DS_Store' -type f -delete
 zip -r ofxOfelia_macOS.zip ofxOfelia_macOS
 zip -r ofxOfelia_Linux.zip ofxOfelia_Linux
 zip -r ofxOfelia_Windows.zip ofxOfelia_Windows
-# zip -r ofxOfelia_iOS.zip ofxOfelia_iOS
+zip -r ofxOfelia_iOS.zip ofxOfelia_iOS
 # zip -r ofxOfelia_Android.zip ofxOfelia_Android
 
 # remove all created directories
 rm -rf "${macOSPath}"
 rm -rf "${LinuxPath}"
 rm -rf "${WindowsPath}"
-# rm -rf "${iOSPath}"
+rm -rf "${iOSPath}"
 # rm -rf "${AndroidPath}"
