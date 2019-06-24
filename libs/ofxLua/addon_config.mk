@@ -99,10 +99,14 @@ linuxarmv7l:
 	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/ios/%
 
 android/armeabi:
-	# not tested, probably works :)
+	ADDON_CFLAGS += -DLUA_USE_ANDROID
+	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
 
 android/armeabi-v7a:	
-	# not tested, probably works :)
+	ADDON_CFLAGS += -DLUA_USE_ANDROID
+	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
 
 osx:
 	ADDON_CFLAGS += -DLUA_USE_MACOSX

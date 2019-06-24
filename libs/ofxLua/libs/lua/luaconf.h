@@ -72,6 +72,14 @@
 #endif
 
 
+#if defined(LUA_USE_ANDROID)
+#include <android/log.h>
+#define lua_getlocaledecpoint()    '.'
+#define lua_writestring(s,l)        __android_log_write(ANDROID_LOG_DEBUG, "LUA_PRINT", (s))
+#define lua_writeline()             __android_log_write(ANDROID_LOG_DEBUG, "LUA_PRINT", "\n")
+#define lua_writestringerror(s,p)   __android_log_print(ANDROID_LOG_ERROR, "LUA_PRINT", (s), (p))
+#endif
+
 /*
 @@ LUA_C89_NUMBERS ensures that Lua uses the largest types available for
 ** C89 ('long' and 'double'); Windows always has '__int64', so it does

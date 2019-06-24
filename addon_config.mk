@@ -118,11 +118,17 @@ vs:
 
 android/armeabi:
 
-	ADDON_CFLAGS += -DHAVE_LIBDL
+	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+
+	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
 
 android/armeabi-v7a:
 
-	ADDON_CFLAGS += -DHAVE_LIBDL
+	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+
+	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
 
 osx:
 	# osx/iOS only
