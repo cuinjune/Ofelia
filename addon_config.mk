@@ -22,183 +22,160 @@ meta:
 	ADDON_URL = http://github.com/cuinjune/ofxOfelia
 
 common:
-	# required for libpd
-	ADDON_CFLAGS = -DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX
-	ADDON_CPPFLAGS = -DTARGET_STANDALONE
-
+	ADDON_CFLAGS = -DHAVE_UNISTD_H 
+	ADDON_CFLAGS += -DUSEAPI_DUMMY
+	ADDON_CFLAGS += -DPD
+	ADDON_CFLAGS += -DLIBPD_EXTRA
+	ADDON_CFLAGS += -DLIBPD_USE_STD_MUTEX
+	ADDON_CFLAGS += -DTARGET_STANDALONE
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/swig/%
-
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/swig/%
 	
 linux64:
-	ADDON_PKG_CONFIG_LIBRARIES = alsa jack
-	
+	ADDON_PKG_CONFIG_LIBRARIES = alsa
+	ADDON_PKG_CONFIG_LIBRARIES += jack
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	ADDON_CFLAGS += -DLUA_USE_LINUX -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_LINUX
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linux:
-	ADDON_PKG_CONFIG_LIBRARIES = alsa jack
-	
+	ADDON_PKG_CONFIG_LIBRARIES = alsa
+	ADDON_PKG_CONFIG_LIBRARIES += jack
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	ADDON_CFLAGS += -DLUA_USE_LINUX -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_LINUX
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv6l:
 	ADDON_PKG_CONFIG_LIBRARIES = alsa
-	
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
-	ADDON_CFLAGS += -DLUA_USE_LINUX -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_LINUX
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv7l:
 	ADDON_PKG_CONFIG_LIBRARIES = alsa
-	
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	ADDON_CFLAGS += -DLUA_USE_LINUX -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_LINUX
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 msys2:
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
-
-	ADDON_CFLAGS += -DLUA_USE_WINDOWS -DPD_INTERNAL -DHAVE_STRUCT_TIMESPEC
+	ADDON_CFLAGS += -DLUA_USE_WINDOWS
+	ADDON_CFLAGS += -DPD_INTERNAL
+	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
 
 vs:
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
-	
-	ADDON_CFLAGS += -DLUA_USE_WINDOWS -DPD_INTERNAL -DHAVE_STRUCT_TIMESPEC
+	ADDON_CFLAGS += -DLUA_USE_WINDOWS
+	ADDON_CFLAGS += -DPD_INTERNAL
+	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
 
 android/armeabi:
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_ANDROID
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 android/armeabi-v7a:
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
-	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
+	ADDON_CFLAGS += -DLUA_USE_ANDROID
+	ADDON_CFLAGS += -DHAVE_LIBDL
 
 osx:
-	# osx/iOS only
 	ADDON_FRAMEWORKS = CoreMIDI
-	
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
-	ADDON_CFLAGS += -DLUA_USE_MACOSX -DHAVE_LIBDL
-	
-	# fix dispatch.h error with macOS SDK 10.13+
+	ADDON_CFLAGS += -DLUA_USE_MACOSX
+	ADDON_CFLAGS += -DHAVE_LIBDL
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1
 
 ios:
-	# osx/iOS only
 	ADDON_FRAMEWORKS = CoreMIDI
-	
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/desktop/%
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-	
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/desktop/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
-
-	# set No common blocks option to avoid duplicate symbols link error
 	ADDON_CFLAGS += -fcommon
-	
-	# fix dispatch.h error with macOS SDK 10.13+
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1
