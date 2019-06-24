@@ -26,37 +26,64 @@ common:
 	ADDON_CFLAGS = -DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX
 
 linux64:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linux:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv6l:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv7l:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 msys2:
-	# not sure if pd~ is working on Windows, so leave it out
-	ADDON_SOURCES_EXCLUDE = libs/libpd/pure-data/extra/pd~
-	ADDON_INCLUDES_EXCLUDE = libs/libpd/pure-data/extra/pd~
+	ADDON_CFLAGS += -DPD_INTERNAL -DHAVE_STRUCT_TIMESPEC
 
 vs:
+	ADDON_CFLAGS += -DPD_INTERNAL -DHAVE_STRUCT_TIMESPEC
 
 android/armeabi:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 android/armeabi-v7a:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 osx:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 	
@@ -64,6 +91,10 @@ osx:
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1
 
 ios:
+	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
+
+	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+
 	# set No common blocks option to avoid duplicate symbols link error
 	ADDON_CFLAGS += -fcommon
 	
