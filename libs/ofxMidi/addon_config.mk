@@ -119,8 +119,22 @@ vs:
 	ADDON_INCLUDES_EXCLUDE += src/ios/%
 
 android/armeabi:
+	ADDON_SOURCES_EXCLUDE = libs/rtmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/portmidi/%
+	ADDON_SOURCES_EXCLUDE += src/desktop/%
+	
+	ADDON_INCLUDES_EXCLUDE = libs/rtmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/portmidi/%
+	ADDON_INCLUDES_EXCLUDE += src/desktop/%
 
 android/armeabi-v7a:
+	ADDON_SOURCES_EXCLUDE = libs/rtmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/portmidi/%
+	ADDON_SOURCES_EXCLUDE += src/desktop/%
+	
+	ADDON_INCLUDES_EXCLUDE = libs/rtmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/portmidi/%
+	ADDON_INCLUDES_EXCLUDE += src/desktop/%
 
 osx:
 	# osx/iOS only

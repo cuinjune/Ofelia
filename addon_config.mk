@@ -117,16 +117,32 @@ vs:
 	ADDON_CFLAGS += -DLUA_USE_WINDOWS -DPD_INTERNAL -DHAVE_STRUCT_TIMESPEC
 
 android/armeabi:
-
-	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
-	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/desktop/%
 
 	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
 
 android/armeabi-v7a:
-
-	ADDON_SOURCES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
-	ADDON_INCLUDES_EXCLUDE += src/bindings/desktop/% src/bindings/linuxarm/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/desktop/%
+	
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/rtmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/portmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/desktop/%
 
 	ADDON_CFLAGS += -DLUA_USE_ANDROID -DHAVE_LIBDL
 
