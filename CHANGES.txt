@@ -1,8 +1,7 @@
 v2.3.1: 23 June 2019
 
-* added ios and android specific listener abstractions
+* added iOS and Android specific listener abstractions
 * updated "ofelia/help-intro.pd"
-* fixed scripts for installing dependencies on linux and raspbian
 
 v2.3.0: 21 June 2019
 
