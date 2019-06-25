@@ -819,8 +819,6 @@
 					../../../addons/ofxOfelia/libs/ofxLua/src,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/desktop,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/ios,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm,
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src",
 					../../../addons/ofxOfelia/src,
 				);
@@ -926,8 +924,6 @@
 					../../../addons/ofxOfelia/libs/ofxLua/src,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/desktop,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/ios,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm,
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src",
 					../../../addons/ofxOfelia/src,
 				);

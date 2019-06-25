@@ -1,0 +1,40 @@
+#N canvas 720 100 665 489 10;
+#X declare -path ofelia/libs/of;
+#X declare -path ofelia/libs/pd;
+#X obj 28 62 loadbang;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X text 315 398 This example was originally written in Processing.
+https://processing.org/examples/mouse2d.html;
+#X text 25 23 Moving the mouse changes the position and size of each
+box.;
+#X text 180 265 Listen to the movement of mouse cursor. Open the abstraction's
+script to see the types of values it outputs.;
+#X obj 28 104 ofWindow;
+#X obj 28 140 ofSetup;
+#X obj 28 161 ofBackground 51;
+#X obj 28 218 ofDraw;
+#X obj 28 239 ofSetColor 255 204;
+#X obj 28 286 list 0 0 0;
+#X obj 28 307 ofelia f \; local x \, y = a[2] \, a[3] \; ofDrawRectangle(x
+\, ofGetHeight()/2 \, y/2+10 \, y/2+10) \; local inverseX \, inverseY
+= ofGetWidth() - x \, ofGetHeight() - y \; ofDrawRectangle(inverseX
+\, ofGetHeight()/2 \, inverseY/2+10 \, inverseY/2+10) \;;
+#X f 76;
+#X msg 28 83 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 182 ofSetRectMode OF_RECTMODE_CENTER;
+#X obj 462 49 declare -path ofelia/libs/pd;
+#X obj 329 83 *~ 0.1;
+#X obj 329 104 dac~;
+#X obj 329 62 osc~ 440;
+#X obj 85 265 ofTouchMoved;
+#X connect 0 0 12 0;
+#X connect 6 0 7 0;
+#X connect 7 0 13 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 12 0 5 0;
+#X connect 15 0 16 0;
+#X connect 15 0 16 1;
+#X connect 17 0 15 0;
+#X connect 18 0 10 1;

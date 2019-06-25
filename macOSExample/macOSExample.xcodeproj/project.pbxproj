@@ -155,19 +155,19 @@
 		FDED12AD22B3B7FE005D9D62 /* z_print_util.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12A722B3B7FE005D9D62 /* z_print_util.c */; };
 		FDED12AE22B3B7FE005D9D62 /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12A822B3B7FE005D9D62 /* ringbuffer.c */; };
 		FDED12AF22B3B7FE005D9D62 /* z_queued.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12AB22B3B7FE005D9D62 /* z_queued.c */; };
-		FDED12B122B3B819005D9D62 /* bob~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12B022B3B819005D9D62 /* bob~.c */; };
-		FDED12B322B3B822005D9D62 /* bonk~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12B222B3B822005D9D62 /* bonk~.c */; };
 		FDED12B522B3B82B005D9D62 /* choice.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12B422B3B82B005D9D62 /* choice.c */; };
-		FDED12B722B3B832005D9D62 /* fiddle~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12B622B3B832005D9D62 /* fiddle~.c */; };
-		FDED12B922B3B83A005D9D62 /* loop~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12B822B3B83A005D9D62 /* loop~.c */; };
-		FDED12BB22B3B843005D9D62 /* lrshift~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12BA22B3B843005D9D62 /* lrshift~.c */; };
-		FDED12BF22B3B84F005D9D62 /* pd~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12BC22B3B84F005D9D62 /* pd~.c */; };
-		FDED12C022B3B84F005D9D62 /* pdsched.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12BD22B3B84F005D9D62 /* pdsched.c */; };
-		FDED12C122B3B84F005D9D62 /* binarymsg.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12BE22B3B84F005D9D62 /* binarymsg.c */; };
 		FDED12C322B3B85A005D9D62 /* pique.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12C222B3B85A005D9D62 /* pique.c */; };
-		FDED12C522B3B866005D9D62 /* sigmund~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12C422B3B866005D9D62 /* sigmund~.c */; };
 		FDED12C722B3B86E005D9D62 /* stdout.c in Sources */ = {isa = PBXBuildFile; fileRef = FDED12C622B3B86E005D9D62 /* stdout.c */; };
 		FDED135F22B3B96A005D9D62 /* ofxPd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDED135D22B3B96A005D9D62 /* ofxPd.cpp */; };
+		FDF1A0D122C1E463003A82C3 /* bob~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0D022C1E463003A82C3 /* bob~.c */; };
+		FDF1A0D322C1E46E003A82C3 /* bonk~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0D222C1E46E003A82C3 /* bonk~.c */; };
+		FDF1A0D522C1E47C003A82C3 /* fiddle~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0D422C1E47C003A82C3 /* fiddle~.c */; };
+		FDF1A0D722C1E485003A82C3 /* loop~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0D622C1E485003A82C3 /* loop~.c */; };
+		FDF1A0D922C1E48F003A82C3 /* lrshift~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0D822C1E48F003A82C3 /* lrshift~.c */; };
+		FDF1A0DD22C1E4A0003A82C3 /* pd~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0DA22C1E4A0003A82C3 /* pd~.c */; };
+		FDF1A0DE22C1E4A0003A82C3 /* binarymsg.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0DB22C1E4A0003A82C3 /* binarymsg.c */; };
+		FDF1A0DF22C1E4A0003A82C3 /* pdsched.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0DC22C1E4A0003A82C3 /* pdsched.c */; };
+		FDF1A0E122C1E4AB003A82C3 /* sigmund~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0E022C1E4AB003A82C3 /* sigmund~.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -587,20 +587,20 @@
 		FDED12AA22B3B7FE005D9D62 /* ringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ringbuffer.h; path = ../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/ringbuffer.h; sourceTree = "<group>"; };
 		FDED12AB22B3B7FE005D9D62 /* z_queued.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = z_queued.c; path = ../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/z_queued.c; sourceTree = "<group>"; };
 		FDED12AC22B3B7FE005D9D62 /* z_queued.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = z_queued.h; path = ../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util/z_queued.h; sourceTree = "<group>"; };
-		FDED12B022B3B819005D9D62 /* bob~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "bob~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~/bob~.c"; sourceTree = "<group>"; };
-		FDED12B222B3B822005D9D62 /* bonk~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "bonk~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~/bonk~.c"; sourceTree = "<group>"; };
 		FDED12B422B3B82B005D9D62 /* choice.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = choice.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice/choice.c"; sourceTree = "<group>"; };
-		FDED12B622B3B832005D9D62 /* fiddle~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "fiddle~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~/fiddle~.c"; sourceTree = "<group>"; };
-		FDED12B822B3B83A005D9D62 /* loop~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "loop~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~/loop~.c"; sourceTree = "<group>"; };
-		FDED12BA22B3B843005D9D62 /* lrshift~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "lrshift~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~/lrshift~.c"; sourceTree = "<group>"; };
-		FDED12BC22B3B84F005D9D62 /* pd~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "pd~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~/pd~.c"; sourceTree = "<group>"; };
-		FDED12BD22B3B84F005D9D62 /* pdsched.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pdsched.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~/pdsched.c"; sourceTree = "<group>"; };
-		FDED12BE22B3B84F005D9D62 /* binarymsg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = binarymsg.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~/binarymsg.c"; sourceTree = "<group>"; };
 		FDED12C222B3B85A005D9D62 /* pique.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pique.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique/pique.c"; sourceTree = "<group>"; };
-		FDED12C422B3B866005D9D62 /* sigmund~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sigmund~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~/sigmund~.c"; sourceTree = "<group>"; };
 		FDED12C622B3B86E005D9D62 /* stdout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stdout.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout/stdout.c"; sourceTree = "<group>"; };
 		FDED135D22B3B96A005D9D62 /* ofxPd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxPd.cpp; path = ../../../addons/ofxOfelia/libs/ofxPd/src/ofxPd.cpp; sourceTree = "<group>"; };
 		FDED135E22B3B96A005D9D62 /* ofxPd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxPd.h; path = ../../../addons/ofxOfelia/libs/ofxPd/src/ofxPd.h; sourceTree = "<group>"; };
+		FDF1A0D022C1E463003A82C3 /* bob~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "bob~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob/bob~.c"; sourceTree = "<group>"; };
+		FDF1A0D222C1E46E003A82C3 /* bonk~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "bonk~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk/bonk~.c"; sourceTree = "<group>"; };
+		FDF1A0D422C1E47C003A82C3 /* fiddle~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "fiddle~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle/fiddle~.c"; sourceTree = "<group>"; };
+		FDF1A0D622C1E485003A82C3 /* loop~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "loop~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop/loop~.c"; sourceTree = "<group>"; };
+		FDF1A0D822C1E48F003A82C3 /* lrshift~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "lrshift~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift/lrshift~.c"; sourceTree = "<group>"; };
+		FDF1A0DA22C1E4A0003A82C3 /* pd~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "pd~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd/pd~.c"; sourceTree = "<group>"; };
+		FDF1A0DB22C1E4A0003A82C3 /* binarymsg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = binarymsg.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd/binarymsg.c"; sourceTree = "<group>"; };
+		FDF1A0DC22C1E4A0003A82C3 /* pdsched.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pdsched.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd/pdsched.c"; sourceTree = "<group>"; };
+		FDF1A0E022C1E4AB003A82C3 /* sigmund~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sigmund~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund/sigmund~.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,26 +628,26 @@
 		09E1541D226A2AAF6267DAFC /* extra */ = {
 			isa = PBXGroup;
 			children = (
-				D872F289CFA7CD9AFE0F20F8 /* bob~ */,
-				B570FF0AC927DB9077F8CBDA /* bonk~ */,
+				D872F289CFA7CD9AFE0F20F8 /* bob */,
+				B570FF0AC927DB9077F8CBDA /* bonk */,
 				59C097687A61F65E75D85DAA /* choice */,
-				C5626E4CB747FA9B0084A213 /* fiddle~ */,
-				0A321944D5721F4BA5BA0BCD /* loop~ */,
-				3FCB02CD62D958684E98D95D /* lrshift~ */,
-				4B1188E8C2505D8793B4851A /* pd~ */,
+				C5626E4CB747FA9B0084A213 /* fiddle */,
+				0A321944D5721F4BA5BA0BCD /* loop */,
+				3FCB02CD62D958684E98D95D /* lrshift */,
+				4B1188E8C2505D8793B4851A /* pd */,
 				A51166FD6D2427E81E16E68A /* pique */,
-				3DC9935DA0ABF1E5E196FBBE /* sigmund~ */,
+				3DC9935DA0ABF1E5E196FBBE /* sigmund */,
 				C644EE91AAB9A26408E087F9 /* stdout */,
 			);
 			name = extra;
 			sourceTree = "<group>";
 		};
-		0A321944D5721F4BA5BA0BCD /* loop~ */ = {
+		0A321944D5721F4BA5BA0BCD /* loop */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12B822B3B83A005D9D62 /* loop~.c */,
+				FDF1A0D622C1E485003A82C3 /* loop~.c */,
 			);
-			name = "loop~";
+			name = loop;
 			sourceTree = "<group>";
 		};
 		13ED62F0CD3B889287749715 /* ofxLua */ = {
@@ -774,30 +774,30 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		3DC9935DA0ABF1E5E196FBBE /* sigmund~ */ = {
+		3DC9935DA0ABF1E5E196FBBE /* sigmund */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12C422B3B866005D9D62 /* sigmund~.c */,
+				FDF1A0E022C1E4AB003A82C3 /* sigmund~.c */,
 			);
-			name = "sigmund~";
+			name = sigmund;
 			sourceTree = "<group>";
 		};
-		3FCB02CD62D958684E98D95D /* lrshift~ */ = {
+		3FCB02CD62D958684E98D95D /* lrshift */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12BA22B3B843005D9D62 /* lrshift~.c */,
+				FDF1A0D822C1E48F003A82C3 /* lrshift~.c */,
 			);
-			name = "lrshift~";
+			name = lrshift;
 			sourceTree = "<group>";
 		};
-		4B1188E8C2505D8793B4851A /* pd~ */ = {
+		4B1188E8C2505D8793B4851A /* pd */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12BE22B3B84F005D9D62 /* binarymsg.c */,
-				FDED12BC22B3B84F005D9D62 /* pd~.c */,
-				FDED12BD22B3B84F005D9D62 /* pdsched.c */,
+				FDF1A0DB22C1E4A0003A82C3 /* binarymsg.c */,
+				FDF1A0DA22C1E4A0003A82C3 /* pd~.c */,
+				FDF1A0DC22C1E4A0003A82C3 /* pdsched.c */,
 			);
-			name = "pd~";
+			name = pd;
 			sourceTree = "<group>";
 		};
 		59C097687A61F65E75D85DAA /* choice */ = {
@@ -927,12 +927,12 @@
 			name = pique;
 			sourceTree = "<group>";
 		};
-		B570FF0AC927DB9077F8CBDA /* bonk~ */ = {
+		B570FF0AC927DB9077F8CBDA /* bonk */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12B222B3B822005D9D62 /* bonk~.c */,
+				FDF1A0D222C1E46E003A82C3 /* bonk~.c */,
 			);
-			name = "bonk~";
+			name = bonk;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -1031,12 +1031,12 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		C5626E4CB747FA9B0084A213 /* fiddle~ */ = {
+		C5626E4CB747FA9B0084A213 /* fiddle */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12B622B3B832005D9D62 /* fiddle~.c */,
+				FDF1A0D422C1E47C003A82C3 /* fiddle~.c */,
 			);
-			name = "fiddle~";
+			name = fiddle;
 			sourceTree = "<group>";
 		};
 		C644EE91AAB9A26408E087F9 /* stdout */ = {
@@ -1056,12 +1056,12 @@
 			name = ofxPd;
 			sourceTree = "<group>";
 		};
-		D872F289CFA7CD9AFE0F20F8 /* bob~ */ = {
+		D872F289CFA7CD9AFE0F20F8 /* bob */ = {
 			isa = PBXGroup;
 			children = (
-				FDED12B022B3B819005D9D62 /* bob~.c */,
+				FDF1A0D022C1E463003A82C3 /* bob~.c */,
 			);
-			name = "bob~";
+			name = bob;
 			sourceTree = "<group>";
 		};
 		E42962AA2163EDD300A6A9E2 /* openFrameworks */ = {
@@ -1552,11 +1552,14 @@
 				FD0C334122B7B88900937887 /* ofxOfeliaSet.cpp in Sources */,
 				FDED124D22B3B6E1005D9D62 /* lctype.c in Sources */,
 				FDED12C722B3B86E005D9D62 /* stdout.c in Sources */,
+				FDF1A0D922C1E48F003A82C3 /* lrshift~.c in Sources */,
 				FDED126822B3B6E1005D9D62 /* lbitlib.c in Sources */,
 				FD0C334C22B7B88900937887 /* ofxOfeliaEvents.cpp in Sources */,
+				FDF1A0D122C1E463003A82C3 /* bob~.c in Sources */,
 				FD0C2E6722B68A9800937887 /* g_scalar.c in Sources */,
 				FDED126222B3B6E1005D9D62 /* lmem.c in Sources */,
 				FDED129022B3B775005D9D62 /* ofxMidiClock.cpp in Sources */,
+				FDF1A0DE22C1E4A0003A82C3 /* binarymsg.c in Sources */,
 				FD0C2E4C22B68A9800937887 /* d_global.c in Sources */,
 				FD0C2E6222B68A9800937887 /* x_midi.c in Sources */,
 				FDED125722B3B6E1005D9D62 /* lcode.c in Sources */,
@@ -1582,6 +1585,7 @@
 				FDED125422B3B6E1005D9D62 /* ltable.c in Sources */,
 				FD0C334F22B7B88900937887 /* ofxOfeliaSignal.cpp in Sources */,
 				FD0C2E4622B68A9800937887 /* s_loader.c in Sources */,
+				FDF1A0DF22C1E4A0003A82C3 /* pdsched.c in Sources */,
 				FD0C2E7E22B68A9800937887 /* g_numbox.c in Sources */,
 				FD0C2E7722B68A9800937887 /* g_graph.c in Sources */,
 				FD0C334222B7B88900937887 /* ofxOfeliaExists.cpp in Sources */,
@@ -1606,24 +1610,21 @@
 				FDED128D22B3B775005D9D62 /* ofxMidiOut.cpp in Sources */,
 				FD0C2E8822B68A9800937887 /* g_clone.c in Sources */,
 				FDED126722B3B6E1005D9D62 /* ldump.c in Sources */,
-				FDED12B322B3B822005D9D62 /* bonk~.c in Sources */,
 				FD0C2E7C22B68A9800937887 /* g_hdial.c in Sources */,
 				FD0C2E6922B68A9800937887 /* x_list.c in Sources */,
-				FDED12C022B3B84F005D9D62 /* pdsched.c in Sources */,
 				FDED12AE22B3B7FE005D9D62 /* ringbuffer.c in Sources */,
 				FDED126322B3B6E1005D9D62 /* lapi.c in Sources */,
 				FDED125D22B3B6E1005D9D62 /* ldebug.c in Sources */,
 				FD0C334922B7B88900937887 /* ofxOfeliaData.cpp in Sources */,
 				FD0C2E5F22B68A9800937887 /* g_editor.c in Sources */,
 				FDED127A22B3B75F005D9D62 /* RtMidi.cpp in Sources */,
-				FDED12BF22B3B84F005D9D62 /* pd~.c in Sources */,
+				FDF1A0DD22C1E4A0003A82C3 /* pd~.c in Sources */,
 				FDED12AD22B3B7FE005D9D62 /* z_print_util.c in Sources */,
 				FDED128F22B3B775005D9D62 /* ofxMidi.cpp in Sources */,
 				FD0C2E7F22B68A9800937887 /* m_atom.c in Sources */,
 				FDED12A522B3B7F1005D9D62 /* x_libpdreceive.c in Sources */,
 				FDED127122B3B71D005D9D62 /* ofxLuaFileWriter.cpp in Sources */,
 				FDED124E22B3B6E1005D9D62 /* lutf8lib.c in Sources */,
-				FDED12C122B3B84F005D9D62 /* binarymsg.c in Sources */,
 				FD0C2E4322B68A9800937887 /* d_soundfile.c in Sources */,
 				FDED129722B3B781005D9D62 /* ofxRtMidiOut.cpp in Sources */,
 				FD0C2E5B22B68A9800937887 /* g_editor_extras.c in Sources */,
@@ -1634,7 +1635,6 @@
 				FDED127522B3B729005D9D62 /* glmBindings.cpp in Sources */,
 				FD0C333F22B7B88900937887 /* ofxOfelia.cpp in Sources */,
 				FDED12C322B3B85A005D9D62 /* pique.c in Sources */,
-				FDED12B122B3B819005D9D62 /* bob~.c in Sources */,
 				FD0C2E7022B68A9800937887 /* x_text.c in Sources */,
 				FD0C334622B7B88900937887 /* ofxOfeliaGet.cpp in Sources */,
 				FD0C2E4F22B68A9800937887 /* g_vumeter.c in Sources */,
@@ -1657,6 +1657,7 @@
 				FD0C2E6122B68A9800937887 /* s_audio.c in Sources */,
 				FDED125F22B3B6E1005D9D62 /* lvm.c in Sources */,
 				FD0C2E5E22B68A9800937887 /* d_misc.c in Sources */,
+				FDF1A0D522C1E47C003A82C3 /* fiddle~.c in Sources */,
 				FD0C2E7922B68A9800937887 /* g_traversal.c in Sources */,
 				FD0C334022B7B88900937887 /* ofxOfeliaLua.cpp in Sources */,
 				FD0C2E4922B68A9800937887 /* d_ctl.c in Sources */,
@@ -1669,13 +1670,14 @@
 				FD0C334722B7B88900937887 /* ofxOfeliaClient.cpp in Sources */,
 				FD0C2E6A22B68A9800937887 /* x_vexp_fun.c in Sources */,
 				FD0C2E5922B68A9800937887 /* x_vexp_if.c in Sources */,
+				FDF1A0D722C1E485003A82C3 /* loop~.c in Sources */,
 				FDED124C22B3B6E1005D9D62 /* lcorolib.c in Sources */,
 				FD0C2E5722B68A9800937887 /* x_gui.c in Sources */,
 				FD0C2E5C22B68A9800937887 /* g_bang.c in Sources */,
 				FDED128B22B3B775005D9D62 /* ofxMidiMessage.cpp in Sources */,
 				FD0C2E7322B68A9800937887 /* g_canvas.c in Sources */,
 				FD0C2E8222B68A9800937887 /* x_scalar.c in Sources */,
-				FDED12B922B3B83A005D9D62 /* loop~.c in Sources */,
+				FDF1A0E122C1E4AB003A82C3 /* sigmund~.c in Sources */,
 				FD0C2E8922B68A9800937887 /* x_vexp.c in Sources */,
 				FD0C2E7D22B68A9800937887 /* d_osc.c in Sources */,
 				FD0C2E6022B68A9800937887 /* d_fft_fftsg.c in Sources */,
@@ -1696,17 +1698,15 @@
 				FD0C2E6D22B68A9800937887 /* g_text.c in Sources */,
 				FDED125A22B3B6E1005D9D62 /* lzio.c in Sources */,
 				FD0C2E7822B68A9800937887 /* m_sched.c in Sources */,
-				FDED12C522B3B866005D9D62 /* sigmund~.c in Sources */,
+				FDF1A0D322C1E46E003A82C3 /* bonk~.c in Sources */,
 				FD0C2E6622B68A9800937887 /* m_obj.c in Sources */,
 				FDED125122B3B6E1005D9D62 /* llex.c in Sources */,
 				FD0C334D22B7B88900937887 /* ofxOfeliaIO.cpp in Sources */,
 				FD0C334E22B7B88900937887 /* ofxOfeliaSetup.cpp in Sources */,
-				FDED12BB22B3B843005D9D62 /* lrshift~.c in Sources */,
 				FDED125922B3B6E1005D9D62 /* ldblib.c in Sources */,
 				FD0C2E6E22B68A9800937887 /* m_memory.c in Sources */,
 				FDED125C22B3B6E1005D9D62 /* lgc.c in Sources */,
 				FDED126A22B3B6E1005D9D62 /* lundump.c in Sources */,
-				FDED12B722B3B832005D9D62 /* fiddle~.c in Sources */,
 				FD0C2E8722B68A9800937887 /* m_glob.c in Sources */,
 				FDED129122B3B775005D9D62 /* ofxBaseMidi.cpp in Sources */,
 			);
@@ -1822,14 +1822,10 @@
 					../../../addons/ofxOfelia/libs/ofxLua/src,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/desktop,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/ios,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs,
-					../../../addons/ofxOfelia/libs/ofxMidi/libs/pgmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs/rtmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/src,
 					../../../addons/ofxOfelia/libs/ofxMidi/src/desktop,
-					../../../addons/ofxOfelia/libs/ofxMidi/src/ios,
 					../../../addons/ofxOfelia/libs/ofxPd/libs,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp,
@@ -1837,15 +1833,15 @@
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util,
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src",
 					../../../addons/ofxOfelia/libs/ofxPd/src,
@@ -2065,14 +2061,10 @@
 					../../../addons/ofxOfelia/libs/ofxLua/src,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/desktop,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/ios,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs,
-					../../../addons/ofxOfelia/libs/ofxMidi/libs/pgmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs/rtmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/src,
 					../../../addons/ofxOfelia/libs/ofxMidi/src/desktop,
-					../../../addons/ofxOfelia/libs/ofxMidi/src/ios,
 					../../../addons/ofxOfelia/libs/ofxPd/libs,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp,
@@ -2080,15 +2072,15 @@
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util,
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src",
 					../../../addons/ofxOfelia/libs/ofxPd/src,
@@ -2156,14 +2148,10 @@
 					../../../addons/ofxOfelia/libs/ofxLua/src,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings,
 					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/desktop,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/ios,
-					../../../addons/ofxOfelia/libs/ofxLua/src/bindings/linuxarm,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs,
-					../../../addons/ofxOfelia/libs/ofxMidi/libs/pgmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/libs/rtmidi,
 					../../../addons/ofxOfelia/libs/ofxMidi/src,
 					../../../addons/ofxOfelia/libs/ofxMidi/src/desktop,
-					../../../addons/ofxOfelia/libs/ofxMidi/src/ios,
 					../../../addons/ofxOfelia/libs/ofxPd/libs,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd,
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/cpp,
@@ -2171,15 +2159,15 @@
 					../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/libpd_wrapper/util,
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bob",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/bonk",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/choice",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift~",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/fiddle",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/loop",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/lrshift",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pique",
-					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund~",
+					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/stdout",
 					"../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src",
 					../../../addons/ofxOfelia/libs/ofxPd/src,

@@ -3,13 +3,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup()
-{
-    // register touch events
-    ofRegisterTouchEvents(this);
-    
-    // iOSAlerts will be sent to this
-    ofxiOSAlerts.addListener(this);
-    
+{    
     // basic settings
     const int numInChannels = 0; // number of audio input channels to use
     const int numOutChannels = 2; // number of audio output channels to use

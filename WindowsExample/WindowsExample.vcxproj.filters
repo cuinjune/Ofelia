@@ -223,38 +223,11 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_queued.c">
       <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~\bob~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~\bonk~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice\choice.c">
       <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~\fiddle~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~\loop~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~\lrshift~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\binarymsg.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\pdsched.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~\pd~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique\pique.c">
       <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~\sigmund~.c">
-      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\stdout\stdout.c">
       <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\stdout</Filter>
@@ -481,6 +454,33 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\src\ofxPd.cpp">
       <Filter>addons\ofxOfelia\libs\ofxPd\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob\bob~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk\bonk~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle\fiddle~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop\loop~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift\lrshift~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd\binarymsg.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd\pd~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd\pdsched.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund\sigmund~.c">
+      <Filter>addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -555,32 +555,11 @@
     <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra">
       <UniqueIdentifier>{21a22b22-2f56-408f-b58d-49755ca5d9de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~">
-      <UniqueIdentifier>{048dc704-c703-48a6-b3ae-8bbf3ac9a692}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~">
-      <UniqueIdentifier>{a23b14f9-1f01-4439-a776-80e836ec042e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice">
       <UniqueIdentifier>{d4819353-326d-4062-ac0c-94b6ac367ee9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~">
-      <UniqueIdentifier>{7c296339-db71-4150-b724-12a28d0acd92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~">
-      <UniqueIdentifier>{e0d47116-1bf3-4102-972e-db42cc96fdfe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~">
-      <UniqueIdentifier>{93d5dd87-6169-4829-9972-0ccd114adec3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~">
-      <UniqueIdentifier>{64644ae2-b5ed-4c7d-8fc3-e1a9b95aa96b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique">
       <UniqueIdentifier>{7845b680-54e8-4b7a-b9cd-90ee5ad08546}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~">
-      <UniqueIdentifier>{b0c46d7c-4377-44da-97aa-222e08b36645}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\stdout">
       <UniqueIdentifier>{98f7631e-87c8-42a4-b1a5-30ac7de63fdc}</UniqueIdentifier>
@@ -590,6 +569,27 @@
     </Filter>
     <Filter Include="addons\ofxOfelia\libs\ofxPd\src">
       <UniqueIdentifier>{d9c082fb-e4c5-4164-bfd9-7e80b56d0cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob">
+      <UniqueIdentifier>{048dc704-c703-48a6-b3ae-8bbf3ac9a692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk">
+      <UniqueIdentifier>{a23b14f9-1f01-4439-a776-80e836ec042e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle">
+      <UniqueIdentifier>{7c296339-db71-4150-b724-12a28d0acd92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop">
+      <UniqueIdentifier>{e0d47116-1bf3-4102-972e-db42cc96fdfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift">
+      <UniqueIdentifier>{93d5dd87-6169-4829-9972-0ccd114adec3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd">
+      <UniqueIdentifier>{64644ae2-b5ed-4c7d-8fc3-e1a9b95aa96b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund">
+      <UniqueIdentifier>{b0c46d7c-4377-44da-97aa-222e08b36645}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

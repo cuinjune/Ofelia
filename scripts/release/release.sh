@@ -63,18 +63,25 @@ cp -rp "../../README.md" "${iOSPath}"
 cp -rp "../../addon_config.mk" "${iOSPath}"
 
 # create directory and copy Android related sources into it
-# AndroidPath="ofxOfelia_Android"
-# rm -rf "${AndroidPath}"
-# mkdir "${AndroidPath}"
-# mkdir "${AndroidPath}/scripts"
-# cp -rp "../../scripts/makeAliases" "${AndroidPath}/scripts"
-# cp -rp "../../AndroidExample" "${AndroidPath}"
-# cp -rp "../../libs" "${AndroidPath}"
-# cp -rp "../../src" "${AndroidPath}"
-# cp -rp "../../LICENSE.txt" "${AndroidPath}"
-# cp -rp "../../CHANGES.txt" "${AndroidPath}"
-# cp -rp "../../README.md" "${AndroidPath}"
-# cp -rp "../../addon_config.mk" "${AndroidPath}"
+AndroidPath="ofxOfelia_Android"
+rm -rf "${AndroidPath}"
+mkdir "${AndroidPath}"
+mkdir "${AndroidPath}/scripts"
+cp -rp "../../scripts/makeAliases" "${AndroidPath}/scripts"
+cp -rp "../../AndroidExample" "${AndroidPath}"
+cp -rp "../../libs" "${AndroidPath}"
+cp -rp "../../src" "${AndroidPath}"
+cp -rp "../../LICENSE.txt" "${AndroidPath}"
+cp -rp "../../CHANGES.txt" "${AndroidPath}"
+cp -rp "../../README.md" "${AndroidPath}"
+cp -rp "../../addon_config.mk" "${AndroidPath}"
+rm -rf "../../libs/ofxLua/swig"
+rm -rf "../../libs/ofxLua/src/bindings/desktop"
+rm -rf "../../libs/ofxLua/src/bindings/linuxarm"
+rm -rf "../../libs/ofxMidi/libs/pgmidi"
+rm -rf "../../libs/ofxMidi/src/ios"
+rm -rf "../../libs/ofxPd/libs/libpd/lib"
+rm -rf "../../libs/ofxPd/libs/libpd/pure-data"
 
 # delete all .DS_Store files
 find . -name '.DS_Store' -type f -delete
@@ -84,11 +91,11 @@ zip -r ofxOfelia_macOS.zip ofxOfelia_macOS
 zip -r ofxOfelia_Linux.zip ofxOfelia_Linux
 zip -r ofxOfelia_Windows.zip ofxOfelia_Windows
 zip -r ofxOfelia_iOS.zip ofxOfelia_iOS
-# zip -r ofxOfelia_Android.zip ofxOfelia_Android
+zip -r ofxOfelia_Android.zip ofxOfelia_Android
 
 # remove all created directories
 rm -rf "${macOSPath}"
 rm -rf "${LinuxPath}"
 rm -rf "${WindowsPath}"
 rm -rf "${iOSPath}"
-# rm -rf "${AndroidPath}"
+rm -rf "${AndroidPath}"
