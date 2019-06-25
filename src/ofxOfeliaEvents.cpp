@@ -289,7 +289,7 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, const std
     x->lua.doFunction(s, gensym(e.c_str()));
 }
 
-static void callEventListener(ofxOfeliaData *x, t_symbol *s, const std::pair<int, int> &e)
+void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, const std::pair<int, int> &e)
 {
     int top; if (!x->lua.isFunction(s, top)) return;
     lua_State *L = x->lua.L;

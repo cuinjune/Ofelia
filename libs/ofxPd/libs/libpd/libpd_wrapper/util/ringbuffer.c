@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#if __STDC_VERSION__ >= 201112L // use stdatomic if C11 is available
+#if __STDC_VERSION__ >= 201112L && !defined(LUA_USE_ANDROID) // use stdatomic if C11 is available
   #include <stdatomic.h>
   #define SYNC_FETCH(ptr) atomic_fetch_or((_Atomic int *)ptr, 0)
   #define SYNC_COMPARE_AND_SWAP(ptr, oldval, newval) \
