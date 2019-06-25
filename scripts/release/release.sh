@@ -81,7 +81,6 @@ rm -rf "${AndroidPath}/libs/ofxLua/src/bindings/linuxarm"
 rm -rf "${AndroidPath}/libs/ofxMidi/libs/pgmidi"
 rm -rf "${AndroidPath}/libs/ofxMidi/src/ios"
 rm -rf "${AndroidPath}/libs/ofxPd/libs/libpd/lib"
-rm -rf "${AndroidPath}/libs/ofxPd/libs/libpd/pure-data"
 
 # delete all .DS_Store files
 find . -name '.DS_Store' -type f -delete
