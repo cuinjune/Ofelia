@@ -36,6 +36,7 @@ end
 
 function ofelia.setup()
   ofSetWindowTitle("ascii video example")
+  ofSetFrameRate(10)
   ofBackground(0, 0, 0)
   vidGrabber:setup(camWidth, camHeight)
   font:load(fontDir .. "Courier New Bold.ttf", 9)
