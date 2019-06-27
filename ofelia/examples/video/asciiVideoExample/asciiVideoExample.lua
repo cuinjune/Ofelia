@@ -51,11 +51,10 @@ function ofelia.draw()
   local videoAlphaValue = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)
   ofSetColor(255, 255, 255, videoAlphaValue)
   vidGrabber:draw(0,0)
-  local pixelsRef = vidGrabber:getPixels()
   ofSetHexColor(0xffffff)
   for i = 0, camWidth-1, 7 do
     for j = 0, camHeight-1, 9 do
-      local lightness = pixelsRef:getColor(i, j):getLightness()
+      local lightness = vidGrabber:getPixels():getColor(i, j):getLightness()
       local character = math.floor(ofMap(lightness, 0, 255, 0, 1)^2.5 * string.len(asciiCharacters))
       font:drawString(string.sub(asciiCharacters, character, character+1), i, j)
     end
