@@ -18,9 +18,10 @@ function ofelia.new()
   ofWindow.addListener("exit", this)
   window:setPosition(30, 100)
   window:setSize(640, 480)
-  window:create()
   if ofWindow.exists then
     clock:delay(0)
+  else
+    window:create()
   end
 end
 

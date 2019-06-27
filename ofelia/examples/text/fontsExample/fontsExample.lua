@@ -16,9 +16,10 @@ function ofelia.new()
   ofWindow.addListener("draw", this)
   window:setPosition(30, 100)
   window:setSize(1024, 768)
-  window:create()
   if ofWindow.exists then
     clock:delay(0)
+  else
+    window:create()
   end
 end
 
