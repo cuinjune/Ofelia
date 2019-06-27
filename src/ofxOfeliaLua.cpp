@@ -369,7 +369,6 @@ void ofxOfeliaLua::outletRet()
     }
     else if (lua_istable(L, -1))
         outletTable();
-    lua_pop(L, 1);
 }
 
 void ofxOfeliaLua::callFunction(int top)
@@ -382,8 +381,12 @@ void ofxOfeliaLua::callFunction(int top)
         return;
     }
     /* outlet return value if any exists */
-    if (lua_gettop(L) - top)
+    const int nret = lua_gettop(L) - top;
+    if (nret)
+    {
         outletRet();
+        lua_pop(L, nret);
+    }
 }
 
 void ofxOfeliaLua::setFunction(int top)
