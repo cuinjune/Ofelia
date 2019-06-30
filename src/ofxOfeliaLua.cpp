@@ -350,8 +350,9 @@ void ofxOfeliaLua::outletTable()
     freebytes(av, sizeof(t_atom) * ac);
 }
 
-void ofxOfeliaLua::outletRet()
+void ofxOfeliaLua::outletRet(int nret)
 {
+    if (!nret) return;
     const ofxOfeliaIO &io = dataPtr->io;
     if (!io.hasControlOutlet) return;
     if (lua_isnil(L, -1))
@@ -369,6 +370,7 @@ void ofxOfeliaLua::outletRet()
     }
     else if (lua_istable(L, -1))
         outletTable();
+    lua_pop(L, nret);
 }
 
 void ofxOfeliaLua::callFunction(int top)
@@ -381,12 +383,7 @@ void ofxOfeliaLua::callFunction(int top)
         return;
     }
     /* outlet return value if any exists */
-    const int nret = lua_gettop(L) - top;
-    if (nret)
-    {
-        outletRet();
-        lua_pop(L, nret);
-    }
+    outletRet(lua_gettop(L) - top);
 }
 
 void ofxOfeliaLua::setFunction(int top)

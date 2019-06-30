@@ -37,7 +37,7 @@ public:
     void doVariable(t_symbol *s, int argc, t_atom *argv);
     void outletUserData();
     void outletTable();
-    void outletRet();
+    void outletRet(int nret);
     void callFunction(int top);
     void setFunction(int top);
     void setFunction(t_floatarg f, int top);
