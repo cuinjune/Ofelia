@@ -1,15 +1,31 @@
-v2.3.2: 28 June 2019
+v3.0.0: 4 Aug 2019
+
+* all available built-in global functions and class methods are embedded as objects
+  (functions that take userdata argument or has more than 8 arguments are excluded)
+* updated "ofelia/help-intro.pd" so it contains all available objects and abstractions
+* updated "ofelia/ofelia-object-help.pd" help file
+* added a feature to open the documentation page when an embedded object is double clicked
+* added help files for all abstractions under "ofelia/libs" directory
+* renamed [ofGetPtr] abstraction to [ofRequire] in "ofelia/libs/of" directory
+* added [ofExpr] and [ofFor] abstractions in "ofelia/libs/of" directory
+* added pdCanvas:makeFileName() class method and [pdMakeFileName] abstraction
+* renamed some abstractions in "ofelia/libs/pd" directory
+* internal callback methods for [ofelia define] object are renamed with "__" prefix to avoid name collision with lua variable name (e.g. "set" -> "__set")
+* added pdUnZip(), pdUnZipPass(), pdJson(), pdOscSender() and pdOscReceiver() functions and classes which are also available as embedded objects and abstractions
+* added and updated examples in "ofelia/examples" directory
+
+v2.3.2: 28 Jun 2019
 
 * fixed setup function getting called twice in single lua script examples
 * fixed asciiVideoExample so it can work on Windows
 * fixed stack error when returning multiple arguments in a lua function
 
-v2.3.1: 23 June 2019
+v2.3.1: 23 Jun 2019
 
 * added iOS and Android specific listener abstractions
 * updated "ofelia/help-intro.pd"
 
-v2.3.0: 21 June 2019
+v2.3.0: 21 Jun 2019
 
 * added a logger channel to pass on OF logs to the pd console
 * pdSys, pdSignal, pdPD classes are deprecated and changed to static functions
@@ -19,7 +35,7 @@ v2.3.0: 21 June 2019
 * added standalone example projects to ofxOfelia
 * cleaned ofxOfelia addon directory so source files can be shared among projects
 
-v2.2.0: 4 June 2019
+v2.2.0: 4 Jun 2019
 
 * added "ofelia function" object for quickly writing a simple lua script
 * added default module alias "M" to ease writing variables (e.g. ofelia.num -> M.num)
