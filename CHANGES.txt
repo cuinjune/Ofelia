@@ -13,6 +13,7 @@ v3.0.0: 4 Aug 2019
 * internal callback methods for [ofelia define] object are renamed with "__" prefix to avoid name collision with lua variable name (e.g. "set" -> "__set")
 * added pdUnZip(), pdUnZipPass(), pdJson(), pdOscSender() and pdOscReceiver() functions and classes which are also available as embedded objects and abstractions
 * added and updated examples in "ofelia/examples" directory
+* fixed multiple signal outlets bug
 
 v2.3.2: 28 Jun 2019
 

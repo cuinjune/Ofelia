@@ -50,14 +50,13 @@ t_int *ofxOfeliaSignal::perform(t_int *w)
             lua_pop(L, 1 + numOutlets);
             goto error;
         }
-        for (int i = 0; i < numOutlets; ++i)
+        for (int i = numOutlets - 1; i >= 0; --i)
         {
             t_float *out = reinterpret_cast<t_float *>(w[i + 3 + numInlets]);
-            const int index = -numOutlets - 1 + i;
             for (int j = 0; j < nsamples; ++j)
             {
                 lua_pushinteger(L, static_cast<lua_Integer>(j + 1));
-                lua_gettable(L, index);
+                lua_gettable(L, -2);
                 out[j] = static_cast<t_float>(lua_tonumber(L, -1));
                 lua_pop(L, 1);
             }
