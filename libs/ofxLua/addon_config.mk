@@ -22,6 +22,8 @@ meta:
 	ADDON_URL = http://github.com/danomatika/ofxLua
 
 common:
+	ADDON_SOURCES_EXCLUDE += swig/%
+	ADDON_INCLUDES_EXCLUDE += swig/%
 	
 linux64:
 	ADDON_CFLAGS += -DLUA_USE_LINUX

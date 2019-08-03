@@ -11,7 +11,7 @@ void *ofxOfeliaExists::newMethod(t_symbol *s, int argc, t_atom *argv)
            *argv->a_w.w_symbol->s_name == '-')
     {
         const char *flag = argv->a_w.w_symbol->s_name;
-        error("ofelia exists: unknown flag '%s'", flag);
+        post("warning: ofelia %s: unknown flag '%s'", s->s_name, flag);
         argc--; argv++;
     }
     if (argc && argv->a_type == A_SYMBOL)
@@ -21,7 +21,7 @@ void *ofxOfeliaExists::newMethod(t_symbol *s, int argc, t_atom *argv)
     }
     if (argc)
     {
-        post("warning: ofelia exists ignoring extra argument: ");
+        post("warning: ofelia %s ignoring extra argument: ", s->s_name);
         postatom(argc, argv); endpost();
     }
     symbolinlet_new(&client.data.ob, &client.data.sym);

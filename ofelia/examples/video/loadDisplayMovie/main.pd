@@ -1,0 +1,45 @@
+#N canvas 720 100 665 511 10;
+#X declare -path ofelia/libs/of;
+#X obj 28 70 loadbang;
+#X obj 462 29 declare -path ofelia/libs/of;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X floatatom 28 232 5 0 0 0 - - -;
+#X text 69 232 0: fail \, 1: success.;
+#X obj 28 324 ofDraw;
+#X obj 28 211 route load;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X msg 28 169 load data/fingers.mov \, play;
+#X obj 28 190 ofMovie \$0-movie;
+#X obj 28 423 ofDrawMovie \$0-movie 0 0;
+#X text 183 423 Displays the movie at its actual size at point (0 \,
+0).;
+#X obj 28 267 ofUpdate;
+#X obj 28 288 ofUpdateMovie \$0-movie;
+#X text 205 169 Load and play a movie file from the path.;
+#X text 25 23 Movie files can be loaded and displayed to the screen
+at their actual size or any other size.;
+#X floatatom 133 402 5 0 0 0 - - -;
+#X floatatom 169 402 5 0 0 0 - - -;
+#X text 207 402 Change the width and height of the movie.;
+#X text 171 288 Updates the movie's internal state to continue playback.
+;
+#X text 134 190 Create an ofMovie class named "\$0-movie".;
+#X obj 28 366 ofDrawMovie \$0-movie 0 0 640 360;
+#X obj 28 387 ofSetColor 255;
+#X text 231 366 Displays the movie sized 640x360 at point (0 \, 0).
+;
+#X obj 28 345 ofSetColor 100;
+#X connect 0 0 8 0;
+#X connect 3 0 9 0;
+#X connect 6 0 25 0;
+#X connect 7 0 4 0;
+#X connect 8 0 2 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 13 0 14 0;
+#X connect 17 0 11 3;
+#X connect 18 0 11 4;
+#X connect 22 0 23 0;
+#X connect 23 0 11 0;
+#X connect 25 0 22 0;

@@ -7,7 +7,6 @@
 //--------------------------------------------------------------
 ofxOfelia::ofxOfelia()
 {
-    isInited = false;
 }
 
 //--------------------------------------------------------------
@@ -91,7 +90,6 @@ bool ofxOfelia::init(const int numInChannels, // number of audio input channels 
         if (!patch.isValid())
             return false;
     }
-    isInited = true;
     return true;
 }
 
@@ -118,9 +116,6 @@ void ofxOfelia::clear()
     }
     if (midiOut.isOpen())
         midiOut.closePort();
-    
-    // need to be reinited
-    isInited = false;
 }
 
 
@@ -330,15 +325,15 @@ void ofxOfelia::cancelPressed()
 }
 
 //--------------------------------------------------------------
-void ofxOfelia::audioReceived(float *input, int bufferSize, int nChannels)
+void ofxOfelia::audioIn(ofSoundBuffer &buffer)
 {
-    pd.audioIn(input, bufferSize, nChannels);
+    pd.audioIn(&buffer[0], buffer.getNumFrames(), buffer.getNumChannels());
 }
 
 //--------------------------------------------------------------
-void ofxOfelia::audioRequested(float *output, int bufferSize, int nChannels)
+void ofxOfelia::audioOut(ofSoundBuffer &buffer)
 {
-    pd.audioOut(output, bufferSize, nChannels);
+    pd.audioOut(&buffer[0], buffer.getNumFrames(), buffer.getNumChannels());
 }
 
 //--------------------------------------------------------------

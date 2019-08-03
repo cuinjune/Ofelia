@@ -7,18 +7,20 @@ class ofxOfeliaIO
 {
 public:
     ofxOfeliaIO(ofxOfeliaData *dataPtr)
-    :dataPtr(dataPtr)
-    ,hasMultiControlInlets(false)
+    :hasMultiControlInlets(false)
     ,hasMultiControlOutlets(false)
-    ,hasControlOutlet(false){};
+    ,hasControlOutlet(false)
+    ,dataPtr(dataPtr){};
     void newControlIO(int numInlets, int numOutlets);
     void newSignalIO(int numInlets, int numOutlets);
+    void addControlIO();
+    void addSignalIO();
     void freeControlIO();
     void freeSignalIO();
-    void doList(int ac, t_atom *av);
+    void doList(int argc, t_atom *argv);
     t_inlet **inlets;
     t_outlet **outlets;
-    t_float *fv; /* variables for float inlets */
+    t_atom *av; /* variables for passive inlets */
     int numInlets;
     int numOutlets;
     bool hasMultiControlInlets; /* whether an object has multiple control inlets */

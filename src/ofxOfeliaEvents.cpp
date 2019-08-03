@@ -1,4 +1,6 @@
 #include "ofxOfeliaEvents.h"
+#include <cstring>
+#include <algorithm>
 
 ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::setupVec;
 ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::updateVec;
@@ -37,73 +39,73 @@ ofxOfeliaEvents::DataPairVec ofxOfeliaEvents::cancelPressedVec;
 
 ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
 {
-    if (!strcmp(s->s_name, "setup"))
+    if (!std::strcmp(s->s_name, "setup"))
         return &setupVec;
-    else if (!strcmp(s->s_name, "update"))
+    else if (!std::strcmp(s->s_name, "update"))
         return &updateVec;
-    else if (!strcmp(s->s_name, "draw"))
+    else if (!std::strcmp(s->s_name, "draw"))
         return &drawVec;
-    else if (!strcmp(s->s_name, "exit"))
+    else if (!std::strcmp(s->s_name, "exit"))
         return &exitVec;
-    else if (!strcmp(s->s_name, "keyPressed"))
+    else if (!std::strcmp(s->s_name, "keyPressed"))
         return &keyPressedVec;
-    else if (!strcmp(s->s_name, "keyReleased"))
+    else if (!std::strcmp(s->s_name, "keyReleased"))
         return &keyReleasedVec;
-    else if (!strcmp(s->s_name, "mouseMoved"))
+    else if (!std::strcmp(s->s_name, "mouseMoved"))
         return &mouseMovedVec;
-    else if (!strcmp(s->s_name, "mouseDragged"))
+    else if (!std::strcmp(s->s_name, "mouseDragged"))
         return &mouseDraggedVec;
-    else if (!strcmp(s->s_name, "mousePressed"))
+    else if (!std::strcmp(s->s_name, "mousePressed"))
         return &mousePressedVec;
-    else if (!strcmp(s->s_name, "mouseReleased"))
+    else if (!std::strcmp(s->s_name, "mouseReleased"))
         return &mouseReleasedVec;
-    else if (!strcmp(s->s_name, "mouseScrolled"))
+    else if (!std::strcmp(s->s_name, "mouseScrolled"))
         return &mouseScrolledVec;
-    else if (!strcmp(s->s_name, "mouseEntered"))
+    else if (!std::strcmp(s->s_name, "mouseEntered"))
         return &mouseEnteredVec;
-    else if (!strcmp(s->s_name, "mouseExited"))
+    else if (!std::strcmp(s->s_name, "mouseExited"))
         return &mouseExitedVec;
-    else if (!strcmp(s->s_name, "windowResized"))
+    else if (!std::strcmp(s->s_name, "windowResized"))
         return &windowResizedVec;
-    else if (!strcmp(s->s_name, "messageReceived"))
+    else if (!std::strcmp(s->s_name, "messageReceived"))
         return &messageReceivedVec;
-    else if (!strcmp(s->s_name, "dragged"))
+    else if (!std::strcmp(s->s_name, "dragged"))
         return &draggedVec;
-    else if (!strcmp(s->s_name, "touchCancelled"))
+    else if (!std::strcmp(s->s_name, "touchCancelled"))
         return &touchCancelledVec;
-    else if (!strcmp(s->s_name, "touchDoubleTap"))
+    else if (!std::strcmp(s->s_name, "touchDoubleTap"))
         return &touchDoubleTapVec;
-    else if (!strcmp(s->s_name, "touchDown"))
+    else if (!std::strcmp(s->s_name, "touchDown"))
         return &touchDownVec;
-    else if (!strcmp(s->s_name, "touchMoved"))
+    else if (!std::strcmp(s->s_name, "touchMoved"))
         return &touchMovedVec;
-    else if (!strcmp(s->s_name, "touchUp"))
+    else if (!std::strcmp(s->s_name, "touchUp"))
         return &touchUpVec;
-    else if (!strcmp(s->s_name, "lostFocus"))
+    else if (!std::strcmp(s->s_name, "lostFocus"))
         return &lostFocusVec;
-    else if (!strcmp(s->s_name, "gotFocus"))
+    else if (!std::strcmp(s->s_name, "gotFocus"))
         return &gotFocusVec;
-    else if (!strcmp(s->s_name, "gotMemoryWarning"))
+    else if (!std::strcmp(s->s_name, "gotMemoryWarning"))
         return &gotMemoryWarningVec;
-    else if (!strcmp(s->s_name, "deviceOrientationChanged"))
+    else if (!std::strcmp(s->s_name, "deviceOrientationChanged"))
         return &deviceOrientationChangedVec;
-    else if (!strcmp(s->s_name, "launchedWithURL"))
+    else if (!std::strcmp(s->s_name, "launchedWithURL"))
         return &launchedWithURLVec;
-    else if (!strcmp(s->s_name, "swipe"))
+    else if (!std::strcmp(s->s_name, "swipe"))
         return &swipeVec;
-    else if (!strcmp(s->s_name, "pause"))
+    else if (!std::strcmp(s->s_name, "pause"))
         return &pauseVec;
-    else if (!strcmp(s->s_name, "stop"))
+    else if (!std::strcmp(s->s_name, "stop"))
         return &stopVec;
-    else if (!strcmp(s->s_name, "resume"))
+    else if (!std::strcmp(s->s_name, "resume"))
         return &resumeVec;
-    else if (!strcmp(s->s_name, "reloadTextures"))
+    else if (!std::strcmp(s->s_name, "reloadTextures"))
         return &reloadTexturesVec;
-    else if (!strcmp(s->s_name, "backPressed"))
+    else if (!std::strcmp(s->s_name, "backPressed"))
         return &backPressedVec;
-    else if (!strcmp(s->s_name, "okPressed"))
+    else if (!std::strcmp(s->s_name, "okPressed"))
         return &okPressedVec;
-    else if (!strcmp(s->s_name, "cancelPressed"))
+    else if (!std::strcmp(s->s_name, "cancelPressed"))
         return &cancelPressedVec;
     else
         error("ofelia: unknown listener method '%s'", s->s_name);
@@ -112,8 +114,8 @@ ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
 
 ofxOfeliaEvents::DataPairVec::iterator ofxOfeliaEvents::findDataPair(DataPairVec &vec, ofxOfeliaData *dataPtr)
 {
-    return find_if(vec.begin(), vec.end(),
-                   [&](const DataPair &ref) {return ref.first == dataPtr;});
+    return std::find_if(vec.begin(), vec.end(),
+                        [&](const DataPair &ref) {return ref.first == dataPtr;});
 }
 
 void ofxOfeliaEvents::addDataPair(DataPairVec &vec, ofxOfeliaData *x, t_floatarg f)
@@ -136,8 +138,8 @@ void ofxOfeliaEvents::removeDataPair(DataPairVec &vec, ofxOfeliaData *x)
 
 void ofxOfeliaEvents::sortDataPairVec(DataPairVec &vec)
 {
-    stable_sort(vec.begin(), vec.end(),
-                [](const DataPair &a, const DataPair &b) {return a.second < b.second;});
+    std::stable_sort(vec.begin(), vec.end(),
+                     [](const DataPair &a, const DataPair &b) {return a.second < b.second;});
 }
 
 void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s)

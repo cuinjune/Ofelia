@@ -6,40 +6,40 @@
 #define TABNUM_SQUARE 20
 #define TABSIZE 515
 
-class ofxOfeliaAudio
+class ofxOfeliaOsc
 {
 public:
-    ofxOfeliaAudio()
-    :phase(0.0)
-    ,phase2(0.0)
-    ,isRawMode(true)
-    ,x1(0)
-    ,x2(0)
-    ,y1(0)
-    ,y2(0){};
+    ofxOfeliaOsc()
+    :phase(0.0){};
     void setPhase(t_floatarg f);
     t_float getPhase();
-    void sine(float *in1, int n1);
-    void triangle(float *in1, int n1);
-    void saw(float *in1, int n1);
-    void square(float *in1, int n1);
-    void pulse(float *in1, int n1, float *in2, int n2);
-    void blTriangle(float *in1, int n1);
-    void blSaw(float *in1, int n1);
-    void blSquare(float *in1, int n1);
-    void blPulse(float *in1, int n1, float *in2, int n2);
-    void clear(); /* clear internal state to zero */
-    void lowPass(float *in1, int n1, float *in2, int n2, float *in3, int n3);
-    void highPass(float *in1, int n1, float *in2, int n2, float *in3, int n3);
-    void bandPass(float *in1, int n1, float *in2, int n2, float *in3, int n3);
-    void notch(float *in1, int n1, float *in2, int n2, float *in3, int n3);
-    void peaking(float *in1, int n1, float *in2, int n2,
-                 float *in3, int n3, float *in4, int n4);
-    void lowShelf(float *in1, int n1, float *in2, int n2,
-                  float *in3, int n3, float *in4, int n4);
-    void highShelf(float *in1, int n1, float *in2, int n2,
-                   float *in3, int n3, float *in4, int n4);
-    void allPass(float *in1, int n1, float *in2, int n2, float *in3, int n3);
+    void sine(float *io1, int n1);
+    void triangle(float *io1, int n1);
+    void saw(float *io1, int n1);
+    void square(float *io1, int n1);
+    void pulse(float *io1, int n1, float *in2, int n2);
+private:
+    double phase;
+    union tabfudge
+    {
+        double tf_d;
+        int32_t tf_i[2];
+    };
+};
+
+class ofxOfeliaBlOsc
+{
+public:
+    ofxOfeliaBlOsc()
+    :phase(0.0)
+    ,phase2(0.0)
+    ,isRawMode(true){};
+    void setPhase(t_floatarg f);
+    t_float getPhase();
+    void blTriangle(float *io1, int n1);
+    void blSaw(float *io1, int n1);
+    void blSquare(float *io1, int n1);
+    void blPulse(float *io1, int n1, float *in2, int n2);
 private:
     double phase, phase2;
     bool isRawMode;
@@ -48,8 +48,31 @@ private:
         double tf_d;
         int32_t tf_i[2];
     };
-    t_float x1, x2, y1, y2;
     static t_float blTriangleTab[TABNUM_TRIANGLE][TABSIZE];
     static t_float blSawTab[TABNUM_SAW][TABSIZE];
     static t_float blSquareTab[TABNUM_SQUARE][TABSIZE];
+};
+
+class ofxOfeliaFilter
+{
+public:
+    ofxOfeliaFilter()
+    :x1(0)
+    ,x2(0)
+    ,y1(0)
+    ,y2(0){};
+    void clear(); /* clear internal state to zero */
+    void lowPass(float *io1, int n1, float *in2, int n2, float *in3, int n3);
+    void highPass(float *io1, int n1, float *in2, int n2, float *in3, int n3);
+    void bandPass(float *io1, int n1, float *in2, int n2, float *in3, int n3);
+    void notch(float *io1, int n1, float *in2, int n2, float *in3, int n3);
+    void peaking(float *io1, int n1, float *in2, int n2,
+                 float *in3, int n3, float *in4, int n4);
+    void lowShelf(float *io1, int n1, float *in2, int n2,
+                  float *in3, int n3, float *in4, int n4);
+    void highShelf(float *io1, int n1, float *in2, int n2,
+                   float *in3, int n3, float *in4, int n4);
+    void allPass(float *io1, int n1, float *in2, int n2, float *in3, int n3);
+private:
+    t_float x1, x2, y1, y2;
 };

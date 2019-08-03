@@ -4,6 +4,9 @@
 #include "ofEvents.h"
 #include "ofxOfeliaData.h"
 #include "ofxOfelia.h"
+#include <vector>
+#include <string>
+#include <utility>
 
 #if defined(TARGET_EXTERNAL)
 #define PD_SYS_LOCK()

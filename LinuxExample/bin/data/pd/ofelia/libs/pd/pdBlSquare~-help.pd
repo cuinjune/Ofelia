@@ -1,4 +1,5 @@
 #N canvas 321 23 596 539 10;
+#X declare -lib ofelia;
 #X declare -path ofelia/libs/pd;
 #X obj 0 0 cnv 15 580 40 empty empty pdBlSquare~ 3 12 0 18 -204280
 -1 0;
@@ -25,6 +26,27 @@
 #X restore 378 217 graph;
 #X obj 95 267 *~ 0.1;
 #X obj 182 157 t b b;
+#X floatatom 95 113 10 0 0 0 - - -;
+#X text 204 134 write the outgoing signal to array.;
+#X text 95 349 float/signal;
+#X text 211 349 - an incoming float/signal changes the frequency.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X text 211 372 - a float to the right inlet resets the phase.;
+#X text 95 408 signal;
+#X text 233 89 change frequency.;
+#X obj 98 90 hsl 128 15 20 22050 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 95 157 line~;
+#X obj 95 134 pack 0 100;
+#X text 11 23 bandlimited square wave oscillator;
+#X text 211 408 - the bandlimited square wave oscillator output.;
+#X obj 505 5 pdBlSquare~;
+#X text 21 43 [pdBlSquare~] generates an anti-aliased square wave at
+a given frequency.;
+#X obj 95 207 pdBlSquare~;
+#X text 72 459 (none);
 #N canvas 8 23 228 316 dspstate 0;
 #X obj 102 46 r pd;
 #X obj 102 72 route dsp;
@@ -57,38 +79,18 @@
 #X connect 12 0 11 0;
 #X connect 13 0 5 0;
 #X coords 0 -1 1 1 60 20 2 20 20;
-#X restore 520 67 pd dspstate;
-#X floatatom 95 113 10 0 0 0 - - -;
-#X text 204 134 write the outgoing signal to array.;
-#X text 95 349 float/signal;
-#X text 211 349 - an incoming float/signal changes the frequency.;
-#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
-;
-#X text 95 372 float;
-#X text 211 372 - a float to the right inlet resets the phase.;
-#X text 95 408 signal;
-#X text 233 89 change frequency.;
-#X obj 98 90 hsl 128 15 20 22050 1 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 95 157 line~;
-#X obj 95 134 pack 0 100;
-#X text 11 23 bandlimited square wave oscillator;
-#X text 211 408 - the bandlimited square wave oscillator output.;
-#X obj 505 5 pdBlSquare~;
-#X text 21 43 [pdBlSquare~] generates an anti-aliased square wave at
-a given frequency.;
-#X obj 408 46 declare -path ofelia/libs/pd;
-#X obj 95 207 pdBlSquare~;
-#X text 72 459 (none);
-#X connect 9 0 32 1;
+#X restore 520 87 pd dspstate;
+#X obj 408 46 declare -lib ofelia;
+#X obj 408 66 declare -path ofelia/libs/pd;
+#X connect 9 0 30 1;
 #X connect 10 0 13 0;
 #X connect 12 0 7 0;
 #X connect 12 0 7 1;
 #X connect 13 0 9 0;
 #X connect 13 1 8 0;
-#X connect 15 0 26 0;
-#X connect 24 0 15 0;
-#X connect 25 0 32 0;
-#X connect 26 0 25 0;
-#X connect 32 0 12 0;
-#X connect 32 0 8 0;
+#X connect 14 0 25 0;
+#X connect 23 0 14 0;
+#X connect 24 0 30 0;
+#X connect 25 0 24 0;
+#X connect 30 0 12 0;
+#X connect 30 0 8 0;

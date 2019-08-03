@@ -5,7 +5,7 @@ t_class *ofxOfeliaSet::pdClass;
 
 void *ofxOfeliaSet::newMethod(t_symbol *s, int argc, t_atom *argv)
 {
-    client.data.argParse(argc, argv, gensym("set"), false);
+    client.data.argParse(s, argc, argv, false);
     return this;
 }
 
@@ -103,7 +103,6 @@ void ofxOfeliaSet::setup()
                         reinterpret_cast<t_newmethod>(newWrapper),
                         reinterpret_cast<t_method>(freeWrapper),
                         sizeof(ofxOfeliaSet), 0, A_GIMME, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(dspWrapper), gensym("dsp"), A_CANT, 0);
     CLASS_MAINSIGNALIN(pdClass, ofxOfeliaSet, client.data.signal.f);
     class_addbang(pdClass, bangWrapper);
     class_addfloat(pdClass, floatWrapper);
@@ -111,5 +110,6 @@ void ofxOfeliaSet::setup()
     class_addpointer(pdClass, pointerWrapper);
     class_addlist(pdClass, listWrapper);
     class_addanything(pdClass, anythingWrapper);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(dspWrapper), gensym("dsp"), A_CANT, 0);
     class_sethelpsymbol(pdClass, gensym("ofelia-object"));
 }

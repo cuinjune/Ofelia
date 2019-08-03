@@ -1,5 +1,5 @@
 #include "ofxOfeliaClient.h"
-#include <string.h>
+#include <cstring>
 
 bool ofxOfeliaClient::isDataValid()
 {
@@ -90,7 +90,7 @@ void ofxOfeliaClient::listMethod(t_symbol *s, int argc, t_atom *argv)
     {
         int ac = data.io.numInlets + argc - 1;
         t_atom *av = static_cast<t_atom *>(getbytes(sizeof(t_atom) * ac));
-        memcpy(av, argv, sizeof(t_atom) * argc);
+        std::memcpy(av, argv, sizeof(t_atom) * argc);
         data.io.doList(ac, av);
         freebytes(av, sizeof(t_atom) * ac);
         return;

@@ -1,17 +1,16 @@
 #include "ofxOfeliaDefine.h"
 #include <new>
-#include <string.h>
+#include <cstring>
 
 t_class *ofxOfeliaDefine::pdClass;
 
 void *ofxOfeliaDefine::newMethod(t_symbol *s, int argc, t_atom *argv)
 {
     t_symbol *asym = gensym("#A");
-    t_symbol *name = data.isFunctionMode ? gensym("function") : gensym("define");
-    data.argParse(argc, argv, name, true);
+    data.argParse(s, argc, argv, true);
     /* bashily unbind #A -- this would create garbage if #A were
      multiply bound but we believe in this context it's at most
-     bound to whichever ofxOfelia_define or array was created most recently */
+     bound to whichever ofelia_define or array was created most recently */
     asym->s_thing = 0;
     /* and now bind #A to us to receive following messages in the
      saved file or copy buffer */
@@ -95,7 +94,7 @@ void ofxOfeliaDefine::listMethod(t_symbol *s, int argc, t_atom *argv)
     {
         int ac = data.io.numInlets + argc - 1;
         t_atom *av = static_cast<t_atom *>(getbytes(sizeof(t_atom) * ac));
-        memcpy(av, argv, sizeof(t_atom) * argc);
+        std::memcpy(av, argv, sizeof(t_atom) * argc);
         data.io.doList(ac, av);
         freebytes(av, sizeof(t_atom) * ac);
         return;
@@ -133,7 +132,7 @@ void ofxOfeliaDefine::saveMethod(t_object *ob, t_binbuf *bb)
     binbuf_addsemi(bb);
     if (data.shouldKeep)
     {
-        binbuf_addv(bb, const_cast<char *>("ss"), gensym("#A"), gensym("set"));
+        binbuf_addv(bb, const_cast<char *>("ss"), gensym("#A"), gensym("__set"));
         binbuf_addbinbuf(bb, data.binbuf);
         binbuf_addsemi(bb);
     }
@@ -167,14 +166,6 @@ void *ofxOfeliaDefine::newWrapper(t_symbol *s, int argc, t_atom *argv)
 {
     ofxOfeliaDefine *x = reinterpret_cast<ofxOfeliaDefine *>(pd_new(pdClass));
     new (x) ofxOfeliaDefine();
-    return x->newMethod(s, argc, argv);
-}
-
-void *ofxOfeliaDefine::newWrapper_function(t_symbol *s, int argc, t_atom *argv)
-{
-    ofxOfeliaDefine *x = reinterpret_cast<ofxOfeliaDefine *>(pd_new(pdClass));
-    new (x) ofxOfeliaDefine();
-    x->data.isFunctionMode = true;
     return x->newMethod(s, argc, argv);
 }
 
@@ -271,24 +262,6 @@ void ofxOfeliaDefine::setup()
                         reinterpret_cast<t_newmethod>(newWrapper),
                         reinterpret_cast<t_method>(freeWrapper),
                         sizeof(ofxOfeliaDefine), 0, A_GIMME, 0);
-    class_addcreator(reinterpret_cast<t_newmethod>(newWrapper_function), gensym("ofelia function"), A_GIMME, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(openWrapper),
-                    gensym("click"), A_NULL, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(closeWrapper),
-                    gensym("close"), A_NULL, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(addLineWrapper),
-                    gensym("addline"), A_GIMME, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(dspWrapper), gensym("dsp"), A_CANT, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(notifyWrapper),
-                    gensym("notify"), A_NULL, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(setWrapper),
-                    gensym("set"), A_GIMME, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(clearWrapper),
-                    gensym("clear"), A_NULL, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(writeWrapper),
-                    gensym("write"), A_GIMME, 0);
-    class_addmethod(pdClass, reinterpret_cast<t_method>(readWrapper),
-                    gensym("read"), A_GIMME, 0);
     class_setsavefn(pdClass, saveWrapper);
     CLASS_MAINSIGNALIN(pdClass, ofxOfeliaDefine, data.signal.f);
     class_addbang(pdClass, bangWrapper);
@@ -297,5 +270,23 @@ void ofxOfeliaDefine::setup()
     class_addpointer(pdClass, pointerWrapper);
     class_addlist(pdClass, listWrapper);
     class_addanything(pdClass, anythingWrapper);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(openWrapper),
+                    gensym("click"), A_NULL, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(closeWrapper),
+                    gensym("__close"), A_NULL, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(addLineWrapper),
+                    gensym("__addline"), A_GIMME, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(dspWrapper),
+                    gensym("dsp"), A_CANT, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(notifyWrapper),
+                    gensym("__notify"), A_NULL, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(setWrapper),
+                    gensym("__set"), A_GIMME, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(clearWrapper),
+                    gensym("__clear"), A_NULL, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(writeWrapper),
+                    gensym("write"), A_GIMME, 0);
+    class_addmethod(pdClass, reinterpret_cast<t_method>(readWrapper),
+                    gensym("read"), A_GIMME, 0);
     class_sethelpsymbol(pdClass, gensym("ofelia-object"));
 }

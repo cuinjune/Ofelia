@@ -1,9 +1,67 @@
 #include "ofxOfeliaLua.h"
-#include "ofxOfeliaAliases.h"
+#include "ofxOfeliaGL.h"
 #include "ofxOfeliaData.h"
+#include "ofxOfeliaMaps.h"
+#include <algorithm>
+#include <cctype>
 #include <deque>
 #include <cstring>
 #include <sstream>
+
+/*
+ calling ofxOfeliaLua::doString(const char *s) function
+ is like running the following script in Lua:
+ 
+ * [ofelia define] object:
+ 
+ local name = "foo" -- module name set as ofelia object argument
+ package.preload[name] = nil
+ package.loaded[name] = nil
+ package.preload[name] = function(this)
+ local ofelia = {}
+ local M = ofelia
+ s -- a written script in pd
+ return M
+ end
+ 
+ * [ofelia function] object:
+ 
+ local name = "foo" -- module name set as ofelia object argument
+ package.preload[name] = nil
+ package.loaded[name] = nil
+ package.preload[name] = function(this)
+ local ofelia = {}
+ local M = ofelia
+ function M.bang()
+ return M.anything(nil)
+ end
+ function M.float(f)
+ return M.anything(f)
+ end
+ function M.symbol(s)
+ return M.anything(s)
+ end
+ function M.pointer(p)
+ return M.anything(p)
+ end
+ function M.list(l)
+ return M.anything(l)
+ end
+ function M.anything(a)
+ s -- a written script in pd
+ end
+ return M
+ end
+ 
+ sending 'bang' message to [ofelia define] or [ofelia function] object
+ calls ofxOfeliaLua::doFunction(t_symbol *s) function and it is like running
+ the following script in Lua:
+ 
+ local m = require("foo") -- module name set as ofelia object argument
+ if type(m.bang) == "function" then
+ return m:bang() -- ofelia object will output the returned value through its outlet
+ end
+ */
 
 lua_State *ofxOfeliaLua::L;
 
@@ -46,6 +104,89 @@ int luaopen_print(lua_State *L)
     return 1;
 }
 
+void ofxOfeliaLua::unpackModule(lua_State *L, const std::string &m)
+{
+    std::string prefix = m;
+    std::transform(prefix.begin(), prefix.end(),prefix.begin(), ::toupper);
+    prefix += "_"; /* prefix for constants and enums */
+    lua_getglobal(L, m.c_str());
+    lua_pushnil(L);
+    while (lua_next(L, -2) != 0)
+    {
+        const std::string &type = luaL_typename(L, -1);
+        const std::string &str = lua_tostring(L, -2);
+        std::string renamedStr;
+        lua_getfield(L, -3, str.c_str());
+        if ((type == "table" || type == "userdata") && (::isupper(str[0]) || ::isdigit(str[0]))) /* classes and structs */
+            renamedStr = m + str;
+        else if (type == "function") /* global functions */
+        {
+            renamedStr = str;
+            renamedStr[0] = static_cast<char>(::toupper(str[0]));
+            renamedStr = m + renamedStr;
+        }
+        else if (type == "number" || type == "string" || type == "boolean")
+        {
+            if (std::any_of(str.begin(), str.end(), ::islower)) /* static member variables */
+                renamedStr = m + str;
+            else /* constants or enums */
+                renamedStr = prefix + str;
+        }
+        lua_setglobal(L, renamedStr.c_str());
+        lua_pop(L, 1);
+        lua_pushnil(L); /* assign nil to original element */
+        lua_setfield(L, -3, str.c_str());
+    }
+    lua_pop(L, 1);
+    lua_pushnil(L); /* assign nil to module */
+    lua_setglobal(L, m.c_str());
+}
+
+bool ofxOfeliaLua::addGlobals(lua_State *L)
+{
+    lua_settop(L, 0);
+    const char *s =
+    "function __classMethod(c, n, a)\n"
+    "  if type(c[n]) == \"function\" then\n"
+    "    if type(a) == \"table\" then\n"
+    "      if #a == 2 then\n"
+    "        return c[n](c, a[1], a[2])\n"
+    "      elseif #a == 3 then\n"
+    "        return c[n](c, a[1], a[2], a[3])\n"
+    "      elseif #a == 4 then\n"
+    "        return c[n](c, a[1], a[2], a[3], a[4])\n"
+    "      elseif #a == 5 then\n"
+    "        return c[n](c, a[1], a[2], a[3], a[4], a[5])\n"
+    "      elseif #a == 6 then\n"
+    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6])\n"
+    "      elseif #a == 7 then\n"
+    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6], a[7])\n"
+    "      elseif #a == 8 then\n"
+    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8])\n"
+    "      end\n"
+    "    elseif type(a) == \"nil\" then\n"
+    "      return c[n](c)\n"
+    "    else\n"
+    "      return c[n](c, a)\n"
+    "    end\n"
+    "  else\n"
+    "    if type(a) == \"nil\" then\n"
+    "      return c[n]\n"
+    "    else\n"
+    "      c[n] = a\n"
+    "    end\n"
+    "  end\n"
+    "end";
+    const int ret = luaL_dostring(L, s);
+    if (ret != LUA_OK)
+    {
+        error("ofelia: %s", lua_tostring(L, -1));
+        lua_pop(L, 1);
+        return false;
+    }
+    return true;
+}
+
 bool ofxOfeliaLua::init()
 {
     /* initialize lua */
@@ -64,8 +205,24 @@ bool ofxOfeliaLua::init()
     /* clear stack since opening libs leaves tables on the stack */
     lua_settop(L, 0);
     
-    /* make aliases of classes and functions in modules */
-    ofxOfeliaAliases::makeAliases(L);
+    /* unpack module elements into global namespace */
+    unpackModule(L, "of");
+    unpackModule(L, "pd");
+    
+    /* rename pdWindow to ofWindow */
+    lua_getglobal(L, "pdWindow");
+    lua_setglobal(L, "ofWindow");
+    lua_pushnil(L);
+    lua_setglobal(L, "pdWindow");
+    
+    /* add GL preprocessor defines */
+    ofxOfeliaGL::addDefines(L);
+    
+    /* add global variables needed */
+    if (!addGlobals(L)) return false;
+    
+    /* create maps to be used as pd objects */
+    ofxOfeliaMaps::init();
     
     /* make garbage collector run more frequently (default: 200) */
     lua_gc(L, LUA_GCSETPAUSE, 100);
@@ -485,18 +642,18 @@ void ofxOfeliaLua::realizeDollar(char **bufp, int *lengthp)
             int first = i + 1; /* index to first digit */
             char dbuf[MAXPDSTRING] = "$"; /* buffer to store dollarsym */
             int dlen = 1; /* length of dollarsym */
-            while (first < *lengthp && isdigit((*bufp)[first]))
+            while (first < *lengthp && std::isdigit((*bufp)[first]))
                 dbuf[dlen++] = (*bufp)[first++];
             int tlen = dlen - 1; /* number of trailing digits */
             if (tlen)
             {
                 dbuf[dlen] = '\0';
                 t_symbol *s = canvas_realizedollar(dataPtr->canvas, gensym(dbuf));
-                strcpy(dbuf, s->s_name);
-                dlen = strlen(s->s_name);
+                std::strcpy(dbuf, s->s_name);
+                dlen = std::strlen(s->s_name);
                 int newlength = length + dlen;
                 buf = static_cast<char *>(resizebytes(buf, length, newlength));
-                strcpy(buf + length, dbuf);
+                std::strcpy(buf + length, dbuf);
                 length = newlength;
                 i += tlen;
             }
@@ -527,11 +684,11 @@ void ofxOfeliaLua::doString(const char *s)
         ss << s;
     else if (!dataPtr->isSignalObject)
     {
-        ss << "function ofelia.bang() return ofelia.anything(nil) end function ofelia.float(f) return ofelia.anything(f) end function ofelia.symbol(s) return ofelia.anything(s) end function ofelia.pointer(p) return ofelia.anything(p) end function ofelia.list(l) return ofelia.anything(l) end function ofelia.anything(a)\n" << s << "\nend";
+        ss << "function M.bang() return M.anything(nil) end function M.float(f) return M.anything(f) end function M.symbol(s) return M.anything(s) end function M.pointer(p) return M.anything(p) end function M.list(l) return M.anything(l) end function M.anything(a)\n" << s << "\nend";
     }
     else
     {
-        ss << "function ofelia.perform(";
+        ss << "function M.perform(";
         const int numInlets = dataPtr->io.numInlets;
         for (int i = 0; i < numInlets; ++i)
         {
@@ -540,7 +697,7 @@ void ofxOfeliaLua::doString(const char *s)
         }
         ss << ")\n" << s << "\nend";
     }
-    ss << "\nreturn ofelia end";
+    ss << "\nreturn M end";
     /* run the lua chunk */
     const int ret = luaL_dostring(L, ss.str().c_str());
     if (ret != LUA_OK)
@@ -555,8 +712,6 @@ void ofxOfeliaLua::doString(const char *s)
 
 void ofxOfeliaLua::doArgs(int argc, t_atom *argv)
 {
-    dataPtr->initSym();
-    dataPtr->bindSym();
     std::ostringstream ss;
     for (int i = 0; i < argc; ++i)
     {
@@ -567,7 +722,6 @@ void ofxOfeliaLua::doArgs(int argc, t_atom *argv)
         ss << ' ';
     }
     doString(ss.str().c_str());
-    dataPtr->isDirectMode = true;
 }
 
 void ofxOfeliaLua::doText()

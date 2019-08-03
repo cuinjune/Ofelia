@@ -3,14 +3,15 @@
 #include "m_pd.h"
 #include "g_canvas.h"
 #include "lua.hpp"
+#include <string>
 
 class ofxOfeliaData;
 class ofxOfeliaLua
 {
 public:
     ofxOfeliaLua(ofxOfeliaData *dataPtr)
-    :dataPtr(dataPtr)
-    ,isChunkRun(false){};
+    :isChunkRun(false)
+    ,dataPtr(dataPtr){};
     static bool init();
     bool require();
     int  getType(t_symbol *s);
@@ -60,5 +61,7 @@ public:
     static lua_State *L;
     bool isChunkRun; /* whether the chunk is run or not */
 private:
+    static void unpackModule(lua_State *L, const std::string &m);
+    static bool addGlobals(lua_State *L);
     ofxOfeliaData *dataPtr; /* pointer to data */
 };

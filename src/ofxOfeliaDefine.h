@@ -2,11 +2,19 @@
 
 #include "m_pd.h"
 #include "ofxOfeliaData.h"
+#include "ofxOfeliaFunction.h"
+#include "ofxOfeliaEmbBase.h"
+#include "ofxOfeliaEmbFunction.h"
+#include "ofxOfeliaEmbClass.h"
 
 class ofxOfeliaDefine
 {
 public:
-    ofxOfeliaDefine(){};
+    ofxOfeliaDefine()
+    :function(this)
+    ,embBase(this)
+    ,embFunction(this)
+    ,embClass(this){};
     ~ofxOfeliaDefine(){};
     void *newMethod(t_symbol *s, int argc, t_atom *argv);
     void bangMethod();
@@ -22,7 +30,6 @@ public:
     void notifyMethod();
     void freeMethod();
     static void *newWrapper(t_symbol *s, int argc, t_atom *argv);
-    static void *newWrapper_function(t_symbol *s, int argc, t_atom *argv);
     static void bangWrapper(ofxOfeliaDefine *x);
     static void floatWrapper(ofxOfeliaDefine *x, t_floatarg f);
     static void symbolWrapper(ofxOfeliaDefine *x, t_symbol *s);
@@ -43,5 +50,9 @@ public:
     static void setup();
     static t_class *pdClass;
     ofxOfeliaData data;
+    ofxOfeliaFunction function;
+    ofxOfeliaEmbBase embBase;
+    ofxOfeliaEmbFunction embFunction;
+    ofxOfeliaEmbClass embClass;
 private:
 };

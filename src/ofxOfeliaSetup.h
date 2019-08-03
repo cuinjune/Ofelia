@@ -1,8 +1,8 @@
 #pragma once
 
 /* ofelia version info */
-#define OFELIA_MAJOR_VERSION 2
-#define OFELIA_MINOR_VERSION 3
+#define OFELIA_MAJOR_VERSION 3
+#define OFELIA_MINOR_VERSION 0
 
 #include "m_pd.h"
 

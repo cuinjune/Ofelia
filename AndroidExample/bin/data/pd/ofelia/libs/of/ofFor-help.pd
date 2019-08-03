@@ -1,0 +1,95 @@
+#N canvas 321 23 601 625 10;
+#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofFor 3 12 0 18 -204280 -1 0;
+#X obj 408 66 declare -path ofelia/libs/of;
+#X obj 408 46 declare -lib ofelia;
+#X obj 541 5 ofFor;
+#X text 11 23 increment/decrement number until it reaches the target
+;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 446 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 571 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 482 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 72 505 1) float;
+#X obj 75 372 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 454 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 21 43 [ofFor] is used to increment/decrement the initial value
+by specified amount until it reaches the target value.;
+#X obj 31 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 95 350 bang;
+#X text 211 350 - start the for loop.;
+#X text 95 373 stop;
+#X text 211 373 - stop the for loop.;
+#X obj 75 395 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 211 396 - start the for loop from initial to target value.
+;
+#X obj 75 418 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 419 list <f \, f \, f>;
+#X text 95 396 list <f \, f>;
+#X text 211 419 - start the for loop from initial to target value by
+amount.;
+#X text 95 455 float;
+#X text 211 455 - outputs the current value.;
+#X text 72 525 2) float;
+#X text 72 545 3) float (optional);
+#X obj 31 111 ofFor;
+#X obj 31 132 sel 20;
+#X msg 80 132 stop;
+#X text 116 132 stop when it reaches 20;
+#X obj 64 154 print;
+#X text 211 505 - the initial value. (default: 0);
+#X text 211 525 - the target value. (default: maxFloat);
+#X text 211 545 - the amount to increment/decrement value. (default:
+1);
+#X obj 31 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 31 232 print;
+#X obj 285 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 285 154 print;
+#X obj 285 133 ofFor 0 10 2;
+#X text 306 110 count from 0 to 10 incremented by 2;
+#X obj 31 211 ofFor -4 4;
+#X obj 31 309 print;
+#X obj 31 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 285 309 print;
+#X obj 285 288 ofFor;
+#X msg 285 204 4 7;
+#X text 283 183 sending a list also works.;
+#X text 51 267 count from 8 to 3 decremented by 1;
+#X obj 31 288 ofFor 8 3 -1;
+#X text 354 227 count from 12 to 36 incremented by 4;
+#X msg 298 228 12 32 4;
+#X msg 308 252 40 0 -8;
+#X text 362 251 count from 40 to 0 decremented by 8;
+#X text 52 188 count from -4 to 4 incremented by 1;
+#X text 318 203 count from 4 to 7 incremented by 1;
+#X text 52 88 count from 0 to largest possible float. (default);
+#X connect 14 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 30 1 33 0;
+#X connect 31 0 29 0;
+#X connect 37 0 43 0;
+#X connect 39 0 41 0;
+#X connect 41 0 40 0;
+#X connect 43 0 38 0;
+#X connect 45 0 51 0;
+#X connect 47 0 46 0;
+#X connect 48 0 47 0;
+#X connect 51 0 44 0;
+#X connect 53 0 47 0;
+#X connect 54 0 47 0;

@@ -7,7 +7,9 @@ class ofxOfeliaTextBuf
 {
 public:
     ofxOfeliaTextBuf(ofxOfeliaData *dataPtr)
-    :dataPtr(dataPtr){};
+    :dataPtr(dataPtr)
+    ,previousTime(-1){};
+    static void loadScript();
     void senditup();
     void openMethod();
     void closeMethod();
@@ -17,4 +19,5 @@ public:
     void free();
 private:
     ofxOfeliaData *dataPtr; /* pointer to data */
+    double previousTime;
 };

@@ -1,0 +1,34 @@
+
+# built
+*.app
+*.a
+
+# osx
+.DS_Store
+
+# win
+*.exe
+*.dll
+
+# xcode
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+xcuserdata
+build
+
+# codeblocks
+*.layout
+*.depend
+*.cbTemp
+
+# example project files
+
+example/Makefile
+example/*.xcodeproj
+example/*.make
+example/*xcconfig
+example/*.plist
+example/bin/data/This
+
+

@@ -1,4 +1,5 @@
 #N canvas 321 23 595 538 10;
+#X declare -lib ofelia;
 #X declare -path ofelia/libs/pd;
 #X obj 0 0 cnv 15 580 40 empty empty pdBlSaw~ 3 12 0 18 -204280 -1
 0;
@@ -25,6 +26,28 @@
 #X restore 372 217 graph;
 #X obj 85 267 *~ 0.1;
 #X obj 154 157 t b b;
+#X floatatom 85 113 10 0 0 0 - - -;
+#X text 176 133 write the outgoing signal to array.;
+#X text 95 349 float/signal;
+#X text 211 349 - an incoming float/signal changes the frequency.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X text 211 372 - a float to the right inlet resets the phase.;
+#X text 95 408 signal;
+#X text 223 89 change frequency.;
+#X obj 88 90 hsl 128 15 20 22050 1 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 85 157 line~;
+#X obj 85 134 pack 0 100;
+#X text 211 408 - the bandlimited sawtooth wave oscillator output.
+;
+#X text 11 23 bandlimited sawtooth wave oscillator;
+#X obj 523 5 pdBlSaw~;
+#X text 21 43 [pdBlSaw~] generates an anti-aliased sawtooth wave at
+a given frequency.;
+#X text 72 459 (none);
+#X obj 85 207 pdBlSaw~;
 #N canvas 8 23 228 316 dspstate 0;
 #X obj 102 46 r pd;
 #X obj 102 72 route dsp;
@@ -57,39 +80,18 @@
 #X connect 12 0 11 0;
 #X connect 13 0 5 0;
 #X coords 0 -1 1 1 60 20 2 20 20;
-#X restore 520 67 pd dspstate;
-#X floatatom 85 113 10 0 0 0 - - -;
-#X text 176 133 write the outgoing signal to array.;
-#X text 95 349 float/signal;
-#X text 211 349 - an incoming float/signal changes the frequency.;
-#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
-;
-#X text 95 372 float;
-#X text 211 372 - a float to the right inlet resets the phase.;
-#X text 95 408 signal;
-#X text 223 89 change frequency.;
-#X obj 88 90 hsl 128 15 20 22050 1 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj 85 157 line~;
-#X obj 85 134 pack 0 100;
-#X text 211 408 - the bandlimited sawtooth wave oscillator output.
-;
-#X text 11 23 bandlimited sawtooth wave oscillator;
-#X obj 523 5 pdBlSaw~;
-#X text 21 43 [pdBlSaw~] generates an anti-aliased sawtooth wave at
-a given frequency.;
-#X obj 408 46 declare -path ofelia/libs/pd;
-#X text 72 459 (none);
-#X obj 85 207 pdBlSaw~;
-#X connect 9 0 33 1;
+#X restore 520 87 pd dspstate;
+#X obj 408 46 declare -lib ofelia;
+#X obj 408 66 declare -path ofelia/libs/pd;
+#X connect 9 0 31 1;
 #X connect 10 0 13 0;
 #X connect 12 0 7 0;
 #X connect 12 0 7 1;
 #X connect 13 0 9 0;
 #X connect 13 1 8 0;
-#X connect 15 0 26 0;
-#X connect 24 0 15 0;
-#X connect 25 0 33 0;
-#X connect 26 0 25 0;
-#X connect 33 0 12 0;
-#X connect 33 0 8 0;
+#X connect 14 0 25 0;
+#X connect 23 0 14 0;
+#X connect 24 0 31 0;
+#X connect 25 0 24 0;
+#X connect 31 0 12 0;
+#X connect 31 0 8 0;

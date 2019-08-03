@@ -23,11 +23,9 @@ void ofxOfeliaIO::newControlIO(int numInlets, int numOutlets)
     hasMultiControlOutlets = numOutlets > 1;
     hasControlOutlet = numOutlets > 0;
     newIO(--numInlets, numOutlets);
-    fv = static_cast<t_float *>(getbytes(sizeof(t_float) * numInlets));
+    av = static_cast<t_atom *>(getbytes(sizeof(t_atom) * numInlets));
     for (int i = 0; i < numInlets; ++i)
-        inlets[i] = floatinlet_new(&dataPtr->ob, &fv[i]);
-    for (int i = 0; i < numOutlets; ++i)
-        outlets[i] = outlet_new(&dataPtr->ob, &s_float);
+        SETFLOAT(av + i, 0);
 }
 
 void ofxOfeliaIO::newSignalIO(int numInlets, int numOutlets)
@@ -37,11 +35,28 @@ void ofxOfeliaIO::newSignalIO(int numInlets, int numOutlets)
     dataPtr->signal.w = static_cast<t_int **>(getbytes(sizeof(t_int *) * (numInlets + numOutlets + 2)));
     newIO(--numInlets, numOutlets);
     dataPtr->signal.f = 0;
-    for (int i = 0; i < numInlets; ++i)
+    dataPtr->isSignalObject = true;
+}
+
+void ofxOfeliaIO::addControlIO()
+{
+    for (int i = 0; i < numInlets - 1; ++i)
+    {
+        if (av[i].a_type == A_FLOAT)
+            inlets[i] = floatinlet_new(&dataPtr->ob, &av[i].a_w.w_float);
+        else if (av[i].a_type == A_SYMBOL)
+            inlets[i] = symbolinlet_new(&dataPtr->ob, &av[i].a_w.w_symbol);
+    }
+    for (int i = 0; i < numOutlets; ++i)
+        outlets[i] = outlet_new(&dataPtr->ob, &s_list);
+}
+
+void ofxOfeliaIO::addSignalIO()
+{
+    for (int i = 0; i < numInlets - 1; ++i)
         inlets[i] = inlet_new(&dataPtr->ob, &dataPtr->ob.ob_pd, &s_signal, &s_signal);
     for (int i = 0; i < numOutlets; ++i)
         outlets[i] = outlet_new(&dataPtr->ob, &s_signal);
-    dataPtr->isSignalObject = true;
 }
 
 void ofxOfeliaIO::freeControlIO()
@@ -49,7 +64,7 @@ void ofxOfeliaIO::freeControlIO()
     int numInlets = this->numInlets;
     int numOutlets = this->numOutlets;
     freeIO(--numInlets, numOutlets);
-    freebytes(fv, sizeof(t_float) * numInlets);
+    freebytes(av, sizeof(t_atom) * numInlets);
 }
 
 void ofxOfeliaIO::freeSignalIO()
@@ -60,14 +75,11 @@ void ofxOfeliaIO::freeSignalIO()
     freeIO(--numInlets, numOutlets);
 }
 
-void ofxOfeliaIO::doList(int ac, t_atom *av)
+void ofxOfeliaIO::doList(int argc, t_atom *argv)
 {
     /* copies the control inlet values from the first index */
-    int first = ac - numInlets + 1;
-    for (int i = first; i < ac; ++i)
-    {
-        av[i].a_type = A_FLOAT;
-        av[i].a_w.w_float = fv[i - first];
-    }
-    dataPtr->lua.doFunction(&s_list, ac, av);
+    int first = argc - numInlets + 1;
+    for (int i = first; i < argc; ++i)
+        argv[i] = av[i - first];
+    dataPtr->lua.doFunction(&s_list, argc, argv);
 }

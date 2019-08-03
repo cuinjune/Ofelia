@@ -1,0 +1,97 @@
+#N canvas 321 23 601 548 10;
+#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofExpr~ 3 12 0 18 -204280 -1 0
+;
+#X obj 0 371 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 407 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 379 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 492 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 443 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 415 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 408 66 declare -path ofelia/libs/of;
+#X obj 408 46 declare -lib ofelia;
+#X text 72 466 n) anything;
+#X obj 529 5 ofExpr~;
+#X text 11 23 get an expression result or a constant value in signal
+;
+#X text 95 380 signal;
+#X text 211 380 - the incoming signal;
+#X text 95 416 signal;
+#X text 211 416 - the output signal result.;
+#X text 21 43 [ofExpr~] is used to quickly get an expression result
+or a constant value in signal. it is only possible to handle one-line
+expression and one signal inlet/outlet. for multi-line expression or
+multiple signal inlet/outlet \, use [ofelia function] instead.;
+#N canvas 8 23 228 316 dspstate 0;
+#X obj 102 46 r pd;
+#X obj 102 72 route dsp;
+#X msg 121 158 1;
+#X obj 71 189 sig~;
+#X obj 71 213 snapshot~;
+#X obj 102 129 t b b b;
+#X msg 150 158 set 0;
+#X obj 71 158 del 10;
+#X obj 39 21 cnv 15 40 18 empty empty dsp 9 9 1 15 -233017 -66577 0
+;
+#X obj 20 20 tgl 20 0 \$0-d.dspstate-s \$0-d.dspstate-r empty 17 7
+0 10 -228856 -1 -1 1 1;
+#X msg 71 243 set \$1;
+#X obj 20 99 s pd;
+#X msg 20 72 dsp \$1;
+#X obj 148 46 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 5 0;
+#X coords 0 -1 1 1 60 20 2 20 20;
+#X restore 520 87 pd dspstate;
+#X obj 327 186 snapshot~;
+#X obj 345 163 bang~;
+#X floatatom 327 207 5 0 0 0 - - -;
+#X obj 27 158 env~;
+#X floatatom 27 179 5 0 0 0 - - -;
+#X text 178 137 noise generator;
+#X obj 327 116 phasor~ 1;
+#X obj 327 137 ofExpr~ ofSign(a - 0.5);
+#X text 476 137 square waveform.;
+#X obj 27 137 ofExpr~ ofRandom(-1 \, 1);
+#X obj 27 247 ofExpr~ 440;
+#X text 107 247 works like [sig~ 440];
+#X obj 27 296 snapshot~;
+#X obj 45 273 bang~;
+#X floatatom 27 317 5 0 0 0 - - -;
+#X obj 327 296 snapshot~;
+#X obj 345 273 bang~;
+#X floatatom 327 317 5 0 0 0 - - -;
+#X obj 327 247 ofExpr~ OF_TWO_PI;
+#X text 441 247 constants work too.;
+#X text 211 466 - expression or a constant.;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 21 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 18 0;
+#X connect 27 0 21 0;
+#X connect 28 0 30 0;
+#X connect 30 0 32 0;
+#X connect 31 0 30 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 36 0 33 0;
