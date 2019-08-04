@@ -36,7 +36,7 @@ ax1 \, ax2 \, ay1 \, ay2 = 0 \, 0 \, 0 \, 0 \; function ofelia.perform(s1
 \, s2 \, s3) \; local sampleRate = pdGetSampleRate() \; local nyquist
 = sampleRate * 0.5 \; local x1 \, x2 \, y1 \, y2 = ax1 \, ax2 \, ay1
 \, ay2 \; for i=1 \, #s1 do \; local x0 = s1[i] \; local cutoff = s2[i]
-\; local res = math.max(s3[i] \, 1) \; local omega = TWO_PI * cutoff
+\; local res = math.max(s3[i] \, 1) \; local omega = OF_TWO_PI * cutoff
 / sampleRate \; local cs = math.cos(omega) \; local alpha = math.sin(omega)
 / (2 * res) \; local b1 = 1 - cs \; local b0 = b1 * 0.5 \; local b2
 = b0 \; local a0 = 1 + alpha \; local a1 = -2 * cs \; local a2 = 1

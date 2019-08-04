@@ -1,0 +1,66 @@
+#N canvas 321 23 601 585 10;
+#X declare -lib ofelia;
+#X declare -path ofelia/libs/pd;
+#X obj 0 0 cnv 15 580 40 empty empty pdOscSender 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 447 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 455 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 532 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 483 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 408 46 declare -lib ofelia;
+#X obj 408 66 declare -path ofelia/libs/pd;
+#X obj 505 5 pdOscSender;
+#X obj 84 195 pdOscSender;
+#X msg 84 94 setup localhost 12345;
+#X msg 105 166 clear;
+#X floatatom 100 120 5 0 0 0 - - -;
+#X msg 100 140 send /test/number \$1;
+#X msg 240 140 send /test/string foo;
+#X obj 84 280 pdOscReceiver;
+#X msg 84 233 setup 12345;
+#X obj 84 301 print;
+#X msg 94 254 stop;
+#X text 138 119 <- send number to an address "/test/number";
+#X text 380 140 <- send string;
+#X text 126 301 the received OSC message. (address + value);
+#X text 129 254 <- stop listening.;
+#X text 95 349 setup <s \, f>;
+#X text 95 367 clear;
+#X text 211 349 - setup the sender with the host name/ip and port.
+;
+#X text 227 94 <- setup the sender with host "localhost" and port "12345".
+;
+#X text 211 367 - clear the sender.;
+#X text 95 385 send <s \, a..>;
+#X text 211 385 - send the given message to an address. <address \,
+message>;
+#X text 95 403 getHost;
+#X text 95 421 getPort;
+#X text 211 403 - get the current host name.;
+#X text 211 421 - get the current port name.;
+#X text 95 455 anything;
+#X text 211 455 - <method name \, returned value>;
+#X text 72 506 1) symbol;
+#X text 211 506 - an optional module name.;
+#X text 11 23 OSC message sender which sends to a specific host & port
+;
+#X text 21 43 [pdOscSender] is used to send OSC messages to a specific
+host and port.;
+#X text 164 233 <- setup the receiver with the port to listen for messages.
+;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 10 0;
+#X connect 15 0 10 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 0;
+#X connect 19 0 16 0;

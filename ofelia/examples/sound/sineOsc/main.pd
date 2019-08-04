@@ -33,7 +33,7 @@ types of oscillators.;
 phase = 0 \; function ofelia.float(f) \; inlet:setSignalInlet(f) \;
 end \; function ofelia.phase(f) \; phase = f \; end \; function ofelia.perform(s1)
 \; local freq = s1[1] \; local step = 1 / (pdGetSampleRate() / freq)
-\; for i=1 \, #s1 do \; s1[i] = math.sin(phase * TWO_PI) \; if (phase
+\; for i=1 \, #s1 do \; s1[i] = math.sin(phase * OF_TWO_PI) \; if (phase
 >= 1) then \; phase = phase - 1 \; end \; phase = phase + step \; end
 \; return s1 \; end \;;
 #X connect 1 0 19 0;
