@@ -12,8 +12,8 @@ ofelia is a Pd external which allows you to use openFrameworks and Lua within a 
 Thanks to Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
 
 Using ofelia, you can flexibly choose between patching and coding style based on your preference.<br />
-For patching style, ofelia currently provides over 300 [openFrameworks](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/of) and [Pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/libs/pd) abstractions.<br />
-You can see a categorized list of abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
+
+You can see a categorized list of objects and abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
 
 The external is available to be used under macOS, Windows, Linux and Raspbian.
 
@@ -99,7 +99,8 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 * [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/);
 * [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/);
 * [Daniel Shiffman](https://shiffman.net/) and the [Processing Foundation](https://processingfoundation.org/) for providing many [examples](https://processing.org/examples/) which ofelia copied;
-* [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) which ofelia/ofxOfelia uses;
+* [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) addons which ofelia/ofxOfelia uses;
+* Creators of [ofxJSON](https://github.com/jeffcrouse/ofxJSON), [ofxJsonSettings](https://github.com/mattfelsen/ofxJsonSettings), [ofxOsc](https://openframeworks.cc/documentation/ofxOsc/) and [ofxZipPass](https://github.com/Ant1r/ofxZipPass) addons which ofelia/ofxOfelia uses;
 * [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem) which has greatly influenced ofelia;
 * [Henri Menke](https://www.henrimenke.com/) for answering so many questions about integrating Lua into C++;
 * Many others who contributed to the development of ofelia.
