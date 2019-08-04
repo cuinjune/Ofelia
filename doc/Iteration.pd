@@ -1,6 +1,7 @@
 #N canvas 723 23 716 450 10;
 #X declare -path ofelia/libs/of;
-#X obj 525 21 declare -path ofelia/libs/of;
+#X declare -lib ofelia;
+#X declare -path ofelia/libs/pd;
 #X obj 39 36 loadbang;
 #X obj 39 78 ofWindow;
 #X obj 39 114 ofSetup;
@@ -8,22 +9,31 @@
 #X obj 39 248 ofDraw;
 #X msg 39 57 setPosition 2 0 \, setSize 1440 900 \, title Iteration
 \, create;
-#X obj 39 269 ofGetPtr \$0-vars;
 #X msg 72 180 gridSize \$1;
 #X floatatom 72 161 5 10 100 0 - - -;
-#X obj 39 289 ofelia f \; local width \, height = ofGetWidth() \, ofGetHeight()
+#X obj 39 290 ofelia f \; local width \, height = ofGetWidth() \, ofGetHeight()
 \; for x = a.gridSize \, width-a.gridSize \, a.gridSize do \; for y
 = a.gridSize \, height-a.gridSize \, a.gridSize do \; ofSetColor(255)
 \; ofDrawCircle(x \, y \, 3) \; ofSetColor(255 \, 255 \, 255 \, 100)
 \; ofDrawLine(x \, y \, width/2 \, height/2) \; end \; end \;;
-#X obj 39 201 ofelia f \$0-vars \; M.gridSize = 80 \;;
 #X text 110 161 Try changing the value.;
-#X text 154 211 Variables used.;
-#X connect 1 0 6 0;
-#X connect 3 0 4 0;
-#X connect 4 0 11 0;
-#X connect 5 0 7 0;
-#X connect 6 0 2 0;
-#X connect 7 0 10 0;
-#X connect 8 0 11 0;
-#X connect 9 0 8 0;
+#X obj 525 41 declare -path ofelia/libs/of;
+#X obj 525 21 declare -lib ofelia;
+#X obj 525 61 declare -path ofelia/libs/pd;
+#X obj 39 201 ofelia f \$0-var \; M.gridSize = 80 \;;
+#X obj 39 269 ofRequire \$0-var;
+#X text 188 135 <- Double-click to open the documentation on your browser.
+;
+#X text 145 269 Require the module to access variable.;
+#X text 92 115 A setup callback.;
+#X text 86 248 A draw callback.;
+#X text 98 78 The window creator.;
+#X text 148 211 Variables used.;
+#X connect 0 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 13 0;
+#X connect 4 0 14 0;
+#X connect 5 0 1 0;
+#X connect 6 0 13 0;
+#X connect 7 0 6 0;
+#X connect 14 0 8 0;
