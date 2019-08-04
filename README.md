@@ -12,9 +12,7 @@ ofelia is a Pd external which allows you to use openFrameworks and Lua within a 
 Thanks to Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
 
 Using ofelia, you can flexibly choose between patching and coding style based on your preference.<br />
-
-You can see a categorized list of objects and abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.
-
+You can see a categorized list of objects and abstractions from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.<br />
 The external is available to be used under macOS, Windows, Linux and Raspbian.
 
 ## Installation
