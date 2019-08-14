@@ -2,15 +2,15 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local canvas = pdCanvas(this)
-local clock = pdClock(this, "setup")
+local canvas = ofCanvas(this)
+local clock = ofClock(this, "setup")
 local fontDir = canvas:getDir() .. "/data/"
 local vidGrabber = ofVideoGrabber()
 local camWidth, camHeight = 640, 480
 local asciiCharacters = ""
 local font = ofTrueTypeFont()
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("update", this)
   ofWindow.addListener("draw", this)
@@ -25,7 +25,7 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("update", this)
@@ -34,7 +34,7 @@ function ofelia.free()
   ofWindow.removeListener("exit", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("ascii video example")
   ofSetFrameRate(10)
   ofBackground(0, 0, 0)
@@ -44,11 +44,11 @@ function ofelia.setup()
   ofEnableAlphaBlending()
 end
 
-function ofelia.update()
+function M.update()
   vidGrabber:update()
 end
 
-function ofelia.draw()
+function M.draw()
   local videoAlphaValue = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 255)
   ofSetColor(255, 255, 255, videoAlphaValue)
   vidGrabber:draw(0,0)
@@ -62,12 +62,12 @@ function ofelia.draw()
   end
 end
 
-function ofelia.keyPressed(e)
+function M.keyPressed(e)
   if e.key == string.byte("s") or e.key == string.byte("S") then
     vidGrabber:videoSettings()
   end
 end
 
-function ofelia.exit()
+function M.exit()
   vidGrabber:close()
 end

@@ -10,8 +10,9 @@
 #include "ofxOfeliaAudio.h"
 #include "ofxOfeliaSetup.h"
 #include "ofxJsonSettings.h"
-#include "ofxZipPass.h"
 #include "ofxOsc.h"
+#include "ofxReverb.h"
+#include "ofxZipPass.h"
 #include <cstdio>
 #include <utility>
 #include <vector>
@@ -155,7 +156,7 @@ public:
         if (vecPtr == nullptr) return;
         ofxOfeliaEvents::removeDataPair(*vecPtr, x);
     }
-    static std::vector<pair<ofxOfeliaData *, t_float>> getListenerData(t_symbol *s)
+    static std::vector<std::pair<ofxOfeliaData *, t_float>> getListenerData(t_symbol *s)
     {
         ofxOfeliaEvents::DataPairVec *vecPtr = ofxOfeliaEvents::getTargetDataPairVec(s);
         if (vecPtr == nullptr) return {};
@@ -826,19 +827,19 @@ public:
     }
     void triangle(float *io1, int n1)
     {
-        blOsc.blTriangle(io1, n1);
+        blOsc.triangle(io1, n1);
     }
     void saw(float *io1, int n1)
     {
-        blOsc.blSaw(io1, n1);
+        blOsc.saw(io1, n1);
     }
     void square(float *io1, int n1)
     {
-        blOsc.blSquare(io1, n1);
+        blOsc.square(io1, n1);
     }
     void pulse(float *io1, int n1, float *in2, int n2)
     {
-        blOsc.blPulse(io1, n1, in2, n2);
+        blOsc.pulse(io1, n1, in2, n2);
     }
 private:
     ofxOfeliaBlOsc blOsc;
@@ -891,6 +892,73 @@ private:
     ofxOfeliaFilter filter;
 };
 
+class pdReverb
+{
+public:
+    pdReverb()
+    {
+        setRoomSize(0.5f);
+        setDamp(0.5f);
+        setWidth(0.5f);
+        setWet(0.5f);
+        setDry(0.5f);
+    };
+    void setRoomSize(t_floatarg f)
+    {
+        reverb.setroomsize(f);
+    }
+    void setDamp(t_floatarg f)
+    {
+        reverb.setdamp(f);
+    }
+    void setWidth(t_floatarg f)
+    {
+        reverb.setwidth(f);
+    }
+    void setWet(t_floatarg f)
+    {
+        reverb.setwet(f);
+    }
+    void setDry(t_floatarg f)
+    {
+        reverb.setdry(f);
+    }
+    void setMode(t_floatarg f)
+    {
+        reverb.setmode(f);
+    }
+    t_float getRoomSize()
+    {
+        return reverb.getroomsize();
+    }
+    t_float getDamp()
+    {
+        return reverb.getdamp();
+    }
+    t_float getWidth()
+    {
+        return reverb.getwidth();
+    }
+    t_float getWet()
+    {
+        return reverb.getwet();
+    }
+    t_float getDry()
+    {
+        return reverb.getdry();
+    }
+    t_float getMode()
+    {
+        return reverb.getmode();
+    }
+    void process(float *io1, int n1, float *io2, int n2)
+    {
+        reverb.process(io1, io2, n1);
+    }
+private:
+    ofxReverb reverb;
+};
+
 class pdLog
 {
 public:
@@ -912,122 +980,6 @@ public:
 private:
     t_symbol *sym; /* module name */
 };
-
-static void pdSysGui(std::string str)
-{
-    str += '\n';
-    sys_gui(const_cast<char*>(str.c_str()));
-}
-
-static int pdGetBlockSize()
-{
-    return sys_getblksize();
-}
-
-static t_float pdGetSampleRate()
-{
-    return sys_getsr();
-}
-
-static int pdGetNumInChannels()
-{
-    return sys_get_inchannels();
-}
-
-static int pdGetNumOutChannels()
-{
-    return sys_get_outchannels();
-}
-
-static bool pdGetDspState()
-{
-    return pd_getdspstate() != 0;
-}
-
-static int pdGetMaxString()
-{
-    return MAXPDSTRING;
-}
-
-static int pdGetFloatSize()
-{
-    return PD_FLOATSIZE;
-}
-
-static t_float pdGetMinFloat()
-{
-    return std::numeric_limits<t_float>::lowest();
-}
-
-static t_float pdGetMaxFloat()
-{
-    return std::numeric_limits<t_float>::max();
-}
-
-static bool pdIsBadFloat(t_floatarg f)
-{
-    return PD_BADFLOAT(f) != 0;
-}
-
-static bool pdIsBigOrSmall(t_floatarg f)
-{
-    return PD_BIGORSMALL(f) != 0;
-}
-
-static int pdGetPdVersionMajor()
-{
-    int major, minor, bugfix;
-    sys_getversion(&major, &minor, &bugfix);
-    return major;
-}
-
-static int pdGetPdVersionMinor()
-{
-    int major, minor, bugfix;
-    sys_getversion(&major, &minor, &bugfix);
-    return minor;
-}
-
-static int pdGetPdVersionBugFix()
-{
-    int major, minor, bugfix;
-    sys_getversion(&major, &minor, &bugfix);
-    return bugfix;
-}
-
-static int pdGetOfeliaVersionMajor()
-{
-    return OFELIA_MAJOR_VERSION;
-}
-
-static int pdGetOfeliaVersionMinor()
-{
-    return OFELIA_MINOR_VERSION;
-}
-
-static bool pdUnZipPass(const std::string &fileName, const std::string &passWord, std::string dirName = "")
-{
-    ofFile file(fileName);
-    if (!file.exists())
-    {
-        error("ofelia: the file '%s' does not exist", fileName.c_str());
-        return false;
-    }
-    if (dirName == "")
-        dirName = file.getEnclosingDirectory();
-    ofxUnzipPass zip(fileName, passWord);
-    if (!zip.isOk())
-    {
-        error("ofelia: failed to open '%s'", fileName.c_str());
-        return false;
-    }
-    return zip.unzipTo(dirName);
-}
-
-static bool pdUnZip(const std::string &fileName, std::string dirName = "")
-{
-    return pdUnZipPass(fileName, "", dirName);
-}
 
 class pdJson
 {
@@ -1255,3 +1207,124 @@ private:
     double pollingInterval;
     ofxOscReceiver receiver;
 };
+
+static void pdSysGui(std::string str)
+{
+    str += '\n';
+    sys_gui(const_cast<char*>(str.c_str()));
+}
+
+static int pdGetBlockSize()
+{
+    return sys_getblksize();
+}
+
+static t_float pdGetSampleRate()
+{
+    return sys_getsr();
+}
+
+static int pdGetNumInChannels()
+{
+    return sys_get_inchannels();
+}
+
+static int pdGetNumOutChannels()
+{
+    return sys_get_outchannels();
+}
+
+static bool pdGetDspState()
+{
+    return pd_getdspstate() != 0;
+}
+
+static int pdGetMaxString()
+{
+    return MAXPDSTRING;
+}
+
+static int pdGetFloatSize()
+{
+    return PD_FLOATSIZE;
+}
+
+static t_float pdGetMinFloat()
+{
+    return std::numeric_limits<t_float>::lowest();
+}
+
+static t_float pdGetMaxFloat()
+{
+    return std::numeric_limits<t_float>::max();
+}
+
+static bool pdIsBadFloat(t_floatarg f)
+{
+    return PD_BADFLOAT(f) != 0;
+}
+
+static bool pdIsBigOrSmall(t_floatarg f)
+{
+    return PD_BIGORSMALL(f) != 0;
+}
+
+static int pdGetPdVersionMajor()
+{
+    int major, minor, bugfix;
+    sys_getversion(&major, &minor, &bugfix);
+    return major;
+}
+
+static int pdGetPdVersionMinor()
+{
+    int major, minor, bugfix;
+    sys_getversion(&major, &minor, &bugfix);
+    return minor;
+}
+
+static int pdGetPdVersionBugFix()
+{
+    int major, minor, bugfix;
+    sys_getversion(&major, &minor, &bugfix);
+    return bugfix;
+}
+
+static int pdGetOfeliaVersionMajor()
+{
+    return ofeliaVersionMajor;
+}
+
+static int pdGetOfeliaVersionMinor()
+{
+    return ofeliaVersionMinor;
+}
+
+static int pdGetOfeliaVersionBugFix()
+{
+    return ofeliaVersionBugFix;
+}
+
+static bool pdUnZipPass(const std::string &fileName, const std::string &passWord, std::string dirName = "")
+{
+    ofFile file(fileName);
+    if (!file.exists())
+    {
+        error("ofelia: the file '%s' does not exist", fileName.c_str());
+        return false;
+    }
+    if (dirName == "")
+        dirName = file.getEnclosingDirectory();
+    ofxUnzipPass zip(fileName, passWord);
+    if (!zip.isOk())
+    {
+        error("ofelia: failed to open '%s'", fileName.c_str());
+        return false;
+    }
+    return zip.unzipTo(dirName);
+}
+
+static bool pdUnZip(const std::string &fileName, std::string dirName = "")
+{
+    return pdUnZipPass(fileName, "", dirName);
+}

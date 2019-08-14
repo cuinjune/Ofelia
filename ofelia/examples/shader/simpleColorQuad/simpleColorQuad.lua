@@ -2,12 +2,12 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local canvas = pdCanvas(this)
-local clock = pdClock(this, "setup")
+local canvas = ofCanvas(this)
+local clock = ofClock(this, "setup")
 local shaderDir = canvas:getDir() .. "/data/"
 local shader = ofShader()
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("draw", this)
   ofWindow.addListener("exit", this)
@@ -20,14 +20,14 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("draw", this)
   ofWindow.removeListener("exit", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("simple color quad")
   ofBackground(255, 255, 255, 255)
   if ofIsGLProgrammableRenderer() then
@@ -37,13 +37,13 @@ function ofelia.setup()
   end
 end
 
-function ofelia.draw()
+function M.draw()
   ofSetColor(255)
   shader:beginShader()
   ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight())
   shader:endShader()
 end
 
-function ofelia.exit()
+function M.exit()
   shader:unload()
 end

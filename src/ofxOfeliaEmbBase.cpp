@@ -95,10 +95,13 @@ t_symbol *ofxOfeliaEmbBase::getClassScript(t_symbol *className, t_symbol *varNam
 {
     std::ostringstream ss;
     ss <<
-    "local o = pdOutlet(this)\n"
+    "local outlet = ofOutlet(this)\n"
     "M." << varName->s_name << " = " << className->s_name << "()\n"
     "local function c(n, a)\n"
-    "  o:outletAnything(0, {n, __classMethod(M." << varName->s_name << ", n, a)})\n"
+    "  outlet:outletAnything(0, {n, __classMethod(M." << varName->s_name << ", n, a)})\n"
+    "end\n"
+    "function M.bang()\n"
+    "  return M." << varName->s_name << "\n"
     "end";
     return gensym(ss.str().c_str());
 }

@@ -1,7 +1,6 @@
 #N canvas 720 100 665 602 10;
-#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
 #X obj 28 72 loadbang;
-#X obj 462 29 declare -path ofelia/libs/of;
 #X text 25 22 Rotating lined cubes with different color \, line width
 and size which oscillates over time.;
 #X obj 28 114 ofWindow;
@@ -20,17 +19,18 @@ i=1 \, 8 do \; ofPushMatrix() \; ofSetLineWidth(i/2) \; ofSetColor((i
 + math.sin(a.angle * 0.1 + i) * 100 + i * math.cos(a.angle * 0.25 +
 i)* 8) \; ofPopMatrix() \; end \; a.angle = a.angle + 0.1 \;;
 #X f 93;
-#X obj 28 360 ofGetPtr \$0-vars;
-#X text 134 360 Get a pointer to the variable module.;
 #X msg 28 93 setPosition 30 100 \, setSize 1024 768 \, create;
 #X obj 28 259 ofelia f \$0-vars \; M.centerX = ofGetWidth() / 2 \;
 M.centerY = ofGetHeight() / 2 \; M.size = 100 \; M.angle = 0 \;;
-#X connect 0 0 15 0;
+#X obj 28 360 ofRequire \$0-vars;
+#X obj 512 29 declare -lib ofelia;
+#X text 144 360 Require the module that has the variables.;
+#X connect 0 0 12 0;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 16 0;
-#X connect 7 0 13 0;
-#X connect 8 0 10 0;
-#X connect 10 0 16 0;
-#X connect 13 0 12 0;
-#X connect 15 0 3 0;
+#X connect 5 0 13 0;
+#X connect 6 0 14 0;
+#X connect 7 0 9 0;
+#X connect 9 0 13 0;
+#X connect 12 0 2 0;
+#X connect 14 0 11 0;

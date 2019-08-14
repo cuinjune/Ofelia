@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <cctype>
 #include <cstring>
-#include <string>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -22,6 +21,24 @@ void ofxOfeliaTextBuf::loadScript()
                                "                          ofelia/ofelia_*.tcl ofelia_*.tcl] {\n"
                                "        set ::current_plugin_loadpath [file dirname $filename]\n"
                                "        load_plugin_script $filename }\n}\n"));
+}
+
+bool ofxOfeliaTextBuf::canvasOpen(const t_canvas *canvas, const std::string &fileName,
+                                  std::string &dirResult, std::string &fileNameResult)
+{
+    if (canvas == nullptr) return false;
+    int fileDesc;
+    char buf[MAXPDSTRING], *bufPtr;
+    if ((fileDesc = canvas_open(canvas, fileName.c_str(), "", buf, &bufPtr, MAXPDSTRING, 0)) < 0)
+        return false;
+#ifdef _WIN32
+    closesocket(fileDesc);
+#else
+    close(fileDesc);
+#endif
+    dirResult = buf;
+    fileNameResult = bufPtr;
+    return true;
 }
 
 void ofxOfeliaTextBuf::senditup()
@@ -51,27 +68,31 @@ void ofxOfeliaTextBuf::openMethod()
         const double currentTime = sys_getrealtime();
         if ((currentTime - previousTime) * 1000 < 500)
         {
-            const char *filename = "ofelia/classesAndGlobalFunctions.txt";
-            int filedesc;
-            char buf[MAXPDSTRING], *bufptr;
-            if ((filedesc = canvas_open(dataPtr->canvas, filename, "", buf, &bufptr, MAXPDSTRING, 0)) < 0)
+            std::string embName = dataPtr->embName->s_name;
+            std::string fileName = "ofelia/help/" + embName + "-help.pd";
+            std::string dirResult, fileNameResult;
+            if (canvasOpen(dataPtr->canvas, fileName, dirResult, fileNameResult))
             {
-                error("%s: failed to open '%s'", dataPtr->embName->s_name, filename);
+                t_atom av[2];
+                SETSYMBOL(av + 0, gensym(fileNameResult.c_str()));
+                SETSYMBOL(av + 1, gensym(dirResult.c_str()));
+                t_symbol *pdSym = gensym("pd");
+                if (pdSym->s_thing) pd_typedmess(pdSym->s_thing, gensym("open"), 2, av);
                 previousTime = -1;
                 return;
             }
-#ifdef _WIN32
-            closesocket(filedesc);
-#else
-            close(filedesc);
-#endif
-            char abspath[MAXPDSTRING];
-            std::snprintf(abspath, MAXPDSTRING, "%s/%s", buf, bufptr);
-            std::string embName(dataPtr->embName->s_name);
+            fileName = "ofelia/classesAndGlobalFunctions.txt";
+            if (!canvasOpen(dataPtr->canvas, fileName, dirResult, fileNameResult))
+            {
+                error("%s: failed to open '%s'", embName.c_str(), fileName.c_str());
+                previousTime = -1;
+                return;
+            }
+            const std::string &fullPath = dirResult + "/" + fileNameResult;
             const size_t embNamelen = embName.length();
             size_t afterNamePos = embNamelen;
-            size_t URLfirstPos = afterNamePos + 1;
-            std::ifstream input(abspath);
+            size_t urlFirstPos = afterNamePos + 1;
+            std::ifstream input(fullPath);
             std::string line;
             for (std::string line; std::getline(input, line);)
             {
@@ -79,18 +100,18 @@ void ofxOfeliaTextBuf::openMethod()
                 {
                     const char afterNameChar = line[afterNamePos];
                     if (afterNameChar == '_')
-                        ++URLfirstPos;
+                        ++urlFirstPos;
                     else if (afterNameChar != ' ')
                         continue;
-                    std::string URL = line.substr(URLfirstPos);
-                    const size_t spacePos = URL.find(' ');
+                    std::string url = line.substr(urlFirstPos);
+                    const size_t spacePos = url.find(' ');
                     if (spacePos != std::string::npos)
-                        ofStringReplace(URL, " ", "/#");
-                    const size_t subClassIndicator = URL.find(':');
+                        ofStringReplace(url, " ", "/#");
+                    const size_t subClassIndicator = url.find(':');
                     if (subClassIndicator != std::string::npos)
-                        URL = URL.substr(0, subClassIndicator);
-                    URL = "https://openframeworks.cc/documentation/" + URL;
-                    ofLaunchBrowser(URL);
+                        url = url.substr(0, subClassIndicator);
+                    url = "https://openframeworks.cc/documentation/" + url;
+                    ofLaunchBrowser(url);
                     break;
                 }
             }
@@ -149,7 +170,7 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
     if (dataPtr->isDirectMode) return;
     dataPtr->lua.doFreeFunction();
     int cr = 0;
-    t_symbol *filename;
+    t_symbol *fileName;
     while (argc && argv->a_type == A_SYMBOL &&
            *argv->a_w.w_symbol->s_name == '-')
     {
@@ -162,7 +183,7 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
     }
     if (argc && argv->a_type == A_SYMBOL)
     {
-        filename = argv->a_w.w_symbol;
+        fileName = argv->a_w.w_symbol;
         argc--; argv++;
     }
     else
@@ -175,8 +196,8 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
         post("warning: ofelia define ignoring extra argument: ");
         postatom(argc, argv); endpost();
     }
-    if (binbuf_read_via_canvas(dataPtr->binbuf, filename->s_name, dataPtr->canvas, cr))
-        error("%s: read failed", filename->s_name);
+    if (binbuf_read_via_canvas(dataPtr->binbuf, fileName->s_name, dataPtr->canvas, cr))
+        error("%s: read failed", fileName->s_name);
     senditup();
     dataPtr->lua.doText();
 }
@@ -185,7 +206,7 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
 {
     if (dataPtr->isDirectMode) return;
     int cr = 0;
-    t_symbol *filename;
+    t_symbol *fileName;
     char buf[MAXPDSTRING];
     while (argc && argv->a_type == A_SYMBOL &&
            *argv->a_w.w_symbol->s_name == '-')
@@ -199,7 +220,7 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
     }
     if (argc && argv->a_type == A_SYMBOL)
     {
-        filename = argv->a_w.w_symbol;
+        fileName = argv->a_w.w_symbol;
         argc--; argv++;
     }
     else
@@ -212,9 +233,9 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
         post("warning: ofelia define ignoring extra argument: ");
         postatom(argc, argv); endpost();
     }
-    canvas_makefilename(dataPtr->canvas, filename->s_name, buf, MAXPDSTRING);
+    canvas_makefilename(dataPtr->canvas, fileName->s_name, buf, MAXPDSTRING);
     if (binbuf_write(dataPtr->binbuf, buf, const_cast<char *>(""), cr))
-        error("%s: write failed", filename->s_name);
+        error("%s: write failed", fileName->s_name);
 }
 
 void ofxOfeliaTextBuf::free()

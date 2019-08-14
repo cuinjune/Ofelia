@@ -2,11 +2,11 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local clock = pdClock(this, "setup")
+local clock = ofClock(this, "setup")
 local counter = 0
 local bSmooth = false
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("update", this)
   ofWindow.addListener("draw", this)
@@ -20,7 +20,7 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("update", this)
@@ -28,18 +28,18 @@ function ofelia.free()
   ofWindow.removeListener("keyPressed", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("graphics example")
   ofSetCircleResolution(50)
   ofBackground(255, 255, 255, 255)
   ofDisableSmoothing()
 end
 
-function ofelia.update()
+function M.update()
   counter = counter + 0.033
 end
 
-function ofelia.draw()
+function M.draw()
   ofSetColor(255, 130, 0)
   local radius = 50 + 10 * math.sin(counter)
   ofFill()
@@ -80,7 +80,7 @@ function ofelia.draw()
   ofDrawBitmapString("lines"..string.char(10).."press 's' to toggle smoothness", 600, 500)
 end
 
-function ofelia.keyPressed(e)
+function M.keyPressed(e)
   if e.key == string.byte("s") then
     bSmooth = not bSmooth
   end

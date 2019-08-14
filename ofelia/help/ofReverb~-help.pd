@@ -1,0 +1,147 @@
+#N canvas 321 23 595 747 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofReverb~ 3 12 0 18 -204280 -1
+0;
+#X obj 0 421 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 585 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 429 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 593 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 692 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 644 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 557 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 593 signal;
+#X text 72 667 (none);
+#N canvas 8 23 228 316 dspstate 0;
+#X obj 102 46 r pd;
+#X obj 102 72 route dsp;
+#X msg 121 158 1;
+#X obj 71 189 sig~;
+#X obj 71 213 snapshot~;
+#X obj 102 129 t b b b;
+#X msg 150 158 set 0;
+#X obj 71 158 del 10;
+#X obj 39 21 cnv 15 40 18 empty empty dsp 9 9 1 15 -233017 -66577 0
+;
+#X obj 20 20 tgl 20 0 \$0-d.dspstate-s \$0-d.dspstate-r empty 17 7
+0 10 -228856 -1 -1 0 1;
+#X msg 71 243 set \$1;
+#X obj 20 99 s pd;
+#X msg 20 72 dsp \$1;
+#X obj 148 46 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 5 0;
+#X coords 0 -1 1 1 60 20 2 20 20;
+#X restore 520 67 pd dspstate;
+#X obj 462 46 declare -lib ofelia;
+#X obj 516 5 ofReverb~;
+#X text 21 43 [ofReverb~] internally uses freeverb library which is
+a simple implementation of the standard Schroeder/Moorer reverb model.
+;
+#X obj 27 346 ofReverb~;
+#X obj 27 116 ofGetDir;
+#X obj 27 95 loadbang;
+#X obj 27 158 readsf~;
+#X obj 27 388 dac~, f 9;
+#X msg 110 229 setRoomSize \$1;
+#X floatatom 110 209 5 0 0 0 - - -;
+#X obj 113 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 260 209 5 0 0 0 - - -;
+#X obj 263 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 410 209 5 0 0 0 - - -;
+#X obj 413 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 260 229 setDamp \$1;
+#X msg 410 229 setWidth \$1;
+#X floatatom 110 279 5 0 0 0 - - -;
+#X obj 113 259 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 260 279 5 0 0 0 - - -;
+#X obj 263 259 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 110 299 setWet \$1;
+#X msg 260 299 setDry \$1;
+#X floatatom 410 279 5 0 0 0 - - -;
+#X msg 410 299 setMode \$1;
+#X obj 410 259 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 432 259 0: normal / 1: freeze.;
+#X text 95 429 signal;
+#X text 95 557 signal;
+#X text 95 447 setRoomSize <f>;
+#X text 11 23 stereo reverb using the Schroeder/Moorer model;
+#X text 95 465 setDamp <f>;
+#X text 95 483 setWidth <f>;
+#X text 211 465 - amount of damping of room's surfaces. (default: 0.5)
+;
+#X text 95 501 setWet <f>;
+#X text 95 518 setDry <f>;
+#X text 95 533 setMode <f>;
+#X text 211 533 - start/stop freeze of reverb tail \, using 1 or 0
+;
+#X text 211 429 - an incoming signal for the left channel.;
+#X text 211 557 - an incoming signal for the right channel.;
+#X text 211 593 - the processed signal for the left channel.;
+#X obj 75 616 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 616 signal;
+#X text 211 616 - the processed signal for the right channel.;
+#X text 211 447 - size of the room to be simulated. (default: 0.5)
+;
+#X text 211 501 - level of reverbed signal \, between 0 and 1 (default:
+0.5);
+#X text 211 518 - level of unprocessed signal \, between 0 and 1(default:
+0.5);
+#X text 211 483 - stereo width of reverb. (default: 0.5);
+#X obj 27 367 *~ 0.5;
+#X obj 78 367 *~ 0.5;
+#X msg 27 137 open \$1/../examples/sound/reverb/data/beat.wav \, 1
+;
+#X connect 14 0 59 0;
+#X connect 14 1 60 0;
+#X connect 15 0 61 0;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 17 0 14 1;
+#X connect 17 1 15 0;
+#X connect 19 0 14 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 22 0 26 0;
+#X connect 23 0 22 0;
+#X connect 24 0 27 0;
+#X connect 25 0 24 0;
+#X connect 26 0 14 0;
+#X connect 27 0 14 0;
+#X connect 28 0 32 0;
+#X connect 29 0 28 0;
+#X connect 30 0 33 0;
+#X connect 31 0 30 0;
+#X connect 32 0 14 0;
+#X connect 33 0 14 0;
+#X connect 34 0 35 0;
+#X connect 35 0 14 0;
+#X connect 36 0 34 0;
+#X connect 59 0 18 0;
+#X connect 60 0 18 1;
+#X connect 61 0 17 0;

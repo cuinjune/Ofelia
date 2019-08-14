@@ -1,7 +1,0 @@
-local canvas = pdCanvas(this)
-local args = canvas:getArgs()
-table.insert(args, 1, "return")
-table.insert(args, 1, "__set")
-local send = pdSend(this)
-send:sendAnything({"__clear"})
-send:sendAnything(args)

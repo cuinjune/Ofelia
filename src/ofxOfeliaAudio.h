@@ -36,10 +36,10 @@ public:
     ,isRawMode(true){};
     void setPhase(t_floatarg f);
     t_float getPhase();
-    void blTriangle(float *io1, int n1);
-    void blSaw(float *io1, int n1);
-    void blSquare(float *io1, int n1);
-    void blPulse(float *io1, int n1, float *in2, int n2);
+    void triangle(float *io1, int n1);
+    void saw(float *io1, int n1);
+    void square(float *io1, int n1);
+    void pulse(float *io1, int n1, float *in2, int n2);
 private:
     double phase, phase2;
     bool isRawMode;

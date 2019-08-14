@@ -2710,12 +2710,12 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_pdOscReceiver swig_types[15]
 #define SWIGTYPE_p_pdOscSender swig_types[16]
 #define SWIGTYPE_p_pdOutlet swig_types[17]
-#define SWIGTYPE_p_pdSend swig_types[18]
-#define SWIGTYPE_p_pdValue swig_types[19]
-#define SWIGTYPE_p_pdWindow swig_types[20]
-#define SWIGTYPE_p_std__dequeT_int_t swig_types[21]
-#define SWIGTYPE_p_std__string swig_types[22]
-#define SWIGTYPE_p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t swig_types[23]
+#define SWIGTYPE_p_pdReverb swig_types[18]
+#define SWIGTYPE_p_pdSend swig_types[19]
+#define SWIGTYPE_p_pdValue swig_types[20]
+#define SWIGTYPE_p_pdWindow swig_types[21]
+#define SWIGTYPE_p_std__dequeT_int_t swig_types[22]
+#define SWIGTYPE_p_std__string swig_types[23]
 #define SWIGTYPE_p_t_atom swig_types[24]
 #define SWIGTYPE_p_t_floatarg swig_types[25]
 static swig_type_info *swig_types[27];
@@ -3167,10 +3167,10 @@ static int _wrap_Window_getListenerData(lua_State* L) { int SWIG_arg = 0; t_symb
   SwigValueWrapper< std::vector< std::pair< ofxOfeliaData *,t_float > > > result;
   SWIG_check_num_args("pdWindow::getListenerData",1,1) { if (!lua_isstring(L, 1))
     SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = pdWindow::getListenerData(arg1); {
-    std::vector< std::pair< ofxOfeliaData *,t_float > > * resultptr = new std::vector< std::pair< ofxOfeliaData *,t_float > >((const std::vector< std::pair< ofxOfeliaData *,t_float > > &) result);
-    SWIG_NewPointerObj(L,(void *) resultptr,SWIGTYPE_p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t,1); SWIG_arg++; } 
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  result = pdWindow::getListenerData(arg1); { lua_newtable(L); for (size_t i = 0; i < (&result)->size(); ++i) { lua_newtable(L);
+      lua_pushstring(L, (&result)->at(i).first->sym->s_name); lua_setfield(L, -2, "name");
+      lua_pushnumber(L, static_cast<lua_Number>((&result)->at(i).second)); lua_setfield(L, -2, "order");
+      lua_rawseti(L, -2, i + 1); }  SWIG_arg++; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Window_glVersionMajor_set(lua_State* L) { int SWIG_arg = 0; pdWindow *arg1 = (pdWindow *) 0 ; int arg2 ;
   SWIG_check_num_args("pdWindow::glVersionMajor",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdWindow::glVersionMajor",1,"pdWindow *");
@@ -4410,6 +4410,153 @@ static swig_lua_class *swig_Filter_bases[] = {0};
 static const char *swig_Filter_base_names[] = {0};
 static swig_lua_class _wrap_class_Filter = { "Filter", "Filter", &SWIGTYPE_p_pdFilter,_proxy__wrap_new_Filter, swig_delete_Filter, swig_Filter_methods, swig_Filter_attributes, &swig_Filter_Sf_SwigStatic, swig_Filter_meta, swig_Filter_bases, swig_Filter_base_names };
 
+static int _wrap_new_Reverb(lua_State* L) { int SWIG_arg = 0; pdReverb *result = 0 ;
+  SWIG_check_num_args("pdReverb::pdReverb",0,0) result = (pdReverb *)new pdReverb();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdReverb,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_setRoomSize(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setRoomSize",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setRoomSize",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setRoomSize",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setRoomSize(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_setDamp(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setDamp",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setDamp",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setDamp",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setDamp(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_setWidth(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setWidth",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setWidth",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setWidth",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setWidth(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_setWet(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setWet",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setWet",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setWet",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setWet(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_setDry(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setDry",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setDry",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setDry",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setDry(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_setMode(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
+  SWIG_check_num_args("pdReverb::setMode",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setMode",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_setMode",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+  (arg1)->setMode(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Reverb_getRoomSize(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getRoomSize",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getRoomSize",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getRoomSize",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getRoomSize(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_getDamp(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getDamp",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getDamp",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getDamp",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getDamp(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_getWidth(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getWidth",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getWidth",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getWidth",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getWidth(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_getWet(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getWet",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getWet",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getWet",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getWet(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_getDry(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getDry",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getDry",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getDry",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getDry(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_getMode(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
+  SWIG_check_num_args("pdReverb::getMode",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::getMode",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_getMode",1,SWIGTYPE_p_pdReverb); }  result = (arg1)->getMode(); {
+    lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Reverb_process(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; float *arg2 = (float *) 0 ;
+  int arg3 ; float *arg4 = (float *) 0 ; int arg5 ; SWIG_check_num_args("pdReverb::process",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::process",1,"pdReverb *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
+    SWIG_fail_ptr("Reverb_process",1,SWIGTYPE_p_pdReverb); }  arg2 = SWIG_get_float_num_array_var(L,2,&arg3);
+  if (!arg2) SWIG_fail; arg4 = SWIG_get_float_num_array_var(L,3,&arg5); if (!arg4) SWIG_fail;
+  (arg1)->process(arg2,arg3,arg4,arg5); SWIG_write_float_num_array(L,arg2,arg3); SWIG_arg++; 
+  SWIG_write_float_num_array(L,arg4,arg5); SWIG_arg++;  SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); return SWIG_arg;
+  if(0) SWIG_fail; fail: SWIG_FREE_ARRAY(arg2); SWIG_FREE_ARRAY(arg4); lua_error(L); return SWIG_arg; }
+static void swig_delete_Reverb(void *obj) {
+pdReverb *arg1 = (pdReverb *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_Reverb(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_Reverb);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_Reverb_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_method swig_Reverb_methods[]= {
+    { "setRoomSize", _wrap_Reverb_setRoomSize},
+    { "setDamp", _wrap_Reverb_setDamp},
+    { "setWidth", _wrap_Reverb_setWidth},
+    { "setWet", _wrap_Reverb_setWet},
+    { "setDry", _wrap_Reverb_setDry},
+    { "setMode", _wrap_Reverb_setMode},
+    { "getRoomSize", _wrap_Reverb_getRoomSize},
+    { "getDamp", _wrap_Reverb_getDamp},
+    { "getWidth", _wrap_Reverb_getWidth},
+    { "getWet", _wrap_Reverb_getWet},
+    { "getDry", _wrap_Reverb_getDry},
+    { "getMode", _wrap_Reverb_getMode},
+    { "process", _wrap_Reverb_process},
+    {0,0}
+};
+static swig_lua_method swig_Reverb_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_Reverb_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_Reverb_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_Reverb_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_Reverb_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_Reverb_Sf_SwigStatic = {
+    "Reverb",
+    swig_Reverb_Sf_SwigStatic_methods,
+    swig_Reverb_Sf_SwigStatic_attributes,
+    swig_Reverb_Sf_SwigStatic_constants,
+    swig_Reverb_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_Reverb_bases[] = {0};
+static const char *swig_Reverb_base_names[] = {0};
+static swig_lua_class _wrap_class_Reverb = { "Reverb", "Reverb", &SWIGTYPE_p_pdReverb,_proxy__wrap_new_Reverb, swig_delete_Reverb, swig_Reverb_methods, swig_Reverb_attributes, &swig_Reverb_Sf_SwigStatic, swig_Reverb_meta, swig_Reverb_bases, swig_Reverb_base_names };
+
 static int _wrap_new_Log__SWIG_0(lua_State* L) { int SWIG_arg = 0; pdLog *result = 0 ; SWIG_check_num_args("pdLog::pdLog",0,0)
   result = (pdLog *)new pdLog(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdLog,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail;
   fail: lua_error(L); return SWIG_arg; }
@@ -4501,98 +4648,6 @@ static swig_lua_class *swig_Log_bases[] = {0};
 static const char *swig_Log_base_names[] = {0};
 static swig_lua_class _wrap_class_Log = { "Log", "Log", &SWIGTYPE_p_pdLog,_proxy__wrap_new_Log, swig_delete_Log, swig_Log_methods, swig_Log_attributes, &swig_Log_Sf_SwigStatic, swig_Log_meta, swig_Log_bases, swig_Log_base_names };
 
-static int _wrap_sysGui(lua_State* L) { int SWIG_arg = 0; std::string arg1 ; SWIG_check_num_args("pdSysGui",1,1)
-  if(!lua_isstring(L,1)) SWIG_fail_arg("pdSysGui",1,"std::string"); (&arg1)->assign(lua_tostring(L,1),lua_rawlen(L,1));
-  pdSysGui(arg1); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getBlockSize(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetBlockSize",0,0)
-  result = (int)pdGetBlockSize(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_getSampleRate(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetSampleRate",0,0)
-  result = pdGetSampleRate(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getNumInChannels(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetNumInChannels",0,0)
-  result = (int)pdGetNumInChannels(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
-  fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getNumOutChannels(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetNumOutChannels",0,0)
-  result = (int)pdGetNumOutChannels(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
-  fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getDspState(lua_State* L) { int SWIG_arg = 0; bool result; SWIG_check_num_args("pdGetDspState",0,0)
-  result = (bool)pdGetDspState(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_getMaxString(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetMaxString",0,0)
-  result = (int)pdGetMaxString(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_getFloatSize(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetFloatSize",0,0)
-  result = (int)pdGetFloatSize(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_getMinFloat(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetMinFloat",0,0)
-  result = pdGetMinFloat(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getMaxFloat(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetMaxFloat",0,0)
-  result = pdGetMaxFloat(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_isBadFloat(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
-  SWIG_check_num_args("pdIsBadFloat",1,1) { if (!lua_isnumber(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
-  result = (bool)pdIsBadFloat(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_isBigOrSmall(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
-  SWIG_check_num_args("pdIsBigOrSmall",1,1) { if (!lua_isnumber(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
-  result = (bool)pdIsBigOrSmall(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
-  lua_error(L); return SWIG_arg; }
-static int _wrap_getPdVersionMajor(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetPdVersionMajor",0,0)
-  result = (int)pdGetPdVersionMajor(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
-  fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getPdVersionMinor(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetPdVersionMinor",0,0)
-  result = (int)pdGetPdVersionMinor(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
-  fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getPdVersionBugFix(lua_State* L) { int SWIG_arg = 0; int result;
-  SWIG_check_num_args("pdGetPdVersionBugFix",0,0) result = (int)pdGetPdVersionBugFix();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getOfeliaVersionMajor(lua_State* L) { int SWIG_arg = 0; int result;
-  SWIG_check_num_args("pdGetOfeliaVersionMajor",0,0) result = (int)pdGetOfeliaVersionMajor();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_getOfeliaVersionMinor(lua_State* L) { int SWIG_arg = 0; int result;
-  SWIG_check_num_args("pdGetOfeliaVersionMinor",0,0) result = (int)pdGetOfeliaVersionMinor();
-  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_unZipPass__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string *arg2 = 0 ;
-  std::string arg3 ; std::string temp1 ; std::string temp2 ; bool result; SWIG_check_num_args("pdUnZipPass",3,3)
-  if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZipPass",1,"std::string const &");
-  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZipPass",2,"std::string const &");
-  if(!lua_isstring(L,3)) SWIG_fail_arg("pdUnZipPass",3,"std::string");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
-  (&arg3)->assign(lua_tostring(L,3),lua_rawlen(L,3));
-  result = (bool)pdUnZipPass((std::string const &)*arg1,(std::string const &)*arg2,arg3);
-  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_unZipPass__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string *arg2 = 0 ;
-  std::string temp1 ; std::string temp2 ; bool result; SWIG_check_num_args("pdUnZipPass",2,2)
-  if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZipPass",1,"std::string const &");
-  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZipPass",2,"std::string const &");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
-  result = (bool)pdUnZipPass((std::string const &)*arg1,(std::string const &)*arg2);
-  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_unZipPass(lua_State* L) { int argc; int argv[4]={ 1,2,3,4} ; argc = lua_gettop(L); if (argc == 2) { int _v; {
-      _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { return _wrap_unZipPass__SWIG_1(L);}
-       }  }  if (argc == 3) { int _v; { _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) {
-        { _v = lua_isstring(L,argv[2]); }  if (_v) { return _wrap_unZipPass__SWIG_0(L);}  }  }  } 
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'unZipPass'\n" "  Possible C/C++ prototypes are:\n"
-  "    pdUnZipPass(std::string const &,std::string const &,std::string)\n"
-  "    pdUnZipPass(std::string const &,std::string const &)\n"); lua_error(L);return 0; }
-static int _wrap_unZip__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string arg2 ; std::string temp1 ;
-  bool result; SWIG_check_num_args("pdUnZip",2,2) if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZip",1,"std::string const &");
-  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZip",2,"std::string"); temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1;
-  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2)); result = (bool)pdUnZip((std::string const &)*arg1,arg2);
-  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_unZip__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string temp1 ; bool result;
-  SWIG_check_num_args("pdUnZip",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZip",1,"std::string const &");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; result = (bool)pdUnZip((std::string const &)*arg1);
-  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_unZip(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) { int _v; {
-      _v = lua_isstring(L,argv[0]); }  if (_v) { return _wrap_unZip__SWIG_1(L);}  }  if (argc == 2) { int _v; {
-      _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { return _wrap_unZip__SWIG_0(L);}  }
-     }  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'unZip'\n" "  Possible C/C++ prototypes are:\n"
-  "    pdUnZip(std::string const &,std::string)\n" "    pdUnZip(std::string const &)\n"); lua_error(L);return 0; }
 static int _wrap_new_Json(lua_State* L) { int SWIG_arg = 0; pdJson *result = 0 ; SWIG_check_num_args("pdJson::pdJson",0,0)
   result = (pdJson *)new pdJson(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdJson,1); SWIG_arg++;  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
@@ -5017,6 +5072,101 @@ static swig_lua_class *swig_OscReceiver_bases[] = {0};
 static const char *swig_OscReceiver_base_names[] = {0};
 static swig_lua_class _wrap_class_OscReceiver = { "OscReceiver", "OscReceiver", &SWIGTYPE_p_pdOscReceiver,_proxy__wrap_new_OscReceiver, swig_delete_OscReceiver, swig_OscReceiver_methods, swig_OscReceiver_attributes, &swig_OscReceiver_Sf_SwigStatic, swig_OscReceiver_meta, swig_OscReceiver_bases, swig_OscReceiver_base_names };
 
+static int _wrap_sysGui(lua_State* L) { int SWIG_arg = 0; std::string arg1 ; SWIG_check_num_args("pdSysGui",1,1)
+  if(!lua_isstring(L,1)) SWIG_fail_arg("pdSysGui",1,"std::string"); (&arg1)->assign(lua_tostring(L,1),lua_rawlen(L,1));
+  pdSysGui(arg1); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getBlockSize(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetBlockSize",0,0)
+  result = (int)pdGetBlockSize(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_getSampleRate(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetSampleRate",0,0)
+  result = pdGetSampleRate(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getNumInChannels(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetNumInChannels",0,0)
+  result = (int)pdGetNumInChannels(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getNumOutChannels(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetNumOutChannels",0,0)
+  result = (int)pdGetNumOutChannels(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getDspState(lua_State* L) { int SWIG_arg = 0; bool result; SWIG_check_num_args("pdGetDspState",0,0)
+  result = (bool)pdGetDspState(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_getMaxString(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetMaxString",0,0)
+  result = (int)pdGetMaxString(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_getFloatSize(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetFloatSize",0,0)
+  result = (int)pdGetFloatSize(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_getMinFloat(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetMinFloat",0,0)
+  result = pdGetMinFloat(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getMaxFloat(lua_State* L) { int SWIG_arg = 0; t_float result; SWIG_check_num_args("pdGetMaxFloat",0,0)
+  result = pdGetMaxFloat(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_isBadFloat(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
+  SWIG_check_num_args("pdIsBadFloat",1,1) { if (!lua_isnumber(L, 1))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
+  result = (bool)pdIsBadFloat(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_isBigOrSmall(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
+  SWIG_check_num_args("pdIsBigOrSmall",1,1) { if (!lua_isnumber(L, 1))
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
+  result = (bool)pdIsBigOrSmall(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_getPdVersionMajor(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetPdVersionMajor",0,0)
+  result = (int)pdGetPdVersionMajor(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getPdVersionMinor(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetPdVersionMinor",0,0)
+  result = (int)pdGetPdVersionMinor(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getPdVersionBugFix(lua_State* L) { int SWIG_arg = 0; int result;
+  SWIG_check_num_args("pdGetPdVersionBugFix",0,0) result = (int)pdGetPdVersionBugFix();
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getOfeliaVersionMajor(lua_State* L) { int SWIG_arg = 0; int result;
+  SWIG_check_num_args("pdGetOfeliaVersionMajor",0,0) result = (int)pdGetOfeliaVersionMajor();
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getOfeliaVersionMinor(lua_State* L) { int SWIG_arg = 0; int result;
+  SWIG_check_num_args("pdGetOfeliaVersionMinor",0,0) result = (int)pdGetOfeliaVersionMinor();
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_getOfeliaVersionBugFix(lua_State* L) { int SWIG_arg = 0; int result;
+  SWIG_check_num_args("pdGetOfeliaVersionBugFix",0,0) result = (int)pdGetOfeliaVersionBugFix();
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_unZipPass__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string *arg2 = 0 ;
+  std::string arg3 ; std::string temp1 ; std::string temp2 ; bool result; SWIG_check_num_args("pdUnZipPass",3,3)
+  if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZipPass",1,"std::string const &");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZipPass",2,"std::string const &");
+  if(!lua_isstring(L,3)) SWIG_fail_arg("pdUnZipPass",3,"std::string");
+  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
+  (&arg3)->assign(lua_tostring(L,3),lua_rawlen(L,3));
+  result = (bool)pdUnZipPass((std::string const &)*arg1,(std::string const &)*arg2,arg3);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_unZipPass__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string *arg2 = 0 ;
+  std::string temp1 ; std::string temp2 ; bool result; SWIG_check_num_args("pdUnZipPass",2,2)
+  if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZipPass",1,"std::string const &");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZipPass",2,"std::string const &");
+  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2;
+  result = (bool)pdUnZipPass((std::string const &)*arg1,(std::string const &)*arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_unZipPass(lua_State* L) { int argc; int argv[4]={ 1,2,3,4} ; argc = lua_gettop(L); if (argc == 2) { int _v; {
+      _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { return _wrap_unZipPass__SWIG_1(L);}
+       }  }  if (argc == 3) { int _v; { _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) {
+        { _v = lua_isstring(L,argv[2]); }  if (_v) { return _wrap_unZipPass__SWIG_0(L);}  }  }  } 
+  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'unZipPass'\n" "  Possible C/C++ prototypes are:\n"
+  "    pdUnZipPass(std::string const &,std::string const &,std::string)\n"
+  "    pdUnZipPass(std::string const &,std::string const &)\n"); lua_error(L);return 0; }
+static int _wrap_unZip__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string arg2 ; std::string temp1 ;
+  bool result; SWIG_check_num_args("pdUnZip",2,2) if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZip",1,"std::string const &");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("pdUnZip",2,"std::string"); temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1;
+  (&arg2)->assign(lua_tostring(L,2),lua_rawlen(L,2)); result = (bool)pdUnZip((std::string const &)*arg1,arg2);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_unZip__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string temp1 ; bool result;
+  SWIG_check_num_args("pdUnZip",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("pdUnZip",1,"std::string const &");
+  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; result = (bool)pdUnZip((std::string const &)*arg1);
+  lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_unZip(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) { int _v; {
+      _v = lua_isstring(L,argv[0]); }  if (_v) { return _wrap_unZip__SWIG_1(L);}  }  if (argc == 2) { int _v; {
+      _v = lua_isstring(L,argv[0]); }  if (_v) { { _v = lua_isstring(L,argv[1]); }  if (_v) { return _wrap_unZip__SWIG_0(L);}  }
+     }  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'unZip'\n" "  Possible C/C++ prototypes are:\n"
+  "    pdUnZip(std::string const &,std::string)\n" "    pdUnZip(std::string const &)\n"); lua_error(L);return 0; }
 static swig_lua_attribute swig_SwigModule_attributes[] = {
     { "Window_exists", _wrap_Window_exists_get, _wrap_Window_exists_set },
     {0,0,0}
@@ -5045,6 +5195,7 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "getPdVersionBugFix", _wrap_getPdVersionBugFix},
     { "getOfeliaVersionMajor", _wrap_getOfeliaVersionMajor},
     { "getOfeliaVersionMinor", _wrap_getOfeliaVersionMinor},
+    { "getOfeliaVersionBugFix", _wrap_getOfeliaVersionBugFix},
     { "unZipPass", _wrap_unZipPass},
     { "unZip", _wrap_unZip},
     {0,0}
@@ -5062,6 +5213,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_Osc,
 &_wrap_class_BlOsc,
 &_wrap_class_Filter,
+&_wrap_class_Reverb,
 &_wrap_class_Log,
 &_wrap_class_Json,
 &_wrap_class_OscSender,
@@ -5104,12 +5256,12 @@ static swig_type_info _swigt__p_pdOsc = {"_p_pdOsc", "pdOsc *", 0, 0, (void*)&_w
 static swig_type_info _swigt__p_pdOscReceiver = {"_p_pdOscReceiver", "pdOscReceiver *", 0, 0, (void*)&_wrap_class_OscReceiver, 0};
 static swig_type_info _swigt__p_pdOscSender = {"_p_pdOscSender", "pdOscSender *", 0, 0, (void*)&_wrap_class_OscSender, 0};
 static swig_type_info _swigt__p_pdOutlet = {"_p_pdOutlet", "pdOutlet *", 0, 0, (void*)&_wrap_class_Outlet, 0};
+static swig_type_info _swigt__p_pdReverb = {"_p_pdReverb", "pdReverb *", 0, 0, (void*)&_wrap_class_Reverb, 0};
 static swig_type_info _swigt__p_pdSend = {"_p_pdSend", "pdSend *", 0, 0, (void*)&_wrap_class_Send, 0};
 static swig_type_info _swigt__p_pdValue = {"_p_pdValue", "pdValue *", 0, 0, (void*)&_wrap_class_Value, 0};
 static swig_type_info _swigt__p_pdWindow = {"_p_pdWindow", "pdWindow *", 0, 0, (void*)&_wrap_class_Window, 0};
 static swig_type_info _swigt__p_std__dequeT_int_t = {"_p_std__dequeT_int_t", "std::deque< int > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)&_wrap_class_string, 0};
-static swig_type_info _swigt__p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t = {"_p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t", "std::vector< std::pair< ofxOfeliaData *,t_float > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_t_atom = {"_p_t_atom", "t_atom *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_t_floatarg = {"_p_t_floatarg", "t_floatarg *", 0, 0, (void*)0, 0};
 
@@ -5132,12 +5284,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_pdOscReceiver,
   &_swigt__p_pdOscSender,
   &_swigt__p_pdOutlet,
+  &_swigt__p_pdReverb,
   &_swigt__p_pdSend,
   &_swigt__p_pdValue,
   &_swigt__p_pdWindow,
   &_swigt__p_std__dequeT_int_t,
   &_swigt__p_std__string,
-  &_swigt__p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t,
   &_swigt__p_t_atom,
   &_swigt__p_t_floatarg,
 };
@@ -5160,12 +5312,12 @@ static swig_cast_info _swigc__p_pdOsc[] = {  {&_swigt__p_pdOsc, 0, 0, 0},{0, 0, 
 static swig_cast_info _swigc__p_pdOscReceiver[] = {  {&_swigt__p_pdOscReceiver, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_pdOscSender[] = {  {&_swigt__p_pdOscSender, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_pdOutlet[] = {  {&_swigt__p_pdOutlet, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_pdReverb[] = {  {&_swigt__p_pdReverb, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_pdSend[] = {  {&_swigt__p_pdSend, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_pdValue[] = {  {&_swigt__p_pdValue, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_pdWindow[] = {  {&_swigt__p_pdWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__dequeT_int_t[] = {  {&_swigt__p_std__dequeT_int_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t[] = {  {&_swigt__p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_atom[] = {  {&_swigt__p_t_atom, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_t_floatarg[] = {  {&_swigt__p_t_floatarg, 0, 0, 0},{0, 0, 0, 0}};
 
@@ -5188,12 +5340,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_pdOscReceiver,
   _swigc__p_pdOscSender,
   _swigc__p_pdOutlet,
+  _swigc__p_pdReverb,
   _swigc__p_pdSend,
   _swigc__p_pdValue,
   _swigc__p_pdWindow,
   _swigc__p_std__dequeT_int_t,
   _swigc__p_std__string,
-  _swigc__p_std__vectorT_std__pairT_ofxOfeliaData_p_t_float_t_t,
   _swigc__p_t_atom,
   _swigc__p_t_floatarg,
 };

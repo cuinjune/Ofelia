@@ -61,7 +61,7 @@ public:
     static lua_State *L;
     bool isChunkRun; /* whether the chunk is run or not */
 private:
-    static void unpackModule(lua_State *L, const std::string &m);
+    static void unpackModule(lua_State *L, const std::string &moduleName,  const std::string &prefix);
     static bool addGlobals(lua_State *L);
     ofxOfeliaData *dataPtr; /* pointer to data */
 };

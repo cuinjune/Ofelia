@@ -1,4 +1,5 @@
 #N canvas 720 100 665 542 10;
+#X declare -lib ofelia;
 #X msg 41 85 1;
 #X msg 58 132 0;
 #X msg 47 108 bang;
@@ -18,13 +19,14 @@
 in milliseconds.;
 #X text 281 296 Cancel the scheduled function call.;
 #X text 37 32 Simple [metro] obect emulation. You can call a function
-after a certain duration by using pdClock() class.;
-#X obj 41 219 ofelia d \; M.tempo = 300 \; local clock = pdClock(this
-\, "bang") \; function ofelia.bang() \; clock:delay(M.tempo) \; return
-nil \; end \; function ofelia.stop() \; clock:unset() \; end \; function
-ofelia.float(i) \; if i ~= 0 then \; return ofelia.bang() \; else \;
-ofelia.stop() \; end \; end \;;
+after a certain duration by using ofClock() class.;
+#X obj 41 219 ofelia d \; M.tempo = 300 \; local clock = ofClock(this
+\, "bang") \; function M.bang() \; clock:delay(M.tempo) \; return
+nil \; end \; function M.stop() \; clock:unset() \; end \; function
+M.float(i) \; if i ~= 0 then \; return M.bang() \; else \;
+M.stop() \; end \; end \;;
 #X f 37;
+#X obj 512 29 declare -lib ofelia;
 #X connect 0 0 17 0;
 #X connect 1 0 17 0;
 #X connect 2 0 17 0;

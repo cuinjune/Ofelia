@@ -2,7 +2,7 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local clock = pd.Clock(this, "setup")
+local clock = ofClock(this, "setup")
 local DV = class()
 function DV:__init(x, y)
   self.x = x
@@ -14,7 +14,7 @@ end
 local nCurveVertexes = 0
 local curveVertices = {}
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("draw", this)
   ofWindow.addListener("mouseMoved", this)
@@ -30,7 +30,7 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("draw", this)
@@ -40,14 +40,14 @@ function ofelia.free()
   ofWindow.removeListener("mouseReleased", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("polygon example")
   ofBackground(255, 255, 255, 255)
   nCurveVertexes = 7
   curveVertices = {DV(326, 209), DV(306, 279), DV(265, 331), DV(304, 383), DV(374, 383), DV(418, 209), DV(345, 279)}
 end
 
-function ofelia.draw()
+function M.draw()
   ofFill()
 
   --[[---------------------------------------------------------------
@@ -87,7 +87,7 @@ function ofelia.draw()
   local yPct = ofGetMouseY() / ofGetHeight()
   local nTips = 5 + xPct * 60
   local nStarPts = nTips * 2
-  local angleChangePerPt = TWO_PI / nStarPts
+  local angleChangePerPt = OF_TWO_PI / nStarPts
   local innerRadius = 0 + yPct*80
   local outerRadius = 80
   local origx = 525
@@ -130,7 +130,7 @@ function ofelia.draw()
     ofFill()
     ofSetPolyMode(OF_POLY_WINDING_ODD)
     ofBeginShape()
-    local angleStep = TWO_PI/(100 + math.sin(ofGetElapsedTimef()/5) * 60)
+    local angleStep = OF_TWO_PI/(100 + math.sin(ofGetElapsedTimef()/5) * 60)
     local radiusAdder = 0.5
     local radius = 0
     for i=1,200 do
@@ -244,7 +244,7 @@ function ofelia.draw()
     ofVertex(300, 600)
     ofNextContour(true)		
     for i=1,20 do
-      local anglef = (i / 19.0) * TWO_PI
+      local anglef = (i / 19.0) * OF_TWO_PI
       local x = 340 + 30 * math.cos(anglef)
       local y = 550 + 30 * math.sin(anglef) 
       ofVertex(x,y)
@@ -259,7 +259,7 @@ function ofelia.draw()
     ofVertex(300, 600)
     ofNextContour(true)
     for i=1,20 do
-      local anglef = (i / 19.0) * TWO_PI
+      local anglef = (i / 19.0) * OF_TWO_PI
       local x = 340 + 30 * math.cos(anglef)
       local y = 550 + 30 * math.sin(anglef) 
       ofVertex(x,y)
@@ -274,7 +274,7 @@ function ofelia.draw()
     ofVertex(300, 600)
     ofNextContour(true)
     for i=1,20 do
-      local anglef = (i / 19.0) * TWO_PI
+      local anglef = (i / 19.0) * OF_TWO_PI
       local x = 340 + 30 * math.cos(anglef)
       local y = 550 + 30 * math.sin(anglef) 
       ofVertex(x,y)
@@ -302,7 +302,7 @@ function ofelia.draw()
   ofDrawBitmapString("(i) ofNextContour"..string.char(10).."can even be used for CSG operations"..string.char(10).."such as union and intersection", 260, 620)
 end
 
-function ofelia.mouseMoved(e)
+function M.mouseMoved(e)
   for i=1,nCurveVertexes do
     local diffx = e.x - curveVertices[i].x
     local diffy = e.y - curveVertices[i].y
@@ -315,7 +315,7 @@ function ofelia.mouseMoved(e)
   end
 end
 
-function ofelia.mouseDragged(e)
+function M.mouseDragged(e)
   for i=1,nCurveVertexes do
     if curveVertices[i].bBeingDragged == true then
       curveVertices[i].x = e.x
@@ -324,7 +324,7 @@ function ofelia.mouseDragged(e)
   end
 end
 
-function ofelia.mousePressed(e)
+function M.mousePressed(e)
   for i=1,nCurveVertexes do
     local diffx = e.x - curveVertices[i].x
     local diffy = e.y - curveVertices[i].y
@@ -337,7 +337,7 @@ function ofelia.mousePressed(e)
   end
 end
 
-function ofelia.mouseReleased(e)
+function M.mouseReleased(e)
   for i=1,nCurveVertexes do
     curveVertices[i].bBeingDragged = false	
   end

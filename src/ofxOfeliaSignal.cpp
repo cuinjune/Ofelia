@@ -57,7 +57,12 @@ t_int *ofxOfeliaSignal::perform(t_int *w)
             {
                 lua_pushinteger(L, static_cast<lua_Integer>(j + 1));
                 lua_gettable(L, -2);
-                out[j] = static_cast<t_float>(lua_tonumber(L, -1));
+                if (lua_isnumber(L, -1))
+                    out[j] = static_cast<t_float>(lua_tonumber(L, -1));
+                else if (lua_isboolean(L, -1))
+                    out[j] = static_cast<t_float>(lua_toboolean(L, -1));
+                else
+                    out[j] = 0.0f;
                 lua_pop(L, 1);
             }
             lua_pop(L, 1);

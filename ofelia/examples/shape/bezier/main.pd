@@ -1,9 +1,8 @@
 #N canvas 720 100 665 441 10;
-#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
 #X text 328 351 This example was originally written in Processing.
 https://processing.org/examples/bezier.html;
 #X obj 28 92 loadbang;
-#X obj 462 29 declare -path ofelia/libs/of;
 #X obj 28 134 ofWindow;
 #X obj 28 170 ofSetup;
 #X obj 28 191 ofBackground 0;
@@ -18,8 +17,9 @@ specify the first point in the curve and the last two parameters specify
 the last point. The middle parameters set the control points that define
 the shape of the curve.;
 #X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
-#X connect 1 0 10 0;
+#X obj 512 29 declare -lib ofelia;
+#X connect 1 0 9 0;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 7 0 8 0;
-#X connect 10 0 3 0;
+#X connect 6 0 7 0;
+#X connect 9 0 2 0;

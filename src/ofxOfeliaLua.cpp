@@ -104,12 +104,12 @@ int luaopen_print(lua_State *L)
     return 1;
 }
 
-void ofxOfeliaLua::unpackModule(lua_State *L, const std::string &m)
+void ofxOfeliaLua::unpackModule(lua_State *L, const std::string &moduleName, const std::string &prefix)
 {
-    std::string prefix = m;
-    std::transform(prefix.begin(), prefix.end(),prefix.begin(), ::toupper);
-    prefix += "_"; /* prefix for constants and enums */
-    lua_getglobal(L, m.c_str());
+    std::string upperPrefix = prefix;
+    std::transform(upperPrefix.begin(), upperPrefix.end(),upperPrefix.begin(), ::toupper);
+    upperPrefix += "_"; /* prefix for constants and enums */
+    lua_getglobal(L, moduleName.c_str());
     lua_pushnil(L);
     while (lua_next(L, -2) != 0)
     {
@@ -118,19 +118,19 @@ void ofxOfeliaLua::unpackModule(lua_State *L, const std::string &m)
         std::string renamedStr;
         lua_getfield(L, -3, str.c_str());
         if ((type == "table" || type == "userdata") && (::isupper(str[0]) || ::isdigit(str[0]))) /* classes and structs */
-            renamedStr = m + str;
+            renamedStr = prefix + str;
         else if (type == "function") /* global functions */
         {
             renamedStr = str;
             renamedStr[0] = static_cast<char>(::toupper(str[0]));
-            renamedStr = m + renamedStr;
+            renamedStr = prefix + renamedStr;
         }
         else if (type == "number" || type == "string" || type == "boolean")
         {
             if (std::any_of(str.begin(), str.end(), ::islower)) /* static member variables */
-                renamedStr = m + str;
-            else /* constants or enums */
                 renamedStr = prefix + str;
+            else /* constants or enums */
+                renamedStr = upperPrefix + str;
         }
         lua_setglobal(L, renamedStr.c_str());
         lua_pop(L, 1);
@@ -139,13 +139,17 @@ void ofxOfeliaLua::unpackModule(lua_State *L, const std::string &m)
     }
     lua_pop(L, 1);
     lua_pushnil(L); /* assign nil to module */
-    lua_setglobal(L, m.c_str());
+    lua_setglobal(L, moduleName.c_str());
 }
 
 bool ofxOfeliaLua::addGlobals(lua_State *L)
 {
     lua_settop(L, 0);
     const char *s =
+    "ofRequire = require\n"
+    "function ofTable(...)\n"
+    "  return {...}\n"
+    "end\n"
     "function __classMethod(c, n, a)\n"
     "  if type(c[n]) == \"function\" then\n"
     "    if type(a) == \"table\" then\n"
@@ -205,15 +209,9 @@ bool ofxOfeliaLua::init()
     /* clear stack since opening libs leaves tables on the stack */
     lua_settop(L, 0);
     
-    /* unpack module elements into global namespace */
-    unpackModule(L, "of");
-    unpackModule(L, "pd");
-    
-    /* rename pdWindow to ofWindow */
-    lua_getglobal(L, "pdWindow");
-    lua_setglobal(L, "ofWindow");
-    lua_pushnil(L);
-    lua_setglobal(L, "pdWindow");
+    /* unpack module elements into global namespace with the new prefix */
+    unpackModule(L, "of", "of");
+    unpackModule(L, "pd", "of");
     
     /* add GL preprocessor defines */
     ofxOfeliaGL::addDefines(L);
@@ -451,6 +449,13 @@ void ofxOfeliaLua::outletTable()
     std::deque<int> userDataRef;
     while (lua_next(L, -2))
     {
+        if (lua_type(L, -2) == LUA_TSTRING) /* if the table has a string key */
+        {
+            lua_pop(L, 2);
+            outletUserData(); /* treat the table as a userdata */
+            if (ac) freebytes(av, sizeof(t_atom) * ac);
+            return;
+        }
         av = static_cast<t_atom *>(resizebytes(av, sizeof(t_atom) * ac,
                                                sizeof(t_atom) * (ac + 1)));
         if (lua_isboolean(L, -1))
@@ -476,12 +481,6 @@ void ofxOfeliaLua::outletTable()
             av[ac].a_type = A_POINTER;
             userDataRef.push_back(luaL_ref(L, LUA_REGISTRYINDEX));
             av[ac].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&userDataRef.back());
-        }
-        else if (lua_isstring(L, -2)) /* if the table has keys */
-        {
-            lua_pop(L, 2);
-            outletUserData(); /* treat the table as a userdata */
-            return;
         }
         ac++;
     }

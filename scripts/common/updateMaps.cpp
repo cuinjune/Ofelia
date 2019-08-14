@@ -321,6 +321,8 @@ int main(int argc, char *argv[])
     string ofxOfeliaPdBindingsPath = "../../src/ofxOfeliaPdBindings.cpp";
     string ofxOfeliaMapsPath = "../../src/ofxOfeliaMaps.cpp";
     Mapper mapper;
+    
+    /* of bindings */
     mapper.addFunctionToSkip("ofExit");
     mapper.addFunctionToSkip("ofToHex");
     mapper.addFunctionToSkip("ofToBinary");
@@ -333,20 +335,6 @@ int main(int argc, char *argv[])
     mapper.addClassToSkip("ofBaseSoundStream");
     mapper.addClassToSkip("ofVideoDevice");
     mapper.addClassToSkip("ofVideoFormat");
-    mapper.addClassToSkip("pdCanvas");
-    mapper.addClassToSkip("pdSend");
-    mapper.addClassToSkip("pdInlet");
-    mapper.addClassToSkip("pdOutlet");
-    mapper.addClassToSkip("pdValue");
-    mapper.addClassToSkip("pdArray");
-    mapper.addClassToSkip("pdClock");
-    mapper.addClassToSkip("pdOsc");
-    mapper.addClassToSkip("pdBlOsc");
-    mapper.addClassToSkip("pdFilter");
-    mapper.addClassToSkip("pdLog");
-    mapper.addClassToSkip("pdOscSender");
-    mapper.addClassToSkip("pdOscReceiver");
-    mapper.addClassToRename({"pdWindow", "ofWindow"});
     mapper.addClassMethodToRename({"ofFbo", "begin", "beginFbo"});
     mapper.addClassMethodToRename({"ofFbo", "end", "endFbo"});
     mapper.addClassMethodToRename({"ofCamera", "begin", "beginCamera"});
@@ -358,22 +346,62 @@ int main(int argc, char *argv[])
     mapper.addClassMethodToRename({"ofShader", "end", "endShader"});
     mapper.addClassMethodToAdd({"ofEasyCam", {"{\"endCamera\",{{{}},0}},"}});
     mapper.addClassMethodToAdd({"ofSoundPlayer", {"{\"getPan\",{{{}},1}},",
-                                                  "{\"getPosition\",{{{}},1}},",
-                                                  "{\"getSpeed\",{{{}},1}},",
-                                                  "{\"getVolume\",{{{}},1}},",
-                                                  "{\"isLoaded\",{{{}},1}},",
-                                                  "{\"isPlaying\",{{{}},1}},",
-                                                  "{\"play\",{{{}},0}},",
-                                                  "{\"setLoop\",{{{1},{}},0}},",
-                                                  "{\"setMultiPlay\",{{{1},{}},0}},",
-                                                  "{\"setPan\",{{{3},{}},0}},",
-                                                  "{\"setPaused\",{{{1},{}},0}},",
-                                                  "{\"setPosition\",{{{3},{}},0}},",
-                                                  "{\"setPositionMS\",{{{3},{}},0}},",
-                                                  "{\"setSpeed\",{{{3},{}},0}},",
-                                                  "{\"setVolume\",{{{3},{}},0}},",
-                                                  "{\"stop\",{{{}},0}},",
-                                                  "{\"unload\",{{{}},0}},"}});
+        "{\"getPosition\",{{{}},1}},",
+        "{\"getSpeed\",{{{}},1}},",
+        "{\"getVolume\",{{{}},1}},",
+        "{\"isLoaded\",{{{}},1}},",
+        "{\"isPlaying\",{{{}},1}},",
+        "{\"play\",{{{}},0}},",
+        "{\"setLoop\",{{{1},{}},0}},",
+        "{\"setMultiPlay\",{{{1},{}},0}},",
+        "{\"setPan\",{{{3},{}},0}},",
+        "{\"setPaused\",{{{1},{}},0}},",
+        "{\"setPosition\",{{{3},{}},0}},",
+        "{\"setPositionMS\",{{{3},{}},0}},",
+        "{\"setSpeed\",{{{3},{}},0}},",
+        "{\"setVolume\",{{{3},{}},0}},",
+        "{\"stop\",{{{}},0}},",
+        "{\"unload\",{{{}},0}},"}});
+    
+    /* pd bindings */
+    mapper.addClassToRename({"pdWindow", "ofWindow"});
+    mapper.addClassToSkip("pdCanvas");
+    mapper.addClassToSkip("pdSend");
+    mapper.addClassToSkip("pdInlet");
+    mapper.addClassToSkip("pdOutlet");
+    mapper.addClassToSkip("pdValue");
+    mapper.addClassToSkip("pdArray");
+    mapper.addClassToSkip("pdClock");
+    mapper.addClassToSkip("pdOsc");
+    mapper.addClassToSkip("pdBlOsc");
+    mapper.addClassToSkip("pdFilter");
+    mapper.addClassToSkip("pdReverb");
+    mapper.addClassToSkip("pdLog");
+    mapper.addClassToRename({"pdJson", "ofJson"});
+    mapper.addClassToSkip("pdOscSender");
+    mapper.addClassToSkip("pdOscReceiver");
+    mapper.addFunctionToRename({"pdSysGui", "ofSysGui"});
+    mapper.addFunctionToRename({"pdGetBlockSize", "ofGetBlockSize"});
+    mapper.addFunctionToRename({"pdGetSampleRate", "ofGetSampleRate"});
+    mapper.addFunctionToRename({"pdGetNumInChannels", "ofGetNumInChannels"});
+    mapper.addFunctionToRename({"pdGetNumOutChannels", "ofGetNumOutChannels"});
+    mapper.addFunctionToRename({"pdGetDspState", "ofGetDspState"});
+    mapper.addFunctionToRename({"pdGetMaxString", "ofGetMaxString"});
+    mapper.addFunctionToRename({"pdGetFloatSize", "ofGetFloatSize"});
+    mapper.addFunctionToRename({"pdGetMinFloat", "ofGetMinFloat"});
+    mapper.addFunctionToRename({"pdGetMaxFloat", "ofGetMaxFloat"});
+    mapper.addFunctionToRename({"pdIsBadFloat", "ofIsBadFloat"});
+    mapper.addFunctionToRename({"pdIsBigOrSmall", "ofIsBigOrSmall"});
+    mapper.addFunctionToRename({"pdGetPdVersionMajor", "ofGetPdVersionMajor"});
+    mapper.addFunctionToRename({"pdGetPdVersionMinor", "ofGetPdVersionMinor"});
+    mapper.addFunctionToRename({"pdGetPdVersionBugFix", "ofGetPdVersionBugFix"});
+    mapper.addFunctionToRename({"pdGetOfeliaVersionMajor", "ofGetOfeliaVersionMajor"});
+    mapper.addFunctionToRename({"pdGetOfeliaVersionMinor", "ofGetOfeliaVersionMinor"});
+    mapper.addFunctionToRename({"pdGetOfeliaVersionBugFix", "ofGetOfeliaVersionBugFix"});
+    mapper.addFunctionToRename({"pdUnZipPass", "ofUnZipPass"});
+    mapper.addFunctionToRename({"pdUnZip", "ofUnZip"});
+    
+    /* start writing the file */
     ostringstream ss;
     ss <<
     "#include \"ofxOfeliaMaps.h\"\n"

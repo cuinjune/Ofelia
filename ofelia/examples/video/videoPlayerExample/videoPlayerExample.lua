@@ -2,13 +2,13 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local canvas = pdCanvas(this)
-local clock = pdClock(this, "setup")
+local canvas = ofCanvas(this)
+local clock = ofClock(this, "setup")
 local videoDir = canvas:getDir() .. "/data/"
 local fingerMovie = ofVideoPlayer()
 local frameByframe = false
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("update", this)
   ofWindow.addListener("draw", this)
@@ -27,7 +27,7 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("update", this)
@@ -40,7 +40,7 @@ function ofelia.free()
   ofWindow.removeListener("exit", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("video player example")
   ofBackground(255, 255, 255, 255)
   frameByframe = false
@@ -49,11 +49,11 @@ function ofelia.setup()
   fingerMovie:play()
 end
 
-function ofelia.update()
+function M.update()
   fingerMovie:update()
 end
 
-function ofelia.draw()
+function M.draw()
   ofSetHexColor(0xFFFFFF)
   fingerMovie:draw(20, 20)
   ofSetHexColor(0x000000)
@@ -90,7 +90,7 @@ function ofelia.draw()
   end
 end
 
-function ofelia.keyPressed(e)
+function M.keyPressed(e)
   if e.key == string.byte("f") then
     frameByframe = frameByframe == false
     fingerMovie:setPaused(frameByframe)
@@ -103,7 +103,7 @@ function ofelia.keyPressed(e)
   end
 end
 
-function ofelia.mouseMoved(e)
+function M.mouseMoved(e)
   if not frameByframe then
     local width = ofGetWidth()
     local pct = e.x / width
@@ -112,7 +112,7 @@ function ofelia.mouseMoved(e)
   end
 end
 
-function ofelia.mouseDragged(e)
+function M.mouseDragged(e)
   if not frameByframe then
     local width = ofGetWidth()
     local pct = e.x / width
@@ -120,18 +120,18 @@ function ofelia.mouseDragged(e)
   end
 end
 
-function ofelia.mousePressed(e)
+function M.mousePressed(e)
   if not frameByframe then
     fingerMovie:setPaused(true)
   end
 end
 
-function ofelia.mouseReleased(e)
+function M.mouseReleased(e)
   if not frameByframe then
     fingerMovie:setPaused(false)
   end
 end
 
-function ofelia.exit()
+function M.exit()
   fingerMovie:close()
 end

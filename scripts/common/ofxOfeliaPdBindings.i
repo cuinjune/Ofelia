@@ -6,6 +6,7 @@
 %include <stl.i>
 %include <std_string.i>
 %include <std_vector.i>
+%include <std_pair.i>
 %include <exception.i>
 %include <typemaps.i>
 
@@ -231,8 +232,8 @@ static void lua_len(lua_State *L, int i)
     SWIG_arg++;
 }
 
-/* convert the output vector<pair<ofxOfeliaData *, t_float>> to lua_Table */
-%typemap(out) vector<pair<ofxOfeliaData *, t_float>>
+/* convert the output std::vector<std::pair<ofxOfeliaData *, t_float>> to lua_Table */
+%typemap(out) std::vector<std::pair<ofxOfeliaData *, t_float>>
 {
     lua_newtable(L);
     for (size_t i = 0; i < $1.size(); ++i)
@@ -312,8 +313,12 @@ static void lua_len(lua_State *L, int i)
     freebytes($2, $1 * sizeof(t_float));
 }
 
-/* used for pdFilter class methods */
+/* used for methods that take audio buffer */
 %apply (float *INOUT, int) {(float *io1, int n1)};
+%apply (float *INOUT, int) {(float *io2, int n2)};
+%apply (float *INOUT, int) {(float *io3, int n3)};
+%apply (float *INOUT, int) {(float *io4, int n4)};
+%apply (float *INPUT, int) {(float *in1, int n1)};
 %apply (float *INPUT, int) {(float *in2, int n2)};
 %apply (float *INPUT, int) {(float *in3, int n3)};
 %apply (float *INPUT, int) {(float *in4, int n4)};

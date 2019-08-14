@@ -1772,25 +1772,26 @@ void ofxOfeliaMaps::init()
     classMap.insert(ofClassMap.begin(), ofClassMap.end());
     const std::unordered_map<std::string, FunctionData> pdFunctionMap =
     {
-        {"pdSysGui",{{{4},{}},0}},
-        {"pdGetBlockSize",{{{}},1}},
-        {"pdGetSampleRate",{{{}},1}},
-        {"pdGetNumInChannels",{{{}},1}},
-        {"pdGetNumOutChannels",{{{}},1}},
-        {"pdGetDspState",{{{}},1}},
-        {"pdGetMaxString",{{{}},1}},
-        {"pdGetFloatSize",{{{}},1}},
-        {"pdGetMinFloat",{{{}},1}},
-        {"pdGetMaxFloat",{{{}},1}},
-        {"pdIsBadFloat",{{{3},{}},1}},
-        {"pdIsBigOrSmall",{{{3},{}},1}},
-        {"pdGetPdVersionMajor",{{{}},1}},
-        {"pdGetPdVersionMinor",{{{}},1}},
-        {"pdGetPdVersionBugFix",{{{}},1}},
-        {"pdGetOfeliaVersionMajor",{{{}},1}},
-        {"pdGetOfeliaVersionMinor",{{{}},1}},
-        {"pdUnZipPass",{{{4,4,4},{4,4},{}},1}},
-        {"pdUnZip",{{{4,4},{4},{}},1}},
+        {"ofSysGui",{{{4},{}},0}},
+        {"ofGetBlockSize",{{{}},1}},
+        {"ofGetSampleRate",{{{}},1}},
+        {"ofGetNumInChannels",{{{}},1}},
+        {"ofGetNumOutChannels",{{{}},1}},
+        {"ofGetDspState",{{{}},1}},
+        {"ofGetMaxString",{{{}},1}},
+        {"ofGetFloatSize",{{{}},1}},
+        {"ofGetMinFloat",{{{}},1}},
+        {"ofGetMaxFloat",{{{}},1}},
+        {"ofIsBadFloat",{{{3},{}},1}},
+        {"ofIsBigOrSmall",{{{3},{}},1}},
+        {"ofGetPdVersionMajor",{{{}},1}},
+        {"ofGetPdVersionMinor",{{{}},1}},
+        {"ofGetPdVersionBugFix",{{{}},1}},
+        {"ofGetOfeliaVersionMajor",{{{}},1}},
+        {"ofGetOfeliaVersionMinor",{{{}},1}},
+        {"ofGetOfeliaVersionBugFix",{{{}},1}},
+        {"ofUnZipPass",{{{4,4,4},{4,4},{}},1}},
+        {"ofUnZip",{{{4,4},{4},{}},1}},
         {"",{{},0}}
     };
     const std::unordered_map<std::string, ClassData> pdClassMap =
@@ -1814,7 +1815,7 @@ void ofxOfeliaMaps::init()
             {"windowMode",{{{3},{}},0}},
             {"",{{},0}}}
         },
-        {"pdJson",{
+        {"ofJson",{
             {"setDelimiter",{{{4},{}},0}},
             {"load",{{{4},{}},1}},
             {"save",{{{4,1},{4},{}},1}},

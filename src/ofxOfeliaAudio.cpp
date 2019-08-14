@@ -236,7 +236,7 @@ t_float ofxOfeliaBlOsc::getPhase()
     return this->phase;
 }
 
-void ofxOfeliaBlOsc::blTriangle(float *io1, int n1)
+void ofxOfeliaBlOsc::triangle(float *io1, int n1)
 {
     const t_float sr = sys_getsr();
     const t_float nyquist = sr * 0.5f;
@@ -341,7 +341,7 @@ void ofxOfeliaBlOsc::blTriangle(float *io1, int n1)
     this->phase2 = (tf2.tf_d - UNITBIT32 * fnpoints) * finvnpoints;
 }
 
-void ofxOfeliaBlOsc::blSaw(float *io1, int n1)
+void ofxOfeliaBlOsc::saw(float *io1, int n1)
 {
     const t_float sr = sys_getsr();
     const t_float nyquist = sr * 0.5f;
@@ -443,7 +443,7 @@ void ofxOfeliaBlOsc::blSaw(float *io1, int n1)
     this->phase2 = (tf2.tf_d - UNITBIT32 * fnpoints) * finvnpoints;
 }
 
-void ofxOfeliaBlOsc::blSquare(float *io1, int n1)
+void ofxOfeliaBlOsc::square(float *io1, int n1)
 {
     const t_float sr = sys_getsr();
     const t_float nyquist = sr * 0.5f;
@@ -548,7 +548,7 @@ void ofxOfeliaBlOsc::blSquare(float *io1, int n1)
     this->phase2 = (tf2.tf_d - UNITBIT32 * fnpoints) * finvnpoints;
 }
 
-void ofxOfeliaBlOsc::blPulse(float *io1, int n1, float *in2, int n2)
+void ofxOfeliaBlOsc::pulse(float *io1, int n1, float *in2, int n2)
 {
     const t_float sr = sys_getsr();
     const t_float nyquist = sr * 0.5f;

@@ -205,6 +205,9 @@
 		FDF1A0DE22C1E4A0003A82C3 /* binarymsg.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0DB22C1E4A0003A82C3 /* binarymsg.c */; };
 		FDF1A0DF22C1E4A0003A82C3 /* pdsched.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0DC22C1E4A0003A82C3 /* pdsched.c */; };
 		FDF1A0E122C1E4AB003A82C3 /* sigmund~.c in Sources */ = {isa = PBXBuildFile; fileRef = FDF1A0E022C1E4AB003A82C3 /* sigmund~.c */; };
+		FDF21BCC22F7EC3F00B1304C /* allpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDF21BC722F7EC3E00B1304C /* allpass.cpp */; };
+		FDF21BCD22F7EC3F00B1304C /* comb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDF21BC822F7EC3E00B1304C /* comb.cpp */; };
+		FDF21BCE22F7EC3F00B1304C /* revmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDF21BCA22F7EC3E00B1304C /* revmodel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -722,6 +725,15 @@
 		FDF1A0DB22C1E4A0003A82C3 /* binarymsg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = binarymsg.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd/binarymsg.c"; sourceTree = "<group>"; };
 		FDF1A0DC22C1E4A0003A82C3 /* pdsched.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pdsched.c; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/pd/pdsched.c"; sourceTree = "<group>"; };
 		FDF1A0E022C1E4AB003A82C3 /* sigmund~.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "sigmund~.c"; path = "../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/extra/sigmund/sigmund~.c"; sourceTree = "<group>"; };
+		FDF21BC422F7EC3E00B1304C /* comb.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = comb.hpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/comb.hpp; sourceTree = "<group>"; };
+		FDF21BC522F7EC3E00B1304C /* allpass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = allpass.hpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/allpass.hpp; sourceTree = "<group>"; };
+		FDF21BC622F7EC3E00B1304C /* denormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = denormals.h; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/denormals.h; sourceTree = "<group>"; };
+		FDF21BC722F7EC3E00B1304C /* allpass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = allpass.cpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/allpass.cpp; sourceTree = "<group>"; };
+		FDF21BC822F7EC3E00B1304C /* comb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = comb.cpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/comb.cpp; sourceTree = "<group>"; };
+		FDF21BC922F7EC3E00B1304C /* revmodel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = revmodel.hpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/revmodel.hpp; sourceTree = "<group>"; };
+		FDF21BCA22F7EC3E00B1304C /* revmodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = revmodel.cpp; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/revmodel.cpp; sourceTree = "<group>"; };
+		FDF21BCB22F7EC3E00B1304C /* tuning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tuning.h; path = ../../../addons/ofxOfelia/libs/ofxReverb/libs/tuning.h; sourceTree = "<group>"; };
+		FDF21BCF22F7EC4800B1304C /* ofxReverb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofxReverb.h; path = ../../../addons/ofxOfelia/libs/ofxReverb/src/ofxReverb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1774,6 +1786,7 @@
 				2413C01760B1811BED0F502D /* ofxMidi */,
 				FDA97A9522F33C0600D4C1B4 /* ofxOsc */,
 				D774F7F6898330925BBAE5D9 /* ofxPd */,
+				FDF21BA222F7EA0B00B1304C /* ofxReverb */,
 				FDD3AF9422F47A6000A13F8B /* ofxZipPass */,
 			);
 			name = libs;
@@ -1830,6 +1843,38 @@
 				FD488B1222E1C1A9004C59C6 /* ofxOfeliaTextBuf.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		FDF21BA222F7EA0B00B1304C /* ofxReverb */ = {
+			isa = PBXGroup;
+			children = (
+				FDF21BA422F7EA2100B1304C /* libs */,
+				FDF21BA322F7EA1D00B1304C /* src */,
+			);
+			name = ofxReverb;
+			sourceTree = "<group>";
+		};
+		FDF21BA322F7EA1D00B1304C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FDF21BCF22F7EC4800B1304C /* ofxReverb.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		FDF21BA422F7EA2100B1304C /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				FDF21BC722F7EC3E00B1304C /* allpass.cpp */,
+				FDF21BC522F7EC3E00B1304C /* allpass.hpp */,
+				FDF21BC822F7EC3E00B1304C /* comb.cpp */,
+				FDF21BC422F7EC3E00B1304C /* comb.hpp */,
+				FDF21BC622F7EC3E00B1304C /* denormals.h */,
+				FDF21BCA22F7EC3E00B1304C /* revmodel.cpp */,
+				FDF21BC922F7EC3E00B1304C /* revmodel.hpp */,
+				FDF21BCB22F7EC3E00B1304C /* tuning.h */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1984,6 +2029,7 @@
 				FD0C2E7722B68A9800937887 /* g_graph.c in Sources */,
 				FDED127722B3B733005D9D62 /* ofBindings.cpp in Sources */,
 				FD0C2E7522B68A9800937887 /* d_math.c in Sources */,
+				FDF21BCD22F7EC3F00B1304C /* comb.cpp in Sources */,
 				FD0C2E5122B68A9800937887 /* g_hslider.c in Sources */,
 				FD0C2E5322B68A9800937887 /* m_class.c in Sources */,
 				FD0C2E6522B68A9800937887 /* m_binbuf.c in Sources */,
@@ -2120,9 +2166,11 @@
 				FD1EC9EB22F348D20036EA8E /* NetworkingUtils.cpp in Sources */,
 				FDED125922B3B6E1005D9D62 /* ldblib.c in Sources */,
 				FD61D70E22F520DC004A0913 /* ioapi.c in Sources */,
+				FDF21BCC22F7EC3F00B1304C /* allpass.cpp in Sources */,
 				FD0C2E6E22B68A9800937887 /* m_memory.c in Sources */,
 				FDED125C22B3B6E1005D9D62 /* lgc.c in Sources */,
 				FDED126A22B3B6E1005D9D62 /* lundump.c in Sources */,
+				FDF21BCE22F7EC3F00B1304C /* revmodel.cpp in Sources */,
 				FD0C2E8722B68A9800937887 /* m_glob.c in Sources */,
 				FDED129122B3B775005D9D62 /* ofxBaseMidi.cpp in Sources */,
 				FD1ECA1D22F34C860036EA8E /* jsoncpp.cpp in Sources */,
@@ -2278,6 +2326,8 @@
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip/posix,
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOfelia/libs/ofxOsc/src,
+					../../../addons/ofxOfelia/libs/ofxReverb/libs,
+					../../../addons/ofxOfelia/libs/ofxReverb/src,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/minizip,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/zlib,
@@ -2535,6 +2585,8 @@
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip/posix,
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOfelia/libs/ofxOsc/src,
+					../../../addons/ofxOfelia/libs/ofxReverb/libs,
+					../../../addons/ofxOfelia/libs/ofxReverb/src,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/minizip,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/zlib,
@@ -2640,6 +2692,8 @@
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip/posix,
 					../../../addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOfelia/libs/ofxOsc/src,
+					../../../addons/ofxOfelia/libs/ofxReverb/libs,
+					../../../addons/ofxOfelia/libs/ofxReverb/src,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/minizip,
 					../../../addons/ofxOfelia/libs/ofxZipPass/libs/zlib,

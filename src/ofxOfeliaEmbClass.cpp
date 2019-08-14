@@ -4,6 +4,7 @@
 #include <sstream>
 
 #define FORMAT_RELEASE_SCRIPT(methodName) \
+std::ostringstream ss; \
 ss << \
 "function M.new()\n" \
 "  ofWindow.addListener(\"exit\", this)\n" \
@@ -16,6 +17,7 @@ ss << \
 "function M.exit()\n" \
 "  M." << varName->s_name << ':' << methodName << "()\n" \
 "end\n"; \
+return gensym(ss.str().c_str()); \
 
 t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_default(t_symbol *varName)
 {
@@ -29,23 +31,17 @@ t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_default(t_symbol *varName)
 
 t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_clear(t_symbol *varName)
 {
-    std::ostringstream ss;
     FORMAT_RELEASE_SCRIPT("clear");
-    return gensym(ss.str().c_str());
 }
 
 t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_close(t_symbol *varName)
 {
-    std::ostringstream ss;
     FORMAT_RELEASE_SCRIPT("close");
-    return gensym(ss.str().c_str());
 }
 
 t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_unload(t_symbol *varName)
 {
-    std::ostringstream ss;
     FORMAT_RELEASE_SCRIPT("unload");
-    return gensym(ss.str().c_str());
 }
 
 t_symbol *ofxOfeliaEmbClass::getClassAdditionalScript_destroy(t_symbol *varName)
@@ -104,7 +100,7 @@ void ofxOfeliaEmbClass::setup()
     for (auto it = ofxOfeliaMaps::classMap.begin(); it != ofxOfeliaMaps::classMap.end(); ++it)
         class_addcreator(reinterpret_cast<t_newmethod>(newWrapper_default),
                          gensym(it->first.c_str()), A_GIMME, 0);
-    /* exceptions */
+    /* classes that need additional script */
     class_addcreator(reinterpret_cast<t_newmethod>(newWrapper_clear),
                      gensym("ofFbo"), A_GIMME, 0);
     class_addcreator(reinterpret_cast<t_newmethod>(newWrapper_clear),

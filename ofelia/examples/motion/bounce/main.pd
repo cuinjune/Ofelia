@@ -1,7 +1,6 @@
 #N canvas 720 100 665 626 10;
-#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
 #X obj 28 72 loadbang;
-#X obj 462 29 declare -path ofelia/libs/of;
 #X text 25 23 When the shape hits the edge of the window \, it reverses
 its direction.;
 #X text 325 534 This example was originally written in Processing.
@@ -27,23 +26,23 @@ https://processing.org/examples/bounce.html;
 \; end \; if a.ypos > ofGetHeight()- a.rad or a.ypos < a.rad then \;
 a.ydirection = a.ydirection * -1 \; end \; ofDrawCircle(a.xpos \, a.ypos
 \, a.rad) \;;
-#X obj 28 375 ofGetPtr \$0-vars;
-#X text 134 375 Get a pointer to the variable module.;
 #X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
 #X obj 28 274 ofelia f \$0-vars \; M.rad = 60 \; M.xspeed \, M.yspeed
 = 2.8 \, 2.2 \; M.xpos \, M.ypos = 320 \, 200 \; M.xdirection \, M.ydirection
 = 1 \, 1 \;;
-#X text 242 299 "M" is an alias of the module table "ofelia".;
-#X connect 0 0 22 0;
+#X obj 28 375 ofRequire \$0-vars;
+#X obj 511 28 declare -lib ofelia;
+#X text 142 375 Require the module that has the variables.;
+#X connect 0 0 19 0;
+#X connect 4 0 5 0;
 #X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 23 0;
-#X connect 8 0 20 0;
+#X connect 6 0 20 0;
+#X connect 7 0 21 0;
+#X connect 8 0 15 0;
 #X connect 9 0 16 0;
-#X connect 10 0 17 0;
-#X connect 13 0 18 0;
-#X connect 16 0 23 0;
-#X connect 17 0 23 0;
-#X connect 18 0 23 0;
-#X connect 20 0 19 0;
-#X connect 22 0 4 0;
+#X connect 12 0 17 0;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 19 0 3 0;
+#X connect 21 0 18 0;

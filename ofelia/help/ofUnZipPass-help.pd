@@ -1,0 +1,52 @@
+#N canvas 321 23 599 630 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofUnZipPass 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 446 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 454 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 571 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 482 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 349 bang;
+#X text 95 454 float;
+#X obj 462 46 declare -lib ofelia;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X obj 505 5 ofUnZipPass;
+#X text 11 23 unarchive a zip file with a password set;
+#X text 211 349 - unarchive a zip file with a password set.;
+#X text 95 372 symbol;
+#X text 211 372 - sets the path to the zip file to unarchive.;
+#X obj 75 395 cnv 17 3 17 empty empty 2 5 9 0 16 -228856 -162280 0
+;
+#X text 95 395 symbol;
+#X text 211 395 - sets the password to be used to unarchive the zip
+file.;
+#X text 211 454 - the result. (0: fail or 1: success);
+#X text 72 505 1) symbol;
+#X text 72 525 2) symbol;
+#X text 211 504 - the path to the zip file to unarchive.;
+#X text 211 524 - the password to be used to unarchive the zip file.
+;
+#X obj 75 418 cnv 17 3 17 empty empty 3 5 9 0 16 -228856 -162280 0
+;
+#X text 95 418 symbol;
+#X text 72 545 3) symbol;
+#X text 211 544 - the destination directory. (default: same as the
+file);
+#X obj 195 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 195 210 5 0 0 0 - - -;
+#X text 234 210 0: fail \, 1: success.;
+#X obj 195 184 ofUnZipPass path/to/file.zip password path/to/directory
+;
+#X text 211 418 - sets the destination directory.;
+#X connect 28 0 31 0;
+#X connect 31 0 29 0;

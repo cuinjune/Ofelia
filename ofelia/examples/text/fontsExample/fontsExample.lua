@@ -2,15 +2,15 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local canvas = pdCanvas(this)
-local clock = pdClock(this, "setup")
+local canvas = ofCanvas(this)
+local clock = ofClock(this, "setup")
 local fontDir = canvas:getDir() .. "/data/"
 local franklinBook = ofTrueTypeFont()
 local verdana = ofTrueTypeFont()
 local franklinBookLarge = ofTrueTypeFont()
 local counter = 0
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("update", this)
   ofWindow.addListener("draw", this)
@@ -23,26 +23,26 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("update", this)
   ofWindow.removeListener("draw", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("fonts example")
   franklinBook:load(fontDir .. "frabk.ttf", 32)
   verdana:load(fontDir .. "verdana.ttf", 8, false, true)
   verdana:setLineHeight(20)
 end
 
-function ofelia.update()
+function M.update()
   ofBackground(255, 255, 255)	
   counter = counter + 1
 end
 
-function ofelia.draw()
+function M.draw()
   ofSetHexColor(0x00FF00)
   franklinBook:drawString("hello, this is franklin book calling"..string.char(10).."anyone home?", 100, 100)
   ofSetHexColor(0x000000)

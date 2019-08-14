@@ -1,47 +1,82 @@
-#N canvas 720 100 674 583 10;
-#X declare -path ofelia/libs/pd;
-#X obj 27 437 dac~;
+#N canvas 720 100 674 643 10;
+#X declare -lib ofelia;
+#X obj 27 514 dac~;
 #X obj 27 124 sig~ 440;
 #X floatatom 27 104 5 0 0 0 - - -;
-#X msg 251 124 phase \$1;
 #X msg 251 103 0;
 #X msg 281 103 0.5;
-#X obj 27 411 *~ 0.1;
+#X obj 27 488 *~ 0.1;
 #X text 314 104 Sets the phase.;
 #X text 64 104 Sets the frequency.;
 #X floatatom 42 145 5 0 0 0 - - -;
-#X text 304 170 An optional argument can be used to set initial value
+#X text 264 170 An optional argument can be used to set initial value
 for the main signal inlet.;
 #X text 25 23 This example shows how to create a simple Sine Wave Oscillator.
-The "-s11" flag creates 1 signal inlet and 1 signal outlet. ofelia.perform()
+The "-s11" flag creates 1 signal inlet and 1 signal outlet. M.perform()
 function is called at each DSP-cycle. The function takes input audio
 buffer as a table parameter and returns a table for output audio buffer.
 ;
 #X text 79 145 It also accepts float value. (while signal is not connected)
 ;
-#X text 304 272 ofelia.perform() takes 1 sample table parameter since
-the object has 1 signal inlet.;
-#X text 304 378 ofelia.perform() returns 1 sample table since the object
+#X text 264 349 M.perform() takes 1 sample table parameter since the
+object has 1 signal inlet.;
+#X text 264 455 M.perform() returns 1 sample table since the object
 has 1 signal outlet.;
-#X text 163 482 <- Right click and see the help file.;
-#X text 103 429 This object works identically as the [pdSine~] abstraction
-which uses the built-in pdOsc() class allowing users to use various
-types of oscillators.;
-#X obj 106 482 pdSine~;
-#X obj 478 21 declare -path ofelia/libs/pd;
-#X obj 27 170 ofelia d -s11 440 \; local inlet = pdInlet(this) \; local
-phase = 0 \; function ofelia.float(f) \; inlet:setSignalInlet(f) \;
-end \; function ofelia.phase(f) \; phase = f \; end \; function ofelia.perform(s1)
-\; local freq = s1[1] \; local step = 1 / (pdGetSampleRate() / freq)
-\; for i=1 \, #s1 do \; s1[i] = math.sin(phase * OF_TWO_PI) \; if (phase
->= 1) then \; phase = phase - 1 \; end \; phase = phase + step \; end
+#X obj 106 552 ofSine~;
+#X obj 27 170 ofelia d -s11 440 \; local inlet = ofInlet(this) \; local
+sampleRate \, phase = 0 \, 0 \; \; function M.float(f) \; inlet:setSignalInlet(f)
+\; end \; \; function M.setPhase(f) \; phase = f \; end \; \; function
+M.dsp() \; sampleRate = ofGetSampleRate() \; end \; \; function M.perform(s1)
+\; local freq = s1[1] \; local step = 1 / (sampleRate / freq) \; for
+i=1 \, #s1 do \; s1[i] = math.sin(phase * OF_TWO_PI) \; if (phase >=
+1) then \; phase = phase - 1 \; end \; phase = phase + step \; end
 \; return s1 \; end \;;
-#X connect 1 0 19 0;
+#X text 103 499 This object works identically as the [ofSine~] object
+which uses the built-in ofOsc() class allowing users to use various
+types of oscillators.;
+#X text 163 552 <- Double click and see the help file.;
+#X msg 251 124 setPhase \$1;
+#X text 264 304 M.dsp() is called whenever the dsp is turned on.;
+#X obj 528 21 declare -lib ofelia;
+#N canvas 8 23 228 316 dspstate 0;
+#X obj 102 46 r pd;
+#X obj 102 72 route dsp;
+#X msg 121 158 1;
+#X obj 71 189 sig~;
+#X obj 71 213 snapshot~;
+#X obj 102 129 t b b b;
+#X msg 150 158 set 0;
+#X obj 71 158 del 10;
+#X obj 39 21 cnv 15 40 18 empty empty dsp 9 9 1 15 -233017 -66577 0
+;
+#X obj 20 20 tgl 20 0 \$0-d.dspstate-s \$0-d.dspstate-r empty 17 7
+0 10 -228856 -1 -1 0 1;
+#X msg 71 243 set \$1;
+#X obj 20 99 s pd;
+#X msg 20 72 dsp \$1;
+#X obj 148 46 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 5 0;
+#X coords 0 -1 1 1 60 20 2 20 20;
+#X restore 586 42 pd dspstate;
+#X connect 1 0 15 0;
 #X connect 2 0 1 0;
-#X connect 3 0 19 0;
-#X connect 4 0 3 0;
-#X connect 5 0 3 0;
-#X connect 6 0 0 0;
-#X connect 6 0 0 1;
-#X connect 9 0 19 0;
-#X connect 19 0 6 0;
+#X connect 3 0 18 0;
+#X connect 4 0 18 0;
+#X connect 5 0 0 0;
+#X connect 5 0 0 1;
+#X connect 8 0 15 0;
+#X connect 15 0 5 0;
+#X connect 18 0 15 0;

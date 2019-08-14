@@ -1,0 +1,150 @@
+#N canvas 321 23 601 686 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofExpr 3 12 0 18 -204280 -1 0
+;
+#X obj 0 511 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 547 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 519 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 632 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 583 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 555 cnv 17 3 17 empty empty n 5 9 0 16 -228856 -162280 0
+;
+#X obj 462 46 declare -lib ofelia;
+#X obj 535 5 ofExpr;
+#X obj 24 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 123 ofExpr (1 + 2) * 3;
+#X floatatom 24 144 5 0 0 0 - - -;
+#X obj 24 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 24 333 5 0 0 0 - - -;
+#X obj 24 312 ofExpr ofGetDay();
+#X floatatom 154 144 5 0 0 0 - - -;
+#X obj 154 123 ofExpr a * 2;
+#X floatatom 154 103 5 0 0 0 - - -;
+#X floatatom 249 144 5 0 0 0 - - -;
+#X msg 249 103 1 2 3;
+#X obj 249 123 ofExpr a[1] + a[2] + a[3];
+#X obj 106 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 106 237 5 0 0 0 - - -;
+#X obj 24 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 183 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 278 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 278 216 ofExpr "Hello World";
+#X symbolatom 278 237 12 0 0 0 - - -;
+#X msg 422 103 symbol love;
+#X symbolatom 422 144 12 0 0 0 - - -;
+#X obj 422 123 ofExpr "I " .. a .. " you";
+#X obj 154 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 420 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 420 237 unpack f f f;
+#X floatatom 420 258 5 0 0 0 - - -;
+#X floatatom 454 258 5 0 0 0 - - -;
+#X floatatom 489 258 5 0 0 0 - - -;
+#X obj 106 216 ofExpr 34;
+#X obj 154 333 print;
+#X obj 154 312 ofExpr ofVec3f(100 \, 100 \, 0) * 2;
+#X text 21 269 - using functions and classes in an expression:;
+#X obj 367 292 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 367 333 print;
+#X obj 367 312 ofExpr ofCanvas(this):getDir();
+#X text 21 81 - getting an expression result:;
+#X text 21 173 - getting a constant value:;
+#X obj 183 216 ofExpr OF_PI;
+#X obj 24 216 ofExpr nil;
+#X floatatom 183 237 8 0 0 0 - - -;
+#X obj 24 237 print;
+#X text 95 556 anything;
+#X text 95 520 anything;
+#X text 211 556 - the returned result.;
+#X text 211 520 - get the result. (optionally pass variables);
+#X text 72 606 n) anything;
+#X text 211 606 - expression or a constant.;
+#X text 11 23 get an expression result;
+#X text 21 43 [ofExpr] is used to quickly get an expression result
+or a constant value.;
+#X obj 24 393 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 24 456 5 0 0 0 - - -;
+#X floatatom 63 456 5 0 0 0 - - -;
+#X obj 24 413 ofExpr \; 1 + 2 \; 3 + 4 \;;
+#X floatatom 114 467 5 0 0 0 - - -;
+#X floatatom 151 467 5 0 0 0 - - -;
+#X msg 114 392 1 2 3;
+#X obj 114 413 ofExpr \; a[1] * 2 \; a[2] * 2 \; a[3] * 2 \;;
+#X f 13;
+#X floatatom 189 467 5 0 0 0 - - -;
+#X msg 244 392 symbol juice;
+#X obj 244 413 ofExpr \; "apple " .. a \; "orangle " .. a \; "tomato
+" .. a \;;
+#X obj 244 467 print;
+#X text 21 364 - getting multiple expression results in one object:
+;
+#X obj 364 392 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 364 467 5 0 0 0 - - -;
+#X floatatom 401 467 5 0 0 0 - - -;
+#X floatatom 439 467 5 0 0 0 - - -;
+#X obj 364 413 ofExpr \; ofGetYear() \; ofGetMonth() \; ofGetDay()
+\;;
+#X obj 420 216 ofExpr ofTable(1 \, 2 \, 3);
+#X obj 465 393 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 465 413 ofExpr \; print("third") \; print("second") \; print("first")
+\;;
+#X text 463 372 execution order.;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 12 0 14 0;
+#X connect 14 0 13 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 21 0 37 0;
+#X connect 23 0 47 0;
+#X connect 24 0 46 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 28 0 30 0;
+#X connect 30 0 29 0;
+#X connect 31 0 39 0;
+#X connect 32 0 76 0;
+#X connect 33 0 34 0;
+#X connect 33 1 35 0;
+#X connect 33 2 36 0;
+#X connect 37 0 22 0;
+#X connect 39 0 38 0;
+#X connect 41 0 43 0;
+#X connect 43 0 42 0;
+#X connect 46 0 48 0;
+#X connect 47 0 49 0;
+#X connect 58 0 61 0;
+#X connect 61 0 59 0;
+#X connect 61 1 60 0;
+#X connect 64 0 65 0;
+#X connect 65 0 62 0;
+#X connect 65 1 63 0;
+#X connect 65 2 66 0;
+#X connect 67 0 68 0;
+#X connect 68 0 69 0;
+#X connect 68 1 69 0;
+#X connect 68 2 69 0;
+#X connect 71 0 75 0;
+#X connect 75 0 72 0;
+#X connect 75 1 73 0;
+#X connect 75 2 74 0;
+#X connect 76 0 33 0;
+#X connect 77 0 78 0;

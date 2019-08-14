@@ -1,19 +1,18 @@
-v3.0.0: 4 Aug 2019
+v3.0.0: 14 Aug 2019
 
-* all available built-in global functions and class methods are embedded as objects
-  (functions that take userdata argument or has more than 8 arguments are excluded)
-* updated "ofelia/help-intro.pd" so it contains all available objects and abstractions
+* all available global functions and class methods from lua bindings are embedded as objects (functions that take userdata argument or has more than 8 arguments are excluded)
+* all abstractions are embedded as objects ("ofelia/lib" folder is removed)
+* all embedded objects use "of" prefix for consistency
+* updated "ofelia/help-intro.pd" so it contains all available objects
 * updated "ofelia/ofelia-object-help.pd" help file
-* added a feature to open the documentation page when an embedded object is double clicked
-* added help files for all abstractions under "ofelia/libs" directory
-* renamed [ofGetPtr] abstraction to [ofRequire] in "ofelia/libs/of" directory
-* added [ofExpr] and [ofFor] abstractions in "ofelia/libs/of" directory
-* added pdCanvas:makeFileName() class method and [pdMakeFileName] abstraction
-* renamed some abstractions in "ofelia/libs/pd" directory
-* internal callback methods for [ofelia define] object are renamed with "__" prefix to avoid name collision with lua variable name (e.g. "set" -> "__set")
-* added pdUnZip(), pdUnZipPass(), pdJson(), pdOscSender() and pdOscReceiver() functions and classes which are also available as embedded objects and abstractions
+* added a feature to open help file or documentation page when an object is double clicked
+* added "ofelia/help" folder which contains help files
+* added [ofRequire], [ofExpr], [ofExpr~], [ofIf], [ofIf~], [ofFor], [ofTable], [ofJson], [ofReverb~], [ofOscSender], [ofOscReceiver], [ofUnZip], [ofUnZipPass] and [ofMakeFileName]
+* updated all event listeners (see help files for changes)
+* internal callback methods for [ofelia] object are renamed with "__" prefix to avoid potential name collision with lua's function or variable name (e.g. "set" -> "__set")
 * added and updated examples in "ofelia/examples" directory
-* fixed multiple signal outlets bug
+* fixed bug when [ofelia] object uses multiple signal outlets
+* fixed bug when [ofelia] object returns a table that contains a string key
 
 v2.3.2: 28 Jun 2019
 

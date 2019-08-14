@@ -1,42 +1,37 @@
 #N canvas 720 81 665 472 10;
-#X declare -path ofelia/libs/of;
+#X declare -lib ofelia;
 #X obj 28 70 loadbang;
-#X obj 462 29 declare -path ofelia/libs/of;
 #X text 25 23 This example shows loading and drawing a unicode text
 to the screen.;
 #X obj 28 112 ofWindow;
-#X obj 28 148 ofSetup;
-#X obj 28 169 ofSetBackgroundColor 0;
-#X obj 28 253 ofFont \$0-font;
-#X obj 28 211 ofFontSettings;
-#X msg 28 232 load \$1;
-#X text 427 190 load a font \, add ranges of unicode.;
-#X text 90 232 load a font using the settings.;
-#X obj 28 274 route load;
-#X floatatom 28 295 5 0 0 0 - - -;
-#X text 67 295 0: fail \, 1: success.;
-#X obj 28 330 ofDraw;
-#X text 131 330 <- Replace the string. (Korean + Latin);
-#X msg 28 190 set data/gungsuh.ttf 16 \, addRanges Korean \, addRanges
-Latin \, bang, f 64;
-#X text 122 211 'bang' outputs the stored pointer to the font settings.
-;
-#X obj 109 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 109 351 ofelia f \; return "반갑습니다 yo!" \;;
-#X f 21;
 #X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
-#X obj 28 383 ofDrawFontString \$0-font 안녕하세요 250 190, f
-40;
-#X connect 0 0 20 0;
-#X connect 4 0 5 0;
-#X connect 5 0 16 0;
-#X connect 6 0 11 0;
-#X connect 7 0 8 0;
-#X connect 8 0 6 0;
-#X connect 11 0 12 0;
-#X connect 14 0 21 0;
-#X connect 16 0 7 0;
-#X connect 18 0 19 0;
-#X connect 19 0 21 1;
-#X connect 20 0 3 0;
+#X obj 517 25 declare -lib ofelia;
+#X obj 28 232 ofTrueTypeFontSettings;
+#X obj 28 274 ofTrueTypeFont \$0-font;
+#X msg 28 253 load \$1;
+#X obj 28 148 ofSetup;
+#X obj 28 295 route load;
+#X floatatom 28 316 5 0 0 0 - - -;
+#X text 64 316 0: fail \, 1: success.;
+#X obj 28 351 ofDraw;
+#X obj 28 169 ofSetBackgroundColor 0;
+#X obj 28 190 ofGetDir;
+#X msg 28 211 set \$1//data/gungsuh.ttf 16 \, addRanges Korean \, addRanges
+Latin \, bang, f 68;
+#X obj 28 372 ofTrueTypeFont \$0-font drawString 안녕하세요 250
+190;
+#X f 49;
+#X msg 125 351 symbol Hello;
+#X text 213 350 replace the string.;
+#X connect 0 0 3 0;
+#X connect 3 0 2 0;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 6 0;
+#X connect 8 0 13 0;
+#X connect 9 0 10 0;
+#X connect 12 0 16 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 5 0;
+#X connect 17 0 16 1;

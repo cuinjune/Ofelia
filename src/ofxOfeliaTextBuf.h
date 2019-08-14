@@ -1,6 +1,7 @@
 #pragma once
 
 #include "m_pd.h"
+#include <string>
 
 class ofxOfeliaData;
 class ofxOfeliaTextBuf
@@ -10,6 +11,8 @@ public:
     :dataPtr(dataPtr)
     ,previousTime(-1){};
     static void loadScript();
+    static bool canvasOpen(const t_canvas *canvas, const std::string &fileName,
+                           std::string &dirResult, std::string &fileNameResult);
     void senditup();
     void openMethod();
     void closeMethod();

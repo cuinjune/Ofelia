@@ -1,5 +1,4 @@
-#N canvas 720 100 665 705 10;
-#X declare -path ofelia/libs/of;
+#N canvas 720 100 665 717 10;
 #X declare -lib ofelia;
 #X obj 28 72 loadbang;
 #X obj 28 114 ofWindow;
@@ -11,19 +10,18 @@
 #X obj 28 577 ofSetColor 255;
 #X text 325 636 This example is based on the openFrameworks example
 "gl/fboTrailsExample".";
-#X text 368 345 Change the alpha value for fading the fbo.;
+#X text 392 345 Change the alpha value for fading the fbo.;
 #X text 83 150 Setup callback.;
 #X text 89 325 Update callback.;
 #X text 77 556 Draw callback.;
 #X obj 28 255 ofelia f \; a:beginFbo() \; ofClear(255 \, 0) \; a:endFbo()
 \;;
-#X floatatom 331 346 5 0 0 0 - - -;
+#X floatatom 355 346 5 0 0 0 - - -;
 #X text 132 366 <- default value for the added inlet.;
 #X msg 28 93 setPosition 30 100 \, setSize 400 400 \, create;
-#X text 146 345 Get a pointer to the fbo.;
-#X text 223 213 Allocate an fbo. ('bang' outputs the fbo pointer);
-#X text 346 401 Store drawings to the fbo.;
-#X text 344 522 Finish storing drawings to the fbo.;
+#X text 193 213 Allocate an fbo. ('bang' outputs the fbo pointer);
+#X text 370 401 Store drawings to the fbo.;
+#X text 368 522 Finish storing drawings to the fbo.;
 #X text 137 599 Draw the fbo.;
 #X text 136 266 Clear the fbo.;
 #X text 25 23 This example shows how to create a simple trailing effect
@@ -36,19 +34,20 @@ ofDrawRectangle(0 \, 0 \, ofGetWidth() \, ofGetHeight()) \; ofNoFill()
 \; ofSetColor(255) \; ofPushMatrix() \; ofTranslate(200 \, 200) \;
 ofRotateDeg(ofGetElapsedTimef()*30 \, 1 \, 0 \, 0.5) \; ofDrawBox(100)
 \; ofPopMatrix() \; fbo:endFbo() \;;
-#X obj 462 49 declare -path ofelia/libs/of;
-#X obj 462 29 declare -lib ofelia;
+#X f 55;
+#X obj 512 29 declare -lib ofelia;
 #X obj 28 192 ofExpr GL_RGBA;
 #X msg 28 213 allocate 400 400 \$1 \, bang;
+#X text 135 345 Require the module that has the fbo.;
 #X connect 0 0 16 0;
 #X connect 2 0 4 0;
 #X connect 3 0 7 0;
-#X connect 4 0 29 0;
+#X connect 4 0 27 0;
 #X connect 5 0 13 0;
-#X connect 6 0 24 0;
-#X connect 7 0 25 0;
-#X connect 14 0 26 1;
+#X connect 6 0 23 0;
+#X connect 7 0 24 0;
+#X connect 14 0 25 1;
 #X connect 16 0 1 0;
-#X connect 24 0 26 0;
-#X connect 29 0 30 0;
-#X connect 30 0 5 0;
+#X connect 23 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 5 0;

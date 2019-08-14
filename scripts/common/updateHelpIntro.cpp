@@ -15,7 +15,7 @@
 int main()
 {
     const std::string &ofeliaDirectoryPath = "../../ofelia/";
-    const std::string &ofeliaLibsDirectoryPath = ofeliaDirectoryPath + "libs/";
+    const std::string &ofeliaHelpDirectoryPath = ofeliaDirectoryPath + "help/";
     const std::string &classesAndGlobalFunctionsPath = ofeliaDirectoryPath + "classesAndGlobalFunctions.txt";
     const std::string &helpIntroPath = ofeliaDirectoryPath + "help-intro.pd";
     ofxOfeliaMaps maps;
@@ -24,38 +24,24 @@ int main()
     std::vector<std::string> abstractionNames;
     DIR *dir;
     struct dirent *ent;
-    if ((dir = opendir(ofeliaLibsDirectoryPath.c_str())))
+    if ((dir = opendir(ofeliaHelpDirectoryPath.c_str())))
     {
         while ((ent = readdir(dir)))
         {
-            std::string libFolderName = ent->d_name;
-            if (!std::isalpha(libFolderName[0])) continue;
-            std::string libDirectoryPath = ofeliaLibsDirectoryPath + libFolderName;
+            std::string helpFileName = ent->d_name;
+            if (!std::isalpha(helpFileName[0])) continue;
+            const size_t lastDotPos = helpFileName.rfind('.');
+            if (lastDotPos == std::string::npos) continue;
+            const std::string &ext = helpFileName.substr(lastDotPos + 1);
+            if (ext != "pd") continue;
+            const size_t helpPos = helpFileName.rfind("-help");
+            if (helpPos == std::string::npos) continue;
+            const std::string &helpFilePath = ofeliaHelpDirectoryPath + helpFileName;
             struct stat info;
-            if (!stat(libDirectoryPath.c_str(), &info) && info.st_mode & S_IFDIR)
+            if (!stat(helpFilePath.c_str(), &info) && info.st_mode & S_IFREG)
             {
-                DIR *dir2;
-                struct dirent *ent2;
-                if ((dir2 = opendir(libDirectoryPath.c_str())))
-                {
-                    while ((ent2 = readdir(dir2)))
-                    {
-                        std::string libFileName = ent2->d_name;
-                        if (!std::isalpha(libFileName[0])) continue;
-                        const size_t lastDotPos = libFileName.rfind('.');
-                        if (lastDotPos == std::string::npos) continue;
-                        const std::string &ext = libFileName.substr(lastDotPos + 1);
-                        if (ext != "pd") continue;
-                        if (libFileName.find("-help") != std::string::npos) continue;
-                        const std::string &libFilePath = libDirectoryPath + '/' + libFileName;
-                        struct stat info2;
-                        if (!stat(libFilePath.c_str(), &info2) && info2.st_mode & S_IFREG)
-                        {
-                            libFileName = libFileName.substr(0, lastDotPos);
-                            abstractionNames.push_back(libFileName);
-                        }
-                    }
-                }
+                helpFileName = helpFileName.substr(0, helpPos);
+                abstractionNames.push_back(helpFileName);
             }
         }
         closedir(dir);
@@ -85,14 +71,6 @@ int main()
         }
     }
     input.close();
-    if (objectMap.find("ofWindow") == objectMap.end())
-    {
-        objectMap.insert(std::make_pair("ofWindow", "application/ofWindowSettings"));
-        std::ofstream output;
-        output.open(classesAndGlobalFunctionsPath, std::ios_base::app);
-        output << "ofWindow application/ofWindowSettings\n";
-        output.close();
-    }
     auto functionMapIterator = maps.functionMap.begin();
     while (functionMapIterator != maps.functionMap.end())
     {
@@ -137,12 +115,8 @@ int main()
     ss <<
     "#N canvas 520 30 660 700 10;\n"
     "#X declare -lib ofelia;\n"
-    "#X declare -path ofelia/libs/of;\n"
-    "#X declare -path ofelia/libs/pd;\n"
-    "#X obj 460 20 declare -lib ofelia;\n"
-    "#X obj 460 40 declare -path ofelia/libs/of;\n"
-    "#X obj 460 60 declare -path ofelia/libs/pd;\n"
-    "#X text 20 20 The following is a categorized list of built-in objects and abstractions in ofelia. Double click on any object to open the documentation page in your browser. For abstractions right click and see the help file.;\n";
+    "#X obj 520 20 declare -lib ofelia;\n"
+    "#X text 20 20 The following is a categorized list of built-in objects in ofelia. Double click on any object to open the help file or the documentation page in your browser.;\n";
     int categorySubPatchPosY = 80;
     int subCategorySubPatchPosY = 20;
     std::string categoryName = "";

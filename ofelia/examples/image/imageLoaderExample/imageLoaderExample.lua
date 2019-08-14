@@ -2,8 +2,8 @@ if type(window) ~= "userdata" then
   window = ofWindow()
 end
 
-local canvas = pdCanvas(this)
-local clock = pdClock(this, "setup")
+local canvas = ofCanvas(this)
+local clock = ofClock(this, "setup")
 local imageDir = canvas:getDir() .. "/data/"
 local bikers = ofImage()
 local gears = ofImage()
@@ -12,7 +12,7 @@ local tdfSmall = ofImage()
 local transparency = ofImage()
 local bikeIcon = ofImage()
 
-function ofelia.new()
+function M.new()
   ofWindow.addListener("setup", this)
   ofWindow.addListener("draw", this)
   ofWindow.addListener("exit", this)
@@ -25,14 +25,14 @@ function ofelia.new()
   end
 end
 
-function ofelia.free()
+function M.free()
   window:destroy()
   ofWindow.removeListener("setup", this)
   ofWindow.removeListener("draw", this)
   ofWindow.removeListener("exit", this)
 end
 
-function ofelia.setup()
+function M.setup()
   ofSetWindowTitle("image loader example")
   ofBackground(255, 255, 255, 255)
   bikers:load(imageDir .. "bikers.jpg")
@@ -46,7 +46,7 @@ function ofelia.setup()
   bikeIcon:setImageType(OF_IMAGE_GRAYSCALE)
 end
 
-function ofelia.draw()
+function M.draw()
   ofSetColor(255)
   bikers:draw(0, 0)
   gears:draw(600, 0)
@@ -84,7 +84,7 @@ function ofelia.draw()
   bikeIcon:draw(190, 490, 20, 20)
 end
 
-function ofelia.exit()
+function M.exit()
   bikers:clear()
   gears:clear()
   tdf:clear()
