@@ -1,0 +1,35 @@
+#N canvas 723 23 716 450 10;
+#X declare -lib ofelia;
+#X obj 575 22 declare -lib ofelia;
+#X obj 39 114 ofSetup;
+#X obj 39 275 ofDraw;
+#X obj 39 296 ofRequire \$0-shader;
+#X text 76 240 0: fail \, 1: success.;
+#X obj 39 198 ofShader \$0-shader;
+#X text 164 296 Require the module that has the shader.;
+#X obj 39 36 loadbang;
+#X obj 39 78 ofWindow;
+#X text 98 78 The window creator.;
+#X msg 39 57 setPosition 2 0 \, setSize 1440 900 \, title GLSL \, create
+;
+#X obj 39 135 ofBackground 0;
+#X obj 39 219 route load;
+#X floatatom 39 240 5 0 0 0 - - -;
+#X obj 39 156 ofGetDir;
+#X msg 39 177 load \$1/GLSL;
+#X text 127 177 Load shaders.;
+#X obj 39 317 ofelia f \; local shader = a.shader \; shader:beginShader()
+\; ofSetColor(255) \; shader:setUniform1f("time" \, ofGetElapsedTimef())
+\; shader:setUniform2f("resolution" \, ofGetWindowSize()) \; shader:setUniform2f("mouse"
+\, ofGetMouseX() \, ofGetMouseY()) \; ofDrawRectangle(20 \, 20 \, ofGetWidth()-40
+\, ofGetHeight()-40) \; shader:endShader() \;;
+#X connect 1 0 11 0;
+#X connect 2 0 3 0;
+#X connect 3 0 17 0;
+#X connect 5 0 12 0;
+#X connect 7 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 5 0;

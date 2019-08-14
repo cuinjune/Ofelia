@@ -1,7 +1,5 @@
 #N canvas 723 23 716 450 10;
-#X declare -path ofelia/libs/of;
 #X declare -lib ofelia;
-#X declare -path ofelia/libs/pd;
 #X obj 39 36 loadbang;
 #X obj 39 78 ofWindow;
 #X obj 39 114 ofSetup;
@@ -17,13 +15,9 @@
 \; ofDrawCircle(x \, y \, 3) \; ofSetColor(255 \, 255 \, 255 \, 100)
 \; ofDrawLine(x \, y \, width/2 \, height/2) \; end \; end \;;
 #X text 110 161 Try changing the value.;
-#X obj 525 41 declare -path ofelia/libs/of;
-#X obj 525 21 declare -lib ofelia;
-#X obj 525 61 declare -path ofelia/libs/pd;
+#X obj 575 21 declare -lib ofelia;
 #X obj 39 201 ofelia f \$0-var \; M.gridSize = 80 \;;
 #X obj 39 269 ofRequire \$0-var;
-#X text 188 135 <- Double-click to open the documentation on your browser.
-;
 #X text 145 269 Require the module to access variable.;
 #X text 92 115 A setup callback.;
 #X text 86 248 A draw callback.;
@@ -31,9 +25,9 @@
 #X text 148 211 Variables used.;
 #X connect 0 0 5 0;
 #X connect 2 0 3 0;
-#X connect 3 0 13 0;
-#X connect 4 0 14 0;
+#X connect 3 0 11 0;
+#X connect 4 0 12 0;
 #X connect 5 0 1 0;
-#X connect 6 0 13 0;
+#X connect 6 0 11 0;
 #X connect 7 0 6 0;
-#X connect 14 0 8 0;
+#X connect 12 0 8 0;

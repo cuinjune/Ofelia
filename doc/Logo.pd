@@ -1,6 +1,4 @@
 #N canvas 723 23 716 450 10;
-#X declare -path ofelia/libs/of;
-#X declare -path ofelia/libs/pd;
 #X declare -lib ofelia;
 #X obj 39 36 loadbang;
 #X msg 39 57 create;
@@ -19,12 +17,8 @@
 #X obj 39 360 ofDrawRectangle 950 440 100 100;
 #X text 92 114 A setup callback.;
 #X text 93 58 Create a graphics window.;
-#X text 212 135 Double-click on any object to open the documentation
-page on your browser.;
 #X text 86 255 A draw callback.;
-#X obj 525 41 declare -path ofelia/libs/of;
-#X obj 525 61 declare -path ofelia/libs/pd;
-#X obj 525 21 declare -lib ofelia;
+#X obj 575 21 declare -lib ofelia;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
