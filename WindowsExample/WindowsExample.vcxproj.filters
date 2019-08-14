@@ -592,6 +592,15 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\uncompr.c">
       <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.cpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.cpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.cpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -767,6 +776,15 @@
     </Filter>
     <Filter Include="addons\ofxOfelia\libs\ofxZipPass\libs\minizip">
       <UniqueIdentifier>{86bd7921-b732-4a99-80f2-1872e5a45248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxReverb">
+      <UniqueIdentifier>{3e9f1b13-dd9f-4c31-b837-7a502a726ad1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxReverb\src">
+      <UniqueIdentifier>{2ba205f1-2684-4eb2-b0c2-7291149348d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxOfelia\libs\ofxReverb\libs">
+      <UniqueIdentifier>{0a01fca1-4ded-468d-8a78-cd77ec2bb5b3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1147,6 +1165,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zutil.h">
       <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.hpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.hpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\denormals.h">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.hpp">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\tuning.h">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\src\ofxReverb.h">
+      <Filter>addons\ofxOfelia\libs\ofxReverb\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
