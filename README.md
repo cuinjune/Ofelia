@@ -1,5 +1,6 @@
 # ofelia
 ![alt text](doc/Logo.png)
+![alt text](doc/Iteration.png)
 ![alt text](doc/GLSL.png)
 
 ## Description
