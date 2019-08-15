@@ -35,7 +35,10 @@ function M.setup()
   ofSetWindowTitle("displacement map")
   ofEnableArbTex()
   ofBackground(55)
-  if ofIsGLProgrammableRenderer() then
+  local platform = ofGetTargetPlatform()
+  if platform == OF_TARGET_LINUXARMV6L or platform == OF_TARGET_LINUXARMV7L or platform == OF_TARGET_ANDROID or platform == OF_TARGET_IOS or platform == OF_TARGET_EMSCRIPTEN then
+    shader:load(shaderDir .. "shadersES2/shader")
+  elseif ofIsGLProgrammableRenderer() then
     shader:load(shaderDir .. "shadersGL3/shader")
   else
     shader:load(shaderDir .. "shadersGL2/shader")
