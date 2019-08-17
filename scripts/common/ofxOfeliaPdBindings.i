@@ -52,8 +52,6 @@ static void lua_len(lua_State *L, int i)
 }
 %typemap(in) t_floatarg 
 {
-    if (!lua_isnumber(L, $input))
-        SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
     $1 = static_cast<t_float>(lua_tonumber(L, $input));
 }
 
@@ -64,8 +62,6 @@ static void lua_len(lua_State *L, int i)
 }
 %typemap(in) t_symbol* 
 {
-    if (!lua_isstring(L, $input))
-        SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
     $1 = gensym(lua_tostring(L, $input));
 }
 
@@ -76,8 +72,6 @@ static void lua_len(lua_State *L, int i)
 }
 %typemap(in) t_gpointer* 
 {
-    if (!lua_isuserdata(L, $input))
-        SWIG_exception(SWIG_RuntimeError, "argument mismatch: userdata expected");
     $1 = nullptr;
 }
 
