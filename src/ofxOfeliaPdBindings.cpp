@@ -3137,16 +3137,11 @@ static int _wrap_Window_destroy(lua_State* L) { int SWIG_arg = 0; pdWindow *arg1
   lua_error(L); return SWIG_arg; }
 static int _wrap_Window_addListener__SWIG_0(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
   t_symbol *arg2 = (t_symbol *) 0 ; t_floatarg arg3 ; SWIG_check_num_args("pdWindow::addListener",3,3) {
-    if (!lua_isstring(L, 1)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
-    arg1 = gensym(lua_tostring(L, 1)); }  { if (!lua_isstring(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg2 = gensym(lua_tostring(L, 2)); }  {
-    if (!lua_isnumber(L, 3)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
+    arg1 = gensym(lua_tostring(L, 1)); }  { arg2 = gensym(lua_tostring(L, 2)); }  {
     arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  pdWindow::addListener(arg1,arg2,arg3); return SWIG_arg; if(0) SWIG_fail;
   fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Window_addListener__SWIG_1(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
-  t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdWindow::addListener",2,2) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); }  {
-    if (!lua_isstring(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
+  t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdWindow::addListener",2,2) { arg1 = gensym(lua_tostring(L, 1)); }  {
     arg2 = gensym(lua_tostring(L, 2)); }  pdWindow::addListener(arg1,arg2); return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Window_addListener(lua_State* L) { int argc; int argv[4]={ 1,2,3,4} ; argc = lua_gettop(L); if (argc == 2) {
@@ -3158,15 +3153,12 @@ static int _wrap_Window_addListener(lua_State* L) { int argc; int argv[4]={ 1,2,
   "    pdWindow::addListener(t_symbol *,t_symbol *,t_floatarg)\n" "    pdWindow::addListener(t_symbol *,t_symbol *)\n");
   lua_error(L);return 0; }
 static int _wrap_Window_removeListener(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
-  t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdWindow::removeListener",2,2) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); }  {
-    if (!lua_isstring(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
-    arg2 = gensym(lua_tostring(L, 2)); }  pdWindow::removeListener(arg1,arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+  t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdWindow::removeListener",2,2) { arg1 = gensym(lua_tostring(L, 1)); } 
+  { arg2 = gensym(lua_tostring(L, 2)); }  pdWindow::removeListener(arg1,arg2); return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Window_getListenerData(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
   SwigValueWrapper< std::vector< std::pair< ofxOfeliaData *,t_float > > > result;
-  SWIG_check_num_args("pdWindow::getListenerData",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
+  SWIG_check_num_args("pdWindow::getListenerData",1,1) { arg1 = gensym(lua_tostring(L, 1)); } 
   result = pdWindow::getListenerData(arg1); { lua_newtable(L); for (size_t i = 0; i < (&result)->size(); ++i) { lua_newtable(L);
       lua_pushstring(L, (&result)->at(i).first->sym->s_name); lua_setfield(L, -2, "name");
       lua_pushnumber(L, static_cast<lua_Number>((&result)->at(i).second)); lua_setfield(L, -2, "order");
@@ -3214,8 +3206,7 @@ static int _wrap_Window_title_set(lua_State* L) { int SWIG_arg = 0; pdWindow *ar
   t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdWindow::title",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdWindow::title",1,"pdWindow *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdWindow,0))){
-    SWIG_fail_ptr("Window_title_set",1,SWIGTYPE_p_pdWindow); }  { if (!lua_isstring(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg2 = gensym(lua_tostring(L, 2)); } 
+    SWIG_fail_ptr("Window_title_set",1,SWIGTYPE_p_pdWindow); }  { arg2 = gensym(lua_tostring(L, 2)); } 
   if (arg1) (arg1)->title = arg2; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Window_title_get(lua_State* L) { int SWIG_arg = 0; pdWindow *arg1 = (pdWindow *) 0 ; t_symbol *result = 0 ;
   SWIG_check_num_args("pdWindow::title",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdWindow::title",1,"pdWindow *");
@@ -3307,14 +3298,11 @@ static const char *swig_Window_base_names[] = {0};
 static swig_lua_class _wrap_class_Window = { "Window", "Window", &SWIGTYPE_p_pdWindow,_proxy__wrap_new_Window, swig_delete_Window, swig_Window_methods, swig_Window_attributes, &swig_Window_Sf_SwigStatic, swig_Window_meta, swig_Window_bases, swig_Window_base_names };
 
 static int _wrap_new_Canvas__SWIG_0(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdCanvas *result = 0 ;
-  SWIG_check_num_args("pdCanvas::pdCanvas",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdCanvas *)new pdCanvas(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdCanvas,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdCanvas::pdCanvas",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdCanvas *)new pdCanvas(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdCanvas,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_new_Canvas__SWIG_1(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; t_floatarg arg2 ;
-  pdCanvas *result = 0 ; SWIG_check_num_args("pdCanvas::pdCanvas",2,2) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); }  {
-    if (!lua_isnumber(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
+  pdCanvas *result = 0 ; SWIG_check_num_args("pdCanvas::pdCanvas",2,2) { arg1 = gensym(lua_tostring(L, 1)); }  {
     arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  result = (pdCanvas *)new pdCanvas(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdCanvas,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
@@ -3404,8 +3392,7 @@ static int _wrap_Canvas_makeFileName(lua_State* L) { int SWIG_arg = 0; pdCanvas 
   t_symbol *arg2 = (t_symbol *) 0 ; t_symbol *result = 0 ; SWIG_check_num_args("pdCanvas::makeFileName",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdCanvas::makeFileName",1,"pdCanvas *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdCanvas,0))){
-    SWIG_fail_ptr("Canvas_makeFileName",1,SWIGTYPE_p_pdCanvas); }  { if (!lua_isstring(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg2 = gensym(lua_tostring(L, 2)); } 
+    SWIG_fail_ptr("Canvas_makeFileName",1,SWIGTYPE_p_pdCanvas); }  { arg2 = gensym(lua_tostring(L, 2)); } 
   result = (t_symbol *)(arg1)->makeFileName(arg2); { lua_pushstring(L, (result)->s_name); ++SWIG_arg; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Canvas_remove(lua_State* L) { int SWIG_arg = 0; pdCanvas *arg1 = (pdCanvas *) 0 ;
@@ -3471,10 +3458,9 @@ static const char *swig_Canvas_base_names[] = {0};
 static swig_lua_class _wrap_class_Canvas = { "Canvas", "Canvas", &SWIGTYPE_p_pdCanvas,_proxy__wrap_new_Canvas, swig_delete_Canvas, swig_Canvas_methods, swig_Canvas_attributes, &swig_Canvas_Sf_SwigStatic, swig_Canvas_meta, swig_Canvas_bases, swig_Canvas_base_names };
 
 static int _wrap_new_Send(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdSend *result = 0 ;
-  SWIG_check_num_args("pdSend::pdSend",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdSend *)new pdSend(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdSend,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdSend::pdSend",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdSend *)new pdSend(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdSend,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_Send_sendBang(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = (pdSend *) 0 ;
   SWIG_check_num_args("pdSend::sendBang",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendBang",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){ SWIG_fail_ptr("Send_sendBang",1,SWIGTYPE_p_pdSend); }
@@ -3482,23 +3468,20 @@ static int _wrap_Send_sendBang(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = 
 static int _wrap_Send_sendFloat(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = (pdSend *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdSend::sendFloat",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendFloat",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){ SWIG_fail_ptr("Send_sendFloat",1,SWIGTYPE_p_pdSend); }
-   { if (!lua_isnumber(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
-    arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->sendFloat(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
+   { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->sendFloat(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Send_sendSymbol(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = (pdSend *) 0 ;
   t_symbol *arg2 = (t_symbol *) 0 ; SWIG_check_num_args("pdSend::sendSymbol",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendSymbol",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){
-    SWIG_fail_ptr("Send_sendSymbol",1,SWIGTYPE_p_pdSend); }  { if (!lua_isstring(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg2 = gensym(lua_tostring(L, 2)); } 
-  (arg1)->sendSymbol(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Send_sendSymbol",1,SWIGTYPE_p_pdSend); }  { arg2 = gensym(lua_tostring(L, 2)); }  (arg1)->sendSymbol(arg2);
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Send_sendPointer(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = (pdSend *) 0 ;
   t_gpointer *arg2 = (t_gpointer *) 0 ; SWIG_check_num_args("pdSend::sendPointer",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendPointer",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){
-    SWIG_fail_ptr("Send_sendPointer",1,SWIGTYPE_p_pdSend); }  { if (!lua_isuserdata(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: userdata expected"); arg2 = nullptr; }  (arg1)->sendPointer(arg2);
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Send_sendPointer",1,SWIGTYPE_p_pdSend); }  { arg2 = nullptr; }  (arg1)->sendPointer(arg2); return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Send_sendList(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = (pdSend *) 0 ; int arg2 ;
   t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("pdSend::sendList",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendList",1,"pdSend *");
@@ -3592,26 +3575,25 @@ static const char *swig_Send_base_names[] = {0};
 static swig_lua_class _wrap_class_Send = { "Send", "Send", &SWIGTYPE_p_pdSend,_proxy__wrap_new_Send, swig_delete_Send, swig_Send_methods, swig_Send_attributes, &swig_Send_Sf_SwigStatic, swig_Send_meta, swig_Send_bases, swig_Send_base_names };
 
 static int _wrap_new_Inlet(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdInlet *result = 0 ;
-  SWIG_check_num_args("pdInlet::pdInlet",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdInlet *)new pdInlet(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdInlet,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdInlet::pdInlet",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdInlet *)new pdInlet(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdInlet,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_Inlet_setFloatInlet(lua_State* L) { int SWIG_arg = 0; pdInlet *arg1 = (pdInlet *) 0 ; int arg2 ;
   t_floatarg arg3 ; SWIG_check_num_args("pdInlet::setFloatInlet",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdInlet::setFloatInlet",1,"pdInlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdInlet::setFloatInlet",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdInlet,0))){
-    SWIG_fail_ptr("Inlet_setFloatInlet",1,SWIGTYPE_p_pdInlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_isnumber(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg3 = static_cast<t_float>(lua_tonumber(L, 3)); } 
-  (arg1)->setFloatInlet(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Inlet_setFloatInlet",1,SWIGTYPE_p_pdInlet); }  arg2 = (int)lua_tonumber(L, 2); {
+    arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  (arg1)->setFloatInlet(arg2,arg3); return SWIG_arg; if(0) SWIG_fail;
+  fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Inlet_setSymbolInlet(lua_State* L) { int SWIG_arg = 0; pdInlet *arg1 = (pdInlet *) 0 ; int arg2 ;
   t_symbol *arg3 = (t_symbol *) 0 ; SWIG_check_num_args("pdInlet::setSymbolInlet",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdInlet::setSymbolInlet",1,"pdInlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdInlet::setSymbolInlet",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdInlet,0))){
-    SWIG_fail_ptr("Inlet_setSymbolInlet",1,SWIGTYPE_p_pdInlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_isstring(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg3 = gensym(lua_tostring(L, 3)); } 
-  (arg1)->setSymbolInlet(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Inlet_setSymbolInlet",1,SWIGTYPE_p_pdInlet); }  arg2 = (int)lua_tonumber(L, 2); {
+    arg3 = gensym(lua_tostring(L, 3)); }  (arg1)->setSymbolInlet(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
 static int _wrap_Inlet_setInlets(lua_State* L) { int SWIG_arg = 0; pdInlet *arg1 = (pdInlet *) 0 ; int arg2 ;
   t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("pdInlet::setInlets",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdInlet::setInlets",1,"pdInlet *");
@@ -3636,8 +3618,7 @@ static int _wrap_Inlet_setSignalInlet(lua_State* L) { int SWIG_arg = 0; pdInlet 
   SWIG_check_num_args("pdInlet::setSignalInlet",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdInlet::setSignalInlet",1,"pdInlet *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdInlet,0))){
-    SWIG_fail_ptr("Inlet_setSignalInlet",1,SWIGTYPE_p_pdInlet); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Inlet_setSignalInlet",1,SWIGTYPE_p_pdInlet); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setSignalInlet(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static void swig_delete_Inlet(void *obj) {
 pdInlet *arg1 = (pdInlet *) obj;
@@ -3691,10 +3672,9 @@ static const char *swig_Inlet_base_names[] = {0};
 static swig_lua_class _wrap_class_Inlet = { "Inlet", "Inlet", &SWIGTYPE_p_pdInlet,_proxy__wrap_new_Inlet, swig_delete_Inlet, swig_Inlet_methods, swig_Inlet_attributes, &swig_Inlet_Sf_SwigStatic, swig_Inlet_meta, swig_Inlet_bases, swig_Inlet_base_names };
 
 static int _wrap_new_Outlet(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdOutlet *result = 0 ;
-  SWIG_check_num_args("pdOutlet::pdOutlet",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdOutlet *)new pdOutlet(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdOutlet,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdOutlet::pdOutlet",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdOutlet *)new pdOutlet(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdOutlet,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_Outlet_outletBang(lua_State* L) { int SWIG_arg = 0; pdOutlet *arg1 = (pdOutlet *) 0 ; int arg2 ;
   SWIG_check_num_args("pdOutlet::outletBang",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOutlet::outletBang",1,"pdOutlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletBang",2,"int");
@@ -3706,24 +3686,23 @@ static int _wrap_Outlet_outletFloat(lua_State* L) { int SWIG_arg = 0; pdOutlet *
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOutlet::outletFloat",1,"pdOutlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletFloat",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOutlet,0))){
-    SWIG_fail_ptr("Outlet_outletFloat",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_isnumber(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg3 = static_cast<t_float>(lua_tonumber(L, 3)); } 
-  (arg1)->outletFloat(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Outlet_outletFloat",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); {
+    arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  (arg1)->outletFloat(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
 static int _wrap_Outlet_outletSymbol(lua_State* L) { int SWIG_arg = 0; pdOutlet *arg1 = (pdOutlet *) 0 ; int arg2 ;
   t_symbol *arg3 = (t_symbol *) 0 ; SWIG_check_num_args("pdOutlet::outletSymbol",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOutlet::outletSymbol",1,"pdOutlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletSymbol",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOutlet,0))){
-    SWIG_fail_ptr("Outlet_outletSymbol",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_isstring(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg3 = gensym(lua_tostring(L, 3)); } 
-  (arg1)->outletSymbol(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+    SWIG_fail_ptr("Outlet_outletSymbol",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); {
+    arg3 = gensym(lua_tostring(L, 3)); }  (arg1)->outletSymbol(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_Outlet_outletPointer(lua_State* L) { int SWIG_arg = 0; pdOutlet *arg1 = (pdOutlet *) 0 ; int arg2 ;
   t_gpointer *arg3 = (t_gpointer *) 0 ; SWIG_check_num_args("pdOutlet::outletPointer",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOutlet::outletPointer",1,"pdOutlet *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletPointer",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOutlet,0))){
-    SWIG_fail_ptr("Outlet_outletPointer",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_isuserdata(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: userdata expected"); arg3 = nullptr; } 
+    SWIG_fail_ptr("Outlet_outletPointer",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { arg3 = nullptr; } 
   (arg1)->outletPointer(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Outlet_outletList(lua_State* L) { int SWIG_arg = 0; pdOutlet *arg1 = (pdOutlet *) 0 ; int arg2 ; int arg3 ;
   t_atom *arg4 = (t_atom *) 0 ; std::deque< int > arg5 ; SWIG_check_num_args("pdOutlet::outletList",3,3)
@@ -3821,10 +3800,9 @@ static const char *swig_Outlet_base_names[] = {0};
 static swig_lua_class _wrap_class_Outlet = { "Outlet", "Outlet", &SWIGTYPE_p_pdOutlet,_proxy__wrap_new_Outlet, swig_delete_Outlet, swig_Outlet_methods, swig_Outlet_attributes, &swig_Outlet_Sf_SwigStatic, swig_Outlet_meta, swig_Outlet_bases, swig_Outlet_base_names };
 
 static int _wrap_new_Value(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdValue *result = 0 ;
-  SWIG_check_num_args("pdValue::pdValue",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdValue *)new pdValue(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdValue,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdValue::pdValue",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdValue *)new pdValue(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdValue,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_Value_get(lua_State* L) { int SWIG_arg = 0; pdValue *arg1 = (pdValue *) 0 ; t_float result;
   SWIG_check_num_args("pdValue::get",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdValue::get",1,"pdValue *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdValue,0))){ SWIG_fail_ptr("Value_get",1,SWIGTYPE_p_pdValue); } 
@@ -3833,8 +3811,7 @@ static int _wrap_Value_get(lua_State* L) { int SWIG_arg = 0; pdValue *arg1 = (pd
 static int _wrap_Value_set(lua_State* L) { int SWIG_arg = 0; pdValue *arg1 = (pdValue *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdValue::set",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdValue::set",1,"pdValue *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdValue,0))){ SWIG_fail_ptr("Value_set",1,SWIGTYPE_p_pdValue); } 
-  { if (!lua_isnumber(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
-    arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->set(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->set(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static void swig_delete_Value(void *obj) {
 pdValue *arg1 = (pdValue *) obj;
@@ -3886,23 +3863,35 @@ static const char *swig_Value_base_names[] = {0};
 static swig_lua_class _wrap_class_Value = { "Value", "Value", &SWIGTYPE_p_pdValue,_proxy__wrap_new_Value, swig_delete_Value, swig_Value_methods, swig_Value_attributes, &swig_Value_Sf_SwigStatic, swig_Value_meta, swig_Value_bases, swig_Value_base_names };
 
 static int _wrap_new_Array(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdArray *result = 0 ;
-  SWIG_check_num_args("pdArray::pdArray",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdArray *)new pdArray(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdArray,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_Array_getAt(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; int arg2 ; float result;
+  SWIG_check_num_args("pdArray::pdArray",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdArray *)new pdArray(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdArray,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_Array_getAt(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; int arg2 ; t_float result;
   SWIG_check_num_args("pdArray::getAt",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdArray::getAt",1,"pdArray *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdArray::getAt",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdArray,0))){ SWIG_fail_ptr("Array_getAt",1,SWIGTYPE_p_pdArray); }
-   arg2 = (int)lua_tonumber(L, 2); result = (float)(arg1)->getAt(arg2); lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
-  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   arg2 = (int)lua_tonumber(L, 2); result = (arg1)->getAt(arg2); { lua_pushnumber(L, static_cast<lua_Number>(result));
+    ++SWIG_arg; }  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Array_setAt(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; int arg2 ; t_floatarg arg3 ;
   SWIG_check_num_args("pdArray::setAt",3,3) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdArray::setAt",1,"pdArray *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdArray::setAt",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdArray,0))){ SWIG_fail_ptr("Array_setAt",1,SWIGTYPE_p_pdArray); }
-   arg2 = (int)lua_tonumber(L, 2); { if (!lua_isnumber(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg3 = static_cast<t_float>(lua_tonumber(L, 3)); } 
-  (arg1)->setAt(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+   arg2 = (int)lua_tonumber(L, 2); { arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  (arg1)->setAt(arg2,arg3);
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Array___getitem(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; int arg2 ; t_float result;
+  SWIG_check_num_args("pdArray::__getitem__",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdArray::__getitem__",1,"pdArray *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("pdArray::__getitem__",2,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdArray,0))){
+    SWIG_fail_ptr("Array___getitem",1,SWIGTYPE_p_pdArray); }  arg2 = (int)lua_tonumber(L, 2);
+  result = (arg1)->__getitem__(arg2); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_Array___setitem(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; int arg2 ; t_floatarg arg3 ;
+  SWIG_check_num_args("pdArray::__setitem__",3,3) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdArray::__setitem__",1,"pdArray *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("pdArray::__setitem__",2,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdArray,0))){
+    SWIG_fail_ptr("Array___setitem",1,SWIGTYPE_p_pdArray); }  arg2 = (int)lua_tonumber(L, 2); {
+    arg3 = static_cast<t_float>(lua_tonumber(L, 3)); }  (arg1)->__setitem__(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
 static int _wrap_Array_get(lua_State* L) { int SWIG_arg = 0; pdArray *arg1 = (pdArray *) 0 ; t_word **arg2 = (t_word **) 0 ;
   int *arg3 = (int *) 0 ; int arg4 ; t_word *tmp2 = nullptr ; int tsize2 = 0 ; arg2 = &tmp2; arg3 = &tsize2;
   SWIG_check_num_args("pdArray::get",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdArray::get",1,"pdArray *");
@@ -3952,6 +3941,8 @@ static swig_lua_attribute swig_Array_attributes[] = {
 static swig_lua_method swig_Array_methods[]= {
     { "getAt", _wrap_Array_getAt},
     { "setAt", _wrap_Array_setAt},
+    { "__getitem", _wrap_Array___getitem},
+    { "__setitem", _wrap_Array___setitem},
     { "get", _wrap_Array_get},
     { "set", _wrap_Array_set},
     { "getSize", _wrap_Array_getSize},
@@ -3959,6 +3950,8 @@ static swig_lua_method swig_Array_methods[]= {
     {0,0}
 };
 static swig_lua_method swig_Array_meta[] = {
+    { "__getitem", _wrap_Array___getitem},
+    { "__setitem", _wrap_Array___setitem},
     {0,0}
 };
 
@@ -3988,15 +3981,12 @@ static const char *swig_Array_base_names[] = {0};
 static swig_lua_class _wrap_class_Array = { "Array", "Array", &SWIGTYPE_p_pdArray,_proxy__wrap_new_Array, swig_delete_Array, swig_Array_methods, swig_Array_attributes, &swig_Array_Sf_SwigStatic, swig_Array_meta, swig_Array_bases, swig_Array_base_names };
 
 static int _wrap_new_Clock__SWIG_0(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdClock *result = 0 ;
-  SWIG_check_num_args("pdClock::pdClock",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdClock *)new pdClock(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdClock,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdClock::pdClock",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdClock *)new pdClock(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdClock,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_new_Clock__SWIG_1(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
-  t_symbol *arg2 = (t_symbol *) 0 ; pdClock *result = 0 ; SWIG_check_num_args("pdClock::pdClock",2,2) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); }  {
-    if (!lua_isstring(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
-    arg2 = gensym(lua_tostring(L, 2)); }  result = (pdClock *)new pdClock(arg1,arg2);
+  t_symbol *arg2 = (t_symbol *) 0 ; pdClock *result = 0 ; SWIG_check_num_args("pdClock::pdClock",2,2) {
+    arg1 = gensym(lua_tostring(L, 1)); }  { arg2 = gensym(lua_tostring(L, 2)); }  result = (pdClock *)new pdClock(arg1,arg2);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdClock,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
   return SWIG_arg; }
 static int _wrap_new_Clock(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) { int _v; {
@@ -4070,7 +4060,6 @@ static int _wrap_new_Osc(lua_State* L) { int SWIG_arg = 0; pdOsc *result = 0 ; S
 static int _wrap_Osc_setPhase(lua_State* L) { int SWIG_arg = 0; pdOsc *arg1 = (pdOsc *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdOsc::setPhase",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOsc::setPhase",1,"pdOsc *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOsc,0))){ SWIG_fail_ptr("Osc_setPhase",1,SWIGTYPE_p_pdOsc); }  {
-    if (!lua_isnumber(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected");
     arg2 = static_cast<t_float>(lua_tonumber(L, 2)); }  (arg1)->setPhase(arg2); return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_Osc_getPhase(lua_State* L) { int SWIG_arg = 0; pdOsc *arg1 = (pdOsc *) 0 ; t_float result;
@@ -4170,8 +4159,7 @@ static int _wrap_new_BlOsc(lua_State* L) { int SWIG_arg = 0; pdBlOsc *result = 0
 static int _wrap_BlOsc_setPhase(lua_State* L) { int SWIG_arg = 0; pdBlOsc *arg1 = (pdBlOsc *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdBlOsc::setPhase",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdBlOsc::setPhase",1,"pdBlOsc *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdBlOsc,0))){
-    SWIG_fail_ptr("BlOsc_setPhase",1,SWIGTYPE_p_pdBlOsc); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("BlOsc_setPhase",1,SWIGTYPE_p_pdBlOsc); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setPhase(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_BlOsc_getPhase(lua_State* L) { int SWIG_arg = 0; pdBlOsc *arg1 = (pdBlOsc *) 0 ; t_float result;
   SWIG_check_num_args("pdBlOsc::getPhase",1,1) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdBlOsc::getPhase",1,"pdBlOsc *");
@@ -4418,38 +4406,32 @@ static int _wrap_Reverb_setRoomSize(lua_State* L) { int SWIG_arg = 0; pdReverb *
   SWIG_check_num_args("pdReverb::setRoomSize",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setRoomSize",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setRoomSize",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setRoomSize",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setRoomSize(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_setDamp(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdReverb::setDamp",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setDamp",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setDamp",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setDamp",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setDamp(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_setWidth(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdReverb::setWidth",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setWidth",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setWidth",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setWidth",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setWidth(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_setWet(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdReverb::setWet",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setWet",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setWet",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setWet",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setWet(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_setDry(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdReverb::setDry",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setDry",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setDry",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setDry",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setDry(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_setMode(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_floatarg arg2 ;
   SWIG_check_num_args("pdReverb::setMode",2,2) if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdReverb::setMode",1,"pdReverb *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdReverb,0))){
-    SWIG_fail_ptr("Reverb_setMode",1,SWIGTYPE_p_pdReverb); }  { if (!lua_isnumber(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
+    SWIG_fail_ptr("Reverb_setMode",1,SWIGTYPE_p_pdReverb); }  { arg2 = static_cast<t_float>(lua_tonumber(L, 2)); } 
   (arg1)->setMode(arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_Reverb_getRoomSize(lua_State* L) { int SWIG_arg = 0; pdReverb *arg1 = (pdReverb *) 0 ; t_float result;
   SWIG_check_num_args("pdReverb::getRoomSize",1,1)
@@ -4561,10 +4543,9 @@ static int _wrap_new_Log__SWIG_0(lua_State* L) { int SWIG_arg = 0; pdLog *result
   result = (pdLog *)new pdLog(); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdLog,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail;
   fail: lua_error(L); return SWIG_arg; }
 static int _wrap_new_Log__SWIG_1(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ; pdLog *result = 0 ;
-  SWIG_check_num_args("pdLog::pdLog",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
-  result = (pdLog *)new pdLog(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdLog,1); SWIG_arg++;  return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  SWIG_check_num_args("pdLog::pdLog",1,1) { arg1 = gensym(lua_tostring(L, 1)); }  result = (pdLog *)new pdLog(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdLog,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
 static int _wrap_new_Log(lua_State* L) { int argc; int argv[2]={ 1,2} ; argc = lua_gettop(L); if (argc == 0) {
     return _wrap_new_Log__SWIG_0(L);}  if (argc == 1) { int _v; { _v = lua_isstring(L, argv[0]); }  if (_v) {
       return _wrap_new_Log__SWIG_1(L);}  }  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'new_Log'\n"
@@ -4955,15 +4936,12 @@ static const char *swig_OscSender_base_names[] = {0};
 static swig_lua_class _wrap_class_OscSender = { "OscSender", "OscSender", &SWIGTYPE_p_pdOscSender,_proxy__wrap_new_OscSender, swig_delete_OscSender, swig_OscSender_methods, swig_OscSender_attributes, &swig_OscSender_Sf_SwigStatic, swig_OscSender_meta, swig_OscSender_bases, swig_OscSender_base_names };
 
 static int _wrap_new_OscReceiver__SWIG_0(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
-  pdOscReceiver *result = 0 ; SWIG_check_num_args("pdOscReceiver::pdOscReceiver",1,1) { if (!lua_isstring(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg1 = gensym(lua_tostring(L, 1)); } 
+  pdOscReceiver *result = 0 ; SWIG_check_num_args("pdOscReceiver::pdOscReceiver",1,1) { arg1 = gensym(lua_tostring(L, 1)); } 
   result = (pdOscReceiver *)new pdOscReceiver(arg1); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdOscReceiver,1); SWIG_arg++; 
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_new_OscReceiver__SWIG_1(lua_State* L) { int SWIG_arg = 0; t_symbol *arg1 = (t_symbol *) 0 ;
   t_symbol *arg2 = (t_symbol *) 0 ; pdOscReceiver *result = 0 ; SWIG_check_num_args("pdOscReceiver::pdOscReceiver",2,2) {
-    if (!lua_isstring(L, 1)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected");
-    arg1 = gensym(lua_tostring(L, 1)); }  { if (!lua_isstring(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: string expected"); arg2 = gensym(lua_tostring(L, 2)); } 
+    arg1 = gensym(lua_tostring(L, 1)); }  { arg2 = gensym(lua_tostring(L, 2)); } 
   result = (pdOscReceiver *)new pdOscReceiver(arg1,arg2); SWIG_NewPointerObj(L,result,SWIGTYPE_p_pdOscReceiver,1); SWIG_arg++; 
   return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_new_OscReceiver(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) { int _v;
@@ -5103,13 +5081,11 @@ static int _wrap_getMaxFloat(lua_State* L) { int SWIG_arg = 0; t_float result; S
   result = pdGetMaxFloat(); { lua_pushnumber(L, static_cast<lua_Number>(result)); ++SWIG_arg; }  return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_isBadFloat(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
-  SWIG_check_num_args("pdIsBadFloat",1,1) { if (!lua_isnumber(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
+  SWIG_check_num_args("pdIsBadFloat",1,1) { arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
   result = (bool)pdIsBadFloat(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_isBigOrSmall(lua_State* L) { int SWIG_arg = 0; t_floatarg arg1 ; bool result;
-  SWIG_check_num_args("pdIsBigOrSmall",1,1) { if (!lua_isnumber(L, 1))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: number expected"); arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
+  SWIG_check_num_args("pdIsBigOrSmall",1,1) { arg1 = static_cast<t_float>(lua_tonumber(L, 1)); } 
   result = (bool)pdIsBigOrSmall(arg1); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail:
   lua_error(L); return SWIG_arg; }
 static int _wrap_getPdVersionMajor(lua_State* L) { int SWIG_arg = 0; int result; SWIG_check_num_args("pdGetPdVersionMajor",0,0)

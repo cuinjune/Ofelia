@@ -662,7 +662,7 @@ class pdArray
 public:
     pdArray(t_symbol *s)
     :sym(s){};
-    float getAt(int n)
+    t_float getAt(int n)
     {
         t_garray *a; int size; t_word *vec;
         if (exists(&a) && getData(a, &size, &vec))
@@ -683,6 +683,14 @@ public:
             vec[n].w_float = f;
             garray_redraw(a);
         }
+    }
+    t_float __getitem__(int n)
+    {
+        return getAt(n);
+    }
+    void __setitem__(int n, t_floatarg f)
+    {
+        setAt(n, f);
     }
     void get(t_word **vecp, int *sizep, int onset)
     {
