@@ -1,3 +1,9 @@
+v3.0.1: 20 Aug 2019
+
+* added "examples/shader/geometryShader" example
+* fixed type checking issue in "ofxOfeliaPdBindings.i"
+* ofArray's array elements can be accessed using square brackets
+
 v3.0.0: 14 Aug 2019
 
 * all available global functions and class methods from lua bindings are embedded as objects (functions that take userdata argument or has more than 8 arguments are excluded)
