@@ -3351,18 +3351,22 @@ static int _wrap_Canvas_setArgs(lua_State* L) { int SWIG_arg = 0; pdCanvas *arg1
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdCanvas::setArgs",1,"pdCanvas *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdCanvas,0))){
     SWIG_fail_ptr("Canvas_setArgs",1,SWIGTYPE_p_pdCanvas); }  { if (!lua_istable(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
-    arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
-        arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
-        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->setArgs(arg2,arg3,arg4); {
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 2))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg2 = 1; arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom)));
+      arg3[0].a_type = A_POINTER; (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg3[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else { lua_len(L, 2);
+      arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+          arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+          (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->setArgs(arg2,arg3,arg4); {
     freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
@@ -3486,18 +3490,22 @@ static int _wrap_Send_sendList(lua_State* L) { int SWIG_arg = 0; pdSend *arg1 = 
   t_atom *arg3 = (t_atom *) 0 ; std::deque< int > arg4 ; SWIG_check_num_args("pdSend::sendList",2,2)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendList",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){ SWIG_fail_ptr("Send_sendList",1,SWIGTYPE_p_pdSend); }
-   { if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
-    arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
-        arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
-        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->sendList(arg2,arg3,arg4); {
+   { if (!lua_istable(L, 2)) SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false;
+    lua_pushnil(L); while (lua_next(L, 2))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true;
+        lua_pop(L, 1); break; }  }  if (hasStringKey) { arg2 = 1; arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom)));
+      arg3[0].a_type = A_POINTER; (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg3[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else { lua_len(L, 2);
+      arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+          arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+          (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->sendList(arg2,arg3,arg4); {
     freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
@@ -3506,18 +3514,22 @@ static int _wrap_Send_sendAnything(lua_State* L) { int SWIG_arg = 0; pdSend *arg
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdSend::sendAnything",1,"pdSend *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdSend,0))){
     SWIG_fail_ptr("Send_sendAnything",1,SWIGTYPE_p_pdSend); }  { if (!lua_istable(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
-    arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
-        arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
-        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->sendAnything(arg2,arg3,arg4); {
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 2))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg2 = 1; arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom)));
+      arg3[0].a_type = A_POINTER; (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg3[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else { lua_len(L, 2);
+      arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+          arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+          (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->sendAnything(arg2,arg3,arg4); {
     freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
@@ -3599,18 +3611,22 @@ static int _wrap_Inlet_setInlets(lua_State* L) { int SWIG_arg = 0; pdInlet *arg1
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdInlet::setInlets",1,"pdInlet *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdInlet,0))){
     SWIG_fail_ptr("Inlet_setInlets",1,SWIGTYPE_p_pdInlet); }  { if (!lua_istable(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
-    arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
-        arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
-        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->setInlets(arg2,arg3,arg4); {
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 2))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg2 = 1; arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom)));
+      arg3[0].a_type = A_POINTER; (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg3[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else { lua_len(L, 2);
+      arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+          arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+          (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->setInlets(arg2,arg3,arg4); {
     freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
@@ -3710,19 +3726,23 @@ static int _wrap_Outlet_outletList(lua_State* L) { int SWIG_arg = 0; pdOutlet *a
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletList",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOutlet,0))){
     SWIG_fail_ptr("Outlet_outletList",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_istable(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 3);
-    arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
-        arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg4[i].a_type = A_COMMA; continue; }  arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
-        (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->outletList(arg2,arg3,arg4,arg5); {
-    freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 3))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg3 = 1; arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom)));
+      arg4[0].a_type = A_POINTER; (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg4[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else { lua_len(L, 3);
+      arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
+          arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg4[i].a_type = A_COMMA; continue; }  arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
+          (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->outletList(arg2,arg3,arg4,arg5);
+  { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static int _wrap_Outlet_outletAnything(lua_State* L) { int SWIG_arg = 0; pdOutlet *arg1 = (pdOutlet *) 0 ; int arg2 ; int arg3 ;
@@ -3731,21 +3751,25 @@ static int _wrap_Outlet_outletAnything(lua_State* L) { int SWIG_arg = 0; pdOutle
   if(!lua_isnumber(L,2)) SWIG_fail_arg("pdOutlet::outletAnything",2,"int");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOutlet,0))){
     SWIG_fail_ptr("Outlet_outletAnything",1,SWIGTYPE_p_pdOutlet); }  arg2 = (int)lua_tonumber(L, 2); { if (!lua_istable(L, 3))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 3);
-    arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
-        arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg4[i].a_type = A_COMMA; continue; }  arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
-        (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->outletAnything(arg2,arg3,arg4,arg5); {
-    freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
-  if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5)
-    luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 3))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg3 = 1; arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom)));
+      arg4[0].a_type = A_POINTER; (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg4[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else { lua_len(L, 3);
+      arg3 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg3) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg4 = static_cast<t_atom *>(getbytes(arg3 * sizeof(t_atom))); for (int i = 0; i < arg3; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 3); if (lua_isboolean(L, -1))  { arg4[i].a_type = A_FLOAT;
+          arg4[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg4[i].a_type = A_FLOAT; arg4[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg4[i].a_type = A_COMMA; continue; }  arg4[i].a_type = A_SYMBOL; arg4[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg4[i].a_type = A_POINTER;
+          (&arg5)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg4[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg5)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  } 
+  (arg1)->outletAnything(arg2,arg3,arg4,arg5); { freebytes(arg4, arg3 * sizeof(t_atom)); for (const int i : arg5)
+    luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg; if(0) SWIG_fail; fail: { freebytes(arg4, arg3 * sizeof(t_atom));
+    for (const int i : arg5) luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }
 static void swig_delete_Outlet(void *obj) {
 pdOutlet *arg1 = (pdOutlet *) obj;
 delete arg1;
@@ -4855,18 +4879,22 @@ static int _wrap_OscSender_send(lua_State* L) { int SWIG_arg = 0; pdOscSender *a
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("pdOscSender::send",1,"pdOscSender *");
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_pdOscSender,0))){
     SWIG_fail_ptr("OscSender_send",1,SWIGTYPE_p_pdOscSender); }  { if (!lua_istable(L, 2))
-    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); lua_len(L, 2);
-    arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
-    arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  { lua_pushinteger(L, i + 1);
-      lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
-        arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
-        arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
-      else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
-          arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
-      else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
-        (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
-        arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
-        SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }  }  (arg1)->send(arg2,arg3,arg4); {
+    SWIG_exception(SWIG_RuntimeError, "argument mismatch: table expected"); bool hasStringKey = false; lua_pushnil(L);
+    while (lua_next(L, 2))  { lua_pop(L, 1); if (lua_type(L, -1) == LUA_TSTRING)  { hasStringKey = true; lua_pop(L, 1); break; }
+       }  if (hasStringKey) { arg2 = 1; arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom)));
+      arg3[0].a_type = A_POINTER; (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+      arg3[0].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else { lua_len(L, 2);
+      arg2 = static_cast<lua_Integer>(lua_tointeger(L, -1)); if (!arg2) SWIG_exception(SWIG_RuntimeError, "table is empty");
+      arg3 = static_cast<t_atom *>(getbytes(arg2 * sizeof(t_atom))); for (int i = 0; i < arg2; ++i)  {
+        lua_pushinteger(L, i + 1); lua_gettable(L, 2); if (lua_isboolean(L, -1))  { arg3[i].a_type = A_FLOAT;
+          arg3[i].a_w.w_float = static_cast<t_float>(lua_toboolean(L, -1)); }    else if (lua_isnumber(L, -1))  {
+          arg3[i].a_type = A_FLOAT; arg3[i].a_w.w_float = static_cast<t_float>(lua_tonumber(L, -1)); }           
+        else if (lua_isstring(L, -1))  { const char *s = lua_tostring(L, -1); if (strlen(s) <= 2 && s[0] == ',') {
+            arg3[i].a_type = A_COMMA; continue; }  arg3[i].a_type = A_SYMBOL; arg3[i].a_w.w_symbol = gensym(s); } 
+        else if (lua_isuserdata(L, -1) || lua_istable(L, -1))  { arg3[i].a_type = A_POINTER;
+          (&arg4)->push_back(luaL_ref(L, LUA_REGISTRYINDEX));
+          arg3[i].a_w.w_gpointer = reinterpret_cast<t_gpointer *>(&(&arg4)->back()); }  else  {
+          SWIG_exception(SWIG_RuntimeError, "unhandled argument type"); }  }      }  }  (arg1)->send(arg2,arg3,arg4); {
     freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4) luaL_unref(L, LUA_REGISTRYINDEX, i); }  return SWIG_arg;
   if(0) SWIG_fail; fail: { freebytes(arg3, arg2 * sizeof(t_atom)); for (const int i : arg4)
     luaL_unref(L, LUA_REGISTRYINDEX, i); }  lua_error(L); return SWIG_arg; }

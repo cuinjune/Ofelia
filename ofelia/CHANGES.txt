@@ -2,6 +2,7 @@ v3.0.1: 20 Aug 2019
 
 * added "examples/shader/geometryShader" example
 * fixed type checking issue in "ofxOfeliaPdBindings.i"
+* fixed bug when outputting a table with a string key using ofOutlet()
 * ofArray's array elements can be accessed using square brackets
 
 v3.0.0: 14 Aug 2019
