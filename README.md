@@ -88,7 +88,7 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 
 --------------
 
-## Projects that used ofelia/ofxOfelia
+## Projects that used Ofelia/ofxOfelia
 * [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/MOz3MCIBDzM/).
 * [Mike Moreno](https://github.com/MikeMorenoAudio/): [Paths](https://youtu.be/Si_IbyIvPy4/).
 * [Chris Niven: BILL JOBS CYBER RADIO](https://www.youtube.com/watch?v=emDiimH0Y7U).
@@ -100,13 +100,13 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 ## Acknowledgements
 * [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/);
 * [Arturo Castro](http://arturocastro.net/), [Theodore Watson](http://www.theowatson.com/) and the [OF community](https://openframeworks.cc/community/) for developing and maintaining [openFrameworks](https://openframeworks.cc/);
-* [Daniel Shiffman](https://shiffman.net/) and the [Processing Foundation](https://processingfoundation.org/) for providing many [examples](https://processing.org/examples/) which ofelia copied;
-* [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) addons which ofelia/ofxOfelia uses;
-* Creators of [ofxJSON](https://github.com/jeffcrouse/ofxJSON), [ofxJsonSettings](https://github.com/mattfelsen/ofxJsonSettings), [ofxOsc](https://openframeworks.cc/documentation/ofxOsc/), [ofxReverb](https://github.com/JoshuaBatty/ofxReverb) and [ofxZipPass](https://github.com/Ant1r/ofxZipPass) addons which ofelia/ofxOfelia uses;
+* [Daniel Shiffman](https://shiffman.net/) and the [Processing Foundation](https://processingfoundation.org/) for providing many [examples](https://processing.org/examples/) which Ofelia copied;
+* [Dan Wilcox](http://danomatika.com/) for developing [ofxLua](https://github.com/danomatika/ofxLua), [ofxPd](https://github.com/danomatika/ofxPd) and [ofxMidi](https://github.com/danomatika/ofxMidi) addons which Ofelia/ofxOfelia uses;
+* Creators of [ofxJSON](https://github.com/jeffcrouse/ofxJSON), [ofxJsonSettings](https://github.com/mattfelsen/ofxJsonSettings), [ofxOsc](https://openframeworks.cc/documentation/ofxOsc/), [ofxReverb](https://github.com/JoshuaBatty/ofxReverb) and [ofxZipPass](https://github.com/Ant1r/ofxZipPass) addons which Ofelia/ofxOfelia uses;
 * Creator of [OpenFrameworks-Documentation-shortcut](https://github.com/lilive/OpenFrameworks-Documentation-shortcut) used for easy documentation access;
-* [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem) which has greatly influenced ofelia;
+* [IOhannes M Zmölnig](https://puredata.info/author/zmoelnig) for developing [GEM](https://puredata.info/downloads/gem) which has greatly influenced Ofelia;
 * [Henri Menke](https://www.henrimenke.com/) for answering so many questions about integrating Lua into C++;
-* Many others who contributed to the development of ofelia.
+* Many others who contributed to the development of Ofelia.
 
 ## Author
 Copyright (c) 2018 Zack Lee: <cuinjune@gmail.com><br />
