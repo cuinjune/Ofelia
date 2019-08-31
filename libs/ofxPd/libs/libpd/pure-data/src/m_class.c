@@ -47,14 +47,14 @@ static t_symbol *dogensym(const char *s, t_symbol *oldsym,
 void x_midi_newpdinstance( void);
 void x_midi_freepdinstance( void);
 void s_inter_newpdinstance( void);
-void s_inter_freepdinstance( void);
+void s_inter_free(t_instanceinter *inter);
 void g_canvas_newpdinstance( void);
 void g_canvas_freepdinstance( void);
 void d_ugen_newpdinstance( void);
 void d_ugen_freepdinstance( void);
 void new_anything(void *dummy, t_symbol *s, int argc, t_atom *argv);
 
-void s_stuff_newpdinstance( void)
+void s_stuff_newpdinstance(void)
 {
     STUFF = getbytes(sizeof(*STUFF));
     STUFF->st_externlist = STUFF->st_searchpath =
@@ -62,7 +62,7 @@ void s_stuff_newpdinstance( void)
     STUFF->st_schedblocksize = STUFF->st_blocksize = DEFDACBLKSIZE;
 }
 
-void s_stuff_freepdinstance( void)
+void s_stuff_freepdinstance(void)
 {
     freebytes(STUFF, sizeof(*STUFF));
 }
@@ -200,6 +200,7 @@ EXTERN void pdinstance_free(t_pdinstance *x)
     t_canvas *canvas;
     int i, instanceno = x->pd_instanceno;
     t_class *c;
+    t_instanceinter *inter = x->pd_inter;
     pd_setinstance(x);
     sys_lock();
     pd_globallock();
@@ -212,7 +213,7 @@ EXTERN void pdinstance_free(t_pdinstance *x)
     for (c = class_list; c; c = c->c_next)
     {
         freebytes(c->c_methods[instanceno],
-            c->c_nmethod * sizeof(*c->c_methods));
+            c->c_nmethod * sizeof(**c->c_methods));
         for (i = instanceno; i < pd_ninstances-1; i++)
             c->c_methods[i] = c->c_methods[i+1];
         c->c_methods = (t_methodentry **)t_resizebytes(c->c_methods,
@@ -236,7 +237,10 @@ EXTERN void pdinstance_free(t_pdinstance *x)
                s != &x->pd_s_x &&
                s != &x->pd_s_y &&
                s != &x->pd_s_)
+            {
+                freebytes(s->s_name, strlen(s->s_name)+1);
                 freebytes(s, sizeof(*s));
+            }
         }
     }
     freebytes(x->pd_symhash, SYMTABHASHSIZE * sizeof (*x->pd_symhash));
@@ -244,7 +248,6 @@ EXTERN void pdinstance_free(t_pdinstance *x)
     g_canvas_freepdinstance();
     d_ugen_freepdinstance();
     s_stuff_freepdinstance();
-    s_inter_freepdinstance();
     for (i = instanceno; i < pd_ninstances-1; i++)
         pd_instances[i] = pd_instances[i+1];
     pd_instances = (t_pdinstance **)resizebytes(pd_instances,
@@ -255,6 +258,7 @@ EXTERN void pdinstance_free(t_pdinstance *x)
     pd_globalunlock();
     sys_unlock();
     pd_setinstance(&pd_maininstance);
+    s_inter_free(inter);  /* must happen after sys_unlock() */
 }
 
 #endif /* PDINSTANCE */
@@ -484,6 +488,7 @@ t_class *class_new(t_symbol *s, t_newmethod newmethod, t_method freemethod,
     c->c_floatsignalin = 0;
     c->c_externdir = class_extern_dir;
     c->c_savefn = (typeflag == CLASS_PATCHABLE ? text_save : class_nosavefn);
+    c->c_classfreefn = 0;
 #if PDINSTANCE
     c->c_methods = (t_methodentry **)t_getbytes(
         pd_ninstances * sizeof(*c->c_methods));
@@ -499,6 +504,45 @@ t_class *class_new(t_symbol *s, t_newmethod newmethod, t_method freemethod,
 #endif
     return (c);
 }
+
+void class_free(t_class *c)
+{
+    int i;
+#if PDINSTANCE
+    t_class *prev;
+    if (class_list == c)
+        class_list = c->c_next;
+    else
+    {
+        prev = class_list;
+        while (prev->c_next != c)
+          prev = prev->c_next;
+        prev->c_next = c->c_next;
+    }
+#endif
+    if (c->c_classfreefn)
+        c->c_classfreefn(c);
+#if PDINSTANCE
+    for (i = 0; i < pd_ninstances; i++)
+        freebytes(c->c_methods[i], c->c_nmethod * sizeof(*c->c_methods[i]));
+    freebytes(c->c_methods, pd_ninstances * sizeof(*c->c_methods));
+#else
+    freebytes(c->c_methods, c->c_nmethod * sizeof(*c->c_methods));
+#endif
+    freebytes(c, sizeof(*c));
+}
+
+void class_setfreefn(t_class *c, t_classfreefn fn)
+{
+    c->c_classfreefn = fn;
+}
+
+#if PDINSTANCE
+t_class *class_getfirst(void)
+{
+    return class_list;
+}
+#endif
 
     /* add a creation method, which is a function that returns a Pd object
     suitable for putting in an object box.  We presume you've got a class it
@@ -535,7 +579,6 @@ void class_addmethod(t_class *c, t_method fn, t_symbol *sel,
     t_atomtype arg1, ...)
 {
     va_list ap;
-    t_methodentry *m;
     t_atomtype argtype = arg1;
     int nargs, i;
     if(!c)
@@ -783,8 +826,8 @@ t_propertiesfn class_getpropertiesfn(const t_class *c)
 static t_symbol *dogensym(const char *s, t_symbol *oldsym,
     t_pdinstance *pdinstance)
 {
-    char *sym = 0;
-    t_symbol **sym1, *sym2;
+    char *symname = 0;
+    t_symbol **symhashloc, *sym2;
     unsigned int hash = 5381;
     int length = 0;
     const char *s2 = s;
@@ -794,21 +837,22 @@ static t_symbol *dogensym(const char *s, t_symbol *oldsym,
         length++;
         s2++;
     }
-    sym1 = pdinstance->pd_symhash + (hash & (SYMTABHASHSIZE-1));
-    while ((sym2 = *sym1))
+    symhashloc = pdinstance->pd_symhash + (hash & (SYMTABHASHSIZE-1));
+    while ((sym2 = *symhashloc))
     {
-        if (!strcmp(sym2->s_name, s)) return(sym2);
-        sym1 = &sym2->s_next;
+        if (!strcmp(sym2->s_name, s))
+            return(sym2);
+        symhashloc = &sym2->s_next;
     }
     if (oldsym)
         sym2 = oldsym;
     else sym2 = (t_symbol *)t_getbytes(sizeof(*sym2));
-    sym = t_getbytes(length+1);
+    symname = t_getbytes(length+1);
     sym2->s_next = 0;
     sym2->s_thing = 0;
-    strcpy(sym, s);
-    sym2->s_name = sym;
-    *sym1 = sym2;
+    strcpy(symname, s);
+    sym2->s_name = symname;
+    *symhashloc = sym2;
     return (sym2);
 }
 
@@ -875,21 +919,178 @@ t_pd *pd_newest(void)
     calls in typedmess(), to keep the compiler quiet. */
 typedef t_pd *(*t_newgimme)(t_symbol *s, int argc, t_atom *argv);
 typedef void(*t_messgimme)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
+typedef void*(*t_messgimmer)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 
-typedef t_pd *(*t_fun0)(
+typedef t_pd *(*t_fun00)(void);
+typedef t_pd *(*t_fun10)(t_int i1    );
+typedef t_pd *(*t_fun20)(t_int i1, t_int i2    );
+typedef t_pd *(*t_fun30)(t_int i1, t_int i2, t_int i3    );
+typedef t_pd *(*t_fun40)(t_int i1, t_int i2, t_int i3, t_int i4    );
+typedef t_pd *(*t_fun50)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5    );
+typedef t_pd *(*t_fun60)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6    );
+
+typedef t_pd *(*t_fun01)(
+    t_floatarg d1);
+typedef t_pd *(*t_fun11)(t_int i1,
+    t_floatarg d1);
+typedef t_pd *(*t_fun21)(t_int i1, t_int i2,
+    t_floatarg d1);
+typedef t_pd *(*t_fun31)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1);
+typedef t_pd *(*t_fun41)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1);
+typedef t_pd *(*t_fun51)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1);
+typedef t_pd *(*t_fun61)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1);
+
+typedef t_pd *(*t_fun02)(
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun12)(t_int i1,
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun22)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun32)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun42)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun52)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2);
+typedef t_pd *(*t_fun62)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2);
+
+typedef t_pd *(*t_fun03)(
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun13)(t_int i1,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun23)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun33)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun43)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun53)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef t_pd *(*t_fun63)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+
+typedef t_pd *(*t_fun04)(
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun14)(t_int i1,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun24)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun34)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun44)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun54)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef t_pd *(*t_fun64)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+
+typedef t_pd *(*t_fun05)(
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun1)(t_int i1,
+typedef t_pd *(*t_fun15)(t_int i1,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun2)(t_int i1, t_int i2,
+typedef t_pd *(*t_fun25)(t_int i1, t_int i2,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun3)(t_int i1, t_int i2, t_int i3,
+typedef t_pd *(*t_fun35)(t_int i1, t_int i2, t_int i3,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun4)(t_int i1, t_int i2, t_int i3, t_int i4,
+typedef t_pd *(*t_fun45)(t_int i1, t_int i2, t_int i3, t_int i4,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun5)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+typedef t_pd *(*t_fun55)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun6)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+typedef t_pd *(*t_fun65)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+
+typedef void(*t_vfun00)(void);
+typedef void(*t_vfun10)(t_int i1    );
+typedef void(*t_vfun20)(t_int i1, t_int i2    );
+typedef void(*t_vfun30)(t_int i1, t_int i2, t_int i3    );
+typedef void(*t_vfun40)(t_int i1, t_int i2, t_int i3, t_int i4    );
+typedef void(*t_vfun50)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5    );
+typedef void(*t_vfun60)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6    );
+
+typedef void(*t_vfun01)(
+    t_floatarg d1);
+typedef void(*t_vfun11)(t_int i1,
+    t_floatarg d1);
+typedef void(*t_vfun21)(t_int i1, t_int i2,
+    t_floatarg d1);
+typedef void(*t_vfun31)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1);
+typedef void(*t_vfun41)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1);
+typedef void(*t_vfun51)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1);
+typedef void(*t_vfun61)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1);
+
+typedef void(*t_vfun02)(
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun12)(t_int i1,
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun22)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun32)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun42)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun52)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2);
+typedef void(*t_vfun62)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2);
+
+typedef void(*t_vfun03)(
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun13)(t_int i1,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun23)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun33)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun43)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun53)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+typedef void(*t_vfun63)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3);
+
+typedef void(*t_vfun04)(
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun14)(t_int i1,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun24)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun34)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun44)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun54)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+typedef void(*t_vfun64)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
+
+typedef void(*t_vfun05)(
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun15)(t_int i1,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun25)(t_int i1, t_int i2,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun35)(t_int i1, t_int i2, t_int i3,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun45)(t_int i1, t_int i2, t_int i3, t_int i4,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun55)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+typedef void(*t_vfun65)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
+
+void *bang_new(t_pd *dummy);
+void *pdfloat_new(t_pd *dummy, t_float f);
+void *pdsymbol_new(t_pd *dummy, t_symbol *s);
+void *list_new(t_pd *dummy, t_symbol *s, int argc, t_atom *argv);
 
 void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
 {
@@ -900,7 +1101,8 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
     int i;
     t_int ai[MAXPDARG+1], *ap = ai;
     t_floatarg ad[MAXPDARG+1], *dp = ad;
-    int narg = 0;
+    int niarg = 0;
+    int nfarg = 0;
     t_pd *bonzo;
 
         /* check for messages that are handled by fixed slots in the class
@@ -908,28 +1110,47 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
         to pd_objectmaker doesn't require that we supply a pointer value. */
     if (s == &s_float)
     {
-        if (!argc) (*c->c_floatmethod)(x, 0.);
-        else if (argv->a_type == A_FLOAT)
-            (*c->c_floatmethod)(x, argv->a_w.w_float);
-        else goto badarg;
+        if (x == &pd_objectmaker)
+          if (!argc)
+              pd_this->pd_newest = pdfloat_new(x, 0.);
+          else if (argv->a_type == A_FLOAT)
+              pd_this->pd_newest = pdfloat_new(x, argv->a_w.w_float);
+          else goto badarg;
+        else
+          if (!argc) (*c->c_floatmethod)(x, 0.);
+          else if (argv->a_type == A_FLOAT)
+              (*c->c_floatmethod)(x, argv->a_w.w_float);
+          else goto badarg;
         return;
     }
     if (s == &s_bang)
     {
-        (*c->c_bangmethod)(x);
+        if (x == &pd_objectmaker)
+            pd_this->pd_newest = bang_new(x);
+        else
+            (*c->c_bangmethod)(x);
         return;
     }
     if (s == &s_list)
     {
-        (*c->c_listmethod)(x, s, argc, argv);
+        if (x == &pd_objectmaker)
+            pd_this->pd_newest = list_new(x, s, argc, argv);
+        else
+            (*c->c_listmethod)(x, s, argc, argv);
         return;
     }
     if (s == &s_symbol)
     {
         if (argc && argv->a_type == A_SYMBOL)
-            (*c->c_symbolmethod)(x, argv->a_w.w_symbol);
+           if (x == &pd_objectmaker)
+                pd_this->pd_newest = pdsymbol_new(x, argv->a_w.w_symbol);
+           else
+                (*c->c_symbolmethod)(x, argv->a_w.w_symbol);
         else
-            (*c->c_symbolmethod)(x, &s_);
+           if (x == &pd_objectmaker)
+                pd_this->pd_newest = pdsymbol_new(x, &s_);
+           else
+                (*c->c_symbolmethod)(x, &s_);
         return;
     }
 #ifdef PDINSTANCE
@@ -946,11 +1167,14 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
             if (x == &pd_objectmaker)
                 pd_this->pd_newest =
                     (*((t_newgimme)(m->me_fun)))(s, argc, argv);
-            else (*((t_messgimme)(m->me_fun)))(x, s, argc, argv);
+            else if (((t_messgimmer)(m->me_fun)) == ((t_messgimmer)(canvas_new)))
+                (*((t_messgimmer)(m->me_fun)))(x, s, argc, argv);
+            else
+                (*((t_messgimme)(m->me_fun)))(x, s, argc, argv);
             return;
         }
         if (argc > MAXPDARG) argc = MAXPDARG;
-        if (x != &pd_objectmaker) *(ap++) = (t_int)x, narg++;
+        if (x != &pd_objectmaker) *(ap++) = (t_int)x, niarg++;
         while ((wanttype = *wp++))
         {
             switch (wanttype)
@@ -965,7 +1189,7 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
-                narg++;
+                niarg++;
                 ap++;
                 break;
             case A_FLOAT:
@@ -980,6 +1204,7 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
+                nfarg++;
                 dp++;
                 break;
             case A_SYMBOL:
@@ -1001,36 +1226,237 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
-                narg++;
+                niarg++;
                 ap++;
                 break;
             default:
                 goto badarg;
             }
         }
-        switch (narg)
-        {
-        case 0 : bonzo = (*(t_fun0)(m->me_fun))
-            (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 1 : bonzo = (*(t_fun1)(m->me_fun))
-            (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 2 : bonzo = (*(t_fun2)(m->me_fun))
-            (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 3 : bonzo = (*(t_fun3)(m->me_fun))
-            (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 4 : bonzo = (*(t_fun4)(m->me_fun))
-            (ai[0], ai[1], ai[2], ai[3],
-                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 5 : bonzo = (*(t_fun5)(m->me_fun))
-            (ai[0], ai[1], ai[2], ai[3], ai[4],
-                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        case 6 : bonzo = (*(t_fun6)(m->me_fun))
-            (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-        default: bonzo = 0;
-        }
+
         if (x == &pd_objectmaker)
+        {
+            switch (niarg * 10 + nfarg)
+            {
+            case 0 : bonzo = (*(t_fun00)(m->me_fun))
+                (); break;
+            case 10 : bonzo = (*(t_fun10)(m->me_fun))
+                (ai[0]); break;
+            case 20 : bonzo = (*(t_fun20)(m->me_fun))
+                (ai[0], ai[1]); break;
+            case 30 : bonzo = (*(t_fun30)(m->me_fun))
+                (ai[0], ai[1], ai[2]); break;
+            case 40 : bonzo = (*(t_fun40)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3]); break;
+            case 50 : bonzo = (*(t_fun50)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4]); break;
+            case 60 : bonzo = (*(t_fun60)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5]); break;
+
+            case 1 : bonzo = (*(t_fun01)(m->me_fun))
+                (ad[0]); break;
+            case 11 : bonzo = (*(t_fun11)(m->me_fun))
+                (ai[0], ad[0]); break;
+            case 21 : bonzo = (*(t_fun21)(m->me_fun))
+                (ai[0], ai[1], ad[0]); break;
+            case 31 : bonzo = (*(t_fun31)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0]); break;
+            case 41 : bonzo = (*(t_fun41)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0]); break;
+            case 51 : bonzo = (*(t_fun51)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0]); break;
+            case 61 : bonzo = (*(t_fun61)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0]); break;
+
+            case 2 : bonzo = (*(t_fun02)(m->me_fun))
+                (ad[0], ad[1]); break;
+            case 12 : bonzo = (*(t_fun12)(m->me_fun))
+                (ai[0], ad[0], ad[1]); break;
+            case 22 : bonzo = (*(t_fun22)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1]); break;
+            case 32 : bonzo = (*(t_fun32)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1]); break;
+            case 42 : bonzo = (*(t_fun42)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1]); break;
+            case 52 : bonzo = (*(t_fun52)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1]); break;
+            case 62 : bonzo = (*(t_fun62)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1]); break;
+
+            case 3 : bonzo = (*(t_fun03)(m->me_fun))
+                (ad[0], ad[1], ad[2]); break;
+            case 13 : bonzo = (*(t_fun13)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2]); break;
+            case 23 : bonzo = (*(t_fun23)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2]); break;
+            case 33 : bonzo = (*(t_fun33)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2]); break;
+            case 43 : bonzo = (*(t_fun43)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2]); break;
+            case 53 : bonzo = (*(t_fun53)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2]); break;
+            case 63 : bonzo = (*(t_fun63)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2]); break;
+
+            case 4 : bonzo = (*(t_fun04)(m->me_fun))
+                (ad[0], ad[1], ad[2], ad[3]); break;
+            case 14 : bonzo = (*(t_fun14)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2], ad[3]); break;
+            case 24 : bonzo = (*(t_fun24)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3]); break;
+            case 34 : bonzo = (*(t_fun34)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3]); break;
+            case 44 : bonzo = (*(t_fun44)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+            case 54 : bonzo = (*(t_fun54)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+            case 64 : bonzo = (*(t_fun64)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+
+            case 5 : bonzo = (*(t_fun05)(m->me_fun))
+                (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 15 : bonzo = (*(t_fun15)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 25 : bonzo = (*(t_fun25)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 35 : bonzo = (*(t_fun35)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 45 : bonzo = (*(t_fun45)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 55 : bonzo = (*(t_fun55)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 65 : bonzo = (*(t_fun65)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            default: bonzo = 0;
+            }
             pd_this->pd_newest = bonzo;
+        }
+        else
+        {
+            switch (niarg * 10 + nfarg)
+            {
+            case 0 : (*(t_vfun00)(m->me_fun))
+                (); break;
+            case 10 : (*(t_vfun10)(m->me_fun))
+                (ai[0]); break;
+            case 20 : (*(t_vfun20)(m->me_fun))
+                (ai[0], ai[1]); break;
+            case 30 : (*(t_vfun30)(m->me_fun))
+                (ai[0], ai[1], ai[2]); break;
+            case 40 : (*(t_vfun40)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3]); break;
+            case 50 : (*(t_vfun50)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4]); break;
+            case 60 : (*(t_vfun60)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5]); break;
+
+            case 1 : (*(t_vfun01)(m->me_fun))
+                (ad[0]); break;
+            case 11 : (*(t_vfun11)(m->me_fun))
+                (ai[0], ad[0]); break;
+            case 21 : (*(t_vfun21)(m->me_fun))
+                (ai[0], ai[1], ad[0]); break;
+            case 31 : (*(t_vfun31)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0]); break;
+            case 41 : (*(t_vfun41)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0]); break;
+            case 51 : (*(t_vfun51)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0]); break;
+            case 61 : (*(t_vfun61)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0]); break;
+
+            case 2 : (*(t_vfun02)(m->me_fun))
+                (ad[0], ad[1]); break;
+            case 12 : (*(t_vfun12)(m->me_fun))
+                (ai[0], ad[0], ad[1]); break;
+            case 22 : (*(t_vfun22)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1]); break;
+            case 32 : (*(t_vfun32)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1]); break;
+            case 42 : (*(t_vfun42)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1]); break;
+            case 52 : (*(t_vfun52)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1]); break;
+            case 62 : (*(t_vfun62)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1]); break;
+
+            case 3 : (*(t_vfun03)(m->me_fun))
+                (ad[0], ad[1], ad[2]); break;
+            case 13 : (*(t_vfun13)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2]); break;
+            case 23 : (*(t_vfun23)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2]); break;
+            case 33 : (*(t_vfun33)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2]); break;
+            case 43 : (*(t_vfun43)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2]); break;
+            case 53 : (*(t_vfun53)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2]); break;
+            case 63 : (*(t_vfun63)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2]); break;
+
+            case 4 : (*(t_vfun04)(m->me_fun))
+                (ad[0], ad[1], ad[2], ad[3]); break;
+            case 14 : (*(t_vfun14)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2], ad[3]); break;
+            case 24 : (*(t_vfun24)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3]); break;
+            case 34 : (*(t_vfun34)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3]); break;
+            case 44 : (*(t_vfun44)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+            case 54 : (*(t_vfun54)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+            case 64 : (*(t_vfun64)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2], ad[3]); break;
+
+            case 5 : (*(t_vfun05)(m->me_fun))
+                (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 15 : (*(t_vfun15)(m->me_fun))
+                (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 25 : (*(t_vfun25)(m->me_fun))
+                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 35 : (*(t_vfun35)(m->me_fun))
+                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 45 : (*(t_vfun45)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 55 : (*(t_vfun55)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            case 65 : (*(t_vfun65)(m->me_fun))
+                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+            default: ;
+            }
+        }
         return;
     }
     (*c->c_anymethod)(x, s, argc, argv);

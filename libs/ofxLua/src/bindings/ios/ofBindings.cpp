@@ -5219,10 +5219,10 @@ static int _wrap_launchBrowser__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::st
   SWIG_check_num_args("ofLaunchBrowser",2,2) if(!lua_isstring(L,1)) SWIG_fail_arg("ofLaunchBrowser",1,"std::string const &");
   if(!lua_isboolean(L,2)) SWIG_fail_arg("ofLaunchBrowser",2,"bool");
   temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; arg2 = (lua_toboolean(L, 2)!=0);
-  ofLaunchBrowser((std::string const &)*arg1,arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_launchBrowser__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string temp1 ;
   SWIG_check_num_args("ofLaunchBrowser",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("ofLaunchBrowser",1,"std::string const &");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; ofLaunchBrowser((std::string const &)*arg1); return SWIG_arg;
+  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
 static int _wrap_launchBrowser(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) {
     return _wrap_launchBrowser__SWIG_1(L);}  if (argc == 2) { return _wrap_launchBrowser__SWIG_0(L);} 

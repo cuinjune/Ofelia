@@ -31,10 +31,12 @@ bool ofxOfeliaTextBuf::canvasOpen(const t_canvas *canvas, const std::string &fil
     char buf[MAXPDSTRING], *bufPtr;
     if ((fileDesc = canvas_open(canvas, fileName.c_str(), "", buf, &bufPtr, MAXPDSTRING, 0)) < 0)
         return false;
+#if defined(TARGET_EXTERNAL)
 #ifdef _WIN32
     closesocket(fileDesc);
 #else
     close(fileDesc);
+#endif
 #endif
     dirResult = buf;
     fileNameResult = bufPtr;
@@ -63,6 +65,7 @@ void ofxOfeliaTextBuf::senditup()
 
 void ofxOfeliaTextBuf::openMethod()
 {
+    #if defined(TARGET_EXTERNAL)
     if (dataPtr->isEmbedded)
     {
         const double currentTime = sys_getrealtime();
@@ -122,6 +125,7 @@ void ofxOfeliaTextBuf::openMethod()
             previousTime = currentTime;
         return;
     }
+    #endif
     if (dataPtr->isDirectMode) return;
     if (dataPtr->guiconnect)
     {

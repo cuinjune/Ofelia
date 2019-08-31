@@ -41,15 +41,15 @@ int sys_pollgui(void);
 
 // (optional) built in pd externals setup functions
 #ifdef LIBPD_EXTRA
-  void bob_tilde_setup();
-  void bonk_tilde_setup();
-  void choice_setup();
-  void fiddle_tilde_setup();
-  void loop_tilde_setup();
-  void lrshift_tilde_setup();
-  void pique_setup();
-  void sigmund_tilde_setup();
-  void stdout_setup();
+  void bob_tilde_setup(void);
+  void bonk_tilde_setup(void);
+  void choice_setup(void);
+  void fiddle_tilde_setup(void);
+  void loop_tilde_setup(void);
+  void lrshift_tilde_setup(void);
+  void pique_setup(void);
+  void sigmund_tilde_setup(void);
+  void stdout_setup(void);
 #endif
 
 static PERTHREAD t_atom *argv = NULL;
@@ -67,7 +67,9 @@ int libpd_init(void) {
   static int initialized = 0;
   if (initialized) return -1; // only allow init once (for now)
   initialized = 1;
+#ifndef __EMSCRIPTEN__
   signal(SIGFPE, SIG_IGN);
+#endif
   libpd_start_message(32); // allocate array for message assembly
   // are all these settings necessary?
   sys_externalschedlib = 0;
@@ -352,7 +354,7 @@ float libpd_get_float(t_atom *a) {
   return (a)->a_w.w_float;
 }
 
-char *libpd_get_symbol(t_atom *a) {
+const char *libpd_get_symbol(t_atom *a) {
   return (a)->a_w.w_symbol->s_name;
 }
 

@@ -1,3 +1,8 @@
+v3.1.0: 31 Aug 2019
+
+* updated Pd source files to Pd-0.50-0
+* updated source files to support Emscripten
+
 v3.0.1: 20 Aug 2019
 
 * added more examples

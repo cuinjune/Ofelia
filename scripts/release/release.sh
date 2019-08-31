@@ -29,8 +29,8 @@ LinuxPath="ofxOfelia_Linux"
 rm -rf "${LinuxPath}"
 mkdir "${LinuxPath}"
 mkdir "${LinuxPath}/scripts"
-cp -rp "../../scripts/Linux64" "${LinuxPath}/scripts"
 cp -rp "../../scripts/common" "${LinuxPath}/scripts"
+cp -rp "../../scripts/Linux64" "${LinuxPath}/scripts"
 cp -rp "../../LinuxExample" "${LinuxPath}"
 cp -rp "../../LinuxExternal" "${LinuxPath}"
 cp -rp "../../libs" "${LinuxPath}"
@@ -113,6 +113,28 @@ rm -rf "${AndroidPath}/libs/ofxMidi/src/ios"
 rm -rf "${AndroidPath}/libs/ofxOsc/libs/oscpack/src/ip/win32"
 rm -rf "${AndroidPath}/libs/ofxPd/libs/libpd/lib"
 
+# create directory and copy Emscripten related sources into it
+EmscriptenPath="ofxOfelia_Emscripten"
+rm -rf "${EmscriptenPath}"
+mkdir "${EmscriptenPath}"
+mkdir "${EmscriptenPath}/scripts"
+cp -rp "../../scripts/common" "${EmscriptenPath}/scripts"
+cp -rp "../../scripts/Emscripten" "${EmscriptenPath}/scripts"
+cp -rp "../../EmscriptenExample" "${EmscriptenPath}"
+cp -rp "../../libs" "${EmscriptenPath}"
+cp -rp "../../src" "${EmscriptenPath}"
+cp -rp "../../LICENSE.txt" "${EmscriptenPath}"
+cp -rp "../../CHANGES.txt" "${EmscriptenPath}"
+cp -rp "../../README.md" "${EmscriptenPath}"
+cp -rp "../../addon_config.mk" "${EmscriptenPath}"
+rm -rf "${EmscriptenPath}/libs/ofxLua/swig"
+rm -rf "${EmscriptenPath}/libs/ofxLua/src/bindings/desktop"
+rm -rf "${EmscriptenPath}/libs/ofxLua/src/bindings/linuxarm"
+rm -rf "${EmscriptenPath}/libs/ofxMidi/libs/pgmidi"
+rm -rf "${EmscriptenPath}/libs/ofxMidi/src/ios"
+rm -rf "${EmscriptenPath}/libs/ofxOsc/libs/oscpack/src/ip/win32"
+rm -rf "${EmscriptenPath}/libs/ofxPd/libs/libpd/lib"
+
 # delete all .DS_Store files
 find . -name '.DS_Store' -type f -delete
 
@@ -122,6 +144,7 @@ zip -r ofxOfelia_Linux.zip ofxOfelia_Linux
 zip -r ofxOfelia_Windows.zip ofxOfelia_Windows
 zip -r ofxOfelia_iOS.zip ofxOfelia_iOS
 zip -r ofxOfelia_Android.zip ofxOfelia_Android
+zip -r ofxOfelia_Emscripten.zip ofxOfelia_Emscripten
 
 # remove all created directories
 rm -rf "${macOSPath}"
@@ -129,3 +152,4 @@ rm -rf "${LinuxPath}"
 rm -rf "${WindowsPath}"
 rm -rf "${iOSPath}"
 rm -rf "${AndroidPath}"
+rm -rf "${EmscriptenPath}"
