@@ -36,7 +36,7 @@ The external is available to be used under macOS, Windows, Linux and Raspbian.
 
 ## Description
 
-**ofxOfelia** is Ofelia packaged as an openFrameworks addon which enables you to create a standalone or web application that can run Pd patches made with Ofelia and Pd vanilla objects.
+**ofxOfelia** is Ofelia packaged as an openFrameworks addon which enables you to create a standalone(macOS, Windows, Linux, Raspbian, iOS and Android) or web application that can run Pd patches made with Ofelia and Pd vanilla objects.
 
 You can share the application with a wide range of audiences including mobile device, internet and non-Pd users.
 
