@@ -89,7 +89,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
   <pre>cd OF/addons/ofxOfelia/scripts/Emscripten
   sudo ./updateOF.sh</pre>
 * Install Emscripten following the [setup guide](https://openframeworks.cc/setup/emscripten/).
-* Run the following command to build and run the project.
+* Run the following command to build and run the project on a web browser.
   <pre>cd OF/addons/ofxOfelia/EmscriptenExample
   emmake make
   emrun bin/EmscriptenExample.html</pre>
