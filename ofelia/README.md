@@ -32,13 +32,13 @@ The external is available to be used under macOS, Windows, Linux and Raspbian.
 --------------
 
 # ofxOfelia
-![alt text](doc/ESMERIL.png)
+![alt text](doc/ofxOfelia.png)
 
 ## Description
 
-**ofxOfelia** is Ofelia packaged as an openFrameworks addon which enables you to create a standalone application for macOS, Windows, Linux, Raspbian, iOS and Android that can run Pd patches made with Ofelia and Pd vanilla objects.
+**ofxOfelia** is Ofelia packaged as an openFrameworks addon which enables you to create a standalone(macOS, Windows, Linux, Raspbian, iOS and Android) or web application that can run Pd patches made with Ofelia and Pd vanilla objects.
 
-You can share the application with a wide range of audiences including non-Pd users and mobile device users.
+You can share the application with a wide range of audiences including mobile device, internet and non-Pd users.
 
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.10.1 which is the most recent stable release.
@@ -80,6 +80,19 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 * Rename the project and folder to your liking.
 * Replace Pd patches and data in `yourProject/bin/data/pd` with your files.
 * Build the project and find the executable file in `yourProject/bin` directory.
+
+## Running the Emscripten example on a web browser
+* Download the latest [nightly build](https://openframeworks.cc/ci_server/versions/nightly/) of openFrameworks.
+* Download [ofxOfelia_Emscripten.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
+Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
+* (macOS / Linux) Open the Terminal and run the following to update openFrameworks.
+  <pre>cd OF/addons/ofxOfelia/scripts/Emscripten
+  sudo ./updateOF.sh</pre>
+* Install Emscripten following the [setup guide](https://openframeworks.cc/setup/emscripten/).
+* Run the following command to run the project on a web browser.
+  <pre>cd OF/addons/ofxOfelia/EmscriptenExample
+  emmake make
+  emrun bin/EmscriptenExample.html</pre>
 
 ## Developing ofxOfelia
 You can help develop ofxOfelia on GitHub: https://github.com/cuinjune/ofxOfelia<br />
