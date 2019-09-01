@@ -82,14 +82,14 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 * Build the project and find the executable file in `yourProject/bin` directory.
 
 ## Running the Emscripten example on a web browser
-* (macOS / Linux) Download the latest [nightly build](https://openframeworks.cc/ci_server/versions/nightly/) of openFrameworks.
+* Download the latest [nightly build](https://openframeworks.cc/ci_server/versions/nightly/) of openFrameworks.
 * Download [ofxOfelia_Emscripten.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
 Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
-* Open the Terminal and run the following to update openFrameworks.
+* (macOS / Linux) Open the Terminal and run the following to update openFrameworks.
   <pre>cd OF/addons/ofxOfelia/scripts/Emscripten
   sudo ./updateOF.sh</pre>
 * Install Emscripten following the [setup guide](https://openframeworks.cc/setup/emscripten/).
-* Run the following command to build and run the project on a web browser.
+* Run the following command to build and run the project.
   <pre>cd OF/addons/ofxOfelia/EmscriptenExample
   emmake make
   emrun bin/EmscriptenExample.html</pre>
