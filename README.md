@@ -38,7 +38,7 @@ The external is available to be used under macOS, Windows, Linux and Raspbian.
 
 **ofxOfelia** is Ofelia packaged as an openFrameworks addon which enables you to create a standalone or web application that can run Pd patches made with Ofelia and Pd vanilla objects.
 
-You can share the application with a wide range of audiences including non-Pd users, mobile device and internet users.
+You can share the application with a wide range of audiences including mobile device, internet and non-Pd users.
 
 ## Build Requirements
 In order to use ofxOfelia, you first need to download and install openFrameworks. Please follow the [setup guides](http://openframeworks.cc/download/) to download and install openFrameworks 0.10.1 which is the most recent stable release.
