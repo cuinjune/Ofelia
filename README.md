@@ -32,7 +32,7 @@ The external is available to be used under macOS, Windows, Linux and Raspbian.
 --------------
 
 # ofxOfelia
-![alt text](doc/ESMERIL.png)
+![alt text](doc/ofxOfelia.png)
 
 ## Description
 
