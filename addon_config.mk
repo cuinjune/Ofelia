@@ -208,3 +208,18 @@ ios:
 	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
 	ADDON_CFLAGS += -fcommon
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1
+
+emscripten:
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxMidi/src/ios/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxOsc/libs/oscpack/src/ip/win32/%
+	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/desktop/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/src/bindings/linuxarm/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxOsc/libs/oscpack/src/ip/win32/%
+	ADDON_INCLUDES_EXCLUDE += libs/ofxPd/libs/libpd/lib/%
+	ADDON_CFLAGS += -DHAVE_LIBDL
