@@ -81,7 +81,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
 * Replace Pd patches and data in `yourProject/bin/data/pd` with your files.
 * Build the project and find the executable file in `yourProject/bin` directory.
 
-## Running the Emscripten example on a web browser
+## Running the Emscripten example in a web browser
 * Download the latest [nightly build](https://openframeworks.cc/ci_server/versions/nightly/) of openFrameworks.
 * Download [ofxOfelia_Emscripten.zip](https://github.com/cuinjune/ofxOfelia/releases/latest) and rename the extracted folder to `ofxOfelia`.<br />
 Place the folder within the directory `OF/addons`. ("OF" indicates the base directory of openFrameworks)
@@ -89,7 +89,7 @@ Place the folder within the directory `OF/addons`. ("OF" indicates the base dire
   <pre>cd OF/addons/ofxOfelia/scripts/Emscripten
   sudo ./updateOF.sh</pre>
 * Install Emscripten following the [setup guide](https://openframeworks.cc/setup/emscripten/).
-* Run the following command to run the project on a web browser.
+* Run the following command to run the project in your browser.
   <pre>cd OF/addons/ofxOfelia/EmscriptenExample
   emmake make
   emrun bin/EmscriptenExample.html</pre>
