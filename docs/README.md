@@ -1,7 +1,7 @@
 # Ofelia
 ![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/Logo.png)
 ![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/Iteration.png)
-![alt text](../doc/GLSL.png)
+![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/GLSL.png)
 
 ## Description
 Ofelia is a Pd external which allows you to use openFrameworks and Lua within a real-time visual programming environment for creating audiovisual artwork or multimedia applications such as games.
