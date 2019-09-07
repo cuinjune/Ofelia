@@ -1,6 +1,6 @@
 # Ofelia
-![alt text](../doc/Logo.png)
-![alt text](../doc/Iteration.png)
+![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/Logo.png)
+![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/Iteration.png)
 ![alt text](../doc/GLSL.png)
 
 ## Description
