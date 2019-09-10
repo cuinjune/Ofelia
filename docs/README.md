@@ -32,7 +32,7 @@ The external is available to be used under macOS, Windows, Linux and Raspbian.
 --------------
 
 # ofxOfelia
-![alt text](doc/ofxOfelia.png)
+![alt text](https://raw.githubusercontent.com/cuinjune/ofxOfelia/master/doc/ofxOfelia.png)
 
 ## Description
 
