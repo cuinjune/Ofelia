@@ -1,4 +1,5 @@
----
-youtubeId: 1l9YVouxqk0
----
-{% include youtubePlayer.html id=page.youtubeId %}
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/1l9YVouxqk0" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
