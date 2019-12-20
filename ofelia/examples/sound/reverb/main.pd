@@ -1,0 +1,100 @@
+#N canvas 720 100 674 456 10;
+#X declare -lib ofelia;
+#N canvas 8 23 228 316 dspstate 0;
+#X obj 102 46 r pd;
+#X obj 102 72 route dsp;
+#X msg 121 158 1;
+#X obj 71 189 sig~;
+#X obj 71 213 snapshot~;
+#X obj 102 129 t b b b;
+#X msg 150 158 set 0;
+#X obj 71 158 del 10;
+#X obj 39 21 cnv 15 40 18 empty empty dsp 9 9 1 15 -233017 -66577 0
+;
+#X obj 20 20 tgl 20 0 \$0-d.dspstate-s \$0-d.dspstate-r empty 17 7
+0 10 -228856 -1 -1 0 1;
+#X msg 71 243 set \$1;
+#X obj 20 99 s pd;
+#X msg 20 72 dsp \$1;
+#X obj 148 46 loadbang;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 5 1 2 0;
+#X connect 5 2 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 12 0 11 0;
+#X connect 13 0 5 0;
+#X coords 0 -1 1 1 60 20 2 20 20;
+#X restore 585 47 pd dspstate;
+#X obj 527 26 declare -lib ofelia;
+#X text 25 23 [ofReverb~] internally uses freeverb library which is
+a simple implementation of the standard Schroeder/Moorer reverb model.
+;
+#X obj 31 346 ofReverb~;
+#X obj 31 116 ofGetDir;
+#X obj 31 95 loadbang;
+#X obj 31 158 readsf~;
+#X obj 31 388 dac~, f 9;
+#X msg 114 229 setRoomSize \$1;
+#X floatatom 114 209 5 0 0 0 - - -;
+#X obj 117 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 264 209 5 0 0 0 - - -;
+#X obj 267 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 414 209 5 0 0 0 - - -;
+#X obj 417 189 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 264 229 setDamp \$1;
+#X msg 414 229 setWidth \$1;
+#X floatatom 114 279 5 0 0 0 - - -;
+#X obj 117 259 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 264 279 5 0 0 0 - - -;
+#X obj 267 259 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 114 299 setWet \$1;
+#X msg 264 299 setDry \$1;
+#X floatatom 414 279 5 0 0 0 - - -;
+#X msg 414 299 setMode \$1;
+#X obj 414 259 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 436 259 0: normal / 1: freeze.;
+#X obj 31 367 *~ 0.5;
+#X obj 82 367 *~ 0.5;
+#X msg 31 137 open \$1/data/beat.wav \, 1;
+#X connect 3 0 27 0;
+#X connect 3 1 28 0;
+#X connect 4 0 29 0;
+#X connect 5 0 4 0;
+#X connect 6 0 3 0;
+#X connect 6 0 3 1;
+#X connect 6 1 4 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 13 0 16 0;
+#X connect 14 0 13 0;
+#X connect 15 0 3 0;
+#X connect 16 0 3 0;
+#X connect 17 0 21 0;
+#X connect 18 0 17 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 0;
+#X connect 21 0 3 0;
+#X connect 22 0 3 0;
+#X connect 23 0 24 0;
+#X connect 24 0 3 0;
+#X connect 25 0 23 0;
+#X connect 27 0 7 0;
+#X connect 28 0 7 1;
+#X connect 29 0 6 0;

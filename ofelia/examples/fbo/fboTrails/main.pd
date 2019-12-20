@@ -1,0 +1,53 @@
+#N canvas 720 100 665 717 10;
+#X declare -lib ofelia;
+#X obj 28 72 loadbang;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 556 ofDraw;
+#X obj 28 171 ofBackground 0;
+#X obj 28 234 ofFbo \$0-fbo;
+#X obj 28 324 ofUpdate;
+#X obj 28 577 ofSetColor 255;
+#X text 325 636 This example is based on the openFrameworks example
+"gl/fboTrailsExample".";
+#X text 392 345 Change the alpha value for fading the fbo.;
+#X text 83 150 Setup callback.;
+#X text 89 325 Update callback.;
+#X text 77 556 Draw callback.;
+#X obj 28 255 ofelia f \; a:beginFbo() \; ofClear(255 \, 0) \; a:endFbo()
+\;;
+#X floatatom 355 346 5 0 0 0 - - -;
+#X text 132 366 <- default value for the added inlet.;
+#X msg 28 93 setPosition 30 100 \, setSize 400 400 \, create;
+#X text 193 213 Allocate an fbo. ('bang' outputs the fbo pointer);
+#X text 370 401 Store drawings to the fbo.;
+#X text 368 522 Finish storing drawings to the fbo.;
+#X text 137 599 Draw the fbo.;
+#X text 136 266 Clear the fbo.;
+#X text 25 23 This example shows how to create a simple trailing effect
+using the fbo.;
+#X obj 28 345 ofRequire \$0-fbo;
+#X obj 28 598 ofFbo \$0-fbo draw;
+#X obj 28 366 ofelia f -c21 10 \; local fbo = a[1].fbo \; ofEnableAlphaBlending()
+\; fbo:beginFbo() \; ofFill() \; ofSetColor(ofColor(255) \, a[2]) \;
+ofDrawRectangle(0 \, 0 \, ofGetWidth() \, ofGetHeight()) \; ofNoFill()
+\; ofSetColor(255) \; ofPushMatrix() \; ofTranslate(200 \, 200) \;
+ofRotateDeg(ofGetElapsedTimef()*30 \, 1 \, 0 \, 0.5) \; ofDrawBox(100)
+\; ofPopMatrix() \; fbo:endFbo() \;;
+#X f 55;
+#X obj 512 29 declare -lib ofelia;
+#X obj 28 192 ofExpr GL_RGBA;
+#X msg 28 213 allocate 400 400 \$1 \, bang;
+#X text 135 345 Require the module that has the fbo.;
+#X connect 0 0 16 0;
+#X connect 2 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 27 0;
+#X connect 5 0 13 0;
+#X connect 6 0 23 0;
+#X connect 7 0 24 0;
+#X connect 14 0 25 1;
+#X connect 16 0 1 0;
+#X connect 23 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 5 0;

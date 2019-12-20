@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/cuinjune/Zack/OpenFrameworks/of_v0.9.8_osx_release/addons/ofxOfelia/ofelia_macOS/macOSExample.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

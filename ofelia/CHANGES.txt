@@ -1,12 +1,120 @@
-v1.0.8: 27 Apr 2018
+v3.1.1: 11 Sep 2019
 
+* added "shader/glShaderExample" example
+
+v3.1.0: 31 Aug 2019
+
+* updated Pd source files to Pd-0.50-0
+* updated source files to support Emscripten
+
+v3.0.1: 20 Aug 2019
+
+* added more examples
+* fixed type checking issue in "ofxOfeliaPdBindings.i"
+* fixed bug when outputting a table with a string key using ofOutlet()
+* ofArray's array elements can be accessed using square brackets
+
+v3.0.0: 14 Aug 2019
+
+* all available global functions and class methods from lua bindings are embedded as objects (functions that take userdata argument or has more than 8 arguments are excluded)
+* all abstractions are embedded as objects ("ofelia/lib" folder is removed)
+* all embedded objects use "of" prefix for consistency
+* updated "ofelia/help-intro.pd" so it contains all available objects
+* updated "ofelia/ofelia-object-help.pd" help file
+* added a feature to open help file or documentation page when an object is double clicked
+* added "ofelia/help" folder which contains help files
+* added [ofRequire], [ofExpr], [ofExpr~], [ofIf], [ofIf~], [ofFor], [ofTable], [ofJson], [ofReverb~], [ofOscSender], [ofOscReceiver], [ofUnZip], [ofUnZipPass] and [ofMakeFileName]
+* updated all event listeners (see help files for changes)
+* internal callback methods for [ofelia] object are renamed with "__" prefix to avoid potential name collision with lua's function or variable name (e.g. "set" -> "__set")
+* added and updated examples in "ofelia/examples" directory
+* fixed bug when [ofelia] object uses multiple signal outlets
+* fixed bug when [ofelia] object returns a table that contains a string key
+
+v2.3.2: 28 Jun 2019
+
+* fixed setup function getting called twice in single lua script examples
+* fixed asciiVideoExample so it can work on Windows
+* fixed stack error when returning multiple arguments in a lua function
+
+v2.3.1: 23 Jun 2019
+
+* added iOS and Android specific listener abstractions
+* updated "ofelia/help-intro.pd"
+
+v2.3.0: 21 Jun 2019
+
+* added a logger channel to pass on OF logs to the pd console
+* pdSys, pdSignal, pdPD classes are deprecated and changed to static functions
+* added a constructor for pdLog class to set a module name
+* updated "ofelia/help-intro.pd"
+* added "ofelia/examples/sound/synth"
+* added standalone example projects to ofxOfelia
+* cleaned ofxOfelia addon directory so source files can be shared among projects
+
+v2.2.0: 4 Jun 2019
+
+* added "ofelia function" object for quickly writing a simple lua script
+* added default module alias "M" to ease writing variables (e.g. ofelia.num -> M.num)
+* fixed crashing issue when "ofelia define" tries to return its module table
+* fixed crashing issue when error occurs inside ofelia.perform() function routine
+* fixed stack overflow error in ofelia.perform() function
+* changed naming convention for classes and functions (e.g. of.Image -> ofImage)
+* renamed abstractions according to the new naming style
+* redesigned and added some "of" class abstractions (e.g. ofFbo, ofFont, ofImage..)
+* added pdOsc() and pdBlOsc() class which contain various types of oscillators
+* added pdFilter() class which contains various types of audio filter functions
+* added some useful "pd" abstractions and help files inside "ofelia/libs/pd" folder
+* simplified some example patches by using the updated features
+
+v2.1.0: 13 May 2019
+
+* rebuilt using openFrameworks 0.10.1
+* fixed ofelia get/set issue with inlets
+* fixed handling of list with 0 or 1 argument 
+* enabled ofUnicode, ofAlphabet and ofTrueTypeFontSettings classes in swig
+* added "examples/text/unicode" example
+
+v2.0.4: 17 Dec 2018
+
+* fixed Array:setTable() bug on Windows
+* renamed Array:getTable() and Array:setTable() to Array:get() and Array:set()
+* added additional argument to Array:get() and Array:set() to set onset value
+* fixed crashing issue when returning a large sized table as a list
+* disabled printing the bug fix version on the pd console
+* added "examples/pd/misc" example to show various pd objects emulation
+
+v2.0.3: 23 Nov 2018
+
+* changed window to global variable in single script examples
+* disabled use of vbo for plane on exit in displacementMap example
+
+v2.0.2: 14 Nov 2018
+
+* fixed bind issue on direct mode
+* added Inlet class in pd module
+* fixed lua stack corruption issue
+* fixed duplicated script name issue
+* changed setpause value for gc
+* added a help file, abstractions and examples
+
+v2.0.1: 17 Sep 2018
+
+* added userdata passing feature
+* fixed minor bugs
+
+v2.0.0: 3 Sep 2018
+
+* major update
+* use openFrameworks and Pd with Lua
+
+v1.0.8: 25 Apr 2018
+
+* renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
+* added [ofSetCanvasArgs] and [ofRemoveCanvas]
 * added [ofGetFboTexID] and [ofGetImageTexID]
 * added GEM abstractions and example to the "examples/gem" directory
 * added ofRectangle related objects and help files
-* renamed [ofGetDollarArgs] to [ofGetCanvasArgs]
-* added [ofSetCanvasArgs], [ofRemoveCanvas], [ofGetCanvasIndex]
 * added [ofKeyCodeListener]
-* added ofSystemUtils objects and help files
 
 v1.0.7: 7 Apr 2018
 

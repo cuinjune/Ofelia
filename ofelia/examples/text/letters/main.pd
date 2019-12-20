@@ -1,0 +1,40 @@
+#N canvas 720 80 665 664 10;
+#X declare -lib ofelia;
+#X obj 28 70 loadbang;
+#X text 25 23 Draws letters to the screen. This requires loading a
+font \, setting the font \, and then drawing the letters.;
+#X text 289 211 Load a font.;
+#X text 333 569 This example was originally written in Processing.
+https://processing.org/examples/letters.html;
+#X text 68 275 0: fail \, 1: success.;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X obj 28 169 ofSetBackgroundColor 0;
+#X obj 28 253 route load;
+#X floatatom 28 274 5 0 0 0 - - -;
+#X obj 28 309 ofDraw;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 517 25 declare -lib ofelia;
+#X obj 28 330 ofRequire \$0-font;
+#X obj 28 232 ofTrueTypeFont \$0-font;
+#X obj 28 190 ofGetDir;
+#X msg 28 211 load \$1/data/SourceCodePro-Regular.ttf 24;
+#X obj 28 351 ofelia f \; local font = a.trueTypeFont \; local gap
+= 46 \; ofTranslate(35 \, 55) \; local counter = 35 \; for y = 0 \,
+ofGetHeight()-gap \, gap do \; for x = 0 \, ofGetWidth()-gap \, gap
+do \; local letter = string.char(counter) \; if letter == "A" or letter
+== "E" or letter == "I" or letter == "O" or letter == "U" then \; ofSetColor(255
+\, 204 \, 0) \; else \; ofSetColor(255) \; end \; font:drawString(tostring(letter)
+\, x \, y) \; counter = counter + 1 \; end \; end \;;
+#X f 91;
+#X text 143 330 Require a module that has the font.;
+#X connect 0 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 15 0;
+#X connect 8 0 9 0;
+#X connect 10 0 13 0;
+#X connect 11 0 5 0;
+#X connect 13 0 17 0;
+#X connect 14 0 8 0;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;

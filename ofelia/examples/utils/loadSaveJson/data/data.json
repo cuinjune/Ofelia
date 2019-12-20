@@ -1,0 +1,26 @@
+{
+   "fonts" : {
+      "body" : {
+         "face" : "Lato-Regular.ttf",
+         "size" : 18
+      },
+      "heading" : {
+         "face" : "IQFONT-bold.otf",
+         "size" : 64
+      }
+   },
+   "fullscreen" : false,
+   "object" : {
+      "x" : 10,
+      "y" : 20
+   },
+   "server" : {
+      "host" : "192.168.0.1",
+      "port" : 3000,
+      "reconnect" : true
+   },
+   "size" : 50,
+   "x-pos" : 100,
+   "y-pos" : 100
+}
+

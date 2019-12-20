@@ -1,0 +1,22 @@
+#N canvas 720 100 665 523 10;
+#X declare -lib ofelia;
+#X obj 28 62 loadbang;
+#X obj 28 104 ofWindow;
+#X obj 28 140 ofSetup;
+#X msg 28 83 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 511 28 declare -lib ofelia;
+#X text 25 23 Using Perlin Noise to generate a wave-like pattern.;
+#X text 325 424 This example was originally written in Processing.
+https://processing.org/examples/noisewave.html;
+#X obj 28 161 ofBackground 51;
+#X obj 28 197 ofDraw;
+#X obj 28 218 ofelia d \; local yoff = 0 \; function M.bang() \; ofBeginShape()
+\; local width \, height = ofGetWidth() \, ofGetHeight() \; local xoff
+= 0 \; for x = 0 \, width \, 10 do \; local y = ofMap(ofNoise(xoff
+\, yoff) \, 0 \, 1 \, 240 \, 270) \; ofVertex(x \, y) \; xoff = xoff
++ 0.05 \; end \; yoff = yoff + 0.01 \; ofVertex(width \, height) \;
+ofVertex(0 \, height) \; ofEndShape(true) \; end \;;
+#X connect 0 0 3 0;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 8 0 9 0;

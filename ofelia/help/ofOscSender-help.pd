@@ -1,0 +1,66 @@
+#N canvas 321 23 601 606 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofOscSender 3 12 0 18 -204280
+-1 0;
+#X obj 0 361 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 467 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 369 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 475 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 552 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 503 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 462 46 declare -lib ofelia;
+#X obj 505 5 ofOscSender;
+#X obj 84 195 ofOscSender;
+#X msg 84 94 setup localhost 12345;
+#X msg 105 166 clear;
+#X floatatom 100 120 5 0 0 0 - - -;
+#X msg 100 140 send /test/number \$1;
+#X msg 240 140 send /test/string foo;
+#X obj 84 280 ofOscReceiver;
+#X msg 84 233 setup 12345;
+#X obj 84 322 print;
+#X msg 94 254 stop;
+#X text 138 119 <- send number to an address "/test/number";
+#X text 380 140 <- send string;
+#X text 126 322 the received OSC message. (address + value);
+#X text 129 254 <- stop listening.;
+#X text 95 369 setup <s \, f>;
+#X text 95 387 clear;
+#X text 211 369 - setup the sender with the host name/ip and port.
+;
+#X text 227 94 <- setup the sender with host "localhost" and port "12345".
+;
+#X text 211 387 - clear the sender.;
+#X text 95 405 send <s \, a..>;
+#X text 211 405 - send the given message to an address. <address \,
+message>;
+#X text 95 423 getHost;
+#X text 95 441 getPort;
+#X text 211 423 - get the current host name.;
+#X text 211 441 - get the current port name.;
+#X text 95 475 anything;
+#X text 211 475 - <method name \, returned value>;
+#X text 72 526 1) symbol;
+#X text 211 526 - an optional module name.;
+#X text 11 23 OSC message sender which sends to a specific host & port
+;
+#X text 21 43 [ofOscSender] is used to send OSC messages to a specific
+host and port.;
+#X text 164 233 <- setup the receiver with the port to listen for messages.
+;
+#X obj 84 301 route received;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;
+#X connect 15 0 41 0;
+#X connect 16 0 15 0;
+#X connect 18 0 15 0;
+#X connect 41 0 17 0;

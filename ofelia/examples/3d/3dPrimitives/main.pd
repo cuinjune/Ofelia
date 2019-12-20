@@ -1,0 +1,76 @@
+#N canvas 720 100 669 681 10;
+#X declare -lib ofelia;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 512 29 declare -lib ofelia;
+#X obj 28 769 ofDraw;
+#X obj 28 790 ofRequire \$0-vars;
+#X msg 28 93 setPosition 30 100 \, setSize 1024 768 \, create;
+#X obj 28 811 ofelia f \; local spinX = math.sin(ofGetElapsedTimef()
+* 0.35) \; local spinY = math.cos(ofGetElapsedTimef() * 0.075) \; ofEnableDepthTest()
+\; ofEnableLighting() \; a.pointLight:enable() \; a.pointLight2:enable()
+\; a.pointLight3:enable() \; a.material:beginMaterial() \; a.plane:rotateDeg(spinX
+\, 1 \, 0 \, 0) \; a.plane:rotateDeg(spinY \, 0 \, 1 \, 0) \; a.plane:draw()
+\; a.box:rotateDeg(spinX \, 1 \, 0 \, 0) \; a.box:rotateDeg(spinY \,
+0 \, 1 \, 0) \; a.box:draw() \; a.sphere:rotateDeg(spinX \, 1 \, 0
+\, 0) \; a.sphere:rotateDeg(spinY \, 0 \, 1 \, 0) \; a.sphere:draw()
+\; a.icoSphere:rotateDeg(spinX \, 1 \, 0 \, 0) \; a.icoSphere:rotateDeg(spinY
+\, 0 \, 1 \, 0) \; a.icoSphere:draw() \; a.cylinder:rotateDeg(spinX
+\, 1 \, 0 \, 0) \; a.cylinder:rotateDeg(spinY \, 0 \, 1 \, 0) \; a.cylinder:draw()
+\; a.cone:rotateDeg(spinX \, 1 \, 0 \, 0) \; a.cone:rotateDeg(spinY
+\, 0 \, 1 \, 0) \; a.cone:draw() \; a.material:endMaterial() \; ofDisableLighting()
+\; ofDisableDepthTest() \;;
+#X obj 28 625 ofUpdate;
+#X obj 28 646 ofRequire \$0-vars;
+#X obj 28 72 loadbang;
+#X obj 28 171 ofelia f \$0-vars \; ofBackground(20) \; ofSetSmoothLighting(true)
+\; ofSetSphereResolution(24) \; local width \, height = ofGetWidth()
+* 0.12 \, ofGetHeight() * 0.12 \; M.sphere = ofSpherePrimitive() \;
+M.sphere:setRadius(width) \; M.icoSphere = ofIcoSpherePrimitive() \;
+M.icoSphere:setRadius(width) \; M.plane = ofPlanePrimitive() \; M.plane:set(width*1.5
+\, height*1.5) \; M.cylinder = ofCylinderPrimitive() \; M.cylinder:set(width*0.7
+\, height*2.2) \; M.cone = ofConePrimitive() \; M.cone:set(width*0.75
+\, height*2.2) \; M.box = ofBoxPrimitive() \; M.box:set(width*1.25)
+\; local screenWidth \, screenHeight = ofGetWidth() \, ofGetHeight()
+\; M.plane:setPosition(screenWidth * 0.2 \, screenHeight * 0.25 \,
+0) \; M.box:setPosition(screenWidth * 0.5 \, screenHeight * 0.25 \,
+0) \; M.sphere:setPosition(screenWidth * 0.8 \, screenHeight * 0.25
+\, 0) \; M.icoSphere:setPosition(screenWidth * 0.2 \, screenHeight
+* 0.75 \, 0) \; M.cylinder:setPosition(screenWidth * 0.5 \, screenHeight
+* 0.75 \, 0) \; M.cone:setPosition(screenWidth * 0.8 \, screenHeight
+* 0.75 \, 0) \; M.pointLight = ofLight() \; M.pointLight:setPointLight()
+\; M.pointLight:setDiffuseColor(ofFloatColor(0.85 \, 0.85 \, 0.55))
+\; M.pointLight:setSpecularColor(ofFloatColor(1 \, 1 \, 1)) \; M.pointLight2
+= ofLight() \; M.pointLight2:setPointLight() \; M.pointLight2:setDiffuseColor(ofFloatColor(238/255
+\, 57/255 \, 135/255)) \; M.pointLight2:setSpecularColor(ofFloatColor(0.8
+\, 0.8 \, 0.9)) \; M.pointLight3 = ofLight() \; M.pointLight3:setPointLight()
+\; M.pointLight3:setDiffuseColor(ofFloatColor(19/255 \, 94/255 \, 77/255))
+\; M.pointLight3:setSpecularColor(ofFloatColor(18/255 \, 150/255 \,
+135/255)) \; M.material = ofMaterial() \; M.material:setShininess(120)
+\; M.material:setSpecularColor(ofFloatColor(1 \, 1 \, 1)) \;;
+#X f 72;
+#X text 25 23 this example shows how 3d primitives can be drawn on
+the screen with the lights and material.;
+#X text 331 1183 This example is based on the openFrameworks example
+"3DPrimitivesExample";
+#X obj 504 150 ofExit;
+#X obj 504 171 ofRequire \$0-vars \;;
+#X obj 504 192 ofelia f \; a.pointLight = nil \; a.pointLight2 = nil
+\; a.pointLight3 = nil \; collectgarbage() \;;
+#X obj 28 667 ofelia f \; local width \, height \, time = ofGetWidth()
+\, ofGetHeight() \, ofGetElapsedTimef() \; a.pointLight:setPosition((width*0.5)
++ math.cos(time*0.5) * (width*0.3) \, height/2 \, 500) \; a.pointLight2:setPosition((width*0.5)
++ math.cos(time*0.15) * (width*0.3) \, height*0.5 + math.sin(time*0.7)
+* height \, -300) \; a.pointLight3:setPosition(math.cos(time*1.5) *
+width*0.5 \, math.sin(time*1.5) * width*0.5 \, math.cos(time*0.2) *
+width) \;;
+#X f 89;
+#X connect 1 0 10 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 16 0;
+#X connect 9 0 5 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;

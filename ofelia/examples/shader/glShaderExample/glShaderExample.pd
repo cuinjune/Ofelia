@@ -1,0 +1,37 @@
+#N canvas 561 80 515 300 10;
+#X declare -lib ofelia;
+#X obj 150 125 ofelia define -k \$0-glShaderExample;
+#A __set if type(window) ~= "userdata" then \; window = ofWindow()
+\; end \; \; local canvas = ofCanvas(this) \; local clock = ofClock(this
+\, "setup") \; local shaderDir = canvas:getDir() .. "/data/shaders/"
+\; local shader = ofShader() \; local fontDir = canvas:getDir() ..
+"/data/fonts/" \; local font = ofTrueTypeFont() \; local doShader =
+false \; \; function M.new() \; ofWindow.addListener("setup" \, this)
+\; ofWindow.addListener("draw" \, this) \; ofWindow.addListener("keyPressed"
+\, this) \; ofWindow.addListener("exit" \, this) \; window:setPosition(30
+\, 100) \; window:setSize(1024 \, 768) \; if ofWindow.exists then \;
+clock:delay(0) \; else \; window:create() \; end \; end \; \; function
+M.free() \; window:destroy() \; ofWindow.removeListener("setup" \,
+this) \; ofWindow.removeListener("draw" \, this) \; ofWindow.removeListener("keyPressed"
+\, this) \; ofWindow.removeListener("exit" \, this) \; end \; \; function
+M.setup() \; ofBackground(34 \, 34 \, 34) \; ofSetVerticalSync(false)
+\; ofEnableAlphaBlending() \; font:load(fontDir .. "verdana.ttf" \,
+100 \, true \, false \, true \, 0.4 \, 72) \; shader:load(shaderDir
+.. "noise") \; doShader = true \; end \; \; function M.draw() \; ofSetColor(225)
+\; local toggle = "OFF" \; if doShader then \; toggle = "ON" \; end
+\; ofDrawBitmapString("fps: " .. string.format("%.0f" \, ofGetFrameRate())
+.. string.char(10) .. "Press 's' to toggle shader: " .. toggle \, 20
+\, 20) \; ofSetColor(245 \, 58 \, 135) \; ofFill() \; if doShader then
+\; shader:beginShader() \; shader:setUniform1f("timeValX" \, ofGetElapsedTimef()
+* 0.1 ) \; shader:setUniform1f("timeValY" \, -ofGetElapsedTimef() *
+0.18 ) \; shader:setUniform2f("mouse" \, ofGetMouseX() - ofGetWidth()
+/ 2 \, ofGetHeight() / 2-ofGetMouseY() ) \; end \; font:drawStringAsShapes("openFrameworks"
+\, 90 \, 260) \; font:drawStringAsShapes("Pure Data" \, 90 \, 410)
+\; font:drawStringAsShapes("Ofelia" \, 90 \, 560) \; if doShader then
+\; shader:endShader() \; end \; end \; \; function M.keyPressed(e)
+\; if e.key == string.byte("s") then \; doShader = not doShader \;
+end \; end \; \; function M.exit() \; shader:unload() \; end \; \;
+;
+#X text 163 246 This patch was originally created by Jonathan Frank.
+;
+#X obj 375 22 declare -lib ofelia;

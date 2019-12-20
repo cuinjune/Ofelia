@@ -1,0 +1,28 @@
+#N canvas 720 100 665 513 10;
+#X declare -lib ofelia;
+#X obj 28 122 loadbang;
+#X obj 28 164 ofWindow;
+#X obj 28 200 ofSetup;
+#X msg 28 143 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 511 28 declare -lib ofelia;
+#X obj 28 278 ofDraw;
+#X obj 28 221 ofBackground 0;
+#X obj 28 299 ofelia f \; local c = ofMap(ofGetMouseX() \, 0 \, ofGetWidth()
+\, 0 \, 175) \; c = ofClamp(c \, 0 \, 175) \; local d = ofMap(ofGetMouseX()
+\, 0 \, ofGetWidth() \, 20 \, 150) \; d = ofClamp(d \, 20 \, 150) \;
+ofSetColor(255 \, c \, 0) \; ofDrawCircle(ofGetWidth()/2 \, ofGetHeight()/2
+\, d) \;;
+#X text 25 23 Use the ofMap() function to take any number and scale
+it to a new number that is more useful for the project that you are
+working on. For example \, use the numbers from the mouse position
+to control the size or color of a shape. In this example \, the mouse’s
+x-coordinate (numbers between 0 and 640) are scaled to new numbers
+to define the color and size of a circle.;
+#X text 325 405 This example was originally written in Processing.
+https://processing.org/examples/map.html;
+#X obj 28 242 ofSetCircleResolution 50;
+#X connect 0 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 5 0 7 0;
+#X connect 6 0 10 0;

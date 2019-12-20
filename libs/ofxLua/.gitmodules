@@ -1,0 +1,3 @@
+[submodule "swig"]
+	path = swig
+	url = https://github.com/danomatika/swig-openframeworks.git

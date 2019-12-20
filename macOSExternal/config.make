@@ -3,6 +3,13 @@
 #   This file is where we make project specific configurations.
 ################################################################################
 
+	APPNAME = ofelia.pd_darwin
+	PROJECT_CFLAGS = -Wall -Wno-sign-compare -Wno-unused-variable -Wno-maybe-uninitialized -fPIC -I../../../addons/ofxOfelia/libs/ofxPd/libs/libpd/pure-data/src
+	PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath=./libs
+	PROJECT_EXTERNAL_SOURCE_PATHS = ../../../addons/ofxOfelia/src
+	PROJECT_DEFINES = LUA_USE_MACOSX HAVE_LIBDL TARGET_EXTERNAL
+	PROJECT_OPTIMIZATION_CFLAGS_RELEASE = -Os -DNDEBUG
+
 ################################################################################
 # OF ROOT
 #   The location of your root openFrameworks installation

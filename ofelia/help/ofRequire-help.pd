@@ -1,0 +1,79 @@
+#N canvas 321 23 601 789 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofRequire 3 12 0 18 -204280 -1
+0;
+#X obj 0 601 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 653 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 609 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 738 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 689 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 661 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 517 5 ofRequire;
+#X obj 27 103 ofelia d \$0-foo \; function M.myFunc() \; print("Hello
+World") \; end \;;
+#X obj 27 182 ofelia f \; local m = require("\$0-foo") \; m:myFunc()
+\;;
+#X obj 27 162 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 27 250 ofRequire \$0-foo;
+#X obj 27 271 ofelia f \; a:myFunc() \;;
+#X obj 27 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 166 104 a module named "\$0-foo" which contains a function
+called "myFunc()";
+#X text 208 193 you can require the "\$0-foo" module using the require()
+function and call a function the module contains.;
+#X text 11 23 get the pointer to a named ofelia module;
+#X text 21 43 [ofRequire] is used to get the pointer to a named ofelia
+module. it internally uses require() function and outputs the pointer
+to the module.;
+#X msg 27 329 set 255 165 0;
+#X obj 27 350 ofColor \$0-orange;
+#X obj 27 308 loadbang;
+#X obj 27 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 27 396 ofRequire \$0-orange;
+#X obj 27 417 ofelia f \; local c = a.color \; print(c.r \, c.g \,
+c.b) \;;
+#X text 154 396 it can be also used to require a named class object.
+;
+#X text 166 427 all class objects contain a class variable named identical
+to the class name without "of" prefix and starting with a lowercase
+letter. (e.g. ofColor -> color \, ofImage -> image);
+#X obj 27 485 ofRequire \$0-foo;
+#X obj 27 465 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 27 506 ofRequire \$0-orange;
+#X obj 27 527 ofelia f \; a[1]:myFunc() \; local c = a[2].color \;
+print(c.r \, c.g \, c.b) \;;
+#X text 95 610 bang;
+#X text 95 626 pointer/list;
+#X text 211 610 - get the pointer to a named ofelia module.;
+#X text 211 626 - append the current pointer to the incoming pointer/list.
+;
+#X text 95 662 pointer;
+#X text 72 712 1) symbol;
+#X text 211 712 - the name of ofelia module to require.;
+#X obj 462 46 declare -lib ofelia;
+#X text 211 662 - outputs the pointer to a named ofelia module.;
+#X text 154 485 if you serialize multiple [ofRequire] objects \, you
+will get a list of pointers so you can use them together in one script.
+;
+#X text 137 249 or you can use [ofRequire] object to get the pointer
+to the "\$0-foo" module.;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 13 0 11 0;
+#X connect 18 0 19 0;
+#X connect 20 0 18 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;

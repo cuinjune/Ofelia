@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="clr-namespace:Microsoft.Build.Framework.XamlTypes;assembly=Microsoft.Build.Framework">
+  <Rule Name="ReferencedPackagesca8d1376-8d5b-4588-818b-9493d2f51973" PageTemplate="tool" DisplayName="Referenced Packages" SwitchPrefix="/" Order="1">
+    <Rule.Categories>
+      <Category Name="pthreads" DisplayName="pthreads" />
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" />
+    </Rule.DataSource>
+    <EnumProperty Name="Linkage-pthreads" DisplayName="Linkage" Description="Which version of the .lib file to link to this library" Category="pthreads">
+      <EnumValue Name="" DisplayName="Dynamic Library (DLL)" />
+      <EnumValue Name="static" DisplayName="Static" />
+      <EnumValue Name="ltcg" DisplayName="Link Time Compiler Generation" />
+    </EnumProperty>
+    <EnumProperty Name="CallingConvention-pthreads" DisplayName="CallingConvention" Description="Calling convention model to use (for x86 only)" Category="pthreads">
+      <EnumValue Name="" DisplayName="cdecl" />
+      <EnumValue Name="stdcall" DisplayName="stdcall (Uncommon)" />
+    </EnumProperty>
+  </Rule>
+</ProjectSchemaDefinitions>

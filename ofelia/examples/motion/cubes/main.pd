@@ -1,0 +1,36 @@
+#N canvas 720 100 665 602 10;
+#X declare -lib ofelia;
+#X obj 28 72 loadbang;
+#X text 25 22 Rotating lined cubes with different color \, line width
+and size which oscillates over time.;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 171 ofBackground 0;
+#X obj 28 192 ofNoFill;
+#X obj 28 339 ofDraw;
+#X floatatom 48 218 5 0 0 0 - - -;
+#X text 88 217 Try changing the value.;
+#X msg 48 238 size \$1;
+#X text 222 270 Variables used.;
+#X obj 28 381 ofelia f \; ofTranslate(a.centerX \, a.centerY) \; for
+i=1 \, 8 do \; ofPushMatrix() \; ofSetLineWidth(i/2) \; ofSetColor((i
+* 80) % 255 \, (i * 50) % 255 \, (i * 30) % 255) \; ofRotateXDeg(a.angle
+* 9) \; ofRotateYDeg(a.angle * 7) \; ofRotateZDeg(a.angle * 3) \; ofDrawBox(a.size
++ math.sin(a.angle * 0.1 + i) * 100 + i * math.cos(a.angle * 0.25 +
+i)* 8) \; ofPopMatrix() \; end \; a.angle = a.angle + 0.1 \;;
+#X f 93;
+#X msg 28 93 setPosition 30 100 \, setSize 1024 768 \, create;
+#X obj 28 259 ofelia f \$0-vars \; M.centerX = ofGetWidth() / 2 \;
+M.centerY = ofGetHeight() / 2 \; M.size = 100 \; M.angle = 0 \;;
+#X obj 28 360 ofRequire \$0-vars;
+#X obj 512 29 declare -lib ofelia;
+#X text 144 360 Require the module that has the variables.;
+#X connect 0 0 12 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 13 0;
+#X connect 6 0 14 0;
+#X connect 7 0 9 0;
+#X connect 9 0 13 0;
+#X connect 12 0 2 0;
+#X connect 14 0 11 0;

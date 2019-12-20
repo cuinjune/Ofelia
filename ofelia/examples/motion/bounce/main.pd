@@ -1,0 +1,48 @@
+#N canvas 720 100 665 626 10;
+#X declare -lib ofelia;
+#X obj 28 72 loadbang;
+#X text 25 23 When the shape hits the edge of the window \, it reverses
+its direction.;
+#X text 325 534 This example was originally written in Processing.
+https://processing.org/examples/bounce.html;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 171 ofBackground 102;
+#X obj 28 192 ofSetCircleResolution 50;
+#X obj 28 354 ofDraw;
+#X floatatom 59 218 5 0 0 0 - - -;
+#X floatatom 148 218 5 0 0 0 - - -;
+#X text 185 218 xspeed;
+#X text 96 218 radius;
+#X floatatom 239 218 5 0 0 0 - - -;
+#X text 276 218 yspeed;
+#X text 244 283 Variables used.;
+#X msg 59 238 rad \$1;
+#X msg 148 238 xspeed \$1;
+#X msg 239 238 yspeed \$1;
+#X obj 28 396 ofelia f \; a.xpos = a.xpos + (a.xspeed * a.xdirection)
+\; a.ypos = a.ypos + (a.yspeed * a.ydirection) \; if a.xpos > ofGetWidth()
+- a.rad or a.xpos < a.rad then \; a.xdirection = a.xdirection * -1
+\; end \; if a.ypos > ofGetHeight()- a.rad or a.ypos < a.rad then \;
+a.ydirection = a.ydirection * -1 \; end \; ofDrawCircle(a.xpos \, a.ypos
+\, a.rad) \;;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 274 ofelia f \$0-vars \; M.rad = 60 \; M.xspeed \, M.yspeed
+= 2.8 \, 2.2 \; M.xpos \, M.ypos = 320 \, 200 \; M.xdirection \, M.ydirection
+= 1 \, 1 \;;
+#X obj 28 375 ofRequire \$0-vars;
+#X obj 511 28 declare -lib ofelia;
+#X text 142 375 Require the module that has the variables.;
+#X connect 0 0 19 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 20 0;
+#X connect 7 0 21 0;
+#X connect 8 0 15 0;
+#X connect 9 0 16 0;
+#X connect 12 0 17 0;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 19 0 3 0;
+#X connect 21 0 18 0;

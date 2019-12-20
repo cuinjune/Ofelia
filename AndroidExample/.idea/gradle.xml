@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$/../../../addons/ofxAndroid/ofAndroidLib" />
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/../../../libs/openFrameworks" />
             <option value="$PROJECT_DIR$/../../../libs/openFrameworksCompiled/project/android" />
           </set>
         </option>

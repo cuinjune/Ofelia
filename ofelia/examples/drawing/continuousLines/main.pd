@@ -1,0 +1,34 @@
+#N canvas 720 100 665 659 10;
+#X declare -lib ofelia;
+#X obj 28 72 loadbang;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 171 ofBackground 102;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 511 28 declare -lib ofelia;
+#X obj 28 207 ofMousePressed;
+#X obj 149 207 ofMouseDragged;
+#X obj 28 487 ofDraw;
+#X obj 28 508 ofRequire \$0-vars;
+#X obj 28 529 ofelia f \; for i=1 \, #a.polylines do \; a.polylines[i]:draw()
+\; end \;;
+#X msg 28 228 pressed \$1 \$2 \$3;
+#X msg 149 228 dragged \$1 \$2 \$3;
+#X obj 28 264 ofelia d \$0-vars \; M.polylines = ofTable() \; function
+M.pressed(fv) \; if fv[3] == 0 then \; local pl = ofPolyline() \; pl:addVertex(fv[1]
+\, fv[2]) \; M.polylines[#M.polylines + 1] = pl \; elseif fv[3] ==
+2 then \; for k in pairs (M.polylines) do \; M.polylines[k] = nil \;
+end \; end \; end \; function M.dragged(fv) \; if fv[3] == 0 then \;
+M.polylines[#M.polylines]:curveTo(fv[1] \, fv[2]) \; end \; end \;
+;
+#X text 25 23 left click and drag the mouse to draw curves. right click
+the mouse to clear the stored curves.;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 4 0 1 0;
+#X connect 6 0 11 0;
+#X connect 7 0 12 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 11 0 13 0;
+#X connect 12 0 13 0;

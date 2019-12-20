@@ -1,0 +1,69 @@
+#N canvas 321 23 598 580 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofCanvasArgs 3 12 0 18 -204280
+-1 0;
+#X obj 0 381 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 440 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 389 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 448 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 525 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 476 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 104 109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 95 389 bang;
+#X text 72 499 1) float;
+#X text 126 109 get the arguments of the patch.;
+#X obj 104 156 print;
+#X text 95 448 list;
+#X text 211 499 - the 'n'th level. (default: 0);
+#X obj 104 188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 104 235 print;
+#X text 126 188 get the arguments of the parent patch. (if it exists)
+;
+#X text 211 389 - gets the arguments of the canvas.;
+#X text 211 448 - the arguments of the canvas in a specified level.
+;
+#X obj 104 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 104 342 print;
+#X text 127 264 get the arguments of the subpatch. (including the name)
+;
+#X text 11 23 get or set the arguments of the canvas;
+#X obj 499 5 ofCanvasArgs;
+#X obj 104 134 ofCanvasArgs;
+#X obj 104 213 ofCanvasArgs 1;
+#X text 148 157 it will output bang if no argument is found.;
+#X obj 75 412 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 412 float/symbol/list;
+#X text 211 412 - sets the arguments of the canvas.;
+#X msg 136 290 list Hello World 4 5 6;
+#X text 284 290 replace the arguments.;
+#X text 21 43 [ofCanvasArgs] is used to get or set the arguments of
+the current or the parent canvas. for example \, if you use [ofCanvasArgs]
+in an abstraction \, you can get or set the abstraction's arguments.
+;
+#N canvas 322 142 450 300 myCanvas 0;
+#X obj 172 112 inlet;
+#X obj 172 154 outlet;
+#X obj 172 133 ofCanvasArgs;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 104 320 pd myCanvas 1 2 3;
+#X text 219 320 note: the actual arguments will be changed if you save
+and reopen the patch.;
+#X obj 462 46 declare -lib ofelia;
+#X connect 7 0 24 0;
+#X connect 14 0 25 0;
+#X connect 19 0 33 0;
+#X connect 24 0 11 0;
+#X connect 25 0 15 0;
+#X connect 30 0 33 0;
+#X connect 33 0 20 0;

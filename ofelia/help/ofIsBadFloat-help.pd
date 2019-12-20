@@ -1,0 +1,41 @@
+#N canvas 321 23 599 537 10;
+#X declare -lib ofelia;
+#X obj 0 0 cnv 15 580 40 empty empty ofIsBadFloat 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 400 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 408 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 485 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 436 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 349 bang;
+#X text 95 408 float;
+#X floatatom 245 234 15 0 0 0 - - -;
+#X obj 462 46 declare -lib ofelia;
+#X text 11 23 check if the float is a malformed float;
+#X obj 499 5 ofIsBadFloat;
+#X obj 245 205 ofIsBadFloat ?;
+#X obj 245 159 ofExpr 1 / 0;
+#X obj 245 139 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 245 180 5 0 0 0 - - -;
+#X text 211 349 - checks if the float is a malformed float.;
+#X obj 75 372 cnv 17 3 17 empty empty 1 5 9 0 16 -228856 -162280 0
+;
+#X text 95 372 float;
+#X text 211 458 - the float to check.;
+#X text 72 459 1) float;
+#X text 211 372 - the float to check.;
+#X text 211 408 - the result. (0 or 1);
+#X text 21 43 [ofIsBadFloat] internally calls "PD_BADFLOAT()" function
+defined in "m_pd.h".;
+#X connect 13 0 9 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 13 0;

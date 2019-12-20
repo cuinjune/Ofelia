@@ -1,0 +1,46 @@
+#N canvas 720 100 665 544 10;
+#X declare -lib ofelia;
+#X obj 28 70 loadbang;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X floatatom 28 253 5 0 0 0 - - -;
+#X text 69 253 0: fail \, 1: success.;
+#X obj 28 345 ofDraw;
+#X obj 28 232 route load;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 288 ofUpdate;
+#X floatatom 122 434 5 0 0 0 - - -;
+#X floatatom 217 434 5 0 0 0 - - -;
+#X obj 28 408 ofSetColor 255;
+#X obj 28 366 ofSetColor 100;
+#X obj 519 25 declare -lib ofelia;
+#X obj 28 211 ofVideoPlayer \$0-player;
+#X text 180 212 Create an ofVideoPlayer class named "\$0-player".;
+#X obj 28 169 ofGetDir;
+#X msg 28 190 load \$1/data/fingers.mov \, play;
+#X text 25 23 Video files can be loaded and displayed to the screen
+at their actual size or any other size.;
+#X text 225 190 Load and play a video file from the path.;
+#X text 221 309 Updates the internal state to continue playback.;
+#X text 281 387 Displays the video sized 640x360 at point (0 \, 0).
+;
+#X text 255 434 Change the width and height of the video.;
+#X text 233 455 Displays the video at its actual size at point (0 \,
+0).;
+#X obj 28 309 ofVideoPlayer \$0-player update;
+#X obj 28 387 ofVideoPlayer \$0-player draw 0 0 640 360;
+#X obj 28 455 ofVideoPlayer \$0-player draw 0 0;
+#X connect 0 0 7 0;
+#X connect 2 0 16 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X connect 8 0 24 0;
+#X connect 9 0 26 1;
+#X connect 10 0 26 2;
+#X connect 11 0 26 0;
+#X connect 12 0 25 0;
+#X connect 14 0 6 0;
+#X connect 16 0 17 0;
+#X connect 17 0 14 0;
+#X connect 25 0 11 0;
