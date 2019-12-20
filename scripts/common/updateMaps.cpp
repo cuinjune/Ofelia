@@ -400,6 +400,8 @@ int main(int argc, char *argv[])
     mapper.addFunctionToRename({"pdGetOfeliaVersionBugFix", "ofGetOfeliaVersionBugFix"});
     mapper.addFunctionToRename({"pdUnZipPass", "ofUnZipPass"});
     mapper.addFunctionToRename({"pdUnZip", "ofUnZip"});
+    mapper.addFunctionToRename({"pdEmscriptenRunScript", "ofEmscriptenRunScript"});
+    mapper.addFunctionToRename({"pdEM_ASM", "ofEM_ASM"});
     
     /* start writing the file */
     ostringstream ss;
