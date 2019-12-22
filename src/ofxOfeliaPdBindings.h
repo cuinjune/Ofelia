@@ -1231,45 +1231,26 @@ static void pdEmscriptenRunScript(std::string str)
 class pdEM_ASM
 {
 public:
-    pdEM_ASM(){};
-    void elementSendFloatToText(std::string str, float number)
-    {    
-        EM_ASM_(document.getElementById(UTF8ToString($0)).textContent = Number($1).toFixed(2), str.c_str(), number);
+  pdEM_ASM(){}; 
+    int sendIntArray(std::string str, float note, float velocity, float pitch)
+    {       
+        EM_ASM_INT(window[UTF8ToString($0)]([$1,$2,$3]), str.c_str(), note, velocity, pitch);
     }
-    int elementReceiveInt(std::string str)
-    {
-        return EM_ASM_INT(return document.getElementById(UTF8ToString($0)).value, str.c_str());
-    } 
     int sendInt(std::string str, int number)
     {
-        EM_ASM_INT(return window[UTF8ToString($0)] = $1, str.c_str(), number);
-        return number;
-    }
-    float sendFloatArray(std::string str, float note, float velocity, float pitch)
-    {
-        EM_ASM_DOUBLE(return window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
-    }
-    float receiveFloatArray(std::string str, float note, float velocity, float pitch)
-    {
-        return EM_ASM_DOUBLE(return window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
-    }
-    int sendIntArray(std::string str, int note, int velocity, int pitch)
-    {
-        EM_ASM_INT(return window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
-    }
-    int receiveIntArray(std::string str, int note, int velocity, int pitch)
-    {
-        return EM_ASM_INT(return window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+        EM_ASM_INT(window[UTF8ToString($0)]($1), str.c_str(), number);
     }
     int receiveInt(std::string str)
-
     {
         return EM_ASM_INT(return window[UTF8ToString($0)], str.c_str());
     }
+    float sendFloatArray(std::string str, float note, float velocity, float pitch)
+    {
+        EM_ASM_DOUBLE(window[UTF8ToString($0)]([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+    }
     float sendFloat(std::string str, float number)
     {    
-        EM_ASM_DOUBLE(return window[UTF8ToString($0)] = $1, str.c_str(), number);
-        return number;
+        EM_ASM_DOUBLE(window[UTF8ToString($0)]($1), str.c_str(), number);
     }
     float receiveFloat(std::string str)
     {
@@ -1277,7 +1258,7 @@ public:
     }
     void sendSymbol(std::string str, std::string str2)
     {    
-        EM_ASM_(return window[UTF8ToString($0)] = UTF8ToString($1), str.c_str(), str2.c_str());
+        EM_ASM_(window[UTF8ToString($0)](UTF8ToString($1)), str.c_str(), str2.c_str());
     }
 private:
 };

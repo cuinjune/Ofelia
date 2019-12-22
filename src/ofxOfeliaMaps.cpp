@@ -1835,17 +1835,13 @@ void ofxOfeliaMaps::init()
             {"remove",{{{4},{}},1}},
             {"", {{},0}}}
         },
-        {"ofEM_ASM",{
-            {"elementSendFloatToText",{{{4,3},{}},0}},
-            {"elementReceiveInt",{{{4},{}},1}},         
-            {"sendFloatArray",{{{4,3,3,3},{}},0}},
-            {"receiveFloatArray",{{{4,3,3,3},{}},1}},
+        {"ofEM_ASM",{            
             {"sendIntArray",{{{4,3,3,3},{}},0}},
-            {"receiveIntArray",{{{4,3,3,3},{}},1}},
-            {"sendFloat",{{{4,3},{}},1}},
-            {"receiveFloat",{{{4},{}},1}},
             {"sendInt",{{{4,3},{}},1}},
             {"receiveInt",{{{4},{}},1}},
+            {"sendFloatArray",{{{4,3,3,3},{}},0}},
+            {"sendFloat",{{{4,3},{}},1}},
+            {"receiveFloat",{{{4},{}},1}},       
             {"sendSymbol",{{{4,3},{}},0}},
             {"", {{},0}}}
         }
