@@ -1263,6 +1263,24 @@ public:
 private:
 };
 
+static float pdEmbind_1()
+{
+    extern float embind_bind_1;
+    return embind_bind_1;
+}
+
+static float pdEmbind_2()
+{
+    extern float embind_bind_2;
+    return embind_bind_2;
+}
+
+static float pdEmbind_3()
+{
+    extern float embind_bind_3;
+    return embind_bind_3;
+}
+
 static int pdGetBlockSize()
 {
     return sys_getblksize();
@@ -1274,7 +1292,7 @@ static t_float pdGetSampleRate()
 }
 
 static int pdGetNumInChannels()
-{
+{ 
     return sys_get_inchannels();
 }
 
