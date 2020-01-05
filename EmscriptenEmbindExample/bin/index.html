@@ -86,8 +86,8 @@
             </script>
         <script async src=EmscriptenEmbindExample.js></script>
         <script>  
-          Object.defineProperty(window, "list", { set: function(v) {console.log("ASM:sendIntArray: " + v); } } );
-          Object.defineProperty(window, "word", { set: function(v) {console.log("ASM:sendSymbol: " + v); } } );
+          Object.defineProperty(window, "list", { set: function(v) {console.log("ofEM_ASM:sendIntArray: " + v); } } );
+          Object.defineProperty(window, "word", { set: function(v) {console.log("ofEM_ASM:sendSymbol: " + v); } } );
             Module['onRuntimeInitialized'] = function(){
             Module.function_1(8);
             Module.function_2(8);
