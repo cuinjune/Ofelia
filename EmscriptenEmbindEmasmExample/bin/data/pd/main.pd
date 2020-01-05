@@ -1,0 +1,72 @@
+#N canvas 741 341 673 553 10;
+#X declare -lib ofelia;
+#X obj 29 93 loadbang;
+#X text 316 486 This example was originally written in Processing.
+https://processing.org/examples/mouse2d.html;
+#X text 26 42 Moving the mouse changes the position and size of each
+box.;
+#X obj 29 135 ofWindow;
+#X obj 30 165 ofSetup;
+#X obj 30 188 ofBackground 51;
+#X obj 29 249 ofDraw;
+#X obj 116 353 ofMouseMoved;
+#X msg 29 114 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 513 60 declare -lib ofelia;
+#X obj 30 211 ofSetRectMode 1;
+#X obj 29 270 ofSetColor 255 255 255 204;
+#X obj 29 395 ofelia f \; local x \, y = a[1] \, a[2] \; ofDrawRectangle(x
+\, ofGetHeight()/2 \, y/2+10 \, y/2+10) \; local inverseX \, inverseY
+= ofGetWidth() - x \, ofGetHeight() - y \; ofDrawRectangle(inverseX
+\, ofGetHeight()/2 \, inverseY/2+10 \, inverseY/2+10) \;;
+#X f 76;
+#X obj 29 374 list append 0 0;
+#X text 201 353 Listen to the movement of mouse cursor.;
+#X obj 129 160 ofUpdate;
+#X obj 129 183 ofelia define -k \$0-rgb;
+#A __set function M.bang() \; local t = {ofEmbind_1() \, ofEmbind_2()
+\, ofEmbind_3()} \; return t \; end \;;
+#X obj 129 234 unpack f f f;
+#X text 459 228 return a single value;
+#X obj 322 221 ofelia f \; return ofEmbind_1() \;;
+#X obj 305 60 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 305 303 ofelia f \; local ASM = ofEM_ASM() \; ASM:sendIntArray("list"
+\, a[1] \, a[2] \, a[3]) \;;
+#X msg 339 149 symbol hello;
+#X obj 339 172 ofelia f \; local ASM = ofEM_ASM() \; ASM:sendSymbol("word"
+\, a) \;;
+#X obj 129 206 t l l;
+#X obj 305 280 list;
+#X obj 305 126 t b b b b;
+#X obj 425 100 ofelia f \; local ASM = ofEM_ASM() \; return ASM:receiveInt("G")
+\;;
+#X obj 322 257 print ofEmbind_1;
+#X obj 305 80 del 100;
+#X obj 305 103 metro 2000;
+#X obj 425 149 print ofEM_ASM:receiveInt;
+#X connect 0 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 13 1;
+#X connect 8 0 3 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 0;
+#X connect 15 0 16 0;
+#X connect 16 0 24 0;
+#X connect 17 0 11 1;
+#X connect 17 1 11 2;
+#X connect 17 2 11 3;
+#X connect 19 0 28 0;
+#X connect 20 0 29 0;
+#X connect 22 0 23 0;
+#X connect 24 0 17 0;
+#X connect 24 1 25 1;
+#X connect 25 0 21 0;
+#X connect 26 0 25 0;
+#X connect 26 1 19 0;
+#X connect 26 2 22 0;
+#X connect 26 3 27 0;
+#X connect 27 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 26 0;
