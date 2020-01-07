@@ -1234,11 +1234,11 @@ public:
   pdEM_ASM(){}; 
     void sendIntArray(std::string str, int note, int velocity, int pitch)
     {       
-        EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+        EM_ASM_(window[UTF8ToString($0)] = ([$1, $2, $3]), str.c_str(), note, velocity, pitch);
     }
     void sendInt(std::string str, int number)
     {
-        EM_ASM_(window[UTF8ToString($0)]($1), str.c_str(), number);
+        EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
     }
     int receiveInt(std::string str)
     {
