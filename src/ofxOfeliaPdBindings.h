@@ -1232,25 +1232,25 @@ class pdEM_ASM
 {
 public:
   pdEM_ASM(){}; 
-    int sendIntArray(std::string str, float note, float velocity, float pitch)
+    void sendIntArray(std::string str, int note, int velocity, int pitch)
     {       
-        EM_ASM_INT(window[UTF8ToString($0)]([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+        EM_ASM_(window[UTF8ToString($0)] = ([$1, $2, $3]), str.c_str(), note, velocity, pitch);
     }
-    int sendInt(std::string str, int number)
+    void sendInt(std::string str, int number)
     {
-        EM_ASM_INT(window[UTF8ToString($0)]($1), str.c_str(), number);
+        EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
     }
     int receiveInt(std::string str)
     {
         return EM_ASM_INT(return window[UTF8ToString($0)], str.c_str());
     }
-    float sendFloatArray(std::string str, float note, float velocity, float pitch)
+    void sendFloatArray(std::string str, float note, float velocity, float pitch)
     {
-        EM_ASM_DOUBLE(window[UTF8ToString($0)]([$1,$2,$3]), str.c_str(), note, velocity, pitch);
+        EM_ASM_(window[UTF8ToString($0)] = ([$1,$2,$3]), str.c_str(), note, velocity, pitch);
     }
-    float sendFloat(std::string str, float number)
+    void sendFloat(std::string str, float number)
     {    
-        EM_ASM_DOUBLE(window[UTF8ToString($0)]($1), str.c_str(), number);
+        EM_ASM_(window[UTF8ToString($0)] = ($1), str.c_str(), number);
     }
     float receiveFloat(std::string str)
     {
@@ -1258,10 +1258,28 @@ public:
     }
     void sendSymbol(std::string str, std::string str2)
     {    
-        EM_ASM_(window[UTF8ToString($0)](UTF8ToString($1)), str.c_str(), str2.c_str());
+        EM_ASM_(window[UTF8ToString($0)] = (UTF8ToString($1)), str.c_str(), str2.c_str());
     }
 private:
 };
+
+static float pdEmbind_1()
+{
+    extern float embind_bind_1;
+    return embind_bind_1;
+}
+
+static float pdEmbind_2()
+{
+    extern float embind_bind_2;
+    return embind_bind_2;
+}
+
+static float pdEmbind_3()
+{
+    extern float embind_bind_3;
+    return embind_bind_3;
+}
 
 static int pdGetBlockSize()
 {
@@ -1274,7 +1292,7 @@ static t_float pdGetSampleRate()
 }
 
 static int pdGetNumInChannels()
-{
+{ 
     return sys_get_inchannels();
 }
 
