@@ -20,7 +20,6 @@ public:
     ,shouldKeep(false)
     ,isSignalObject(false)
     ,isDirectMode(false)
-    ,isEmbedded(false)
     ,hasUniqueSym(false)
     ,lua(this)
     ,signal(this)
@@ -46,7 +45,6 @@ public:
     bool shouldKeep; /* whether to embed contents in patch on save */
     bool isSignalObject; /* whether the object is a signal object or not */
     bool isDirectMode; /* whether to write script directly on object */
-    bool isEmbedded; /* whether the object is embedded type */
     bool hasUniqueSym; /* whether the object has a unique symbol */
     
     ofxOfeliaLua lua;

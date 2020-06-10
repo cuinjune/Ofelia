@@ -330,14 +330,4 @@ static void lua_len(lua_State *L, int i)
     freebytes($2, $1 * sizeof(t_float));
 }
 
-/* used for methods that take audio buffer */
-%apply (float *INOUT, int) {(float *io1, int n1)};
-%apply (float *INOUT, int) {(float *io2, int n2)};
-%apply (float *INOUT, int) {(float *io3, int n3)};
-%apply (float *INOUT, int) {(float *io4, int n4)};
-%apply (float *INPUT, int) {(float *in1, int n1)};
-%apply (float *INPUT, int) {(float *in2, int n2)};
-%apply (float *INPUT, int) {(float *in3, int n3)};
-%apply (float *INPUT, int) {(float *in4, int n4)};
-
 %include "ofxOfeliaPdBindings.h"

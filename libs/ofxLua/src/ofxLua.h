@@ -27,7 +27,7 @@
 	#define lua_pushglobaltable(L) lua_pushvalue(L, LUA_GLOBALSINDEX)
 #endif
 
-/// a baseclass to receieve Lua error messages,
+/// a baseclass to receive Lua error messages,
 /// useful for displaying an error message on the screen, etc
 class ofxLuaListener {
 	public :

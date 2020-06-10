@@ -69,7 +69,7 @@ typedef struct _pdfloat
     they're created by short-circuited messages to the "new"
     object which are handled specially in pd_typedmess(). */
 
-void *pdfloat_new(t_pd *dummy, t_float f)
+static void *pdfloat_new(t_pd *dummy, t_float f)
 {
     t_pdfloat *x = (t_pdfloat *)pd_new(pdfloat_class);
     x->x_f = f;
@@ -94,17 +94,14 @@ static void pdfloat_float(t_pdfloat *x, t_float f)
     outlet_float(x->x_obj.ob_outlet, x->x_f = f);
 }
 
-#ifdef _MSC_VER
-#define strtof(a,b) _atoldbl(a,*b)
-#endif
 
 static void pdfloat_symbol(t_pdfloat *x, t_symbol *s)
 {
     t_float f = 0.0f;
     char *str_end = NULL;
-    f = strtof(s->s_name, &str_end);
+    f = strtod(s->s_name, &str_end);
     if (f == 0 && s->s_name == str_end)
-        pd_error(x, "Couldn't convert %s to float.", s->s_name);
+        pd_error(x, "couldn't convert %s to float", s->s_name);
     else outlet_float(x->x_obj.ob_outlet, x->x_f = f);
 }
 
@@ -136,7 +133,7 @@ typedef struct _pdsymbol
     t_symbol *x_s;
 } t_pdsymbol;
 
-void *pdsymbol_new(t_pd *dummy, t_symbol *s)
+static void *pdsymbol_new(t_pd *dummy, t_symbol *s)
 {
     t_pdsymbol *x = (t_pdsymbol *)pd_new(pdsymbol_class);
     x->x_s = s;
@@ -194,7 +191,7 @@ typedef struct _bang
     t_object x_obj;
 } t_bang;
 
-void *bang_new(t_pd *dummy)
+static void *bang_new(t_pd *dummy)
 {
     t_bang *x = (t_bang *)pd_new(bang_class);
     outlet_new(&x->x_obj, &s_bang);
@@ -202,7 +199,7 @@ void *bang_new(t_pd *dummy)
     return (x);
 }
 
-static void *bang_new2(void)
+static void *bang_new2(t_bang f)
 {
     return (bang_new(0));
 }
@@ -212,31 +209,16 @@ static void bang_bang(t_bang *x)
     outlet_bang(x->x_obj.ob_outlet);
 }
 
-static void bang_float(t_bang *x, t_float dummy)
-{
-    bang_bang(x);
-}
-
-static void bang_symbol(t_bang *x, t_symbol *dummy)
-{
-    bang_bang(x);
-}
-
-static void bang_gimme(t_bang *x, t_symbol *s, int argc, t_atom *argv)
-{
-    bang_bang(x);
-}
-
 void bang_setup(void)
 {
     bang_class = class_new(gensym("bang"), (t_newmethod)bang_new, 0,
         sizeof(t_bang), 0, 0);
     class_addcreator((t_newmethod)bang_new2, gensym("b"), 0);
     class_addbang(bang_class, bang_bang);
-    class_addfloat(bang_class, bang_float);
-    class_addsymbol(bang_class, bang_symbol);
-    class_addlist(bang_class, bang_gimme);
-    class_addanything(bang_class, bang_gimme);
+    class_addfloat(bang_class, bang_bang);
+    class_addsymbol(bang_class, bang_bang);
+    class_addlist(bang_class, bang_bang);
+    class_addanything(bang_class, bang_bang);
 }
 
 /* -------------------- send ------------------------------ */
@@ -1636,6 +1618,13 @@ static void value_symbol2(t_value *x, t_symbol *s)
     x->x_floatstar = value_get(s);
 }
 
+static void value_send(t_value *x, t_symbol *s)
+{
+    if (s->s_thing)
+        pd_float(s->s_thing, *x->x_floatstar);
+    else pd_error(x, "%s: no such object", s->s_name);
+}
+
 static void value_ff(t_value *x)
 {
     value_release(x->x_sym);
@@ -1651,6 +1640,7 @@ static void value_setup(void)
     class_addfloat(value_class, value_float);
     class_addmethod(value_class, (t_method)value_symbol2, gensym("symbol2"),
         A_DEFSYM, 0);
+    class_addmethod(value_class, (t_method)value_send, gensym("send"), A_SYMBOL, 0);
     vcommon_class = class_new(gensym("value"), 0, 0,
         sizeof(t_vcommon), CLASS_PD, 0);
     class_addfloat(vcommon_class, vcommon_float);

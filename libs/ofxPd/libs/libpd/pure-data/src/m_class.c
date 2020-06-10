@@ -119,7 +119,7 @@ static void class_addmethodtolist(t_class *c, t_methodentry **methodlist,
     int i;
     t_methodentry *m;
     for (i = 0; i < nmethod; i++)
-        if ((*methodlist)[i].me_name == sel)
+        if (sel && (*methodlist)[i].me_name == sel)
     {
         char nbuf[80];
         snprintf(nbuf, 80, "%s_aliased", sel->s_name);
@@ -212,8 +212,10 @@ EXTERN void pdinstance_free(t_pdinstance *x)
         pd_free((t_pd *)x->pd_templatelist);
     for (c = class_list; c; c = c->c_next)
     {
-        freebytes(c->c_methods[instanceno],
-            c->c_nmethod * sizeof(**c->c_methods));
+        if(c->c_methods[instanceno])
+            freebytes(c->c_methods[instanceno],
+                      c->c_nmethod * sizeof(**c->c_methods));
+        c->c_methods[instanceno] = NULL;
         for (i = instanceno; i < pd_ninstances-1; i++)
             c->c_methods[i] = c->c_methods[i+1];
         c->c_methods = (t_methodentry **)t_resizebytes(c->c_methods,
@@ -238,7 +240,7 @@ EXTERN void pdinstance_free(t_pdinstance *x)
                s != &x->pd_s_y &&
                s != &x->pd_s_)
             {
-                freebytes(s->s_name, strlen(s->s_name)+1);
+                freebytes((void *)s->s_name, strlen(s->s_name)+1);
                 freebytes(s, sizeof(*s));
             }
         }
@@ -440,8 +442,12 @@ t_class *class_new(t_symbol *s, t_newmethod newmethod, t_method freemethod,
     {
         if (count == MAXPDARG)
         {
-            error("class %s: sorry: only %d args typechecked; use A_GIMME",
-                s->s_name, MAXPDARG);
+            if (s)
+                error("class %s: sorry: only %d args typechecked; use A_GIMME",
+                      s->s_name, MAXPDARG);
+            else
+                error("unnamed class: sorry: only %d args typechecked; use A_GIMME",
+                      MAXPDARG);
             break;
         }
         vp++;
@@ -455,7 +461,7 @@ t_class *class_new(t_symbol *s, t_newmethod newmethod, t_method freemethod,
             /* add a "new" method by the name specified by the object */
         class_addmethod(pd_objectmaker, (t_method)newmethod, s,
             vec[0], vec[1], vec[2], vec[3], vec[4], vec[5]);
-        if (class_loadsym)
+        if (s && class_loadsym && !zgetfn(&pd_objectmaker, class_loadsym))
         {
                 /* if we're loading an extern it might have been invoked by a
                 longer file name; in this case, make this an admissible name
@@ -524,7 +530,11 @@ void class_free(t_class *c)
         c->c_classfreefn(c);
 #if PDINSTANCE
     for (i = 0; i < pd_ninstances; i++)
-        freebytes(c->c_methods[i], c->c_nmethod * sizeof(*c->c_methods[i]));
+    {
+        if(c->c_methods[i])
+            freebytes(c->c_methods[i], c->c_nmethod * sizeof(*c->c_methods[i]));
+        c->c_methods[i] = NULL;
+    }
     freebytes(c->c_methods, pd_ninstances * sizeof(*c->c_methods));
 #else
     freebytes(c->c_methods, c->c_nmethod * sizeof(*c->c_methods));
@@ -562,8 +572,12 @@ void class_addcreator(t_newmethod newmethod, t_symbol *s,
     {
         if (count == MAXPDARG)
         {
-            error("class %s: sorry: only %d creation args allowed",
-                s->s_name, MAXPDARG);
+            if(s)
+                error("class %s: sorry: only %d creation args allowed",
+                      s->s_name, MAXPDARG);
+            else
+                error("unnamed class: sorry: only %d creation args allowed",
+                      MAXPDARG);
             break;
         }
         vp++;
@@ -631,13 +645,13 @@ void class_addmethod(t_class *c, t_method fn, t_symbol *sel,
         }
         if (argtype != A_NULL)
             error("%s_%s: only 5 arguments are typecheckable; use A_GIMME",
-                c->c_name->s_name, sel->s_name);
+                (c->c_name)?(c->c_name->s_name):"<anon>", sel?(sel->s_name):"<nomethod>");
         argvec[nargs] = 0;
 #ifdef PDINSTANCE
         for (i = 0; i < pd_ninstances; i++)
         {
             class_addmethodtolist(c, &c->c_methods[i], c->c_nmethod,
-                (t_gotfn)fn, dogensym(sel->s_name, 0, pd_instances[i]),
+                (t_gotfn)fn, sel?dogensym(sel->s_name, 0, pd_instances[i]):0,
                     argvec, pd_instances[i]);
         }
 #else
@@ -649,7 +663,7 @@ void class_addmethod(t_class *c, t_method fn, t_symbol *sel,
     goto done;
 phooey:
     bug("class_addmethod: %s_%s: bad argument types\n",
-        c->c_name->s_name, sel->s_name);
+        (c->c_name)?(c->c_name->s_name):"<anon>", sel?(sel->s_name):"<nomethod>");
 done:
     va_end(ap);
     return;
@@ -919,178 +933,21 @@ t_pd *pd_newest(void)
     calls in typedmess(), to keep the compiler quiet. */
 typedef t_pd *(*t_newgimme)(t_symbol *s, int argc, t_atom *argv);
 typedef void(*t_messgimme)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
-typedef void*(*t_messgimmer)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 
-typedef t_pd *(*t_fun00)(void);
-typedef t_pd *(*t_fun10)(t_int i1    );
-typedef t_pd *(*t_fun20)(t_int i1, t_int i2    );
-typedef t_pd *(*t_fun30)(t_int i1, t_int i2, t_int i3    );
-typedef t_pd *(*t_fun40)(t_int i1, t_int i2, t_int i3, t_int i4    );
-typedef t_pd *(*t_fun50)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5    );
-typedef t_pd *(*t_fun60)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6    );
-
-typedef t_pd *(*t_fun01)(
-    t_floatarg d1);
-typedef t_pd *(*t_fun11)(t_int i1,
-    t_floatarg d1);
-typedef t_pd *(*t_fun21)(t_int i1, t_int i2,
-    t_floatarg d1);
-typedef t_pd *(*t_fun31)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1);
-typedef t_pd *(*t_fun41)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1);
-typedef t_pd *(*t_fun51)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1);
-typedef t_pd *(*t_fun61)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1);
-
-typedef t_pd *(*t_fun02)(
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun12)(t_int i1,
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun22)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun32)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun42)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun52)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2);
-typedef t_pd *(*t_fun62)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2);
-
-typedef t_pd *(*t_fun03)(
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun13)(t_int i1,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun23)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun33)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun43)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun53)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef t_pd *(*t_fun63)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-
-typedef t_pd *(*t_fun04)(
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun14)(t_int i1,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun24)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun34)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun44)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun54)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef t_pd *(*t_fun64)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-
-typedef t_pd *(*t_fun05)(
+typedef t_pd *(*t_fun0)(
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun15)(t_int i1,
+typedef t_pd *(*t_fun1)(t_int i1,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun25)(t_int i1, t_int i2,
+typedef t_pd *(*t_fun2)(t_int i1, t_int i2,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun35)(t_int i1, t_int i2, t_int i3,
+typedef t_pd *(*t_fun3)(t_int i1, t_int i2, t_int i3,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun45)(t_int i1, t_int i2, t_int i3, t_int i4,
+typedef t_pd *(*t_fun4)(t_int i1, t_int i2, t_int i3, t_int i4,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun55)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
+typedef t_pd *(*t_fun5)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef t_pd *(*t_fun65)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
+typedef t_pd *(*t_fun6)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
     t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-
-typedef void(*t_vfun00)(void);
-typedef void(*t_vfun10)(t_int i1    );
-typedef void(*t_vfun20)(t_int i1, t_int i2    );
-typedef void(*t_vfun30)(t_int i1, t_int i2, t_int i3    );
-typedef void(*t_vfun40)(t_int i1, t_int i2, t_int i3, t_int i4    );
-typedef void(*t_vfun50)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5    );
-typedef void(*t_vfun60)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6    );
-
-typedef void(*t_vfun01)(
-    t_floatarg d1);
-typedef void(*t_vfun11)(t_int i1,
-    t_floatarg d1);
-typedef void(*t_vfun21)(t_int i1, t_int i2,
-    t_floatarg d1);
-typedef void(*t_vfun31)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1);
-typedef void(*t_vfun41)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1);
-typedef void(*t_vfun51)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1);
-typedef void(*t_vfun61)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1);
-
-typedef void(*t_vfun02)(
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun12)(t_int i1,
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun22)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun32)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun42)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun52)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2);
-typedef void(*t_vfun62)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2);
-
-typedef void(*t_vfun03)(
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun13)(t_int i1,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun23)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun33)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun43)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun53)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-typedef void(*t_vfun63)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3);
-
-typedef void(*t_vfun04)(
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun14)(t_int i1,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun24)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun34)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun44)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun54)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-typedef void(*t_vfun64)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4);
-
-typedef void(*t_vfun05)(
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun15)(t_int i1,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun25)(t_int i1, t_int i2,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun35)(t_int i1, t_int i2, t_int i3,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun45)(t_int i1, t_int i2, t_int i3, t_int i4,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun55)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-typedef void(*t_vfun65)(t_int i1, t_int i2, t_int i3, t_int i4, t_int i5, t_int i6,
-    t_floatarg d1, t_floatarg d2, t_floatarg d3, t_floatarg d4, t_floatarg d5);
-
-void *bang_new(t_pd *dummy);
-void *pdfloat_new(t_pd *dummy, t_float f);
-void *pdsymbol_new(t_pd *dummy, t_symbol *s);
-void *list_new(t_pd *dummy, t_symbol *s, int argc, t_atom *argv);
 
 void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
 {
@@ -1101,8 +958,7 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
     int i;
     t_int ai[MAXPDARG+1], *ap = ai;
     t_floatarg ad[MAXPDARG+1], *dp = ad;
-    int niarg = 0;
-    int nfarg = 0;
+    int narg = 0;
     t_pd *bonzo;
 
         /* check for messages that are handled by fixed slots in the class
@@ -1110,47 +966,28 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
         to pd_objectmaker doesn't require that we supply a pointer value. */
     if (s == &s_float)
     {
-        if (x == &pd_objectmaker)
-          if (!argc)
-              pd_this->pd_newest = pdfloat_new(x, 0.);
-          else if (argv->a_type == A_FLOAT)
-              pd_this->pd_newest = pdfloat_new(x, argv->a_w.w_float);
-          else goto badarg;
-        else
-          if (!argc) (*c->c_floatmethod)(x, 0.);
-          else if (argv->a_type == A_FLOAT)
-              (*c->c_floatmethod)(x, argv->a_w.w_float);
-          else goto badarg;
+        if (!argc) (*c->c_floatmethod)(x, 0.);
+        else if (argv->a_type == A_FLOAT)
+            (*c->c_floatmethod)(x, argv->a_w.w_float);
+        else goto badarg;
         return;
     }
     if (s == &s_bang)
     {
-        if (x == &pd_objectmaker)
-            pd_this->pd_newest = bang_new(x);
-        else
-            (*c->c_bangmethod)(x);
+        (*c->c_bangmethod)(x);
         return;
     }
     if (s == &s_list)
     {
-        if (x == &pd_objectmaker)
-            pd_this->pd_newest = list_new(x, s, argc, argv);
-        else
-            (*c->c_listmethod)(x, s, argc, argv);
+        (*c->c_listmethod)(x, s, argc, argv);
         return;
     }
     if (s == &s_symbol)
     {
         if (argc && argv->a_type == A_SYMBOL)
-           if (x == &pd_objectmaker)
-                pd_this->pd_newest = pdsymbol_new(x, argv->a_w.w_symbol);
-           else
-                (*c->c_symbolmethod)(x, argv->a_w.w_symbol);
+            (*c->c_symbolmethod)(x, argv->a_w.w_symbol);
         else
-           if (x == &pd_objectmaker)
-                pd_this->pd_newest = pdsymbol_new(x, &s_);
-           else
-                (*c->c_symbolmethod)(x, &s_);
+            (*c->c_symbolmethod)(x, &s_);
         return;
     }
 #ifdef PDINSTANCE
@@ -1167,14 +1004,11 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
             if (x == &pd_objectmaker)
                 pd_this->pd_newest =
                     (*((t_newgimme)(m->me_fun)))(s, argc, argv);
-            else if (((t_messgimmer)(m->me_fun)) == ((t_messgimmer)(canvas_new)))
-                (*((t_messgimmer)(m->me_fun)))(x, s, argc, argv);
-            else
-                (*((t_messgimme)(m->me_fun)))(x, s, argc, argv);
+            else (*((t_messgimme)(m->me_fun)))(x, s, argc, argv);
             return;
         }
         if (argc > MAXPDARG) argc = MAXPDARG;
-        if (x != &pd_objectmaker) *(ap++) = (t_int)x, niarg++;
+        if (x != &pd_objectmaker) *(ap++) = (t_int)x, narg++;
         while ((wanttype = *wp++))
         {
             switch (wanttype)
@@ -1189,7 +1023,7 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
-                niarg++;
+                narg++;
                 ap++;
                 break;
             case A_FLOAT:
@@ -1204,7 +1038,6 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
-                nfarg++;
                 dp++;
                 break;
             case A_SYMBOL:
@@ -1226,255 +1059,54 @@ void pd_typedmess(t_pd *x, t_symbol *s, int argc, t_atom *argv)
                     argc--;
                     argv++;
                 }
-                niarg++;
+                narg++;
                 ap++;
                 break;
             default:
                 goto badarg;
             }
         }
-
+        switch (narg)
+        {
+        case 0 : bonzo = (*(t_fun0)(m->me_fun))
+            (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 1 : bonzo = (*(t_fun1)(m->me_fun))
+            (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 2 : bonzo = (*(t_fun2)(m->me_fun))
+            (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 3 : bonzo = (*(t_fun3)(m->me_fun))
+            (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 4 : bonzo = (*(t_fun4)(m->me_fun))
+            (ai[0], ai[1], ai[2], ai[3],
+                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 5 : bonzo = (*(t_fun5)(m->me_fun))
+            (ai[0], ai[1], ai[2], ai[3], ai[4],
+                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        case 6 : bonzo = (*(t_fun6)(m->me_fun))
+            (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
+                ad[0], ad[1], ad[2], ad[3], ad[4]); break;
+        default: bonzo = 0;
+        }
         if (x == &pd_objectmaker)
-        {
-            switch (niarg * 10 + nfarg)
-            {
-            case 0 : bonzo = (*(t_fun00)(m->me_fun))
-                (); break;
-            case 10 : bonzo = (*(t_fun10)(m->me_fun))
-                (ai[0]); break;
-            case 20 : bonzo = (*(t_fun20)(m->me_fun))
-                (ai[0], ai[1]); break;
-            case 30 : bonzo = (*(t_fun30)(m->me_fun))
-                (ai[0], ai[1], ai[2]); break;
-            case 40 : bonzo = (*(t_fun40)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3]); break;
-            case 50 : bonzo = (*(t_fun50)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4]); break;
-            case 60 : bonzo = (*(t_fun60)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5]); break;
-
-            case 1 : bonzo = (*(t_fun01)(m->me_fun))
-                (ad[0]); break;
-            case 11 : bonzo = (*(t_fun11)(m->me_fun))
-                (ai[0], ad[0]); break;
-            case 21 : bonzo = (*(t_fun21)(m->me_fun))
-                (ai[0], ai[1], ad[0]); break;
-            case 31 : bonzo = (*(t_fun31)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0]); break;
-            case 41 : bonzo = (*(t_fun41)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0]); break;
-            case 51 : bonzo = (*(t_fun51)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0]); break;
-            case 61 : bonzo = (*(t_fun61)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0]); break;
-
-            case 2 : bonzo = (*(t_fun02)(m->me_fun))
-                (ad[0], ad[1]); break;
-            case 12 : bonzo = (*(t_fun12)(m->me_fun))
-                (ai[0], ad[0], ad[1]); break;
-            case 22 : bonzo = (*(t_fun22)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1]); break;
-            case 32 : bonzo = (*(t_fun32)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1]); break;
-            case 42 : bonzo = (*(t_fun42)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1]); break;
-            case 52 : bonzo = (*(t_fun52)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1]); break;
-            case 62 : bonzo = (*(t_fun62)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1]); break;
-
-            case 3 : bonzo = (*(t_fun03)(m->me_fun))
-                (ad[0], ad[1], ad[2]); break;
-            case 13 : bonzo = (*(t_fun13)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2]); break;
-            case 23 : bonzo = (*(t_fun23)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2]); break;
-            case 33 : bonzo = (*(t_fun33)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2]); break;
-            case 43 : bonzo = (*(t_fun43)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2]); break;
-            case 53 : bonzo = (*(t_fun53)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2]); break;
-            case 63 : bonzo = (*(t_fun63)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2]); break;
-
-            case 4 : bonzo = (*(t_fun04)(m->me_fun))
-                (ad[0], ad[1], ad[2], ad[3]); break;
-            case 14 : bonzo = (*(t_fun14)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2], ad[3]); break;
-            case 24 : bonzo = (*(t_fun24)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3]); break;
-            case 34 : bonzo = (*(t_fun34)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3]); break;
-            case 44 : bonzo = (*(t_fun44)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-            case 54 : bonzo = (*(t_fun54)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-            case 64 : bonzo = (*(t_fun64)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-
-            case 5 : bonzo = (*(t_fun05)(m->me_fun))
-                (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 15 : bonzo = (*(t_fun15)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 25 : bonzo = (*(t_fun25)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 35 : bonzo = (*(t_fun35)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 45 : bonzo = (*(t_fun45)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 55 : bonzo = (*(t_fun55)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 65 : bonzo = (*(t_fun65)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            default: bonzo = 0;
-            }
             pd_this->pd_newest = bonzo;
-        }
-        else
-        {
-            switch (niarg * 10 + nfarg)
-            {
-            case 0 : (*(t_vfun00)(m->me_fun))
-                (); break;
-            case 10 : (*(t_vfun10)(m->me_fun))
-                (ai[0]); break;
-            case 20 : (*(t_vfun20)(m->me_fun))
-                (ai[0], ai[1]); break;
-            case 30 : (*(t_vfun30)(m->me_fun))
-                (ai[0], ai[1], ai[2]); break;
-            case 40 : (*(t_vfun40)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3]); break;
-            case 50 : (*(t_vfun50)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4]); break;
-            case 60 : (*(t_vfun60)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5]); break;
-
-            case 1 : (*(t_vfun01)(m->me_fun))
-                (ad[0]); break;
-            case 11 : (*(t_vfun11)(m->me_fun))
-                (ai[0], ad[0]); break;
-            case 21 : (*(t_vfun21)(m->me_fun))
-                (ai[0], ai[1], ad[0]); break;
-            case 31 : (*(t_vfun31)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0]); break;
-            case 41 : (*(t_vfun41)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0]); break;
-            case 51 : (*(t_vfun51)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0]); break;
-            case 61 : (*(t_vfun61)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0]); break;
-
-            case 2 : (*(t_vfun02)(m->me_fun))
-                (ad[0], ad[1]); break;
-            case 12 : (*(t_vfun12)(m->me_fun))
-                (ai[0], ad[0], ad[1]); break;
-            case 22 : (*(t_vfun22)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1]); break;
-            case 32 : (*(t_vfun32)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1]); break;
-            case 42 : (*(t_vfun42)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1]); break;
-            case 52 : (*(t_vfun52)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1]); break;
-            case 62 : (*(t_vfun62)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1]); break;
-
-            case 3 : (*(t_vfun03)(m->me_fun))
-                (ad[0], ad[1], ad[2]); break;
-            case 13 : (*(t_vfun13)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2]); break;
-            case 23 : (*(t_vfun23)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2]); break;
-            case 33 : (*(t_vfun33)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2]); break;
-            case 43 : (*(t_vfun43)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2]); break;
-            case 53 : (*(t_vfun53)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2]); break;
-            case 63 : (*(t_vfun63)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2]); break;
-
-            case 4 : (*(t_vfun04)(m->me_fun))
-                (ad[0], ad[1], ad[2], ad[3]); break;
-            case 14 : (*(t_vfun14)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2], ad[3]); break;
-            case 24 : (*(t_vfun24)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3]); break;
-            case 34 : (*(t_vfun34)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3]); break;
-            case 44 : (*(t_vfun44)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-            case 54 : (*(t_vfun54)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-            case 64 : (*(t_vfun64)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2], ad[3]); break;
-
-            case 5 : (*(t_vfun05)(m->me_fun))
-                (ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 15 : (*(t_vfun15)(m->me_fun))
-                (ai[0], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 25 : (*(t_vfun25)(m->me_fun))
-                (ai[0], ai[1], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 35 : (*(t_vfun35)(m->me_fun))
-                (ai[0], ai[1], ai[2], ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 45 : (*(t_vfun45)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 55 : (*(t_vfun55)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            case 65 : (*(t_vfun65)(m->me_fun))
-                (ai[0], ai[1], ai[2], ai[3], ai[4], ai[5],
-                    ad[0], ad[1], ad[2], ad[3], ad[4]); break;
-            default: ;
-            }
-        }
         return;
     }
     (*c->c_anymethod)(x, s, argc, argv);
     return;
 badarg:
-    pd_error(x, "Bad arguments for message '%s' to object '%s'",
+    pd_error(x, "bad arguments for message '%s' to object '%s'",
         s->s_name, c->c_name->s_name);
 }
 
     /* convenience routine giving a stdarg interface to typedmess().  Only
     ten args supported; it seems unlikely anyone will need more since
     longer messages are likely to be programmatically generated anyway. */
-void pd_vmess(t_pd *x, t_symbol *sel, char *fmt, ...)
+void pd_vmess(t_pd *x, t_symbol *sel, const char *fmt, ...)
 {
     va_list ap;
     t_atom arg[10], *at = arg;
     int nargs = 0;
-    char *fp = fmt;
+    const char *fp = fmt;
 
     va_start(ap, fmt);
     while (1)
@@ -1565,4 +1197,36 @@ void c_extern(t_externclass *cls, t_newmethod newroutine,
 void c_addmess(t_method fn, t_symbol *sel, t_atomtype arg1, ...)
 {
     bug("'c_addmess' not implemented.");
+}
+
+/* provide 'class_new' fallbacks, in case a double-precision Pd attempts to
+ * load a single-precision external, or vice versa
+ */
+#ifdef class_new
+# undef class_new
+#endif
+t_class *
+#if PD_FLOATSIZE == 32
+  class_new64
+#else
+  class_new
+#endif
+   (t_symbol *s, t_newmethod newmethod, t_method freemethod,
+    size_t size, int flags, t_atomtype type1, ...)
+{
+    const int ext_floatsize =
+#if PD_FLOATSIZE == 32
+        64
+#else
+        32
+#endif
+        ;
+    static int loglevel = 0;
+    if(s) {
+        logpost(0, loglevel, "refusing to load %dbit-float object '%s' into %dbit-float Pd", ext_floatsize, s->s_name, PD_FLOATSIZE);
+        loglevel=3;
+    } else
+        logpost(0, 3, "refusing to load unnamed %dbit-float object into %dbit-float Pd", ext_floatsize, PD_FLOATSIZE);
+
+    return 0;
 }

@@ -112,55 +112,7 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop\ofBindings.cpp">
       <Filter>addons\ofxOfelia\libs\ofxLua\src\bindings\desktop</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSONElement.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJsonSettings\src\ofxJsonSettings.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxJsonSettings\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscBundle.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscMessage.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscParameterSync.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscReceiver.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscSender.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.cpp">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.cpp">
@@ -173,15 +125,6 @@
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.cpp">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbBase.cpp">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbClass.cpp">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbFunction.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.cpp">
@@ -208,9 +151,6 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaMaps.cpp">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaPdBindings.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClCompile>
@@ -225,66 +165,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.cpp">
       <Filter>addons\ofxOfelia\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\src\ofxZipPass.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\ioapi.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\mztools.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\unzip.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\zip.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\adler32.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\compress.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\crc32.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\deflate.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzclose.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzlib.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\infback.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffast.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inflate.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inftrees.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\trees.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\uncompr.c">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.cpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -320,81 +200,6 @@
     </Filter>
     <Filter Include="addons\ofxOfelia\src">
       <UniqueIdentifier>{0e2221ef-fba5-47f2-b119-a20b9697395e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON">
-      <UniqueIdentifier>{d91d175b-2067-4179-b16e-c82ae7137d69}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJsonSettings">
-      <UniqueIdentifier>{126e5439-ef26-4fe7-99f9-7ed8bf95f394}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc">
-      <UniqueIdentifier>{509f97bc-7e43-42f2-bc03-72abd778f2f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\src">
-      <UniqueIdentifier>{4d052b6c-8261-45d2-b8bd-42364bccbe22}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\libs">
-      <UniqueIdentifier>{60d6bed5-c875-4454-b4e0-2529b0d3f712}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp">
-      <UniqueIdentifier>{f035b38f-7eea-47eb-8983-83371a59f226}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\src">
-      <UniqueIdentifier>{3375c998-8913-4c69-9789-4f08c76a5d49}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include">
-      <UniqueIdentifier>{d441278f-d4dd-4e0e-9cbc-98c45de34dfb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json">
-      <UniqueIdentifier>{32abb39a-9fdd-4e60-98fd-7982826dc86a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxJsonSettings\src">
-      <UniqueIdentifier>{763c5a69-fe09-4505-ac40-e5a37191fb37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\src">
-      <UniqueIdentifier>{11fecd0d-a054-4eda-876e-c67bef287294}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs">
-      <UniqueIdentifier>{5cb0cd4c-fc88-4d83-ba6a-f42f9014c0c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs\oscpack">
-      <UniqueIdentifier>{dafe6c90-72dd-41ac-bcdb-c86f07c5ed41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src">
-      <UniqueIdentifier>{7add5396-6b0c-4142-a5bd-1fa32b5859ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc">
-      <UniqueIdentifier>{9d2e9a95-8783-4a31-95b2-915d361db95f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip">
-      <UniqueIdentifier>{f08861fc-3b41-4086-a258-4b7f04615c97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32">
-      <UniqueIdentifier>{eceb7318-24f3-49db-84d6-7f2f96b43df3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxZipPass">
-      <UniqueIdentifier>{7ebc32fc-dc04-46c3-8c74-605661fcbba9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxZipPass\src">
-      <UniqueIdentifier>{46c9eb6b-5ab6-4f9d-9879-93c346b7538e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxZipPass\libs">
-      <UniqueIdentifier>{857cc55e-f6d3-4300-aa1c-c5594307a4e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxZipPass\libs\zlib">
-      <UniqueIdentifier>{9a399d6b-9215-438b-8711-d3640eeab631}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxZipPass\libs\minizip">
-      <UniqueIdentifier>{4e6a2504-02ff-4a1c-9969-b7de5e39ac23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxReverb">
-      <UniqueIdentifier>{64fcafdd-7c99-4ce1-be0a-dd909f6e4f6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxReverb\src">
-      <UniqueIdentifier>{bdbb599d-4a31-47de-ab2a-0098c35d1550}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxOfelia\libs\ofxReverb\libs">
-      <UniqueIdentifier>{53444835-781d-482a-974f-e73d5a06ffc7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -485,85 +290,7 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\ofBindings.h">
       <Filter>addons\ofxOfelia\libs\ofxLua\src\bindings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json\json.h">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json\json-forwards.h">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSON.h">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSONElement.h">
-      <Filter>addons\ofxOfelia\libs\ofxJSON\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJsonSettings\src\ofxJsonSettings.h">
-      <Filter>addons\ofxOfelia\libs\ofxJsonSettings\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscException.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOsc.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscArg.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscBundle.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscMessage.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscParameterSync.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscReceiver.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscSender.h">
-      <Filter>addons\ofxOfelia\libs\ofxOsc\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.h">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.h">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.h">
@@ -576,15 +303,6 @@
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.h">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbBase.h">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbClass.h">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbFunction.h">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.h">
@@ -611,9 +329,6 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.h">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaMaps.h">
-      <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaPdBindings.h">
       <Filter>addons\ofxOfelia\src</Filter>
     </ClInclude>
@@ -628,75 +343,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaTextBuf.h">
       <Filter>addons\ofxOfelia\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\src\ofxZipPass.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\crypt.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\ioapi.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\mztools.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\unzip.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\zip.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\minizip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\crc32.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\deflate.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzguts.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffast.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffixed.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inflate.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inftrees.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\trees.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zconf.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zlib.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zutil.h">
-      <Filter>addons\ofxOfelia\libs\ofxZipPass\libs\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.hpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.hpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\denormals.h">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.hpp">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\tuning.h">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\src\ofxReverb.h">
-      <Filter>addons\ofxOfelia\libs\ofxReverb\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

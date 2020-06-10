@@ -2,8 +2,6 @@
 #include "ofxOfeliaLua.h"
 #include "ofxOfeliaDefine.h"
 #include "ofxOfeliaFunction.h"
-#include "ofxOfeliaEmbFunction.h"
-#include "ofxOfeliaEmbClass.h"
 #include "ofxOfeliaGet.h"
 #include "ofxOfeliaSet.h"
 #include "ofxOfeliaExists.h"
@@ -32,8 +30,6 @@ void ofelia_setup()
     if (!ofxOfeliaLua::init()) return;
     ofxOfeliaDefine::setup();
     ofxOfeliaFunction::setup();
-    ofxOfeliaEmbFunction::setup();
-    ofxOfeliaEmbClass::setup();
     ofxOfeliaGet::setup();
     ofxOfeliaSet::setup();
     ofxOfeliaExists::setup();

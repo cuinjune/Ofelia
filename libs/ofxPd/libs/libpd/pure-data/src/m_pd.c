@@ -13,8 +13,10 @@
 t_pd *pd_new(t_class *c)
 {
     t_pd *x;
-    if (!c)
+    if (!c) {
         bug ("pd_new: apparently called before setup routine");
+        return NULL;
+    }
     x = (t_pd *)t_getbytes(c->c_size);
     *x = c;
     if (c->c_patchable)
@@ -270,10 +272,7 @@ void pd_bang(t_pd *x)
 
 void pd_float(t_pd *x, t_float f)
 {
-    if (x == &pd_objectmaker)
-        ((t_floatmethodr)(*(*x)->c_floatmethod))(x, f);
-    else
-        (*(*x)->c_floatmethod)(x, f);
+    (*(*x)->c_floatmethod)(x, f);
 }
 
 void pd_pointer(t_pd *x, t_gpointer *gp)

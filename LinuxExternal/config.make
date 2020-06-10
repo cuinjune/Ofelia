@@ -21,7 +21,7 @@ ifeq ($(PLATFORM_OS),Linux)
     PROJECT_LDFLAGS = -rdynamic -shared -Wl,-rpath=./libs
     PROJECT_EXTERNAL_SOURCE_PATHS = ../../../addons/ofxOfelia/src
     PROJECT_DEFINES = LUA_USE_LINUX HAVE_LIBDL TARGET_EXTERNAL
-    PROJECT_OPTIMIZATION_CFLAGS_RELEASE = -Os -DNDEBUG
+    PROJECT_OPTIMIZATION_CFLAGS_RELEASE = -O3 -DNDEBUG
 endif
 
 ################################################################################

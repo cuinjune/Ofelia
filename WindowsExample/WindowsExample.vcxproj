@@ -137,7 +137,7 @@
       <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/include;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/include/json;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/src;..\..\..\addons/ofxOfelia/libs/ofxJSON/src;..\..\..\addons/ofxOfelia/libs/ofxJsonSettings/src;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip/posix;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/osc;..\..\..\addons/ofxOfelia/libs/ofxOsc/src;..\..\..\addons/ofxOfelia/libs/ofxReverb/libs;..\..\..\addons/ofxOfelia/libs/ofxReverb/src;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs/minizip;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs/zlib;..\..\..\addons/ofxOfelia/libs/ofxZipPass/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Full</Optimization>
@@ -162,7 +162,7 @@
       <PreprocessorDefinitions>PD;PD_INTERNAL;HAVE_STRUCT_TIMESPEC;TARGET_STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/include;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/include/json;..\..\..\addons/ofxOfelia/libs/ofxJSON/libs/jsoncpp/src;..\..\..\addons/ofxOfelia/libs/ofxJSON/src;..\..\..\addons/ofxOfelia/libs/ofxJsonSettings/src;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/ip/posix;..\..\..\addons/ofxOfelia/libs/ofxOsc/libs/oscpack/src/osc;..\..\..\addons/ofxOfelia/libs/ofxOsc/src;..\..\..\addons/ofxOfelia/libs/ofxReverb/libs;..\..\..\addons/ofxOfelia/libs/ofxReverb/src;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs/minizip;..\..\..\addons/ofxOfelia/libs/ofxZipPass/libs/zlib;..\..\..\addons/ofxOfelia/libs/ofxZipPass/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxOfelia\src;..\..\..\addons\ofxOfelia\libs\ofxLua\libs;..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua;..\..\..\addons\ofxOfelia\libs\ofxLua\src;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings;..\..\..\addons\ofxOfelia\libs\ofxLua\src\bindings\desktop;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs;..\..\..\addons\ofxOfelia\libs\ofxMidi\libs\rtmidi;..\..\..\addons\ofxOfelia\libs\ofxMidi\src;..\..\..\addons\ofxOfelia\libs\ofxMidi\src\desktop;..\..\..\addons\ofxOfelia\libs\ofxPd\libs;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bob~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\bonk~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\choice;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\fiddle~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\loop~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\lrshift~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pd~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\pique;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\extra\sigmund~;..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src;..\..\..\addons\ofxOfelia\libs\ofxPd\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>Default</CompileAs>
       <Optimization>Full</Optimization>
       <OmitFramePointers>false</OmitFramePointers>
@@ -184,9 +184,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJsonSettings\src\ofxJsonSettings.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lapi.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
     </ClCompile>
@@ -236,18 +233,6 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiMessage.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiOut.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTimecode.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscBundle.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscMessage.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscParameterSync.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscReceiver.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscSender.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\s_libpdmidi.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\ringbuffer.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\libpd_wrapper\util\z_print_util.c" />
@@ -321,6 +306,7 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_inter.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_loader.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_main.c" />
+    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_net.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_path.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_print.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_utf8.c" />
@@ -341,35 +327,11 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp_fun.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp_if.c" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxPd\src\ofxPd.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\ioapi.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\mztools.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\unzip.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\zip.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\adler32.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\compress.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\crc32.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\deflate.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzclose.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzlib.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\infback.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffast.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inflate.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inftrees.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\trees.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\uncompr.c" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\src\ofxZipPass.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaCreator.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaData.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbBase.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbClass.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbFunction.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaExists.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaFunction.cpp" />
@@ -378,7 +340,6 @@
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaIO.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLog.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaMaps.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaPdBindings.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSet.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.cpp" />
@@ -388,11 +349,6 @@
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJsonSettings\src\ofxJsonSettings.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\libs\jsoncpp\include\json\json.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSON.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxJSON\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lapi.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lauxlib.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxLua\libs\lua\lcode.h" />
@@ -434,26 +390,6 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiOut.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTimecode.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxMidi\src\ofxMidiTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscException.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOsc.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscArg.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscBundle.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscMessage.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscParameterSync.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscReceiver.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxOsc\src\ofxOscSender.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdBase.hpp" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdMidiReceiver.hpp" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\cpp\PdReceiver.hpp" />
@@ -469,42 +405,16 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\g_undo.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_imp.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\m_pd.h" />
+    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_net.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_stuff.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\s_utf8.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\libs\libpd\pure-data\src\x_vexp.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxPd\src\ofxPd.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\allpass.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\comb.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\denormals.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\revmodel.hpp" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\libs\tuning.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxReverb\src\ofxReverb.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\crypt.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\ioapi.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\mztools.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\unzip.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\minizip\zip.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\crc32.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\deflate.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\gzguts.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffast.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inffixed.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inflate.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\inftrees.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\trees.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zconf.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zlib.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\libs\zlib\zutil.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\libs\ofxZipPass\src\ofxZipPass.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfelia.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaAudio.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaClient.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaCreator.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaData.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaDefine.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbBase.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbClass.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEmbFunction.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaEvents.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaExists.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaFunction.h" />
@@ -513,7 +423,6 @@
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaIO.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLog.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaLua.h" />
-    <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaMaps.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaPdBindings.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSet.h" />
     <ClInclude Include="..\..\..\addons\ofxOfelia\src\ofxOfeliaSetup.h" />

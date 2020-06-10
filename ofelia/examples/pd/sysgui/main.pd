@@ -19,8 +19,5 @@ polygon %d %d %d %d %d %d %d %d %d %d %d %d -fill green -outline black"
 #X f 92;
 #X text 20 212 You can send Tcl/Tk commands to Pd using ofSysGui()
 function.;
-#X text 23 455 You can also use [ofSysGui] object.;
-#X obj 26 478 ofSysGui;
-#X text 83 478 <- Double click and see the help file.;
 #X obj 519 25 declare -lib ofelia;
 #X connect 0 0 3 0;

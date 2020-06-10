@@ -28,13 +28,6 @@ typedef void (*t_symbolmethod)(t_pd *x, t_symbol *s);
 typedef void (*t_listmethod)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 typedef void (*t_anymethod)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 
-typedef void* (*t_bangmethodr)(t_pd *x);
-typedef void* (*t_pointermethodr)(t_pd *x, t_gpointer *gp);
-typedef void* (*t_floatmethodr)(t_pd *x, t_float f);
-typedef void* (*t_symbolmethodr)(t_pd *x, t_symbol *s);
-typedef void* (*t_listmethodr)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
-typedef void* (*t_anymethodr)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
-
 struct _class
 {
     t_symbol *c_name;                   /* name (mostly for error reporting) */
@@ -92,6 +85,7 @@ EXTERN int obj_nsiginlets(const t_object *x);
 EXTERN int obj_nsigoutlets(const t_object *x);
 EXTERN int obj_siginletindex(const t_object *x, int m);
 EXTERN int obj_sigoutletindex(const t_object *x, int m);
+EXTERN t_float *obj_findsignalscalar(const t_object *x, int m);
 
 /* s_inter.c */
 void pd_globallock(void);

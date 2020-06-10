@@ -65,67 +65,6 @@ void ofxOfeliaTextBuf::senditup()
 
 void ofxOfeliaTextBuf::openMethod()
 {
-    #if defined(TARGET_EXTERNAL)
-    if (dataPtr->isEmbedded)
-    {
-        const double currentTime = sys_getrealtime();
-        if ((currentTime - previousTime) * 1000 < 500)
-        {
-            std::string embName = dataPtr->embName->s_name;
-            std::string fileName = "ofelia/help/" + embName + "-help.pd";
-            std::string dirResult, fileNameResult;
-            if (canvasOpen(dataPtr->canvas, fileName, dirResult, fileNameResult))
-            {
-                t_atom av[2];
-                SETSYMBOL(av + 0, gensym(fileNameResult.c_str()));
-                SETSYMBOL(av + 1, gensym(dirResult.c_str()));
-                t_symbol *pdSym = gensym("pd");
-                if (pdSym->s_thing) pd_typedmess(pdSym->s_thing, gensym("open"), 2, av);
-                previousTime = -1;
-                return;
-            }
-            fileName = "ofelia/classesAndGlobalFunctions.txt";
-            if (!canvasOpen(dataPtr->canvas, fileName, dirResult, fileNameResult))
-            {
-                error("%s: failed to open '%s'", embName.c_str(), fileName.c_str());
-                previousTime = -1;
-                return;
-            }
-            const std::string &fullPath = dirResult + "/" + fileNameResult;
-            const size_t embNamelen = embName.length();
-            size_t afterNamePos = embNamelen;
-            size_t urlFirstPos = afterNamePos + 1;
-            std::ifstream input(fullPath);
-            std::string line;
-            for (std::string line; std::getline(input, line);)
-            {
-                if (!line.compare(0, embNamelen, embName))
-                {
-                    const char afterNameChar = line[afterNamePos];
-                    if (afterNameChar == '_')
-                        ++urlFirstPos;
-                    else if (afterNameChar != ' ')
-                        continue;
-                    std::string url = line.substr(urlFirstPos);
-                    const size_t spacePos = url.find(' ');
-                    if (spacePos != std::string::npos)
-                        ofStringReplace(url, " ", "/#");
-                    const size_t subClassIndicator = url.find(':');
-                    if (subClassIndicator != std::string::npos)
-                        url = url.substr(0, subClassIndicator);
-                    url = "https://openframeworks.cc/documentation/" + url;
-                    ofLaunchBrowser(url);
-                    break;
-                }
-            }
-            input.close();
-            previousTime = -1;
-        }
-        else
-            previousTime = currentTime;
-        return;
-    }
-    #endif
     if (dataPtr->isDirectMode) return;
     if (dataPtr->guiconnect)
     {
@@ -246,7 +185,8 @@ void ofxOfeliaTextBuf::free()
 {
     if (dataPtr->isDirectMode) return;
     t_pd *x2;
-    binbuf_free(dataPtr->binbuf);
+    if (dataPtr->binbuf)
+        binbuf_free(dataPtr->binbuf);
     if (dataPtr->guiconnect)
     {
         sys_vgui(const_cast<char *>("destroy .x%lx\n"), dataPtr);

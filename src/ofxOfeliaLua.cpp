@@ -1,7 +1,6 @@
 #include "ofxOfeliaLua.h"
 #include "ofxOfeliaGL.h"
 #include "ofxOfeliaData.h"
-#include "ofxOfeliaMaps.h"
 #include <algorithm>
 #include <cctype>
 #include <deque>
@@ -149,38 +148,7 @@ bool ofxOfeliaLua::addGlobals(lua_State *L)
     "ofRequire = require\n"
     "function ofTable(...)\n"
     "  return {...}\n"
-    "end\n"
-    "function __classMethod(c, n, a)\n"
-    "  if type(c[n]) == \"function\" then\n"
-    "    if type(a) == \"table\" then\n"
-    "      if #a == 2 then\n"
-    "        return c[n](c, a[1], a[2])\n"
-    "      elseif #a == 3 then\n"
-    "        return c[n](c, a[1], a[2], a[3])\n"
-    "      elseif #a == 4 then\n"
-    "        return c[n](c, a[1], a[2], a[3], a[4])\n"
-    "      elseif #a == 5 then\n"
-    "        return c[n](c, a[1], a[2], a[3], a[4], a[5])\n"
-    "      elseif #a == 6 then\n"
-    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6])\n"
-    "      elseif #a == 7 then\n"
-    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6], a[7])\n"
-    "      elseif #a == 8 then\n"
-    "        return c[n](c, a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8])\n"
-    "      end\n"
-    "    elseif type(a) == \"nil\" then\n"
-    "      return c[n](c)\n"
-    "    else\n"
-    "      return c[n](c, a)\n"
-    "    end\n"
-    "  else\n"
-    "    if type(a) == \"nil\" then\n"
-    "      return c[n]\n"
-    "    else\n"
-    "      c[n] = a\n"
-    "    end\n"
-    "  end\n"
-    "end";
+    "end\n";
     const int ret = luaL_dostring(L, s);
     if (ret != LUA_OK)
     {
@@ -218,9 +186,6 @@ bool ofxOfeliaLua::init()
     
     /* add global variables needed */
     if (!addGlobals(L)) return false;
-    
-    /* create maps to be used as pd objects */
-    ofxOfeliaMaps::init();
     
     /* make garbage collector run more frequently (default: 200) */
     lua_gc(L, LUA_GCSETPAUSE, 100);

@@ -67,6 +67,7 @@ decay and other times in msec
 #include "ext_obex.h"
 
 typedef double t_floatarg;      /* from m_pd.h */
+typedef float t_float;               /* from m_pd.h */
 #define flog log
 #define fexp exp
 #define fsqrt sqrt
@@ -408,6 +409,7 @@ static void bonk_freefilterbank(t_filterbank *b)
         if (b->b_vec[i].k_stuff)
             freebytes(b->b_vec[i].k_stuff,
                 b->b_vec[i].k_filterpoints * sizeof(t_float));
+    freebytes(b->b_vec, b->b_nfilters * sizeof(*b->b_vec));
     freebytes(b, sizeof(*b));
 }
 
@@ -819,7 +821,7 @@ static void bonk_dsp(t_bonk *x, t_signal **sp)
     for (i = 0, gp = x->x_insig; i < ninsig; i++, gp++)
         gp->g_invec = (*(sp++))->s_vec;
     
-    dsp_add(bonk_perform, 2, x, n);
+    dsp_add(bonk_perform, 2, x, (t_int)n);
 }
 
 static void bonk_thresh(t_bonk *x, t_floatarg f1, t_floatarg f2)
@@ -1233,10 +1235,11 @@ static void bonk_free(t_bonk *x)
 #endif
     for (i = 0, gp = x->x_insig; i < ninsig; i++, gp++)
         freebytes(gp->g_inbuf, x->x_npoints * sizeof(t_float));
+    freebytes(x->x_insig, ninsig * sizeof(*x->x_insig));
     clock_free(x->x_clock);
     if (!--(x->x_filterbank->b_refcount))
         bonk_freefilterbank(x->x_filterbank);
-    
+    freebytes(x->x_template, x->x_ntemplate * sizeof(x->x_template[0]));
 }
 
 /* -------------------------- Pd glue ------------------------- */

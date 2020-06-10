@@ -3,18 +3,12 @@
 #include "m_pd.h"
 #include "ofxOfeliaData.h"
 #include "ofxOfeliaFunction.h"
-#include "ofxOfeliaEmbBase.h"
-#include "ofxOfeliaEmbFunction.h"
-#include "ofxOfeliaEmbClass.h"
 
 class ofxOfeliaDefine
 {
 public:
     ofxOfeliaDefine()
-    :function(this)
-    ,embBase(this)
-    ,embFunction(this)
-    ,embClass(this){};
+    :function(this){};
     ~ofxOfeliaDefine(){};
     void *newMethod(t_symbol *s, int argc, t_atom *argv);
     void bangMethod();
@@ -51,8 +45,5 @@ public:
     static t_class *pdClass;
     ofxOfeliaData data;
     ofxOfeliaFunction function;
-    ofxOfeliaEmbBase embBase;
-    ofxOfeliaEmbFunction embFunction;
-    ofxOfeliaEmbClass embClass;
 private:
 };

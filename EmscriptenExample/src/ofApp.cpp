@@ -7,11 +7,7 @@ void ofApp::setup()
     const int numInChannels = 0; // number of audio input channels to use
     const int numOutChannels = 2; // number of audio output channels to use
     const int sampleRate = 44100; // audio sample rate
-#ifdef TARGET_EMSCRIPTEN
-    const int ticksPerBuffer = 32; // used to compute the audio buffer len: tpb * blocksize (always 64)
-#else
     const int ticksPerBuffer = 8; // used to compute the audio buffer len: tpb * blocksize (always 64)
-#endif
     const bool bOpenMidiInPort = false; // whether to open midi input port in init()
     const bool bOpenMidiOutPort = false; // whether to open midi output port in init()
     const int midiInPortNum = 0; // midi input port number to open

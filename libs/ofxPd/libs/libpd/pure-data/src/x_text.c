@@ -31,34 +31,6 @@ static t_class *text_define_class;
 #define qsort_r qsort_s   /* of course Microsoft decides to be different */
 #endif
 
-#ifdef __EMSCRIPTEN__
-
-#define qsort_r pd_qsort_r
-
-static _Thread_local void *pd_qsort_r_arg = 0;
-
-static _Thread_local int (*pd_qsort_r_cmp)(const void *, const void *, void *) = 0;
-
-static int pd_qsort_r_wrap(const void *a, const void *b)
-{
-    return pd_qsort_r_cmp(a, b, pd_qsort_r_arg);
-}
-
-static void pd_qsort_r(void *base, size_t nmemb, size_t size,
-                  int (*cmp)(const void *, const void *, void *),
-                  void *arg)
-{
-    int (*old_cmp)(const void *, const void *, void *) = pd_qsort_r_cmp;
-    void *old_arg = pd_qsort_r_arg;
-    pd_qsort_r_cmp = cmp;
-    pd_qsort_r_arg = arg;
-    qsort(base, nmemb, size, pd_qsort_r_wrap);
-    pd_qsort_r_arg = old_arg;
-    pd_qsort_r_cmp = old_cmp;
-}
-
-#endif
-
 #ifndef HAVE_ALLOCA     /* can work without alloca() but we never need it */
 #define HAVE_ALLOCA 1
 #endif
@@ -425,7 +397,12 @@ typedef struct _keyinfo
     int ki_onset;   /* number of fields to skip over */
 } t_keyinfo;
 
-static int text_sortcompare(const void *z1, const void *z2 , void *zkeyinfo)
+    /* apple products seem to have their own prototypes for qsort_r (?) */
+#ifdef __APPLE__
+static int text_sortcompare(void *zkeyinfo, const void *z1, const void *z2)
+#else
+static int text_sortcompare(const void *z1, const void *z2, void *zkeyinfo)
+#endif
 {
     const t_atom *a1 = *(t_atom **)z1, *a2 = *(t_atom **)z2;
     t_keyinfo *k = (t_keyinfo *)zkeyinfo;
@@ -493,12 +470,23 @@ equal:
     else return (1);
 }
 
+/* I can't seem to get to qsort_s on W2K - clicking on Pd complains it isn't
+found in msvcrt (which indeed it isn't in).  Rather than waste more time
+on this, just call qsort if we're Microsoft and single-instance.  I hope nobody
+will try to compile multi-instance Pd for 32-bit windows, but if they
+do, they might run into my qsort_s problem again. */
+#if defined(_WIN32) && !defined(PDINSTANCE)
+#define MICROSOFT_STUPID_SORT
+static void *stupid_zkeyinfo;
+static int stupid_sortcompare(const void *z1, const void *z2) {
+    return (text_sortcompare(z1, z2, stupid_zkeyinfo)); }
+#endif
 
     /* sort the contents */
 static void text_define_sort(t_text_define *x, t_symbol *s,
     int argc, t_atom *argv)
 {
-    int nlines = 0, unique = 0,  natom = binbuf_getnatom(x->x_binbuf), i,
+    int nlines, unique = 0,  natom = binbuf_getnatom(x->x_binbuf), i,
         thisline, startline;
     t_atom *vec = binbuf_getvec(x->x_binbuf), **sortbuf, *a1, *a2;
     t_binbuf *newb;
@@ -554,8 +542,16 @@ static void text_define_sort(t_text_define *x, t_symbol *s,
         }
         startline =  (vec[i].a_type == A_SEMI || vec[i].a_type == A_COMMA);
     }
-    /* qsort_r(sortbuf, nlines, sizeof(*sortbuf), 0); */
+#ifdef MICROSOFT_STUPID_SORT
+    stupid_zkeyinfo = &k;
+    qsort(sortbuf, nlines, sizeof(*sortbuf), stupid_sortcompare);
+#else
+#ifdef __APPLE__
+    qsort_r(sortbuf, nlines, sizeof(*sortbuf), &k, text_sortcompare);
+#else /* __APPLE__ */
     qsort_r(sortbuf, nlines, sizeof(*sortbuf), text_sortcompare, &k);
+#endif /* __APPLE__ */
+#endif /* MICROSOFT_STUPID_SORT */
     newb = binbuf_new();
     for (thisline = 0; thisline < nlines; thisline++)
     {
@@ -585,7 +581,7 @@ static void text_define_sort(t_text_define *x, t_symbol *s,
     skipit: ;
     }
     binbuf_free(x->x_binbuf);
-    x->x_binbuf = newb;
+    x->x_scalar->sc_vec[2].w_binbuf = x->x_binbuf = newb;
     freebytes(sortbuf, nlines * sizeof(*sortbuf));
     textbuf_senditup(&x->x_textbuf);
 }
@@ -2354,3 +2350,20 @@ void x_qlist_setup(void)
     class_addbang(textfile_class, textfile_bang);
 }
 
+/* public interface to get text buffers by name */
+
+t_binbuf *text_getbufbyname(t_symbol *s)
+{
+    t_text_define *y = (t_text_define *)pd_findbyclass(s, text_define_class);
+    if (y)
+        return (y->x_textbuf.b_binbuf);
+    else return (0);
+}
+
+    /* notify text object that binbuf was modified */
+void text_notifybyname(t_symbol *s)
+{
+    t_text_define *y = (t_text_define *)pd_findbyclass(s, text_define_class);
+    if (y)
+        text_define_notify(y);
+}

@@ -1,3 +1,39 @@
+1.4.1: 2020 Apr 10
+
+* now wrapping std::vector<ofMeshFace> as MeshFaceVector so
+  ofMesh::getVertices() actually works (reported by Owen Osborn)
+* clarified versioning in readme (Mike Panciera)
+
+* remove leftover ofTouchEventArgs position getters/setters: getX(), setX(), etc
+
+1.4.0: 2019 Dec 10
+
+* updated for OF 0.11.0 release
+
+1.3.7: 2019 Oct 3
+
+* added ofPolyline::removeVertex()
+* now wrap ofMaterialSettings
+
+1.3.6: 2019 Sep 30
+
+* updated to Lua 5.3.5
+* small fix for OF 0.10.1
+* ofPolyline's std::vector<ofDefaultVertexType> now wrapped as VertexVector
+* no longer ignore ofLoadImage() and ofSaveImage()
+
+1.3.5: 2019 May 04
+
+* whoops, fixed wrong define for TESSindex on embedded & mobile platforms
+
+1.3.4: 2019 May 04
+
+* now wrapping ofUnicode, ofAlphabet, & ofTrueTypeSettings for extended char set
+  support (reported by Zach Lee)
+
+* fixed ofIndexType not being wrapped which kept ofMesh index functions from
+  accepting numbers
+
 1.3.3: 2018 Aug 16
 
 * now wrapping all glm functions included by ofVectorMath.h

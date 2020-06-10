@@ -1,6 +1,10 @@
-v3.1.1: 11 Sep 2019
+v4.0.0: 08 Jun 2020
 
-* added "shader/glShaderExample" example
+* removed all embedded objects
+* updated Pd source files to Pd-0.51-0
+* removed ofxJSON, ofxJsonSettings, ofxOsc, ofxReverb, and ofxZipPass addons
+* rebuilt using openFrameworks 0.10.1
+* removed incompatible examples
 
 v3.1.0: 31 Aug 2019
 

@@ -4,9 +4,9 @@ ofxLua
 <img src="https://raw.github.com/danomatika/ofxLua/master/res/logo.png"/>
 </p>
 
-a Lua instance addon
+A Lua instance addon
 
-Copyright (c) [Dan Wilcox](danomatika.com) 2011-2017
+Copyright (c) [Dan Wilcox](danomatika.com) 2011-2019
 
 BSD Simplified License.
 
@@ -22,7 +22,7 @@ This project has been supported by the CMU [Frank-Ratchey STUDIO for Creative In
 Description
 -----------
 
-ofxLua is an Open Frameworks addon for running a Lua embedded scripting interpreter within an OpenFrameworks application. Using the SWIG (Simple Wrapper and Interface Generator) tool, C++ functions and classes can be bound to the Lua api allowing them to be called within a Lua script. This is useful in separating the upper level logic from the lower level application and is utilized in numerous video games and applications.
+ofxLua is an OpenFrameworks addon for running a Lua embedded scripting interpreter within an OpenFrameworks application. Using the SWIG (Simple Wrapper and Interface Generator) tool, C++ functions and classes can be bound to the Lua api allowing them to be called within a Lua script. This is useful in separating the upper level logic from the lower level application and is utilized in numerous video games and applications.
 
 In addition, ofxLua provides bindings for the OpenFrameworks API.
 
@@ -64,12 +64,12 @@ To use ofxLua, first you need to download and install OpenFrameworks. The exampl
 
 [OF github repository](https://github.com/openframeworks/openFrameworks)
 
-Currently, ofxLua is being developed on Mac OSX and has been tested on OSX, iOS, & Linux. Android should work but has not been tested.
+Currently, ofxLua is being developed on macOS and has been tested on macOS, iOS, & Linux. Android should work but has not been tested.
 
 Installation and Build
 ----------------------
 
-Place ofxLua within a folder in the apps folder of the OF dir tree:
+Place ofxLua within a folder in the apps folder of the OF directory tree:
 
     openframeworks/addons/ofxLua
 
@@ -80,6 +80,7 @@ The easiest way to do this is via cloning with git:
 
 You'll need to checkout the swig-openframeworks submodule as well using:
 
+    cd ofxLua
     git submodule init
     git submodule update
 
@@ -89,11 +90,15 @@ The master branch of ofxLua will work with the current stable version of OpenFra
 
 Previous versions are tagged using [Semantic Versioning](http://semver.org) with the updates to newer versions of OpenFrameworks and Lua noted in the changelog, CHANGES.txt. You can select the tag in the Github "Current Branch" menu or clone and check it out using git.
 
-If you want to use ofxLua with a previous version of OpenFrameworks, checkout the corresponding version tag after cloning:
+If you want to use ofxLua with a previous version of OpenFrameworks, find the tag corresponding to your OF version by looking at [the changelog](https://github.com/danomatika/ofxLua/blob/master/CHANGES.txt) or [releases](https://github.com/danomatika/ofxLua/releases). Note that the ofxLua tag and OF version do not match.
+
+For example,
 
     git clone git://github.com/danomatika/ofxLua.git
     cd ofxLua
-    git checkout 1.1.0
+    git checkout 1.3.0
+
+will checkout a version that's compatible with OF 0.11.0.
 
 ### Dependencies
 
@@ -127,7 +132,7 @@ To (re)generate project files for an *existing* project:
 
 If everything went Ok, you should now be able to open the generated project and build/run the example.
 
-### OSX
+### macOS
 
 Open the Xcode project, select the "luaExample Debug" scheme, and hit "Run".
 
@@ -196,7 +201,7 @@ You also need to add the Lua library files in the libs directory:
 * drag ofxLua/libs into "ofxLua"
 * remove bindings files that do not match your platform aka remove `src/bindings/desktop` for iOS
 
-On older Mac OSXs (pre 10.8), a header file which is included with the OS contains some macros which conflict with several lua macros. They can be renamed by setting this CFLAG:
+On older macOS versions (pre 10.8), a header file which is included with the OS contains some macros which conflict with several lua macros. They can be renamed by setting this CFLAG:
 
     -D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0
 
@@ -346,6 +351,23 @@ This implementation allows for inheritance and usage is as follows:
 	-- calling a class function, note use of : for instance function instead of .
 	otherclass:draw()
 
+### Checking Types
+
+Lua comes with the built-in `type()` function which returns a string denoting the argument's type: "nil", "number", "string", "function", "table", "userdata", etc. Calling `type()` on a wrapped object will return a "userdata" string, ie. `type(of.Mesh())`, as it is basically an object pointer to something Lua doesn't know about but is handled by the language bindings.
+
+For more detailed type info for objects wrapped by SWIG, use the special `swig_type()` function which is not native to Lua, but added by SWIG:
+
+    local mesh = of.Mesh()
+    print(type(mesh))
+    print(swig_type(mesh))
+
+will print the following:
+
+~~~
+userdata
+ofMesh_< ofDefaultVertexType,ofDefaultNormalType,ofDefaultColorType,ofDefaultTexCoordType > *|ofMesh *
+~~~
+
 Making Your Own Bindings
 ------------------------
 
@@ -422,7 +444,7 @@ It could be as simple as the following:.
     // command to wrap code in the given header
     %include "MyCode.h"
 
-That's it, swig will handle the rest! Of course this is a simple example but there are lots more options for specific bindings settings such as generating properties from getters & setters, etc.
+That's it, SWIG will handle the rest! Of course this is a simple example but there are lots more options for specific bindings settings such as generating properties from getters & setters, etc.
 
 ### Generate .cpp Wrapper
 

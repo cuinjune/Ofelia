@@ -1,5 +1,5 @@
 /*
-** $Id: loslib.c,v 1.65 2016/07/18 17:58:58 roberto Exp $
+** $Id: loslib.c,v 1.65.1.1 2017/04/19 17:29:57 roberto Exp $
 ** Standard Operating System library
 ** See Copyright Notice in lua.h
 */
@@ -141,11 +141,11 @@ static time_t l_checktime (lua_State *L, int arg) {
 
 static int os_execute (lua_State *L) {
   const char *cmd = luaL_optstring(L, 1, NULL);
-#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    int stat = -1;
-#else
-    int stat = system(cmd);
-#endif
+  #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+      int stat = -1;
+  #else
+      int stat = system(cmd);
+  #endif
   if (cmd != NULL)
     return luaL_execresult(L, stat);
   else {
@@ -298,7 +298,8 @@ static int os_date (lua_State *L) {
   else
     stm = l_localtime(&t, &tmr);
   if (stm == NULL)  /* invalid date? */
-    luaL_error(L, "time result cannot be represented in this installation");
+    return luaL_error(L,
+                 "time result cannot be represented in this installation");
   if (strcmp(s, "*t") == 0) {
     lua_createtable(L, 0, 9);  /* 9 = number of fields */
     setallfields(L, stm);
@@ -345,7 +346,8 @@ static int os_time (lua_State *L) {
     setallfields(L, &ts);  /* update fields with normalized values */
   }
   if (t != (time_t)(l_timet)t || t == (time_t)(-1))
-    luaL_error(L, "time result cannot be represented in this installation");
+    return luaL_error(L,
+                  "time result cannot be represented in this installation");
   l_pushtime(L, t);
   return 1;
 }

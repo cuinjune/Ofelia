@@ -24,7 +24,7 @@
 #if defined (__APPLE__) || defined (__FreeBSD__)
 #define CLOCKHZ CLK_TCK
 #endif
-#if defined (__linux__) || defined (__CYGWIN__) || defined (ANDROID) || defined(__EMSCRIPTEN__)
+#if defined (__linux__) || defined (__CYGWIN__) || defined (ANDROID)
 #define CLOCKHZ sysconf(_SC_CLK_TCK)
 #endif
 #if defined (__FreeBSD_kernel__) || defined(__GNU__) || defined(__OpenBSD__)
@@ -391,7 +391,7 @@ static void oscparse_list(t_oscparse *x, t_symbol *s, int argc, t_atom *argv)
             float z_f;
             uint32_t z_i;
         } z;
-        float f;
+        t_float f;
         int blobsize;
         switch ((int)(argv[i].a_w.w_float))
         {
