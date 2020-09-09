@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD819C2F248DCF7300B3C59E /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
+		FD7C2BD625088A3800E1B948 /* openFrameworks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C2BD525088A3800E1B948 /* openFrameworks.a */; };
 		FDD3AF5722F4777200A13F8B /* ofxOfeliaGet.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD3AF2922F4777000A13F8B /* ofxOfeliaGet.h */; };
 		FDD3AF5922F4777200A13F8B /* ofxOfeliaClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDD3AF2B22F4777000A13F8B /* ofxOfeliaClient.cpp */; };
 		FDD3AF5B22F4777200A13F8B /* ofxOfeliaTextBuf.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD3AF2D22F4777000A13F8B /* ofxOfeliaTextBuf.h */; };
@@ -126,6 +126,7 @@
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		FD7C2BD525088A3800E1B948 /* openFrameworks.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = openFrameworks.a; path = ../../../libs/openFrameworksCompiled/lib/osx/openFrameworks.a; sourceTree = "<group>"; };
 		FD8CC3E21D80D6AB00F9F9A9 /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		FDA041521EB41768002E4084 /* ofelia.pd_darwin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = ofelia.pd_darwin; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD3AF2922F4777000A13F8B /* ofxOfeliaGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOfeliaGet.h; path = ../../../addons/ofxOfelia/src/ofxOfeliaGet.h; sourceTree = "<group>"; };
@@ -237,7 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD819C2F248DCF7300B3C59E /* openFrameworksDebug.a in Frameworks */,
+				FD7C2BD625088A3800E1B948 /* openFrameworks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +301,7 @@
 		FD819C2D248DCF7300B3C59E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD7C2BD525088A3800E1B948 /* openFrameworks.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
