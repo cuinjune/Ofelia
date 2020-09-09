@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD7C2BD625088A3800E1B948 /* openFrameworks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C2BD525088A3800E1B948 /* openFrameworks.a */; };
+		FD4318522508966E00BB5FEE /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		FDD3AF5722F4777200A13F8B /* ofxOfeliaGet.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD3AF2922F4777000A13F8B /* ofxOfeliaGet.h */; };
 		FDD3AF5922F4777200A13F8B /* ofxOfeliaClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDD3AF2B22F4777000A13F8B /* ofxOfeliaClient.cpp */; };
 		FDD3AF5B22F4777200A13F8B /* ofxOfeliaTextBuf.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD3AF2D22F4777000A13F8B /* ofxOfeliaTextBuf.h */; };
@@ -118,6 +118,13 @@
 			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		FD4318502508966B00BB5FEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
 			remoteInfo = openFrameworks;
 		};
 /* End PBXContainerItemProxy section */
@@ -238,7 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7C2BD625088A3800E1B948 /* openFrameworks.a in Frameworks */,
+				FD4318522508966E00BB5FEE /* openFrameworksDebug.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +558,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FD4318512508966B00BB5FEE /* PBXTargetDependency */,
 			);
 			name = ofelia;
 			productName = liveman;
@@ -689,6 +697,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD4318512508966B00BB5FEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = FD4318502508966B00BB5FEE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E4B69B4E0A3A1720003C02F2 /* Debug */ = {
