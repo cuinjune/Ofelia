@@ -2762,119 +2762,122 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 #define SWIGTYPE_p_ofFileLoggerChannel swig_types[62]
 #define SWIGTYPE_p_ofFilePath swig_types[63]
 #define SWIGTYPE_p_ofFpsCounter swig_types[64]
-#define SWIGTYPE_p_ofHttpRequest swig_types[65]
-#define SWIGTYPE_p_ofHttpResponse swig_types[66]
-#define SWIGTYPE_p_ofIcoSpherePrimitive swig_types[67]
-#define SWIGTYPE_p_ofImageLoadSettings swig_types[68]
-#define SWIGTYPE_p_ofImage_T_float_t swig_types[69]
-#define SWIGTYPE_p_ofImage_T_unsigned_char_t swig_types[70]
-#define SWIGTYPE_p_ofImage_T_unsigned_short_t swig_types[71]
-#define SWIGTYPE_p_ofKeyEventArgs swig_types[72]
-#define SWIGTYPE_p_ofLight swig_types[73]
-#define SWIGTYPE_p_ofLog swig_types[74]
-#define SWIGTYPE_p_ofLogError swig_types[75]
-#define SWIGTYPE_p_ofLogFatalError swig_types[76]
-#define SWIGTYPE_p_ofLogNotice swig_types[77]
-#define SWIGTYPE_p_ofLogVerbose swig_types[78]
-#define SWIGTYPE_p_ofLogWarning swig_types[79]
-#define SWIGTYPE_p_ofMaterial swig_types[80]
-#define SWIGTYPE_p_ofMaterialSettings swig_types[81]
-#define SWIGTYPE_p_ofMatrix3x3 swig_types[82]
-#define SWIGTYPE_p_ofMatrix4x4 swig_types[83]
-#define SWIGTYPE_p_ofMatrixStack swig_types[84]
-#define SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[85]
-#define SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[86]
-#define SWIGTYPE_p_ofMessage swig_types[87]
-#define SWIGTYPE_p_ofMouseEventArgs swig_types[88]
-#define SWIGTYPE_p_ofNode swig_types[89]
-#define SWIGTYPE_p_ofParameterGroup swig_types[90]
-#define SWIGTYPE_p_ofPath swig_types[91]
-#define SWIGTYPE_p_ofPixels_T_float_t swig_types[92]
-#define SWIGTYPE_p_ofPixels_T_unsigned_char_t swig_types[93]
-#define SWIGTYPE_p_ofPixels_T_unsigned_short_t swig_types[94]
-#define SWIGTYPE_p_ofPlanePrimitive swig_types[95]
-#define SWIGTYPE_p_ofPolyline_T_glm__vec3_t swig_types[96]
-#define SWIGTYPE_p_ofQuaternion swig_types[97]
-#define SWIGTYPE_p_ofRectangle swig_types[98]
-#define SWIGTYPE_p_ofResizeEventArgs swig_types[99]
-#define SWIGTYPE_p_ofShader swig_types[100]
-#define SWIGTYPE_p_ofShaderSettings swig_types[101]
-#define SWIGTYPE_p_ofSoundDevice swig_types[102]
-#define SWIGTYPE_p_ofSoundPlayer swig_types[103]
-#define SWIGTYPE_p_ofSoundStream swig_types[104]
-#define SWIGTYPE_p_ofSoundStreamSettings swig_types[105]
-#define SWIGTYPE_p_ofSpherePrimitive swig_types[106]
-#define SWIGTYPE_p_ofStyle swig_types[107]
-#define SWIGTYPE_p_ofTexture swig_types[108]
-#define SWIGTYPE_p_ofTextureData swig_types[109]
-#define SWIGTYPE_p_ofTime swig_types[110]
-#define SWIGTYPE_p_ofTouchEventArgs swig_types[111]
-#define SWIGTYPE_p_ofTrueTypeFont swig_types[112]
-#define SWIGTYPE_p_ofTrueTypeFontSettings swig_types[113]
-#define SWIGTYPE_p_ofURLFileLoader swig_types[114]
-#define SWIGTYPE_p_ofUnicode swig_types[115]
-#define SWIGTYPE_p_ofUnicode__range swig_types[116]
-#define SWIGTYPE_p_ofVbo swig_types[117]
-#define SWIGTYPE_p_ofVboMesh swig_types[118]
-#define SWIGTYPE_p_ofVec2f swig_types[119]
-#define SWIGTYPE_p_ofVec3f swig_types[120]
-#define SWIGTYPE_p_ofVec4f swig_types[121]
-#define SWIGTYPE_p_ofVideoDevice swig_types[122]
-#define SWIGTYPE_p_ofVideoFormat swig_types[123]
-#define SWIGTYPE_p_ofVideoGrabber swig_types[124]
-#define SWIGTYPE_p_ofVideoPlayer swig_types[125]
-#define SWIGTYPE_p_ofWindowPosEventArgs swig_types[126]
-#define SWIGTYPE_p_ofXml swig_types[127]
-#define SWIGTYPE_p_ofXmlAttributeIterator swig_types[128]
-#define SWIGTYPE_p_ofXml__Attribute swig_types[129]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlAttributeIterator_t swig_types[130]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t swig_types[131]
-#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t swig_types[132]
-#define SWIGTYPE_p_std__chrono__nanoseconds swig_types[133]
-#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__nanoseconds_t swig_types[134]
-#define SWIGTYPE_p_std__fstream swig_types[135]
-#define SWIGTYPE_p_std__functionT_void_fofHttpResponse_const_RF_t swig_types[136]
-#define SWIGTYPE_p_std__functionT_void_fofSoundBuffer_RF_t swig_types[137]
-#define SWIGTYPE_p_std__istream swig_types[138]
-#define SWIGTYPE_p_std__mapT_std__string_std__string_t swig_types[139]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseLoggerChannel_t swig_types[140]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseRenderer_t swig_types[141]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundPlayer_t swig_types[142]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundStream_t swig_types[143]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoGrabber_t swig_types[144]
-#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoPlayer_t swig_types[145]
-#define SWIGTYPE_p_std__string swig_types[146]
-#define SWIGTYPE_p_std__vectorT_float_t swig_types[147]
-#define SWIGTYPE_p_std__vectorT_glm__vec2_t swig_types[148]
-#define SWIGTYPE_p_std__vectorT_glm__vec3_t swig_types[149]
-#define SWIGTYPE_p_std__vectorT_int_t swig_types[150]
-#define SWIGTYPE_p_std__vectorT_ofColor_T_float_t_t swig_types[151]
-#define SWIGTYPE_p_std__vectorT_ofFile_t swig_types[152]
-#define SWIGTYPE_p_std__vectorT_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t_t swig_types[153]
-#define SWIGTYPE_p_std__vectorT_ofPath__Command_t swig_types[154]
-#define SWIGTYPE_p_std__vectorT_ofPath_t swig_types[155]
-#define SWIGTYPE_p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_t swig_types[156]
-#define SWIGTYPE_p_std__vectorT_ofSoundDevice_t swig_types[157]
-#define SWIGTYPE_p_std__vectorT_ofTexture_t swig_types[158]
-#define SWIGTYPE_p_std__vectorT_ofUnicode__range_t swig_types[159]
-#define SWIGTYPE_p_std__vectorT_ofVec2f_t swig_types[160]
-#define SWIGTYPE_p_std__vectorT_ofVec3f_t swig_types[161]
-#define SWIGTYPE_p_std__vectorT_ofVideoDevice_t swig_types[162]
-#define SWIGTYPE_p_std__vectorT_ofVideoFormat_t swig_types[163]
-#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[164]
-#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[165]
-#define SWIGTYPE_p_std__vectorT_unsigned_int_t swig_types[166]
-#define SWIGTYPE_p_std__vectorT_unsigned_short_t swig_types[167]
-#define SWIGTYPE_p_uint16_t swig_types[168]
-#define SWIGTYPE_p_uint32_t swig_types[169]
-#define SWIGTYPE_p_uint8_t swig_types[170]
-#define SWIGTYPE_p_unsigned_char swig_types[171]
-#define SWIGTYPE_p_unsigned_int swig_types[172]
-#define SWIGTYPE_p_unsigned_long swig_types[173]
-#define SWIGTYPE_p_unsigned_long_long swig_types[174]
-#define SWIGTYPE_p_unsigned_short swig_types[175]
-static swig_type_info *swig_types[177];
-static swig_module_info swig_module = {swig_types, 176, 0, 0, 0, 0};
+#define SWIGTYPE_p_ofGLESWindowSettings swig_types[65]
+#define SWIGTYPE_p_ofGLWindowSettings swig_types[66]
+#define SWIGTYPE_p_ofHttpRequest swig_types[67]
+#define SWIGTYPE_p_ofHttpResponse swig_types[68]
+#define SWIGTYPE_p_ofIcoSpherePrimitive swig_types[69]
+#define SWIGTYPE_p_ofImageLoadSettings swig_types[70]
+#define SWIGTYPE_p_ofImage_T_float_t swig_types[71]
+#define SWIGTYPE_p_ofImage_T_unsigned_char_t swig_types[72]
+#define SWIGTYPE_p_ofImage_T_unsigned_short_t swig_types[73]
+#define SWIGTYPE_p_ofKeyEventArgs swig_types[74]
+#define SWIGTYPE_p_ofLight swig_types[75]
+#define SWIGTYPE_p_ofLog swig_types[76]
+#define SWIGTYPE_p_ofLogError swig_types[77]
+#define SWIGTYPE_p_ofLogFatalError swig_types[78]
+#define SWIGTYPE_p_ofLogNotice swig_types[79]
+#define SWIGTYPE_p_ofLogVerbose swig_types[80]
+#define SWIGTYPE_p_ofLogWarning swig_types[81]
+#define SWIGTYPE_p_ofMaterial swig_types[82]
+#define SWIGTYPE_p_ofMaterialSettings swig_types[83]
+#define SWIGTYPE_p_ofMatrix3x3 swig_types[84]
+#define SWIGTYPE_p_ofMatrix4x4 swig_types[85]
+#define SWIGTYPE_p_ofMatrixStack swig_types[86]
+#define SWIGTYPE_p_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[87]
+#define SWIGTYPE_p_ofMesh_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t swig_types[88]
+#define SWIGTYPE_p_ofMessage swig_types[89]
+#define SWIGTYPE_p_ofMouseEventArgs swig_types[90]
+#define SWIGTYPE_p_ofNode swig_types[91]
+#define SWIGTYPE_p_ofParameterGroup swig_types[92]
+#define SWIGTYPE_p_ofPath swig_types[93]
+#define SWIGTYPE_p_ofPixels_T_float_t swig_types[94]
+#define SWIGTYPE_p_ofPixels_T_unsigned_char_t swig_types[95]
+#define SWIGTYPE_p_ofPixels_T_unsigned_short_t swig_types[96]
+#define SWIGTYPE_p_ofPlanePrimitive swig_types[97]
+#define SWIGTYPE_p_ofPolyline_T_glm__vec3_t swig_types[98]
+#define SWIGTYPE_p_ofQuaternion swig_types[99]
+#define SWIGTYPE_p_ofRectangle swig_types[100]
+#define SWIGTYPE_p_ofResizeEventArgs swig_types[101]
+#define SWIGTYPE_p_ofShader swig_types[102]
+#define SWIGTYPE_p_ofShaderSettings swig_types[103]
+#define SWIGTYPE_p_ofSoundDevice swig_types[104]
+#define SWIGTYPE_p_ofSoundPlayer swig_types[105]
+#define SWIGTYPE_p_ofSoundStream swig_types[106]
+#define SWIGTYPE_p_ofSoundStreamSettings swig_types[107]
+#define SWIGTYPE_p_ofSpherePrimitive swig_types[108]
+#define SWIGTYPE_p_ofStyle swig_types[109]
+#define SWIGTYPE_p_ofTexture swig_types[110]
+#define SWIGTYPE_p_ofTextureData swig_types[111]
+#define SWIGTYPE_p_ofTime swig_types[112]
+#define SWIGTYPE_p_ofTouchEventArgs swig_types[113]
+#define SWIGTYPE_p_ofTrueTypeFont swig_types[114]
+#define SWIGTYPE_p_ofTrueTypeFontSettings swig_types[115]
+#define SWIGTYPE_p_ofURLFileLoader swig_types[116]
+#define SWIGTYPE_p_ofUnicode swig_types[117]
+#define SWIGTYPE_p_ofUnicode__range swig_types[118]
+#define SWIGTYPE_p_ofVbo swig_types[119]
+#define SWIGTYPE_p_ofVboMesh swig_types[120]
+#define SWIGTYPE_p_ofVec2f swig_types[121]
+#define SWIGTYPE_p_ofVec3f swig_types[122]
+#define SWIGTYPE_p_ofVec4f swig_types[123]
+#define SWIGTYPE_p_ofVideoDevice swig_types[124]
+#define SWIGTYPE_p_ofVideoFormat swig_types[125]
+#define SWIGTYPE_p_ofVideoGrabber swig_types[126]
+#define SWIGTYPE_p_ofVideoPlayer swig_types[127]
+#define SWIGTYPE_p_ofWindowPosEventArgs swig_types[128]
+#define SWIGTYPE_p_ofWindowSettings swig_types[129]
+#define SWIGTYPE_p_ofXml swig_types[130]
+#define SWIGTYPE_p_ofXmlAttributeIterator swig_types[131]
+#define SWIGTYPE_p_ofXml__Attribute swig_types[132]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlAttributeIterator_t swig_types[133]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_named_node_iterator_t_t swig_types[134]
+#define SWIGTYPE_p_ofXml__RangeT_ofXmlIteratorT_pugi__xml_node_iterator_t_t swig_types[135]
+#define SWIGTYPE_p_std__chrono__nanoseconds swig_types[136]
+#define SWIGTYPE_p_std__chrono__time_pointT_std__chrono__nanoseconds_t swig_types[137]
+#define SWIGTYPE_p_std__fstream swig_types[138]
+#define SWIGTYPE_p_std__functionT_void_fofHttpResponse_const_RF_t swig_types[139]
+#define SWIGTYPE_p_std__functionT_void_fofSoundBuffer_RF_t swig_types[140]
+#define SWIGTYPE_p_std__istream swig_types[141]
+#define SWIGTYPE_p_std__mapT_std__string_std__string_t swig_types[142]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseLoggerChannel_t swig_types[143]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseRenderer_t swig_types[144]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundPlayer_t swig_types[145]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseSoundStream_t swig_types[146]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoGrabber_t swig_types[147]
+#define SWIGTYPE_p_std__shared_ptrT_ofBaseVideoPlayer_t swig_types[148]
+#define SWIGTYPE_p_std__string swig_types[149]
+#define SWIGTYPE_p_std__vectorT_float_t swig_types[150]
+#define SWIGTYPE_p_std__vectorT_glm__vec2_t swig_types[151]
+#define SWIGTYPE_p_std__vectorT_glm__vec3_t swig_types[152]
+#define SWIGTYPE_p_std__vectorT_int_t swig_types[153]
+#define SWIGTYPE_p_std__vectorT_ofColor_T_float_t_t swig_types[154]
+#define SWIGTYPE_p_std__vectorT_ofFile_t swig_types[155]
+#define SWIGTYPE_p_std__vectorT_ofMeshFace_T_ofDefaultVertexType_ofDefaultNormalType_ofDefaultColorType_ofDefaultTexCoordType_t_t swig_types[156]
+#define SWIGTYPE_p_std__vectorT_ofPath__Command_t swig_types[157]
+#define SWIGTYPE_p_std__vectorT_ofPath_t swig_types[158]
+#define SWIGTYPE_p_std__vectorT_ofPolyline_T_ofDefaultVertexType_t_t swig_types[159]
+#define SWIGTYPE_p_std__vectorT_ofSoundDevice_t swig_types[160]
+#define SWIGTYPE_p_std__vectorT_ofTexture_t swig_types[161]
+#define SWIGTYPE_p_std__vectorT_ofUnicode__range_t swig_types[162]
+#define SWIGTYPE_p_std__vectorT_ofVec2f_t swig_types[163]
+#define SWIGTYPE_p_std__vectorT_ofVec3f_t swig_types[164]
+#define SWIGTYPE_p_std__vectorT_ofVideoDevice_t swig_types[165]
+#define SWIGTYPE_p_std__vectorT_ofVideoFormat_t swig_types[166]
+#define SWIGTYPE_p_std__vectorT_std__string_t swig_types[167]
+#define SWIGTYPE_p_std__vectorT_unsigned_char_t swig_types[168]
+#define SWIGTYPE_p_std__vectorT_unsigned_int_t swig_types[169]
+#define SWIGTYPE_p_std__vectorT_unsigned_short_t swig_types[170]
+#define SWIGTYPE_p_uint16_t swig_types[171]
+#define SWIGTYPE_p_uint32_t swig_types[172]
+#define SWIGTYPE_p_uint8_t swig_types[173]
+#define SWIGTYPE_p_unsigned_char swig_types[174]
+#define SWIGTYPE_p_unsigned_int swig_types[175]
+#define SWIGTYPE_p_unsigned_long swig_types[176]
+#define SWIGTYPE_p_unsigned_long_long swig_types[177]
+#define SWIGTYPE_p_unsigned_short swig_types[178]
+static swig_type_info *swig_types[180];
+static swig_module_info swig_module = {swig_types, 179, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5231,19 +5234,6 @@ static int _wrap_saveViewport(lua_State* L) { int SWIG_arg = 0; std::string *arg
   SWIG_check_num_args("ofSaveViewport",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("ofSaveViewport",1,"std::string const &");
   temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; ofSaveViewport((std::string const &)*arg1); return SWIG_arg;
   if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_launchBrowser__SWIG_0(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; bool arg2 ; std::string temp1 ;
-  SWIG_check_num_args("ofLaunchBrowser",2,2) if(!lua_isstring(L,1)) SWIG_fail_arg("ofLaunchBrowser",1,"std::string const &");
-  if(!lua_isboolean(L,2)) SWIG_fail_arg("ofLaunchBrowser",2,"bool");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; arg2 = (lua_toboolean(L, 2)!=0);
-  ofLaunchBrowser((std::string const &)*arg1,arg2); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_launchBrowser__SWIG_1(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string temp1 ;
-  SWIG_check_num_args("ofLaunchBrowser",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("ofLaunchBrowser",1,"std::string const &");
-  temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; ofLaunchBrowser((std::string const &)*arg1); return SWIG_arg;
-  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
-static int _wrap_launchBrowser(lua_State* L) { int argc; int argv[3]={ 1,2,3} ; argc = lua_gettop(L); if (argc == 1) {
-    return _wrap_launchBrowser__SWIG_1(L);}  if (argc == 2) { return _wrap_launchBrowser__SWIG_0(L);} 
-  SWIG_Lua_pusherrstring(L,"Wrong arguments for overloaded function 'launchBrowser'\n" "  Possible C/C++ prototypes are:\n"
-  "    ofLaunchBrowser(std::string const &,bool)\n" "    ofLaunchBrowser(std::string const &)\n"); lua_error(L);return 0; }
 static int _wrap_system(lua_State* L) { int SWIG_arg = 0; std::string *arg1 = 0 ; std::string temp1 ; std::string result;
   SWIG_check_num_args("ofSystem",1,1) if(!lua_isstring(L,1)) SWIG_fail_arg("ofSystem",1,"std::string const &");
   temp1.assign(lua_tostring(L,1),lua_rawlen(L,1)); arg1=&temp1; result = ofSystem((std::string const &)*arg1);
@@ -17650,6 +17640,150 @@ static swig_lua_namespace swig_BoxPrimitive_Sf_SwigStatic = {
 static swig_lua_class *swig_BoxPrimitive_bases[] = {0,0};
 static const char *swig_BoxPrimitive_base_names[] = {"of3dPrimitive *",0};
 static swig_lua_class _wrap_class_BoxPrimitive = { "BoxPrimitive", "BoxPrimitive", &SWIGTYPE_p_ofBoxPrimitive,_proxy__wrap_new_BoxPrimitive, swig_delete_BoxPrimitive, swig_BoxPrimitive_methods, swig_BoxPrimitive_attributes, &swig_BoxPrimitive_Sf_SwigStatic, swig_BoxPrimitive_meta, swig_BoxPrimitive_bases, swig_BoxPrimitive_base_names };
+
+static int _wrap_new_WindowSettings(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *result = 0 ;
+  SWIG_check_num_args("ofWindowSettings::ofWindowSettings",0,0) result = (ofWindowSettings *)new ofWindowSettings();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_ofWindowSettings,1); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_WindowSettings_title_set(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  std::string *arg2 = 0 ; std::string temp2 ; SWIG_check_num_args("ofWindowSettings::title",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::title",1,"ofWindowSettings *");
+  if(!lua_isstring(L,2)) SWIG_fail_arg("ofWindowSettings::title",2,"std::string const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_title_set",1,SWIGTYPE_p_ofWindowSettings); } 
+  temp2.assign(lua_tostring(L,2),lua_rawlen(L,2)); arg2=&temp2; if (arg1) (arg1)->title = *arg2; return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_title_get(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  std::string *result = 0 ; SWIG_check_num_args("ofWindowSettings::title",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::title",1,"ofWindowSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_title_get",1,SWIGTYPE_p_ofWindowSettings); }  result = (std::string *) & ((arg1)->title);
+  lua_pushlstring(L,result->data(),result->size()); SWIG_arg++; return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_WindowSettings_windowMode_set(lua_State* L) { int SWIG_arg = 0;
+  ofWindowSettings *arg1 = (ofWindowSettings *) 0 ; ofWindowMode arg2 ; SWIG_check_num_args("ofWindowSettings::windowMode",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::windowMode",1,"ofWindowSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofWindowSettings::windowMode",2,"ofWindowMode");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_windowMode_set",1,SWIGTYPE_p_ofWindowSettings); } 
+  arg2 = (ofWindowMode)(int)lua_tonumber(L, 2); if (arg1) (arg1)->windowMode = arg2; return SWIG_arg; if(0) SWIG_fail; fail:
+  lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_windowMode_get(lua_State* L) { int SWIG_arg = 0;
+  ofWindowSettings *arg1 = (ofWindowSettings *) 0 ; ofWindowMode result; SWIG_check_num_args("ofWindowSettings::windowMode",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::windowMode",1,"ofWindowSettings *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_windowMode_get",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (ofWindowMode) ((arg1)->windowMode); lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++; return SWIG_arg;
+  if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_setPosition(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  glm::vec2 *arg2 = 0 ; SWIG_check_num_args("ofWindowSettings::setPosition",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::setPosition",1,"ofWindowSettings *");
+  if(!lua_isuserdata(L,2)) SWIG_fail_arg("ofWindowSettings::setPosition",2,"glm::vec2 const &");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_setPosition",1,SWIGTYPE_p_ofWindowSettings); } 
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_glm__vec2,0))){
+    SWIG_fail_ptr("WindowSettings_setPosition",2,SWIGTYPE_p_glm__vec2); }  (arg1)->setPosition((glm::vec2 const &)*arg2);
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_setSize(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  int arg2 ; int arg3 ; SWIG_check_num_args("ofWindowSettings::setSize",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::setSize",1,"ofWindowSettings *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("ofWindowSettings::setSize",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("ofWindowSettings::setSize",3,"int");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_setSize",1,SWIGTYPE_p_ofWindowSettings); }  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3); (arg1)->setSize(arg2,arg3); return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_WindowSettings_isSizeSet(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  bool result; SWIG_check_num_args("ofWindowSettings::isSizeSet",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::isSizeSet",1,"ofWindowSettings const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_isSizeSet",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (bool)((ofWindowSettings const *)arg1)->isSizeSet(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_getWidth(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  int result; SWIG_check_num_args("ofWindowSettings::getWidth",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::getWidth",1,"ofWindowSettings const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_getWidth",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (int)((ofWindowSettings const *)arg1)->getWidth(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_getHeight(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  int result; SWIG_check_num_args("ofWindowSettings::getHeight",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::getHeight",1,"ofWindowSettings const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_getHeight",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (int)((ofWindowSettings const *)arg1)->getHeight(); lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static int _wrap_WindowSettings_getPosition(lua_State* L) { int SWIG_arg = 0; ofWindowSettings *arg1 = (ofWindowSettings *) 0 ;
+  glm::vec2 *result = 0 ; SWIG_check_num_args("ofWindowSettings::getPosition",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::getPosition",1,"ofWindowSettings const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_getPosition",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (glm::vec2 *) &((ofWindowSettings const *)arg1)->getPosition();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_glm__vec2,0); SWIG_arg++;  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L);
+  return SWIG_arg; }
+static int _wrap_WindowSettings_isPositionSet(lua_State* L) { int SWIG_arg = 0;
+  ofWindowSettings *arg1 = (ofWindowSettings *) 0 ; bool result; SWIG_check_num_args("ofWindowSettings::isPositionSet",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("ofWindowSettings::isPositionSet",1,"ofWindowSettings const *");
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_ofWindowSettings,0))){
+    SWIG_fail_ptr("WindowSettings_isPositionSet",1,SWIGTYPE_p_ofWindowSettings); } 
+  result = (bool)((ofWindowSettings const *)arg1)->isPositionSet(); lua_pushboolean(L,(int)(result!=0)); SWIG_arg++;
+  return SWIG_arg; if(0) SWIG_fail; fail: lua_error(L); return SWIG_arg; }
+static void swig_delete_WindowSettings(void *obj) {
+ofWindowSettings *arg1 = (ofWindowSettings *) obj;
+delete arg1;
+}
+static int _proxy__wrap_new_WindowSettings(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_WindowSettings);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_WindowSettings_attributes[] = {
+    { "title", _wrap_WindowSettings_title_get, _wrap_WindowSettings_title_set },
+    { "windowMode", _wrap_WindowSettings_windowMode_get, _wrap_WindowSettings_windowMode_set },
+    {0,0,0}
+};
+static swig_lua_method swig_WindowSettings_methods[]= {
+    { "setPosition", _wrap_WindowSettings_setPosition},
+    { "setSize", _wrap_WindowSettings_setSize},
+    { "isSizeSet", _wrap_WindowSettings_isSizeSet},
+    { "getWidth", _wrap_WindowSettings_getWidth},
+    { "getHeight", _wrap_WindowSettings_getHeight},
+    { "getPosition", _wrap_WindowSettings_getPosition},
+    { "isPositionSet", _wrap_WindowSettings_isPositionSet},
+    {0,0}
+};
+static swig_lua_method swig_WindowSettings_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_WindowSettings_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_WindowSettings_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_WindowSettings_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_WindowSettings_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_WindowSettings_Sf_SwigStatic = {
+    "WindowSettings",
+    swig_WindowSettings_Sf_SwigStatic_methods,
+    swig_WindowSettings_Sf_SwigStatic_attributes,
+    swig_WindowSettings_Sf_SwigStatic_constants,
+    swig_WindowSettings_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_WindowSettings_bases[] = {0};
+static const char *swig_WindowSettings_base_names[] = {0};
+static swig_lua_class _wrap_class_WindowSettings = { "WindowSettings", "WindowSettings", &SWIGTYPE_p_ofWindowSettings,_proxy__wrap_new_WindowSettings, swig_delete_WindowSettings, swig_WindowSettings_methods, swig_WindowSettings_attributes, &swig_WindowSettings_Sf_SwigStatic, swig_WindowSettings_meta, swig_WindowSettings_bases, swig_WindowSettings_base_names };
 
 static int _wrap_exit__SWIG_0(lua_State* L) { int SWIG_arg = 0; int arg1 ; SWIG_check_num_args("ofExit",1,1)
   if(!lua_isnumber(L,1)) SWIG_fail_arg("ofExit",1,"int"); arg1 = (int)lua_tonumber(L, 1); ofExit(arg1); return SWIG_arg;
@@ -46814,6 +46948,14 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("BoxPrimitive_SIDE_TOP", ofBoxPrimitive::SIDE_TOP)},
     {SWIG_LUA_CONSTTAB_INT("BoxPrimitive_SIDE_BOTTOM", ofBoxPrimitive::SIDE_BOTTOM)},
     {SWIG_LUA_CONSTTAB_INT("BoxPrimitive_SIDES_TOTAL", ofBoxPrimitive::SIDES_TOTAL)},
+    {SWIG_LUA_CONSTTAB_INT("WINDOW", OF_WINDOW)},
+    {SWIG_LUA_CONSTTAB_INT("FULLSCREEN", OF_FULLSCREEN)},
+    {SWIG_LUA_CONSTTAB_INT("GAME_MODE", OF_GAME_MODE)},
+    {SWIG_LUA_CONSTTAB_INT("ORIENTATION_DEFAULT", OF_ORIENTATION_DEFAULT)},
+    {SWIG_LUA_CONSTTAB_INT("ORIENTATION_180", OF_ORIENTATION_180)},
+    {SWIG_LUA_CONSTTAB_INT("ORIENTATION_90_LEFT", OF_ORIENTATION_90_LEFT)},
+    {SWIG_LUA_CONSTTAB_INT("ORIENTATION_90_RIGHT", OF_ORIENTATION_90_RIGHT)},
+    {SWIG_LUA_CONSTTAB_INT("ORIENTATION_UNKNOWN", OF_ORIENTATION_UNKNOWN)},
     {SWIG_LUA_CONSTTAB_INT("Vec2f_DIM", ofVec2f::DIM)},
     {SWIG_LUA_CONSTTAB_INT("Vec3f_DIM", ofVec3f::DIM)},
     {SWIG_LUA_CONSTTAB_INT("Vec4f_DIM", ofVec4f::DIM)},
@@ -47077,7 +47219,6 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "saveScreen", _wrap_saveScreen},
     { "saveFrame", _wrap_saveFrame},
     { "saveViewport", _wrap_saveViewport},
-    { "launchBrowser", _wrap_launchBrowser},
     { "system", _wrap_system},
     { "getTargetPlatform", _wrap_getTargetPlatform},
     { "getEnv", _wrap_getEnv},
@@ -47445,6 +47586,7 @@ static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_CylinderPrimitive,
 &_wrap_class_ConePrimitive,
 &_wrap_class_BoxPrimitive,
+&_wrap_class_WindowSettings,
 &_wrap_class_Matrix3x3,
 &_wrap_class_Matrix4x4,
 &_wrap_class_Quaternion,
@@ -47524,6 +47666,12 @@ static void *_p_ofSoundPlayerTo_p_ofBaseSoundPlayer(void *x, int *SWIGUNUSEDPARM
 }
 static void *_p_ofEasyCamTo_p_ofCamera(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((ofCamera *)  ((ofEasyCam *) x));
+}
+static void *_p_ofGLWindowSettingsTo_p_ofWindowSettings(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((ofWindowSettings *)  ((ofGLWindowSettings *) x));
+}
+static void *_p_ofGLESWindowSettingsTo_p_ofWindowSettings(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((ofWindowSettings *)  ((ofGLESWindowSettings *) x));
 }
 static void *_p_ofPlanePrimitiveTo_p_of3dPrimitive(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((of3dPrimitive *)  ((ofPlanePrimitive *) x));
@@ -47838,6 +47986,9 @@ static swig_type_info _swigt__p_ofVideoDevice = {"_p_ofVideoDevice", "ofVideoDev
 static swig_type_info _swigt__p_ofVideoFormat = {"_p_ofVideoFormat", "ofVideoFormat *", 0, 0, (void*)&_wrap_class_VideoFormat, 0};
 static swig_type_info _swigt__p_ofVideoGrabber = {"_p_ofVideoGrabber", "ofVideoGrabber *", 0, 0, (void*)&_wrap_class_VideoGrabber, 0};
 static swig_type_info _swigt__p_ofVideoPlayer = {"_p_ofVideoPlayer", "ofVideoPlayer *", 0, 0, (void*)&_wrap_class_VideoPlayer, 0};
+static swig_type_info _swigt__p_ofWindowSettings = {"_p_ofWindowSettings", "ofWindowSettings *", 0, 0, (void*)&_wrap_class_WindowSettings, 0};
+static swig_type_info _swigt__p_ofGLWindowSettings = {"_p_ofGLWindowSettings", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_ofGLESWindowSettings = {"_p_ofGLESWindowSettings", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_ofXml = {"_p_ofXml", "ofXml *", 0, 0, (void*)&_wrap_class_Xml, 0};
 static swig_type_info _swigt__p_ofXmlAttributeIterator = {"_p_ofXmlAttributeIterator", "ofXmlAttributeIterator *", 0, 0, (void*)&_wrap_class_XmlAttributeIterator, 0};
 static swig_type_info _swigt__p_ofXml__Attribute = {"_p_ofXml__Attribute", "ofXml::Attribute *", 0, 0, (void*)0, 0};
@@ -47954,6 +48105,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_ofFileLoggerChannel,
   &_swigt__p_ofFilePath,
   &_swigt__p_ofFpsCounter,
+  &_swigt__p_ofGLESWindowSettings,
+  &_swigt__p_ofGLWindowSettings,
   &_swigt__p_ofHttpRequest,
   &_swigt__p_ofHttpResponse,
   &_swigt__p_ofIcoSpherePrimitive,
@@ -48016,6 +48169,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_ofVideoGrabber,
   &_swigt__p_ofVideoPlayer,
   &_swigt__p_ofWindowPosEventArgs,
+  &_swigt__p_ofWindowSettings,
   &_swigt__p_ofXml,
   &_swigt__p_ofXmlAttributeIterator,
   &_swigt__p_ofXml__Attribute,
@@ -48194,6 +48348,9 @@ static swig_cast_info _swigc__p_ofVideoDevice[] = {  {&_swigt__p_ofVideoDevice, 
 static swig_cast_info _swigc__p_ofVideoFormat[] = {  {&_swigt__p_ofVideoFormat, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVideoGrabber[] = {  {&_swigt__p_ofVideoGrabber, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofVideoPlayer[] = {  {&_swigt__p_ofVideoPlayer, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofGLWindowSettings[] = {{&_swigt__p_ofGLWindowSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofGLESWindowSettings[] = {{&_swigt__p_ofGLESWindowSettings, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_ofWindowSettings[] = {  {&_swigt__p_ofWindowSettings, 0, 0, 0},  {&_swigt__p_ofGLWindowSettings, _p_ofGLWindowSettingsTo_p_ofWindowSettings, 0, 0},  {&_swigt__p_ofGLESWindowSettings, _p_ofGLESWindowSettingsTo_p_ofWindowSettings, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml[] = {  {&_swigt__p_ofXml, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXmlAttributeIterator[] = {  {&_swigt__p_ofXmlAttributeIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ofXml__Attribute[] = {  {&_swigt__p_ofXml__Attribute, 0, 0, 0},{0, 0, 0, 0}};
@@ -48310,6 +48467,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_ofFileLoggerChannel,
   _swigc__p_ofFilePath,
   _swigc__p_ofFpsCounter,
+  _swigc__p_ofGLESWindowSettings,
+  _swigc__p_ofGLWindowSettings,
   _swigc__p_ofHttpRequest,
   _swigc__p_ofHttpResponse,
   _swigc__p_ofIcoSpherePrimitive,
@@ -48372,6 +48531,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_ofVideoGrabber,
   _swigc__p_ofVideoPlayer,
   _swigc__p_ofWindowPosEventArgs,
+  _swigc__p_ofWindowSettings,
   _swigc__p_ofXml,
   _swigc__p_ofXmlAttributeIterator,
   _swigc__p_ofXml__Attribute,

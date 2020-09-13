@@ -11,7 +11,7 @@ behavior for "gobjs" appears at the end of this file.  */
 
 #ifdef _WIN32
 # include <malloc.h> /* MSVC or mingw on windows */
-#elif defined(__linux__) || defined(__APPLE__)
+#elif defined(__linux__) || defined(__APPLE__) || defined(__EMSCRIPTEN__)
 # include <alloca.h> /* linux, mac, mingw, cygwin */
 #endif
 

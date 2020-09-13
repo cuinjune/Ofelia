@@ -31,6 +31,34 @@ static t_class *text_define_class;
 #define qsort_r qsort_s   /* of course Microsoft decides to be different */
 #endif
 
+#ifdef __EMSCRIPTEN__
+
+#define qsort_r pd_qsort_r
+
+static _Thread_local void *pd_qsort_r_arg = 0;
+
+static _Thread_local int (*pd_qsort_r_cmp)(const void *, const void *, void *) = 0;
+
+static int pd_qsort_r_wrap(const void *a, const void *b)
+{
+    return pd_qsort_r_cmp(a, b, pd_qsort_r_arg);
+}
+
+static void pd_qsort_r(void *base, size_t nmemb, size_t size,
+                  int (*cmp)(const void *, const void *, void *),
+                  void *arg)
+{
+    int (*old_cmp)(const void *, const void *, void *) = pd_qsort_r_cmp;
+    void *old_arg = pd_qsort_r_arg;
+    pd_qsort_r_cmp = cmp;
+    pd_qsort_r_arg = arg;
+    qsort(base, nmemb, size, pd_qsort_r_wrap);
+    pd_qsort_r_arg = old_arg;
+    pd_qsort_r_cmp = old_cmp;
+}
+
+#endif
+
 #ifndef HAVE_ALLOCA     /* can work without alloca() but we never need it */
 #define HAVE_ALLOCA 1
 #endif
