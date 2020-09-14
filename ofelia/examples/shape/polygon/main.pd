@@ -1,0 +1,33 @@
+#N canvas 720 100 665 711 10;
+#X declare -path ofelia/abs;
+#X obj 28 102 loadbang;
+#X text 318 630 This example was originally written in Processing.
+https://processing.org/examples/regularpolygon.html;
+#X obj 28 144 ofWindow;
+#X obj 28 180 ofSetup;
+#X obj 28 389 ofDraw;
+#X text 25 23 What is your favorite? Pentagon? Hexagon? Heptagon? No?
+What about the icosagon? The polygon() function created for this example
+is capable of drawing any regular polygon. Try placing different numbers
+into the polygon() function calls within draw() to explore.;
+#X text 284 249 The polygon() function.;
+#X msg 28 123 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X msg 28 200 bang;
+#X obj 28 409 ofelia f \; ofPushMatrix() \; ofTranslate(ofGetWidth()
+* 0.2 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum() * 0.5)
+\; polygon(0 \, 0 \, 82 \, 3) \; ofPopMatrix() \; \; ofPushMatrix()
+\; ofTranslate(ofGetWidth() * 0.5 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum()
+* 1) \; polygon(0 \, 0 \, 80 \, 20) \; ofPopMatrix() \; \; ofPushMatrix()
+\; ofTranslate(ofGetWidth() * 0.8 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum()
+* -1) \; polygon(0 \, 0 \, 70 \, 7) \; ofPopMatrix() \;;
+#X obj 28 220 ofelia f \; ofBackground(102) \; ofFill() \; function
+polygon(x \, y \, radius \, npoints) \; local angle = OF_TWO_PI / npoints
+\; ofBeginShape() \; for i = 0 \, OF_TWO_PI \, angle do \; local sx
+= x + math.cos(i) * radius \; local sy = y + math.sin(i) * radius \;
+ofVertex(sx \, sy) \; end \; ofEndShape(true) \; end \;;
+#X connect 0 0 7 0;
+#X connect 3 0 9 0;
+#X connect 4 0 10 0;
+#X connect 7 0 2 0;
+#X connect 9 0 11 0;

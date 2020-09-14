@@ -1,10 +1,10 @@
-v4.0.0: 09 Jun 2020
+v4.0.0: 13 Sept 2020
 
 * removed all embedded objects
 * updated Pd source files to Pd-0.51-0
 * removed ofxJSON, ofxJsonSettings, ofxOsc, ofxReverb, and ofxZipPass addons
 * rebuilt using openFrameworks 0.11.0
-* removed incompatible examples
+* updated abstractions and examples
 
 v3.1.0: 31 Aug 2019
 

@@ -1,0 +1,35 @@
+#N canvas 720 100 665 744 10;
+#X declare -path ofelia/abs;
+#X obj 28 92 loadbang;
+#X obj 28 134 ofWindow;
+#X obj 28 170 ofSetup;
+#X obj 28 423 ofDraw;
+#X text 326 240 The star() function.;
+#X text 25 23 The star() function created for this example is capable
+of drawing a wide range of different forms. Try placing different numbers
+into the star() function calls within draw() to explore.;
+#X text 328 664 This example was originally written in Processing.
+https://processing.org/examples/star.html;
+#X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X msg 28 190 bang;
+#X obj 28 443 ofelia f \; ofPushMatrix() \; ofTranslate(ofGetWidth()
+* 0.2 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum() * 0.5)
+\; star(0 \, 0 \, 5 \, 70 \, 3) \; ofPopMatrix() \; \; ofPushMatrix()
+\; ofTranslate(ofGetWidth() * 0.5 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum()
+* 1) \; star(0 \, 0 \, 80 \, 100 \, 40) \; ofPopMatrix() \; \; ofPushMatrix()
+\; ofTranslate(ofGetWidth() * 0.8 \, ofGetHeight() * 0.5) \; ofRotateZDeg(ofGetFrameNum()
+* -1) \; star(0 \, 0 \, 30 \, 70 \, 5) \; ofPopMatrix() \;;
+#X obj 28 210 ofelia f \; ofBackground(102) \; ofFill() \; function
+star(x \, y \, radius1 \, radius2 \, npoints) \; local angle = OF_TWO_PI
+/ npoints \; local halfAngle = angle / 2 \; ofBeginShape() \; for i
+= 0 \, OF_TWO_PI \, angle do \; local sx = x + math.cos(i) * radius2
+\; local sy = y + math.sin(i) * radius2 \; ofVertex(sx \, sy) \; sx
+= x + math.cos(i + halfAngle) * radius1 \; sy = y + math.sin(i + halfAngle)
+* radius1 \; ofVertex(sx \, sy) \; end \; ofEndShape(true) \; end \;
+;
+#X connect 0 0 7 0;
+#X connect 2 0 9 0;
+#X connect 3 0 10 0;
+#X connect 7 0 1 0;
+#X connect 9 0 11 0;

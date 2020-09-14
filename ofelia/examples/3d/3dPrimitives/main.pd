@@ -1,0 +1,71 @@
+#N canvas 720 100 669 688 10;
+#X declare -path ofelia/abs;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 700 ofDraw;
+#X msg 28 93 setPosition 30 100 \, setSize 1024 768 \, create;
+#X obj 28 605 ofUpdate;
+#X obj 28 72 loadbang;
+#X text 25 23 this example shows how 3d primitives can be drawn on
+the screen with the lights and material.;
+#X text 321 1163 This example is based on the openFrameworks example
+"3DPrimitivesExample";
+#X obj 28 1045 ofExit;
+#X obj 472 29 declare -path ofelia/abs;
+#X msg 28 170 bang;
+#X obj 28 190 ofelia f \; ofBackground(20) \; ofSetSmoothLighting(true)
+\; ofSetSphereResolution(24) \; local width \, height = ofGetWidth()
+* 0.12 \, ofGetHeight() * 0.12 \; sphere = ofSpherePrimitive() \; sphere:setRadius(width)
+\; icoSphere = ofIcoSpherePrimitive() \; icoSphere:setRadius(width)
+\; plane = ofPlanePrimitive() \; plane:set(width * 1.5 \, height *
+1.5) \; cylinder = ofCylinderPrimitive() \; cylinder:set(width * 0.7
+\, height * 2.2) \; cone = ofConePrimitive() \; cone:set(width * 0.75
+\, height * 2.2) \; box = ofBoxPrimitive() \; box:set(width * 1.25)
+\; local screenWidth \, screenHeight = ofGetWidth() \, ofGetHeight()
+\; plane:setPosition(screenWidth * 0.2 \, screenHeight * 0.25 \, 0)
+\; box:setPosition(screenWidth * 0.5 \, screenHeight * 0.25 \, 0) \;
+sphere:setPosition(screenWidth * 0.8 \, screenHeight * 0.25 \, 0) \;
+icoSphere:setPosition(screenWidth * 0.2 \, screenHeight * 0.75 \, 0)
+\; cylinder:setPosition(screenWidth * 0.5 \, screenHeight * 0.75 \,
+0) \; cone:setPosition(screenWidth * 0.8 \, screenHeight * 0.75 \,
+0) \; pointLight = ofLight() \; pointLight:setPointLight() \; pointLight:setDiffuseColor(ofFloatColor(0.85
+\, 0.85 \, 0.55)) \; pointLight:setSpecularColor(ofFloatColor(1 \,
+1 \, 1)) \; pointLight2 = ofLight() \; pointLight2:setPointLight()
+\; pointLight2:setDiffuseColor(ofFloatColor(238 / 255 \, 57 / 255 \,
+135 / 255)) \; pointLight2:setSpecularColor(ofFloatColor(0.8 \, 0.8
+\, 0.9)) \; pointLight3 = ofLight() \; pointLight3:setPointLight()
+\; pointLight3:setDiffuseColor(ofFloatColor(19 / 255 \, 94 / 255 \,
+77 / 255)) \; pointLight3:setSpecularColor(ofFloatColor(18 / 255 \,
+150 / 255 \, 135 / 255)) \; material = ofMaterial() \; material:setShininess(120)
+\; material:setSpecularColor(ofFloatColor(1 \, 1 \, 1)) \;;
+#X f 76;
+#X obj 28 1065 ofelia f \; pointLight = nil \; pointLight2 = nil \;
+pointLight3 = nil \; collectgarbage() \;;
+#X obj 28 625 ofelia f \; local width \, height \, time = ofGetWidth()
+\, ofGetHeight() \, ofGetElapsedTimef() \; pointLight:setPosition((width
+* 0.5) + math.cos(time * 0.5) * (width * 0.3) \, height / 2 \, 500)
+\; pointLight2:setPosition((width * 0.5) + math.cos(time * 0.15) *
+(width * 0.3) \, height * 0.5 + math.sin(time * 0.7) * height \, -300)
+\; pointLight3:setPosition(math.cos(time * 1.5) * width * 0.5 \, math.sin(time
+* 1.5) * width * 0.5 \, math.cos(time * 0.2) * width) \;;
+#X f 133;
+#X obj 28 720 ofelia f \; local spinX = math.sin(ofGetElapsedTimef()
+* 0.35) \; local spinY = math.cos(ofGetElapsedTimef() * 0.075) \; ofEnableDepthTest()
+\; ofEnableLighting() \; pointLight:enable() \; pointLight2:enable()
+\; pointLight3:enable() \; material:beginMaterial() \; plane:rotateDeg(spinX
+\, 1 \, 0 \, 0) \; plane:rotateDeg(spinY \, 0 \, 1 \, 0) \; plane:draw()
+\; box:rotateDeg(spinX \, 1 \, 0 \, 0) \; box:rotateDeg(spinY \, 0
+\, 1 \, 0) \; box:draw() \; sphere:rotateDeg(spinX \, 1 \, 0 \, 0)
+\; sphere:rotateDeg(spinY \, 0 \, 1 \, 0) \; sphere:draw() \; icoSphere:rotateDeg(spinX
+\, 1 \, 0 \, 0) \; icoSphere:rotateDeg(spinY \, 0 \, 1 \, 0) \; icoSphere:draw()
+\; cylinder:rotateDeg(spinX \, 1 \, 0 \, 0) \; cylinder:rotateDeg(spinY
+\, 0 \, 1 \, 0) \; cylinder:draw() \; cone:rotateDeg(spinX \, 1 \,
+0 \, 0) \; cone:rotateDeg(spinY \, 0 \, 1 \, 0) \; cone:draw() \; material:endMaterial()
+\; ofDisableLighting() \; ofDisableDepthTest() \;;
+#X connect 1 0 10 0;
+#X connect 2 0 14 0;
+#X connect 3 0 0 0;
+#X connect 4 0 13 0;
+#X connect 5 0 3 0;
+#X connect 8 0 12 0;
+#X connect 10 0 11 0;

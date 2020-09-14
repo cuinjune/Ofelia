@@ -1,0 +1,35 @@
+#N canvas 720 100 680 542 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X msg 28 91 setPosition 30 100 \, setSize 840 640 \, create;
+#X obj 28 323 ofDraw;
+#X text 23 21 This example shows loading some of GLSL shader examples
+from http://glslsandbox.com and https://www.shadertoy.com;
+#X text 336 467 This patch was originally created by Jonathan Frank.
+;
+#X obj 505 22 declare -path ofelia/abs;
+#X obj 28 248 ofelia f \; ofSetWindowTitle("GLSL") \; ofBackground(0)
+\; shader = ofShader() \; shader:load(a) \;;
+#X obj 28 228 pdcontrol;
+#X msg 28 208 dir 0 data/test\$1;
+#X obj 28 188 + 1;
+#X obj 28 168 hradio 15 1 0 7 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 140 167 <- Try different examples.;
+#X text 155 182 (some examples react to mouse movement);
+#X obj 28 343 ofelia f \; shader:beginShader() \; ofSetColor(255) \;
+shader:setUniform1f("time" \, ofGetElapsedTimef()) \; shader:setUniform2f("resolution"
+\, ofGetWindowSize()) \; shader:setUniform2f("mouse" \, ofGetMouseX()
+\, ofGetMouseY()) \; ofDrawRectangle(20 \, 20 \, ofGetWidth() - 40
+\, ofGetHeight() - 40) \; shader:endShader() \;;
+#X f 64;
+#X connect 0 0 3 0;
+#X connect 2 0 12 0;
+#X connect 3 0 1 0;
+#X connect 4 0 15 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;

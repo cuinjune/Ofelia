@@ -1,5 +1,4 @@
-#N canvas 720 100 665 575 10;
-#X declare -lib ofelia;
+#N canvas 720 100 650 553 10;
 #X obj 21 261 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 43 260 Click to draw shapes on this Pd canvas.;
@@ -19,5 +18,4 @@ polygon %d %d %d %d %d %d %d %d %d %d %d %d -fill green -outline black"
 #X f 92;
 #X text 20 212 You can send Tcl/Tk commands to Pd using ofSysGui()
 function.;
-#X obj 519 25 declare -lib ofelia;
 #X connect 0 0 3 0;

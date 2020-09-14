@@ -1,0 +1,57 @@
+#N canvas 321 23 601 640 10;
+#X declare -path ofelia/abs;
+#X obj 0 0 cnv 15 580 40 empty empty ofWindow 3 12 0 18 -204280 -1
+0;
+#X obj 213 257 ofWindow;
+#X obj 213 147 loadbang;
+#X obj 523 5 ofWindow;
+#X text 21 43 [ofWindow] is used to create \, destroy or change properties
+of the graphics window.;
+#X msg 213 168 setPosition 0 0 \, setSize 640 480 \, title ofelia \,
+create;
+#X msg 237 197 destroy;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 501 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 75 509 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 0 586 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 0 537 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X text 95 367 setGLVersion <f \, f>;
+#X text 95 385 setGLESVersion <f \, f>;
+#X text 221 385 - set the openGL ES version.;
+#X text 221 367 - set the openGL version. <major \, minor>;
+#X text 95 401 setPosition <f \, f>;
+#X text 95 417 setSize <f \, f>;
+#X text 95 432 create;
+#X text 221 432 - create the window.;
+#X text 95 447 destroy;
+#X text 221 447 - destroy the window.;
+#X text 95 462 title;
+#X text 221 462 - set the window title.;
+#X text 221 417 - set the window size. <width \, height>;
+#X text 221 401 - set the window position.;
+#X text 95 477 windowMode <f>;
+#X text 221 477 - set the window mode. (0: window \, 1: fullscreen
+\, 2: game);
+#X text 11 23 graphics window handler;
+#X obj 213 277 print;
+#X text 72 560 none;
+#X text 95 509 pointer;
+#X text 221 509 - pointer to the class if bang is received.;
+#X obj 239 225 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 261 224 get the class pointer.;
+#X text 95 350 bang;
+#X text 221 350 - get the class pointer.;
+#X obj 432 46 declare -path ofelia/abs;
+#X connect 1 0 30 0;
+#X connect 2 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 34 0 1 0;

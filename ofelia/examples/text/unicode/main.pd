@@ -1,0 +1,24 @@
+#N canvas 720 81 665 420 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X text 25 23 This example shows loading and drawing a unicode text
+to the screen.;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X text 287 226 load a font \, add ranges of unicode.;
+#X obj 28 293 ofDraw;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 188 pdcontrol;
+#X msg 28 168 dir 0 data/gungsuh.ttf;
+#X obj 28 313 ofelia f \; font:drawString("안녕하세요" \, 250
+\, 190) \;;
+#X obj 28 208 ofelia f \; ofSetBackgroundColor(0) \; settings = ofTrueTypeFontSettings(a
+\, 16) \; settings:addRanges(ofAlphabet_Korean) \; font = ofTrueTypeFont()
+\; font:load(settings) \;;
+#X connect 0 0 6 0;
+#X connect 3 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 2 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;

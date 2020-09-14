@@ -1,0 +1,27 @@
+#N canvas 720 100 665 504 10;
+#X declare -path ofelia/abs;
+#X obj 28 80 loadbang;
+#X text 333 408 This example was originally written in Processing.
+https://processing.org/examples/transparency.html;
+#X text 25 23 Move the pointer left and right across the image to change
+its position. This program overlays one image over another by modifying
+the alpha value of the image.;
+#X obj 28 122 ofWindow;
+#X obj 28 158 ofSetup;
+#X obj 28 283 ofDraw;
+#X msg 28 101 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 198 pdcontrol;
+#X msg 28 178 dir 0 data/moonwalk.jpg;
+#X text 183 178 Load an image from the path.;
+#X obj 28 218 ofelia f \; img = ofImage(a) \; offset = 0 \; easing
+= 0.05 \;;
+#X obj 28 303 ofelia f \; img:draw(0 \, 0) \; local dx = (ofGetMouseX()
+- img:getWidth()/2) - offset \; offset = offset + (dx * easing) \;
+ofSetColor(255 \, 255 \, 255 \, 127) \; img:draw(offset \, 0) \;;
+#X connect 0 0 6 0;
+#X connect 4 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;

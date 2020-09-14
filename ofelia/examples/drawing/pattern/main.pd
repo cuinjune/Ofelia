@@ -1,0 +1,28 @@
+#N canvas 720 100 665 519 10;
+#X declare -path ofelia/abs;
+#X obj 28 72 loadbang;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X text 325 434 This example was originally written in Processing.
+https://processing.org/examples/pattern.html;
+#X obj 28 347 ofDraw;
+#X text 25 23 move the cursor over the window to draw circles which
+responds to the speed of the mouse.;
+#X obj 481 28 declare -path ofelia/abs;
+#X msg 28 170 bang;
+#X obj 28 367 ofelia f \; variableEllipse(ofGetMouseX() \, ofGetMouseY()
+\, ofGetPreviousMouseX() \, ofGetPreviousMouseY());
+#X f 93;
+#X obj 28 190 ofelia f \; ofBackground(102) \; ofSetCircleResolution(50)
+\; ofSetBackgroundAuto(false) \; function variableEllipse(x \, y \,
+px \, py) \; local speed = math.min(255 \, math.abs(x - px) + math.abs(y
+- py)) \; ofSetColor(speed) \; ofDrawEllipse(x \, y \, speed \, speed)
+\; ofSetColor(255) \; ofDrawEllipse(x \, y \, speed - 2 \, speed -
+2) \; end \;;
+#X f 67;
+#X connect 0 0 3 0;
+#X connect 2 0 8 0;
+#X connect 3 0 1 0;
+#X connect 5 0 9 0;
+#X connect 8 0 10 0;

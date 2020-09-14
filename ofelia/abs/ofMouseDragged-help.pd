@@ -1,0 +1,63 @@
+#N canvas 321 23 601 575 10;
+#X declare -path ofelia/abs;
+#X obj 0 0 cnv 15 580 40 empty empty ofMouseDragged 3 12 0 18 -204280
+-1 0;
+#X obj 201 262 print;
+#X obj 23 129 ofWindow;
+#X obj 23 87 loadbang;
+#X msg 23 108 setPosition 0 0 \, setSize 640 480 \, create;
+#X text 11 23 listen to the mouse drag event;
+#X obj 487 5 ofMouseDragged;
+#X obj 201 236 ofMouseDragged 50;
+#X text 21 43 [ofMouseDragged] is used to detect the mouse dragging
+event while the window is focused.;
+#X text 242 262 outputs the mouse events as a list.;
+#X floatatom 201 134 5 0 0 0 - - -;
+#X obj 221 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 242 179 0: disable / 1: enable the listener. (default: 1);
+#X text 237 134 change the listening order. (default: 50);
+#X msg 221 200 setEnabled \$1;
+#X msg 201 154 setOrder \$1;
+#X text 240 306 - full: type \, x \, y \, button \, scrollX \, scrollY
+\, modifiers.;
+#X text 240 286 - simplified: x \, y \, button.;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 405 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 441 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 75 413 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 414 list;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 350 setOrder <f>;
+#X text 211 350 - change the listening order. (default: 50);
+#X text 95 365 setEnabled <f>;
+#X text 211 365 - 0: disable / 1: enable the listener. (default: 1)
+;
+#X obj 0 521 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 72 466 1) float;
+#X text 211 466 - the listening order. (default: 50);
+#X text 72 481 2) float;
+#X text 211 481 - 0: disable / 1: enable the listener. (default: 1)
+;
+#X text 72 496 3) float;
+#X text 95 380 setSimplify <f>;
+#X text 211 380 - whether to output full(0) or simplified(1). (default:
+1);
+#X text 211 496 - whether to output full(0) or simplified(1). (default:
+1);
+#X text 211 414 - outputs the key events as a full or simplified list.
+;
+#X obj 432 46 declare -path ofelia/abs;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 7 0 1 0;
+#X connect 10 0 15 0;
+#X connect 11 0 14 0;
+#X connect 14 0 7 0;
+#X connect 15 0 7 0;

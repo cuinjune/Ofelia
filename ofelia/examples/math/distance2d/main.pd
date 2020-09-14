@@ -1,0 +1,25 @@
+#N canvas 720 100 665 483 10;
+#X declare -path ofelia/abs;
+#X obj 28 82 loadbang;
+#X obj 28 124 ofWindow;
+#X obj 28 160 ofSetup;
+#X msg 28 103 setPosition 30 100 \, setSize 640 360 \, create;
+#X text 25 23 Move the mouse across the image to obscure and reveal
+the matrix. Measures the distance from the mouse to each square and
+sets the size proportionally.;
+#X obj 28 255 ofDraw;
+#X text 325 398 This example was originally written in Processing.
+https://processing.org/examples/distance2d.html;
+#X obj 487 28 declare -path ofelia/abs;
+#X obj 28 200 ofelia f \; maxDist = ofDist(0 \, 0 \, ofGetWidth() \,
+ofGetHeight()) \; ofBackground(0) \;;
+#X msg 28 180 bang;
+#X obj 28 275 ofelia f \; for i = 0 \, ofGetWidth() \, 20 do \; for
+j = 0 \, ofGetHeight() \, 20 do \; local size = ofDist(ofGetMouseX()
+\, ofGetMouseY() \, i \, j) \; size = size / maxDist * 33 \; ofDrawCircle(i
+\, j \, size) \; end \; end \;;
+#X connect 0 0 3 0;
+#X connect 2 0 9 0;
+#X connect 3 0 1 0;
+#X connect 5 0 10 0;
+#X connect 9 0 8 0;

@@ -1,33 +1,24 @@
 #N canvas 723 23 716 450 10;
-#X declare -lib ofelia;
+#X declare -path ofelia/abs;
 #X obj 39 36 loadbang;
 #X msg 39 57 create;
 #X obj 39 78 ofWindow;
-#X obj 39 114 ofSetup;
-#X obj 39 135 ofSetWindowPosition 2 0;
-#X obj 39 156 ofSetWindowShape 1440 900;
-#X obj 39 177 ofSetWindowTitle Logo;
-#X obj 39 198 ofSetBackgroundColor 55;
-#X obj 39 219 ofSetCircleResolution 50;
-#X obj 39 255 ofDraw;
-#X obj 39 276 ofSetColor 230;
-#X obj 39 297 ofDrawCircle 510 450 200;
-#X obj 39 318 ofDrawRectangle 730 250 200 400;
-#X obj 39 339 ofDrawTriangle 950 250 1120 250 950 420;
-#X obj 39 360 ofDrawRectangle 950 440 100 100;
-#X text 92 114 A setup callback.;
+#X obj 39 133 ofSetup;
+#X obj 39 278 ofDraw;
+#X text 92 133 A setup callback.;
 #X text 93 58 Create a graphics window.;
-#X text 86 255 A draw callback.;
-#X obj 575 21 declare -lib ofelia;
+#X text 86 278 A draw callback.;
+#X obj 545 21 declare -path ofelia/abs;
+#X obj 39 173 ofelia f \; ofSetWindowPosition(2 \, 0) \; ofSetWindowShape(1440
+\, 900) \; ofSetWindowTitle("Logo") \; ofSetBackgroundColor(55) \;
+ofSetCircleResolution(50) \;;
+#X msg 39 153 bang;
+#X obj 39 298 ofelia f \; ofSetColor(230) \; ofDrawCircle(510 \, 450
+\, 200) \; ofDrawRectangle(730 \, 250 \, 200 \, 400) \; ofDrawTriangle(950
+\, 250 \, 1120 \, 250 \, 950 \, 420) \; ofDrawRectangle(950 \, 440
+\, 100 \, 100) \;;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 3 0 4 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 9 0 10 0;
-#X connect 10 0 11 0;
-#X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 13 0 14 0;
+#X connect 3 0 10 0;
+#X connect 4 0 11 0;
+#X connect 10 0 9 0;

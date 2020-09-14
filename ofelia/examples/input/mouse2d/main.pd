@@ -1,0 +1,31 @@
+#N canvas 720 100 665 489 10;
+#X declare -path ofelia/abs;
+#X obj 28 62 loadbang;
+#X text 315 404 This example was originally written in Processing.
+https://processing.org/examples/mouse2d.html;
+#X text 25 23 Moving the mouse changes the position and size of each
+box.;
+#X obj 28 104 ofWindow;
+#X obj 28 140 ofSetup;
+#X obj 28 238 ofDraw;
+#X obj 73 263 ofMouseMoved;
+#X msg 28 83 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 485 29 declare -path ofelia/abs;
+#X obj 28 180 ofelia f \; ofBackground(51) \; ofSetRectMode(OF_RECTMODE_CENTER)
+\;;
+#X obj 28 303 ofelia f \; local x \, y = a[1] \, a[2] \; ofSetColor(255
+\, 255 \, 255 \, 204) \; ofDrawRectangle(x \, ofGetHeight() / 2 \,
+y / 2 + 10 \, y / 2 + 10) \; local inverseX \, inverseY = ofGetWidth()
+- x \, ofGetHeight() - y \; ofDrawRectangle(inverseX \, ofGetHeight()/2
+\, inverseY / 2 + 10 \, inverseY / 2 + 10) \;;
+#X f 82;
+#X obj 28 283 list 0 0;
+#X text 159 262 Listen to the movement of mouse cursor.;
+#X msg 28 160 bang;
+#X connect 0 0 7 0;
+#X connect 4 0 13 0;
+#X connect 5 0 11 0;
+#X connect 6 0 11 1;
+#X connect 7 0 3 0;
+#X connect 11 0 10 0;
+#X connect 13 0 9 0;

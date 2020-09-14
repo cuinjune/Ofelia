@@ -1,5 +1,4 @@
-#N canvas 321 23 774 751 10;
-#X declare -lib ofelia;
+#N canvas 321 23 733 751 10;
 #X floatatom 303 116 5 0 0 0 - - -;
 #X obj 265 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -118,7 +117,6 @@ M.float(f) \; return array:get(f) \; end \;;
 #X obj 56 862 ofelia d -c10 \; M.onset = 0 \; local array = ofArray("\$0-boo")
 \; function M.list(fv) \; return array:set(fv \, M.onset) \; end \;
 ;
-#X obj 602 29 declare -lib ofelia;
 #X text 38 26 These examples show how some of pd objects can be emulated
 in ofelia.;
 #X connect 0 0 11 0;

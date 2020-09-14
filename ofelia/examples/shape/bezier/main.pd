@@ -1,0 +1,25 @@
+#N canvas 720 100 665 441 10;
+#X declare -path ofelia/abs;
+#X text 328 371 This example was originally written in Processing.
+https://processing.org/examples/bezier.html;
+#X obj 28 92 loadbang;
+#X obj 28 134 ofWindow;
+#X obj 28 170 ofSetup;
+#X obj 28 268 ofDraw;
+#X obj 28 289 ofelia f \; for i = 0 \, 200 \, 20 do \; ofDrawBezier(ofGetMouseX()-(i/2.0)
+\, 40+i \, 410 \, 20 \, 440 \, 300 \, 240-(i/16.0) \, 300+(i/8.0))
+\; end \;;
+#X f 89;
+#X text 25 23 The first two parameters for the ofDrawBezier() function
+specify the first point in the curve and the last two parameters specify
+the last point. The middle parameters set the control points that define
+the shape of the curve.;
+#X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 210 ofelia f \; ofBackground(0) \; ofNoFill() \;;
+#X msg 28 190 bang;
+#X connect 1 0 7 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 7 0 2 0;
+#X connect 10 0 9 0;

@@ -1,0 +1,31 @@
+#N canvas 720 100 665 639 10;
+#X declare -path ofelia/abs;
+#X obj 28 102 loadbang;
+#X text 315 555 This example was originally written in Processing.
+https://processing.org/examples/shapeprimitives.html;
+#X obj 28 312 ofDraw;
+#X obj 28 180 ofSetup;
+#X obj 28 144 ofWindow;
+#X text 266 248 Create a path for the arc shape.;
+#X text 25 23 The basic shape primitive functions include ofDrawTriangle()
+\, ofDrawRectangle() and ofDrawCircle(). Squares are made with ofDrawRectangle().
+Each of these functions requires a number of parameters to determine
+the shape's position and size.;
+#X msg 28 123 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 220 ofelia f \; ofBackground(0) \; ofFill() \; path = ofPath()
+\; path:setCircleResolution(50) \; path:arc(479 \, 300 \, 140 \, 140
+\, 180 \, 0) \;;
+#X msg 28 200 bang;
+#X obj 28 332 ofelia f \; ofSetColor(204) \; ofDrawTriangle(18 \, 18
+\, 18 \, 360 \, 81 \, 360) \; ofSetColor(102) \; ofDrawRectangle(81
+\, 81 \, 63 \, 63) \; ofSetColor(204) \; ofBeginShape() \; ofVertex(189
+\, 18) \; ofVertex(216 \, 18) \; ofVertex(216 \, 360) \; ofVertex(144
+\, 360) \; ofEndShape(true) \; ofSetColor(255) \; ofDrawCircle(252
+\, 144 \, 36) \; ofSetColor(204) \; ofDrawTriangle(288 \, 18 \, 351
+\, 360 \, 288 \, 360) \; ofSetColor(255) \; path:draw() \;;
+#X connect 0 0 7 0;
+#X connect 2 0 11 0;
+#X connect 3 0 10 0;
+#X connect 7 0 4 0;
+#X connect 10 0 9 0;

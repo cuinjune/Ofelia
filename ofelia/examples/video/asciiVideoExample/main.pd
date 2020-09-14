@@ -1,5 +1,4 @@
-#N canvas 720 100 515 300 10;
-#X declare -lib ofelia;
+#N canvas 720 100 528 300 10;
 #X obj 141 99 loadbang;
 #X obj 141 141 ofelia;
 #X text 190 141 <- click to see the loaded script.;
@@ -10,6 +9,5 @@ example by Ben Fry;
 of reinterpretting live video as text to make it look like some good
 old ASCII art. Try moving your cursor left and right in order to change
 the video transparency.;
-#X obj 391 23 declare -lib ofelia;
 #X connect 0 0 4 0;
 #X connect 4 0 1 0;

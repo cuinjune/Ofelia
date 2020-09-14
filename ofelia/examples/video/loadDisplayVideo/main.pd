@@ -1,0 +1,42 @@
+#N canvas 720 100 665 509 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X obj 28 338 ofDraw;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 273 ofUpdate;
+#X floatatom 81 351 5 0 0 0 - - -;
+#X text 25 23 Video files can be loaded and displayed to the screen
+at their actual size or any other size.;
+#X text 192 227 Load and play a video file from the path.;
+#X text 138 305 Updates the internal state to continue playback.;
+#X text 257 388 Displays the video sized 640x360 at point (0 \, 0).
+;
+#X obj 489 25 declare -path ofelia/abs;
+#X obj 28 188 pdcontrol;
+#X obj 28 208 ofelia f \; player = ofVideoPlayer() \; player:load(a)
+\; player:play() \;;
+#X msg 28 168 dir 0 data/fingers.mov;
+#X obj 28 293 ofelia f \; player:update() \;;
+#X obj 28 370 ofelia f -c51 0 180 320 180 \; ofSetColor(100) \; player:draw(0
+\, 0 \, 640 \, 360) \; ofSetColor(255) \; player:draw(a[1] \, a[2]
+\, a[3] \, a[4]) \;;
+#X text 281 350 <- Try changing the position and size of the video.
+;
+#X floatatom 134 351 5 0 0 0 - - -;
+#X floatatom 187 351 5 0 0 0 - - -;
+#X floatatom 241 351 5 0 0 0 - - -;
+#X text 257 410 Displays the video at point (0 \, 180) at half of its
+size.;
+#X connect 0 0 4 0;
+#X connect 2 0 14 0;
+#X connect 3 0 16 0;
+#X connect 4 0 1 0;
+#X connect 5 0 15 0;
+#X connect 6 0 16 1;
+#X connect 12 0 13 0;
+#X connect 14 0 12 0;
+#X connect 18 0 16 2;
+#X connect 19 0 16 3;
+#X connect 20 0 16 4;

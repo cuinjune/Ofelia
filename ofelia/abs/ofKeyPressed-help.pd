@@ -1,0 +1,63 @@
+#N canvas 321 23 601 577 10;
+#X declare -path ofelia/abs;
+#X obj 0 0 cnv 15 580 40 empty empty ofKeyPressed 3 12 0 18 -204280
+-1 0;
+#X obj 0 341 cnv 3 580 3 empty empty inlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 405 cnv 3 580 3 empty empty outlets 8 12 0 13 -228856 -1 0
+;
+#X obj 0 441 cnv 3 580 3 empty empty arguments 8 12 0 13 -228856 -1
+0;
+#X obj 191 262 print;
+#X obj 75 413 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X obj 499 5 ofKeyPressed;
+#X text 11 23 listen to the key press event;
+#X text 21 43 [ofKeyPressed] is used to detect the key press event
+while the window is focused.;
+#X obj 191 236 ofKeyPressed 50;
+#X text 232 262 outputs the key events as a list.;
+#X text 95 414 list;
+#X obj 23 129 ofWindow;
+#X obj 23 87 loadbang;
+#X msg 23 108 setPosition 0 0 \, setSize 640 480 \, create;
+#X floatatom 191 134 5 0 0 0 - - -;
+#X obj 211 180 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 232 179 0: disable / 1: enable the listener. (default: 1);
+#X text 227 134 change the listening order. (default: 50);
+#X msg 211 200 setEnabled \$1;
+#X msg 191 154 setOrder \$1;
+#X obj 75 349 cnv 17 3 17 empty empty 0 5 9 0 16 -228856 -162280 0
+;
+#X text 95 350 setOrder <f>;
+#X text 211 350 - change the listening order. (default: 50);
+#X text 95 365 setEnabled <f>;
+#X text 211 365 - 0: disable / 1: enable the listener. (default: 1)
+;
+#X obj 0 521 cnv 15 580 21 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X text 72 466 1) float;
+#X text 211 466 - the listening order. (default: 50);
+#X text 72 481 2) float;
+#X text 211 481 - 0: disable / 1: enable the listener. (default: 1)
+;
+#X text 72 496 3) float;
+#X text 95 380 setSimplify <f>;
+#X text 211 380 - whether to output full(0) or simplified(1). (default:
+1);
+#X text 211 496 - whether to output full(0) or simplified(1). (default:
+1);
+#X text 211 414 - outputs the key events as a full or simplified list.
+;
+#X text 230 286 - simplified: key.;
+#X text 230 306 - full: type \, key \, keycode \, scancode \, codepoint
+\, isRepeat \, modifiers.;
+#X obj 432 46 declare -path ofelia/abs;
+#X connect 9 0 4 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 20 0;
+#X connect 16 0 19 0;
+#X connect 19 0 9 0;
+#X connect 20 0 9 0;

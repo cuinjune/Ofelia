@@ -1,0 +1,26 @@
+#N canvas 720 100 665 579 10;
+#X declare -path ofelia/abs;
+#X obj 28 62 loadbang;
+#X text 325 493 This example was originally written in Processing.
+https://processing.org/examples/brownian.html;
+#X text 25 23 Recording random movement as a continuous line.;
+#X obj 28 104 ofWindow;
+#X obj 28 140 ofSetup;
+#X obj 28 295 ofDraw;
+#X msg 28 83 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 180 ofelia f \; ofBackground(51) \; ofSetFrameRate(30) \;
+num \, range = 2000 \, 6 \; ax \, ay = ofTable() \, ofTable() \; for
+i = 1 \, num do \; ax[i] = 320 \; ay[i] = 200 \; end \;;
+#X msg 28 160 bang;
+#X obj 28 315 ofelia f \; for i = 2 \, num do \; ax[i-1] = ax[i] \;
+ay[i-1] = ay[i] \; end \; ax[num] = ax[num] + ofRandom(-range \, range)
+\; ay[num] = ay[num] + ofRandom(-range \, range) \; ax[num] = ofClamp(ax[num]
+\, 0 \, ofGetWidth()) \; ay[num] = ofClamp(ay[num] \, 0 \, ofGetHeight())
+\; for i = 2 \, num do \; local val = i / num * 204 + 51 \; ofSetColor(val)
+\; ofDrawLine(ax[i-1] \, ay[i-1] \, ax[i] \, ay[i]) \; end \;;
+#X connect 0 0 6 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 3 0;
+#X connect 9 0 8 0;
