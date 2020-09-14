@@ -101,7 +101,7 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 ## Projects that used Ofelia/ofxOfelia
 * [Bruno Rohde](http://esmeril.ufba.br/): [ESMERIL](https://youtu.be/DfyGt6fyGMg).
 * [Mike Moreno](https://github.com/MikeMorenoAudio/): [Paths](https://youtu.be/Si_IbyIvPy4/).
-* [Chris Niven: BILL JOBS CYBER RADIO](https://www.youtube.com/watch?v=emDiimH0Y7U).
+* [Chris Niven: BILL JOBS CYBER RADIO](https://youtu.be/j3qptxxBoTE).
 * [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](http://martinhiendl.com/?section=ten-bullets-through-one-hole).
 * [Virtual Insight: World of Piano](https://www.worldofpiano.net/).
 * [The Center for Haptic Audio Interaction Reseach: Instrument development](https://chair.audio/).
