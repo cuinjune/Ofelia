@@ -17,7 +17,7 @@ Using Ofelia, you can flexibly choose between patching and coding style based on
 The external is available to be used under macOS, Windows, Linux and Raspbian.
 
 ## Installation
-* Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop. (requires >= Pd-0.49-0)
+* Make sure you have [Pure Data](https://puredata.info/downloads/pure-data) installed on your desktop.
 * Start Pd and go to `Help` -> `Find externals`, then search for `ofelia`
 * Select the latest version of Ofelia to download and install.
 * Try opening patches inside downloaded `ofelia/examples` directory.
