@@ -10,10 +10,10 @@ Ofelia is a Pd external which allows you to use openFrameworks and Lua within a 
 [Lua](https://www.lua.org/) is a powerful, efficient, lightweight, easy-to-learn scripting language.<br />
 [Pure Data](https://puredata.info/)(Pd) is a real-time visual programming language for multimedia.<br />
 
-Thanks to Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks functions and classes within a Lua script.
+Thanks to Lua scripting feature, you can do text coding directly on a Pd patch or through a text editor which makes it easier to solve problems that are complicated to express in visual programming languages like Pd. And unlike compiled languages like C/C++, you can see the result immediately as you change code which enables faster workflow. Moreover, you can use openFrameworks [functions and classes](ofelia/classesAndGlobalFunctions.txt) within a Lua script.
 
 Using Ofelia, you can flexibly choose between patching and coding style based on your preference.<br />
-You can see a full categorized list of objects from the [help-intro.pd](https://github.com/cuinjune/ofxOfelia/tree/master/ofelia/help-intro.pd) patch.<br />
+You can see a full categorized list of objects from the [help-intro.pd](ofelia/help-intro.pd) patch.<br />
 
 You can double click on any object to open the help file or the documentation page in your browser.<br />
 
