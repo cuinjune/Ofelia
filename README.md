@@ -105,7 +105,6 @@ Feel free to contact the [author](#author) if you have any questions or suggesti
 * [Martin Hiendl](http://martinhiendl.com/): [Ten Bullets Through One Hole](https://youtu.be/uzdXXMNWNMs).
 * [Virtual Insight: World of Piano](https://www.worldofpiano.net/).
 * [The Center for Haptic Audio Interaction Reseach: Instrument development](https://chair.audio/).
-* [POLR Technologies](https://www.facebook.com/polrtech): [LIQUID GRID](https://youtu.be/L5zdNc3NvRg/).
 
 ## Acknowledgements
 * [Miller Puckette](http://msp.ucsd.edu/) and the [Pd community](http://puredata.info/community/) for developing and maintaining [Pd](http://puredata.info/);
