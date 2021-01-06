@@ -25,6 +25,7 @@ The external is available to be used under macOS, Windows, Linux and Raspberry P
 * (Linux / Raspberry Pi) If the library fails to load, open the Terminal and run the following command to install dependencies.
   <pre>cd ofelia/scripts/distro_name
   sudo ./install_dependencies.sh</pre>
+* You can also download the externals from https://github.com/cuinjune/Ofelia/releases
 
 --------------
 
