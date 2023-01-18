@@ -74,7 +74,7 @@ std::string ofxPGMidiOut::getOutPortName(unsigned int portNumber) {
 	}
 	@catch(NSException *ex) {
 		ofLogError("ofxMidiOut") << "couldn't get name for port " << portNumber
-		    << " " << [ex.name UTF8String] << ": " << [ex.reason UTF8String];
+			<< " " << [ex.name UTF8String] << ": " << [ex.reason UTF8String];
 	}
 	return "";
 }
@@ -152,11 +152,11 @@ void ofxPGMidiOut::closePort() {
 // adapted from PGMidi sendBytes
 void ofxPGMidiOut::sendMessage(std::vector<unsigned char> &message) {
 
-    Byte packetBuffer[message.size()+100];
-    MIDIPacketList *packetList = (MIDIPacketList*)packetBuffer;
-    MIDIPacket *packet = MIDIPacketListInit(packetList);
+	Byte packetBuffer[message.size()+100];
+	MIDIPacketList *packetList = (MIDIPacketList*)packetBuffer;
+	MIDIPacket *packet = MIDIPacketListInit(packetList);
 
-    packet = MIDIPacketListAdd(packetList, sizeof(packetBuffer), packet, 0, message.size(), &message[0]);
+	packet = MIDIPacketListAdd(packetList, sizeof(packetBuffer), packet, 0, message.size(), &message[0]);
 
 	[destination->d sendPacketList:packetList];
 }

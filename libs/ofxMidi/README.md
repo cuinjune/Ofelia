@@ -6,7 +6,7 @@ ofxMidi
 
 MIDI input and output addon for openFrameworks
 
-Copyright (c) [Dan Wilcox](danomatika.com) 2011-2013  
+Copyright (c) [Dan Wilcox](danomatika.com) 2011-2020  
 (original implementation by Chris O'Shea, Arturo Castro, Kyle McDonald)
 
 BSD Simplified License.
@@ -16,7 +16,7 @@ WARRANTIES, see the file, "LICENSE.txt," in this distribution.
 
 See Documentation on [Github](https://github.com/danomatika/ofxMidi) and the [openFrameworks Forum post](https://forum.openframeworks.cc/t/ofxmidi-updates/2435).
 
-OpenFrameworks is a cross platform open source toolkit for creative coding in C++.
+openFrameworks is a cross platform open source toolkit for creative coding in C++.
 
 [http://www.openframeworks.cc](http://www.openframeworks.cc)
 
@@ -82,9 +82,9 @@ Project files for the examples are not included so you will need to generate the
 
 To (re)generate project files for an *existing* project:
 
-* click the "Import" button in the ProjectGenerator
-* navigate the to base folder for the project ie. "midiInputExample"
-* click the "Update" button
+* Click the "Import" button in the ProjectGenerator
+* Navigate to the project's parent folder ie. "ofxMidi", select the base folder for the example project ie. "midiOutputExample", and click the Open button
+* Click the "Update" button
 
 If everything went ok, you should now be able to open the generated project and build/run the example.
 
@@ -128,18 +128,18 @@ Rename the project in Xcode (do not rename the .xcodeproj file in Finder!):
 
 #### Codeblocks (Win & Linux)
 
-* rename the \*.cbp and \*.workspace files
-* open the workspace and readd the renamed project file by dragging it onto the project tree (it will complain about the missing project you renamed)
-* if you renamed the project *folder* make sure to set the project name to this folder name or C::B will not be able to run the binary:
-	* right click on project in the tree (not the workspace)
-	* Properties...->Title
+* Rename the \*.cbp and \*.workspace files
+* Open the workspace and readd the renamed project file by dragging it onto the project tree (it will complain about the missing project you renamed)
+* If you renamed the project *folder* make sure to set the project name to this folder name or C::B will not be able to run the binary:
+  - Right click on project in the tree (not the workspace)
+  - Properties...->Title
 
 #### Visual Studio
 
-* rename the \*.sln, \*.vcxproj, & \*.vcxproj.filters files
-* open the solution and delete the old project from the projects tree
-* go to File->Add->Existing Projects/Solutions and select the \*.vcxproj file
-* right click on the project in the projects tree and rename it
+* Rename the \*.sln, \*.vcxproj, & \*.vcxproj.filters files
+* Open the solution and delete the old project from the projects tree
+* Go to File->Add->Existing Projects/Solutions and select the \*.vcxproj file
+* Right-click on the project in the projects tree and rename it
 
 Adding ofxMidi to an Existing Project
 -------------------------------------
@@ -148,17 +148,17 @@ _Note: These instructions are for manually adding ofxMidi to a project. You do n
 
 ### Xcode
 
-* create a new group "ofxMidi" in the "addons" group
-* drag these directories from ofxMidi into this new group: `ofxMidi/src` & `ofxMidi/libs`
-  * in the Add dialog: add to your current project target, uncheck "Copy items if needed" & select "Create groups"
-  * if building for macOS, remove the src/ios & libs/pgmidi folder references
-  * if building for iOS, remove the src/desktop & libs/rtmidi folder references
-* add the CoreMIDI framework to your project
-  * click on your project in the sidebar
-  * select the Summary tab
-  * click the + under Linked Frameworks & Libraries
-  * search for and select the CoreMIDI.framework from the list
-* add the following directories to your search path in your project's Project.xconfig file (See the Project.xconfig of the example project.):
+* Create a new group "ofxMidi" in the "addons" group
+* Drag these directories from ofxMidi into this new group: `ofxMidi/src` & `ofxMidi/libs`
+  - In the Add dialog: add to your current project target, uncheck "Copy items if needed" & select "Create groups"
+  - If building for macOS, remove the src/ios & libs/pgmidi folder references
+  - If building for iOS, remove the src/desktop & libs/rtmidi folder references
+* Add the CoreMIDI framework to your project
+  - Click on your project in the sidebar
+  - Select the Summary tab
+  - Click the + under Linked Frameworks & Libraries
+  - Search for and select the CoreMIDI.framework from the list
+* Add the following directories to your search path in your project's Project.xconfig file (see the Project.xconfig of the example project):
 <pre>
 ../../../addons/ofxMidi/src
 ../../../addons/ofxMidi/libs/rtmidi
@@ -166,69 +166,149 @@ _Note: These instructions are for manually adding ofxMidi to a project. You do n
 
 ### Linux Makefiles/CodeBlocks
 
-* edit addons.make in your project folder and add the following line to the end of the file:
+Edit addons.make in your project folder and add the following line to the end of the file:
 <pre>
 ofxMidi
 </pre>
 
 ### Win Codeblocks & Visual Studio
 
-* add the ofxMidi sources to the project tree
+* Add the ofxMidi sources to the project tree
     ofxMidi/src
     ofxMidi/libs/rtmidi
   * Codeblocks: right click on the project in the project tree and select Add Files Recursively...
   * Visual Studio: drag the ofxMidi/src & ofxMidi/libs/rtmidi folder onto the project tree
-* add the following search paths:
+* Add the following search paths:
 <pre>
 ..\\..\\..\addons\ofxMidi\src
 ..\\..\\..\addons\ofxMidi\libs\rtmidi
 </pre>
 * Codeblocks
-  * right click on the project in the project tree and select Build Options...
-  * select the project name in the tree, not release or debug
-  * Search directories tab->Add
+  - Right-click on the project in the project tree and select Build Options...
+  - Select the project name in the tree, not release or debug
+  - Search directories tab->Add
 * Visual Studio
-  * right click on the project in the project tree and select Properties
-  * set the Configuration to All Configurations
-  * Configuration Properties->C/C++->General->Additional Directories
+  - Right click on the project in the project tree and select Properties
+  - Set the Configuration to All Configurations
+  - Configuration Properties->C/C++->General->Additional Directories
 
 KNOWN ISSUES
 ------------
 
-### Using static ofxMidi objects on Linux causes seg faults
+### Help, app crashes when receiving MIDI messages
 
-Avoid creating static ofxMidiIn / ofxMidiOut objects on Linux as the compiler seems to set creation order so they are created *before* ALSA is ready. This leads to a confirmed seg fault on Ubuntu and probably all other flavors of Linux using ALSA. The midi apis on Windows and macOS do not share this problem. 
+If you are sub-classing `ofxMidiListener` and receiving MIDI messages via the
+`newMidiMessage()` callback function, there is a chance of segmentation faults
+(and crashes) if you share the received messages between multiple threads (ie.
+main GUI, OSC receiver, etc).
 
-Instead create a static ofPtr and initialize it later:
+Depending upon the design of your application, you may need to place a mutex
+object or shared lock around access to these resources shared between threads.
 
-    // in .h:
+For example, in ofApp.h:
+```cpp
+class ofApp : public ofBaseApp, public ofxMidiListener {
+...
+ofxMidiIn midiIn;
+std::vector<ofxMidiMessage> midiMessages; //< received messages
+ofMutex midiMutex; //< MIDI message access mutex 
+```
 
-    class MyClass {
-    
-        ...
+and ofApp.cpp:
+```cpp
+void draw() {
+  // draw current messages, lock in case of incoming messages
+  midiMutex.lock();
+  // do something with midiMessages
+  midiMutex.unlock();
+}
 
-        static std::shared_ptr<ofxMidiOut> s_midiOut;
-    
-        ...
+void newMidiMessage(ofxMidiMessage& msg) {
+    // lock and add new messages
+    midiMutex.lock();
+    midiMessages.push_back(msg);
+    midiMutex.unlock();
+}
+```
 
-    }
+This should stop multiple-thread access crashes, however may stutter incoming
+message timing as adding new messages will have to wait until the current frame
+is done. Another option is to use a lock-free design using a ring-buffer.
 
-    // in .cpp:
+### Undefined symbols for architecture x86_64 on iOS
 
-    std::shared_ptr<ofxMidiOut> MyClass::s_midiOut;
-    
+_Steps contributed by Zach Lee._
+
+There is a bug with the OF ProjectGenerator in 0.10 and 0.11 which may result in
+an iOS project using ofxMidi which will have build errors like the following:
+
+~~~
+Undefined symbols for architecture x86_64:
+  "_glBufferSubData", referenced from:
+      ofBufferObject::updateData(long, long, void const*) in libofxiOS_iphonesimulator_Debug.a(ofBufferObject.o)
+  "_glBufferData", referenced from:
+      ofBufferObject::setData(long, void const*, unsigned int) in libofxiOS_iphonesimulator_Debug.a(ofBufferObject.o)
+  "_glDeleteBuffers", referenced from:
+      ofBufferObject::Data::~Data() in libofxiOS_iphonesimulator_Debug.a(ofBufferObject.o)
+  "_glUniformMatrix4fv", referenced from:
+...
+  "_OBJC_CLASS_$_EAGLContext", referenced from:
+      objc-class-ref in libofxiOS_iphonesimulator_Debug.a(ES1Renderer.o)
+      objc-class-ref in libofxiOS_iphonesimulator_Debug.a(ES2Renderer.o)
+      objc-class-ref in libofxiOS_iphonesimulator_Debug.a(EAGLKView.o)
+  "_glCheckFramebufferStatus", referenced from:
+      -[ES2Renderer createFramebuffer:] in libofxiOS_iphonesimulator_Debug.a(ES2Renderer.o)
+     (maybe you meant: _glCheckFramebufferStatusFunc)
+  "_OBJC_CLASS_$_MIDINetworkSession", referenced from:
+      objc-class-ref in PGMidi.o
+  "_AVAudioSessionInterruptionTypeKey", referenced from:
+      -[SoundStream handleInterruption:] in libofxiOS_iphonesimulator_Debug.a(SoundStream.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+Showing first 200 notices only
+Showing first 200 errors only
+~~~
+
+The fix is to remove a search path added by the PG which is causing the problem:
+
+1. click on your project in the sidebar
+2. select the project under TARGETS
+3. select the Build Settings tab
+4. scroll down to or find Framework Search Paths and remove the last entry:
+
+![iOS Framework search paths](res/ios-framework-search-paths.png)
+
+### Using static ofxMidi objects on Linux causes segmentation faults
+
+Avoid creating static ofxMidiIn / ofxMidiOut objects on Linux as the compiler seems to set creation order so they are created *before* ALSA is ready. This leads to a confirmed segmentation fault on Ubuntu and probably all other flavors of Linux using ALSA. The midi apis on Windows and macOS do not share this problem.
+
+Instead, create a static shared_ptr and initialize it later. For example, in .h:
+```cpp
+class MyClass {
+
     ...
-    
-    // initialize somewhere else
-    void MyClass::setup() {
-	    if(s_midiOut == NULL) {
-	        s_midiOut = std::shared_ptr<ofxMidiOut>(new ofxMidiOut("ofxMidi Client"));
-	    }
-    }
+
+    static std::shared_ptr<ofxMidiOut> s_midiOut;
+}
+```
+
+and in .cpp:
+```cpp
+std::shared_ptr<ofxMidiOut> MyClass::s_midiOut;
+
+...
+
+// initialize somewhere else
+void MyClass::setup() {
+  if(s_midiOut == NULL) {
+      s_midiOut = std::shared_ptr<ofxMidiOut>(new ofxMidiOut("ofxMidi Client"));
+  }
+}
+```
 
 ### ofxMidi classes created in constructors don't seem to work
 
-This is related to the issue above, in that the ofxMidi classes are being created too early in the app startup process and the back end MIDI library is not being set up correctly. The easiest & best solution is to call the ofxMidi class setup code as part of you ofApp's setup() function, whether there directly or within a subclass. This way you have direct control over when things are happening as opposed to within a constructor which may be called at an arbitrarily early point.
+This is related to the issue above, in that the ofxMidi classes are being created too early in the app startup process and the back end MIDI library is not being set up correctly. The easiest & best solution is to call the ofxMidi class setup code as part of your ofApp's setup() function, whether there directly or within a subclass. This way you have direct control over when things are happening as opposed to within a constructor which may be called at an arbitrarily early point.
 
 DEVELOPING
 ----------
@@ -259,4 +339,4 @@ PGMidi sources are placed in `libs/pgmidi`.
 
 Next, make sure to add the following include to `RtMidi.cpp` at around line 38 or there will be link errors:
 
-    #include "ofxConstants.h"
+    #include "ofxMidiConstants.h"

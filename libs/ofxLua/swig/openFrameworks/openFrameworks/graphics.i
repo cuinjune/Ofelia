@@ -113,15 +113,30 @@
 
 // ----- ofPath.h -----
 
+// tell SWIG about template vectors
+namespace std {
+#ifdef OF_SWIG_RENAME
+	%template(PathVector) std::vector<ofPath>;
+#else
+	%template(ofPathVector) std::vector<ofPath>;
+#endif
+};
+
 // DIFF: ofPath.h: ignoring nested Command struct
 %ignore ofPath::Command;
 
 %include "graphics/ofPath.h"
 
-// tell SWIG about template classes
-%template(PolylineVector) std::vector<ofPolyline>;
-
 // ----- ofPolyline.h -----
+
+// tell SWIG about template vectors
+namespace std {
+#ifdef OF_SWIG_RENAME
+	%template(PolylineVector) std::vector<ofPolyline>;
+#else
+	%template(ofPolylineVector) std::vector<ofPolyline>;
+#endif
+};
 
 // ignored due to default variable overload
 %ignore ofPolyline_::arc(float, float, float, float, float, float, float);
@@ -137,10 +152,8 @@
 
 // tell SWIG about template classes
 #ifdef OF_SWIG_RENAME
-	%template(VertexVector) std::vector<ofDefaultVertexType>;
 	%template(Polyline) ofPolyline_<ofDefaultVertexType>;
 #else
-	%template(ofVertexVector) std::vector<ofDefaultVertexType>;
 	%template(ofPolyline) ofPolyline_<ofDefaultVertexType>;
 #endif
 

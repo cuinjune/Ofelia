@@ -61,7 +61,7 @@ public:
 /// \section Util
 
 	/// get the song position in seconds from a beat position,
-    /// 1 beat = 1/16 note = 6 clock ticks
+	/// 1 beat = 1/16 note = 6 clock ticks
 	double beatsToSeconds(unsigned int beats);
 
 	/// get the song position in beats from seconds,

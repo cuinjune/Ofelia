@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Dan Wilcox <danomatika@gmail.com>
+ * Copyright (c) 2011-2022 Dan Wilcox <danomatika@gmail.com>
  *
  * BSD Simplified License.
  * For information on usage and redistribution, and for a DISCLAIMER OF ALL
@@ -25,17 +25,17 @@
 ///
 /// references: https://github.com/libpd/libpd/wiki
 ///
-/// note: libpd currently does not support multiple states and it is
-///       suggested that you use only one ofxPd object at a time
-///
 /// also: see PdBase.h in src/pd/cpp for some functions which are not wrapped by
 ///       ofxPd and PdTypes.h for small Pd C++ Objects
 ///
 /// differences from libpd C api and/or C++ wrapper:
-///     - the ofxPd object is thread safe
 ///     - midi channels are 1-16 to match pd ranges
 ///     - pgm values are 1-128 to match [pgmin]/[pgmout] in pd
 ///     - init() takes numOutChannels first to match ofSoundStream
+///
+/// note: as of ofxPd 1.9.0 & libpd 0.13, ofxpd supports multiple instances if
+///       compiled with PDINSTANCE defined, in which case each ofxPd instance can
+///       act separately with it's own PdReceiver and PdMidiReceiver
 ///
 class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiReceiver {
 
@@ -82,7 +82,7 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		///
 		/// note: fails silently if path not found
 		///
-		void addToSearchPath(const std::string& path);
+		void addToSearchPath(const std::string &path);
 
 		/// clear the current pd search path
 		void clearSearchPath();
@@ -99,7 +99,7 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 
 		/// open a patch file, takes an absolute or relative path (in data folder)
 		/// returns a Patch object
-		pd::Patch openPatch(const std::string& patch);
+		pd::Patch openPatch(const std::string &patch);
 
 		/// open a patch file using the filename and path of an existing patch
 		///
@@ -119,15 +119,15 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// p2 and p3 now refer to 2 different instances of "somefile.pd" and 
 		/// p2.dollarZero() & p3.dollarZero() should now return different ids
 		///
-		pd::Patch openPatch(pd::Patch& patch);
+		pd::Patch openPatch(pd::Patch &patch);
 
 		/// close a patch file, takes the patch's basename (filename without extension),
 		/// use this function if you've only opened 1 instance of the given patch
-		void closePatch(const std::string& patch);
+		void closePatch(const std::string &patch);
 
 		/// close a patch file using a Patch object, clears the given Patch object
 		/// does not affect other open instances of the same patch
-		void closePatch(pd::Patch& patch);
+		void closePatch(pd::Patch &patch);
 
 	/// \section Audio Processing Control
 
@@ -152,9 +152,9 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		///
 		/// note: the global source (aka "") exists by default
 		///
-		void subscribe(const std::string& source);
-		void unsubscribe(const std::string& source);
-		bool exists(const std::string& source);
+		void subscribe(const std::string &source);
+		void unsubscribe(const std::string &source);
+		bool exists(const std::string &source);
 		void unsubscribeAll(); //< receivers will be unsubscribed from *all* sources
 
 		/// process the interal message queue if using the ringbuffer:
@@ -178,9 +178,9 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		///
 		/// see receive/ignore for specific source receiving control
 		///
-		void addReceiver(pd::PdReceiver& receiver);
-		void removeReceiver(pd::PdReceiver& receiver);
-		bool receiverExists(pd::PdReceiver& receiver);
+		void addReceiver(pd::PdReceiver &receiver);
+		void removeReceiver(pd::PdReceiver &receiver);
+		bool receiverExists(pd::PdReceiver &receiver);
 		void clearReceivers();	//< also unsubscribes all receivers
 
 		/// set a receiver to receive/ignore a subscribed source from libpd
@@ -198,9 +198,9 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// pd.receive(receiver);          // receive from *all*
 		/// pd.ignore(receiver, "source"); // ignore "source"
 		///
-		void receiveSource(pd::PdReceiver& receiver, const std::string& source="");
-		void ignoreSource(pd::PdReceiver& receiver, const std::string& source="");
-		bool isReceivingSource(pd::PdReceiver& receiver, const std::string& source="");
+		void receiveSource(pd::PdReceiver &receiver, const std::string &source="");
+		void ignoreSource(pd::PdReceiver &receiver, const std::string &source="");
+		bool isReceivingSource(pd::PdReceiver &receiver, const std::string &source="");
 
 	/// \section Midi Receiving
 
@@ -210,9 +210,9 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		///
 		/// see receive/ignore for specific source receiving control
 		///
-		void addMidiReceiver(pd::PdMidiReceiver& receiver);
-		void removeMidiReceiver(pd::PdMidiReceiver& receiver);
-		bool midiReceiverExists(pd::PdMidiReceiver& receiver);
+		void addMidiReceiver(pd::PdMidiReceiver &receiver);
+		void removeMidiReceiver(pd::PdMidiReceiver &receiver);
+		bool midiReceiverExists(pd::PdMidiReceiver &receiver);
 		void clearMidiReceivers();
 
 		/// set a receiver to receive/ignore an incoming midi channel
@@ -231,9 +231,9 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// pd.receiveMidi(midiReceiver);   // receive from *all* channels
 		/// pd.ignoreMidi(midiReceiver, 2); // ignore channel 2
 		///
-		void receiveMidiChannel(pd::PdMidiReceiver& receiver, int channel=0);
-		void ignoreMidiChannel(pd::PdMidiReceiver& receiver, int channel=0);
-		bool isReceivingMidiChannel(pd::PdMidiReceiver& receiver, int channel=0);
+		void receiveMidiChannel(pd::PdMidiReceiver &receiver, int channel=0);
+		void ignoreMidiChannel(pd::PdMidiReceiver &receiver, int channel=0);
+		bool isReceivingMidiChannel(pd::PdMidiReceiver &receiver, int channel=0);
 
 	/// \section Sending Functions
 
@@ -266,7 +266,7 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 
 		/// compound messages using the Pd List type
 		///
-		/// List list;
+		/// pd::List list;
 		/// list.addSymbol("hello");
 		/// list.addFloat(1.23);
 		/// pd.sendList("test", list);
@@ -341,6 +341,10 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		///
 		/// int s = pd.arraySize("array1");
 		///
+		/// resize an array
+		///
+		/// pd.resizeArray("array1", 100);
+		///
 		/// read an array into a float vector
 		///
 		/// vector<float> array1;
@@ -349,6 +353,10 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// write a float vector to an array
 		///
 		/// writeArray("array1", array1);
+	    ///
+	    /// clear array and set to a specific value
+		///
+		/// clearArray("array1", 0);
 		///
 		/// see PdBase.h for function declarations
 
@@ -357,12 +365,24 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// has this pd instance been initialized?
 		/// bool isInited();
 		///
+		/// is the global pd instance using the ringbuffer queue
+		/// for message padding?
+		/// bool isQueued();
+		///
 		/// get the blocksize of pd (sample length per channel)
 		/// static int blockSize();
 		///
 		/// get/set the max length of messages and lists, default: 32
 		/// void setMaxMsgLength(unsigned int len);
 		/// unsigned int maxMsgLength();
+		///
+		/// get the pd instance pointer
+		/// returns main instance when libpd is not compiled with PDINSTANCE
+		/// t_pdinstance *instancePtr();
+		///
+		/// get the number of pd instances, including the main instance
+		/// returns number or 1 when libpd is not compiled with PDINSTANCE
+		/// static int numInstances();
 		///
 		/// see PdBase.h for function declarations
 	
@@ -394,18 +414,18 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		/// channels changes, will produce a verbose print for debugging as well
 		///
 		/// note: the libpd processing is done in the audioOut callback
-		virtual void audioIn(float * input, int bufferSize, int nChannels);
-		virtual void audioOut(float * output, int bufferSize, int nChannels);
+		virtual void audioIn(float *input, int bufferSize, int nChannels);
+		virtual void audioOut(float *output, int bufferSize, int nChannels);
 
 	protected:
 
 		/// message callbacks
-		void print(const std::string& message);
-		void receiveBang(const std::string& dest);
-		void receiveFloat(const std::string& dest, float value);
-		void receiveSymbol(const std::string& dest, const std::string& symbol);
-		void receiveList(const std::string& dest, const pd::List& list);
-		void receiveMessage(const std::string& dest, const std::string& msg, const pd::List& list);
+		void print(const std::string &message);
+		void receiveBang(const std::string &dest);
+		void receiveFloat(const std::string &dest, float value);
+		void receiveSymbol(const std::string &dest, const std::string &symbol);
+		void receiveList(const std::string &dest, const pd::List &list);
+		void receiveMessage(const std::string &dest, const std::string &msg, const pd::List &list);
 
 		/// midi callbacks
 		void receiveNoteOn(const int channel, const int pitch, const int velocity);
@@ -424,7 +444,7 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 		int inChannels, outChannels; //< current num of input & output channels
 		bool computing; //< is compute audio on?
 	
-		float * inBuffer; //< interleaved input audio buffer
+		float *inBuffer; //< interleaved input audio buffer
 
 		/// a receiving source's pointer and receivers
 		struct Source {
@@ -432,18 +452,18 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 			std::set<pd::PdReceiver*> receivers; //< receivers
 
 			// helper functions
-			void addReceiver(pd::PdReceiver* receiver) {
+			void addReceiver(pd::PdReceiver *receiver) {
 				receivers.insert(receiver);
 			}
 
-			void removeReceiver(pd::PdReceiver* receiver) {
+			void removeReceiver(pd::PdReceiver *receiver) {
 				std::set<pd::PdReceiver*>::iterator iter;
 				iter = receivers.find(receiver);
 				if(iter != receivers.end())
 					receivers.erase(iter);
 			}
 
-			bool receiverExists(pd::PdReceiver* receiver) {
+			bool receiverExists(pd::PdReceiver *receiver) {
 				if(receivers.find(receiver) != receivers.end())
 					return true;
 				return false;
@@ -460,18 +480,18 @@ class ofxPd : public pd::PdBase, protected pd::PdReceiver, protected pd::PdMidiR
 			std::set<pd::PdMidiReceiver*> receivers; //< receivers
 
 			// helper functions
-			void addMidiReceiver(pd::PdMidiReceiver* receiver) {
+			void addMidiReceiver(pd::PdMidiReceiver *receiver) {
 				receivers.insert(receiver);
 			}
 
-			void removeMidiReceiver(pd::PdMidiReceiver* receiver) {
+			void removeMidiReceiver(pd::PdMidiReceiver *receiver) {
 				std::set<pd::PdMidiReceiver*>::iterator iter;
 				iter = receivers.find(receiver);
 				if(iter != receivers.end())
 					receivers.erase(iter);
 			}
 
-			bool midiReceiverExists(pd::PdMidiReceiver* receiver) {
+			bool midiReceiverExists(pd::PdMidiReceiver *receiver) {
 				if(receivers.find(receiver) != receivers.end())
 					return true;
 				return false;

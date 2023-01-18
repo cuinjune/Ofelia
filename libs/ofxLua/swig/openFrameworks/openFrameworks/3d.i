@@ -29,8 +29,34 @@
 
 // tell SWIG about template vectors
 namespace std {
-	%template(MeshFaceVector) std::vector<ofMeshFace_<ofDefaultVertexType, ofDefaultNormalType, ofDefaultColorType, ofDefaultTexCoordType>>;
+#ifdef OF_SWIG_RENAME
+	%template(DefaultVertexTypeVector) std::vector<ofDefaultVertexType>;
+	%template(DefaultNormalTypeVector) std::vector<ofDefaultNormalType>;
+	%template(DefaultColorTypeVector) std::vector<ofDefaultColorType>;
+	%template(DefaultTexCoordTypeVector) std::vector<ofDefaultTexCoordType>;
+	%template(MeshFaceVector) std::vector<ofMeshFace_<ofDefaultVertexType,
+		ofDefaultNormalType, ofDefaultColorType, ofDefaultTexCoordType>>;
+#else
+	%template(ofDefaultVertexTypeVector) std::vector<ofDefaultVertexType>;
+	%template(ofDefaultNormalTypeVector) std::vector<ofDefaultNormalType>;
+	%template(ofDefaultColorTypeVector) std::vector<ofDefaultColorType>;
+	%template(ofDefaultTexCoordTypeVector) std::vector<ofDefaultTexCoordType>;
+	%template(ofMeshFaceVector) std::vector<ofMeshFace_<ofDefaultVertexType,
+		ofDefaultNormalType, ofDefaultColorType, ofDefaultTexCoordType>>;
+#endif
 }
+
+// DIFF: ofMesh.h: ignoring pointer functions
+%ignore addVertices(const V*, std::size_t);
+%ignore getVerticesPointer();
+%ignore addNormals(const N*, std::size_t);
+%ignore getNormalsPointer();
+%ignore addColors(const C*, std::size_t);
+%ignore getColorsPointer();
+%ignore addTexCoords(const T*, std::size_t);
+%ignore getTexCoordsPointer();
+%ignore addIndices(const ofIndexType*, std::size_t);
+%ignore getIndexPointer();
 
 %include "3d/ofMesh.h"
 

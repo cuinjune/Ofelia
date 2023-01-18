@@ -16,7 +16,7 @@ typedef struct _methodentry
 {
     t_symbol *me_name;
     t_gotfn me_fun;
-    t_atomtype me_arg[MAXPDARG+1];
+    unsigned char me_arg[MAXPDARG+1];
 } t_methodentry;
 
 EXTERN_STRUCT _widgetbehavior;
@@ -27,13 +27,6 @@ typedef void (*t_floatmethod)(t_pd *x, t_float f);
 typedef void (*t_symbolmethod)(t_pd *x, t_symbol *s);
 typedef void (*t_listmethod)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 typedef void (*t_anymethod)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
-
-typedef void* (*t_bangmethodr)(t_pd *x);
-typedef void* (*t_pointermethodr)(t_pd *x, t_gpointer *gp);
-typedef void* (*t_floatmethodr)(t_pd *x, t_float f);
-typedef void* (*t_symbolmethodr)(t_pd *x, t_symbol *s);
-typedef void* (*t_listmethodr)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
-typedef void* (*t_anymethodr)(t_pd *x, t_symbol *s, int argc, t_atom *argv);
 
 struct _class
 {
@@ -99,11 +92,14 @@ void pd_globallock(void);
 void pd_globalunlock(void);
 
 /* misc */
-#define SYMTABHASHSIZE 1024
+#ifndef SYMTABHASHSIZE  /* set this to, say, 1024 for small memory footprint */
+#define SYMTABHASHSIZE 16384
+#endif /* SYMTABHASHSIZE */
 
 EXTERN t_pd *glob_evalfile(t_pd *ignore, t_symbol *name, t_symbol *dir);
 EXTERN void glob_initfromgui(void *dummy, t_symbol *s, int argc, t_atom *argv);
-EXTERN void glob_quit(void *dummy);
+EXTERN void glob_quit(void *dummy); /* glob_exit(0); */
+EXTERN void glob_exit(void *dummy, t_float status);
 EXTERN void open_via_helppath(const char *name, const char *dir);
 
 

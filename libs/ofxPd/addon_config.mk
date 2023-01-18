@@ -22,58 +22,65 @@ meta:
 	ADDON_URL = http://github.com/danomatika/ofxPd
 
 common:
-	ADDON_CFLAGS = -DHAVE_UNISTD_H
-	ADDON_CFLAGS += -DUSEAPI_DUMMY
-	ADDON_CFLAGS += -DPD
-	ADDON_CFLAGS += -DLIBPD_EXTRA
-	ADDON_CFLAGS += -DLIBPD_USE_STD_MUTEX
+	# required for libpd
+	ADDON_CFLAGS = -DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA
+	# uncomment this for multiple instance support, ie. for pdMultiExample
+	#ADDON_CFLAGS += -DPDINSTANCE -DPDTHREADS
+	# this is included directly in pd~.c, don't build twice
+	ADDON_SOURCES_EXCLUDE = libs/libpd/pure-data/extra/pd~/binarymsg.c
 
 linux64:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linux:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv6l:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 linuxarmv7l:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 msys2:
-	ADDON_CFLAGS += -DPD_INTERNAL
-	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
+	# support dynamic loading
+	ADDON_CFLAGS += -DHAVE_LIBDL
+	# this assumes 64 bit builds only at this point...
+	ADDON_DLLS_TO_COPY = libs/libpd/libs/mingw64/libwinpthread-1.dll
 
 vs:
-	ADDON_CFLAGS += -DPD_INTERNAL
-	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
+	# support dynamic loading
+	ADDON_CFLAGS += -DHAVE_LIBDL
+	# this assumes 64 bit builds only at this point...
+	ADDON_DLLS_TO_COPY = libs/libpd/libs/mingw64/libwinpthread-1.dll
 
 android/armeabi:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 android/armeabi-v7a:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
 
 osx:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# support dynamic loading
 	ADDON_CFLAGS += -DHAVE_LIBDL
+	# fix dispatch.h error with macOS SDK 10.13+
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1
 
 ios:
-	ADDON_SOURCES_EXCLUDE += libs/libpd/lib/%
-	ADDON_INCLUDES_EXCLUDE += libs/libpd/lib/%
+	ADDON_LIBS_EXCLUDE = libs/libpd/libs
+	# set No common blocks option to avoid duplicate symbols link error
 	ADDON_CFLAGS += -fcommon
+	# fix dispatch.h error with macOS SDK 10.13+
 	ADDON_CPPFLAGS += -DHAVE_UNISTD_H=1

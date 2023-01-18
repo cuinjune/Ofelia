@@ -69,7 +69,7 @@ void ofxMidiMessage::fromBytes(std::vector<unsigned char> *rawBytes) {
 		channel = (int) (bytes[0] & 0x0F)+1;
 	}
 	switch(status) {
-		case MIDI_NOTE_ON :
+		case MIDI_NOTE_ON:
 		case MIDI_NOTE_OFF:
 			pitch = (int) bytes[1];
 			velocity = (int) bytes[2];

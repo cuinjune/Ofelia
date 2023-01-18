@@ -19,6 +19,15 @@
 #include "ofConstants.h"
 #include "ofEvents.h"
 
+// Android support, include before lua.hpp
+#if defined(OF_TARGET_ANDROID) && defined(LUA_USE_ANDROID)
+#include <android/log.h>
+#define lua_getlocaledecpoint()   '.'
+#define lua_writestring(s,l)      __android_log_write(ANDROID_LOG_DEBUG, "LUA_PRINT", (s))
+#define lua_writeline()           __android_log_write(ANDROID_LOG_DEBUG, "LUA_PRINT", "\n")
+#define lua_writestringerror(s,p) __android_log_print(ANDROID_LOG_ERROR, "LUA_PRINT", (s), (p))
+#endif
+
 #include "lua.hpp"
 #include "ofxLuaFileWriter.h"
 
@@ -34,11 +43,11 @@ class ofxLuaListener {
 		virtual void errorReceived(std::string& message) = 0;
 };
 
-///	a Lua interpreter instance
+/// a Lua interpreter instance
 ///
-///	references:
-///     - Lua api http://www.lua.org/manual/5.1/manual.html
-///		- SWIG and Lua http://swig.org/Doc1.3/Lua.html
+/// references:
+/// - Lua api http://www.lua.org/manual/5.1/manual.html
+/// - SWIG and Lua http://swig.org/Doc1.3/Lua.html
 ///
 /// read/write algos are largely derived from the Allacrost scripting system:
 /// http://allacrost.sourceforge.net/
@@ -106,9 +115,9 @@ class ofxLua {
 		///
 		/// example:
 		///
-		///    lua.setErrorCallback([](std::string& message) {
+		///     lua.setErrorCallback([](std::string& message) {
 		///         // this is called when a Lua script error occurrs
-		///        ofLogWarning() << "Lua script error: " << message;
+		///         ofLogWarning() << "Lua script error: " << message;
 		///     });
 		void setErrorCallback(std::function<void(std::string& message)> const &callback);
 		

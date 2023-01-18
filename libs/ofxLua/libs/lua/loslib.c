@@ -135,17 +135,12 @@ static time_t l_checktime (lua_State *L, int arg) {
 #endif				/* } */
 /* }================================================================== */
 
-#ifdef __APPLE__
-#include "TargetConditionals.h"
-#endif
+
+
 
 static int os_execute (lua_State *L) {
   const char *cmd = luaL_optstring(L, 1, NULL);
-  #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-      int stat = -1;
-  #else
-      int stat = system(cmd);
-  #endif
+  int stat = system(cmd);
   if (cmd != NULL)
     return luaL_execresult(L, stat);
   else {

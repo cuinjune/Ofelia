@@ -6,7 +6,7 @@ ofxLua
 
 A Lua instance addon
 
-Copyright (c) [Dan Wilcox](danomatika.com) 2011-2019
+Copyright (c) [Dan Wilcox](http://danomatika.com) 2011-2020
 
 BSD Simplified License.
 
@@ -22,17 +22,17 @@ This project has been supported by the CMU [Frank-Ratchey STUDIO for Creative In
 Description
 -----------
 
-ofxLua is an OpenFrameworks addon for running a Lua embedded scripting interpreter within an OpenFrameworks application. Using the SWIG (Simple Wrapper and Interface Generator) tool, C++ functions and classes can be bound to the Lua api allowing them to be called within a Lua script. This is useful in separating the upper level logic from the lower level application and is utilized in numerous video games and applications.
+ofxLua is an openFrameworks addon for running a Lua embedded scripting interpreter within an openFrameworks application. Using the SWIG (Simple Wrapper and Interface Generator) tool, C++ functions and classes can be bound to the Lua api allowing them to be called within a Lua script. This is useful in separating the upper level logic from the lower level application and is utilized in numerous video games and applications.
 
-In addition, ofxLua provides bindings for the OpenFrameworks API.
+In addition, ofxLua provides bindings for the openFrameworks API.
 
 [Lua](http://www.lua.org/) combines simple procedural syntax with powerful data description constructs based on associative arrays and extensible semantics. Lua is dynamically typed, runs by interpreting bytecode for a register-based virtual machine, and has automatic memory management with incremental garbage collection, making it ideal for configuration, scripting, and rapid prototyping.
 
-[SWIG](http://www.swig.org) is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages. It is used to generate the C++ bindings which wrap the OpenFrameworks API for Lua.
+[SWIG](http://www.swig.org) is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages. It is used to generate the C++ bindings which wrap the openFrameworks API for Lua.
 
 (Optional) [LuaJIT](http://luajit.org/luajit.html) is a Just-In-Time Compiler (JIT) for the Lua programming language. It implements the Lua API but is optimized for performance over the standard Lua distribution. It is recommended to use LuaJIT when speed is a concern and it is enabled on embedded Linux in `addon_config.mk` for this reason.
 
-[OpenFrameworks](http://www.openframeworks.cc) is a cross platform open source toolkit for creative coding in C++
+[openFrameworks](http://www.openframeworks.cc) is a cross platform open source toolkit for creative coding in C++.
 
 ### Why not Javascript?
 
@@ -60,11 +60,11 @@ See:
 Build Requirements
 ------------------
 
-To use ofxLua, first you need to download and install OpenFrameworks. The examples are developed against the latest release version of OpenFrameworks on <http://openframeworks.cc/download>.
+To use ofxLua, first you need to download and install openFrameworks. The examples are developed against the latest release version of openFrameworks on <http://openframeworks.cc/download>.
 
 [OF github repository](https://github.com/openframeworks/openFrameworks)
 
-Currently, ofxLua is being developed on macOS and has been tested on macOS, iOS, & Linux. Android should work but has not been tested.
+Currently, ofxLua is being developed on macOS and has been tested on macOS, iOS, & Linux. Android should work but has not been tested extensively.
 
 Installation and Build
 ----------------------
@@ -86,11 +86,11 @@ You'll need to checkout the swig-openframeworks submodule as well using:
 
 ### Which version to use?
 
-The master branch of ofxLua will work with the current stable version of OpenFrameworks and can be considered *relatively* stable.
+The master branch of ofxLua will work with the current stable version of openFrameworks and can be considered *relatively* stable.
 
-Previous versions are tagged using [Semantic Versioning](http://semver.org) with the updates to newer versions of OpenFrameworks and Lua noted in the changelog, CHANGES.txt. You can select the tag in the Github "Current Branch" menu or clone and check it out using git.
+Previous versions are tagged using [Semantic Versioning](http://semver.org) with the updates to newer versions of openFrameworks and Lua noted in the changelog, CHANGES.txt. You can select the tag in the Github "Current Branch" menu or clone and check it out using git.
 
-If you want to use ofxLua with a previous version of OpenFrameworks, find the tag corresponding to your OF version by looking at [the changelog](https://github.com/danomatika/ofxLua/blob/master/CHANGES.txt) or [releases](https://github.com/danomatika/ofxLua/releases). Note that the ofxLua tag and OF version do not match.
+If you want to use ofxLua with a previous version of openFrameworks, find the tag corresponding to your OF version by looking at [the changelog](https://github.com/danomatika/ofxLua/blob/master/CHANGES.txt) or [releases](https://github.com/danomatika/ofxLua/releases). Note that the ofxLua tag and OF version do not match.
 
 For example,
 
@@ -117,18 +117,35 @@ In the Solution Explorer:
 
 *If there is an alternate solution to this issue in the addons_config.mk, please let us know!*
 
+### Android Studio
+
+_Contributed by Zach Lee_
+
+In Android Studio, the `addon_config.mk` exclude flags may not have an effect when using the OF ProjectGenerator app, and the following platform-specific bindings folders may need to be manually removed from the AS project:
+
+* ofxLua/src/bindings/desktop
+* ofxLua/src/bindings/linuxarm
+
+Next, to make Android Studio read the C flags from the `addon_config.mk` file, add the following code below `cppFlags.addAll(addonCppFlags(abi, ofRoot()))` in `build.gradle` file:
+
+~~~
+CFlags.addAll(addonCppFlags(abi, ofRoot()))
+~~~
+
+After the fix, the ofxLua project should *hopefully* build and run on an Android device.
+
 Running the Example Projects
 ----------------------------
 
-The example projects are in the `luaExample` & `luaExampleIOS` folders.
+The example projects are located in the `luaExample` & `luaExampleIOS` folders.
 
-Project files for the examples are not included so you will need to generate the project files for your operating system and development environment using the OF ProjectGenerator which is included with the OpenFrameworks distribution.
+Project files for the examples are not included so you will need to generate the project files for your operating system and development environment using the OF ProjectGenerator which is included with the openFrameworks distribution.
 
 To (re)generate project files for an *existing* project:
 
-* click the "Import" button in the ProjectGenerator
-* navigate the to base folder for the project ie. "luaExample"
-* click the "Update" button
+* Click the "Import" button in the ProjectGenerator
+* Navigate to the project's parent folder ie. "ofxLua", select the base folder for the example project ie. "luaExample", and click the Open button
+* Click the "Update" button
 
 If everything went Ok, you should now be able to open the generated project and build/run the example.
 
@@ -196,10 +213,10 @@ You also need to add the Lua library files in the libs directory:
 
 #### For Xcode:
 
-* right click and create a new group "ofxLua"
-* drag ofxLua/src into "ofxLua"
-* drag ofxLua/libs into "ofxLua"
-* remove bindings files that do not match your platform aka remove `src/bindings/desktop` for iOS
+* Right-click and create a new group "ofxLua"
+* Drag ofxLua/src into "ofxLua"
+* Drag ofxLua/libs into "ofxLua"
+* Remove bindings files that do not match your platform aka remove `src/bindings/desktop` for iOS
 
 On older macOS versions (pre 10.8), a header file which is included with the OS contains some macros which conflict with several lua macros. They can be renamed by setting this CFLAG:
 
@@ -452,7 +469,7 @@ Now call SWIG to generate your .cpp wrapper:
 
     swig -c++ -lua -fcompact -fvirtual -I../../../libs/openFrameworks MyBindings.i
     
-*Make sure to add search paths to headers used by your code (aka the "-I" line in the command above).*
+_Make sure to add search paths to headers used by your code (aka the "-I" line in the command above)._
 
 If all went well, SWIG will have generated the `MyBindings_wrap.cxx` C++ file. Put this into your project's source directory and build it with your project.
 
@@ -509,6 +526,13 @@ This file can also be used as the basis for generating a list of keywords for au
 
 This generates a `my_syntax.txt` which is easier to use than the base SWIG output.
 
+Lua Modules
+-----------
+
+For platforms that support it, an ofxLua project can load Lua dynamic modules via Lua's `require` mechanism. For this to work, the module needs to be built with the same Lua version.
+
+For info on building your own Lua modules, see `modules/README.md`.
+
 Lua require 
 -----------
 
@@ -555,6 +579,27 @@ If you find any bugs or suggestions please log them to GitHub as well.
 
 Known Issues
 ------------
+
+### ofxLuaBindings.cpp fails to compile on Linux ARM (RPI 3B+)
+
+(Contributed by Steven Noreyko)
+
+The single OF API ofxLuaBindings.cpp bindings file generated by SWIG is relatively large. Some embedded systems may not have enough memory to build it completely resulting in strange errors with the compiler always stopping on
+
+     ofxLua/src/bindings/linuxarm/ofxLuaBindings.cpp
+
+The fix may be to increase the swap size to complete to build. On the RPI 3B+,
+first install dphys-swapfile
+
+    sudo apt-get install dphys-swapfile
+
+then edit `/etc/dphys-swapfile` and uncomment and set
+
+    CONF_SWAPFILE=/var/swap, CONF_SWAPSIZE=1024 and CONF_MAXSWAP=2048
+
+then save and reboot.
+
+Another option is to cross-compile on another Linux system with more resources.
 
 ### 'system' is unavailable: not available on iOS
 

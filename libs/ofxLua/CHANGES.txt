@@ -1,3 +1,36 @@
+1.4.5: 2022 Oct 10
+
+* fixed missing ofxLua::getErrorMessage() implementation
+  (reported by Antoine Rousseau)
+
+1.4.4: 2021 Jul 15
+
+* updated for OF 0.11.2
+
+* fixed linker errors from missing fma vector bindings (reported by Mark Harris)
+* fixed glm vector constructor crash in Debug builds by defining
+  GLM_FORCE_CTOR_INIT in glm bindings (from suggestion by Adam McCartney)
+
+1.4.3: 2020 Dec 24
+
+* updated to Lua 5.3.6
+
+* added info about building Lua modules, module.mk helper script, and example
+* added basic Android support and Android Studio instructions (Zach Lee)
+* now wrapping ofFboSettings struct (requested by dom1817)
+* now wrapping ofPath vector, ofDefaultVertexType vector, ofDefaultNormalType
+  vector, ofDefaultColorType vector, ofDefaultTexCoordType vector, and
+  ofIndexType vector (requested by dom1817)
+* added info about building on embedded systems with low memory (Steven Noreyko)
+
+* no longer wrap ofShader uniform & attribute *v array pointer functions, these
+  need language translation / typemaps to be usable
+* no longer wrap ofMesh pointer functions
+
+1.4.2: 2020 Aug 31
+
+* now wrapping ofWindowSetting.h for window mode constants
+
 1.4.1: 2020 Apr 10
 
 * now wrapping std::vector<ofMeshFace> as MeshFaceVector so

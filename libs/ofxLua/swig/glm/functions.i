@@ -82,9 +82,9 @@
 
 %define FLOAT_SCALAR_OR_VECTOR_3_PARAMS(function_name)
     float function_name(const float &, const float &, const float &);
-    vec2 function_name(const vec2 &, const vec2 &, const vec2  &);
-    vec3 function_name(const vec3 &, const vec3 &, const vec3  &);
-    vec4 function_name(const vec4 &, const vec4 &, const vec4  &);
+    vec2 function_name(const vec2 &, const vec2 &, const vec2 &);
+    vec3 function_name(const vec3 &, const vec3 &, const vec3 &);
+    vec4 function_name(const vec4 &, const vec4 &, const vec4 &);
 %enddef
 
 %define FLOAT_SCALAR_OR_VECTOR_3_PARAMS_VECTOR_VALUE_VALUE(function_name)
@@ -141,7 +141,10 @@ vec3 smoothstep(const float &, const float &, const vec3 &);
 vec4 smoothstep(const float &, const float &, const vec4 &);
 bool isnan(const float &);
 bool isinf(const float &);
-FLOAT_SCALAR_OR_VECTOR_3_PARAMS(fma);
+
+// fma appears to be scalar only now?
+//FLOAT_SCALAR_OR_VECTOR_3_PARAMS(fma);
+float fma(const float &, const float &, const float &);
 
 // ----- glm/exponential.hpp -----
 

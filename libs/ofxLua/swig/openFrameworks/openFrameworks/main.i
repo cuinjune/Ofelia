@@ -16,8 +16,13 @@ namespace std {
 	%template(FloatVector) std::vector<float>;
 	%template(StringVector) std::vector<std::string>;
 	%template(UCharVector) std::vector<unsigned char>;
-	%template(VideoDeviceVector) std::vector<ofVideoDevice>;
+#ifdef OF_SWIG_RENAME
 	%template(TextureVector) std::vector<ofTexture>;
+	%template(VideoDeviceVector) std::vector<ofVideoDevice>;
+#else
+	%template(ofTextureVector) std::vector<ofTexture>;
+	%template(ofVideoDeviceVector) std::vector<ofVideoDevice>;
+#endif
 };
 
 // SWIG needs to know about boost::filesystem or it throws an error when it
@@ -46,6 +51,15 @@ typedef float GLfloat;
 
 %include "utils/ofConstants.h"
 
+// tell SWIG about template vectors
+namespace std {
+#ifdef OF_SWIG_RENAME
+	%template(IndexTypeVector) std::vector<ofIndexType>;
+#else
+	%template(ofIndexTypeVector) std::vector<ofIndexType>;
+#endif
+};
+
 // ----- ofMathConstants.h -----
 
 %ignore ofDefaultVec2;
@@ -63,15 +77,11 @@ typedef float GLfloat;
 
 // ----- ofUtils.h -----
 
+// TODO: ignore ofTime std::chrono stuff?
+
 // DIFF: ofUtils.h:
 // DIFF:   ignoring ofFromString as templating results in too much overloading
 %ignore ofFromString;
-
-// DIFF:   ignoring ofTime::getAsTimespec
-%ignore ofTime::getAsTimespec;
-
-// DIFF:   ignoring ofLaunchBrowser
-%ignore ofLaunchBrowser;
 
 // DIFF:   variable argument support is painful, safer to ignore
 // see http://www.swig.org/Doc2.0/Varargs.html
@@ -118,10 +128,8 @@ class ofBaseHasPixels {};
 // DIFF:   ignoring setActiveDrawBufers() due to std::vector
 %ignore setActiveDrawBuffers(const vector<int>& i);
 
-// DIFF:   ignoring ofFboSettings struct
-%ignore ofFboSettings;
+// DIFF:   ignoring ofFbo::Settings struct
 %ignore ofFbo::Settings;
-%ignore allocate(ofFboSettings);
 
 %include "gl/ofFbo.h"
 

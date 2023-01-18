@@ -225,4 +225,5 @@ void ofxBaseMidiOut::finishMidiStream() {
 		return;
 	}
 	sendMessage(stream);
+	bStreamInProgress = false;
 }

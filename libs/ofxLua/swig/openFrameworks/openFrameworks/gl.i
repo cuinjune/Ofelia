@@ -105,6 +105,21 @@ class ofBaseMaterial {};
 // DIFF:   ignore defaultAttributes enum
 %ignore ofShader::defaultAttributes;
 
+// DIFF:   ignore setUniform*v and setAttribute*v array pointer
+//         functions until they are wrapped via typemaps, etc
+%ignore setUniform1iv;
+%ignore setUniform2iv;
+%ignore setUniform3iv;
+%ignore setUniform4iv;
+%ignore setUniform1fv;
+%ignore setUniform2fv;
+%ignore setUniform3fv;
+%ignore setUniform4fv;
+%ignore setAttribute1fv;
+%ignore setAttribute2fv;
+%ignore setAttribute3fv;
+%ignore setAttribute4fv;
+
 %include "gl/ofShader.h"
 
 // ----- ofTexture.h -----

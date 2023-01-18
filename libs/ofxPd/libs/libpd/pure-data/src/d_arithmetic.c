@@ -48,36 +48,6 @@ static void *plus_new(t_symbol *s, int argc, t_atom *argv)
     }
 }
 
-t_int *plus_perform(t_int *w)
-{
-    t_sample *in1 = (t_sample *)(w[1]);
-    t_sample *in2 = (t_sample *)(w[2]);
-    t_sample *out = (t_sample *)(w[3]);
-    int n = (int)(w[4]);
-    while (n--) *out++ = *in1++ + *in2++;
-    return (w+5);
-}
-
-t_int *plus_perf8(t_int *w)
-{
-    t_sample *in1 = (t_sample *)(w[1]);
-    t_sample *in2 = (t_sample *)(w[2]);
-    t_sample *out = (t_sample *)(w[3]);
-    int n = (int)(w[4]);
-    for (; n; n -= 8, in1 += 8, in2 += 8, out += 8)
-    {
-        t_sample f0 = in1[0], f1 = in1[1], f2 = in1[2], f3 = in1[3];
-        t_sample f4 = in1[4], f5 = in1[5], f6 = in1[6], f7 = in1[7];
-
-        t_sample g0 = in2[0], g1 = in2[1], g2 = in2[2], g3 = in2[3];
-        t_sample g4 = in2[4], g5 = in2[5], g6 = in2[6], g7 = in2[7];
-
-        out[0] = f0 + g0; out[1] = f1 + g1; out[2] = f2 + g2; out[3] = f3 + g3;
-        out[4] = f4 + g4; out[5] = f5 + g5; out[6] = f6 + g6; out[7] = f7 + g7;
-    }
-    return (w+5);
-}
-
 t_int *scalarplus_perform(t_int *w)
 {
     t_sample *in = (t_sample *)(w[1]);
@@ -105,17 +75,9 @@ t_int *scalarplus_perf8(t_int *w)
     return (w+5);
 }
 
-void dsp_add_plus(t_sample *in1, t_sample *in2, t_sample *out, int n)
-{
-    if (n&7)
-        dsp_add(plus_perform, 4, in1, in2, out, (t_int)n);
-    else
-        dsp_add(plus_perf8, 4, in1, in2, out, (t_int)n);
-}
-
 static void plus_dsp(t_plus *x, t_signal **sp)
 {
-    dsp_add_plus(sp[0]->s_vec, sp[1]->s_vec, sp[2]->s_vec, (t_int)sp[0]->s_n);
+    dsp_add_plus(sp[0]->s_vec, sp[1]->s_vec, sp[2]->s_vec, sp[0]->s_n);
 }
 
 static void scalarplus_dsp(t_scalarplus *x, t_signal **sp)
@@ -134,13 +96,13 @@ static void plus_setup(void)
         sizeof(t_plus), 0, A_GIMME, 0);
     class_addmethod(plus_class, (t_method)plus_dsp, gensym("dsp"), A_CANT, 0);
     CLASS_MAINSIGNALIN(plus_class, t_plus, x_f);
-    class_sethelpsymbol(plus_class, gensym("sigbinops"));
+    class_sethelpsymbol(plus_class, gensym("binops-tilde"));
     scalarplus_class = class_new(gensym("+~"), 0, 0,
         sizeof(t_scalarplus), 0, 0);
     CLASS_MAINSIGNALIN(scalarplus_class, t_scalarplus, x_f);
     class_addmethod(scalarplus_class, (t_method)scalarplus_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalarplus_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalarplus_class, gensym("binops-tilde"));
 }
 
 /* ----------------------------- minus ----------------------------- */
@@ -264,13 +226,13 @@ static void minus_setup(void)
         sizeof(t_minus), 0, A_GIMME, 0);
     CLASS_MAINSIGNALIN(minus_class, t_minus, x_f);
     class_addmethod(minus_class, (t_method)minus_dsp, gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(minus_class, gensym("sigbinops"));
+    class_sethelpsymbol(minus_class, gensym("binops-tilde"));
     scalarminus_class = class_new(gensym("-~"), 0, 0,
         sizeof(t_scalarminus), 0, 0);
     CLASS_MAINSIGNALIN(scalarminus_class, t_scalarminus, x_f);
     class_addmethod(scalarminus_class, (t_method)scalarminus_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalarminus_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalarminus_class, gensym("binops-tilde"));
 }
 
 /* ----------------------------- times ----------------------------- */
@@ -395,13 +357,13 @@ static void times_setup(void)
         sizeof(t_times), 0, A_GIMME, 0);
     CLASS_MAINSIGNALIN(times_class, t_times, x_f);
     class_addmethod(times_class, (t_method)times_dsp, gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(times_class, gensym("sigbinops"));
+    class_sethelpsymbol(times_class, gensym("binops-tilde"));
     scalartimes_class = class_new(gensym("*~"), 0, 0,
         sizeof(t_scalartimes), 0, 0);
     CLASS_MAINSIGNALIN(scalartimes_class, t_scalartimes, x_f);
     class_addmethod(scalartimes_class, (t_method)scalartimes_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalartimes_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalartimes_class, gensym("binops-tilde"));
 }
 
 /* ----------------------------- over ----------------------------- */
@@ -537,13 +499,13 @@ static void over_setup(void)
         sizeof(t_over), 0, A_GIMME, 0);
     CLASS_MAINSIGNALIN(over_class, t_over, x_f);
     class_addmethod(over_class, (t_method)over_dsp, gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(over_class, gensym("sigbinops"));
+    class_sethelpsymbol(over_class, gensym("binops-tilde"));
     scalarover_class = class_new(gensym("/~"), 0, 0,
         sizeof(t_scalarover), 0, 0);
     CLASS_MAINSIGNALIN(scalarover_class, t_scalarover, x_f);
     class_addmethod(scalarover_class, (t_method)scalarover_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalarover_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalarover_class, gensym("binops-tilde"));
 }
 
 /* ----------------------------- max ----------------------------- */
@@ -679,13 +641,13 @@ static void max_setup(void)
         sizeof(t_max), 0, A_GIMME, 0);
     CLASS_MAINSIGNALIN(max_class, t_max, x_f);
     class_addmethod(max_class, (t_method)max_dsp, gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(max_class, gensym("sigbinops"));
+    class_sethelpsymbol(max_class, gensym("binops-tilde"));
     scalarmax_class = class_new(gensym("max~"), 0, 0,
         sizeof(t_scalarmax), 0, 0);
     CLASS_MAINSIGNALIN(scalarmax_class, t_scalarmax, x_f);
     class_addmethod(scalarmax_class, (t_method)scalarmax_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalarmax_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalarmax_class, gensym("binops-tilde"));
 }
 
 /* ----------------------------- min ----------------------------- */
@@ -821,13 +783,13 @@ static void min_setup(void)
         sizeof(t_min), 0, A_GIMME, 0);
     CLASS_MAINSIGNALIN(min_class, t_min, x_f);
     class_addmethod(min_class, (t_method)min_dsp, gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(min_class, gensym("sigbinops"));
+    class_sethelpsymbol(min_class, gensym("binops-tilde"));
     scalarmin_class = class_new(gensym("min~"), 0, 0,
         sizeof(t_scalarmin), 0, 0);
     CLASS_MAINSIGNALIN(scalarmin_class, t_scalarmin, x_f);
     class_addmethod(scalarmin_class, (t_method)scalarmin_dsp,
         gensym("dsp"), A_CANT, 0);
-    class_sethelpsymbol(scalarmin_class, gensym("sigbinops"));
+    class_sethelpsymbol(scalarmin_class, gensym("binops-tilde"));
 }
 
 /* ----------------------- global setup routine ---------------- */

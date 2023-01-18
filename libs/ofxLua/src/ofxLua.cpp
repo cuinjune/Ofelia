@@ -1002,6 +1002,10 @@ void ofxLua::errorOccurred(std::string& message) {
 	}
 }
 
+std::string ofxLua::getErrorMessage() {
+	return errorMessage;
+}
+
 // from http://www.lua.org/pil/24.2.3.html
 void ofxLua::printStack() {
 	if(!isValid()) {
