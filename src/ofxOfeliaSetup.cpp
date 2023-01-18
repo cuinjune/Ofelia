@@ -24,7 +24,7 @@ void ofelia_setup()
     sys_getversion(&major, &minor, &bugfix);
     if (major == PD_MAJOR_VERSION_REQUIRED && minor < PD_MINOR_VERSION_REQUIRED)
     {
-        error("ofelia requires Pd-%d.%d-0 or higher", PD_MAJOR_VERSION_REQUIRED, PD_MINOR_VERSION_REQUIRED);
+        pd_error(0, "ofelia requires Pd-%d.%d-0 or higher", PD_MAJOR_VERSION_REQUIRED, PD_MINOR_VERSION_REQUIRED);
         return;
     }
     if (!ofxOfeliaLua::init()) return;

@@ -121,7 +121,7 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
         if (!std::strcmp(flag, "-c"))
             cr = 1;
         else
-            error("ofelia read: unknown flag '%s'", flag);
+            pd_error(0, "ofelia read: unknown flag '%s'", flag);
         argc--; argv++;
     }
     if (argc && argv->a_type == A_SYMBOL)
@@ -131,7 +131,7 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
     }
     else
     {
-        error("ofelia read: no file name given");
+        pd_error(0, "ofelia read: no file name given");
         return;
     }
     if (argc)
@@ -140,7 +140,7 @@ void ofxOfeliaTextBuf::readMethod(t_symbol *s, int argc, t_atom *argv)
         postatom(argc, argv); endpost();
     }
     if (binbuf_read_via_canvas(dataPtr->binbuf, fileName->s_name, dataPtr->canvas, cr))
-        error("%s: read failed", fileName->s_name);
+        pd_error(0, "%s: read failed", fileName->s_name);
     senditup();
     dataPtr->lua.doText();
 }
@@ -158,7 +158,7 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
         if (!std::strcmp(flag, "-c"))
             cr = 1;
         else
-            error("ofelia write: unknown flag '%s'", flag);
+            pd_error(0, "ofelia write: unknown flag '%s'", flag);
         argc--; argv++;
     }
     if (argc && argv->a_type == A_SYMBOL)
@@ -168,7 +168,7 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
     }
     else
     {
-        error("ofelia write: no file name given");
+        pd_error(0, "ofelia write: no file name given");
         return;
     }
     if (argc)
@@ -178,7 +178,7 @@ void ofxOfeliaTextBuf::writeMethod(t_symbol *s, int argc, t_atom *argv)
     }
     canvas_makefilename(dataPtr->canvas, fileName->s_name, buf, MAXPDSTRING);
     if (binbuf_write(dataPtr->binbuf, buf, const_cast<char *>(""), cr))
-        error("%s: write failed", fileName->s_name);
+        pd_error(0, "%s: write failed", fileName->s_name);
 }
 
 void ofxOfeliaTextBuf::free()
