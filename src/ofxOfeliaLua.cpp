@@ -197,7 +197,7 @@ bool ofxOfeliaLua::require()
     if (!isChunkRun) return false;
     lua_getglobal(L, "require");
     lua_pushstring(L, dataPtr->sym->s_name);
-    if (lua_pcall(L, 1, LUA_MULTRET, 0))
+    if (lua_pcall(L, 1, 1, 0))
     {
         error("ofelia: %s", lua_tostring(L, -1));
         lua_pop(L, 1);
