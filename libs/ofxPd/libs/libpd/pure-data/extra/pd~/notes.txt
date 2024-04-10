@@ -1,0 +1,11 @@
+pd -schedlib `pwd`/pdsched
+
+ascii, non-real-time:
+pd -schedlib `pwd`/pdsched -extraflags a -nrt
+
+dolist:
+pd~ to delay starting subproc until asked
+figure out about setting nchannels from command line
+fix maximum nchannels in and out
+
+
