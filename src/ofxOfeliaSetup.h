@@ -2,7 +2,7 @@
 
 /* ofelia compiled version info */
 #define OFELIA_MAJOR_VERSION 4
-#define OFELIA_MINOR_VERSION 0
+#define OFELIA_MINOR_VERSION 1
 #define OFELIA_BUGFIX_VERSION 0
 
 /* minimum required pd version info */

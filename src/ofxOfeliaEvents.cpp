@@ -108,7 +108,7 @@ ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
     else if (!std::strcmp(s->s_name, "cancelPressed"))
         return &cancelPressedVec;
     else
-        error("ofelia: unknown listener method '%s'", s->s_name);
+        pd_error(0, "ofelia: unknown listener method '%s'", s->s_name);
     return nullptr;
 }
 
