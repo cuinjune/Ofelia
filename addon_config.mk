@@ -22,14 +22,15 @@ meta:
 	ADDON_URL = http://github.com/cuinjune/ofxOfelia
 
 common:
-	ADDON_CFLAGS = -DHAVE_UNISTD_H 
-	ADDON_CFLAGS += -DUSEAPI_DUMMY
-	ADDON_CFLAGS += -DPD
-	ADDON_CFLAGS += -DLIBPD_EXTRA
-	ADDON_CFLAGS += -DLIBPD_USE_STD_MUTEX
-	ADDON_CPPFLAGS += -DTARGET_STANDALONE
-	ADDON_SOURCES_EXCLUDE += libs/ofxLua/swig/%
-	ADDON_INCLUDES_EXCLUDE += libs/ofxLua/swig/%
+	ADDON_CPPFLAGS = -DTARGET_STANDALONE
+	# required for libpd
+	ADDON_CFLAGS = -DPD -DUSEAPI_DUMMY -DPD_INTERNAL -DHAVE_UNISTD_H -DHAVE_ALLOCA_H -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX
+	# uncomment this for multiple instance support, ie. for pdMultiExample
+	ADDON_CFLAGS += -DPDINSTANCE -DPDTHREADS
+	# this is included directly in pd~.c, don't build twice
+	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/pure-data/extra/pd~/binarymsg.c
+	# not needed
+	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/pure-data/src/m_dispatch_gen.c
 	
 linux64:
 	ADDON_PKG_CONFIG_LIBRARIES = alsa
@@ -103,7 +104,6 @@ msys2:
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_CFLAGS += -DLUA_USE_WINDOWS
-	ADDON_CFLAGS += -DPD_INTERNAL
 	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
 
 vs:
@@ -116,7 +116,6 @@ vs:
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/libs/pgmidi/%
 	ADDON_INCLUDES_EXCLUDE += libs/ofxMidi/src/ios/%
 	ADDON_CFLAGS += -DLUA_USE_WINDOWS
-	ADDON_CFLAGS += -DPD_INTERNAL
 	ADDON_CFLAGS += -DHAVE_STRUCT_TIMESPEC
 
 android/armeabi:
