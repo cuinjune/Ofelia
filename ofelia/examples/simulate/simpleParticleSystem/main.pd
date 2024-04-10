@@ -1,0 +1,43 @@
+#N canvas 720 100 665 491 10;
+#X declare -path ofelia/abs;
+#X obj 28 72 loadbang;
+#X obj 28 297 ofDraw;
+#X obj 28 150 ofSetup;
+#X obj 28 114 ofWindow;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 28 190 ofelia f -k \$0-particle;
+#A __set function M.new(l) \; local o = ofTable() \; o.acceleration
+= ofVec2f(0 \, 0.05) \; o.velocity = ofVec2f(ofRandom(-1 \, 1) \, ofRandom(-2
+\, 0)) \; o.position = l \; o.lifespan = 255 \; function o.run() \;
+o.update() \; o.display() \; end \; function o.update() \; o.velocity
+= o.velocity + o.acceleration \; o.position = o.position + o.velocity
+\; o.lifespan = o.lifespan - 1 \; end \; function o.display() \; ofSetColor(255
+\, 255 \, 255 \, o.lifespan) \; ofDrawCircle(o.position.x \, o.position.y
+\, 4) \; end \; function o.isDead() \; if o.lifespan < 0 then \; return
+true \; else \; return false \; end \; end \; return o \; end \; return
+M \;;
+#X obj 28 211 ofelia f -k \$0-particleSystem;
+#A __set local particle = a \; function M.new(position) \; local o
+= ofTable() \; o.origin = position \; o.particles = ofTable() \; function
+o.addParticle() \; o.particles[#o.particles + 1] = particle.new(o.origin)
+\; end \; function o.run() \; for i = #o.particles \, 1 \, -1 do \;
+local p = o.particles[i] \; p.run() \; if p.isDead() then \; table.remove(o.particles
+\, i) \; end \; end \; end \; return o \; end \; return M \;;
+#X text 25 23 particles are generated each cycle through a rendering
+chain \, fall with gravity and fade out over time.;
+#X text 295 407 This example was originally written in Processing.
+https://processing.org/examples/simpleparticlesystem.html;
+#X text 179 190 A simple Particle class.;
+#X text 214 211 A class to describe a group of Particles.;
+#X obj 484 29 declare -path ofelia/abs;
+#X msg 28 170 bang;
+#X obj 28 232 ofelia f \; ofBackground(0) \; local particleSystem =
+a \; ps = particleSystem.new(ofVec2f(ofGetWidth() / 2 \, 50)) \;;
+#X obj 28 317 ofelia f \; ps.addParticle() \; ps.run() \;;
+#X connect 0 0 4 0;
+#X connect 1 0 14 0;
+#X connect 2 0 12 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 13 0;
+#X connect 12 0 5 0;

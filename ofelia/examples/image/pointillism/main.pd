@@ -1,0 +1,31 @@
+#N canvas 695 100 670 560 10;
+#X declare -path ofelia/abs;
+#X obj 28 80 loadbang;
+#X text 25 23 Mouse horizontal location controls size of dots. Creates
+a simple pointillist effect using circles colored according to pixels
+in an image.;
+#X text 333 470 This example was originally written in Processing.
+https://processing.org/examples/pointillism.html;
+#X obj 28 122 ofWindow;
+#X obj 28 158 ofSetup;
+#X obj 28 303 ofDraw;
+#X msg 28 101 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 492 29 declare -path ofelia/abs;
+#X obj 28 198 pdcontrol;
+#X msg 28 178 dir 0 data/moonwalk.jpg;
+#X text 183 178 Load an image from the path.;
+#X obj 28 218 ofelia f \; ofSetBackgroundColor(255) \; ofSetBackgroundAuto(false)
+\; img = ofImage(a) \; smallPoint = 2 \; largePoint = 20 \;;
+#X obj 28 323 ofelia f \; local pointillize = ofMap(ofGetMouseX() \,
+0 \, ofGetWidth() \, smallPoint \, largePoint) \; pointillize = ofClamp(pointillize
+\, smallPoint \, largePoint) \; local x \, y = ofRandom(img:getWidth())
+\, ofRandom(img:getHeight()) \; local pix = img:getColor(x \, y) \;
+ofSetColor(pix \, 128) \; ofDrawCircle(x \, y \, pointillize) \;;
+#X f 87;
+#X text 204 239 Disable the background clearing function.;
+#X connect 0 0 6 0;
+#X connect 4 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 3 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;

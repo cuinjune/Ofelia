@@ -1,0 +1,34 @@
+#N canvas 720 100 665 623 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X obj 28 328 ofDraw;
+#X obj 28 263 ofUpdate;
+#X msg 28 91 setPosition 30 100 \, setSize 640 480 \, create;
+#X text 209 199 Print available devices \, select the first one \,
+then setup the video grabber.;
+#X text 201 358 Draws the grabber in different colors.;
+#X text 331 534 This example is based on the openFrameworks example
+"videoGrabberExample";
+#X obj 489 25 declare -path ofelia/abs;
+#X obj 28 188 ofelia f \; grabber = ofVideoGrabber() \; grabber:listDevices()
+\; grabber:setDeviceID(0) \; grabber:setup(320 \, 240) \;;
+#X obj 28 283 ofelia f \; grabber:update() \;;
+#X msg 28 168 bang;
+#X text 143 294 Update the grabber's frame.;
+#X obj 28 348 ofelia f \; ofSetColor(255 \, 255 \, 255) \; grabber:draw(0
+\, 0) \; ofSetColor(255 \, 0 \, 0) \; grabber:draw(320 \, 0) \; ofSetColor(0
+\, 255 \, 0) \; grabber:draw(0 \, 240) \; ofSetColor(0 \, 0 \, 255)
+\; grabber:draw(320 \, 240) \;;
+#X text 25 23 This example is designed to demonstrate how to access
+the webcam using the ofVideoGrabber() class.;
+#X obj 28 463 ofExit;
+#X obj 28 483 ofelia f \; grabber:close() \; grabber = nil \;;
+#X connect 0 0 5 0;
+#X connect 2 0 12 0;
+#X connect 3 0 14 0;
+#X connect 4 0 11 0;
+#X connect 5 0 1 0;
+#X connect 12 0 10 0;
+#X connect 16 0 17 0;

@@ -1,0 +1,40 @@
+#N canvas 720 100 682 563 10;
+#X declare -path ofelia/abs;
+#X obj 28 82 loadbang;
+#X text 86 160 Setup callback.;
+#X obj 28 124 ofWindow;
+#X obj 28 160 ofSetup;
+#X obj 28 355 ofDraw;
+#X text 83 356 Draw callback.;
+#X msg 28 103 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 502 29 declare -path ofelia/abs;
+#X obj 199 240 pdcontrol;
+#X msg 199 220 dir 0 data/DejaVuSansMono.ttf;
+#X obj 28 260 pack s s, f 29;
+#X obj 28 240 pdcontrol;
+#X msg 28 220 dir 0 data/Sansation.ttf;
+#X msg 28 180 bang;
+#X obj 28 200 t b b, f 29;
+#X text 393 219 Load fonts from the path.;
+#X obj 28 375 ofelia f \; ofSetColor(255) \; title:drawString("What
+is OFELIA?" \, 80 \, 80) \; ofDrawLine(80 \, 95 \, 560 \, 95) \; local
+n = string.char(10) \; local str = "OFELIA stands for"..n.."OpenFrameworks
+as"..n.."an External Library"..n.."for Interactive"..n.."Applications."
+\; content:drawString(str \, 80 \, 140) \;;
+#X obj 28 280 ofelia f \; ofSetBackgroundColor(55) \; title \, content
+= ofTrueTypeFont() \, ofTrueTypeFont() \; title:load(a[1] \, 48) \;
+content:load(a[2] \, 32) \;;
+#X text 25 23 The ofTrueTypeFont() class allows the user to load a
+font to draw a string.;
+#X connect 0 0 6 0;
+#X connect 3 0 13 0;
+#X connect 4 0 16 0;
+#X connect 6 0 2 0;
+#X connect 8 0 10 1;
+#X connect 9 0 8 0;
+#X connect 10 0 17 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 14 1 9 0;

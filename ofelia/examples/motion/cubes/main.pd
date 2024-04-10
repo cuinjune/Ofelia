@@ -1,0 +1,26 @@
+#N canvas 720 100 665 514 10;
+#X declare -path ofelia/abs;
+#X obj 28 72 loadbang;
+#X text 25 22 Rotating lined cubes with different color \, line width
+and size which oscillates over time.;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 285 ofDraw;
+#X msg 28 93 setPosition 30 100 \, setSize 1024 768 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 190 ofelia f \; ofBackground(0) \; ofNoFill() \; centerX
+= ofGetWidth() / 2 \; centerY = ofGetHeight() / 2 \; size = 100 \;
+angle = 0 \;;
+#X msg 28 170 bang;
+#X obj 28 305 ofelia f \; ofTranslate(centerX \, centerY) \; for i
+= 1 \, 8 do \; ofPushMatrix() \; ofSetLineWidth(i / 2) \; ofSetColor((i
+* 80) % 255 \, (i * 50) % 255 \, (i * 30) % 255) \; ofRotateXDeg(angle
+* 9) \; ofRotateYDeg(angle * 7) \; ofRotateZDeg(angle * 3) \; ofDrawBox(size
++ math.sin(angle * 0.1 + i) * 100 + i * math.cos(angle * 0.25 + i)*
+8) \; ofPopMatrix() \; end \; angle = angle + 0.1 \;;
+#X f 93;
+#X connect 0 0 5 0;
+#X connect 3 0 8 0;
+#X connect 4 0 9 0;
+#X connect 5 0 2 0;
+#X connect 8 0 7 0;

@@ -1,0 +1,26 @@
+#N canvas 720 100 665 529 10;
+#X declare -path ofelia/abs;
+#X obj 28 72 loadbang;
+#X text 25 23 When the shape hits the edge of the window \, it reverses
+its direction.;
+#X text 325 443 This example was originally written in Processing.
+https://processing.org/examples/bounce.html;
+#X obj 28 114 ofWindow;
+#X obj 28 150 ofSetup;
+#X obj 28 285 ofDraw;
+#X msg 28 93 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 190 ofelia f \; ofBackground(102) \; ofSetCircleResolution(50)
+\; rad = 60 \; xspeed \, yspeed = 2.8 \, 2.2 \; xpos \, ypos = 320
+\, 200 \; xdir \, ydir = 1 \, 1 \;;
+#X obj 28 305 ofelia f \; xpos = xpos + (xspeed * xdir) \; ypos = ypos
++ (yspeed * ydir) \; if xpos > ofGetWidth() - rad or xpos < rad then
+\; xdir = xdir * -1 \; end \; if ypos > ofGetHeight()- rad or ypos
+< rad then \; ydir = ydir * -1 \; end \; ofDrawCircle(xpos \, ypos
+\, rad) \;;
+#X msg 28 170 bang;
+#X connect 0 0 6 0;
+#X connect 4 0 10 0;
+#X connect 5 0 9 0;
+#X connect 6 0 3 0;
+#X connect 10 0 8 0;

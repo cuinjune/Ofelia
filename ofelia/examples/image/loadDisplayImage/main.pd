@@ -1,0 +1,38 @@
+#N canvas 720 100 665 487 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X text 323 410 This example was originally written in Processing.
+https://processing.org/examples/loaddisplayimage.html;
+#X text 25 23 Images can be loaded and displayed to the screen at their
+actual size or any other size.;
+#X text 241 311 Displays the image at its actual size at point (0 \,
+0).;
+#X text 241 326 Displays the image at point (0 \, 180) at half of its
+size.;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X obj 28 268 ofDraw;
+#X floatatom 174 285 5 0 0 0 - - -;
+#X floatatom 223 286 5 0 0 0 - - -;
+#X floatatom 76 285 5 0 0 0 - - -;
+#X floatatom 125 285 5 0 0 0 - - -;
+#X text 265 284 <- Try changing the position and size of the image.
+;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 188 pdcontrol;
+#X msg 28 168 dir 0 data/moonwalk.jpg;
+#X obj 28 208 ofelia f \; img = ofImage(a) \;;
+#X text 183 168 Load an image from the path.;
+#X obj 28 304 ofelia f -c51 0 180 320 180 \; img:draw(0 \, 0) \; img:draw(a[1]
+\, a[2] \, a[3] \, a[4]) \;;
+#X connect 0 0 13 0;
+#X connect 6 0 16 0;
+#X connect 7 0 19 0;
+#X connect 8 0 19 3;
+#X connect 9 0 19 4;
+#X connect 10 0 19 1;
+#X connect 11 0 19 2;
+#X connect 13 0 5 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;

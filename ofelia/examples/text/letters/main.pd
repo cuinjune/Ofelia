@@ -1,0 +1,30 @@
+#N canvas 720 80 665 593 10;
+#X declare -path ofelia/abs;
+#X obj 28 70 loadbang;
+#X text 25 23 Draws letters to the screen. This requires loading a
+font \, setting the font \, and then drawing the letters.;
+#X text 333 501 This example was originally written in Processing.
+https://processing.org/examples/letters.html;
+#X obj 28 112 ofWindow;
+#X obj 28 148 ofSetup;
+#X obj 28 273 ofDraw;
+#X msg 28 91 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 188 pdcontrol;
+#X msg 28 168 dir 0 data/SourceCodePro-Regular.ttf;
+#X obj 28 293 ofelia f \; local gap = 46 \; ofTranslate(35 \, 55) \;
+local counter = 35 \; for y = 0 \, ofGetHeight()-gap \, gap do \; for
+x = 0 \, ofGetWidth()-gap \, gap do \; local letter = string.char(counter)
+\; if letter == "A" or letter == "E" or letter == "I" or letter ==
+"O" or letter == "U" then \; ofSetColor(255 \, 204 \, 0) \; else \;
+ofSetColor(255) \; end \; font:drawString(tostring(letter) \, x \,
+y) \; counter = counter + 1 \; end \; end \;;
+#X f 91;
+#X obj 28 208 ofelia f \; ofSetBackgroundColor(0) \; font = ofTrueTypeFont()
+\; font:load(a \, 24) \;;
+#X connect 0 0 6 0;
+#X connect 4 0 9 0;
+#X connect 5 0 10 0;
+#X connect 6 0 3 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;

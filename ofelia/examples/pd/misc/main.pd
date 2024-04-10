@@ -1,0 +1,178 @@
+#N canvas 321 23 733 751 10;
+#X floatatom 303 116 5 0 0 0 - - -;
+#X obj 265 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 72 114 5 0 0 0 - - -;
+#X obj 42 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 43 243 5 0 0 0 - - -;
+#X floatatom 270 166 5 0 0 0 - - -;
+#X floatatom 214 297 5 0 0 0 - - -;
+#X floatatom 48 398 5 0 0 0 - - -;
+#X obj 272 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 272 240 5 0 0 0 - - -;
+#X obj 43 145 ofelia d \; local value = ofValue("v\$0_foo") \; function
+M.float(f) \; value:set(f) \; end \; function M.bang() \; return value:get()
+\; end \;;
+#X obj 270 145 value v\$0_foo;
+#X obj 272 219 expr v\$0_foo * 2;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-boo 10 float 3;
+#A 0 0 0.5 0.9 0.2 -0.5 -0.7 -0.9 0 0.5 0.7;
+#X coords 0 1 10 -1 200 140 1 0 0;
+#X restore 453 438 graph;
+#X obj 290 376 tabread \$0-boo;
+#X floatatom 290 401 5 0 0 0 - - -;
+#X obj 48 333 ofelia d \; local array = ofArray("\$0-boo") \; function
+M.float(f) \; return array:getAt(f) \; end \;;
+#X obj 266 542 tabwrite \$0-boo;
+#X floatatom 314 475 5 0 0 0 - - -;
+#X obj 42 500 ofelia d -c20 \; local array = ofArray("\$0-boo") \;
+function M.list(fv) \; array:setAt(fv[2] \, fv[1]) \; end \;;
+#X msg 99 457 0.8;
+#X msg 135 459 -0.8;
+#X obj 272 655 array get \$0-boo;
+#X obj 45 705 print A;
+#X obj 272 700 print B;
+#X obj 310 892 array set \$0-boo;
+#X msg 318 814 0 0.5 0.9 0.2 -0.5 -0.7 -0.9 0 0.5 0.7;
+#X msg 49 785 0.7 0.5 0 -0.9 -0.7 -0.5 0.2 0.9 0.5 0;
+#X obj 95 982 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 284 1031 array size \$0-boo;
+#X floatatom 283 1121 5 0 0 0 - - -;
+#X floatatom 57 1116 5 0 0 0 - - -;
+#X obj 57 1016 ofelia d \; local array = ofArray("\$0-boo") \; function
+M.bang() \; return array:getSize() \; end \; function M.float(f) \;
+return array:setSize(f) \; end \;;
+#X msg 161 986 5;
+#X msg 283 973 10;
+#X obj 364 1293 r \$0-goo;
+#X obj 364 1314 print Result;
+#X obj 59 1188 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 89 1188 5 0 0 0 - - -;
+#X msg 133 1189 symbol haha;
+#X obj 78 1219 ofelia d \; local send = ofSend("\$0-goo") \; function
+M.bang() \; send:sendBang() \; end \; function M.float(f) \; send:sendFloat(f)
+\; end \; function M.symbol(s) \; send:sendSymbol(s) \; end \; function
+M.pointer(p) \; send:sendPointer(p) \; end \; function M.list(av) \;
+send:sendList(av) \; end \; function M.any(av) \; send:sendAnything(av)
+\; end \;;
+#X msg 217 1189 list a b c;
+#X msg 295 1188 any a b c;
+#X obj 378 1527 s \$0-voo;
+#X floatatom 401 1467 5 0 0 0 - - -;
+#X obj 90 1631 ofelia d -c14 -k;
+#A __set local outlet = ofOutlet(this) \; function M.bang() \; outlet:outletFloat(0
+\, 123) \; outlet:outletSymbol(1 \, "hello") \; outlet:outletList(2
+\, {"abc" \, 1 \, 2}) \; outlet:outletAnything(3 \, {"abc" \, 1 \,
+2}) \; end \;;
+#X obj 90 1607 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 51 1671 5 0 0 0 - - -;
+#X symbolatom 103 1673 10 0 0 0 - - -;
+#X obj 181 1671 unpack s f f;
+#X symbolatom 164 1698 10 0 0 0 - - -;
+#X floatatom 231 1699 5 0 0 0 - - -;
+#X floatatom 266 1700 5 0 0 0 - - -;
+#X obj 325 1668 route abc;
+#X obj 328 1692 unpack f f;
+#X floatatom 328 1713 5 0 0 0 - - -;
+#X floatatom 391 1714 5 0 0 0 - - -;
+#X text 330 1649 abc 1 2;
+#X text 189 1655 list abc 1 2;
+#X text 40 92 value emulation;
+#X text 38 290 tabread emulation;
+#X text 38 437 tabwrite emulation;
+#X text 41 605 array get emulation;
+#X text 49 753 array set emulation;
+#X text 53 962 array size emulation;
+#X text 67 1162 send emulation;
+#X text 90 1472 receive emulation;
+#X msg 315 788 0.7 0.5 0 -0.9 -0.7 -0.5 0.2 0.9 0.5 0;
+#X msg 63 813 0 0.5 0.9 0.2 -0.5 -0.7 -0.9 0 0.5 0.7;
+#X msg 113 839 onset \$1;
+#X floatatom 402 753 5 0 0 0 - - -;
+#X text 237 583 onset;
+#X obj 45 640 ofelia d \; local array = ofArray("\$0-boo") \; function
+M.float(f) \; return array:get(f) \; end \;;
+#X msg 202 584 0;
+#X msg 405 731 0;
+#X text 436 731 onset;
+#X floatatom 202 605 5 0 0 0 - - -;
+#X text 173 460 y value;
+#X text 351 473 x index;
+#X text 251 296 x index;
+#X text 89 399 y value;
+#X text 330 399 y value;
+#X text 84 1584 outputting values individually. (unlike return);
+#X obj 89 1501 ofelia f \$0-voo \; return a \;;
+#X obj 89 1533 print Received;
+#X obj 378 1466 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 439 1466 symbol pizza;
+#X msg 439 1487 list q w e r t y 1 2 3;
+#X obj 56 862 ofelia d -c10 \; M.onset = 0 \; local array = ofArray("\$0-boo")
+\; function M.list(fv) \; return array:set(fv \, M.onset) \; end \;
+;
+#X text 38 26 These examples show how some of pd objects can be emulated
+in ofelia.;
+#X connect 0 0 11 0;
+#X connect 1 0 11 0;
+#X connect 2 0 10 0;
+#X connect 3 0 10 0;
+#X connect 6 0 14 0;
+#X connect 6 0 16 0;
+#X connect 8 0 12 0;
+#X connect 10 0 4 0;
+#X connect 11 0 5 0;
+#X connect 12 0 9 0;
+#X connect 14 0 15 0;
+#X connect 16 0 7 0;
+#X connect 18 0 19 1;
+#X connect 18 0 17 1;
+#X connect 20 0 19 0;
+#X connect 21 0 17 0;
+#X connect 22 0 24 0;
+#X connect 26 0 25 0;
+#X connect 27 0 88 0;
+#X connect 28 0 29 0;
+#X connect 28 0 32 0;
+#X connect 29 0 30 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 0;
+#X connect 34 0 29 0;
+#X connect 35 0 36 0;
+#X connect 37 0 40 0;
+#X connect 38 0 40 0;
+#X connect 39 0 40 0;
+#X connect 41 0 40 0;
+#X connect 42 0 40 0;
+#X connect 44 0 43 0;
+#X connect 45 0 47 0;
+#X connect 45 1 48 0;
+#X connect 45 2 49 0;
+#X connect 45 3 53 0;
+#X connect 46 0 45 0;
+#X connect 49 0 50 0;
+#X connect 49 1 51 0;
+#X connect 49 2 52 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
+#X connect 54 1 56 0;
+#X connect 67 0 25 0;
+#X connect 68 0 88 0;
+#X connect 69 0 88 0;
+#X connect 70 0 69 0;
+#X connect 70 0 25 1;
+#X connect 72 0 23 0;
+#X connect 73 0 76 0;
+#X connect 74 0 70 0;
+#X connect 76 0 72 0;
+#X connect 76 0 22 0;
+#X connect 83 0 84 0;
+#X connect 85 0 43 0;
+#X connect 86 0 43 0;
+#X connect 87 0 43 0;

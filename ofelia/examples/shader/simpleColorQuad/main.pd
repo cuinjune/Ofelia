@@ -1,0 +1,13 @@
+#N canvas 720 100 511 300 10;
+#X obj 141 99 loadbang;
+#X obj 141 141 ofelia;
+#X text 190 141 <- click to see the loaded script.;
+#X msg 141 120 read -c simpleColorQuad.lua;
+#X text 23 21 This example shows a single lua script implementation
+of loading and applying shaders. please find "Your first shader" section
+from http://openframeworks.cc/ofBook/chapters/shaders.html to learn
+more about how it works.;
+#X text 166 244 This example is based on the openFrameworks example
+"01_simpleColorQuad";
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;

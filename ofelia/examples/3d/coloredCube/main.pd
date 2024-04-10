@@ -1,0 +1,36 @@
+#N canvas 720 100 665 716 10;
+#X declare -path ofelia/abs;
+#X obj 28 92 loadbang;
+#X obj 28 134 ofWindow;
+#X obj 28 170 ofSetup;
+#X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
+#X text 25 23 An ofMesh represents a set of vertices in 3D spaces \,
+and normals at those points \, colors at those points \, and texture
+coordinates at those points. Each of these different properties is
+stored in a vector.;
+#X obj 482 29 declare -path ofelia/abs;
+#X msg 28 190 bang;
+#X obj 28 575 ofDraw;
+#X obj 28 595 ofelia f \; ofEnableDepthTest() \; ofTranslate(ofGetWidth()
+/ 2 \, ofGetHeight() / 2) \; ofRotateDeg(ofGetFrameNum() \, 0.9 \,
+0.8 \, 0.7) \; mesh:drawFaces() \; ofDisableDepthTest() \;;
+#X f 51;
+#X obj 28 210 ofelia f \; ofBackground(55) \; mesh = ofMesh.box(120
+\, 120 \, 120 \, 1 \, 1 \, 1) \; local colors = ofTable() \; for i
+= 1 \, 24 do \; colors[i] = ofFloatColor() \; end \; colors[1]:set(0
+\, 0 \, 1) \; colors[2]:set(1 \, 0 \, 1) \; colors[3]:set(0 \, 1 \,
+1) \; colors[4]:set(1 \, 1 \, 1) \; colors[5]:set(1 \, 0 \, 1) \; colors[6]:set(1
+\, 0 \, 0) \; colors[7]:set(1 \, 1 \, 1) \; colors[8]:set(1 \, 1 \,
+0) \; colors[9]:set(0 \, 0 \, 0) \; colors[10]:set(0 \, 0 \, 1) \;
+colors[11]:set(0 \, 1 \, 0) \; colors[12]:set(0 \, 1 \, 1) \; colors[13]:set(1
+\, 0 \, 0) \; colors[14]:set(0 \, 0 \, 0) \; colors[15]:set(1 \, 1
+\, 0) \; colors[16]:set(0 \, 1 \, 0) \; colors[17]:set(0 \, 0 \, 0)
+\; colors[18]:set(1 \, 0 \, 0) \; colors[19]:set(0 \, 0 \, 1) \; colors[20]:set(1
+\, 0 \, 1) \; colors[21]:set(0 \, 1 \, 1) \; colors[22]:set(1 \, 1
+\, 1) \; colors[23]:set(0 \, 1 \, 0) \; colors[24]:set(1 \, 1 \, 0)
+\; for i=1 \, #colors do \; mesh:addColor(colors[i]) \; end \;;
+#X connect 0 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 1 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;

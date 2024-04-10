@@ -1,0 +1,32 @@
+#N canvas 720 100 665 555 10;
+#X declare -path ofelia/abs;
+#X obj 28 92 loadbang;
+#X text 335 474 This example was originally written in Processing.
+https://processing.org/examples/keyboard.html;
+#X text 25 23 Click on the window to give it focus and press the letter
+keys to create forms in time and space. Each key has a unique identifying
+number. These numbers can be used to position shapes in space.;
+#X obj 28 134 ofWindow;
+#X obj 28 170 ofSetup;
+#X obj 28 268 ofKeyPressed;
+#X msg 28 113 setPosition 30 100 \, setSize 640 360 \, create;
+#X obj 482 29 declare -path ofelia/abs;
+#X obj 28 210 ofelia f \; ofBackground(0) \; ofSetBackgroundAuto(false)
+\;;
+#X text 204 231 Disable the background clearing function.;
+#X msg 28 190 bang;
+#X obj 28 288 ofelia f \; local key \, keyIndex = a \, -1 \; if key
+>= string.byte("A") and key <= string.byte("Z") then \; keyIndex =
+key - string.byte("A") \; elseif key >= string.byte("a") and key <=
+string.byte("z") then \; keyIndex = key - string.byte("a") \; end \;
+if keyIndex == -1 then \; ofBackground(0) \; else \; ofSetColor(ofGetElapsedTimeMillis()
+% 255) \; local rectWidth = ofGetWidth() / 4 \; local x = ofMap(keyIndex
+\, 0 \, 25 \, 0 \, ofGetWidth() - rectWidth) \; ofDrawRectangle(x \,
+0 \, rectWidth \, ofGetHeight()) \; end \;;
+#X f 67;
+#X text 120 268 Listen to the keyboard press.;
+#X connect 0 0 6 0;
+#X connect 4 0 10 0;
+#X connect 5 0 11 0;
+#X connect 6 0 3 0;
+#X connect 10 0 8 0;
