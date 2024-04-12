@@ -29,8 +29,6 @@ common:
 	ADDON_CFLAGS += -DPDINSTANCE -DPDTHREADS
 	# this is included directly in pd~.c, don't build twice
 	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/pure-data/extra/pd~/binarymsg.c
-	# not needed
-	ADDON_SOURCES_EXCLUDE += libs/ofxPd/libs/libpd/pure-data/src/m_dispatch_gen.c
 	
 linux64:
 	ADDON_PKG_CONFIG_LIBRARIES = alsa
