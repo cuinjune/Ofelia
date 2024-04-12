@@ -471,7 +471,7 @@ static void midirealtimein_free(t_midirealtimein * x) {
 static void midirealtimein_setup(void) {
 	midirealtimein_class = class_new(gensym("midirealtimein"),
 		(t_newmethod)midirealtimein_new, (t_method)midirealtimein_free,
-		sizeof(t_midirealtimein), CLASS_NOINLET, A_DEFFLOAT, 0);
+		sizeof(t_midirealtimein), CLASS_NOINLET, 0);
 	class_addlist(midirealtimein_class, midirealtimein_list);
 	class_sethelpsymbol(midirealtimein_class, gensym("midi"));
 }
