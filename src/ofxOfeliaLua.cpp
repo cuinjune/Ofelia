@@ -68,6 +68,7 @@ extern "C"
 {
     int luaopen_of(lua_State *L);
     int luaopen_pd(lua_State *L);
+    int luaopen_glm(lua_State *L);
     int luaopen_print(lua_State *L);
 }
 
@@ -172,6 +173,7 @@ bool ofxOfeliaLua::init()
     luaL_openlibs(L);
     luaopen_of(L);
     luaopen_pd(L);
+    luaopen_glm(L);
     luaopen_print(L);
     
     /* clear stack since opening libs leaves tables on the stack */
@@ -180,6 +182,7 @@ bool ofxOfeliaLua::init()
     /* unpack module elements into global namespace with the new prefix */
     unpackModule(L, "of", "of");
     unpackModule(L, "pd", "of");
+    unpackModule(L, "glm", "glm");
     
     /* add GL preprocessor defines */
     ofxOfeliaGL::addDefines(L);
