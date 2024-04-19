@@ -27,14 +27,18 @@ ofxPGMidiIn::ofxPGMidiIn(const std::string name, ofxMidiApi api) : ofxBaseMidiIn
 	ofxPGMidiContext::setup();
 
 	// setup Obj-C interface to PGMidi
-	inputDelegate = new InputDelegate;
-	inputDelegate->d = [[ofxPGMidiSourceDelegate alloc] init];
-	[inputDelegate->d setInputPtr:(void*) this];
+	@autoreleasepool {
+		inputDelegate = new InputDelegate;
+		inputDelegate->d = [[ofxPGMidiSourceDelegate alloc] init];
+		[inputDelegate->d setInputPtr:(void *)this];
+	}
 }
 
 // -----------------------------------------------------------------------------
 ofxPGMidiIn::~ofxPGMidiIn() {
-	[inputDelegate->d release];
+	@autoreleasepool {
+		inputDelegate->d = nil;
+	}
 	delete inputDelegate;
 }
 

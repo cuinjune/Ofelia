@@ -1,3 +1,58 @@
+1.10.0: 2023 Nov 16
+
+* updated to libpd 0.14.0 (pd 0.54-1)
+  note: some files have been added or removed, so regenerate your projects
+
+* updated for OF 0.12
+  warning: the ProjectGenerator may not set the correct C flags for Xcode
+           projects, see the readme on how to manually set them
+
+* added ofSoundBuffer audioIn() and audioOut() functions (suggested by Nejrup)
+* use ofSetBackgroundColor instead of ofSetBackground in pdExample
+  (Jonathan Frank)
+* updated thumbnail to pd vanilla screenshot
+* various formatting updates and typo fixes
+
+* removed references to Codeblocks in readme build requirements
+
+1.9.1: 2022 Dec 16
+
+* updated to libpd 0.13.2 (pd 0.53-1)
+
+1.9.0: 2022 Nov 05
+
+* updated to libpd 0.13.0 (pd 0.53-0)
+  note: some files have been added or removed, so regenerate your projects
+
+* added support for multiple ofxPd instances when compiling with PDINSTANCE
+  note: projects which use libpd_*_instance functions must be updated to use
+        separate ofxPd instances
+
+1.8.1: 2021 Jan 08
+
+* updated to libpd 0.12.1 for pd~ support
+
+1.8.0: 2020 Dec 30
+
+* updated to libpd 0.12.0 (pd 0.51-4)
+  note: some files have been added, so regenerate your projects
+
+* added prelim support for Visual Studio (not fully tested, 64 bit only)
+* added info about PDINSTANCE and PDTHREADS defines to readme
+* added PDINSTANCE and PDTHREADS defines addon_config.mk (uncomment to use)
+* added info about NSMicrophoneUsageDescription to readme
+
+* readded [pd~] sources as they build on windows again
+* fixed pdMultiExample not building with PDINSTANCE and PDTHREADS defines
+  (reported by Antoine Rousseau)
+* append ADDONS_CFLAGS to avoid problem with OF ProjectGenerator on Android
+* include ofFileUtils.h before ofxPd.h to conflict between boost & libpd's
+  s_ define (Antoine Rousseau)
+
+* clarifications & screenshots for MinGW build instructions (moebiussurfing)
+* clarify windows libpd.dll instructions
+* update pdMultiExample
+
 1.7.1: 2018 Sep 13
 
 * updated to libpd 0.11.0 (pd 0.48-2)
@@ -8,7 +63,7 @@
 * updated to latest libpd pre-0.11 (pd 0.48-1),
   note: some files have been removed, so regenerate your projects
 
-* fixed macOS 10.13 SDK disptach.h error
+* fixed macOS 10.13 SDK dispatch.h error
 * fixed compile error due to leftover Poco/Mutex include (reported by Dan Moore)
 * fixed iOS duplicate symbols link error by setting -fcommon (reported by ukelady)
 

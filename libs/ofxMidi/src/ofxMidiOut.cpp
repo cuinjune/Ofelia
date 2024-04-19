@@ -123,60 +123,60 @@ void ofxMidiOut::sendMidiByte(unsigned char byte) {
 }
 
 //----------------------------------------------------------
-void ofxMidiOut::sendMidiBytes(std::vector<unsigned char>& bytes) {
+void ofxMidiOut::sendMidiBytes(std::vector<unsigned char> &bytes) {
 	midiOut->sendMidiBytes(bytes);
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const NoteOn& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const NoteOn &var) {
 	midiOut->sendNoteOn(var.channel, var.pitch, var.velocity);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const NoteOff& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const NoteOff &var) {
 	midiOut->sendNoteOff(var.channel, var.pitch, var.velocity);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const ControlChange& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const ControlChange &var) {
 	midiOut->sendControlChange(var.channel, var.control, var.value);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const ProgramChange& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const ProgramChange &var) {
 	midiOut->sendProgramChange(var.channel, var.value);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const PitchBend& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const PitchBend &var) {
 	midiOut->sendPitchBend(var.channel, var.value);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const Aftertouch& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const Aftertouch &var) {
 	midiOut->sendAftertouch(var.channel, var.value);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const PolyAftertouch& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const PolyAftertouch &var) {
 	midiOut->sendPolyAftertouch(var.channel, var.pitch, var.value);
 	return *this;
 }
 
 //----------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const StartMidi& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const StartMidi &var) {
 	midiOut->startMidiStream();
 	return *this;
 }
 
 // ---------------------------------------------------------
-ofxMidiOut& ofxMidiOut::operator<<(const FinishMidi& var) {
+ofxMidiOut& ofxMidiOut::operator<<(const FinishMidi &var) {
 	midiOut->finishMidiStream();
 	return *this;
 }

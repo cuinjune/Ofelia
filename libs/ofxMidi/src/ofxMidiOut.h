@@ -154,7 +154,7 @@ public:
 	/// raw MIDI bytes
 	///
 	void sendMidiByte(unsigned char byte);
-	void sendMidiBytes(std::vector<unsigned char>& bytes);
+	void sendMidiBytes(std::vector<unsigned char> &bytes);
 	
 /// \section Sending Stream Interface
 	
@@ -165,13 +165,13 @@ public:
 	/// midiOut << << PitchBend(1, 2000);
 	/// midiOut << Aftertouch(1, 127) << PolyAftertouch(1, 64, 127);
 	///
-	ofxMidiOut& operator<<(const NoteOn& var);
-	ofxMidiOut& operator<<(const NoteOff& var);
-	ofxMidiOut& operator<<(const ControlChange& var);
-	ofxMidiOut& operator<<(const ProgramChange& var);
-	ofxMidiOut& operator<<(const PitchBend& var);
-	ofxMidiOut& operator<<(const Aftertouch& var);
-	ofxMidiOut& operator<<(const PolyAftertouch& var);
+	ofxMidiOut& operator<<(const NoteOn &var);
+	ofxMidiOut& operator<<(const NoteOff &var);
+	ofxMidiOut& operator<<(const ControlChange &var);
+	ofxMidiOut& operator<<(const ProgramChange &var);
+	ofxMidiOut& operator<<(const PitchBend &var);
+	ofxMidiOut& operator<<(const Aftertouch &var);
+	ofxMidiOut& operator<<(const PolyAftertouch &var);
 	
 	/// compound raw MIDI byte stream
 	///
@@ -184,8 +184,8 @@ public:
 	///
 	/// warning: this is not thread safe, use sendMidiBytes() in a shared context
 	//
-	ofxMidiOut& operator<<(const StartMidi& var);
-	ofxMidiOut& operator<<(const FinishMidi& var);
+	ofxMidiOut& operator<<(const StartMidi &var);
+	ofxMidiOut& operator<<(const FinishMidi &var);
 	ofxMidiOut& operator<<(const unsigned char var);
 	
 private:

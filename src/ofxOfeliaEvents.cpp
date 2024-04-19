@@ -108,7 +108,7 @@ ofxOfeliaEvents::DataPairVec *ofxOfeliaEvents::getTargetDataPairVec(t_symbol *s)
     else if (!std::strcmp(s->s_name, "cancelPressed"))
         return &cancelPressedVec;
     else
-        error("ofelia: unknown listener method '%s'", s->s_name);
+        pd_error(0, "ofelia: unknown listener method '%s'", s->s_name);
     return nullptr;
 }
 
@@ -226,7 +226,8 @@ void ofxOfeliaEvents::callEventListener(ofxOfeliaData *x, t_symbol *s, ofDragInf
     for (size_t i = 0; i < e.files.size(); ++i)
     {
         lua_pushinteger(L, i + 1);
-        lua_pushstring(L, e.files[i].c_str());
+        // this line creates an error with OF master, see: https://github.com/cuinjune/Ofelia/issues/90
+        // lua_pushstring(L, e.files[i].c_str());
         lua_settable(L, -3);
     }
     lua_setfield(L, -2, "files");

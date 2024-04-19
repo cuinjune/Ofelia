@@ -39,7 +39,7 @@ public:
 
 	// iOS specific global stuff,
 	// easier to route through here thanks to Obj-C/C++ mix
-	static void setConnectionListener(ofxMidiConnectionListener * listener);
+	static void setConnectionListener(ofxMidiConnectionListener *listener);
 	static void clearConnectionListener();
 	static void enableNetworking();
 

@@ -57,7 +57,7 @@ void ofxMidiClock::reset() {
 
 // -----------------------------------------------------------------------------
 unsigned int ofxMidiClock::getBeats() {
-	return ticks / 6;
+	return (unsigned int)(ticks / 6);
 }
 
 // -----------------------------------------------------------------------------
@@ -67,7 +67,7 @@ void ofxMidiClock::setBeats(unsigned int beats) {
 
 // -----------------------------------------------------------------------------
 double ofxMidiClock::getSeconds() {
-	return beatsToSeconds(ticks / 6);
+	return beatsToSeconds((unsigned int)(ticks / 6));
 }
 
 // -----------------------------------------------------------------------------

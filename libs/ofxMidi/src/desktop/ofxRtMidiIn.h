@@ -38,4 +38,7 @@ private:
 	
 	/// static callback for RtMidi
 	static void _midiMessageCallback(double deltatime, std::vector<unsigned char> *message, void *userData);
+
+	/// static error callback for RtMidi
+	static void _midiErrorCallback(RtMidiError::Type type, const std::string &errorText, void *userData);
 };

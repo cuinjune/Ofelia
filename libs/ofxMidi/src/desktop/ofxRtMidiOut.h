@@ -35,5 +35,8 @@ private:
 	
 	void sendMessage(std::vector<unsigned char> &message);
 
+	/// static error callback for RtMidi
+	static void _midiErrorCallback(RtMidiError::Type type, const std::string &errorText, void *userData);
+
 	RtMidiOut midiOut;
 };

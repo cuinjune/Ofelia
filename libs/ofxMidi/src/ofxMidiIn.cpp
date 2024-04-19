@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Dan Wilcox <danomatika@gmail.com>
+ * Copyright (c) 2013-2023 Dan Wilcox <danomatika@gmail.com>
  *
  * BSD Simplified License.
  * For information on usage and redistribution, and for a DISCLAIMER OF ALL
@@ -39,7 +39,7 @@ std::string ofxMidiIn::getInPortName(unsigned int portNumber) {
 }
 
 // -----------------------------------------------------------------------------
-bool ofxMidiIn::openPort(unsigned int portNumber) {	
+bool ofxMidiIn::openPort(unsigned int portNumber) {
 	return midiIn->openPort(portNumber);
 }
 
@@ -73,8 +73,14 @@ bool ofxMidiIn::isOpen() {
 	return midiIn->isOpen();
 }
 
+// -----------------------------------------------------------------------------
 bool ofxMidiIn::isVirtual() {
 	return midiIn->isVirtual();
+}
+
+// -----------------------------------------------------------------------------
+bool ofxMidiIn::isQueued() {
+	return midiIn->isQueued();
 }
 
 // -----------------------------------------------------------------------------
@@ -83,13 +89,23 @@ void ofxMidiIn::ignoreTypes(bool midiSysex, bool midiTiming, bool midiSense) {
 }
 
 // -----------------------------------------------------------------------------
-void ofxMidiIn::addListener(ofxMidiListener* listener) {
+void ofxMidiIn::addListener(ofxMidiListener *listener) {
 	midiIn->addListener(listener);
 }
 
 // -----------------------------------------------------------------------------
-void ofxMidiIn::removeListener(ofxMidiListener* listener) {
+void ofxMidiIn::removeListener(ofxMidiListener *listener) {
 	midiIn->removeListener(listener);
+}
+
+// -----------------------------------------------------------------------------
+bool ofxMidiIn::hasWaitingMessages() const {
+	return midiIn->hasWaitingMessages();
+}
+
+// -----------------------------------------------------------------------------
+bool ofxMidiIn::getNextMessage(ofxMidiMessage &message) {
+	return midiIn->getNextMessage(message);
 }
 
 // -----------------------------------------------------------------------------

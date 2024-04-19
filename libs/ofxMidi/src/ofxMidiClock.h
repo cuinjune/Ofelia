@@ -61,7 +61,7 @@ public:
 /// \section Util
 
 	/// get the song position in seconds from a beat position,
-    /// 1 beat = 1/16 note = 6 clock ticks
+	/// 1 beat = 1/16 note = 6 clock ticks
 	double beatsToSeconds(unsigned int beats);
 
 	/// get the song position in beats from seconds,
@@ -76,7 +76,7 @@ public:
 
 protected:
 
-	double length = 20.833; //< averaged tick length in ms, default 120 bpm
-	unsigned long ticks = 0.0; //< current song pos in ticks (6 ticks = 1 beat)
-	std::chrono::steady_clock::time_point timestamp; //< last timestamp
+	double length = 20.833; ///< averaged tick length in ms, default 120 bpm
+	unsigned long ticks = 0.0; ///< current song pos in ticks (6 ticks = 1 beat)
+	std::chrono::steady_clock::time_point timestamp; ///< last timestamp
 };

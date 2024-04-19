@@ -15,17 +15,18 @@
 #include "ofxMidiClock.h"
 #include "ofxMidiTimecode.h"
 
-/// receives iOS MIDI device (dis)connection events
+/// receives iOS MIDI device (dis)connection events,
+/// currently does nothing on desktop
 class ofxMidiConnectionListener {
 
 public:
 
 	ofxMidiConnectionListener() {}
 	virtual ~ofxMidiConnectionListener() {}
-	
+
 	virtual void midiInputAdded(std::string name, bool isNetwork=false);
 	virtual void midiInputRemoved(std::string name, bool isNetwork=false);
-	
+
 	virtual void midiOutputAdded(std::string nam, bool isNetwork=false);
 	virtual void midiOutputRemoved(std::string name, bool isNetwork=false);
 };
@@ -47,8 +48,8 @@ namespace ofxMidi {
 	std::string bytesToString(std::vector<unsigned char> &bytes);
 
 /// \section iOS Specific
-	
-	/// set a listener to receieve iOS device (dis)connection events
+
+	/// set a listener to receive iOS device (dis)connection events
 	///
 	/// don't forget to clear before the listener is deallocated!
 	///
@@ -58,7 +59,7 @@ namespace ofxMidi {
 
 	/// clear iOS device event receiver
 	void clearConnectionListener();
-	
+
 	/// enables the network MIDI session between iOS and macOS on a
 	/// local wifi network
 	///

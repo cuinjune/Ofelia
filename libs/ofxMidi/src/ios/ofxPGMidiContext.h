@@ -33,7 +33,6 @@ class ofxPGMidiContext {
 	
 	private:
 
-		static NSAutoreleasePool *pool; // for happy garbage collection ...
 		static PGMidi *midi; ///< global Obj-C PGMidi instance
 		static ofxPGMidiDelegate *delegate; ///< device (dis)connection interface
 };

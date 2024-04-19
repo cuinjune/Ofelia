@@ -2,8 +2,6 @@
 * For information on usage and redistribution, and for a DISCLAIMER OF ALL
 * WARRANTIES, see the file, "LICENSE.txt," in this distribution.  */
 
-#include <stdlib.h>
-#include <string.h>
 #include "m_pd.h"
 #include "m_imp.h"
 #include "g_canvas.h"   /* just for LB_LOAD */
@@ -27,10 +25,12 @@ t_pd *pd_new(t_class *c)
     return (x);
 }
 
+typedef void (*t_freemethod)(t_pd *);
+
 void pd_free(t_pd *x)
 {
     t_class *c = *x;
-    if (c->c_freemethod) (*(t_gotfn)(c->c_freemethod))(x);
+    if (c->c_freemethod) (*(t_freemethod)(c->c_freemethod))(x);
     if (c->c_patchable)
     {
         while (((t_object *)x)->ob_outlet)
@@ -166,20 +166,25 @@ void pd_unbind(t_pd *x, t_symbol *s)
         if ((e = b->b_list)->e_who == x)
         {
             b->b_list = e->e_next;
+            e->e_who = 0; e->e_next = 0;
             freebytes(e, sizeof(t_bindelem));
         }
         else for (e = b->b_list; (e2 = e->e_next); e = e2)
             if (e2->e_who == x)
         {
             e->e_next = e2->e_next;
+            e2->e_who = 0; e2->e_next = 0;
             freebytes(e2, sizeof(t_bindelem));
             break;
         }
         if (!b->b_list->e_next)
         {
+
             s->s_thing = b->b_list->e_who;
             freebytes(b->b_list, sizeof(t_bindelem));
+            b->b_list = 0;
             pd_free(&b->b_pd);
+            b = 0;
         }
     }
     else pd_error(x, "%s: couldn't unbind", s->s_name);
@@ -322,7 +327,7 @@ void pd_init(void)
     pd_init_systems();
 }
 
-EXTERN void pd_init_systems(void) {
+void pd_init_systems(void) {
     mess_init();
     sys_lock();
     obj_init();
@@ -332,13 +337,12 @@ EXTERN void pd_init_systems(void) {
     sys_unlock();
 }
 
-EXTERN void pd_term_systems(void) {
+void pd_term_systems(void) {
     sys_lock();
     sys_unlock();
 }
 
-EXTERN t_canvas *pd_getcanvaslist(void)
+t_canvas *pd_getcanvaslist(void)
 {
     return (pd_this->pd_canvaslist);
 }
-

@@ -4,7 +4,7 @@ ofxPd
 <img src="https://raw.github.com/danomatika/ofxPd/master/ofxaddons_thumbnail.png"/>
 </p>
 
-Copyright (c) [Dan Wilcox](danomatika.com) 2011-2013
+Copyright (c) [Dan Wilcox](danomatika.com) 2011-2023
 
 BSD Simplified License.
 
@@ -18,11 +18,11 @@ This project has been supported by the CMU [Frank-Ratchye STUDIO for Creative In
 Description
 -----------
 
-ofxPd is an Open Frameworks addon for running an instance of the Pure Data audio environment within an OpenFrameworks application. Audio, messages, and [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface) events can be passed to and from pure data patches and the library is thread safe.
+ofxPd is an Open Frameworks addon for running an instance of the Pure Data audio environment within an openFrameworks application. Audio, messages, and [MIDI](http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface) events can be passed to and from pure data patches and the library is thread safe.
 
 [Pure Data](http://pure-data.info) is a graphical patching environment for audio and multimedia (note: the gui and graphics features are not within the scope of this addon) 
 
-[OpenFrameworks](http://www.openframeworks.cc) is a cross platform open source toolkit for creative coding in C++
+[openFrameworks](http://www.openframeworks.cc) is a cross platform open source toolkit for creative coding in C++
 
 Build Requirements
 ------------------
@@ -31,9 +31,9 @@ To use ofxPd, first you need to download and install Open Frameworks. Developmen
 
 [OF github repository](https://github.com/openframeworks/openFrameworks)
 
-On macOS, you will need to install Xcode from the Mac Developer Tools.
+On macOS, you will need to install Xcode.
 
-On Linux, you can use the Makefile and/or Codeblocks project files (without the "\_win" suffix).
+On Linux, you can use the Makefile.
 
 On Windows, Qt Creator/Msys2 are recommended as the libpd sources do not currently build in Visual Studio. However, you *can* use a libpd.dll built by MinGW in a Visual Studio project. See the "Using ofxPd with Visual Studio" section below.
 
@@ -51,11 +51,11 @@ The easiest way to do this is via cloning with git:
 
 ### Which version to use?
 
-The master branch of ofxPd will work with the current stable version of OpenFrameworks and can be considered *relatively* stable.
+The master branch of ofxPd will work with the current stable version of openFrameworks and can be considered *relatively* stable.
 
-Previous versions are tagged using [Semantic Versioning](http://semver.org) with the updates to newer versions of OpenFrameworks and libpd noted in the changelog, CHANGES.txt. You can select the tag in the Github "Current Branch" menu or clone and check it out using git.
+Previous versions are tagged using [Semantic Versioning](http://semver.org) with the updates to newer versions of openFrameworks and libpd noted in the changelog, CHANGES.txt. You can select the tag in the Github "Current Branch" menu or clone and check it out using git.
 
-If you want to use ofxPd with a previous version of OpenFrameworks, checkout the corresponding version tag after cloning:
+If you want to use ofxPd with a previous version of openFrameworks, checkout the corresponding version tag after cloning:
 
     git clone git://github.com/danomatika/ofxPd.git
     cd ofxPd
@@ -66,33 +66,52 @@ Running the Example Projects
 
 The example projects are in the `pdExample` & `pdExampleIOS` folders.
 
-Project files for the examples are not included so you will need to generate the project files for your operating system and development environment using the OF ProjectGenerator which is included with the OpenFrameworks distribution.
+Project files for the examples are not included so you will need to generate the project files for your operating system and development environment using the OF ProjectGenerator which is included with the openFrameworks distribution.
 
 To (re)generate project files for an *existing* project:
 
-* click the "Import" button in the ProjectGenerator
-* navigate the to base folder for the project ie. "pdExample"
-* click the "Update" button
+* Click the "Import" button in the ProjectGenerator
+* Navigate to the project's parent folder ie. "ofxPd", select the base folder for the example project ie. "pdExample", and click the Open button
+* Click the "Update" button
 
 If everything went Ok, you should now be able to open the generated project and build/run the example.
 
-Notes for iOS projects:
+### Notes for iOS Projects
 
-* as of iOS 10+, you will need to manually add a NSMicrophoneUsageDescription string to the project's info plist or the app will crash immediately:
-  1. click on the blue project at the top of the Xcode file tree (ie. something like "pdExampleIOS"
-  2. click the "Info" tab in the top/middle
-  3. under "Custom iOS Target Properties", hover over the last key in the list and click the "+" button
-  4. add the following:
+* As of iOS 10+, you will need to manually add a NSMicrophoneUsageDescription string to the project's info plist or the app will crash immediately:
+  1. Click on the blue project at the top of the Xcode file tree (ie. something like "pdExampleIOS"
+  2. Click the "Info" tab in the top/middle
+  3. Under "Custom iOS Target Properties", hover over the last key in the list and click the "+" button
+  4. Add the following:
     - Key: NSMicrophoneUsageDescription
     - Type: string
     - Value: a description string for the app like, ie. "This app needs to use the microphone for bla bla..."
-* if you use the OF release zips from openframeworks.cc, you need the iOS zip *not* the macOS zip
-* make sure that "iOS (Xcode)" is selected in the PG's "Platforms" box
+* If you use the OF release zips from openFrameworks.cc, you need the iOS zip *not* the macOS zip
+* Make sure that "iOS (Xcode)" is selected in the PG's "Platforms" box
+
+pdMultiExample & Multiple Instance Support
+------------------------------------------
+
+This special example demonstrates ofxPd's multiple-instance support, where you can run multiple separate instances of libpd concurrently.
+
+To build and run this example, the following C *and* C++ flags must be set: `-DPDINSTANCE` & `-DPDTHREADS`. If these are not set, the example will exit early with an error.
+
+### Makefile
+
+For Makefile builds, these are set in `pdMultiExample/config.make`.
+
+### Project Generator
+
+For project files which are created with the Project Generator (ie. Xcode), uncomment the line in `addons_config.mk` under the `common` target, save, then (re)generate the project with the PG.
+
+### Xcode
+
+The defines can be added manually to the Xcode projects build settings: `Other C Flags` & `Other C++ Flags`.
 
 PitchShifter
 ------------
 
-PitchShifter is a simple example application which uses an OF gui to control a pitch shifter within a PD patch. Like the basic example, you will have to generate the project files using the ProjectGenerator.
+PitchShifter is a simple example application which uses an OF GUI to control a pitch shifter within a PD patch. Like the basic example, you will have to generate the project files using the ProjectGenerator.
 
 How to Create a New ofxPd Project
 ---------------------------------
@@ -103,7 +122,7 @@ To develop your own project based on ofxPd, either generate a new project with t
 
     openFrameworks/addons/ofxPd/pdExample/ => openFrameworks/apps/myApps/pdExample/
 
-It must be 3 levels down in the openframeworks folder structure.
+It must be 3 levels down in the openFrameworks folder structure.
 
 Then after renaming:
 
@@ -113,68 +132,94 @@ Then after renaming:
 
 Rename the project in Xcode (do not rename the .xcodeproj file in Finder!): Xcode Menu->Project->Rename
 
-### For Codeblocks (Win & Linux):
-
-Rename the \*.cbp and \*.workspace files to the same name as the project folder. Open the workspace, readd the renamed project file, and remove the old project.
-
 Adding ofxPd to an Existing Project
 -----------------------------------
 
-_Note: These instructions are for manually add ofxPd to an existing project. You do not need to follow these steps if you use the ProjecGenerator app in which case you *may* need to add the C Flags as the PG currently seems to have a problem doing this. See the IDE specific instructions on how to do this._
+_Note: These instructions are for manually add ofxPd to an existing project. You do not need to follow these steps if you use the ProjecGenerator app in which case you *may* need to add the C flags as the PG currently seems to have a problem doing this. See the IDE specific instructions on how to do this._
 
 If you want to add ofxPd to another project, you need to make sure you include the src folder:
 
     openFrameworks/addons/ofxPd/src
 
-You will also need to include some additional C Flags for building the libpd source:
+You will also need to include some additional C flags for building the libpd source:
 
-	-DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX
+	-DPD -DUSEAPI_DUMMY -DPD_INTERNAL -DHAVE_UNISTD_H -DHAVE_ALLOCA_H -DLIBPD_EXTRA
 
 _Note: **-DLIBPD_EXTRA** is optional if you do not need/use the externals in `libpd/pure-data/extra`_
 
+If you want to build ofxPd with the libpd experimental libpd multi-instance support (ie. for pdMultiExample), add these C flags as well:
+
+    -DPDINSTANCE -DPDTHREADS
+
 ### For Xcode:
 
-* create a new group "ofxPd" 
-* drag these directories from ofxpd into this new group: ofxPd/src
-* add a search path to: `../../../addons/ofxPd/libs/libpd/pure-data/src` under Targets->YourApp->Build->Header Search Paths (make sure "All" is selected)
-* under Targets->YourApp->Build->**Other C Flags** (make sure "All" is selected), add
-	<pre>-DHAVE_UNISTD_H -DUSEAPI_DUMMY -DPD -DLIBPD_EXTRA -DLIBPD_USE_STD_MUTEX</pre>
+Additional C flags are needed per-platform:
+* macOS: `-DHAVE_LIBDL -DHAVE_MACHINE_ENDIAN_H -D_DARWIN_C_SOURCE`
+* iOS: `-fcommon -DHAVE_MACHINE_ENDIAN_H -D_DARWIN_C_SOURCE`
+
+* Create a new group "ofxPd" 
+* Drag these directories from ofxPd into this new group: ofxPd/src
+* Add a search path to: `../../../addons/ofxPd/libs/libpd/pure-data/src` under Targets->YourApp->Build->Header Search Paths (make sure "All" is selected)
+* Under Targets->YourApp->Build->**Other C Flags** (make sure "All" is selected), add
+	<pre>-DPD -DUSEAPI_DUMMY -DPD_INTERNAL -DHAVE_UNISTD_H -DHAVE_ALLOCA_H -DLIBPD_EXTRA</pre>
+    and the additional C flags noted above
   * _Note: Make sure you use Other **C** Flags! Other **C++** Flags will **not** work since libpd is written in C._
+* Under **Other C++ Flags**, add
+    <pre>-DHAVE_UNISTD_H=1</pre>
 
-### For Linux (Makefiles & Codeblocks):
+### For Linux (Makefiles):
 
-* edit addons.make in your project folder and add the following line to the end of the file: 
+Edit addons.make in your project folder and add the following line to the end of the file:
 	<pre>ofxPd</pre>
 
 Using ofxPd with Visual Studio
 ------------------------------
 
-The libpd sources do not currently build with the Visual Studio C compiler. In
-order to use libpd with ofxPd in a Visual Studio project, you need to build a
-libpd.dll dynamic library using MinGW (Minimal GNU for Windows) which provides
-a Unix command shell and compiler.
+### Visual Studio only
+
+As of spring 2020, the libpd sources should build directly in new versions of Visual Studio. Also, ofxPd projects use the included 64 bit copy of `libwinpthread-1.dll` used for the Msys2/MinGW build, so everything should be included.
+
+_Note: This has not been directly confirmed with OF & ofxPd. (At least no one has told me.) If you mainly use VS, try this first before building the libpd.dll via Msys2/MinGW._
+
+### Build libpd.dll with MinGW & use with Visual Studio
+
+In order to use libpd with ofxPd in a Visual Studio project, you need a libpd.lib and libpd.dll libraries built using MinGW (Minimal GNU for Windows) which provides a Unix command shell and compiler.
+
+You can check if there is a pre-compiled libpd for ofxPd available here:
+
+<http://docs.danomatika.com/releases/ofxPd/>
+
+If so, skip to the "Adding libpd" section, otherwise follow the steps below to set up a build environment and build libpd.
+
+#### Building libpd with Msys2/MinGW
 
 The steps for 64 bit are basically:
 
-1. set up Msys2/MinGW, see https://github.com/libpd/libpd#windows
-2. build libpd using MinGW64: `make`
-3. install libpd to a temp folder: `make install prefix=build/libpd`
+1. Set up Msys2/MinGW: see https://github.com/libpd/libpd#windows
+  * _Make sure to follow all steps in the Msys2 setup instructions, ie. updating packages after install_
+2. Open an Msys2 shell (64 bit)
+3. Build libpd: `make`
+4. Install libpd to a temp folder: `make install prefix=build/libpd`
 
-Once built, replace the libpd source code in ofxPd with the libpd headers and library files:
+#### Adding libpd to a Visual Studio project
 
-1. delete the ofxPd `ofxPd/libs/libpd` folder
-2. copy `libpd/build/libpd` into `ofxPd/libs`
+Replace the libpd source code in ofxPd with the libpd headers and library files:
+
+1. Delete the ofxPd `ofxPd/libs/libpd` folder
+2. Copy `libpd/build/libpd` into `ofxPd/libs`
 
 To set up a VS project using ofxPd, you need to link to the libpd.lib import library and place the runtime libraries for libpd in your project's `bin` folder.
 
 Add libpd.lib to link stage of the Visual Studio project:
 
-* set "x64" target
+![VS Linker properties](doc/windows_vs_linker.png)
+
+* Set "x64" target
 * Project -> Properties
 * Make sure Active configuration & platform are set (you will need to do this for both Debug & Release builds)
 * Configuration Properties -> Linker -> Input
 * Additional Dependencies -> click on right hand drop down, choose Edit...
-* add the path libpd.lib: `$(OF_ROOT)\addons\ofxPd\libs\libpd\lib\libpd.lib`
+* Add the path libpd.lib: `$(OF_ROOT)\addons\ofxPd\libs\libpd\lib\libpd.lib`
 
 Add the runtime libraries to the project's `bin` folder:
 
@@ -183,24 +228,50 @@ Add the runtime libraries to the project's `bin` folder:
 
 _Note: You will need to re-add libpd.lib to the VS link stage whenever you regenerate the project with the OF ProjectGenerator._
 
+![VS project layout](doc/windows_vs_pdExample.png)
+
 For 32 bit:
 
-* build libpd using MinGW32
-* set the "Win32" target in your VS project before setting the libpd.lib path
-* copy pthread from the "mingw32" folder: `libpd/libs/mingw32/libwinpthread-1.dll`
+* Open an Msys2 shell (32 bit)
+* Build libpd using `make`
+* Set the "Win32" target in your VS project before setting the libpd.lib path
+* Copy pthread from the "mingw32" folder: `libpd/libs/mingw32/libwinpthread-1.dll`
+
+_Screenshots provided by @moebiussurfing._
+
+### Contributing a libpd Build for Windows
+
+If you have successfully built a new version of libpd for Windows, please consider contributing a copy for others to use.
+
+Make a zip file with the following layout from your ofxPd directory:
+
+~~~
+bin/pd.dll
+bin/libwinpthread-1.dll
+libs/libpd/lib/pd.dll
+libs/libpd/lib/libpd.lib
+libs/libpd/lib/libpd.def
+libs/libpd/include/ <-- libpd headers
+~~~
+
+Name the zip using the following format: "libpd-VER-ARCH-VS####.zip". For example,
+
+"libpd-0.12-prerelease-x64-VS2017.zip" is a 64 bit build of libpd 0.12 (pre-release) using Visual Studio 2017.
+
+Create an issue on the ofxPd Github repo about your new build and we can add it to the [release builds link](http://docs.danomatika.com/releases/ofxPd/).
 
 Notes
 -----
 
 ### Audio Interfacing & Debugging Audio Issues
 
-libpd as utilized in ofxPd does not handle any of the audio interfacing itself, but is called via the ofSoundStream system within OpenFrameworks. If you have any issues with the sound interface / audio apis themselves, please log an issue to the [OpenFrameworks Github repo](https://github.com/openframeworks/openFrameworks).
+libpd as utilized in ofxPd does not handle any of the audio interfacing itself, but is called via the ofSoundStream system within openFrameworks. If you have any issues with the sound interface / audio apis themselves, please log an issue to the [openFrameworks Github repo](https://github.com/openframeworks/openFrameworks).
 
 ### Sample Rate
 
 The sample rate is set to 44100 when initializing ofxPd in the examples. If your sample rate is higher, the playback pitch will be higher. Make sure the sample rate is the same as your system audio sample rate to hear the correct pitch.
 
-For example: The default sample rate on macOS is 96000. Running the app at 44100 results in double the playback pitch while initing ofxPd at 96000 gives the correct pitch.
+For example: The default sample rate on macOS is 96000. Running the app at 44100 results in double the playback pitch while initializing ofxPd at 96000 gives the correct pitch.
 
 ### Running App in the Background on iOS
 
@@ -214,6 +285,14 @@ You may be building an audio app for iOS that you want to run without the automa
 
 Bugs & Errors
 -------------
+
+### OF 0.12 and Xcode: 'ext.h' file not found
+
+The OF 0.12 ProjectGenerator seems to have an issue with setting the correct C flags. Check that the required flags specified in the "Adding ofxPd to an Existing Project" section are set in the Xcode project:
+
+1. Click on the project in the left-hand Project Navigator
+2. Under Targets->YourApp->Build->**Other C Flags** (make sure "All" is selected)
+3. If the entry is empty or is missing the required flags, set them
 
 ### iOS app crashes immediately with something about "Microphone Description"
 
@@ -235,16 +314,16 @@ The macOS 10.13 SDK now requires the HAVE_UNISTD_H to define a value. This has b
 
 The iPhone 6S hardware seems to prefer a sample rate of 48000 and calling ofSoundStreamSetup() with 44100 will not change that in versions of OF 0.8.4 and previous. This means ofxPd will be running at 44100 but the audio stream is actually 48000, resulting in a higher pitch coming out of your patches and a lower pitch going in.
 
-The fix is to follow Apple's method of setting the *preferred* sample rate, then grabbing what the *actual* sample rate is afterwards. You can then use this real value in ofSoundStreamSetup() and ofxPd::init(). The pdExampleIOS has been updated to show how to do this. Hopefully, this funtionality will be added to OF in the future.
+The fix is to follow Apple's method of setting the *preferred* sample rate, then grabbing what the *actual* sample rate is afterwards. You can then use this real value in ofSoundStreamSetup() and ofxPd::init(). The pdExampleIOS has been updated to show how to do this. Hopefully, this functionality will be added to OF in the future.
 
 ### File "tr1/memory" not found in Xcode
 
 You just upgraded to macOS 10.9 and Xcode 5 right? The default compiler is now LLVM and you need to rebuild your Xcode project files so OF will build correctly. Use the ProjectGenerator in the OF 0.8.0 download to regenerate the project:
 
-* choose the _parent folder_ of your project folder
-* set the name of the project
-* add ofxPd as an add-on
-* hit generate
+* Choose the _parent folder_ of your project folder
+* Set the name of the project
+* Add ofxPd as an add-on
+* Hit generate
 
 Also note, currently the PG doesn't seem to set the C Flags correctly, so you might have to add them manually. See "Adding ofxPd to an Existing Project" on how to do this.
 
@@ -272,7 +351,7 @@ Note: This change hasn't been tested while using the ofVideoGrabber yet ... ther
 
 ### "undefined reference to SetDllDirectory" in Win Codeblocks
 
-Newer versions of libpd check the windows version, so this needs to be set via a define in your codeblocks project. If you have an old ofxPd project, this is not set, hence the error. See "Adding ofxPd to an Existing Project" above, and add the `WINVER=0x502` define to your project.
+Newer versions of libpd check the windows version, so this needs to be set via a define in your Codeblocks project. If you have an old ofxPd project, this is not set, hence the error. See "Adding ofxPd to an Existing Project" above, and add the `WINVER=0x502` define to your project.
 	
 Adding Pure Data external libraries to ofxPd
 --------------------------------------------
@@ -281,7 +360,7 @@ ofxPd only includes the standard set of Pure Data objects as found in the "Vanil
 
 ### Adding external source files
 
-The source files for externals included with Pd-extended can be found in the Pure Data Git repositories: <http://git.puredata.info/cgit>. Other externs may be found elsewhere, including on GitHub.
+The source files for externals included with Pd-extended can be found in the Pure Data Git repositories: <http://git.puredata.info/cgit>. Other externals may be found elsewhere, including on GitHub.
 
 For example, if we want to include the [zexy external](http://git.puredata.info/cgit/svn2git/libraries/zexy.git/) in your project, first download the sources files from the Git repository (make sure you have git installed):
 

@@ -37,23 +37,23 @@ uint64_t AbsoluteToNanos(uint64_t time) {
 @synthesize bIgnoreSysex, bIgnoreTiming, bIgnoreSense;
 
 // -----------------------------------------------------------------------------
-- (id) init {
+- (instancetype)init {
 	self = [super init];
-	
-	inputPtr = NULL;
-	
-	lastTime = 0;
-	bFirstPacket = true;
-	bContinueSysex = false;
-	
-	maxMessageLen = 100; // default RtMidiIn length
-	
+	if(self) {
+		inputPtr = NULL;
+
+		lastTime = 0;
+		bFirstPacket = true;
+		bContinueSysex = false;
+
+		maxMessageLen = 100; // default RtMidiIn length
+	}
 	return self;
 }
 
 // -----------------------------------------------------------------------------
 // adapted from RTMidi CoreMidi message parsing
-- (void) midiSource:(PGMidiSource *)input midiReceived:(const MIDIPacketList *)packetList {
+- (void)midiSource:(PGMidiSource *)input midiReceived:(const MIDIPacketList *)packetList {
 
 	const MIDIPacket *packet = &packetList->packet[0];
 	stringstream msg;
@@ -117,7 +117,7 @@ uint64_t AbsoluteToNanos(uint64_t time) {
 				
 				// next byte in the packet should be a status byte
 				statusByte = packet->data[curByte];
-				if(!statusByte & 0x80)
+				if((!statusByte) & 0x80)
 					break;
 					
 				// determine number of bytes in midi message
@@ -188,7 +188,7 @@ uint64_t AbsoluteToNanos(uint64_t time) {
 }
 
 // -----------------------------------------------------------------------------
-- (void) setInputPtr:(void *)p {
+- (void)setInputPtr:(void *)p {
 	inputPtr = (ofxPGMidiIn*) p;
 }
 

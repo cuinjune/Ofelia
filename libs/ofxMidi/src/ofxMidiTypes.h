@@ -46,7 +46,7 @@ struct ControlChange {
 		channel(channel), control(control), value(value) {}
 };
 
-/// change a program value (ie an instrument)
+/// change a program value (ie. an instrument)
 struct ProgramChange {
 
 	const int channel;  ///< channel 1 - 16

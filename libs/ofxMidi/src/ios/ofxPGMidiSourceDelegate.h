@@ -31,10 +31,10 @@ class ofxPGMidiIn;
 }
 
 /// pgmidi callback
-- (void) midiSource:(PGMidiSource *)input midiReceived:(const MIDIPacketList *)packetList;
+- (void)midiSource:(PGMidiSource *)input midiReceived:(const MIDIPacketList *)packetList;
 
 /// set the pointer to the ofxPGMidiIn object to send messages to
-- (void) setInputPtr:(void *)p;
+- (void)setInputPtr:(void *)p;
 
 @property bool bIgnoreSysex;
 @property bool bIgnoreTiming;

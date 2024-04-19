@@ -9,7 +9,7 @@
  *
  * This project uses the following library:
  *
- * Lua, Copyright (c) 1994â2011 Lua.org, PUC-Rio using the MIT License.
+ * Lua, Copyright (c) 1994Ã¢2011 Lua.org, PUC-Rio using the MIT License.
  * See the file "COPYRIGHT" in src/lua.
  * See http://www.lua.org/docs.html for documentation
  *
@@ -24,6 +24,7 @@
 	#include <direct.h>
 	#define CHDIR _chdir
 #else
+	#include <unistd.h>
 	#define CHDIR chdir
 #endif
 #include <errno.h>
@@ -1000,6 +1001,10 @@ void ofxLua::errorOccurred(std::string& message) {
 	if(abortOnError) {
 		clear();
 	}
+}
+
+std::string ofxLua::getErrorMessage() {
+	return errorMessage;
 }
 
 // from http://www.lua.org/pil/24.2.3.html

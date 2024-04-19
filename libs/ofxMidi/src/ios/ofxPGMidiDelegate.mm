@@ -18,43 +18,45 @@
 @implementation ofxPGMidiDelegate
 
 // -----------------------------------------------------------------------------
-- (id) init {
+- (instancetype)init {
 	self = [super init];
-	listenerPtr = NULL;
+	if(self) {
+		listenerPtr = NULL;
+	}
 	return self;
 }
 
 // -----------------------------------------------------------------------------
-- (void) midi:(PGMidi*)midi sourceAdded:(PGMidiSource *)source {
+- (void)midi:(PGMidi *)midi sourceAdded:(PGMidiSource *)source {
 	if(listenerPtr) {
 		listenerPtr->midiInputAdded([source.name UTF8String], source.isNetworkSession);
 	}
 }
 
 // -----------------------------------------------------------------------------
-- (void) midi:(PGMidi*)midi sourceRemoved:(PGMidiSource *)source {
+- (void)midi:(PGMidi *)midi sourceRemoved:(PGMidiSource *)source {
 	if(listenerPtr) {
 		listenerPtr->midiInputRemoved([source.name UTF8String], source.isNetworkSession);
 	}
 }
 
 // -----------------------------------------------------------------------------
-- (void) midi:(PGMidi*)midi destinationAdded:(PGMidiDestination *)destination {
+- (void)midi:(PGMidi *)midi destinationAdded:(PGMidiDestination *)destination {
 	if(listenerPtr) {
 		listenerPtr->midiOutputAdded([destination.name UTF8String], destination.isNetworkSession);
 	}
 }
 
 // -----------------------------------------------------------------------------
-- (void) midi:(PGMidi*)midi destinationRemoved:(PGMidiDestination *)destination {
+- (void)midi:(PGMidi *)midi destinationRemoved:(PGMidiDestination *)destination {
 	if(listenerPtr) {
 		listenerPtr->midiOutputRemoved([destination.name UTF8String], destination.isNetworkSession);
 	}
 }
 
 // -----------------------------------------------------------------------------
-- (void) setListenerPtr:(void *)p {
-	listenerPtr = (ofxMidiConnectionListener*) p;
+- (void)setListenerPtr:(void *)p {
+	listenerPtr = (ofxMidiConnectionListener *)p;
 }
 
 @end

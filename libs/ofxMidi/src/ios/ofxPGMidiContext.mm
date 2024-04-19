@@ -13,7 +13,6 @@
 #import "pgmidi/iOSVersionDetection.h"
 #include "ofLog.h"
 
-NSAutoreleasePool *ofxPGMidiContext::pool = nil;
 PGMidi *ofxPGMidiContext::midi = nil;
 ofxPGMidiDelegate *ofxPGMidiContext::delegate = nil;
 
@@ -22,10 +21,11 @@ void ofxPGMidiContext::setup() {
 	if(midi != nil)
 		return;
 	IF_IOS_HAS_COREMIDI (
-		pool = [[NSAutoreleasePool alloc] init];
-		midi = [[PGMidi alloc] init];
-		delegate = [[ofxPGMidiDelegate alloc] init];
-		midi.delegate = delegate;
+		@autoreleasepool {
+			midi = [[PGMidi alloc] init];
+			delegate = [[ofxPGMidiDelegate alloc] init];
+			midi.delegate = delegate;
+		}
 	)
 }
 
@@ -37,7 +37,7 @@ PGMidi* ofxPGMidiContext::getMidi() {
 
 // -----------------------------------------------------------------------------
 void ofxPGMidiContext::setConnectionListener(ofxMidiConnectionListener *listener) {
-	[delegate setListenerPtr:(void*) listener];
+	[delegate setListenerPtr:(void *)listener];
 }
 
 // -----------------------------------------------------------------------------

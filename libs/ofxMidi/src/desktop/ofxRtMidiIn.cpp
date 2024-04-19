@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 ofxRtMidiIn::ofxRtMidiIn(const std::string name, ofxMidiApi api) :
 	ofxBaseMidiIn(name, api), midiIn((RtMidi::Api)api, name) {
+	midiIn.setErrorCallback(&_midiErrorCallback, this);
 }
 
 // -----------------------------------------------------------------------------
@@ -138,10 +139,18 @@ void ofxRtMidiIn::closePort() {
 // -----------------------------------------------------------------------------
 void ofxRtMidiIn::ignoreTypes(bool midiSysex, bool midiTiming, bool midiSense) {
 	midiIn.ignoreTypes(midiSysex, midiTiming, midiSense);
-	ofLogVerbose("ofxMidiIn") <<"ignore types on " << portName << ": sysex: " << midiSysex
+	ofLogVerbose("ofxMidiIn") << "ignore types on " << portName << ": sysex: " << midiSysex
 	    << " timing: " << midiTiming << " sense: " << midiSense;
 }
+
+// PRIVATE
 // -----------------------------------------------------------------------------
 void ofxRtMidiIn::_midiMessageCallback(double deltatime, std::vector<unsigned char> *message, void *userData) {
-	((ofxRtMidiIn*) userData)->manageNewMessage(deltatime * 1000, message); // convert s to ms
+	((ofxRtMidiIn *) userData)->manageNewMessage(deltatime * 1000, message); // convert s to ms
+}
+
+// -----------------------------------------------------------------------------
+void ofxRtMidiIn::_midiErrorCallback(RtMidiError::Type type, const std::string &errorText, void *userData) {
+	ofxRtMidiIn *midiIn = (ofxRtMidiIn *)userData;
+	ofLogError("ofxMidiIn") << midiIn->getName() << ": " << errorText;
 }

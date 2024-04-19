@@ -46,7 +46,7 @@ class ofxLuaFileWriter {
 		/// begin a multi-line comment block
 		///
 		/// --[[
-		/// 	some commments, etc
+		///     some commments, etc
 		/// --]]
 		///
 		void beginCommentBlock();

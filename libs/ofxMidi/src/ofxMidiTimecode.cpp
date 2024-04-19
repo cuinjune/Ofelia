@@ -110,7 +110,6 @@ double ofxMidiTimecode::rateToFps(unsigned char rate) {
 
 // -----------------------------------------------------------------------------
 unsigned char ofxMidiTimecode::fpsToRate(double fps) {
-	int rate = (int)round(fps);
 	if(fps < 25) {return FRAMERATE_24;}
 	if(fps < 29) {return FRAMERATE_25;}
 	if(fps < 30) {return FRAMERATE_30_DROP;}

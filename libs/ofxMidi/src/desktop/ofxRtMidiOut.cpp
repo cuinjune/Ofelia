@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 ofxRtMidiOut::ofxRtMidiOut(const std::string name, ofxMidiApi api) :
 	ofxBaseMidiOut(name, api), midiOut((RtMidi::Api)api, name) {
+	midiOut.setErrorCallback(&_midiErrorCallback, this);
 }
 
 // -----------------------------------------------------------------------------
@@ -142,4 +143,10 @@ void ofxRtMidiOut::sendMessage(std::vector<unsigned char> &message) {
 	catch(RtMidiError &err) {
 		ofLogError("ofxMidiOut") << "couldn't send message: " << err.what();
 	}
+}
+
+// -----------------------------------------------------------------------------
+void ofxRtMidiOut::_midiErrorCallback(RtMidiError::Type type, const std::string &errorText, void *userData) {
+	ofxRtMidiOut *midiOut = (ofxRtMidiOut *)userData;
+	ofLogError("ofxMidiOut") << midiOut->getName() << ": " << errorText;
 }

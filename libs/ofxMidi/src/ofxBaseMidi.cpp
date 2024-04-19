@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Dan Wilcox <danomatika@gmail.com>
+ * Copyright (c) 2013-2023 Dan Wilcox <danomatika@gmail.com>
  *
  * BSD Simplified License.
  * For information on usage and redistribution, and for a DISCLAIMER OF ALL
@@ -22,6 +22,7 @@ ofxBaseMidiIn::ofxBaseMidiIn(const std::string name, ofxMidiApi api) {
 	bVerbose = false;
 	bVirtual = false;
 	this->api = api;
+	messagesChannel = std::make_unique<ofThreadChannel<ofxMidiMessage>>();
 }
 // -----------------------------------------------------------------------------
 int ofxBaseMidiIn::getPort() {
@@ -44,6 +45,11 @@ bool ofxBaseMidiIn::isVirtual() {
 }
 
 // -----------------------------------------------------------------------------
+bool ofxBaseMidiIn::isQueued() {
+	return (messagesChannel != nullptr);
+}
+
+// -----------------------------------------------------------------------------
 ofxMidiApi ofxBaseMidiIn::getApi() {
 	return api;
 }
@@ -51,11 +57,29 @@ ofxMidiApi ofxBaseMidiIn::getApi() {
 // -----------------------------------------------------------------------------
 void ofxBaseMidiIn::addListener(ofxMidiListener *listener) {
 	ofAddListener(newMessageEvent, listener, &ofxMidiListener::newMidiMessage);
+	if(messagesChannel) { // disable thread channel
+		messagesChannel.reset();
+	}
 }
 
 // -----------------------------------------------------------------------------
 void ofxBaseMidiIn::removeListener(ofxMidiListener *listener) {
 	ofRemoveListener(newMessageEvent, listener, &ofxMidiListener::newMidiMessage);
+	if(newMessageEvent.size() == 0) {
+		if(!messagesChannel) { // re-enable thread channel
+			messagesChannel = std::make_unique<ofThreadChannel<ofxMidiMessage>>();
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
+bool ofxBaseMidiIn::hasWaitingMessages() const {
+	return (messagesChannel ? !messagesChannel->empty() : false);
+}
+
+//------------------------------------------------------------------------------
+bool ofxBaseMidiIn::getNextMessage(ofxMidiMessage &message) {
+	return (messagesChannel ? messagesChannel->tryReceive(message) : false);
 }
 
 // -----------------------------------------------------------------------------
@@ -66,7 +90,7 @@ void ofxBaseMidiIn::setVerbose(bool verbose) {
 // PRIVATE
 // -----------------------------------------------------------------------------
 void ofxBaseMidiIn::manageNewMessage(double deltatime, std::vector<unsigned char> *message) {
-			
+
 	// parse message and fill event
 	ofxMidiMessage midiMessage(message);
 	midiMessage.deltatime = deltatime;
@@ -75,9 +99,14 @@ void ofxBaseMidiIn::manageNewMessage(double deltatime, std::vector<unsigned char
 	if(bVerbose) {
 		ofLogVerbose("ofxMidiIn") << midiMessage.toString();
 	}
-	
-	// send event to listeners
-	ofNotifyEvent(newMessageEvent, midiMessage, this);
+
+	// send event to listeners or push onto thread channel
+	if(messagesChannel) {
+		messagesChannel->send(std::move(midiMessage));
+	}
+	else {
+		ofNotifyEvent(newMessageEvent, midiMessage, this);
+	}
 }
 
 // MIDI OUT
@@ -199,7 +228,7 @@ void ofxBaseMidiOut::sendMidiByte(unsigned char byte) {
 }
 
 //----------------------------------------------------------
-void ofxBaseMidiOut::sendMidiBytes(std::vector<unsigned char>& bytes) {
+void ofxBaseMidiOut::sendMidiBytes(std::vector<unsigned char> &bytes) {
 	if(bStreamInProgress) {
 		stream.insert(stream.end(), bytes.begin(), bytes.end());
 	}
@@ -225,4 +254,5 @@ void ofxBaseMidiOut::finishMidiStream() {
 		return;
 	}
 	sendMessage(stream);
+	bStreamInProgress = false;
 }

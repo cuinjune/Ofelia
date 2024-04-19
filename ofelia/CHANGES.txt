@@ -1,3 +1,10 @@
+v4.1.0: 16 Sept 2022
+
+* updated Pd source files to Pd-0.53-1
+* updated ofxLua, ofxMidi, ofxPd addons
+* rebuilt using openFrameworks 0.11.2
+* updated abstractions and examples
+
 v4.0.0: 13 Sept 2020
 
 * removed all embedded objects
